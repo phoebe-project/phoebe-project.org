@@ -1,0 +1,106 @@
+import React from 'react';
+import {Link, NavLink} from 'react-router-dom';
+
+export class NoHeader extends React.Component {
+  render() {
+    return (
+      <div style={{paddingTop: "60px"}}></div>
+    )
+  }
+}
+
+export class Header extends React.Component {
+  render() {
+    var btnTransparentStyle = {backgroundColor: "transparent", color: "#E6E6E6", borderWidth: "1px", borderColor: "#E6E6E6", borderBottom: "1px solid", borderRight: "1px solid", borderShadow: "none"};
+
+    return (
+      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", paddingTop: "60px", paddingBottom: "25px", paddingLeft: "25px"}}>
+        {this.props.children}
+      </div>
+
+    )
+  }
+}
+
+export class HeaderIndex extends React.Component {
+  render() {
+    return (
+      <Header>
+        <div className="container">
+          <div className="row">
+              <div className="col-md-2 col-xs-4 text-center">
+                  <img src="/logo_invert.svg" alt="Home" style={{maxHeight: "160px"}}/>
+              </div>
+              <div className="col-md-8">
+                  <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE</h1>
+                  <h4 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}><i>PHysics Of Eclipsing BinariEs</i></h4>
+              </div>
+          </div>
+          <div className="row">
+              <div className="col-md-4">
+              </div>
+              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                  <HeaderNavButton title="Download" description="Download and Install PHOEBE 2" to="/download/" icon="fa fa-download"/>
+              </div>
+              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                  <HeaderNavButton title="Documentation" to="/docs" icon="fa fa-book"/>
+              </div>
+              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                  <HeaderNavButton title="News" to="/news" icon="fa fa-newspaper-o"/>
+              </div>
+              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                  <HeaderNavButton title="Contact" to="/help/contact" icon="fa fa-envelope-o"/>
+              </div>
+          </div>
+        </div>
+      </Header>
+
+    )
+  }
+}
+
+
+export class HeaderLegacy extends React.Component {
+  render() {
+    return (
+      <Header>
+        <div style={{height: "100%"}} className="container">
+          <div className="row">
+            <div className="col-md-2 col-xs-4 text-center">
+              <img src="/static/legacy/phoebe-gui.png" alt="logo" style={{minHeight: "100px", maxHeight: "160px"}}/>
+            </div>
+            <div className="col-md-8">
+              <h1>PHOEBE 1.0 (legacy)</h1><h4><i>PHysics of Eclipsing BinariEs</i></h4>
+            </div>
+          </div>
+
+          <div className="row">
+             <div className="col-md-6"></div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="About" description="About PHOEBE 1.0" to="/1.0" icon="fa fa-info"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Download" description="Download and Install PHOEBE 1.0" to="/1.0/download" icon="fa fa-download"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Documentation" description="PHOEBE 1.0 documentation" to="/1.0/docs" icon="fa fa-book"/>
+             </div>
+           </div>
+        </div>
+      </Header>
+
+    )
+  }
+}
+
+export class HeaderNavButton extends React.Component {
+  render() {
+    var description = this.props.description
+    if (!description) {
+      description = this.props.title
+    }
+    return (
+      <Link role="button" className="btn btn-transparent btn-block" title={description} to={this.props.to}><span className={this.props.icon}></span> {this.props.title}</Link>
+    )
+  }
+}

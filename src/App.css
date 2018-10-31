@@ -2,27 +2,33 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.btn-transparent {
+  background-color: transparent;
+  color: #E6E6E6;
+  border-width: 1px;
+  border-color: #E6E6E6;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+  border-shadow: none;
+
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.jumbotron {
+  background-color: #2B71B1;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
-.App-title {
-  font-size: 1.5em;
+.jumbotron-black {
+  background-color: #000000;
 }
 
-.App-intro {
-  font-size: large;
+.jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4, .jumbotron p{
+  align: left;
+  color: #E6E6E6;
+  font-family: 'Merriweather', serif;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.jumbotron  h1{
+  font-size: 48px;
 }

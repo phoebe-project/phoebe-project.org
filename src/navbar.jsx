@@ -3,17 +3,12 @@ import {Link, NavLink} from 'react-router-dom';
 import EventListener, {withOptions} from 'react-event-listener'; // https://www.npmjs.com/package/react-event-listener
 
 
-
 export class Navbar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       navbarDark: true,
     };
-  }
-  componentDidMount() {
-  }
-  componentWillUnmount() {
   }
   updateScroll = () => {
     var scrollTop = window.document.body.scrollTop || document.documentElement.scrollTop;
@@ -55,22 +50,22 @@ export class Navbar extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
             </button>
-              <a className="navbar-brand text-brand active" href="/" style={navbarBrandStyle}><b><img className="navbar-brand-logo" height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></a>
+              <NavLink to="/" className="navbar-brand text-brand" style={navbarBrandStyle}><b><img className="navbar-brand-logo" height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>
           </div>
 
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li><a href="/docs/2.1/" style={navbarLinkStyle}><span className="fa fa-book"></span> Docs</a></li>
-              <li><a href="/news" style={navbarLinkStyle}><span className="fa fa-newspaper-o"></span> News</a></li>
-              <li><a href="/publications" style={navbarLinkStyle}><span className="fa fa-clone"></span> Publications</a></li>
-              <li><a href="http://github.com/phoebe-project/phoebe2" target="_blank" rel="noopener noreferrer" style={navbarLinkStyle}><span className="fa fa-code"></span> Source</a></li>
-              <li><a href="/1.0" style={navbarLinkStyle}><span className="fa fa-archive"></span> Legacy</a></li>
+              <li><NavLink to="/docs" style={navbarLinkStyle}><span className="fa fa-book"></span> Docs</NavLink></li>
+              <li><NavLink to="/news" style={navbarLinkStyle}><span className="fa fa-newspaper-o"></span> News</NavLink></li>
+              <li><NavLink to="/publications" style={navbarLinkStyle}><span className="fa fa-clone"></span> Publications</NavLink></li>
+              <li><NavLink to="http://github.com/phoebe-project/phoebe2" target="_blank" rel="noopener noreferrer" style={navbarLinkStyle}><span className="fa fa-code"></span> Source</NavLink></li>
+              <li><NavLink to="/1.0" style={navbarLinkStyle}><span className="fa fa-archive"></span> Legacy</NavLink></li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" title="Help" style={navbarLinkStyle}><span className="fa fa-question"></span><span className="hidden-sm"> Help</span> <b className="caret"></b></a>
                 <ul className="dropdown-menu">
-                  <li><a href="/help/devel">Development Team</a></li>
-                  <li><a href="/help/contact">Mailing Lists</a></li>
-                  <li><a href="/docs/2.1/#faq">FAQ</a></li>
+                  <li><NavLink to="/help/devel" style={navbarLinkStyle}>Development Team</NavLink></li>
+                  <li><NavLink to="/help/contact" style={navbarLinkStyle}>Mailing Lists</NavLink></li>
+                  <li><NavLink to="/docs/latest#faq" style={navbarLinkStyle}>FAQ</NavLink></li>
                 </ul>
               </li>
             </ul>
