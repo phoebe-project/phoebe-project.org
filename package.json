@@ -1,7 +1,7 @@
 {
   "name": "phoebe-project",
   "version": "0.1.0",
-  "homepage": "http://kecnry.github.io/phoebe-project",
+  "homepage": "http://kecnry.github.io/phoebe-project.org",
   "private": true,
   "dependencies": {
     "@nteract/notebook-preview": "^10.0.3",
