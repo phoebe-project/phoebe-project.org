@@ -22,12 +22,13 @@ class App extends Component {
     return (
       <Router>
         <div id='main'>
-
           <Navbar />
 
           <Switch>
             <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
-            <Route path={process.env.PUBLIC_URL + '/docs'} component={Docs}/>
+            <Route exact path={process.env.PUBLIC_URL + '/docs'} component={Docs}/>
+            <Route exact path={process.env.PUBLIC_URL + '/docs/:version'} component={Docs}/>
+            <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:kind/:slug'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/news'} component={News}/>
             <Route path={process.env.PUBLIC_URL + '/news'} component={NewsEntry}/>
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>

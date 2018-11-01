@@ -32,3 +32,10 @@
 .jumbotron  h1{
   font-size: 48px;
 }
+
+.prompt{
+  /* hide the input number in the Jupyter notebook prompts */
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
