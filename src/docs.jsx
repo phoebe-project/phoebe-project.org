@@ -11,6 +11,16 @@ import {NotFound} from './errors';
 export var docs_versions = ['2.1-react', '2.1', '2.0'];
 var docs_versions_dev = docs_versions + ['2.0b', 'development']
 
+function getDocsLink(version, subdir, slug) {
+  if (subdir) {
+    return process.env.PUBLIC_URL + '/docs/'+version+'/'+subdir+'/'+slug
+  } else if (slug) {
+    return process.env.PUBLIC_URL + '/docs/'+version+'/'+slug
+  } else {
+    return process.env.PUBLIC_URL + '/docs/'+version+'/'
+  }
+}
+
 export class Docs extends Component {
   constructor(props) {
     super(props);
@@ -24,13 +34,7 @@ export class Docs extends Component {
     this.ref_notebook = React.createRef();
   }
   redirect = (version, subdir, slug) => {
-    if (subdir) {
-      this.props.history.replace(process.env.PUBLIC_URL + '/docs/'+version+'/'+subdir+'/'+slug)
-    } else if (slug) {
-      this.props.history.replace(process.env.PUBLIC_URL + '/docs/'+version+'/'+slug)
-    } else {
-      this.props.history.replace(process.env.PUBLIC_URL + '/docs/'+version+'/')
-    }
+    this.props.history.replace(getDocsLink(version, subdir, slug))
   }
   updateDocs = (version, subdir, slug) => {
     this.setState({version: version, subdir: subdir, slug: slug, content: null, contentType: null});
@@ -165,8 +169,58 @@ export class Docs extends Component {
         <Content>
           {notebook_dl_html}
           {notebook_html}
+          <VersionSwitcher version={this.state.version} subdir={this.state.subdir} slug={this.state.slug}/>
         </Content>
       </div>
     );
+  }
+}
+
+export class VersionSwitcher extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      expanded: false,
+    };
+  }
+  hoverOn = () => {
+    this.setState({expanded: true});
+  }
+  hoverOff = () => {
+    this.setState({expanded: false});
+  }
+  render() {
+    return (
+      <div style={{position: 'fixed', 'right': '10px', 'bottom': '10px'}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
+        {docs_versions.map(version => <VersionSwitcherButton visible={this.state.expanded} version={version} subdir={this.props.subdir} slug={this.props.slug}/>)}
+        <VersionSwitcherTarget version={this.props.version}/>
+      </div>
+    )
+  }
+}
+
+class VersionSwitcherTarget extends Component {
+  render() {
+    return (
+      <li className="btn btn-primary btn-md current">
+        <span className="hidden-xs">Doc Version: <strong>{this.props.version}</strong></span>
+        <span className="visible-xs">ver: <strong>{this.props.version}</strong></span>
+      </li>
+    )
+  }
+}
+
+class VersionSwitcherButton extends Component {
+  render() {
+    if (!this.props.visible) {
+      return null;
+    }
+
+    var to = getDocsLink(this.props.version, this.props.subdir, this.props.slug)
+    return (
+      <li className="btn btn-default btn-md other">
+        <Link to={to}>{this.props.version}</Link>
+      </li>
+    )
   }
 }
