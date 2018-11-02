@@ -65,7 +65,7 @@ export class Navbar extends React.Component {
                 <ul className="dropdown-menu">
                   <li><NavLink to="/help/devel" style={navbarLinkStyle}>Development Team</NavLink></li>
                   <li><NavLink to="/help/contact" style={navbarLinkStyle}>Mailing Lists</NavLink></li>
-                  <li><NavLink to="/docs/latest#faq" style={navbarLinkStyle}>FAQ</NavLink></li>
+                  <li><NavLink to="/docs/latest/#faq" style={navbarLinkStyle}>FAQ</NavLink></li>
                 </ul>
               </li>
             </ul>

@@ -100,7 +100,7 @@ export class HelpContact extends Component {
         <Header>
           <h1>Contact Us</h1>
 
-          <p>There are several options to get help with PHOEBE. The obvious one is to start with the <a href="/docs/latest">documentation</a>, especially the <a href="/docs/latest#tutorials">tutorials</a>. We also have several mailing lists set up where you can ask questions and exchange experiences with other users and developers.</p>
+          <p>There are several options to get help with PHOEBE. The obvious one is to start with the <a href="/docs/latest/">documentation</a>, especially the <a href="/docs/latest/#tutorials">tutorials</a>. We also have several mailing lists set up where you can ask questions and exchange experiences with other users and developers.</p>
 
         </Header>
         <Content>
@@ -286,7 +286,7 @@ export class HelpMailingList extends Component {
 export class HelpFAQ extends Component {
   render() {
     return (
-      <Redirect to="/docs/latest#FAQ"/>
+      <Redirect to="/docs/latest/#FAQ"/>
     );
   }
 }
