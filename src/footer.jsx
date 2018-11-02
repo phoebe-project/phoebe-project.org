@@ -13,7 +13,7 @@ export class Footer extends React.Component {
               <Image src="/nsf1.gif" height="60"/>
             </div>
             <div className="col-lg-11">
-               <p style={{marginTop: "10px"}}>PHOEBE is funded in part by the National Science Foundation (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474" style={{textDecoration: "none", color: "#E6E6E6"}} target="_blank">NSF grant #1517474</a>)</p>
+               <p style={{marginTop: "10px"}}>PHOEBE is funded in part by the National Science Foundation (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474" style={{textDecoration: "none", color: "#E6E6E6"}} target="_blank" rel="noopener noreferrer">NSF grant #1517474</a>)</p>
             </div>
 
           </div>

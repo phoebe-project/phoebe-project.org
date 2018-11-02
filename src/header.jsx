@@ -12,8 +12,6 @@ export class NoHeader extends React.Component {
 
 export class Header extends React.Component {
   render() {
-    var btnTransparentStyle = {backgroundColor: "transparent", color: "#E6E6E6", borderWidth: "1px", borderColor: "#E6E6E6", borderBottom: "1px solid", borderRight: "1px solid", borderShadow: "none"};
-
     return (
       <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", paddingTop: "60px", paddingBottom: "25px", paddingLeft: "25px"}}>
         {this.props.children}

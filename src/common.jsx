@@ -71,7 +71,7 @@ export class Alert extends React.Component {
       level = 'warning'
     }
     return (
-      <div class={"alert alert-"+level} role="alert">
+      <div className={"alert alert-"+level} role="alert">
         {this.props.children}
       </div>
     )

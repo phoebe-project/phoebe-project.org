@@ -15,17 +15,17 @@ export class HelpDevel extends Component {
           <h2>Active Developers</h2>
 
           <DeveloperInfo image="andrej.jpg">
-            <a href="http://astro4.ast.villanova.edu/aprsa" target="_blank">Andrej Prša</a> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries). He is working on PHOEBE's probabilistic fitting engine.
+            <a href="http://astro4.ast.villanova.edu/aprsa" target="_blank" rel="noopener noreferrer">Andrej Prša</a> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries). He is working on PHOEBE's probabilistic fitting engine.
           </DeveloperInfo>
 
 
           <DeveloperInfo image="kyle.jpg">
-            <a href="http://www.keconroy.com" target="_blank">Kyle Conroy</a> is a post-doc at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings into PHOEBE 2 and has led the development of the 2.0 release as well as building and maintaining this website.
+            <a href="http://www.keconroy.com" target="_blank" rel="noopener noreferrer">Kyle Conroy</a> is a post-doc at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings into PHOEBE 2 and has led the development of the 2.0 release as well as building and maintaining this website.
           </DeveloperInfo>
 
 
           <DeveloperInfo image="martin.jpg">
-            <a href="http://chaos.fmf.uni-lj.si/horvat" target="_blank">Martin Horvat</a> is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <a href="https://www.springer.com/gp/book/9783319786186" class="" target="_blank"><span class="fa fa-external-link"></span>  computational physics</a>, as well as general relativity. He is developing the background calculations of PHOEBE 2 related to meshing of stellar objects and accurate calculation of their properties. He is also developing the framework for misaligned orbits and heat redistribution.
+            <a href="http://chaos.fmf.uni-lj.si/horvat" target="_blank" rel="noopener noreferrer">Martin Horvat</a> is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <a href="https://www.springer.com/gp/book/9783319786186" class="" target="_blank"rel="noopener noreferrer"><span class="fa fa-external-link"></span>  computational physics</a>, as well as general relativity. He is developing the background calculations of PHOEBE 2 related to meshing of stellar objects and accurate calculation of their properties. He is also developing the framework for misaligned orbits and heat redistribution.
           </DeveloperInfo>
 
 
@@ -45,14 +45,14 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="dave.jpeg">
-            <a href="http://www.drdjones.net" target="_blank">Dave Jones</a> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He is currently working on incorporating interstellar extinction correction into the framework of PHOEBE 2.
+            <a href="http://www.drdjones.net" target="_blank" rel="noopener noreferrer">Dave Jones</a> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He is currently working on incorporating interstellar extinction correction into the framework of PHOEBE 2.
           </DeveloperInfo>
 
 
           <h2>Past Developers</h2>
 
           <DeveloperInfo image="pieter.jpg">
-            <a href="http://www.ster.kuleuven.be/~pieterd" target="_blank">Pieter Degroote</a> was a postdoc at the Institute of Astronomy at the KULeuven, Belgium, where he mainly worked on asteroseismology of massive stars. His main scientific interests were in determining accurate fundamental parameters of stars and planets, focusing on correct observational treatment of the physics. Pieter developed the core implementation and backend of <a href="http://phoebe-project.org/2.0a" class="" target="_blank"><span class="fa fa-external-link"></span> PHOEBE 2.0-alpha</a>, much of which has either been adopted into the 2.0 release or is planned to be reimplemented in future releases.
+            <a href="http://www.ster.kuleuven.be/~pieterd" target="_blank" rel="noopener noreferrer">Pieter Degroote</a> was a postdoc at the Institute of Astronomy at the KULeuven, Belgium, where he mainly worked on asteroseismology of massive stars. His main scientific interests were in determining accurate fundamental parameters of stars and planets, focusing on correct observational treatment of the physics. Pieter developed the core implementation and backend of PHOEBE 2.0-alpha, much of which has either been adopted into the 2.0 release or is planned to be reimplemented in future releases.
           </DeveloperInfo>
 
           <DeveloperInfo image="steven.jpg">
