@@ -1,5 +1,4 @@
 import React from 'react'
-import {NavLink, Link, Route} from 'react-router-dom'
 
 import {NoHeader} from './header';
 import {Content} from './common';

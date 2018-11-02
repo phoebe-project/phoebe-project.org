@@ -1,7 +1,7 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
 import EventListener, {withOptions} from 'react-event-listener'; // https://www.npmjs.com/package/react-event-listener
 
+import {Link, NavLink, Image} from './common';
 
 export class Navbar extends React.Component {
   constructor(props) {
@@ -50,7 +50,7 @@ export class Navbar extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
             </button>
-              <NavLink to="/" className="navbar-brand text-brand" style={navbarBrandStyle}><b><img className="navbar-brand-logo" height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>
+              <NavLink to="/" className="navbar-brand text-brand" style={navbarBrandStyle}><b><Image className="navbar-brand-logo" height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>
           </div>
 
           <div className="collapse navbar-collapse">

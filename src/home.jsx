@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
 
-import {Content, AlertVersion} from './common';
+import {Content, Link, AlertVersion} from './common';
 import {HeaderIndex} from './header';
 import {Footer} from './footer';
 

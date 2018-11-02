@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import {Link, Redirect} from 'react-router-dom'
 
 import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
 
-import {Content} from './common';
+import {Content, Link, Redirect} from './common';
 import {Header} from './header';
 import {NotFound} from './errors';
 
@@ -65,9 +64,9 @@ export class Docs extends Component {
       // so redirect so the URL shows the latest version
       version = docs_versions[0]
       if (slug) {
-        this.props.history.replace('/docs/'+version+'/'+kind+'/'+slug)
+        this.props.history.replace(process.env.PUBLIC_URL + '/docs/'+version+'/'+kind+'/'+slug)
       } else {
-        this.props.history.replace('/docs/'+version)
+        this.props.history.replace(process.env.PUBLIC_URL + '/docs/'+version)
       }
     } else if (docs_versions_dev.indexOf(version)==-1){
       // something not recognized, let's throw a page not found
@@ -77,11 +76,11 @@ export class Docs extends Component {
     if (slug && slug.endsWith(".html")) {
       // then strip the html and redirect
       slug = slug.slice(0,-5);
-      this.props.history.replace('/docs/'+version+'/'+kind+'/'+slug)
+      this.props.history.replace(process.env.PUBLIC_URL + '/docs/'+version+'/'+kind+'/'+slug)
     } else if (slug && slug.endsWith(".ipynb")) {
       // then strip the ipynb and redirect
       slug = slug.slice(0,-6);
-      this.props.history.replace('/docs/'+version+'/'+kind+'/'+slug)
+      this.props.history.replace(process.env.PUBLIC_URL + '/docs/'+version+'/'+kind+'/'+slug)
     }
 
     // see if the URL differs from the current state (and therefore the shown docs page)

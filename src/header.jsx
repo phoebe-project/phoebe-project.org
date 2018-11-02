@@ -1,5 +1,6 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+
+import {Link, Image} from './common';
 
 export class NoHeader extends React.Component {
   render() {
@@ -29,7 +30,7 @@ export class HeaderIndex extends React.Component {
         <div className="container">
           <div className="row">
               <div className="col-md-2 col-xs-4 text-center">
-                  <img src="/logo_invert.svg" alt="Home" style={{maxHeight: "160px"}}/>
+                  <Image src="/logo_invert.svg" alt="Home" style={{maxHeight: "160px"}}/>
               </div>
               <div className="col-md-8">
                   <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE</h1>
@@ -67,7 +68,7 @@ export class HeaderLegacy extends React.Component {
         <div style={{height: "100%"}} className="container">
           <div className="row">
             <div className="col-md-2 col-xs-4 text-center">
-              <img src="/static/legacy/phoebe-gui.png" alt="logo" style={{minHeight: "100px", maxHeight: "160px"}}/>
+              <Image src="phoebe-gui.png" alt="logo" style={{minHeight: "100px", maxHeight: "160px"}}/>
             </div>
             <div className="col-md-8">
               <h1>PHOEBE 1.0 (legacy)</h1><h4><i>PHysics of Eclipsing BinariEs</i></h4>

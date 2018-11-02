@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router-dom'
 
-import {Content} from './common';
+import {Content, Link} from './common';
 import {Header} from './header';
 
 export class Publications extends Component {

@@ -1,8 +1,18 @@
 import React from 'react';
-import {Link, NavLink} from 'react-router-dom';
+import {Link as RouterLink, NavLink as RouterNavLink, Redirect as RouterRedirect} from 'react-router-dom';
 
 // var smoothScroll = require('smoothscroll'); // https://github.com/alicelieutier/smoothScroll
 
+
+function processLink(link) {
+  if (!link.startsWith("http")) {
+    if (!link.startsWith("/")) {
+      link = "/" + link
+    }
+    link = process.env.PUBLIC_URL + link
+  }
+  return link
+}
 
 export class Content extends React.Component {
   componentDidMount() {
@@ -14,6 +24,42 @@ export class Content extends React.Component {
       <div id="content" style={{paddingTop: "25px", paddingLeft: "25px", paddingRight: "25px", paddingBottom: "50px"}}>
         {this.props.children}
       </div>
+    )
+  }
+}
+
+export class Redirect extends React.Component {
+  render() {
+    var to = processLink(this.props.to)
+    return (
+      <RouterRedirect {...this.props} to={to}>{this.props.children}</RouterRedirect>
+    )
+  }
+}
+
+export class NavLink extends React.Component {
+  render() {
+    var to = processLink(this.props.to)
+    return (
+      <RouterNavLink {...this.props} to={to}>{this.props.children}</RouterNavLink>
+    )
+  }
+}
+
+export class Link extends React.Component {
+  render() {
+    var to = processLink(this.props.to)
+    return (
+      <RouterLink {...this.props} to={to}>{this.props.children}</RouterLink>
+    )
+  }
+}
+
+export class Image extends React.Component {
+  render() {
+    var src = processLink(this.props.src)
+    return (
+      <img {...this.props} src={src}/>
     )
   }
 }
