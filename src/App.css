@@ -2,6 +2,126 @@
   text-align: center;
 }
 
+body {
+  font-family: 'Ubuntu', sans-serif;
+  padding-top: 50px;
+  overflow-x: hidden; /* Prevent scroll on narrow devices */
+}
+
+img {
+  max-width: 100%;
+}
+
+h1, .h1 {
+  font-size: 40px;
+}
+
+h2, .h2 {
+  font-size: 30px;
+}
+
+h3, .h3 {
+  font-size: 24px;
+}
+
+p {
+  font-size: 14px;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* NAVBAR */
+
+.navbar-collapse{
+  overflow-x: hidden;
+  max-height: 90%;
+}
+
+.navbar-brand{
+  font-family: 'Merriweather', serif;
+  line-height: 24px;
+}
+
+.navbar-nav.active{
+  background-color: #2B71B1;
+}
+
+.navbar-transparent{
+  background-color: #2B71B1;
+  box-shadow: none !important;
+  transition: none;
+  color: #E6E6E6;
+}
+
+
+.navbar-transparent .navbar-brand{
+  color: #E6E6E6;
+}
+
+.navbar-transparent .navbar-brand:hover{
+  color: #fff;
+}
+
+.navbar-transparent .dropdown-menu{
+  background-color: #2B71B1;
+}
+
+.navbar-transparent .navbar-nav > li > a{
+  color: #E6E6E6;
+}
+
+.navbar-transparent .navbar-nav > li > a:hover{
+  color: #fff;
+}
+
+.navbar-transparent .navbar-nav > li > a:focus{
+  color: #fff !important;
+  background-color: #2B71B1 !important;  //TODO: make this a darker shade
+}
+
+.navbar-transparent .form-control, .navbar-transparent .input-group-addon {
+  color: #E6E6E6;
+}
+
+.navbar-fixed-top .btn-default {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.navbar-transparent .btn-default, .navbar-transparent .btn-default:focus {
+  background-color: transparent;
+  color: #E6E6E6;
+}
+
+.navbar-transparent .navbar-nav > a.active, .navbar-transparent .navbar-nav > a.active:hover, .navbar-transparent .navbar-nav > a.active:focus{
+  color: #fff !important;
+  background-color: #2B71B1 !important;
+  border-bottom-style: solid !important;
+  border-bottom-color: #E6E6E6 !important;
+/*
+  border-bottom-color: #0D87E9 !important;
+*/
+  border-bottom-width: 2px !important;
+}
+
+.navbar-trasparent .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #212121;
+    background-color: transparent;
+}
+
+.navbar-transparent .navbar-nav .open .dropdown-menu > li > a, .navbar-transparent .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-transparent .navbar-nav .open .dropdown-menu > li > a:focus, .navbar-transparent .dropdown-menu > li > a, .navbar-transparent .dropdown-menu > li > a:hover, .navbar-transparent .dropdown-menu > li > a:focus {
+    background-color: transparent;
+    color: #E6E6E6;
+}
+
+/* BOOTSTRAP GRID */
+
+.row {
+  margin-top: 10px;
+}
+
+/* BOOTSTRAP BUTTONS */
+
 .btn-transparent {
   background-color: transparent;
   color: #E6E6E6;
@@ -9,9 +129,32 @@
   border-color: #E6E6E6;
   border-bottom: 1px solid;
   border-right: 1px solid;
-  border-shadow: none;
-
+  box-shadow: none;
 }
+
+.btn-transparent:hover {
+  text-decoration: none;
+  color: #fff;
+  border-color: #fff;
+}
+
+/* BOOSTRAP ALERTS */
+
+.alert-danger{
+  /* background-color: #E44B50 !important;*/
+  background-color: #d66b6b !important;
+}
+
+.alert-warning{
+  background-color: rgba(43, 113, 177, 0.82) !important;
+}
+
+.alert:first-child{
+  padding-top: 30px !important;
+}
+
+
+/* BOOTSTRAP JUMBOTRONS */
 
 .jumbotron {
   background-color: #2B71B1;
@@ -33,9 +176,34 @@
   font-size: 48px;
 }
 
+/* DOCS - JUPTER NOTEBOOK RENDERING */
+
 .prompt{
   /* hide the input number in the Jupyter notebook prompts */
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
+  /* width: 0 !important; */
+}
+
+@media screen and (max-width: 767px){
+  /* CSS TO APPLY WHEN NAVBAR COLLAPSED */
+  #content {
+    padding-left: 25px !important;
+    padding-right: 25px !important;
+  }
+  .prompt {
+    width: 0 !important;
+  }
+  .cell > .content-margin, .cell > .outputs {
+    padding-left: 0 !important;
+  }
+
+}
+
+
+/* OTHER */
+
+.container-main {
+  overflow-x: hidden;
 }

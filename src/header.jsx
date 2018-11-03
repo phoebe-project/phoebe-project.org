@@ -13,8 +13,10 @@ export class NoHeader extends React.Component {
 export class Header extends React.Component {
   render() {
     return (
-      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", paddingTop: "60px", paddingBottom: "25px", paddingLeft: "25px"}}>
-        {this.props.children}
+      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", paddingTop: "50px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
+        <div className="container">
+          {this.props.children}
+        </div>
       </div>
 
     )
@@ -25,7 +27,7 @@ export class HeaderIndex extends React.Component {
   render() {
     return (
       <Header>
-        <div className="container">
+        <div>
           <div className="row">
               <div className="col-md-2 col-xs-4 text-center">
                   <Image src="/logo_invert.svg" alt="Home" style={{maxHeight: "160px"}}/>
@@ -63,7 +65,7 @@ export class HeaderLegacy extends React.Component {
   render() {
     return (
       <Header>
-        <div style={{height: "100%"}} className="container">
+        <div>
           <div className="row">
             <div className="col-md-2 col-xs-4 text-center">
               <Image src="phoebe-gui.png" alt="logo" style={{minHeight: "100px", maxHeight: "160px"}}/>

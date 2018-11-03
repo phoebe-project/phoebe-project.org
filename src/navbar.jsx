@@ -20,14 +20,16 @@ export class Navbar extends React.Component {
     }
   }
   render() {
+    var navbarClassName = "navbar navbar-fixed-top navbar-header-fix navbar-default";
     var navbarStyle = {}
     var navbarBrandStyle = {}
     var navbarLinkStyle = {}
     var navbarLogo = '/logo_blue.svg'
     if (this.state.navbarDark) {
-      navbarStyle = {backgroundColor: "#2B71B1", boxShadow: "none", transition: "none", color: "#E6E6E6"}
+      navbarClassName = navbarClassName + " navbar-transparent"
+      // navbarStyle = {backgroundColor: "#2B71B1", boxShadow: "none", transition: "none", color: "#E6E6E6"}
       navbarLogo = '/logo_invert.svg'
-      navbarBrandStyle = {color: "#E6E6E6"}
+      navbarBrandStyle = {color: "#E6E6E6", fontVariant: "small-caps"}
       navbarLinkStyle = {color: "#E6E6E6"}
 
     }
@@ -36,7 +38,7 @@ export class Navbar extends React.Component {
     navbarLinkStyle.fontFamily = 'Ubuntu';
 
     return (
-      <div className="navbar navbar-fixed-top navbar-header-fix navbar-default" style={navbarStyle} role="navigation">
+      <div className={navbarClassName} style={navbarStyle} role="navigation">
         <EventListener
           target="window"
           onResize={this.updateScroll}
@@ -50,7 +52,7 @@ export class Navbar extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
             </button>
-              <NavLink to="/" className="navbar-brand text-brand" style={navbarBrandStyle}><b><Image className="navbar-brand-logo" height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>
+              <NavLink to="/" className="navbar-brand" style={navbarBrandStyle}><b><Image className="navbar-brand-logo" height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>
           </div>
 
           <div className="collapse navbar-collapse">

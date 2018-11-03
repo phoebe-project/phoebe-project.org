@@ -80,7 +80,7 @@ export class Docs extends Component {
 
   }
   componentDidUpdate = () => {
-    console.log("componentDidUpdate")
+    // console.log("componentDidUpdate")
     if (this.ref_notebook.current !== null) {
       let links = Array.from(ReactDOM.findDOMNode(this.ref_notebook.current).getElementsByTagName("a"))
       console.log(links);
@@ -177,6 +177,7 @@ export class Docs extends Component {
 }
 
 export class VersionSwitcher extends Component {
+  /* inspired by docs.djangoproject.com */
   constructor(props) {
     super(props);
     this.state = {
@@ -191,7 +192,7 @@ export class VersionSwitcher extends Component {
   }
   render() {
     return (
-      <div style={{position: 'fixed', 'right': '10px', 'bottom': '10px'}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
+      <div style={{position: 'fixed', display: 'inline-block', right: '10px', bottom: '10px', margin: '0px', padding: '0px', zIndex: 1, listStyle: "none outside none"}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
         {docs_versions.map(version => <VersionSwitcherButton visible={this.state.expanded} version={version} subdir={this.props.subdir} slug={this.props.slug}/>)}
         <VersionSwitcherTarget version={this.props.version}/>
       </div>
@@ -202,10 +203,10 @@ export class VersionSwitcher extends Component {
 class VersionSwitcherTarget extends Component {
   render() {
     return (
-      <li className="btn btn-primary btn-md current">
+      <div style={{display: "inline-block"}} className="btn btn-primary btn-md current">
         <span className="hidden-xs">Doc Version: <strong>{this.props.version}</strong></span>
         <span className="visible-xs">ver: <strong>{this.props.version}</strong></span>
-      </li>
+      </div>
     )
   }
 }
@@ -218,9 +219,7 @@ class VersionSwitcherButton extends Component {
 
     var to = getDocsLink(this.props.version, this.props.subdir, this.props.slug)
     return (
-      <li className="btn btn-default btn-md other">
-        <Link to={to}>{this.props.version}</Link>
-      </li>
+      <Link to={to} style={{textDecoration: "none", margin: "0px 3px", color: "#2196f3"}} className="btn btn-default btn-md other">{this.props.version}</Link>
     )
   }
 }

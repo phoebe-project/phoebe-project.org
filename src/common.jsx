@@ -21,7 +21,7 @@ export class Content extends React.Component {
   }
   render() {
     return (
-      <div id="content" style={{paddingTop: "25px", paddingLeft: "25px", paddingRight: "25px", paddingBottom: "50px"}}>
+      <div id="content" style={{paddingTop: "25px", paddingLeft: "10%", paddingRight: "10%", paddingBottom: "50px"}}>
         {this.props.children}
       </div>
     )
