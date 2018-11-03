@@ -41,7 +41,8 @@ export class NavLink extends React.Component {
   render() {
     var to = processLink(this.props.to)
     return (
-      <RouterNavLink {...this.props} to={to}>{this.props.children}</RouterNavLink>
+      /* data-toggle and data-target will collapse the drop-down menu on mobile if open */
+      <RouterNavLink {...this.props} to={to} data-toggle="collapse" data-target=".navbar-collapse.in"s>{this.props.children}</RouterNavLink>
     )
   }
 }

@@ -164,7 +164,8 @@ export class Docs extends Component {
     return (
       <div>
         <Header>
-          <h1>PHOEBE {version} Documentation</h1>
+          <span className="hidden-xs"><h1>PHOEBE {version} Documentation</h1></span>
+          <span className="visible-xs"><h1>{version} docs</h1></span>
         </Header>
         <Content>
           {notebook_dl_html}

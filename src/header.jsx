@@ -13,7 +13,7 @@ export class NoHeader extends React.Component {
 export class Header extends React.Component {
   render() {
     return (
-      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", paddingTop: "50px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
+      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", overflowX: "hidden", paddingTop: "50px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
         <div className="container">
           {this.props.children}
         </div>

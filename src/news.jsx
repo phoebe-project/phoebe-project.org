@@ -8,7 +8,7 @@ export class News extends Component {
     return (
       <div>
         <Header>
-          <h1>PHOEBE NEWS</h1>
+          <h1>News</h1>
         </Header>
         <Content>
           <p className="App-intro">
@@ -40,7 +40,7 @@ export class NewsEntry extends Component {
     return (
       <div>
         <Header>
-          <h1>PHOEBE NEWS ENTRY</h1>
+          <h1>News Entry</h1>
         </Header>
         <Content>
           <p className="App-intro">

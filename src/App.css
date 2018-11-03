@@ -37,9 +37,8 @@ p {
   max-height: 90%;
 }
 
-.navbar-brand{
-  font-family: 'Merriweather', serif;
-  line-height: 24px;
+.navbar-transparent .navbar-toggle > .icon-bar {
+  background-color: #E6E6E6 !important;
 }
 
 .navbar-nav.active{
@@ -53,6 +52,11 @@ p {
   color: #E6E6E6;
 }
 
+.navbar-brand{
+  font-family: 'Merriweather', serif;
+  line-height: 24px;
+  color: #444444;
+}
 
 .navbar-transparent .navbar-brand{
   color: #E6E6E6;
@@ -201,9 +205,4 @@ p {
 
 }
 
-
 /* OTHER */
-
-.container-main {
-  overflow-x: hidden;
-}

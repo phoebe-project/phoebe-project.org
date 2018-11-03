@@ -9,7 +9,8 @@ export class HelpDevel extends Component {
     return (
       <div>
         <Header>
-          <h1>PHOEBE Development Team</h1>
+          <span className="hidden-xs"><h1>PHOEBE Development Team</h1></span>
+          <span className="visible-xs"><h1>PHOEBE Dev Team</h1></span>
         </Header>
         <Content>
           <h2>Active Developers</h2>
@@ -60,7 +61,7 @@ export class HelpDevel extends Component {
           </DeveloperInfo>
 
           <DeveloperInfo image="kelly.jpg">
-            Kelly Hambleton is a postdoctoral researcher at Villanova University after receiving her PhD from the University of Central Lancashire, England. Her main research interests include pulsating stars and binary star systems, specifically heartbeat stars with tidally induced pulsations. Kelly developed the parsing algorithms that enabled  <a href="http://phoebe-project.org/2.0a" class="" target="_blank"><span class="fa fa-external-link"></span> PHOEBE 2.0-alpha</a> to use PHOEBE legacy parameter files.
+            Kelly Hambleton is a postdoctoral researcher at Villanova University after receiving her PhD from the University of Central Lancashire, England. Her main research interests include pulsating stars and binary star systems, specifically heartbeat stars with tidally induced pulsations. Kelly developed the parsing algorithms that enabled PHOEBE 2.0-alpha to use PHOEBE legacy parameter files.
           </DeveloperInfo>
 
           <div class="row">&nbsp;</div>
