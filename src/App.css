@@ -144,7 +144,7 @@ p {
 
 /* BOOTSTRAP BUTTONS */
 
-.btn-transparent {
+.btn-transparent, .btn-transparent:focus {
   background-color: transparent;
   color: #E6E6E6;
   border-width: 1px;
@@ -194,7 +194,7 @@ p {
   font-family: 'Merriweather', serif;
 }
 
-.jumbotron  h1{
+.jumbotron h1{
   font-size: 48px;
 }
 
@@ -207,6 +207,31 @@ p {
   overflow: hidden;
   /* width: 0 !important; */
 }
+
+.nteract-display-area-stdout, .nteract-display-area-stderr{
+  /* copy from bootstrap pre */
+  display: block;
+  padding: 11px;
+  margin: 0 0 11.5px;
+  font-size: 12px;
+  line-height: 1.846;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+  /* copy from bootstrap code */
+  font-family: Menlo,Monaco,Consolas,"Courier New",monospace !important;
+}
+
+.nteract-display-area-stdout {
+  color: #212121;
+}
+
+.nteract-display-area-sterr {
+  color: red;
+}
+
 
 @media screen and (max-width: 767px){
   /* CSS TO APPLY WHEN NAVBAR COLLAPSED */

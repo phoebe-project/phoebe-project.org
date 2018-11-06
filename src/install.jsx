@@ -95,7 +95,7 @@ export class Install extends Component {
                <HeaderNavButton title="Install from Source" description="Install from Source" to={"#source"} icon="fa fa-code"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Testing" description="Testing" to={"#testing"} icon="fa fa-terminal"/>
+               <HeaderNavButton title="Testing" description="Testing" to={"#testing"} icon="fa fa-vial"/>
              </div>
            </div>
         </Header>
