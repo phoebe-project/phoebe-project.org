@@ -41,7 +41,7 @@ export class HeaderIndex extends React.Component {
               <div className="col-md-4">
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="Download" description="Download and Install PHOEBE 2" to="/download/" icon="fa fa-download"/>
+                  <HeaderNavButton title="Install" description="Download &amp; Install PHOEBE 2" to="/install" icon="fa fa-download"/>
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                   <HeaderNavButton title="Documentation" to="/docs" icon="fa fa-book"/>
@@ -81,7 +81,7 @@ export class HeaderLegacy extends React.Component {
                <HeaderNavButton title="About" description="About PHOEBE 1.0" to="/1.0" icon="fa fa-info"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Download" description="Download and Install PHOEBE 1.0" to="/1.0/download" icon="fa fa-download"/>
+               <HeaderNavButton title="Install" description="Download and Install PHOEBE 1.0" to="/1.0/download" icon="fa fa-download"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Documentation" description="PHOEBE 1.0 documentation" to="/1.0/docs" icon="fa fa-book"/>

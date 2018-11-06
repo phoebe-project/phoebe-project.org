@@ -10,7 +10,7 @@ export class LegacyIntro extends Component {
         <HeaderLegacy/>
         <Content>
           <em>Note: the legacy version of PHOEBE (0.x and 1.0) is no longer actively developed. The code is still maintained and any problems should be reported.
-          Users starting from scratch should consider using <Link to="/">PHOEBE 2.0</Link> instead.</em>
+          Users starting from scratch should consider using <Link to="/releases">PHOEBE 2</Link> instead.</em>
 
           <br/><br/>
 
@@ -19,7 +19,7 @@ export class LegacyIntro extends Component {
 
           <br/><br/>
 
-          PHOEBE 1.0 (legacy) is based on the <a href="ftp://ftp.astro.ufl.edu/pub/wilson"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> <strong>Wilson-Devinney (WD)</strong></a> code.
+          PHOEBE 1.0 (legacy) is based on the <Link to="ftp://ftp.astro.ufl.edu/pub/wilson"><strong>Wilson-Devinney (WD)</strong></Link> code.
 
           The suite consists of three parts:<br/><br/>
 
@@ -278,12 +278,12 @@ export class LegacyDownload extends Component {
           <details>
           <summary><font size="4">Download the latest legacy version</font></summary><br/>
 
-          <strong>Git</strong> (<a href="https://git-scm.com/"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> https://git-scm.com</a>) is a version control system that keeps track of all modifications and additions to PHOEBE source code. It logs all changes that have been made and generates the backtrack policy that enables developers to update the source without the overhead of keeping the stable release backed up: git is capable of recreating the exact contents of the source at any given time.
+          <strong>Git</strong> (<Link to="https://git-scm.com/">https://git-scm.com</Link>) is a version control system that keeps track of all modifications and additions to PHOEBE source code. It logs all changes that have been made and generates the backtrack policy that enables developers to update the source without the overhead of keeping the stable release backed up: git is capable of recreating the exact contents of the source at any given time.
           <br/><br/>
 
-          PHOEBE is served on <a href="http://github.com/phoebe-project"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> github</a>. To browse the repository, click <a href="https://github.com/phoebe-project/phoebe1"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> here</a>.
+          PHOEBE is served on <Link to="http://github.com/phoebe-project">github</Link>. To browse the repository, click <Link to="https://github.com/phoebe-project/phoebe1">here</Link>.
 
-          For those unfamiliar with git and/or version control systems in general, here is the official <a href="https://git-scm.com/doc"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> documentation page</a> for git. It provides manuals, books and videos to get you started.
+          For those unfamiliar with git and/or version control systems in general, here is the official <Link to="https://git-scm.com/doc">documentation page</Link> for git. It provides manuals, books and videos to get you started.
           <br/><br/>
 
           PHOEBE uses the repository for two main purposes:

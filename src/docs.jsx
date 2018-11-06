@@ -11,13 +11,15 @@ import {NotFound} from './errors';
 export var docs_versions = ['2.1-react', '2.1', '2.0'];
 var docs_versions_dev = docs_versions + ['2.0b', 'development']
 
-function getDocsLink(version, subdir, slug) {
+export function getDocsLink(version, subdir, slug) {
   if (subdir) {
     return process.env.PUBLIC_URL + '/docs/'+version+'/'+subdir+'/'+slug
   } else if (slug) {
     return process.env.PUBLIC_URL + '/docs/'+version+'/'+slug
-  } else {
+  } else if (version) {
     return process.env.PUBLIC_URL + '/docs/'+version+'/'
+  } else {
+    return process.env.PUBLIC_URL + '/docs/'
   }
 }
 
@@ -116,13 +118,13 @@ export class Docs extends Component {
       // so redirect so the URL shows the latest version
       version = docs_versions[0]
       if (slug) {
-        this.props.history.replace(process.env.PUBLIC_URL + '/docs/'+version+'/'+subdir+'/'+slug)
+        this.props.history.replace(getDocsLink(version, subdir, slug))
       } else {
-        this.props.history.replace(process.env.PUBLIC_URL + '/docs/'+version+'/')
+        this.props.history.replace(getDocsLink(version, null, null))
       }
     } else if (docs_versions_dev.indexOf(version)===-1){
       // something not recognized, let's throw a page not found
-      return (<NotFound/>)
+      return (<NotFound></NotFound>)
     }
 
     if (slug && slug.endsWith(".html")) {
@@ -151,7 +153,7 @@ export class Docs extends Component {
     var notebook_html = null;
     if (this.state.contentType==='notebook') {
       // console.log(this.state.content)
-      notebook_dl_html = <a href={"https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+subdir+"/"+slug+".ipynb"} target="_blank">IPython Notebook {slug}.ipynb</a>
+      notebook_dl_html = <Link to={"https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+subdir+"/"+slug+".ipynb"} hideExternal={true}>IPython Notebook {slug}.ipynb</Link>
       notebook_html = <NotebookPreview notebook={this.state.content} ref={this.ref_notebook}/> // unfortunately this is creating a bunch of <a>'s where we want <Link>s...'
     } else if (this.state.contentType==='md'){
       notebook_html = <ReactMarkdown source={this.state.content}/>

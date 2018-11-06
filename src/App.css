@@ -30,11 +30,29 @@ p {
   text-justify: inter-word;
 }
 
+.content-dark {
+  background-color: #2B71B1;
+  color: #E6E6E6;
+}
+
+.content-dark a {
+  color: white !important;
+}
+
+.content-dark img {
+   -webkit-filter: grayscale(1) invert(1) brightness(1.5);
+   filter: grayscale(1) invert(1) brightness(1.5);
+ }
+
 /* NAVBAR */
 
 .navbar-collapse{
   overflow-x: hidden;
   max-height: 90%;
+}
+
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+  max-height: 500px;
 }
 
 .navbar-transparent .navbar-toggle > .icon-bar {
@@ -192,7 +210,7 @@ p {
 
 @media screen and (max-width: 767px){
   /* CSS TO APPLY WHEN NAVBAR COLLAPSED */
-  #content {
+  .content {
     padding-left: 25px !important;
     padding-right: 25px !important;
   }

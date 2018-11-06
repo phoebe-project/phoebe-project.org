@@ -19,8 +19,8 @@ export class Home extends Component {
           </div>
 
           <div className="col-md-12">
-            <p>PHOEBE is written by an international team of <Link to="/help/devel">professional astronomers</Link>, and is completely <a href="http://github.com/phoebe-project" className="" target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> open-source</a>.</p>
-            <p>Feel free to <Link to="/docs#download-and-installation">download and install</Link> PHOEBE and then follow the <Link to="/docs/latest#tutorials">tutorials</Link>.  If (or when) you get stuck, refer to the <Link to="/docs">documentation</Link>, or always feel free to <Link to="/help/contact">contact us</Link>.</p>
+            <p>PHOEBE is written by an international team of <Link to="/help/devel">professional astronomers</Link>, and is completely <Link to="http://github.com/phoebe-project">open-source</Link>.</p>
+            <p>Feel free to <Link to="/download">download and install</Link> the latest version of PHOEBE (or any of the <Link to="/releases">previous releases</Link>) and then follow the <Link to="/docs">tutorials</Link>.  If (or when) you get stuck, refer to the <Link to="/docs">documentation</Link>, or always feel free to <Link to="/help/contact">contact us</Link>.</p>
           </div>
 
           <br/>
@@ -36,7 +36,7 @@ export class Home extends Component {
 
               <Expander expandText="List new physics">
                 <ul>
-                  <li><a href="/docs/latest/tutorials/beaming_boosting/">Doppler boosting/beaming</a></li>
+                  <li><Link to="/docs/latest/tutorials/beaming_boosting/">Doppler boosting/beaming</Link></li>
                   <li>Roemer and light-time delay (LTTE effects)</li>
                   <li><b>Coming soon:</b> Reflection with heat redistribution</li>
                   <li><b>Coming soon:</b> Pulsations (spherical and oblique)</li>
@@ -75,16 +75,16 @@ export class Home extends Component {
 
               <Expander expandText="List fitting routines">
                 <ul>
-                  <li><b>Coming soon:</b> <a href="http://dan.iel.fm/emcee" className="" target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> emcee</a> (MCMC)</li>
+                  <li><b>Coming soon:</b> <Link to="http://dan.iel.fm/emcee">emcee</Link> (MCMC)</li>
                   <li>
-                      <a href="http://lmfit.github.io/lmfit-py/" className="" target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> lmfit</a>
+                      <Link to="http://lmfit.github.io/lmfit-py/">lmfit</Link>
                       <ul>
                           <li>Least Squares</li>
                           <li>Nelder-Mead</li>
                       </ul>
                   </li>
-                  <li><b>Coming soon:</b> <a href="http://pymc-devs.github.io/pymc/" className="" target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> pymc</a></li>
-                  <li><b>Coming soon:</b> <a href="http://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/" className="" target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> minuit</a></li>
+                  <li><b>Coming soon:</b> <Link to="http://pymc-devs.github.io/pymc/">pymc</Link></li>
+                  <li><b>Coming soon:</b> <Link to="http://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/">minuit</Link></li>
                 </ul>
                 <p>as well as several built into PHOEBE iteslf:</p>
                 <ul>
@@ -100,12 +100,12 @@ export class Home extends Component {
 
               <Expander expandText="List supported backends">
                 <ul>
-                  <li><a href="/docs/latest/examples/legacy/">PHOEBE 1.0 Legacy</a> (Wilson-Devinney)</li>
-                  <li><b>Coming soon:</b> <a href="http://www.astro.keele.ac.uk/jkt/codes/jktebop.html">jktebop</a></li>
-                  <li><b>Coming soon:</b> Josh Carter's <a href="https://github.com/dfm/photodynam">photodynam</a></li>
+                  <li><Link to="/docs/latest/examples/legacy/">PHOEBE 1.0 Legacy</Link> (Wilson-Devinney)</li>
+                  <li><b>Coming soon:</b> <Link to="http://www.astro.keele.ac.uk/jkt/codes/jktebop.html">jktebop</Link></li>
+                  <li><b>Coming soon:</b> Josh Carter's <Link to="https://github.com/dfm/photodynam">photodynam</Link></li>
                 </ul>
-                <p>Follow along with the <a href="/docs/latest/tutorials/alternate_backends/">alternate backends tutorial</a> for how to utilize these alternate backends.</p>
-                <p><a href="/help/contact">Contact Us</a> if you'd like another backend supported.</p>
+                <p>Follow along with the <Link to="/docs/latest/tutorials/alternate_backends/">alternate backends tutorial</Link> for how to utilize these alternate backends.</p>
+                <p><Link to="/help/contact">Contact Us</Link> if you'd like another backend supported.</p>
               </Expander>
             </div>
 
@@ -115,9 +115,9 @@ export class Home extends Component {
 
               <Expander expandText="List supported types">
                 <ul>
-                  <li><a href="http://mpi4py.scipy.org/" className="" target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> mpi4py</a></li>
-                  <li><b>Coming soon:</b> <a href="http://www.adaptivecomputing.com/products/open-source/torque/" className="" target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> torque</a></li>
-                  <li><b>Coming soon:</b> <a href="https://computing.llnl.gov/linux/slurm/" className="" target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span>  slurm</a></li>
+                  <li><Link to="http://mpi4py.scipy.org/">mpi4py</Link></li>
+                  <li><b>Coming soon:</b> <Link to="http://www.adaptivecomputing.com/products/open-source/torque/">torque</Link></li>
+                  <li><b>Coming soon:</b> <Link to="https://computing.llnl.gov/linux/slurm/">slurm</Link></li>
                 </ul>
               </Expander>
             </div>
@@ -137,7 +137,7 @@ export class Home extends Component {
 
             <div className="col-md-4">
               <h3>Powerful Python Backend</h3>
-              <p>If the frontend is not quite powerful enough for your needs, you can wield the full power of the backend.  Follow along with the <a href="/docs/latest/tutorials/backend/">backend tutorial</a> to learn how to access these lower-level functionalities.</p>
+              <p>If the frontend is not quite powerful enough for your needs, you can wield the full power of the backend.  Follow along with the <Link to="/docs/latest/tutorials/backend/">backend tutorial</Link> to learn how to access these lower-level functionalities.</p>
             </div>
           </div>
 

@@ -6,6 +6,8 @@ import {
   Link
 } from 'react-router-dom'
 
+import 'babel-polyfill' // https://medium.com/@andrewzey/google-seo-with-create-react-app-fixing-the-hidden-gotcha-c164063106d
+
 import './App.css';
 
 import {Navbar} from './navbar';
@@ -13,6 +15,8 @@ import {Home} from './home';
 import {Docs} from './docs';
 import {News, NewsEntry} from './news';
 import {Publications} from './publications';
+import {Install} from './install';
+import {Releases, ReleaseVersion} from './releases';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
 import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ} from './help';
 import {NotFound} from './errors';
@@ -33,6 +37,10 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/news'} component={News}/>
             <Route path={process.env.PUBLIC_URL + '/news'} component={NewsEntry}/>
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
+            <Route exact path={process.env.PUBLIC_URL + '/install'} component={Install}/>
+            <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} component={Install}/>
+            <Route exact path={process.env.PUBLIC_URL + '/releases'} component={Releases}/>
+            <Route exact path={process.env.PUBLIC_URL + '/releases/:version/'} component={ReleaseVersion}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0'} component={LegacyIntro}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0/gpl'} component={LegacyGPL}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0/docs'} component={LegacyDocs}/>

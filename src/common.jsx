@@ -9,7 +9,9 @@ function processLink(link) {
     if (!link.startsWith("/")) {
       link = "/" + link
     }
-    link = process.env.PUBLIC_URL + link
+    if (!link.startsWith(process.env.PUBLIC_URL)) {
+      link = process.env.PUBLIC_URL + link
+    }
   }
   return link
 }
@@ -20,8 +22,17 @@ export class Content extends React.Component {
     window.scrollTo(0, 0);
   }
   render() {
+    var style = {paddingTop: "25px", paddingLeft: "10%", paddingRight: "10%", paddingBottom: "50px"}
+    var className = "content"
+
+    if (this.props.dark) {
+      className = className + " content-dark"
+    }
+
+    Object.assign(style, this.props.style)
+
     return (
-      <div id="content" style={{paddingTop: "25px", paddingLeft: "10%", paddingRight: "10%", paddingBottom: "50px"}}>
+      <div {...this.props} className={className} style={style}>
         {this.props.children}
       </div>
     )
@@ -50,9 +61,15 @@ export class NavLink extends React.Component {
 export class Link extends React.Component {
   render() {
     var to = processLink(this.props.to)
-    return (
-      <RouterLink {...this.props} to={to}>{this.props.children}</RouterLink>
-    )
+    if (to.startsWith("http")) {
+      return (
+        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span class="fa fa-external-link"></span>} {this.props.children}</a>
+      )
+    } else {
+      return (
+        <RouterLink {...this.props} to={to}>{this.props.children}</RouterLink>
+      )
+    }
   }
 }
 
@@ -89,8 +106,8 @@ export class AlertVersion extends React.Component {
         Below are the versions we suggest using based on your needs:
 
         <ul>
-            <li><Link to="/1.0">PHOEBE 1.0 (legacy)</Link> should be used for reliable <em>trustable science results</em> and for cases that do not require the precision or additional physics introduced by PHOEBE 2.  PHOEBE 1.0 (legacy) is still significantly faster than PHOEBE 2.</li>
-            <li><Link to="/docs/">PHOEBE 2</Link> should be used to learn the interface for PHOEBE going forward, and will be updated with future releases to include new physics. Although we have made every effort to test the science-results, please make sure all results make sense and report any issues.</li>
+            <li><Link to="/1.0/">PHOEBE 1.0 (legacy)</Link> should be used for reliable <em>trustable science results</em> and for cases that do not require the precision or additional physics introduced by PHOEBE 2.  PHOEBE 1.0 (legacy) is still significantly faster than PHOEBE 2.</li>
+            <li><Link to="/releases/">PHOEBE 2</Link> should be used to learn the interface for PHOEBE going forward, and will be updated with future releases to include new physics. Although we have made every effort to test the science-results, please make sure all results make sense and report any issues.</li>
 
         </ul>
       </Alert>
