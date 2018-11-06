@@ -5,7 +5,7 @@ import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/n
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
 
 import {Content, Link, Redirect} from './common';
-import {Header} from './header';
+import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
 export var docs_versions = ['2.1-react', '2.1', '2.0'];
@@ -57,11 +57,7 @@ export class Docs extends Component {
         })
         .then(json => this.setState({content: json, contentType: 'notebook'}))
 
-    } else {
-      if (!slug) {
-        slug = 'index'
-      }
-
+    } else if (slug) {
       url = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+slug+".md";
       console.log("fetching "+url)
 
@@ -75,7 +71,9 @@ export class Docs extends Component {
           }
         })
         .then(text => this.setState({content: text, contentType: 'md'}))
-
+    } else {
+      // then we're the index
+      this.setState({contentType: 'index'})
     }
 
 
@@ -157,6 +155,20 @@ export class Docs extends Component {
       notebook_html = <NotebookPreview notebook={this.state.content} ref={this.ref_notebook}/> // unfortunately this is creating a bunch of <a>'s where we want <Link>s...'
     } else if (this.state.contentType==='md'){
       notebook_html = <ReactMarkdown source={this.state.content}/>
+    } else if (this.state.contentType==='index'){
+      notebook_html = <div>
+                        <h1>Tutorials</h1>
+                        <p>Tutorials are built to slowly build upon each other and provide narration about how to use PHOEBE.</p>
+                        <p>View <Link to={"/docs/"+version+"/tutorials"}>tutorials for PHOEBE {version}</Link>.</p>
+
+                        <h1>Example Scripts</h1>
+                        <p>Example scripts provide less commentary that tutorials, but can be useful if trying to accomplish something specific or mimic another use-case.</p>
+                        <p>View <Link to={"/docs/"+version+"/examples"}>example scripts for PHOEBE {version}</Link>.</p>
+
+                        <h1>API Documentation</h1>
+                        <p>API Documentation shows the calling arguments and options for all classes/functions/methods in PHOEBE.  Note that these same instructions can be called by calling Python's help function (i.e. help(phoebe.bundle) or help(b.run_compute)).</p>
+                        <p>View <Link to={"/docs/"+version+"/api"}>API docs for PHOEBE {version}</Link>.</p>
+                      </div>
     } else {
       // TODO: replace this with a nice loading icon
       notebook_html = <p>LOADING DOCS....</p>
@@ -168,6 +180,20 @@ export class Docs extends Component {
         <Header>
           <span className="hidden-xs"><h1>PHOEBE {version} Documentation</h1></span>
           <span className="visible-xs"><h1>{version} docs</h1></span>
+
+          <div className="row">
+             <div className="col-md-6"></div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Tutorials" description="Tutorials" to={"/docs/"+version+"/tutorials"} icon="fa fa-hands-helping"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Examples" description="Example Scripts" to={"/docs/"+version+"/examples"} icon="fa fa-file-code"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="API Docs" description="API Documentation" to={"/docs/"+version+"/api"} icon="fa fa-terminal"/>
+             </div>
+           </div>
+
         </Header>
         <Content>
           {notebook_dl_html}
