@@ -44,13 +44,13 @@ export class HeaderIndex extends React.Component {
                   <HeaderNavButton title="Install" description="Download &amp; Install PHOEBE 2" to="/install" icon="fa fa-download"/>
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="Documentation" to="/docs" icon="fa fa-book"/>
+                  <HeaderNavButton title="Documentation" to="/docs" icon="fa fa-book-open"/>
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="News" to="/news" icon="fa fa-newspaper-o"/>
+                  <HeaderNavButton title="News" to="/news" icon="far fa-newspaper"/>
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="Contact" to="/help/contact" icon="fa fa-envelope-o"/>
+                  <HeaderNavButton title="Contact" to="/help/contact" icon="far fa-envelope"/>
               </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ export class HeaderLegacy extends React.Component {
                <HeaderNavButton title="Install" description="Download and Install PHOEBE 1.0" to="/1.0/download" icon="fa fa-download"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Documentation" description="PHOEBE 1.0 documentation" to="/1.0/docs" icon="fa fa-book"/>
+               <HeaderNavButton title="Documentation" description="PHOEBE 1.0 documentation" to="/1.0/docs" icon="fa fa-book-open"/>
              </div>
            </div>
         </div>

@@ -182,7 +182,13 @@ export class Docs extends Component {
           <span className="visible-xs"><h1>{version} docs</h1></span>
 
           <div className="row">
-             <div className="col-md-6"></div>
+             <div className="col-md-2"></div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="About" description={"About "+version+" release"} to={"/releases/"+version} icon="fa fa-info"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Install" description={"Download and Install PHOEBE "+version} to={"/install/"+version} icon="fa fa-download"/>
+             </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Tutorials" description="Tutorials" to={"/docs/"+version+"/tutorials"} icon="fa fa-hands-helping"/>
              </div>

@@ -59,17 +59,17 @@ export class Navbar extends React.Component {
             <ul className="nav navbar-nav">
               <li><NavLink to="/releases" style={navbarLinkStyle} title="Releases"><span className="fa fa-tags"></span> Releases</NavLink></li>
               <li><NavLink to="/install" style={navbarLinkStyle} title="Install"><span className="fa fa-download"></span> <span>Install</span></NavLink></li>
-              <li><NavLink to="/docs" style={navbarLinkStyle} title="Documentation"><span className="fa fa-book"></span> <span className="hidden-md hidden-sm">Documentation</span><span className="visible-md-inline-block visible-sm-inline-block">Docs</span></NavLink></li>
-              <li><NavLink to="/news" style={navbarLinkStyle} title="News"><span className="fa fa-newspaper-o"></span> <span className="hidden-sm">News</span></NavLink></li>
+              <li><NavLink to="/docs" style={navbarLinkStyle} title="Documentation"><span className="fa fa-book-open"></span> <span className="hidden-md hidden-sm">Documentation</span><span className="visible-md-inline-block visible-sm-inline-block">Docs</span></NavLink></li>
+              <li><NavLink to="/news" style={navbarLinkStyle} title="News"><span className="far fa-newspaper"></span> <span className="hidden-sm">News</span></NavLink></li>
               <li><NavLink to="/publications" style={navbarLinkStyle} title="Publications"><span className="fa fa-clone"></span> <span className="hidden-sm">Publications</span></NavLink></li>
               <li><NavLink to="http://github.com/phoebe-project/phoebe2" target="_blank" rel="noopener noreferrer" style={navbarLinkStyle} title="Source-Code (GitHub)"><span className="fa fa-code"></span> <span className="hidden-sm">Source</span></NavLink></li>
               <li><NavLink to="/1.0" style={navbarLinkStyle} title="Legacy"><span className="fa fa-archive"></span> <span className="hidden-sm">Legacy</span></NavLink></li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" title="Help" style={navbarLinkStyle}><span className="fa fa-question"></span> <span className="hidden-sm">Help</span> <b className="caret"></b></a>
                 <ul className="dropdown-menu">
-                  <li><NavLink to="/help/devel" style={navbarLinkStyle}>Development Team</NavLink></li>
-                  <li><NavLink to="/help/contact" style={navbarLinkStyle}>Mailing Lists</NavLink></li>
-                  <li><NavLink to="/help/faq" style={navbarLinkStyle}>FAQ</NavLink></li>
+                  <li><NavLink to="/help/devel" style={navbarLinkStyle}><span className="fa fa-users"></span> Development Team</NavLink></li>
+                  <li><NavLink to="/help/contact" style={navbarLinkStyle}><span className="far fa-envelope"></span> Mailing Lists</NavLink></li>
+                  <li><NavLink to="/help/faq" style={navbarLinkStyle}><span className="fa fa-question"></span> FAQ</NavLink></li>
                 </ul>
               </li>
             </ul>
