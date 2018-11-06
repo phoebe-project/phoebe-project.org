@@ -6,7 +6,9 @@ import {Link as RouterLink, NavLink as RouterNavLink, Redirect as RouterRedirect
 
 function processLink(link) {
   if (!link.startsWith("http")) {
-    if (!link.startsWith("/")) {
+    if (link.startsWith("#")) {
+      link = link
+    } else if (!link.startsWith("/")) {
       link = "/" + link
     }
     if (!link.startsWith(process.env.PUBLIC_URL)) {
@@ -19,7 +21,9 @@ function processLink(link) {
 export class Content extends React.Component {
   componentDidMount() {
     // smoothScroll(0, 500);
-    window.scrollTo(0, 0);
+    if (!this.props.preventScrollTop) {
+      window.scrollTo(0, 0);
+    }
   }
   render() {
     var style = {paddingTop: "25px", paddingLeft: "10%", paddingRight: "10%", paddingBottom: "50px"}
@@ -63,7 +67,7 @@ export class Link extends React.Component {
     var to = processLink(this.props.to)
     if (to.startsWith("http")) {
       return (
-        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span class="fa fa-external-link"></span>} {this.props.children}</a>
+        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fa fa-external-link"></span>} {this.props.children}</a>
       )
     } else {
       return (

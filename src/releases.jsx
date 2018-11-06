@@ -31,7 +31,7 @@ export class ReleaseVersion extends Component {
     if (version==='latest') {
       // allow latest as the version in the URL, but show whatever is latest
       version = docs_versions[0]
-    } else if (version==='1.0' || version=='legacy') {
+    } else if (version==='1.0' || version==='legacy') {
       // then redirect to the 1.0 page
       return(<Redirect to="/1.0/download"/>)
     } else if (docs_versions.indexOf(version)===-1){
@@ -55,7 +55,7 @@ class ReleaseContent extends Component {
   render() {
     var logo = "logo_blue.svg";
     var content = null;
-    if (this.props.version == '2.0') {
+    if (this.props.version === '2.0') {
       logo = "logo_blue.svg"
       content = <div>
                   <p>PHOEBE 2.0 is the first official release of the completely redesigned and rewritten version of PHOEBE with a Python frontend interface.  The 2.0 release aims to provide fully-tested functionality that matches that of the <Link to="/1.0">legacy version of PHOEBE</Link> (light curve and radial velocity forward model of binary star systems) but with improved precision and the introduction of a Python frontend.</p>
@@ -95,7 +95,7 @@ class ReleaseContent extends Component {
 
                   </p>
                 </div>
-    } else if (this.props.version == '2.1') {
+    } else if (this.props.version === '2.1') {
       content = <div>
                   <p>PHOEBE 2.1 builds on the <Link to="/releases/2.0">2.0 release</Link> and introduces support for spin-orbit misalignment and spectral line-profiles as an observable dataset.</p>
                   <p>

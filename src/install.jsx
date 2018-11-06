@@ -3,13 +3,49 @@ import React, { Component } from 'react';
 import {Content, Link, Redirect, Image} from './common';
 import {NotFound} from './errors';
 import {docs_versions, getDocsLink} from './docs';
-import {Header} from './header';
+import {Header, HeaderNavButton} from './header';
 
 export class Install extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        hash: null,
+      };
+      this.refpip = React.createRef();
+      this.refsource = React.createRef();
+      this.reftesting = React.createRef();
+  }
+  scrollToHash() {
+    var offsetTop = null;
+    var hash = this.state.hash
+    if (hash==='#pip') {
+      offsetTop = this.refpip.current.offsetTop;
+    } else if (hash==='#source') {
+      offsetTop = this.refsource.current.offsetTop;
+    } else if (hash==='#testing') {
+      offsetTop = this.reftesting.current.offsetTop;
+    }
+
+    if (offsetTop) {
+      window.scrollTo(0,offsetTop-80);
+    }
+  }
+  // componentDidMount() {
+  //   console.log("componentDidMount "+this.state.hash)
+  //   this.scrollToHash()
+  // }
+  componentDidUpdate() {
+    console.log("componentDidUpdate "+this.state.hash)
+    this.scrollToHash()
+  }
   render() {
     var version = this.props.match.params.version
     var version_long = null
     var version_short = null
+
+    if (this.props.location.hash != this.state.hash) {
+      this.setState({hash: this.props.location.hash})
+    }
 
     if (version==null) {
       // then we'll display generic instructions
@@ -17,7 +53,7 @@ export class Install extends Component {
     } else if (version==='latest') {
       // allow latest as the version in the URL, but show whatever is latest
       version = docs_versions[0]
-    } else if (version==='1.0' || version=='legacy') {
+    } else if (version==='1.0' || version==='legacy') {
       // then redirect to the 1.0 page
       return(<Redirect to="/1.0/download"/>)
     }
@@ -26,11 +62,11 @@ export class Install extends Component {
     if (version==null) {
       version_short = docs_versions[0]
       version_long = version_short + ".0" // TODO: we really want the largest available, will probably need to make a call to GitHub
-    } else if ((version.match(/\./g) || []).length == 1){
+    } else if ((version.match(/\./g) || []).length === 1){
       // then we have the short version already (one .)
       version_short = version
       version_long = version_short + ".0"  // TODO: we really want the largest available, will probably need to make a call to GitHub
-    } else if ((version.match(/\./g) || []).length == 2){
+    } else if ((version.match(/\./g) || []).length === 2){
       // then we have the long version (two .s)
       version_long = version
       version_short = version.slice(0, version.lastIndexOf("."))
@@ -49,8 +85,21 @@ export class Install extends Component {
       <div>
         <Header>
           <h1>Download &amp; Install PHOEBE {version_long}</h1>
+
+          <div className="row">
+             <div className="col-md-6"></div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Install from PIP" description="Install from PIP" to={"#pip"} icon="fab fa-python"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Install from Source" description="Install from Source" to={"#source"} icon="fa fa-code"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Testing" description="Testing" to={"#testing"} icon="fa fa-terminal"/>
+             </div>
+           </div>
         </Header>
-        <Content>
+        <Content preventScrollTop={this.props.location.hash}>
           <b style={{color: "red"}}>version long: {version_long} <br/>version short: {version_short}</b>
           {version ?
             <p><b>Note:</b> these instructions will download and install the {version_long} release of PHOEBE.  To download and install a different version, choose the appropriate <Link to="/releases">release</Link>.</p>
@@ -58,7 +107,7 @@ export class Install extends Component {
             <p><b>Note:</b> these instruction will download and install the <Link to="/releases/latest">latest release (version {docs_versions[0]})</Link> of PHOEBE.  To install a specific version, choose the appropriate <Link to="/releases">release</Link>.</p>
           }
 
-          <h2>Installing from PIP</h2>
+          <h2 ref={this.refpip}>Installing from PIP</h2>
           <p>Installing PHOEBE from PIP is probably the easiest.  {version ? "To install version "+version_long : 'To install the latest version'}:</p>
           <pre>
             pip install phoebe{version ? "=="+version_long : null}
@@ -120,8 +169,7 @@ export class Install extends Component {
           <pre>
             rm -rf &lt;myphoebedir&gt;
           </pre>
-
-          <h2>From Source</h2>
+          <h2 ref={this.refsource}>From Source</h2>
           <h3>Download Source Code</h3>
 
           <p>Download the archive version below and unpack the source-code:
@@ -184,7 +232,7 @@ export class Install extends Component {
             sudo python setup.py install
           </pre>
 
-          <h2>Testing</h2>
+          <h2 ref={this.reftesting}>Testing</h2>
           <p>The following additional dependencies are required to run the nosetests:</p>
           <ul>
             <li><Link to="http://nose.readthedocs.io/en/latest/">nose</Link></li>
