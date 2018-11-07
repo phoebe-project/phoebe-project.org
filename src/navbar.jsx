@@ -63,7 +63,7 @@ export class Navbar extends React.Component {
               <li><NavLink to="/news" style={navbarLinkStyle} title="News"><span className="far fa-newspaper"></span> <span className="hidden-sm">News</span></NavLink></li>
               <li><NavLink to="/publications" style={navbarLinkStyle} title="Publications"><span className="fa fa-clone"></span> <span className="hidden-sm">Publications</span></NavLink></li>
               <li><NavLink to="http://github.com/phoebe-project/phoebe2" target="_blank" rel="noopener noreferrer" style={navbarLinkStyle} title="Source-Code (GitHub)"><span className="fa fa-code"></span> <span className="hidden-sm">Source</span></NavLink></li>
-              <li><NavLink to="/1.0" style={navbarLinkStyle} title="Legacy"><span className="fa fa-archive"></span> <span className="hidden-sm">Legacy</span></NavLink></li>
+              <li><NavLink to="/source" style={navbarLinkStyle} title="Source-Code"><span className="fas fa-code-branch"></span> <span className="hidden-sm hidden-md">Source</span></NavLink></li>
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" title="Help" style={navbarLinkStyle}><span className="fa fa-question"></span> <span className="hidden-sm">Help</span> <b className="caret"></b></a>
                 <ul className="dropdown-menu">
