@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import {Content, Link, Redirect, Image} from './common';
 import {NotFound} from './errors';
 import {docs_versions} from './docs';
-import {Header} from './header';
+import {Header, HeaderNavButton} from './header';
 
 export class Releases extends Component {
   render() {
@@ -13,13 +13,21 @@ export class Releases extends Component {
       <div>
         <Header>
           <h1>Releases</h1>
+          <div className="row">
+             <div className="col-md-10"></div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Latest Release" description="View Latest Release" to={"/releases/latest"} icon="fas fa-tag"/>
+             </div>
+           </div>
+
+
         </Header>
         <Content>
           <p>
-            The first version of PHOEBE (0.20) was officially released in 2003.
+            The first version of PHOEBE (<Link to="/releases/legacy">0.20</Link>) was officially released in 2003.
             Development on the 2.X versions of PHOEBE began in 2011, with the <Link to="/releases/2.0">2.0 version</Link> finally released in 2017.
             Since then, the <Link to="/help/devel">development team</Link> has been working on incorporating new features into the code.
-            The latest available version is <Link to={"/releases/"+docs_versions[0]}>PHOEBE {docs_versions[0]}</Link>.
+            The latest available version is currently <Link to={"/releases/"+docs_versions[0]}>PHOEBE {docs_versions[0]}</Link>.
             Below is a chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
           </p>
         </Content>
