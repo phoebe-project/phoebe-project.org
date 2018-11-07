@@ -81,9 +81,9 @@ export class Docs extends Component {
   }
   componentDidUpdate = () => {
     // console.log("componentDidUpdate")
-    if (this.ref_notebook.current !== null) {
-      let links = Array.from(ReactDOM.findDOMNode(this.ref_notebook.current).getElementsByTagName("a"))
-      console.log(links);
+    // if (this.ref_notebook.current !== null) {
+    //   let links = Array.from(ReactDOM.findDOMNode(this.ref_notebook.current).getElementsByTagName("a"))
+    //   console.log(links);
 
       // links.forEach( (link) => {
         // console.log(link.innerText)
@@ -93,7 +93,7 @@ export class Docs extends Component {
         //   ReactDOM.render(<Link to="bla">{link.innerText}</Link>, link.parentElement)
         // }
       // })
-    }
+    // }
   }
   render() {
     var version = this.props.match.params.version
@@ -108,7 +108,7 @@ export class Docs extends Component {
     } else if (version==='dev') {
       // allow dev to be an alias of development
       version = 'development'
-    } else if (version==='1.0') {
+    } else if (version==='1.0' || version==='legacy') {
       // then redirect to the 1.0 page
       return(<Redirect to="/1.0/docs"/>)
     } else if (!version) {
@@ -146,20 +146,42 @@ export class Docs extends Component {
 
     // display a link to download the Jupyter notebook directly from github
     var notebook_dl_html = null
+    var notebook_edit_html = null
 
     // create the html for the Jupyter notebook, if loaded
     var notebook_html = null;
     if (this.state.contentType==='notebook') {
       // console.log(this.state.content)
-      notebook_dl_html = <Link to={"https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+subdir+"/"+slug+".ipynb"} hideExternal={true}>IPython Notebook {slug}.ipynb</Link>
+      notebook_dl_html = <div>
+                          <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".ipynb"} hideExternal={true}>IPython Notebook {slug}.ipynb</Link>
+                          &nbsp;(<Link to={"/help/ipynb"}>ipynb help</Link>)
+                         </div>
+      notebook_edit_html = <div style={{float: "right"}}>
+                             <Link to={"https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+subdir+"/"+slug+".ipynb"} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
+                           </div>
       notebook_html = <NotebookPreview notebook={this.state.content} ref={this.ref_notebook}/> // unfortunately this is creating a bunch of <a>'s where we want <Link>s...'
     } else if (this.state.contentType==='md'){
       notebook_html = <ReactMarkdown source={this.state.content}/>
+      notebook_edit_html = <div style={{float: "right"}}>
+                             <Link to={"https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+slug+".md"} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
+                            </div>
     } else if (this.state.contentType==='index'){
       notebook_html = <div>
+                        <h1>About PHOEBE {version}</h1>
+                        <p>You can read about the features added during the <Link to={"/releases/"+version}>{version} release</Link> as well as read the changelog entries.</p>
+
+                        <h1>Download &amp; Install</h1>
+                        <p>If you don't already have PHOEBE installed, see the <Link to={"/install/"+version}>installation instructions for PHOEBE {version}.</Link></p>
+
                         <h1>Tutorials</h1>
                         <p>Tutorials are built to slowly build upon each other and provide narration about how to use PHOEBE.</p>
                         <p>View <Link to={"/docs/"+version+"/tutorials"}>tutorials for PHOEBE {version}</Link>.</p>
+
+                        <h1>Datasets &amp; Observables</h1>
+                        <p><Link to={"/docs/"+version+"/datasets"}>These tutorials</Link> explain each of the different dataset types that are supported by PHOEBE, as well as all applicable options.</p>
+
+                        <h1>Physics &amp; Individual Parameters</h1>
+                        <p><Link to={"/docs/"+version+"/physics"}>This set of tutorials</Link> describe the various physics effects implemented in PHOEBE {version} and the choices of the individual parameters that control those effects.</p>
 
                         <h1>Example Scripts</h1>
                         <p>Example scripts provide less commentary that tutorials, but can be useful if trying to accomplish something specific or mimic another use-case.</p>
@@ -183,14 +205,20 @@ export class Docs extends Component {
 
           <div className="row">
              <div className="col-md-2"></div>
-             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+             {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="About" description={"About "+version+" release"} to={"/releases/"+version} icon="fa fa-info"/>
-             </div>
-             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+             </div> */}
+             {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Install" description={"Download and Install PHOEBE "+version} to={"/install/"+version} icon="fa fa-download"/>
-             </div>
+             </div> */}
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Tutorials" description="Tutorials" to={"/docs/"+version+"/tutorials"} icon="fa fa-hands-helping"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Datasets" description="Datasets" to={"/docs/"+version+"/datasets"} icon="fas fa-table"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Physics" description="Physics and Individual Parameters" to={"/docs/"+version+"/physics"} icon="fas fa-atom"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Examples" description="Example Scripts" to={"/docs/"+version+"/examples"} icon="fa fa-file-code"/>
@@ -202,6 +230,7 @@ export class Docs extends Component {
 
         </Header>
         <Content>
+          {notebook_edit_html}
           {notebook_dl_html}
           {notebook_html}
           <VersionSwitcher version={this.state.version} subdir={this.state.subdir} slug={this.state.slug}/>
@@ -226,9 +255,13 @@ export class VersionSwitcher extends Component {
     this.setState({expanded: false});
   }
   render() {
+    // NOTE: we do this to force a deep-copy
+    var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
+
     return (
       <div style={{position: 'fixed', display: 'inline-block', right: '10px', bottom: '10px', margin: '0px', padding: '0px', zIndex: 1, listStyle: "none outside none"}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-        {docs_versions.map(version => <VersionSwitcherButton visible={this.state.expanded} version={version} subdir={this.props.subdir} slug={this.props.slug}/>)}
+        <VersionSwitcherButton visible={this.state.expanded} version="1.0" to="/1.0/docs"/>
+        {docs_versions_reverse.map(version => <VersionSwitcherButton visible={this.state.expanded} version={version} subdir={this.props.subdir} slug={this.props.slug}/>)}
         <VersionSwitcherTarget version={this.props.version}/>
       </div>
     )
@@ -253,6 +286,10 @@ class VersionSwitcherButton extends Component {
     }
 
     var to = getDocsLink(this.props.version, this.props.subdir, this.props.slug)
+
+    if (this.props.to) {
+      to = this.props.to
+    }
     return (
       <Link to={to} style={{textDecoration: "none", margin: "0px 3px", color: "#2196f3"}} className="btn btn-default btn-md other">{this.props.version}</Link>
     )
