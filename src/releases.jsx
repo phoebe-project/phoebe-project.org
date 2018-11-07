@@ -8,15 +8,21 @@ import {Header} from './header';
 export class Releases extends Component {
   render() {
     // NOTE: we do this to force a deep-copy
-    var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
+    var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions.concat("legacy"))).reverse()
     return (
       <div>
         <Header>
           <h1>Releases</h1>
         </Header>
-        {/* <Content>
-          <p>The latest PHOEBE release is version <Link to={"/releases/"+docs_versions[0]}>{docs_versions[0]}</Link></p>
-        </Content> */}
+        <Content>
+          <p>
+            The first version of PHOEBE (0.20) was officially released in 2003.
+            Development on the 2.X versions of PHOEBE began in 2011, with the <Link to="/releases/2.0">2.0 version</Link> finally released in 2017.
+            Since then, the <Link to="/help/devel">development team</Link> has been working on incorporating new features into the code.
+            The latest available version is <Link to={"/releases/"+docs_versions[0]}>PHOEBE {docs_versions[0]}</Link>.
+            Below is a chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
+          </p>
+        </Content>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
         {docs_versions_reverse.map((version, index) => <ReleaseContent version={version} dark={Boolean(index % 2)} showHeader={true}/>)}
       </div>
@@ -32,8 +38,9 @@ export class ReleaseVersion extends Component {
       // allow latest as the version in the URL, but show whatever is latest
       version = docs_versions[0]
     } else if (version==='1.0' || version==='legacy') {
-      // then redirect to the 1.0 page
-      return(<Redirect to="/1.0/download"/>)
+    //   // then redirect to the 1.0 page
+    //   return(<Redirect to="/1.0/download"/>)
+      version = 'legacy'
     } else if (docs_versions.indexOf(version)===-1){
       // something not recognized, let's throw a page not found
       return (<NotFound>Release version {version} not found, try all <Link to="/releases">releases</Link></NotFound>)
@@ -55,7 +62,14 @@ class ReleaseContent extends Component {
   render() {
     var logo = "logo_blue.svg";
     var content = null;
-    if (this.props.version === '2.0') {
+    if (this.props.version === '1.0' || this.props.version === 'legacy') {
+      logo = "phoebe-gui.png"
+      content = <div>
+                  <p>The legacy releases of PHOEBE (0.x and soon culminating in the official release of version 1.0) are built upon the <Link to="ftp://ftp.astro.ufl.edu/pub/wilson">Wilson-Devinney code</Link>.</p>
+                  <p>All the archived 0.x releases of PHOEBE and their respective changelogs can be found on the <Link to="/install/1.0">PHOEBE legacy install page</Link>.</p>
+                  <p>Although widely tested and more efficient than PHOEBE 2, the legacy version of PHOEBE is no longer being actively maintained and lacks the precision for modern observations, so new users should consider starting with PHOEBE 2.  For more information, see the page on <Link to="/1.0">PHOEBE Legacy</Link>.</p>
+                </div>
+    } else if (this.props.version === '2.0') {
       logo = "logo_blue.svg"
       content = <div>
                   <p>PHOEBE 2.0 is the first official release of the completely redesigned and rewritten version of PHOEBE with a Python frontend interface.  The 2.0 release aims to provide fully-tested functionality that matches that of the <Link to="/1.0">legacy version of PHOEBE</Link> (light curve and radial velocity forward model of binary star systems) but with improved precision and the introduction of a Python frontend.</p>
@@ -128,8 +142,8 @@ class ReleaseContent extends Component {
             <Image src={logo} width="128"/>
           </div>
           <div className="col-md-10">
-            <Link to={"/install/"+this.props.version+"/"}>Install PHOEBE {this.props.version}</Link> &nbsp;&nbsp;&nbsp;
-            <Link to={"/docs/"+this.props.version+"/"}>Read PHOEBE {this.props.version} docs</Link>
+            <Link to={"/install/"+this.props.version+"/"}><span className="fa fa-download"></span> Install PHOEBE {this.props.version}</Link> &nbsp;&nbsp;&nbsp;
+            <Link to={"/docs/"+this.props.version+"/"}><span className="fa fa-book-open"></span> Read PHOEBE {this.props.version} docs</Link>
             <br/><br/>
             {content}
 
