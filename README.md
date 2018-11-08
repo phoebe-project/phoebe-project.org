@@ -66,13 +66,21 @@ To serve to a separate URL, edit the entry in [CNAME](./public/CNAME), the value
 
 Once a new MINOR/MAJOR version of PHOEBE (i.e. 2.1 or 3.0) is released on GitHub and pip, several steps need to be made to update the website.  PATCH versions (i.e. 2.1.1) do not need any action as everything is loaded dynamically from the sources on GitHub.
 
-1. Update `docs_versions` in [docs.jsx](./src/docs.jsx) if the new version should shown in the docs switcher.  The first version listed in the list will be considered the "latest" release, and all internal links will now point to that version.  Make sure the correct branch exists in the [phoebe2-docs repository](http://github.com/phoebe-project/phoebe2-docs) and that the API docs are updated and pushed. See below for more details below about updating documentation on the website.
+1. Update `docs_versions` in [docs.jsx](./src/docs.jsx) if the new version should be shown in the docs switcher.  The first version listed in the list will be considered the "latest" release, and all internal links will now point to that version.  Make sure the correct branch exists in the [phoebe2-docs repository](http://github.com/phoebe-project/phoebe2-docs) and that the API docs are updated and pushed. See below for more details below about updating documentation on the website.
 
-2. Create the content for the release page in [releases.jxs](./src/releases.jsx) inside the if-else logic in the `ReleaseContent` Component by updating the `content` and `logo` (if anything other than the default logo) variables (see existing releases for examples).
+2. Create the content for the release page in [releases.jsx](./src/releases.jsx) inside the if-else logic in the `ReleaseContent` component by updating the `content` and `logo` (if anything other than the default logo) variables (see existing releases for examples).
 
-3. Create the entry for the corresponding release paper (if applicable, see below for more information).
+3. Create the entry for the corresponding release paper in [publications.jsx](./src/publications.jsx) and tag with the release (if applicable, see "Updating Publications" below for more information).
 
 4. Create a news entry item and pin to the homepage, if necessary (see below for more information).
+
+## Updating Releases
+
+The text description and logo for each MINOR/MAJOR release are defined in [releases.jsx](./src/releases.jsx).  The changelog entry for patch releases is dynamically pulled from the changelog in the README (master branch) of the main [phoebe2 repository](http://github.com/phoebe-project/phoebe2).
+
+## Updating Installation Instructions
+
+Installation instructions are defined in the `Install` component in [install.jsx](./src/install.jsx).  Pay specific attention to the logic of whether a version is specified or not (if `version` is `null` then default version-less instructions are shown).  If making changes to the installation instructions that are not backwards-compatible with previous releases (or vice-versa) make sure to include logic based on the value of the `version` variable.
 
 ## Updating Documentation
 
@@ -81,10 +89,6 @@ The PHOEBE 2 documentation sources displayed on the website are dynamically fetc
 Versions displayed in the version switcher are defined in [docs.jsx](./src/docs.jsx) under the `docs_versions` variable.  The list should be sorted from newest to oldest versions available, with the first entry (newest) being automatically redirected from all site-wide navigation links (i.e. /docs or /docs/latest).
 
 ## Updating News Entries
-
-## Updating Publications
-
-The list of publications is currently created manually in the `Publications` component in [publications.jsx](./src/publications.jsx).  For each entry, use the `Publication` component (see existing entries) which takes the following arguments: adsLink, authors, title, and release (optional - if provided, must match a valid release branch/tag).
 
 ## Workshops
 
@@ -101,6 +105,10 @@ Once a workshop is completed, the entry needs to be moved from the list of upcom
 ### Changing the Buttons/Layout of Workshops
 
 All workshops display the same buttons/format (with the exception of the change between an upcoming/active and an archived workshop).  If for some reason the needs for these buttons change, the source can be edited in the `WorkshopActive` and `WorkshopArchived` components in [workshop.jsx](./src/workshop.jsx).  Note that adding new buttons in the header may not work for previous archived versions if those markdown files do not exist - so make sure to either create the markdown files as necessary or to create necessary if-else logic to preserve the old archived versions.
+
+## Updating Publications
+
+The list of publications is currently created manually in the `Publications` component in [publications.jsx](./src/publications.jsx).  For each entry, use the `Publication` component (see existing entries) which takes the following arguments: adsLink, authors, title, and release (optional - if provided, must match a valid release branch/tag).
 
 ## Updating/Adding Developer Bios
 
