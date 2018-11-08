@@ -14,6 +14,7 @@ import {Navbar} from './navbar';
 import {Home} from './home';
 import {Docs} from './docs';
 import {News, NewsEntry} from './news';
+import {Workshop, WorkshopRegistration} from './workshop';
 import {Publications} from './publications';
 import {Source} from './source';
 import {Releases, ReleaseVersion} from './releases';
@@ -36,6 +37,10 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:subdir/:slug'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/news'} component={News}/>
             <Route path={process.env.PUBLIC_URL + '/news'} component={NewsEntry}/>
+            <Route exact path={process.env.PUBLIC_URL + '/workshop'} component={Workshop}/>
+            <Route exact path={process.env.PUBLIC_URL + '/workshop/registration'} component={WorkshopRegistration}/>
+            <Route exact path={process.env.PUBLIC_URL + '/workshop/:workshop'} component={Workshop}/>
+            <Route exact path={process.env.PUBLIC_URL + '/workshop/:workshop/:slug'} component={Workshop}/>
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
             <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} component={Install}/>
