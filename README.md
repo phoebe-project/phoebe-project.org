@@ -1,6 +1,6 @@
 # phoebe-project.org
 
-phoebe-project.org is a single-page ReactJS website, with documentation content dynamically pulled and rendered from the [phoebe2-docs repository](http://github.com/phoebe-project/phoebe2-docs).
+phoebe-project.org is a single-page ReactJS website, with content dynamically pulled and rendered from the [phoebe2-docs repository](http://github.com/phoebe-project/phoebe2-docs).
 
 ## Dependencies
 
@@ -37,20 +37,28 @@ In the root directory, issue:
 npm run deploy
 ```
 
-will need to provide github username and password (api token) 2-3 times.  This
-will build the website and commit and push to the `gh-pages` branch.  It may take
-a few minutes before those changes then go live.
+You will need to provide your GitHub username and password (or API token) 2-3 times.  This will build the website and commit and push to the `gh-pages` branch.  It may then take a few minutes before those changes then go live to the website itself.
 
 
-To serve to a separate URL, edit the entry in [CNAME](./public/CNAME), the value of homepage in [package.json](./package.json), and follow the [github instructions](https://help.github.com/articles/using-a-custom-domain-with-github-pages/) to use a custom domain for pointing the DNS to github pages.
+To serve to a separate URL, edit the entry in [CNAME](./public/CNAME), the value of homepage in [package.json](./package.json), and follow the [github instructions](https://help.github.com/articles/using-a-custom-domain-with-github-pages/) to use a custom domain for pointing the DNS to GitHub pages.
 
 ## General Notes on Layout/Conventions
+
+* The website is written using ReactJS using ES6 syntax. It is a single-page app, meaning that no matter what URL is visited, the entire site (as a minimized javascript file) is downloaded and run by the user's browser.  Clicking internal links simply changes the `state` and the rendering in the browser adjusts according to the `Router` defined in [App.js](./src/App.js).  This allows for really simplified and re-usable code, but requires a few considerations to keep the initial loadtime reasonable.  Partly for this reason, but also to allow for one single-source that is easy to update, many sources are fetched as requested from other phoebe repositories and rendered in real-time (e.g. the docs pages are pulled from the respective files in [phoebe2-docs](http://github.com/phoebe-project/phoebe2-docs) and rendered from the Jupyter notebook or markdown files into the browser).  Other sections of the website that are not in separate repositories are hard-coded directly into the source of the website, but as they're mostly minimal text, do not add significantly to the size of the bundled javascript file.  See below for notes on how to update content across different sections of the site.
+
+* Styling: note that for all html elements, ReactJS requires using `className` instead of `class` and all css inline-styles should be translated to camelCase (`background-color` in css becomes `backgroundColor` in jsx).  Whenever possible, styling should be done inline within the component, but when needed for site-wide styling or cascading, can be handled by adding to [App.css](./src/App.css).
+
+* Fonts: Merriweather and Ubuntu fonts are loaded by [index.html](./src/index.html) from google fonts and are set by [App.css](./src/App.css).
+
+* Icons: [font-awesome (free, v5.5.0)](https://fontawesome.com/icons?d=gallery&m=free) are used throughout the site and should be used by adding the necessary classes (via `className`) to the `<span>` tags (or in some cases passing by passing the classes to the `icon` property of a built-in component).
+
+* Bootstrap Components: [bootstrap (v3.3.5)](https://getbootstrap.com/docs/3.3/) is currently loaded by [index.html](./src/index.html) from [bootstrap.min.paper.css](./public/bootstrap.min.paper.css) and [bootstrap.min.js](./public/bootstrap.min.js) (which in turn requires [jquery](./public/jquery.min.js) to handle the collapsing navigation bar).  For alerts, use the built-in `Alert` class in [common.jsx](./src/common.jsx).  Any style changes should be overridden by [App.css](./src/App.css) (with `!important` if necessary) rather than editing the css of bootstrap directly.
 
 * In general, each tab in the navigation bar has its own .jsx file in the [src](./src/) directory and exports the components required to [App.js](./src/App.js) which handles all routing.  
 
 * The top navigation bar is not version-sticky (i.e. if you're on /docs/2.0 and click the install tab you will get the latest install instructions, not /install/2.0), but the buttons in the header and internal links on a given page are version-sticky (i.e. switching between tutorials and example scripts remembers your documentation version).
 
-* Please use the internal `Link` or `NavLink` (for the navigation bar) component from [common.jsx](./src/common.jsx) instead of adding html `<a>` tags manually.  This way internal vs external links are handled correctly by the component.
+* Please use the internal `Link` (for internal links), `NavLink` (for the navigation bar) component from [common.jsx](./src/common.jsx), or `HeaderNavButton` (for within-tab navigation) component from [header.jsx](./src/header.jsx) instead of adding html `<a>` tags manually.  This way internal vs external links are handled correctly by the component (so that internal links just change the state/router and do not refresh the entire source).  To override the addition of the "external link" icon for `Link` components, pass `hideExternal={true}`.  The only exception to using these components is within external content that is dynamically loaded (e.g. markdown files in other repositories): for now these will render `<a>` tags and cause a page refresh.
 
 * Please use the internal `Image` component from [common.jsx](./src/common.jsx) instead of adding html `<img>` tags manually.  This makes sure to reference internal image sources correctly.
 
@@ -94,9 +102,23 @@ Once a workshop is completed, the entry needs to be moved from the list of upcom
 
 All workshops display the same buttons/format (with the exception of the change between an upcoming/active and an archived workshop).  If for some reason the needs for these buttons change, the source can be edited in the `WorkshopActive` and `WorkshopArchived` components in [workshop.jsx](./src/workshop.jsx).  Note that adding new buttons in the header may not work for previous archived versions if those markdown files do not exist - so make sure to either create the markdown files as necessary or to create necessary if-else logic to preserve the old archived versions.
 
+## Updating/Adding Developer Bios
+
+Developer bios can be added/updated in the `HelpDevel` component in [help.jsx](./src/help.jsx) and should make use of the `DeveloperInfo` component (see existing entries).
+
+## Updating/Adding FAQ Entries
+
+FAQ Entries can be added/updated in the `HelpFAQ` component in [help.jsx](./src/help.jsx).
+
+## Adding New Pages
+
+New pages should have their components defined in a reasonably names .jsx file in the [src](./src) directory, with their URLs defined in the `Router` in [App.js](./src/App.js).
+
 ## Adding a New Entry to the Navigation Bar
 
-The navigation bar, persistent throughout the site, is defined in [navbar.jsx](./src/navbar.jsx).  If adding a new entry, look at the format of existing entries, an make sure to test the responsive behavior at different browser widths.  It may be necessary to change the visibility of some of the labels at the small and medium browser widths (see other entries for how to hide/shorten labels).
+The navigation bar, persistent throughout the site, is defined in [navbar.jsx](./src/navbar.jsx).  If adding a new entry, look at the format of existing entries, and make sure to test the responsive behavior at different browser widths.  It may be necessary to change the visibility of some of the labels at the small and medium browser widths (see other entries for how to hide/shorten labels).
+
+
 
 ## React
 
