@@ -127,6 +127,21 @@ export class HelpFAQ extends Component {
   }
 }
 
+export class HelpIPYNB extends Component {
+  render() {
+    return (
+      <div>
+        <Header>
+          <h1><span class="hidden-xs">How To: Jupyter/Ipython Notebooks</span><span class="visible-xs">How To: ipynb</span></h1>
+        </Header>
+        <Content>
+          <p>Any tutorial or example script in the <Link to="/docs">documentation</Link> can be downloaded as an IPython/Jupyter Notebook or a python script (see the link at the top of any tutorial). To run these locally you’ll need PHOEBE <Link to="/install">installed</Link> on your system, as well as IPython &amp; Jupyter notebooks (<code>sudo pip install jupyter; sudo apt-get install ipython-notebook</code>). Then simply start the notebook service (<code>ipython notebook</code> or <code>jupyter notebook</code>, depending on your version). This will allow you to interact with the tutorial - running it line-by-line and making alterations to see how they change the output.</p>
+        </Content>
+      </div>
+    )
+  }
+}
+
 export class HelpContact extends Component {
   render() {
     return (

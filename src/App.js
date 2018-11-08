@@ -12,14 +12,15 @@ import './App.css';
 
 import {Navbar} from './navbar';
 import {Home} from './home';
+import {Releases, ReleaseVersion} from './releases';
+import {Install} from './install';
 import {Docs} from './docs';
 import {News, NewsEntry} from './news';
 import {Workshop, WorkshopRegistration} from './workshop';
 import {Publications} from './publications';
 import {Source} from './source';
-import {Releases, ReleaseVersion} from './releases';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
-import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ} from './help';
+import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, HelpIPYNB} from './help';
 import {NotFound} from './errors';
 
 class App extends Component {
@@ -31,6 +32,10 @@ class App extends Component {
 
           <Switch>
             <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
+            <Route exact path={process.env.PUBLIC_URL + '/releases'} component={Releases}/>
+            <Route exact path={process.env.PUBLIC_URL + '/releases/:version/'} component={ReleaseVersion}/>
+            <Route exact path={process.env.PUBLIC_URL + '/install'} component={Install}/>
+            <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} component={Install}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:slug'} component={Docs}/>
@@ -43,9 +48,6 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/workshop/:workshop/:slug'} component={Workshop}/>
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
-            <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} component={Install}/>
-            <Route exact path={process.env.PUBLIC_URL + '/releases'} component={Releases}/>
-            <Route exact path={process.env.PUBLIC_URL + '/releases/:version/'} component={ReleaseVersion}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0'} component={LegacyIntro}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0/gpl'} component={LegacyGPL}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0/docs'} component={LegacyDocs}/>
@@ -54,6 +56,8 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/help/contact'} component={HelpContact}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/contact/:mailinglist'} component={HelpMailingList}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/faq'} component={HelpFAQ}/>
+            <Route exact path={process.env.PUBLIC_URL + '/help/ipynb'} component={HelpIPYNB}/>
+
             <Route path="*" component={NotFound} />
           </Switch>
 

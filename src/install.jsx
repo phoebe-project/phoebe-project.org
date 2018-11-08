@@ -102,9 +102,9 @@ export class Install extends Component {
         <Content preventScrollTop={this.props.location.hash}>
           <b style={{color: "red"}}>version long: {version_long} <br/>version short: {version_short}</b>
           {version ?
-            <p><b>Note:</b> these instructions will download and install the {version_long} release of PHOEBE.  To download and install a different version, choose the appropriate <Link to="/releases">release</Link>.</p>
+            <p><b>Note:</b> these instructions will download and install the {version_long} release of PHOEBE.  To download and install a different version, choose and click install from the appropriate <Link to="/releases">release</Link>.</p>
             :
-            <p><b>Note:</b> these instruction will download and install the <Link to="/releases/latest">latest release (version {docs_versions[0]})</Link> of PHOEBE.  To install a specific version, choose the appropriate <Link to="/releases">release</Link>.</p>
+            <p><b>Note:</b> these instruction will download and install the <Link to="/releases/latest">latest release (version {docs_versions[0]})</Link> of PHOEBE.  To install a specific version, choose and click install from the appropriate <Link to="/releases">release</Link>.</p>
           }
 
           <h2 ref={this.refpip}>Installing from PIP</h2>

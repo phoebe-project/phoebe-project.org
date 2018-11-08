@@ -8,11 +8,13 @@ function processLink(link) {
   if (!link.startsWith("http")) {
     if (link.startsWith("#")) {
       link = link
-    } else if (!link.startsWith("/")) {
-      link = "/" + link
-    }
-    if (!link.startsWith(process.env.PUBLIC_URL)) {
-      link = process.env.PUBLIC_URL + link
+    } else {
+      if (!link.startsWith("/")) {
+        link = "/" + link
+      }
+      if (!link.startsWith(process.env.PUBLIC_URL)) {
+        link = process.env.PUBLIC_URL + link
+      }
     }
   }
   return link
@@ -67,7 +69,7 @@ export class Link extends React.Component {
     var to = processLink(this.props.to)
     if (to.startsWith("http")) {
       return (
-        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fa fa-external-link"></span>} {this.props.children}</a>
+        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"></span>} {this.props.children}</a>
       )
     } else {
       return (
@@ -110,8 +112,8 @@ export class AlertVersion extends React.Component {
         Below are the versions we suggest using based on your needs:
 
         <ul>
-            <li><Link to="/1.0/">PHOEBE 1.0 (legacy)</Link> should be used for reliable <em>trustable science results</em> and for cases that do not require the precision or additional physics introduced by PHOEBE 2.  PHOEBE 1.0 (legacy) is still significantly faster than PHOEBE 2.</li>
-            <li><Link to="/releases/">PHOEBE 2</Link> should be used to learn the interface for PHOEBE going forward, and will be updated with future releases to include new physics. Although we have made every effort to test the science-results, please make sure all results make sense and report any issues.</li>
+            <li><Link to="/releases/legacy">PHOEBE 1.0 (legacy)</Link> should be used for reliable <em>trustable science results</em> and for cases that do not require the precision or additional physics introduced by PHOEBE 2.  PHOEBE 1.0 (legacy) is still significantly faster than PHOEBE 2.</li>
+            <li><Link to="/releases/latest">PHOEBE 2</Link> should be used to learn the interface for PHOEBE going forward, and will be updated with future releases to include new physics. Although we have made every effort to test the science-results, please make sure all results make sense and report any issues.</li>
 
         </ul>
       </Alert>

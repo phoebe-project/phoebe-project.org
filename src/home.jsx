@@ -19,8 +19,8 @@ export class Home extends Component {
           </div>
 
           <div className="col-md-12">
-            <p>PHOEBE is written by an international team of <Link to="/help/devel">professional astronomers</Link>, and is completely <Link to="http://github.com/phoebe-project">open-source</Link>.</p>
-            <p>Feel free to <Link to="/download">download and install</Link> the latest version of PHOEBE (or any of the <Link to="/releases">previous releases</Link>) and then follow the <Link to="/docs">tutorials</Link>.  If (or when) you get stuck, refer to the <Link to="/docs">documentation</Link>, or always feel free to <Link to="/help/contact">contact us</Link>.</p>
+            <p>PHOEBE is written by an international team of <Link to="/help/devel">professional astronomers</Link>, and is completely <Link to="/source">open-source</Link>.</p>
+            <p>Feel free to <Link to="/install">download and install</Link> the latest version of PHOEBE (or any of the <Link to="/releases">previous releases</Link>) and then follow the <Link to="/docs/latest/tutorials">tutorials</Link>.  If (or when) you get stuck, refer to the <Link to="/docs">documentation</Link>, or always feel free to <Link to="/help/contact">contact us</Link>.</p>
           </div>
 
           <br/>
