@@ -171,9 +171,11 @@ p {
   background-color: rgba(43, 113, 177, 0.82) !important;
 }
 
-.alert:first-child{
+.alert{
   padding-top: 30px !important;
+  padding-bottom: 30px !important
 }
+
 
 
 /* BOOTSTRAP JUMBOTRONS */

@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
 
-import {Content, Link, Redirect} from './common';
+import {Content, Link, Redirect, Alert} from './common';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
@@ -230,6 +230,15 @@ export class Docs extends Component {
 
         </Header>
         <Content>
+          {this.state.version===docs_versions[0] ?
+            null
+            :
+            <Alert level="danger">
+              <p><b>WARNING:</b> these are the docs for an outdated version of PHOEBE ({version}).  View <Link to={getDocsLink("latest", this.state.subdir, this.state.slug)}>docs for the latest release ({docs_versions[0]})</Link> or use the version switcher at the bottom of the page to select the correct version of PHOEBE.</p>
+              <p>To check your version of PHOEBE, call <code>python -c "import phoebe; print(phoebe.__version__)"</code> at the command line.</p>
+              <p>To update PHOEBE, see information on the <Link to="/releases/latest">latest release</Link> as well as <Link to="/install/latest">installation/update instructions</Link>.</p>
+            </Alert>
+          }
           {notebook_edit_html}
           {notebook_dl_html}
           {notebook_html}
