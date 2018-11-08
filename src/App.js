@@ -23,7 +23,53 @@ import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
 import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, HelpIPYNB} from './help';
 import {NotFound} from './errors';
 
+function parseReadmeChangelog(text) {
+  var textChangelog = text.slice(text.indexOf("CHANGELOG")+9, text.indexOf("QUESTIONS?"))
+  var textVersions = textChangelog.split("### ")
+
+  var versions = {}
+  var splitIndex = null;
+  var version_long = null;
+  var version_short = null;
+  var versionDescription = null;
+  for (var textVersion of textVersions.reverse()) {
+    if (!textVersion.startsWith("\n")) {
+      splitIndex = Math.min(textVersion.indexOf(" "), textVersion.indexOf("\n"))
+      version_long = textVersion.slice(0, splitIndex)
+      version_short = version_long.slice(0, version_long.lastIndexOf("."))
+      versionDescription = textVersion.slice(splitIndex)
+      if (Object.keys(versions).indexOf(version_short)==-1) {
+        versions[version_short] = Array()
+      }
+      versions[version_short].push(versionDescription)
+    }
+  }
+
+  return versions
+}
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      release_changelogs: {},
+    };
+  }
+  componentDidMount() {
+    var url = "https://raw.githubusercontent.com/phoebe-project/phoebe2/master/README.md";
+    console.log("fetching "+url)
+
+    fetch(url)
+      .catch(() => this.setState({versions: null}))
+      .then(res => {
+        if (res.ok) {
+          return res.text();
+        } else {
+          return null;
+        }
+      })
+      .then(text => this.setState({release_changelogs: parseReadmeChangelog(text)}))
+  }
   render() {
     return (
       <Router>
@@ -32,10 +78,10 @@ class App extends Component {
 
           <Switch>
             <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
-            <Route exact path={process.env.PUBLIC_URL + '/releases'} component={Releases}/>
-            <Route exact path={process.env.PUBLIC_URL + '/releases/:version/'} component={ReleaseVersion}/>
-            <Route exact path={process.env.PUBLIC_URL + '/install'} component={Install}/>
-            <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} component={Install}/>
+            <Route exact path={process.env.PUBLIC_URL + '/releases'} render={(props) => <Releases {...props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route exact path={process.env.PUBLIC_URL + '/releases/:version/'} render={(props) => <ReleaseVersion {...props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route exact path={process.env.PUBLIC_URL + '/install'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:slug'} component={Docs}/>

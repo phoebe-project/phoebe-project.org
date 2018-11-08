@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 
-import {Content, Link, Redirect, Image, Alert} from './common';
+import {Content, Link, Redirect, Image, Alert, getLatestPatchVersion} from './common';
 import {NotFound} from './errors';
 import {docs_versions, getDocsLink} from './docs';
 import {Header, HeaderNavButton} from './header';
+
+
 
 export class Install extends Component {
   constructor(props) {
@@ -61,11 +63,11 @@ export class Install extends Component {
     // handle 2.1.0 vs 2.1 cases (we want the full version for the instructions, but short version for docs/internal links)
     if (version==null) {
       version_short = docs_versions[0]
-      version_long = version_short + ".0" // TODO: we really want the largest available, will probably need to make a call to GitHub
+      version_long = getLatestPatchVersion(version_short, this.props.release_changelogs)
     } else if ((version.match(/\./g) || []).length === 1){
       // then we have the short version already (one .)
       version_short = version
-      version_long = version_short + ".0"  // TODO: we really want the largest available, will probably need to make a call to GitHub
+      version_long = getLatestPatchVersion(version_short, this.props.release_changelogs)
     } else if ((version.match(/\./g) || []).length === 2){
       // then we have the long version (two .s)
       version_long = version
@@ -100,7 +102,7 @@ export class Install extends Component {
            </div>
         </Header>
         <Content preventScrollTop={this.props.location.hash}>
-          <b style={{color: "red"}}>version long: {version_long} (<b>TODO:</b> need to get the latest patch version if not specified)<br/>version short: {version_short}</b>
+          {/* <b style={{color: "red"}}>version long: {version_long} (<b>TODO:</b> need to get the latest patch version if not specified)<br/>version short: {version_short}</b> */}
           {version ?
             <Alert level={version_short==docs_versions[0] ? "warning" : "danger"}>
               <p><b>Warning:</b> these instructions will download and install the {version_long} version of PHOEBE.  To download and install a different version, choose and click install from the appropriate <Link to="/releases">release</Link>, or follow instructions to <Link to="install">install the latest version</Link>.</p>
@@ -178,9 +180,9 @@ export class Install extends Component {
 
           <p>Download the archive version below and unpack the source-code:
             <ul>
-              <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".zip"} hideExternal={true}>PHOEBE.{version_long}.zip</Link></li>
-              <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".tar.gz"} hideExternal={true}>PHOEBE.{version_long} .tar.gz</Link></li>
-              <li><Link to="/releases">other releases</Link></li>
+              <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".tar.gz"} hideExternal={true}><span className="far fa-file-archive"></span> PHOEBE.{version_long}.tar.gz</Link></li>
+              <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".zip"} hideExternal={true}><span className="fas fa-archive"></span> PHOEBE.{version_long}.zip</Link></li>
+              <li><Link to="/releases"><span className="fa fa-tags"></span> other releases</Link></li>
             </ul>
           </p>
 

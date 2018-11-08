@@ -20,6 +20,15 @@ function processLink(link) {
   return link
 }
 
+export function getLatestPatchVersion(version_short, release_changelogs) {
+  // console.log("getLatestPatchVersion version_short: "+version_short+"  release_changelogs: "+release_changelogs)
+  var largestPatchVersion = 0
+  if (Object.keys(release_changelogs).indexOf(version_short)!==-1) {
+    largestPatchVersion = release_changelogs[version_short].length - 1
+  }
+  return version_short + "." + largestPatchVersion
+}
+
 export class Content extends React.Component {
   componentDidMount() {
     // smoothScroll(0, 500);

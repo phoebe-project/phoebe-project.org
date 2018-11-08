@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import {Content, Link, Redirect, Image} from './common';
+import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
+
+import {Content, Link, Redirect, Image, getLatestPatchVersion} from './common';
 import {NotFound} from './errors';
 import {docs_versions} from './docs';
 import {Header, HeaderNavButton} from './header';
@@ -9,6 +11,7 @@ export class Releases extends Component {
   render() {
     // NOTE: we do this to force a deep-copy
     var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions.concat("legacy"))).reverse()
+    var latest_patch_version = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
     return (
       <div>
         <Header>
@@ -27,12 +30,12 @@ export class Releases extends Component {
             The first version of PHOEBE (<Link to="/releases/legacy">0.20</Link>) was officially released in 2003.
             Development on the 2.X versions of PHOEBE began in 2011, with the <Link to="/releases/2.0">2.0 version</Link> finally released in 2017.
             Since then, the <Link to="/help/devel">development team</Link> has been working on incorporating new features into the code.
-            The latest available version is currently <Link to={"/releases/"+docs_versions[0]}>PHOEBE {docs_versions[0]}</Link>.
+            The latest available version is currently <Link to={"/releases/"+docs_versions[0]}>PHOEBE {latest_patch_version}</Link>.
             Below is a chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
           </p>
         </Content>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
-        {docs_versions_reverse.map((version, index) => <ReleaseContent version={version} dark={Boolean(index % 2)} showHeader={true}/>)}
+        {docs_versions_reverse.map((version, index) => <ReleaseContent version={version} release_changelogs={this.props.release_changelogs} dark={Boolean(index % 2)} showHeader={true}/>)}
       </div>
     );
   }
@@ -60,7 +63,7 @@ export class ReleaseVersion extends Component {
           <h1>PHOEBE {version}</h1>
         </Header>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
-        <ReleaseContent version={version}/>
+        <ReleaseContent version={version} release_changelogs={this.props.release_changelogs}/>
       </div>
     )
   }
@@ -156,10 +159,41 @@ class ReleaseContent extends Component {
             {content}
 
             <br/><br/>
-            <b>TODO: add individual releases and changelog dynamically pulled from github README, with each patch release pointing to its own download link (example <Link to={"https://github.com/phoebe-project/phoebe2/archive/2.1.0.zip"} hideExternal={true}>PHOEBE 2.0.11 .zip file</Link> and  <Link to={"https://github.com/phoebe-project/phoebe2/archive/2.1.0.tar.gz"} hideExternal={true}>PHOEBE 2.0.11 .tar.gz file</Link>) and install link (example: <Link to={"/install/2.0.11"}>install PHOEBE 2.0.11</Link>)</b>
+            {Object.keys(this.props.release_changelogs).indexOf(this.props.version)!==-1 ?
+              <details>
+                <summary><b>Individual Patch Releases and Changelog</b></summary>
+                <ul>
+                  {this.props.release_changelogs[this.props.version].map((changelogContent, patchIndex) => <li style={{paddingBottom: "15px"}}><ReleaseChangelogEntry versionLong={this.props.version+"."+patchIndex} changelogContent={changelogContent}/></li>)}
+                </ul>
+              </details>
+              :
+              Object.keys(this.props.release_changelogs).length > 0 ?
+                null
+                :
+                <p>loading changelog entries...</p>
+            }
           </div>
         </div>
       </Content>
+    )
+  }
+}
+
+class ReleaseChangelogEntry extends Component {
+  render() {
+    return (
+      <div>
+        <b>PHOEBE {this.props.versionLong}</b>
+        <br/>
+        <div style={{paddingLeft: "20px", paddingTop: "5px", paddingBottom: "10px"}}>
+          <Link to={"/install/"+this.props.versionLong}><span className="fa fa-download"></span> Install PHOEBE {this.props.versionLong}</Link>
+          <br/>
+          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".tar.gz"} hideExternal={true}><span className="fas fa-archive"></span> PHOEBE.{this.props.versionLong}.tar.gz</Link>
+          <br/>
+          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".zip"} hideExternal={true}><span className="far fa-file-archive"></span> PHOEBE.{this.props.versionLong}.zip</Link>
+        </div>
+        <ReactMarkdown source={this.props.changelogContent}/>
+      </div>
     )
   }
 }
