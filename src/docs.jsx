@@ -31,6 +31,8 @@ export class Docs extends Component {
       subdir: null,
       slug: null,
       content: null,
+      contentURLRaw: null,
+      contentURL: null,
       contentType: null,
     };
     this.ref_notebook = React.createRef();
@@ -39,14 +41,16 @@ export class Docs extends Component {
     this.props.history.replace(getDocsLink(version, subdir, slug))
   }
   updateDocs = (version, subdir, slug) => {
-    this.setState({version: version, subdir: subdir, slug: slug, content: null, contentType: null});
+    this.setState({version: version, subdir: subdir, slug: slug, content: null, contentURLRaw: null, contentURL: null, contentType: null});
 
+    var urlRaw = null;
     var url = null;
-    if (slug && subdir) {
-      url = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".ipynb";
-      console.log("fetching "+url)
+    if (slug && subdir && subdir !== 'api') {
+      url = "https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+subdir+"/"+slug+".ipynb"
+      urlRaw = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".ipynb";
+      console.log("fetching "+urlRaw)
 
-      fetch(url)
+      fetch(urlRaw)
         .catch(() => this.setState({content: null}))
         .then(res => {
           if (res.ok) {
@@ -55,13 +59,21 @@ export class Docs extends Component {
             return null;
           }
         })
-        .then(json => this.setState({content: json, contentType: 'notebook'}))
+        .then(content => this.setState({content: content, contentURL: url, contentURLRaw: urlRaw, contentType: 'notebook'}))
 
     } else if (slug) {
-      url = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+slug+".md";
-      console.log("fetching "+url)
+      if (subdir) {
+        url = "https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+subdir+"/"+slug+".md"
+        urlRaw = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".md";
 
-      fetch(url)
+      } else {
+        url = "https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+slug+".md"
+        urlRaw = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+slug+".md";
+      }
+      console.log("fetching "+urlRaw)
+
+
+      fetch(urlRaw)
         .catch(() => this.setState({content: null}))
         .then(res => {
           if (res.ok) {
@@ -70,7 +82,7 @@ export class Docs extends Component {
             return null;
           }
         })
-        .then(text => this.setState({content: text, contentType: 'md'}))
+        .then(content => this.setState({content: content, contentURL: url, contentURLRaw: urlRaw, contentType: 'md'}))
     } else {
       // then we're the index
       this.setState({contentType: 'index'})
@@ -152,19 +164,33 @@ export class Docs extends Component {
     var notebook_html = null;
     if (this.state.contentType==='notebook') {
       // console.log(this.state.content)
-      notebook_dl_html = <div>
-                          <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".ipynb"} hideExternal={true}>IPython Notebook {slug}.ipynb</Link>
-                          &nbsp;(<Link to={"/help/ipynb"}>ipynb help</Link>)
-                         </div>
-      notebook_edit_html = <div style={{float: "right"}}>
-                             <Link to={"https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+subdir+"/"+slug+".ipynb"} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
+      if (this.state.content) {
+        notebook_dl_html = <div>
+                            <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".ipynb"} hideExternal={true}>IPython Notebook {slug}.ipynb</Link>
+                            &nbsp;(<Link to={"/help/ipynb"}>ipynb help</Link>)
                            </div>
-      notebook_html = <NotebookPreview notebook={this.state.content} ref={this.ref_notebook}/> // unfortunately this is creating a bunch of <a>'s where we want <Link>s...'
+        notebook_edit_html = <div style={{float: "right"}}>
+                               <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
+                             </div>
+        notebook_html = <NotebookPreview notebook={this.state.content} ref={this.ref_notebook}/> // unfortunately this is creating a bunch of <a>'s where we want <Link>s...'
+
+      } else {
+          notebook_html = <div>
+                            <p>notebook failed to load... try again</p>
+                          </div>
+      }
     } else if (this.state.contentType==='md'){
-      notebook_html = <ReactMarkdown source={this.state.content}/>
-      notebook_edit_html = <div style={{float: "right"}}>
-                             <Link to={"https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+slug+".md"} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
-                            </div>
+      if (this.state.content) {
+        notebook_html = <ReactMarkdown source={this.state.content}/>
+        notebook_edit_html = <div style={{float: "right"}}>
+                               <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
+                              </div>
+      } else {
+        notebook_html = <div>
+                          <p>markdown source failed to load... try again</p>
+                        </div>
+      }
+
     } else if (this.state.contentType==='index'){
       notebook_html = <div>
                         <h1>About PHOEBE {version}</h1>
