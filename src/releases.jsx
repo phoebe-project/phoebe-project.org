@@ -86,58 +86,67 @@ class ReleaseContent extends Component {
                   <p>PHOEBE 2.0 is the first official release of the completely redesigned and rewritten version of PHOEBE with a Python frontend interface.  The 2.0 release aims to provide fully-tested functionality that matches that of the <Link to="/1.0">legacy version of PHOEBE</Link> (light curve and radial velocity forward model of binary star systems) but with improved precision and the introduction of a Python frontend.</p>
                   <p>
                     Supported Physics (from PHOEBE legacy):
-                    <ul>
-                      <li>detached and semi-detached (since 2.0.5) roche binaries</li>
-                      <li>keplerian orbits (including eccentric orbits with volume conservation)</li>
-                      <li>passbands/atmospheres</li>
-                      <li>limb-darkening</li>
-                      <li>gravity darkening</li>
-                      <li>reflection (heating without redistribution)</li>
-                      <li>finite integration time via oversampling (for light curves only)</li>
-                      <li>circular spots</li>
-                      <li>contact systems (to mimic WD)</li>
-                    </ul>
-
-                    New Physics (not in PHOEBE legacy):
-                    <ul>
-                      <li>Doppler boosting</li>
-                      <li>Single rotating stars</li>
-                      <li>Labert scattering</li>
-                    </ul>
-
-                    Unsupported Physics (from PHOEBE legacy) PHOEBE 2.0 can not yet handle:
-                    <ul>
-                      <li>X-ray binaries</li>
-                    </ul>
-
-                    Unsupported Convenience functionality
-                    <ul>
-                      <li>fitting (planned future development)</li>
-                      <li>GUI (in development)</li>
-                      <li>data in magnitudes (dropping support - must convert to fluxes manually)</li>
-                      <li>data in phases (dropping support - but a function is provided to convert manually when importing data)</li>
-                    </ul>
-
                   </p>
+
+                  <ul>
+                    <li>detached and semi-detached (since 2.0.5) roche binaries</li>
+                    <li>keplerian orbits (including eccentric orbits with volume conservation)</li>
+                    <li>passbands/atmospheres</li>
+                    <li>limb-darkening</li>
+                    <li>gravity darkening</li>
+                    <li>reflection (heating without redistribution)</li>
+                    <li>finite integration time via oversampling (for light curves only)</li>
+                    <li>circular spots</li>
+                    <li>contact systems (to mimic WD)</li>
+                  </ul>
+
+                  <p>
+                    New Physics (not in PHOEBE legacy):
+                  </p>
+                  <ul>
+                    <li>Doppler boosting</li>
+                    <li>Single rotating stars</li>
+                    <li>Labert scattering</li>
+                  </ul>
+
+                  <p>
+                    Unsupported Physics (from PHOEBE legacy) PHOEBE 2.0 can not yet handle:
+                  </p>
+                  <ul>
+                    <li>X-ray binaries</li>
+                  </ul>
+
+                  <p>
+                    Unsupported Convenience functionality
+                  </p>
+                  <ul>
+                    <li>fitting (planned future development)</li>
+                    <li>GUI (in development)</li>
+                    <li>data in magnitudes (dropping support - must convert to fluxes manually)</li>
+                    <li>data in phases (dropping support - but a function is provided to convert manually when importing data)</li>
+                  </ul>
+
                 </div>
     } else if (this.props.version === '2.1') {
       content = <div>
                   <p>PHOEBE 2.1 builds on the <Link to="/releases/2.0">2.0 release</Link> and introduces support for spin-orbit misalignment and spectral line-profiles as an observable dataset.</p>
                   <p>
                     New Physics introduced in version 2.1:
-                    <ul>
-                      <li>Spin-orbit misalignment (via pitch and yaw parameters)</li>
-                      <li>Support for creating <Link to="/docs/2.1/tutorials/LP">synthetic line profiles</Link></li>
-                    </ul>
-
-                    Major changes since 2.0:
-                    <ul>
-                      <li>switch parameterization from <Link to="/docs/2.1/tutorials/20_21_requiv">rpole/pot to requiv</Link> (including new <Link to="/docs/2.1/tutorials/20_21_semidetached">semi-detached</Link> and contact constraints)</li>
-                      <li>rewrite of <Link to="/docs/2.1/tutorials/20_21_plotting">plotting infrastructure</Link> to use <Link to="http://github.com/kecnry/autofig">autofig</Link></li>
-                      <li>rewrite of <Link to="/docs/2.1/tutorials/20_21_mesh">mesh dataset infrastructure</Link> to allow choosing which columns are exposed in the model</li>
-                      <li>Distringuish Roche (xyz) from Plane-of-Sky (uvw) coordinates</li>
-                    </ul>
                   </p>
+                  <ul>
+                    <li>Spin-orbit misalignment (via pitch and yaw parameters)</li>
+                    <li>Support for creating <Link to="/docs/2.1/tutorials/LP">synthetic line profiles</Link></li>
+                  </ul>
+
+                  <p>
+                    Major changes since 2.0:
+                  </p>
+                  <ul>
+                    <li>switch parameterization from <Link to="/docs/2.1/tutorials/20_21_requiv">rpole/pot to requiv</Link> (including new <Link to="/docs/2.1/tutorials/20_21_semidetached">semi-detached</Link> and contact constraints)</li>
+                    <li>rewrite of <Link to="/docs/2.1/tutorials/20_21_plotting">plotting infrastructure</Link> to use <Link to="http://github.com/kecnry/autofig">autofig</Link></li>
+                    <li>rewrite of <Link to="/docs/2.1/tutorials/20_21_mesh">mesh dataset infrastructure</Link> to allow choosing which columns are exposed in the model</li>
+                    <li>Distringuish Roche (xyz) from Plane-of-Sky (uvw) coordinates</li>
+                  </ul>
                 </div>
     } else {
       content = <div style={{color: "red"}}>
