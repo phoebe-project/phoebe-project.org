@@ -6,6 +6,7 @@ body {
   font-family: 'Ubuntu', sans-serif;
   padding-top: 50px;
   overflow-x: hidden; /* Prevent scroll on narrow devices */
+  word-break: break-word;
 }
 
 img {
@@ -246,6 +247,10 @@ p {
   }
   .cell > .content-margin, .cell > .outputs {
     padding-left: 0 !important;
+  }
+  .versionSwitcher {
+    /* display vertically instead of horizontally */
+    display: inline-grid !important;
   }
 
 }

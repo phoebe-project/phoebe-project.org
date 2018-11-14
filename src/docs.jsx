@@ -294,7 +294,7 @@ export class VersionSwitcher extends Component {
     var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
 
     return (
-      <div style={{position: 'fixed', display: 'inline-block', right: '10px', bottom: '10px', margin: '0px', padding: '0px', zIndex: 1, listStyle: "none outside none"}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
+      <div className='versionSwitcher' style={{position: 'fixed', display: 'inline-block', right: '10px', bottom: '10px', padding: '0px', zIndex: 1}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
         <VersionSwitcherButton visible={this.state.expanded} version="1.0" to="/1.0/docs"/>
         {docs_versions_reverse.map(version => <VersionSwitcherButton visible={this.state.expanded} version={version} subdir={this.props.subdir} slug={this.props.slug}/>)}
         <VersionSwitcherTarget version={this.props.version}/>
@@ -306,7 +306,7 @@ export class VersionSwitcher extends Component {
 class VersionSwitcherTarget extends Component {
   render() {
     return (
-      <div style={{display: "inline-block"}} className="btn btn-primary btn-md current">
+      <div className="btn btn-primary btn-md current" style={{margin: '0px 3px 3px 0px'}}>
         <span className="hidden-xs">Doc Version: <strong>{this.props.version}</strong></span>
         <span className="visible-xs">ver: <strong>{this.props.version}</strong></span>
       </div>
@@ -326,7 +326,7 @@ class VersionSwitcherButton extends Component {
       to = this.props.to
     }
     return (
-      <Link to={to} style={{textDecoration: "none", margin: "0px 3px", color: "#2196f3"}} className="btn btn-default btn-md other">{this.props.version}</Link>
+      <Link to={to} style={{textDecoration: "none", margin: "0px 3px 3px 0px", color: "#2196f3"}} className="btn btn-default btn-md other">{this.props.version}</Link>
     )
   }
 }
