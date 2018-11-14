@@ -171,6 +171,8 @@ export class Docs extends Component {
                            </div>
         notebook_edit_html = <div style={{float: "right"}}>
                                <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
+                               <br/>
+                               <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?title=issue+with+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}><span className="fas fa-bug"></span> Issue/Question on this Page?</Link>
                              </div>
         notebook_html = <NotebookPreview notebook={this.state.content} ref={this.ref_notebook}/> // unfortunately this is creating a bunch of <a>'s where we want <Link>s...'
 
@@ -181,9 +183,11 @@ export class Docs extends Component {
       }
     } else if (this.state.contentType==='md'){
       if (this.state.content) {
-        notebook_html = <ReactMarkdown source={this.state.content}/>
+        notebook_html =  <div style={{paddingTop: "50px"}}><ReactMarkdown source={this.state.content}/></div>
         notebook_edit_html = <div style={{float: "right"}}>
                                <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
+                               <br/>
+                               <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?title=issue+with+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}><span className="fas fa-bug"></span> Issue/Question on this Page?</Link>
                               </div>
       } else {
         notebook_html = <div>

@@ -106,7 +106,7 @@ class ReleaseContent extends Component {
                   <ul>
                     <li>Doppler boosting</li>
                     <li>Single rotating stars</li>
-                    <li>Labert scattering</li>
+                    <li>Lambert scattering</li>
                   </ul>
 
                   <p>
