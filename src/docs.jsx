@@ -166,8 +166,10 @@ export class Docs extends Component {
       // console.log(this.state.content)
       if (this.state.content) {
         notebook_dl_html = <div>
-                            <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".ipynb"} hideExternal={true}>IPython Notebook {slug}.ipynb</Link>
+                            <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".ipynb"} downloadFilename={slug+".ipynb"}>Download IPython Notebook: {slug}.ipynb</Link>
                             &nbsp;(<Link to={"/help/ipynb"}>ipynb help</Link>)
+                            <br/>
+                            <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/py/"+slug+".py"} downloadFilename={slug+".py"}>Download Python Script: {slug}.py</Link>
                            </div>
         notebook_edit_html = <div style={{float: "right"}}>
                                <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>

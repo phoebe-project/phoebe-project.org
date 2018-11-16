@@ -74,12 +74,44 @@ export class NavLink extends React.Component {
 }
 
 export class Link extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      downloadContent: null,
+    };
+  }
+  componentDidMount() {
+    if (this.props.downloadFilename) {
+      fetch(processLink(this.props.to))
+        .catch(() => this.setState({content: null}))
+        .then(res => {
+          if (res.ok) {
+            return res.text();
+          } else {
+            return null;
+          }
+        })
+        .then(content => this.setState({downloadContent: content}))
+      }
+  }
   render() {
     var to = processLink(this.props.to)
     if (to.startsWith("http")) {
-      return (
-        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"></span>} {this.props.children}</a>
-      )
+      if (this.props.downloadFilename) {
+        if (this.state.downloadContent) {
+          return (
+            <a {...this.props} href={"data:text/plain,"+this.state.downloadContent} type="text/x-python" download={this.props.downloadFilename}><span className="fas fa-file-download"></span> {this.props.children}</a>
+          )
+        } else {
+          return (
+            <p style={{display: "inline"}}>{this.props.children}</p>
+          )
+        }
+      } else {
+        return (
+          <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"></span>} {this.props.children}</a>
+        )
+      }
     } else {
       return (
         <RouterLink {...this.props} to={to}>{this.props.children}</RouterLink>
