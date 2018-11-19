@@ -8,7 +8,7 @@ import {Content, Link, Redirect, Alert} from './common';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-export var docs_versions = ['2.1-react', '2.1', '2.0'];
+export var docs_versions = ['2.1', '2.0'];
 var docs_versions_dev = docs_versions + ['2.0b', 'development']
 
 export function getDocsLink(version, subdir, slug) {
@@ -46,8 +46,8 @@ export class Docs extends Component {
     var urlRaw = null;
     var url = null;
     if (slug && subdir && subdir !== 'api') {
-      url = "https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+subdir+"/"+slug+".ipynb"
-      urlRaw = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".ipynb";
+      url = "https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"-react/"+subdir+"/"+slug+".ipynb"
+      urlRaw = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"-react/"+subdir+"/"+slug+".ipynb";
       console.log("fetching "+urlRaw)
 
       fetch(urlRaw)
@@ -63,12 +63,12 @@ export class Docs extends Component {
 
     } else if (slug) {
       if (subdir) {
-        url = "https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+subdir+"/"+slug+".md"
-        urlRaw = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".md";
+        url = "https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"-react/"+subdir+"/"+slug+".md"
+        urlRaw = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"-react/"+subdir+"/"+slug+".md";
 
       } else {
-        url = "https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"/"+slug+".md"
-        urlRaw = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+slug+".md";
+        url = "https://github.com/phoebe-project/phoebe2-docs/blob/"+version+"-react/"+slug+".md"
+        urlRaw = "https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"-react/"+slug+".md";
       }
       console.log("fetching "+urlRaw)
 
@@ -166,10 +166,10 @@ export class Docs extends Component {
       // console.log(this.state.content)
       if (this.state.content) {
         notebook_dl_html = <div>
-                            <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/"+slug+".ipynb"} downloadFilename={slug+".ipynb"}>Download IPython Notebook: {slug}.ipynb</Link>
+                            <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"-react/"+subdir+"/"+slug+".ipynb"} downloadFilename={slug+".ipynb"}>Download IPython Notebook: {slug}.ipynb</Link>
                             &nbsp;(<Link to={"/help/ipynb"}>ipynb help</Link>)
                             <br/>
-                            <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"/"+subdir+"/py/"+slug+".py"} downloadFilename={slug+".py"}>Download Python Script: {slug}.py</Link>
+                            <Link to={"https://raw.githubusercontent.com/phoebe-project/phoebe2-docs/"+version+"-react/"+subdir+"/py/"+slug+".py"} downloadFilename={slug+".py"}>Download Python Script: {slug}.py</Link>
                            </div>
         notebook_edit_html = <div style={{float: "right"}}>
                                <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
