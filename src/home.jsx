@@ -25,7 +25,7 @@ export class Home extends Component {
 
           <div className="col-md-12">
             <p>PHOEBE is an eclipsing binary modeling suite - reproducing and fitting light curve and radial velocity curves of eclipsing systems.</p>
-            <p>PHOEBE 2 is a completely rewritten version of the popular <Link to="/1.0">PHOEBE legacy suite</Link> that aims to provide better precision, new physics, and modeling of additional observables - all with intuitive and powerful python interfaces.</p>
+            <p>PHOEBE 2 is a completely rewritten version of the popular <Link to="/1.0">PHOEBE legacy suite</Link> that aims to provide better precision, <Link to="/docs/latest/physics">new physics</Link>, and modeling of <Link to="/docs/latest/datasets">additional observables</Link> - all with intuitive and powerful python interfaces.</p>
           </div>
 
           <div className="col-md-12">
@@ -42,12 +42,13 @@ export class Home extends Component {
             </div>
             <div className="col-md-4">
               <h3>New Physics</h3>
-              <p>PHOEBE 2 allows for new physics to be included in your model.  Many of these features are currently still being tested.</p>
+              <p>PHOEBE 2 allows for new <Link to="/docs/latest/physics">physics</Link> to be included in your model.  Many of these features are currently still being tested.</p>
 
               <Expander expandText="List new physics">
                 <ul>
                   <li><Link to="/docs/latest/tutorials/beaming_boosting/">Doppler boosting/beaming</Link></li>
                   <li>Roemer and light-time delay (LTTE effects)</li>
+                  <li><b>Coming soon:</b> Reddening and Extinction</li>
                   <li><b>Coming soon:</b> Reflection with heat redistribution</li>
                   <li><b>Coming soon:</b> Pulsations (spherical and oblique)</li>
                   <li><b>Coming soon:</b> Differential Rotation</li>
@@ -62,12 +63,14 @@ export class Home extends Component {
 
             <div className="col-md-4">
               <h3>Additional Observables</h3>
-              <p>PHOEBE 2 now has the capability of modeling a large range of multiple observable types, all of which can be included while fitting your model to available data.  Many of these new observables still require testing or are not yet fully supported.</p>
+              <p>PHOEBE 2 now has the capability of modeling a large range of multiple <Link to="/docs/latest/datasets">observable types</Link>, all of which can be included while fitting your model to available data.  Many of these new observables still require testing or are not yet fully supported.</p>
 
               <Expander expandText="List observables">
                 <ul>
-                  <li>Photometry (Light Curves)</li>
-                  <li>Radial Velocities</li>
+                  <li>Photometry (Light Curves) (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
+                  <li>Radial Velocities (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
+                  <li>Orbits (positions and velocities) (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
+                  <li>Line profiles (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
                   <li><b>Coming soon:</b> Spectra</li>
                   <li><b>Coming soon:</b> Polarimetry</li>
                   <li><b>Coming soon:</b> Interferometry</li>
@@ -79,6 +82,35 @@ export class Home extends Component {
           </div>
 
           <div className="row">
+            <div className="col-md-4">
+              <h3>Parallelization</h3>
+              <p>As of the <Link to="/releases/2.1">2.1 release</Link>, PHOEBE 2 support parallelization via MPI.</p>
+              <p><b>Coming Soon:</b> eventually PHOEBE will also be parallelized at the fitting level with support for submitting a computational job with a scheduler directly from the frontend interface.</p>
+
+              <Expander expandText="List supported types">
+                <ul>
+                  <li><Link to="http://mpi4py.scipy.org/">mpi4py</Link> (see <Link to="/docs/latest/api/phoebe.mpi_on">phoebe.mpi_on API docs</Link>)</li>
+                  <li><b>Coming soon:</b> <Link to="http://www.adaptivecomputing.com/products/open-source/torque/">torque</Link></li>
+                  <li><b>Coming soon:</b> <Link to="https://computing.llnl.gov/linux/slurm/">slurm</Link></li>
+                </ul>
+              </Expander>
+            </div>
+
+            <div className="col-md-4">
+              <h3>Swappable Backends and Plugins</h3>
+              <p>The PHOEBE 2 frontend can do more than just run its own backend - it also wraps backends of other popular codes, including:</p>
+
+              <Expander expandText="List supported backends">
+                <ul>
+                  <li><Link to="/docs/latest/examples/legacy/">PHOEBE 1.0 Legacy</Link> (Wilson-Devinney)</li>
+                  <li><b>Coming soon:</b> <Link to="http://www.astro.keele.ac.uk/jkt/codes/jktebop.html">jktebop</Link></li>
+                  <li><b>Coming soon:</b> Josh Carter's <Link to="https://github.com/dfm/photodynam">photodynam</Link></li>
+                </ul>
+                <p>Follow along with the <Link to="/docs/latest/tutorials/alternate_backends/">alternate backends tutorial</Link> for how to utilize these alternate backends.</p>
+                <p><Link to="/help/contact">Contact Us</Link> if you'd like another backend supported.</p>
+              </Expander>
+            </div>
+
             <div className="col-md-4">
               <h3>Interface with Fitting Routines</h3>
               <p><b>Coming soon:</b> PHOEBE 2 will include wrappers that interface directly with many off-the-shelf fitting routines.</p>
@@ -103,38 +135,10 @@ export class Home extends Component {
                 </ul>
               </Expander>
             </div>
-
-            <div className="col-md-4">
-              <h3>Swappable Backends and Plugins</h3>
-              <p>The PHOEBE 2 frontend can do more than just run its own backend - it also wraps backends of other popular codes, including:</p>
-
-              <Expander expandText="List supported backends">
-                <ul>
-                  <li><Link to="/docs/latest/examples/legacy/">PHOEBE 1.0 Legacy</Link> (Wilson-Devinney)</li>
-                  <li><b>Coming soon:</b> <Link to="http://www.astro.keele.ac.uk/jkt/codes/jktebop.html">jktebop</Link></li>
-                  <li><b>Coming soon:</b> Josh Carter's <Link to="https://github.com/dfm/photodynam">photodynam</Link></li>
-                </ul>
-                <p>Follow along with the <Link to="/docs/latest/tutorials/alternate_backends/">alternate backends tutorial</Link> for how to utilize these alternate backends.</p>
-                <p><Link to="/help/contact">Contact Us</Link> if you'd like another backend supported.</p>
-              </Expander>
-            </div>
-
-            <div className="col-md-4">
-              <h3>Parallelization</h3>
-              <p><b>Coming soon:</b> PHOEBE 2 will be parallelized at both the per-fitting-iteration and per-time-computation levels.  Submitting a computational job with a scheduler will be integrated right into the frontend interface.</p>
-
-              <Expander expandText="List supported types">
-                <ul>
-                  <li><Link to="http://mpi4py.scipy.org/">mpi4py</Link></li>
-                  <li><b>Coming soon:</b> <Link to="http://www.adaptivecomputing.com/products/open-source/torque/">torque</Link></li>
-                  <li><b>Coming soon:</b> <Link to="https://computing.llnl.gov/linux/slurm/">slurm</Link></li>
-                </ul>
-              </Expander>
-            </div>
           </div>
 
 
-          <div className="row">
+          {/* <div className="row">
             <div className="col-md-4">
               <h3>Convenient Web Interface</h3>
               <p><b>Coming soon: </b> PHOEBE 2 will soon have an online web-interface, allowing you to model systems all from a web browser, with no installation required.</p>
@@ -144,12 +148,7 @@ export class Home extends Component {
               <h3>Intuitive Python Frontend</h3>
               <p>PHOEBE 2 now includes an intuitive python frontend that allows you to store all information about your system (system parameters, datasets, computing and fitting options) in a single python object that is saveable to disk.</p>
             </div>
-
-            <div className="col-md-4">
-              <h3>Powerful Python Backend</h3>
-              <p>If the frontend is not quite powerful enough for your needs, you can wield the full power of the backend.  Follow along with the <Link to="/docs/latest/tutorials/backend/">backend tutorial</Link> to learn how to access these lower-level functionalities.</p>
-            </div>
-          </div>
+          </div> */}
 
 
         </Content>
