@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import {Content, Link, Redirect, Image, Alert, getLatestPatchVersion} from './common';
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
+import {Content, Link, Redirect, Image, Alert, getLatestPatchVersion, metaKeywords} from './common';
 import {NotFound} from './errors';
 import {docs_versions, getDocsLink} from './docs';
 import {Header, HeaderNavButton} from './header';
@@ -85,6 +87,10 @@ export class Install extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Download & Install</title>
+          <meta name="keywords" content={metaKeywords+", download, install"}/>
+        </Helmet>
         <Header>
           <h1>Download &amp; Install PHOEBE {version_long}</h1>
 

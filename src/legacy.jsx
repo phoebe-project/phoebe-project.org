@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
 import {Content, Link} from './common';
 import {HeaderLegacy} from './header';
 
@@ -7,6 +9,9 @@ export class LegacyIntro extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Legacy</title>
+        </Helmet>
         <HeaderLegacy/>
         <Content>
           <em>Note: the legacy version of PHOEBE (0.x and 1.0) is no longer actively developed. The code is still maintained and any problems should be reported.
@@ -70,6 +75,9 @@ export class LegacyGPL extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Legacy | License</title>
+        </Helmet>
         <HeaderLegacy/>
         <Content>
           PHOEBE is released under the GNU General Public License. License contents are given in full detail below. PHOEBE is and always will remain free.
@@ -214,6 +222,9 @@ export class LegacyDocs extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Legacy | Documentation</title>
+        </Helmet>
         <HeaderLegacy/>
         <Content>
           Although we strive to make PHOEBE as intuitive as possible, there are a number of scientific, numerical and technical details that need precise and thorough description. For that reason we have initiated several booklets that are freely downloadable. Still, given the enormous amount of work that the developers are presented with, it is very difficult to keep the documentation as up-to-date as we would like it to be. That is why all booklets are envisoned to be community-driven: we need volunteers to help us create and improve them.<br/><br/>
@@ -274,6 +285,9 @@ export class LegacyDownload extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Legacy | Download & Install</title>
+        </Helmet>
         <HeaderLegacy/>
         <Content>
           <details>

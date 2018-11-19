@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
 
 import {Content, Link, Redirect, Image, getLatestPatchVersion} from './common';
@@ -14,6 +16,9 @@ export class Releases extends Component {
     var latest_patch_version = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Releases</title>
+        </Helmet>
         <Header>
           <h1>Releases</h1>
           <div className="row">
@@ -59,6 +64,9 @@ export class ReleaseVersion extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | {version} Release</title>
+        </Helmet>
         <Header>
           <h1>PHOEBE {version}</h1>
         </Header>

@@ -6,10 +6,13 @@ import {
   Link
 } from 'react-router-dom'
 
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
 import 'babel-polyfill' // https://medium.com/@andrewzey/google-seo-with-create-react-app-fixing-the-hidden-gotcha-c164063106d
 
 import './App.css';
 
+import {metaKeywords} from './common';
 import {Navbar} from './navbar';
 import {Home} from './home';
 import {Releases, ReleaseVersion} from './releases';
@@ -74,6 +77,12 @@ class App extends Component {
     return (
       <Router>
         <div id='main'>
+          <Helmet>
+              <title>PHOEBE</title>
+              <meta name="description" content="phoebe astronomy software project"/>
+              <meta name="keywords" content={metaKeywords}/>
+          </Helmet>
+
           <Navbar />
 
           <Switch>

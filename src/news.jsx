@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
 import {Content, Link} from './common';
 import {Header} from './header';
 import {NotFound} from './errors';
@@ -268,6 +270,7 @@ export class News extends Component {
   render() {
     var filteredNewsStoryDicts = newsStoriesDicts;
     var headerTitle = "News";
+    var helmetTitle = "News";
 
     if (this.props.match.params.slug) {
       var filteredNewsStoryDicts = [];
@@ -276,6 +279,7 @@ export class News extends Component {
           // NOTE: if for some reason 2 have the same slug, this will return the OLDER
           filteredNewsStoryDicts.push(newsStoryDict)
           headerTitle = newsStoryDict.title
+          helmetTitle = "News | "+newsStoryDict.title
         }
       });
       if (! filteredNewsStoryDicts.length) {
@@ -287,6 +291,9 @@ export class News extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | {helmetTitle}</title>
+        </Helmet>
         <Header>
           <h1>{headerTitle}</h1>
         </Header>

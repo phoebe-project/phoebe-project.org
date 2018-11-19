@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
 import {Content, Link, Image, Redirect} from './common';
 import {Header} from './header';
 import {NotFound} from './errors';
@@ -8,6 +10,9 @@ export class HelpDevel extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Development Team</title>
+        </Helmet>
         <Header>
           <span className="hidden-xs"><h1>PHOEBE Development Team</h1></span>
           <span className="visible-xs"><h1>PHOEBE Dev Team</h1></span>
@@ -98,6 +103,9 @@ export class HelpFAQ extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | FAQ</title>
+        </Helmet>
         <Header>
           <h1><span class="hidden-xs">Frequently Asked Questions</span><span class="visible-xs">FAQ</span></h1>
         </Header>
@@ -131,6 +139,9 @@ export class HelpIPYNB extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | How To: Jupyter Notebooks</title>
+        </Helmet>
         <Header>
           <h1><span class="hidden-xs">How To: Jupyter/Ipython Notebooks</span><span class="visible-xs">How To: ipynb</span></h1>
         </Header>
@@ -146,6 +157,9 @@ export class HelpContact extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Contact Us</title>
+        </Helmet>
         <Header>
           <h1>Contact Us</h1>
 
@@ -211,6 +225,9 @@ export class HelpMailingList extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | {mailinglist} mailinglist</title>
+        </Helmet>
         <Header>
           <h1>{mailinglist}</h1>
         </Header>

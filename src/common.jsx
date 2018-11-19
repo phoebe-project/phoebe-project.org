@@ -4,6 +4,8 @@ import {Link as RouterLink, NavLink as RouterNavLink, Redirect as RouterRedirect
 // var smoothScroll = require('smoothscroll'); // https://github.com/alicelieutier/smoothScroll
 
 
+export const metaKeywords = "phoebe, phoebe-project, eclipsing binaries, eclipsing binary stars, astronomy";
+
 function processLink(link) {
   if (!link.startsWith("http")) {
     if (link.startsWith("#")) {

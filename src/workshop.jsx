@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
 import {Content, Link, Redirect} from './common';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
@@ -24,6 +26,9 @@ export class Workshop extends Component {
     if (this.state.workshop==null) {
       return(
         <div>
+          <Helmet>
+            <title>PHOEBE | Workshops</title>
+          </Helmet>
           <Header>
             <h1>PHOEBE Workshops</h1>
           </Header>
@@ -60,6 +65,9 @@ class WorkshopActive extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Workshops | {description}</title>
+        </Helmet>
         <Header>
           <h1>PHOEBE Workshop | {description}</h1>
 
@@ -100,6 +108,9 @@ class WorkshopArchived extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Workshops | {description}</title>
+        </Helmet>
         <Header>
           <h1>PHOEBE Workshop | {description}</h1>
 

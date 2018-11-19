@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
 import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
 
-import {Content, Link, Redirect, Alert} from './common';
+import {Content, Link, Redirect, Alert, metaKeywords} from './common';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
@@ -231,6 +233,10 @@ export class Docs extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Documentation</title>
+          <meta name="keywords" content={metaKeywords+", documentation, docs"}/>
+        </Helmet>
         <Header>
           <span className="hidden-xs"><h1>PHOEBE {version} Documentation</h1></span>
           <span className="visible-xs"><h1>{version} docs</h1></span>

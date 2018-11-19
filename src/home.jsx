@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
 import {Content, Link, AlertVersion} from './common';
 import {HeaderIndex} from './header';
 import {Footer} from './footer';
@@ -16,6 +18,9 @@ export class Home extends Component {
 
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Introducing PHOEBE 2</title>
+        </Helmet>
         <HeaderIndex />
         <Content>
           {pinnedNewsStoryDicts.map(newsStoryDict => <NewsContent title={newsStoryDict.title} slug={newsStoryDict.slug} author={newsStoryDict.author} date={newsStoryDict.date} showAsSummary={true} wrapHeight={100}>{newsStoryDict.content}</NewsContent>)}

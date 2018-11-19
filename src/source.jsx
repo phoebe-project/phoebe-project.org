@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+
 import {Content, Link} from './common';
 import {Header} from './header';
 
@@ -7,6 +9,9 @@ export class Source extends Component {
   render() {
     return (
       <div>
+        <Helmet>
+          <title>PHOEBE | Source-Code</title>
+        </Helmet>
         <Header>
           <h1>Source-Code</h1>
         </Header>
