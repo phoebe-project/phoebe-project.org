@@ -87,7 +87,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:slug'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:subdir/:slug'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/news'} component={News}/>
-            <Route path={process.env.PUBLIC_URL + '/news'} component={NewsEntry}/>
+            <Route exact path={process.env.PUBLIC_URL + '/news/:slug'} component={News}/>
             <Route exact path={process.env.PUBLIC_URL + '/workshop'} component={Workshop}/>
             <Route exact path={process.env.PUBLIC_URL + '/workshop/registration'} component={WorkshopRegistration}/>
             <Route exact path={process.env.PUBLIC_URL + '/workshop/:workshop'} component={Workshop}/>

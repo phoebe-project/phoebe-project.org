@@ -201,6 +201,26 @@ p {
   font-size: 48px;
 }
 
+/* NEWS PANELS */
+
+.news-callout {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+  border-color: #2B71B1;
+}
+
+a.news-permalink {
+    font-size: 1em;
+    padding: 0 4px 4px 4px;
+    text-decoration: none;
+    visibility: hidden;
+}
+
+*:hover > a.news-permalink {
+  visibility: visible;
+}
+
 /* DOCS - JUPTER NOTEBOOK RENDERING */
 
 .prompt{

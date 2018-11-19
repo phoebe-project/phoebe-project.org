@@ -3,13 +3,23 @@ import React, { Component } from 'react';
 import {Content, Link, AlertVersion} from './common';
 import {HeaderIndex} from './header';
 import {Footer} from './footer';
+import {newsStoriesDicts, NewsContent} from './news';
 
 export class Home extends Component {
   render() {
+    var pinnedNewsStoryDicts = [];
+    newsStoriesDicts.forEach((newsStoryDict, index) => {
+    	if (newsStoryDict.pinned) {
+        pinnedNewsStoryDicts.push(newsStoryDict)
+      }
+    });
+
     return (
       <div>
         <HeaderIndex />
         <Content>
+          {pinnedNewsStoryDicts.map(newsStoryDict => <NewsContent title={newsStoryDict.title} slug={newsStoryDict.slug} author={newsStoryDict.author} date={newsStoryDict.date} showAsSummary={true} wrapHeight={100}>{newsStoryDict.content}</NewsContent>)}
+
           <h1>Introducing PHOEBE 2</h1>
           <AlertVersion/>
 

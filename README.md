@@ -94,6 +94,8 @@ Versions displayed in the version switcher are defined in [docs.jsx](./src/docs.
 
 ## Updating News Entries
 
+News entries are defined in `newsStoriesDicts` variable in [news.jsx](./src/news.jsx).  To add a new article, add a dictionary to the TOP of this list, copying the format of other existing entries.  Pay particular attention to making sure all commas exist correctly (and test locally before deploying).  The `pinned` key in the dictionary will determine whether any given entry will also be shown on the top of the homepage.  Set this to true, if desired, but remember to set it to false after the article is no longer timely.  The `content` must be wrapped in an outer `<div>` element.
+
 ## Workshops
 
 Similar to the documentation, the workshop pages are dynamically fetched from the [phoebe2-workshop repository](http://github.com/phoebe-project/phoebe2-workshop) and rendered from the markdown files.  Updates to the workshop information or materials, should be made to the [phoebe2-workshop repository](http://github.com/phoebe-project/phoebe2-workshop) and pushed (or open a Pull Request) to the correct branch.  The name of the branch must match the name of the workshop URL (defined in the `workshops` variable in [workshop.jsx](./src/workshop.jsx)).
