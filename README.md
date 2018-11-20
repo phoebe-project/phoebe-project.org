@@ -1,8 +1,8 @@
 # phoebe-project.org
 
-phoebe-project.org is a single-page ReactJS website, with content dynamically pulled and rendered from the various [phoebe repositories](http://github.com/phoebe-project)
+phoebe-project.org is a single-page ReactJS website, with content dynamically pulled and rendered from the various [phoebe repositories](http://github.com/phoebe-project):
 
-* changelog and patch-release information (including knowing the latest patch-version for each release to render install instructions) is pulled from the README on the master branch of the [phoebe2 repository](http://github.com/phoebe-project/phoebe2-docs).
+* changelog and patch-release information (including knowing the latest patch-version for each release to render install instructions) is pulled from the README on the master branch of the [phoebe2 repository](http://github.com/phoebe-project/phoebe2).
 * documentation is pulled from the [phoebe2-docs repository](http://github.com/phoebe-project/phoebe2-docs) where each branch in the repository corresponds to a minor release of PHOEBE available on the documentation page.
 * workshop information will eventually be pulled from the corresponding branches in the [phoebe2-workshop](http://github.com/phoebe-project/phoebe2-workshop).
 

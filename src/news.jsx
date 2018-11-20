@@ -16,7 +16,7 @@ export var newsStoriesDicts = [
     author: "Kyle Conroy",
     content: <div>
               <p>
-                This phoebe-project.org website has been re-written to improve the ability to navigate the tutorials and documentation for various releases.
+                This phoebe-project.org website has been re-written (and is now also <Link to="http://github.com/phoebe-project/phoebe-project.org">open-source</Link>!) to improve the ability to navigate the tutorials and documentation for various releases.
               </p>
               <ul>
                 <li>Information about each release, including changelog for each bugfix release, has been moved from the Documentation page to the <Link to="/releases">Releases</Link> page.</li>
