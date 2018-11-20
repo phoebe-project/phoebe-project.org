@@ -194,8 +194,8 @@ export class Docs extends Component {
                                <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?title=issue+with+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}><span className="fas fa-bug"></span> Issue/Question on this Page?</Link>
                               </div>
       } else {
-        notebook_html = <div>
-                          <p>markdown source failed to load... try again</p>
+        notebook_html = <div style={{textAlign: "center"}}>
+                          <h3>No content could be found... please try again.  Or if you think something should be here or you followed an internal link, please <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?body=followed+link+from:+PLEASE+PASTE+URL+THAT+LINKED+TO+THIS+PAGE&title=no+content+found+at+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}>report the issue here</Link>.</h3>
                         </div>
       }
 
