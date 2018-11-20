@@ -59,6 +59,7 @@ export class Content extends React.Component {
 export class Redirect extends React.Component {
   render() {
     var to = processLink(this.props.to)
+    console.log("redirect to "+to)
     return (
       <RouterRedirect {...this.props} to={to}>{this.props.children}</RouterRedirect>
     )
@@ -111,7 +112,7 @@ export class Link extends React.Component {
         }
       } else {
         return (
-          <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"></span>} {this.props.children}</a>
+          <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"> </span>}{this.props.children}</a>
         )
       }
     } else {

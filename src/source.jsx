@@ -23,7 +23,7 @@ export class Source extends Component {
           <SourceEntry githubLink="http://github.com/phoebe-project/phoebe1" title="PHOEBE 1">Source-code for all <Link to="/1.0">PHOEBE legacy (0.x and 1.x) releases</Link></SourceEntry>
           <SourceEntry githubLink="http://github.com/phoebe-project/phoebe2-tables" title="PHOEBE 2 Tables">Atmosphere and passband tables used within PHOEBE 2.  These are downloaded automatically by PHOEBE 2 when requested.</SourceEntry>
           <SourceEntry githubLink="http://github.com/phoebe-project/phoebe2-docs" title="PHOEBE 2 Documentation">Jupyter notebooks and markdown sources for PHOEBE 2 tutorials, examples, and documentation.  These are also rendered and available via the <Link to="/docs">documentation section on this website</Link>.</SourceEntry>
-          <SourceEntry githubLink="http://github.com/phoebe-project/phoebe2-workshop" title="PHOEBE Workshop Materials">Jupyter notebooks and links to talks/videos for <Link to="/workshop">PHOEBE Workshops</Link>.</SourceEntry>
+          <SourceEntry githubLink="http://github.com/phoebe-project/phoebe2-workshop" title="PHOEBE Workshop Materials">Jupyter notebooks and links to talks/videos for <Link to="/workshops">PHOEBE Workshops</Link>.</SourceEntry>
           <SourceEntry githubLink="http://github.com/phoebe-project/phoebe-project.org" title="phoebe-project.org">Source-code for this website, written in ReactJS.</SourceEntry>
         </Content>
       </div>

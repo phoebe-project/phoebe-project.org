@@ -17,8 +17,8 @@ export class Publications extends Component {
         </Header>
         <Content>
           <h1>PHOEBE Paper Series</h1>
-          <Publication author="Horvat et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/#abs/2018ApJS..237...26H" pdf="pdf/horvat+2018.pdf" title="Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment" release="2.1"/>
-          <Publication author="Prsa et al. (2016)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P" pdf="pdf/prsa+2016.pdf" title="Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity" release="2.0"/>
+          <Publication author="Horvat et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/#abs/2018ApJS..237...26H" pdf="2018Horvat+.pdf" title="Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment" release="2.1"/>
+          <Publication author="Prsa et al. (2016)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P" pdf="2016Prsa+.pdf" title="Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity" release="2.0"/>
           <Publication author="Prsa et al. (2005)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2005ApJ...628..426P" title="A Computational Guide to Physics of Eclipsing Binaries. I. Demonstrations and Perspectives" release="legacy"/>
 
           <h1>PHOEBE Conference Proceedings</h1>
@@ -48,7 +48,7 @@ class Publication extends Component {
     return (
       <div className="row">
         <Link to={this.props.adsLink}>{this.props.author}</Link>
-        {this.props.pdf ? <span> (<Link to={"/"+this.props.pdf}>download pdf</Link>) </span> : null}
+        {this.props.pdf ? <span> (<a href={"https://github.com/kecnry/phoebe-project.org/raw/master/public/pdf/"+this.props.pdf}>download pdf</a>) </span> : null}
         <span> - {this.props.title}</span>
         {this.props.release ? <span> (<Link to={"/releases/"+this.props.release+"/"}>PHOEBE {this.props.release} release</Link>)</span> : null}
       </div>

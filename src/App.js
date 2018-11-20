@@ -19,7 +19,7 @@ import {Releases, ReleaseVersion} from './releases';
 import {Install} from './install';
 import {Docs} from './docs';
 import {News, NewsEntry} from './news';
-import {Workshop, WorkshopRegistration} from './workshop';
+import {Workshop, WorkshopRegistration} from './workshops';
 import {Publications} from './publications';
 import {Source} from './source';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
@@ -97,10 +97,10 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:subdir/:slug'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/news'} component={News}/>
             <Route exact path={process.env.PUBLIC_URL + '/news/:slug'} component={News}/>
-            <Route exact path={process.env.PUBLIC_URL + '/workshop'} component={Workshop}/>
-            <Route exact path={process.env.PUBLIC_URL + '/workshop/registration'} component={WorkshopRegistration}/>
-            <Route exact path={process.env.PUBLIC_URL + '/workshop/:workshop'} component={Workshop}/>
-            <Route exact path={process.env.PUBLIC_URL + '/workshop/:workshop/:slug'} component={Workshop}/>
+            <Route exact path={process.env.PUBLIC_URL + '/workshops'} component={Workshop}/>
+            <Route exact path={process.env.PUBLIC_URL + '/workshops/registration'} component={WorkshopRegistration}/>
+            <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop'} component={Workshop}/>
+            <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop/:slug'} component={Workshop}/>
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0'} component={LegacyIntro}/>

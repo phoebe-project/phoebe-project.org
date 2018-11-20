@@ -16,9 +16,10 @@ export var newsStoriesDicts = [
     author: "Kyle Conroy",
     content: <div>
               <p>
-                This phoebe-project.org website has been re-written (and is now also <Link to="http://github.com/phoebe-project/phoebe-project.org">open-source</Link>!) to improve the ability to navigate the tutorials and documentation for various releases.
+                The phoebe-project.org website has been re-written (and is now also <Link to="http://github.com/phoebe-project/phoebe-project.org">open-source</Link>) to improve the ability to navigate the tutorials and documentation for various releases.
               </p>
               <ul>
+                <li>Documentation will be preserved for each minor release.  All internal links will point to the latest release, but you can use the version switcher in the lower-right to access old releases.  For example, you can still access <Link to="/docs/2.0">docs for PHOEBE 2.0.x here</Link>.</li>
                 <li>Information about each release, including changelog for each bugfix release, has been moved from the Documentation page to the <Link to="/releases">Releases</Link> page.</li>
                 <li>Installation instructions, per-release, can now be found on the dedicated <Link to="/install">Install</Link> page.</li>
                 <li>The FAQ has been moved from buried deep at the bottom of the documentation page to its own <Link to="/help/faq">FAQ page</Link> under the "Help" dropdown in the menu.</li>
@@ -69,7 +70,7 @@ export var newsStoriesDicts = [
                 We will be holding the first PHOEBE Workshop at Villanova University, Villanova, Pennsylvania, USA, June 18th-22nd, 2018.
               </p>
               <p>
-                Further information and the registration form can be found at <Link to="/workshop">http://phoebe-project.org/workshop</Link>.  Registration is now open and will remain open until March 30th, 2018.
+                Further information and the registration form can be found at <Link to="/workshops">http://phoebe-project.org/workshops</Link>.  Registration is now open and will remain open until March 30th, 2018.
               </p>
               <p>
                 We look forward to welcoming you to Villanova University in June!
@@ -275,7 +276,7 @@ export class News extends Component {
     if (this.props.match.params.slug) {
       var filteredNewsStoryDicts = [];
       newsStoriesDicts.forEach((newsStoryDict, index) => {
-      	if (this.props.match.params.slug == newsStoryDict.slug) {
+      	if (this.props.match.params.slug === newsStoryDict.slug) {
           // NOTE: if for some reason 2 have the same slug, this will return the OLDER
           filteredNewsStoryDicts.push(newsStoryDict)
           headerTitle = newsStoryDict.title
@@ -342,7 +343,7 @@ export class NewsContent extends Component {
     return (
       <div className="panel news-callout" data-i="7">
         <h2>{this.props.title} {this.props.showAsSummary ? <Link to={"/news/"+this.props.slug} className="news-permalink" title="Permalink to this article">¶</Link> : null}</h2>
-        <div class="news-info">
+        <div className="news-info">
           <h6>
             <small>
               Date: {this.props.date}<br/>

@@ -61,7 +61,7 @@ export class Navbar extends React.Component {
               <li><NavLink to="/install" style={navbarLinkStyle} title="Download & Install"><span className="fa fa-download"></span> <span>Install</span></NavLink></li>
               <li><NavLink to="/docs" style={navbarLinkStyle} title="Documentation"><span className="fa fa-book-open"></span> <span className="hidden-md hidden-sm">Documentation</span><span className="visible-md-inline-block visible-sm-inline-block">Docs</span></NavLink></li>
               <li><NavLink to="/news" style={navbarLinkStyle} title="News"><span className="far fa-newspaper"></span> <span className="">News</span></NavLink></li>
-              <li><NavLink to="/workshop" style={navbarLinkStyle} title="Workshop"><span className="fas fa-chalkboard-teacher"></span> <span className="hidden-sm">Workshops</span></NavLink></li>
+              <li><NavLink to="/workshops" style={navbarLinkStyle} title="Workshop"><span className="fas fa-chalkboard-teacher"></span> <span className="hidden-sm">Workshops</span></NavLink></li>
               <li><NavLink to="/publications" style={navbarLinkStyle} title="Publications"><span className="fas fa-copy"></span> <span className="hidden-sm">Publications</span></NavLink></li>
               <li><NavLink to="/source" style={navbarLinkStyle} title="Source-Code"><span className="fas fa-code-branch"></span> <span className="hidden-sm">Source</span></NavLink></li>
               {/* <li><NavLink to="/1.0" style={navbarLinkStyle} title="PHOEBE 1.0 (Legacy)"><span className="fa fa-archive"></span> <span className="hidden-sm hidden-md">Legacy</span></NavLink></li> */}
