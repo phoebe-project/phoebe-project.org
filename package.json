@@ -1,7 +1,7 @@
 {
   "name": "phoebe-project",
-  "version": "0.1.0",
-  "homepage": "http://kecnry.github.io/phoebe-project.org",
+  "version": "1.0.0",
+  "homepage": "http://phoebe-project.org",
   "private": true,
   "dependencies": {
     "@nteract/notebook-preview": "^10.0.3",
@@ -17,11 +17,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build && cp build/index.html build/200.html && cp build/index.html build/404.html",
+    "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "npm run build && scp -r build/* clusty:/srv/www/phoebe-project-new/"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1"
