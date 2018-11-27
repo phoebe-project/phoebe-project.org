@@ -12,7 +12,7 @@ export var newsStoriesDicts = [
     title: "Improved Tutorials and API Documentation",
     slug: "improved-tutorials-and-api-documentation",
     pinned: true,
-    date: "November 19, 2018",
+    date: "November 27, 2018",
     author: "Kyle Conroy",
     content: <div>
               <p>
