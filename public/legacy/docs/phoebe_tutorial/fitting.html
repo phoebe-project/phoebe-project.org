@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Phoebe 0.29 Tutorial - First steps of fitting</TITLE>
+<META NAME="description" CONTENT="First steps of fitting">
+<META NAME="keywords" CONTENT="phoebe_tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="phoebe_tutorial.css">
+
+<LINK REL="next" HREF="comfortable.html">
+<LINK REL="previous" HREF="first_steps.html">
+<LINK REL="up" HREF="index.html">
+<LINK REL="next" HREF="comfortable.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+
+<B> Next:</B> <A NAME="tex2html258"  HREF="comfortable.html">I feel comfortable, what</A>
+<B> Up:</B> <A NAME="tex2html254"  HREF="index.html">PHOEBE Tutorial</A>
+<B> Previous:</B> <A NAME="tex2html248"  HREF="component_params.html">Component-related parameters</A>
+ &nbsp; <B>  <A NAME="tex2html256"  HREF="contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00040000000000000000">
+First steps of fitting</A>
+</H1>
+
+<P>
+There is a preferable order of which parameters should be fitted when. Patience is advisory; as you gain experience, you will get the feeling of how to approach to certain types of problems. But the usual recipe would be this: start with luminosities. These quantities, although carrying physical name, are actually "normalizers" of your experimental data; original minimization routines work with fluxes, not with magnitudes, so <TT>PHOEBE </TT>internally does all the necessary conversions. These conversions are based on the normalizing magnitude that is set in the <code>Data</code> tab. It defaults to 10, but should be set to the magnitude of the quarter phase; as this cannot (and shouldn't) be done too accurately, luminosities jump in and normalize the data so that the normalization is actually done internally and you don't have to worry about it. These luminosities are referred to as <code>HLA</code> and <code>CLA</code> in in <code>WD</code>.
+
+<P>
+Go to the <code>Luminosities</code> tab (Fig. <A HREF="#phoebe_luminosities_tab">17</A>) and turn on the <code>Adjust HLAs</code> switch. Leave the step as it is, since we are going to use Levenberg-Marquardt's <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="$\lambda$"></SPAN> multiplicator routine, which automatically chooses a proper step size when close to the solution.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="phoebe_luminosities_tab"></A><A NAME="248"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 17:</STRONG>
+<TT>PHOEBE </TT>luminosities tab.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_luminosities_tab.png"
+ ALT="phoebe luminosities tab"> 
+<BR>
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Now go to the <code>Fitting</code> tab (Fig. <A HREF="#phoebe_fitting_tab">18</A>); the upper part of the tab is dedicated to the method of multiple subsets, which we will not use in this tutorial. The lower left part belongs to the two-dimensional projection of the parameter phase-space, which helps us analyse parameter correlations. We shall demonstrate its use in the course of this tutorial. On the right, there are fitting parameters, which are generally a good choice. Change grid sizes only if stellar shapes deviate significantly from spheroids, change Marquardt's <SPAN CLASS="MATH"><IMG
+ WIDTH="16" HEIGHT="20" ALIGN="BOTTOM" BORDER="0"
+ SRC="img41.png"
+ ALT="$\lambda$"></SPAN> only if convergence isn't satisfactory. Choosing symmetrical derivatives is a better approximation, but at the expence of computing time. Since the time isn't that important at the moment, turn on symmetrical derivatives! After you have gotten yourself comfortable, click on the <code>Fit Parameters Set For Adjustment</code> switch!
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="phoebe_fitting_tab"></A><A NAME="256"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 18:</STRONG>
+<TT>PHOEBE </TT>fitting tab.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_fitting_tab.png"
+ ALT="phoebe fitting tab"> 
+<BR>
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+After you have clicked on that button, a fitting window (Fig. <A HREF="#phoebe_dc_corrections">19</A>) will show up. This window is composed of three lists that contain important information for monitoring the progress of your soulution trough iterations.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="phoebe_dc_corrections"></A><A NAME="264"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 19:</STRONG>
+<TT>PHOEBE </TT>differential corrections window.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_dc_corrections.png"
+ ALT="phoebe dc corrections"> 
+<BR>
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+On the top of the fitting window is a columned list that contains all parameters selected for adjustment. In case of curve-independent parameters there is only one entry and in case of curve-dependent parameters there are as many entries as there are affected curves. Light curves and radial velocity curves differ in this respect and have each their own adjustment switches.
+
+<P>
+Parameter names are followed by their current values. The fitting algorithm will calculate the correction of <B>one</B> iteration. Be very careful about these values, for they are the best marker to show if the fit converges or diverges. Luminosities essentially always converge, but you can never be too sure. This list also shows the corrected value and standard deviation of the fit of the particular parameter.
+
+<P>
+Next is a list of all experimantal curves detailing the number of points and the <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$\chi^2$"></SPAN> values before and after calculation for each curve. The <SPAN CLASS="MATH"><IMG
+ WIDTH="24" HEIGHT="39" ALIGN="MIDDLE" BORDER="0"
+ SRC="img44.png"
+ ALT="$\chi^2$"></SPAN> values change after each iteration to reflect the similarity of the newly calculated curves to experimental data, and thus are another way to monitor the convergence of your soulution.
+
+<P>
+Finally, in the lower part of the fitting window there is a list of passband luminosities for the primary and secondary stars, as well as for the <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img45.png"
+ ALT="$3^\mathrm{rd}$"></SPAN> body.
+
+<P>
+Now click on the <code>Calculate</code> button! After some seconds of calculating (depending on the speed of your computer), the window as in Fig. <A HREF="#phoebe_fitting_window">20</A> will show up.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="phoebe_fitting_window"></A><A NAME="274"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 20:</STRONG>
+<TT>PHOEBE </TT>differential corrections window with calculated parameters.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_dc_corrections_calculated.png"
+ ALT="phoebe dc corrections calculated"> 
+<BR>
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+You may see that both corrections (and their corrected values) are in agreement with what we expect (recall what offsets we saw in plotting windows). Since we are happy with the fit results, we want to keep them. So click on <code>Update all corrections</code> button to replace the original values in both the fitting window and in the main <TT>PHOEBE </TT>window with corrected values. The fitting function is now ready for the second iteration, so click on <code>Calculate</code> button again! The corrections will now be even smaller and the convergence obvious. Update the corrected values and recalculate the values as many times as you see fit. As long as you are far away from the solution, be sure to let the values converge on a decimal or two, but as the fit gets better and better, try to be as accurate as possible. If you persisted completely through the convergence, you should have come up with these values:
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="281"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 21:</STRONG>
+<TT>PHOEBE </TT>differential corrections window with calculated parameters after several itterations.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_dc_corrections_final.png"
+ ALT="phoebe dc corrections final"> 
+<BR>
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Before you close the fitting window, take notice of the <code>Show QuickBar</code> button. It opens a window where you can mark any system parameter for adjustment and change its adjustment step. This is a time-saving shortcut worth of keeping in mind.
+
+<P>
+When you've finished (and are happy) with fitting, close the window by clicking on the <code>Close</code> button. Go to the <code>Luminosities</code> tab (or enter the <code>Fitting QuickBar</code>), turn off the adjustment switch of the luminosities and inspect the results, as you have before, for both light curves. Notice any difference? Still not perfect, but much better.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+
+<B> Next:</B> <A NAME="tex2html258"  HREF="comfortable.html">I feel comfortable, what</A>
+<B> Up:</B> <A NAME="tex2html254"  HREF="index.html">PHOEBE Tutorial</A>
+<B> Previous:</B> <A NAME="tex2html248"  HREF="component_params.html">Component-related parameters</A>
+ &nbsp; <B>  <A NAME="tex2html256"  HREF="contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

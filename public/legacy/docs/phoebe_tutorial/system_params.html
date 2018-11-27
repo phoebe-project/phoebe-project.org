@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Phoebe 0.29 Tutorial - System-related parameters</TITLE>
+<META NAME="description" CONTENT="System-related parameters">
+<META NAME="keywords" CONTENT="phoebe_tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="phoebe_tutorial.css">
+
+<LINK REL="next" HREF="presume.html">
+<LINK REL="previous" HREF="experimental_data.html">
+<LINK REL="up" HREF="first_steps.html">
+<LINK REL="next" HREF="presume.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+
+<B> Next:</B> <A NAME="tex2html212"  HREF="presume.html">What else may we</A>
+<B> Up:</B> <A NAME="tex2html208"  HREF="first_steps.html">First steps with PHOEBE</A>
+<B> Previous:</B> <A NAME="tex2html202"  HREF="experimental_data.html">Supplying experimental data</A>
+ &nbsp; <B>  <A NAME="tex2html210"  HREF="contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00035000000000000000">
+System-related parameters</A>
+</H2>
+
+<P>
+When we are finished with specifying experimental data for <TT>PHOEBE </TT>in the <code>Data</code> tab, let's proceed to the <code>System-related</code> tab (Fig. <A HREF="#phoebe_basic_tab">8</A>).
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="phoebe_basic_tab"></A><A NAME="132"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 8:</STRONG>
+<TT>PHOEBE </TT>system related tab.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_system_related_tab.png"
+ ALT="phoebe system related tab"> 
+<BR>
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+The <code>System-related</code> tab contains 8 physical parameters that apply to the binary system as a whole (contrary to component-related parameters, which apply to each component of the binary system individually). They are:
+<DL COMPACT>
+<DT></DT>
+<DD><code>HJD0</code>: the reference time epoch of the zero phase. It is in units of HJD and it determines the initial point (the origin) for the epoch of the binary.
+</DD>
+<DT></DT>
+<DD><code>PERIOD</code>: the period of the binary. It is given in days.
+</DD>
+<DT></DT>
+<DD><code>DPDT</code>: the first time derivative of the binary. It gives the period change rate in days per day, so if different than 0, it is a very small quantity.
+</DD>
+<DT></DT>
+<DD><code>PSHIFT</code>: a constant phase shift of ephemeris time. By applying the shift 0.5, one easily exchanges the roles of both components.
+</DD>
+<DT></DT>
+<DD><code>SMA</code>: the semi-major axis of the binary. It is the maximum distance between both binary components given in solar radii, <SPAN CLASS="MATH"><IMG
+ WIDTH="30" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img19.png"
+ ALT="$R_\odot$"></SPAN>.
+</DD>
+<DT></DT>
+<DD><code>RM</code>: the mass ratio. It is defined as the ratio of a secondary component mass over primary component mass, primary star being the one <B>eclipsed</B> at phase 0.
+</DD>
+<DT></DT>
+<DD><code>INCL</code>: the inclination of the system. It is measured in degrees: inclinations smaller than <SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$90^o$"></SPAN> mean that the binary rotates counter-clockwise as projected onto a plane of sky; inclinations larger than <SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$90^o$"></SPAN> mean that the binary rotates clockwise as projected onto a plane of sky.
+</DD>
+<DT></DT>
+<DD><code>VGA</code>: the radial velocity of the binary system center of mass expressed in km/s.
+</DD>
+</DL>
+
+<P>
+First four parameters, <TT>HJD0</TT>, <TT>PERIOD</TT>, <TT>DPDT</TT> and <TT>PSHIFT</TT> are called the <B>epoch</B> parameters, since they determine the ephemeris epoch of the binary. With these parameters the mapping to phase-space is readily possible. The following four parameters, <TT>SMA</TT>, <TT>RM</TT>, <TT>XINCL</TT> and <TT>VGA</TT> determine the global binary shape.
+
+<P>
+Let us focus for one second at parameter input form (Fig.&nbsp;<A HREF="#phoebe_parameter_entry_explained">9</A>); each parameter is given by its keyword, a concise description and a value.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="phoebe_parameter_entry_explained"></A><A NAME="152"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 9:</STRONG>
+A typical <TT>PHOEBE </TT>parameter entry explained.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_parameter_entry_explained.png"
+ ALT="phoebe parameter entry explained"> 
+<BR>
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<TT>PHOEBE </TT>keyword is the symbol by which a particular parameter is identified in <TT>PHOEBE </TT>. Keyword names follow a well established WD standard, but since <TT>PHOEBE </TT>does much more, new keyword names had to be introduced. In appendix <A HREF="keywords.html#phoebe_keywords">D</A> a complete list of all <TT>PHOEBE </TT>keywords is given. A file containing all parameter values in form <TT>KEYWORD = VALUE</TT> is called a <B>keyword file</B>. These files usually have the extension <TT>.phoebe</TT>, but there are no limitations in this respect.
+
+<P>
+A concise description is meant to elaborate on sometimes cryptic parameter keywords and give additional explanation on some conventions that are not obvious (e.g. the mass ratio being defined as the mass of the secondary star divided by the mass of the primary star - see Fig.&nbsp;<A HREF="#phoebe_basic_tab">8</A>).
+
+<P>
+The parameter value depends on parameter type. Usually the value is a number (integer or real), but it may also be boolean (<TT>TRUE</TT> and <TT>FALSE</TT>) or a string (text). A typical example of a boolean value is the adjustment switch (Fig.&nbsp;<A HREF="#phoebe_parameter_entry_explained">9</A>), where a string value is, in example, the experimental data filter name.
+
+<P>
+The <TT>Adjust</TT> switch is used to mark the parameter for adjustment. If turned on, this switch causes the value of the corresponding parameter to be fitted during the minimization process<A NAME="tex2html16"
+  HREF="footnode.html#foot165"><SUP><SPAN CLASS="arabic">7</SPAN></SUP></A>. Otherwise the value is kept.
+
+<P>
+If the value is to be adjusted, the <B>minimization step</B> size tells <TT>PHOEBE </TT>how crudely to change the values during the minimization process. These values should be carefully chosen, because a value too large will skip the minimum and the value too small will take unnecessarily long computing time.
+
+<P>
+Finally, on the right-most part there are parameter boundaries for the simplex minimization routine. This routine scans through the parametric hyperspace in search for a global minimum. This is yet to be implemented, so all these boundaries are currently shaded out.
+
+<P>
+<DIV CLASS="centerline" ID="par1987" ALIGN="CENTER">
+<SPAN CLASS="MATH"><IMG
+ WIDTH="10" HEIGHT="27" ALIGN="BOTTOM" BORDER="0"
+ SRC="img22.png"
+ ALT="$\vdots$"></SPAN></DIV>
+
+<P>
+Now try and change the value for period and the origin of time! Change the period to 0.600086 and <TT>HJD0</TT> to 2448500.562. These two numbers you should estimate yourself independently of using <TT>PHOEBE</TT>. Since we have no physical indications about the values of other parameters, leave them be as they are.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+
+<B> Next:</B> <A NAME="tex2html212"  HREF="presume.html">What else may we</A>
+<B> Up:</B> <A NAME="tex2html208"  HREF="first_steps.html">First steps with PHOEBE</A>
+<B> Previous:</B> <A NAME="tex2html202"  HREF="experimental_data.html">Supplying experimental data</A>
+ &nbsp; <B>  <A NAME="tex2html210"  HREF="contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

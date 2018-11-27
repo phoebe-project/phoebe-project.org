@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Phoebe 0.29 Tutorial - Component-related parameters</TITLE>
+<META NAME="description" CONTENT="Component-related parameters">
+<META NAME="keywords" CONTENT="phoebe_tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="phoebe_tutorial.css">
+
+<LINK REL="previous" HREF="inspecting_data.html">
+<LINK REL="up" HREF="first_steps.html">
+<LINK REL="next" HREF="fitting.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+
+<B> Next:</B> <A NAME="tex2html246"  HREF="fitting.html">First steps of fitting</A>
+<B> Up:</B> <A NAME="tex2html242"  HREF="first_steps.html">First steps with PHOEBE</A>
+<B> Previous:</B> <A NAME="tex2html238"  HREF="inspecting_data.html">Inspecting data files closely</A>
+ &nbsp; <B>  <A NAME="tex2html244"  HREF="contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00038000000000000000">
+Component-related parameters</A>
+</H2>
+
+<P>
+We will now proceed with looking for clues about our binary that would help us set a decent starting point for automatic minimization algorithm.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="phoebe_advanced_tab"></A><A NAME="230"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 15:</STRONG>
+<TT>PHOEBE </TT>component-related tab.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_component_related_tab.png"
+ ALT="phoebe component related tab">
+
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<code>UV Leonis</code> is a detached binary system and as such we may estimate the gravity potential. <TT>PHOEBE </TT>uses modified Kopal potentials as defined in (Wilson 1979). Their <code>WD</code> names are <code>PHSV</code> for a primary star and <code>PCSV</code> for a secondary star. In <code>Component-related</code> tab (Fig. <A HREF="#phoebe_advanced_tab">15</A>) you may find the calculation buttons next to initial parameter values. Clicking these brings out the calculation window (Fig. <A HREF="#phoebe_phsv_calculation">16</A>).
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="phoebe_phsv_calculation"></A><A NAME="239"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 16:</STRONG>
+The calculation window of the primary star's gravitational potential.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_phsv_calculation.png"
+ ALT="phoebe phsv calculation"> 
+<BR>
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+You may quickly calculate the value of the potential by supplying the instantaneous separation between both stars, normalized to the semi-major axis (thus always 1.0 for circular orbits), the mass ratio and the radius-vector to the desired point in space, again in units of semi-major axis. To calculate the modified Kopal potential, set this radius-vector to the star radius towards the companion star (if tidal forces are strong, the star is deformed into a dumbell shape, so stellar radius is direction-dependent). In case of elliptical orbit the potential will depend on synchronicity parameter and direction cosines, but this is out of scope of this tutorial. Please refer to <TT>PHOEBE </TT>Reference Manual for further assistance.
+
+<P>
+On the lowermost part of the calculation window there is a button box. The <code>Calculate</code> button calculates the value of potential. <TT>PHOEBE </TT>lets the user inspect it and decide whether the calculated value is acceptable or not. If not, you may close the calculation window by clicking on the <code>OK</code> button and there will have been no changes made. If so, clicking on the <code>Update</code> button will copy the calculated value to the main <TT>PHOEBE </TT>window.
+
+<P>
+<code>UV Leonis</code> seems to have a pretty circular orbit and in the first approximation it seems that the default values in the calculation window are as might be expected (we will be proven wrong shortly, but this in fact is the realistic presumption). Therefore click on the <code>Calculate</code> button. The value 11.00504 will show up in <code>PHSV</code> entry. Since we are happy with it, click on <code>Update</code> button. The value will be copied to the <code>Advanced</code> tab of the main <TT>PHOEBE </TT>window. Close the calculation window by clicking on the <code>OK</code> button.
+
+<P>
+Repeat the same procedure for the secondary potential. The value will be the same.
+
+<P>
+At this time we cannot safely presume anything about the values of gravity brightening, albedo and synchronicity parameters, so we continue without modifying anything.
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+
+<B> Next:</B> <A NAME="tex2html246"  HREF="fitting.html">First steps of fitting</A>
+<B> Up:</B> <A NAME="tex2html242"  HREF="first_steps.html">First steps with PHOEBE</A>
+<B> Previous:</B> <A NAME="tex2html238"  HREF="inspecting_data.html">Inspecting data files closely</A>
+ &nbsp; <B>  <A NAME="tex2html244"  HREF="contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

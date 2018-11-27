@@ -1,0 +1,1966 @@
+  This is PHOEBE-0.30 ChangeLog. All changes since Sep 1 2003 are logged here.
+  For previous ChangeLog entries refer to PHOEBE 0.2x versions or the CVS.
+--------------------------------------------------------------------------------
+
+2005-07-17: - Some primitive error-handling facility implemented. All functions
+              defined in bison input file should accept any number of arguments
+              and the command function itself should check if the number is
+              right or not. At the same time, argument type checking is also
+              done. Use functions scripter_check_no_of_args and scripter_check_
+			  arg_type for this. Currently, only get_parameter_value features
+              this new error-handling scheme.
+            - A bug in phoebe_array_duplicate () function that caused a
+              segfault when NULL was passed was fixed.
+            - The column directive was too restrictive in its grammar syntax,
+              because it didn't allow elements of string arrays to be passed
+              to it. Fixed.
+2005-07-14: - Command plot_rv_using_gnuplot () implemented. It takes three
+              arguments: curve number, observational data switch and synthetic
+              data switch. The switches determine whether the data will be
+              plotted or not.
+            - Hipparcos Hp passband added to the list of enumerated passbands.
+              All readout/reference function have been updated accordingly.
+            - A typo fixed in phoebe_rm description.
+			- A new command added to the scripter: prompt (). It takes one
+              argument, a prompt string, and queries the user for the answer.
+              This answer is then returned as an expression. Unfortunately,
+              all answers are currently parsed as strings, which makes this
+              command pretty useless. However, the prototype is there and I'm
+              planning to work on it soon.			  
+            - If period change DPDT is different than 0, the independent
+              variable for the fit mustn't be set to phases, otherwise the
+              minimizer fits the data that are using DPDT from the solution
+              to transform HJDs to phases. PHOEBE now stops the minimizer
+              from executing and issues a library warning.
+2005-07-13: - Printing doubles in the scripter was using %lf format, which
+              made small/big numbers unreadable. It is now changed to %g.
+            - Added a new function that prints out phoebe_scripter_value types.
+              This function is called by any other function that needs to
+              print the values to screen/file.
+            - Type kind_proc changed to kind_macro, because I searched the AST
+              tree for it one too many times! ;)
+            - Handling return values of functions has been rewritten and is now
+              working as it is supposed to: there are no more global switches
+              and AST values that were bloating the code. The trick is not to
+              evaluate block as a whole, but rather to evaluate it statement-
+              by-statement until there are no more statements or until the
+              return statement is encountered.
+            - The 'pwd' directive wasn't returning void. Fixed.
+            - Freeing AST memory was causing segfaults. Until I find the cause
+              to this, I'm disabling it.
+            - Reading out columns was not fool-proof against non-existent
+              files. Fixed.
+2005-07-12: - All obsolete symbol table handlers removed from the code.
+            - Proper freeing of symbols and symbol tables implemented.
+            - Memory leak in handling LD table fixed.
+2005-07-11: - CVS version of PHOEBE didn't build because of some missing (un-
+              commited) files. Fixed.
+            - Header files in some sources were still malformed (e.g. #include
+              <phoebe/phoebe_global.h>. Fixed.
+            - All char * qualifiers that were supposed to be const have been
+              updated. This fixed all those (benign) warnings about suppressed
+              qualifiers.
+2005-07-08: - LD interpolation tested on V945 Centauri and it's working! :)
+            - Some small cleanups done in LD readout.
+            - Computing VGA value simultaneously during the fit was disabled
+              because of the PHOEBE_data -> PHOEBE_vector type transition.
+              The function has now been re-implemented and activated.
+            - All remaining functions that were using PHOEBE_data structure
+              have been updated.
+            - PHOEBE_data structure removed from phoebe_types! This effort will
+              show in significant speed-up of certain functions, particularly
+              the minimizers!
+2005-07-06: - LD implementation done! It took quite a lot of work, but I hope
+              it was worth the effort, because table readout is now done in
+              such a way that it should be very simple to replace Van Hamme
+              tables with any other database, e.g. Claret or similar.
+            - Command get_ld_coefficients () added to the scripter. It takes
+              4 arguments: curve index, T, M and log g. The latter 3 should
+              be optional, but that's not yet implemented.
+2005-07-05: - Symbolic linking to libphoebe directory is no longer necessary,
+              since libtool takes care of wrapping the actual binaries. Creation
+              of symbolic links is thus removed from configure.ac.
+            - Limb darkening readout significantly improved. There is no need
+              anymore for the external hash file (there used to be a file
+              'ld_availability.data', which had to be present in the directory
+              with LD coefficients, but this constraint was now removed. Fur-
+              thermore, the readout is now done dynamically, scanning through
+              all the files in the LD directory, hashing file names and posi-
+              tions of particular coefficients. These lookup identifiers are
+              then placed in a global LD table that allows for fast reference
+              and searching on the disk. For more information about the imple-
+              mentation please take a look at phoebe_ld.c and phoebe_ld.h, it's
+              heavily commented.
+2005-07-04: - When querying string arrays with info or show directives, the
+              memory that is in const memory was freed, which caused a segfault.
+              Fixed. Function prototype for phoebe_get_value_list_string changed
+              to const char *, so that future attempts to free this memory get
+              caught.
+2005-07-02: - Safely back home, PhD writing commences! As I figure some neat
+              thingie, I'm going to implement it (if it's not too much work,
+              of course). The first such thingie is the calculation of peri-
+              astron passage orbital phase - the function is put to phoebe_
+              calculations and is called calculate_periastron_orbital_phase ().
+            - Command 'compute_perr0_phase ()' implemented in the scripter.
+              It takes two arguments, perr0 and eccentricity. Fool-proofing
+              and type propagation is also done.
+2005-07-01: - Syros conference is over! I'm on my trip back to Ljubljana and
+              I just caught a bit of spare time to change the way AST printing
+              is done: now AST nodes are printed out only when the debug mode
+              is used, so I don't have to comment/uncomment the corresponding
+              grammar file statement. By the way, if you are interested, I'm
+              on a ship from Syros to Santorini and although the weather is
+              beautiful, there is a thick fog all around the ship and the
+              captain blows the horn continuously! It's fun, I hope he doesn't
+              wreck the ship! ;)
+2005-06-25: - The grammar file cleaned of all redundant header files, other
+              smaller fixups have been done. For those of you who actually read
+              this ChangeLog, you might know that I am at Santorini right now
+              and that I *really* shouldn't be working, although I will be
+              attending the conference on Syros from Monday; don't worry, I
+              didn't turn into a workoholic, I was at the beach from 9 AM to
+              7 PM and, given that I have no company and I am not sleepy, I
+              powered on my laptop and that's what happens if I do that - this
+              ChangeLog gets edited! ;) Still, a nice Greek dinner awaits, so
+              you'll excuse me, I have a date with souvlaki!
+2005-06-17: - When comitting new values for symbols, the old AST was left
+              allocated, which caused a memory leak. The memory is now freed.
+            - Dedicated type propagation functions added to the scripter. It
+              is now much easier to propagate value types and their values.
+            - As part of the data structure obsoleting process, setting the
+              variable to the data type is removed.
+            - Further cleaning of the scripter code (AST implementation in
+              particular) has been done.
+2005-06-16: - Scripter AST struct defined type_element, which wasn't needed,
+              since elements reduce to expressions. Removed.
+            - Structures passed into AST evaluation have been copied to a newly
+              allocated memory, which is both redundant in terms of efficiency
+              and memory consumption. Fixed.
+            - Directive 'set' supported unary identifier operators ++ and --.
+              This doesn't really make sense, that's why this support has been
+              removed.
+            - Blocks have been declared as an independent part of the body of
+              scripts, which caused them to be executed even if there was a
+              syntax error somewhere in a block. Now they have been declared as
+              a subunit of statements, so *only* complete, syntax-verified
+              statements (including blocks) are now executed. This is another
+              major change that significantly improves scripter logic and
+              structure.
+            - Grammar rules for loops (for and while) have been changed to
+              accept single statements as well as blocks. So something like:
+
+                for (i=1; i<=5; i++) print i
+
+              is now possible. This is often convenient and the new definition
+              of blocks allows simple implementation of both single statements
+              and blocks as loop bodies.
+            - The index (iterator) in for-loops had a local scope. This often
+              caused confusion as to why its definition is limited to the loop
+              only. That is why the index is now globally (yet still implicitly)
+              defined.
+2005-06-14: - Substantial amount of effort went into making the debugging
+              core for the scripter. Among other things that have been imple-
+              mented, AST printing has been enhanced. The scripter is now able
+              to print out whole ASTs, which is indispensable for debugging.
+            - In scripter_ast_evaluate () function the handling of statements
+              was obscure because it handles redirections as well, yet there
+              were no comments about what the code is doing. Fixed.
+2005-06-13: - Memory leak in read_in_observational_data () removed - read-in
+              string wasn't freed after being allocated by parse_data_line ().
+            - Scripter memory management improved, which reduced the allocated-
+              but-not-freed bytes from 63443 to 55827! :)
+            - The scripter_init () function overwrote the parameter file argu-
+              ment if one was passed. Fixed.
+            - Directive 'unset' implemented. It takes one argument, a variable
+              that is supposed to be unset. The memory for the AST is freed
+              after unset. PHOEBE API updated.
+2005-06-12: - When saving parameter files, the check-up for file regularity was
+              done before the file was opened. This meant that non-existent
+              files *always* failed this test. Fixed.
+            - String array manipulation has been translated to PHOEBE_array
+              structure manipulation. Since strings are the only containers
+              where each element of the array allocates its own memory, this
+              was necessary for memory leak avoidance. Obviously it is much
+              cleaner this way also and the same should soon be done for ints
+              and booleans.
+            - Functions release_parameter_by_index () and release_parameter_by_
+              _qualifier () implemented. This is *finally* a rock-solid scheme
+              for releasing allocated memory. It has been tested for memory
+              leaks and there were none.
+            - Options from KIND_MENU parameters are now also freed properly.
+            - A test for PHOEBE_array structure added to tests/.
+            - Memory cleanup is now done by phoebe_quit () function. Today's
+              effort reduced the number of allocated-but-not-freed bytes from
+              74282 to 63443! :)
+2005-06-11: - A nasty bug has been discovered that was introduced by temporing
+              with the symbol table: functions and macros lost their separate
+              scope, which means that the variables defined and used within
+              functions and macros *overwrote* global variables in the main
+              scope. This has now been fixed, yet another issue persists:
+              within macros and functions all main scope variables remain valid
+              and accessible, which shouldn't be. Although this might seem
+              practical and convenient, it is actually dangerous and may leed
+              to bad code, so this issue should be addressed soon.
+            - More code tidying. Soon PHOEBE_data structure will be gone for
+              good! :)
+            - Plotting light curves from the scripter now defaults to [-0.6,
+              0.6] range (courtesy of the aliasing function implementation).
+2005-06-10: - Aliasing data points added to read_in_observational_data (). It
+              has been tested and fool-proofed.
+            - Another full day of code-cleaning and tidying done.
+2005-06-09: - Weighted chi2 function normalization wasn't done correctly; this
+              did not influence convergence, only computed chi2 values were not
+              always correct (they were correct only when weights were norma-
+              lized).
+            - A *whole* day of code-cleaning and SPECS conforming work done.
+            - Function read_in_observational_data heavily enhanced, debugged
+              and fool-proofed. It should now be production-stable. :)
+2005-06-08: - Reading in observational data could produce a memory leak if the
+              programmer already allocated memory prior to calling the read-in
+              function. Since this is a programming error, the library warns
+              about it and returns an error code.
+2005-06-05: - Phase shift should not apply to observational data, but it did.
+              Fixed.
+            - The plot_lc_using_gnuplot () command suffered from an OB1 error
+              when both synthetic and observational data were plotted.
+            - Error handling in minimize_using_dc () function conflicted with
+              the former enumeration of parameters set for adjustment, which
+              caused weird behavior when the number of adjusted parameters co-
+              incided with the error code. Fixed.
+            - Function calls were needlessly limited to numerical arguments.
+              All valid (i.e. non-void) argument types are now allowed.
+            - phoebe_accessories.c/.h cleaned of old PHOEBE_data related func-
+              tions and all error handling is done to conform to the SPECS.
+2005-05-28: - Empty symbol table exporting function removed from the scripter.
+            - A *big* deficiency in the scripter logic was removed: symbol table
+              was implemented so that local identifiers shadow global ones.
+              That in practice meant that the codes like this:
+
+                set sum = 0
+                for (i = 0; i <= 10; i++) {
+                  set sum += i
+                }
+
+              did *not* change the value of the globally defined identifier sum.
+              This could have been worked around by exporting sum after each
+              iteration:
+
+                set sum = 0
+                for (i = 0; i <= 10; i++) {
+                  set sum += i
+                  export sum
+                }
+
+              but this was both inefficient and unintuitive. The whole logic is
+              now updated: *if* a global identifier was defined, then a local
+              identifier with the same name modifies the global value, which
+              is preserved after the scope is reduced to global. If on the other
+              hand the local variable is truly local, i.e. it wasn't declared
+              in the main scope, then its validity persists only within that
+              particular scope and is discarded upon return to the lower scope.
+              This could still be prevented by using the export directive.
+              The new logic is thoroughly explained in PHOEBE API, which has
+              been updated and extended.
+            - Command transform_hjd_to_phase () didn't properly parse arguments
+              due to a remaining index offset from previous implementations.
+              Fixed.
+2005-05-26: - All unused variables in the scripter section of the code have
+              been removed.
+            - A new command 'plot_lc_using_gnuplot (curve, obsdata, syndata)'
+              has been implemented. Curve is the index of the LC, obsdata and
+              syndata are boolean switches to plot particular data type.
+            - Functions compute_lc () and compute_rv () changed completely -
+              the result does not go into the external file anymore but to an
+              array. Both functions take two arguments, the vector of indepen-
+              dent values (times or phases) and the curve index. For details
+              about the new implementation please refer to PHOEBE API.
+2005-05-25: - Code has been further cleaned in the past few days to conform
+              to the SPECS.
+2005-05-22: - Functions open_keyword_file () and save_keyword_file () renamed
+              to open_parameter_file () and save_parameter_file (). This change
+              is not visible on the front-end level, since the name of the
+              command was changed a long time ago.
+            - The difference between an integer and real standard weight is
+              removed. Now the only option is "Standard weight".
+	    - Error handling for opening and saving parameter files updated to
+              conform to the SPECS.
+2005-05-19: - Function transform_hjd_to_phase () and all of dependent calling
+              functions modified to work with arrays rather than data types.
+            - A new parameter added: plot_reversey_switch. This is a boolean
+              parameter that instructs plotting programs whether to reverse the
+              ordinate (Y) direction or not. If plotting fluxes, this parameter
+              should be set to NO, if plotting magnitudes, it should be YES.
+            - Command plot_using_gnuplot () sensitive to phoebe_reversey_switch.
+            - Plot tidying implemented - nicer offsets, omitted file label and
+              such.
+            - Source files phoebe_qualifiers.c/.h renamed to phoebe_parameters
+              .c/.h.
+            - Internal PHOEBE structure PHOEBE_parameters has been extended with
+              a new typedef structure: PHOEBE_parameter_options. This structure
+              is composed of two fields, an integer 'optno' that holds the
+              number of options in a menu and a string array 'option' that holds
+              the names of all options. This structure is initialized and its
+              values assigned during phoebe_init () call: function add_options_
+              _to_all_parameters () calls add_option_to_parameter_menu () suc-
+              cessively for all options, for all menu parameters. This means
+              that all these options are available at run-time.
+            - Directive 'info' extended to print out all available options for
+              parameters of the KIND_MENU kind.
+            - Qualifier phoebe_cc removed from parameter list, because it was
+              made obsolete by parameters phoebe_msc1_switch and phoebe_msc2_
+              _switch.
+            - Qualifiers phoebe_calculate_hla and phoebe_calculate_vga didn't
+              conform with the SPECS, so they have been renamed to phoebe_
+              _calchla_switch and phoebe_calcvga_switch.
+            - Parameter file UVLeo.phoebe updated to 0.30pre4 version.
+            - All traces of keywords in declaration functions removed. This
+              cleans the last part of the code that still had any notion of
+              keywords. All typedefed structures have also been updated.
+            - Command set_parameter_value () now accepts integer values for
+              menu parameters. Instead of having to pass whole strings to the
+              command, it is now possible to pass an identifying integer to it.
+              The suggested practice is to do info on a menu qualifier and
+              then set a value to one of the printed integers.
+2005-05-18: - Added a -Wformat flag to phoebe/Makefile.am. This will warn about
+              misshaped printf/scanf formats.
+            - Plotting using GNUPlot has been changed; instead of taking the
+              data type variable, it now takes an arbitrary even number of
+              vectors. These vectors should be supplied in pairs, the first
+              element being the independent variable and the second being de-
+              pendent variable. Fool-proofing is also done to a reasonable
+              extent.
+2005-05-17: - Type identifier 'phoebe_data' renamed to 'data'. This simplifies
+              the assignment, e.g. set var = data ("parfile.phoebe").
+            - Using data structures restored.
+            - Plotting using GNUPlot is now supported! Use plot_using_gnuplot
+              command and as argument pass the data type variable! It hasn't
+              been fool-proofed yet, but it's close.
+            - A nasty bug that didn't initialize string arrays to NULL at the
+              beginning was found and fixed. This caused spurious segfaults if
+              the pointer pointed to any accidental non-NULL value.
+            - If observational data files don't exist, NMS minimizer segfaulted.
+              An explicit check is now added to the beginning of the function
+              that aborts the minimization if the file cannot be found or some-
+              thing else is wrong with it. Error code ERROR_MINIMIZER_INVALID_
+              _DATA is returned.
+2005-05-16: - calculate_chi2 function changed to return int, all error handling
+              is implemented and the rest of the code has been adapted and tes-
+              ted.
+            - Error-handling I/O functions moved to the scripter portion of the
+              code.
+            - Source phoebe_type_handling renamed to phoebe_types. This is done
+              to simplify derived nomenclature like phoebe_scripter_types etc.
+            - All I/O related functions (including global variable definitions)
+              moved to the scripter part of the code. This means that all those
+              warning messages are now gone for good! :)
+            - Added the -Wimplicit flag to phoebe/Makefile.am and src/scripter/
+              Makefile.am.
+            - Large scale code-cleaning done.
+            - PHOEBE 0.30pre4 released!
+              This is the last pre-release - the next one is the official and
+              stable 0.30, so hold on to your hats, it's coming soon! :)
+2005-05-15: - After testing and confirmations by Tomaz Zwitter, Michael Sallman
+              and Dirk Terrell that the new PHOEBE layout works on different
+              platforms, the CVS is updated!
+            - Files in tests/ directory updated after the change of the F1/F2
+              default values, because tests were failing.
+            - All calls to error-handlers from PHOEBE library sources are pro-
+              hibited and their removal has begun. phoebe_base.c was cleaned.
+            - All residual keyword handling functions have been removed from
+              PHOEBE library sources.
+2005-05-11: - PHOEBE has reached its final directory layout. There are two top-
+              level subdirectories: phoebe/ and src/. The first one holds the
+              library sources - everything that is connected to what PHOEBE can
+              do, but not actually doing it. The src/ directory contains two
+              subdirectories, scripter/ and gui/. Obviously, as the names sug-
+              gest, they contain sources for the interactive scripter and the
+              graphical user interface. Making such a directory structure will
+              create two independent executables, phoebe_scripter and phoebe_
+              gui, which are completely independent one from another, yet they
+              share a dynamic library in the top-level phoebe/ directory. Im-
+              pressed? Wait 'til you hear the best part: PHOEBE library is por-
+              table and may be driven by any front-end that exists out there,
+              including Java-based interface that would drive Gaia's reduction
+              pipeline. I am confident that such a design is here to stay, so
+              if you have any objections, please come forward and state them,
+              because soon it will be too late! ;)
+            - Build system heavily enhanced. All input files for autoconf,
+              automake and libtool are now tuned to the new situation.
+2005-05-09: - A very serious deficiency in minimizer logic has been discovered:
+              when fitting surface potentials (\Omega) and the mass ratio at
+              the same time, critical L1/L2 potentials are changing. This can
+              easily drive the potential to physically unfeasible regions of
+              parameter hyperspace. To overcome this, the structure of the NMS
+              minimizer changed: the calling command now takes an optional 3rd
+              argument which is a statement that will be evaluated after each
+              iteration. In adition, to achieve concurrency, parameter values
+              are updated in each iteration step, but only if the action to be
+              performed (the before-mentioned statement) is present. This ex-
+              tension is most important when dealing with overcontact binaries,
+              where we must make sure the potential remains between L1 and L2
+              critical values. Examples of the new usage:
+
+                set chi2 = minimize_using_nms (1e-3, 0, print "Next iteration")
+
+              or:
+
+                macro fix_boundaries ()
+                  {
+                  set q = get_parameter_value (phoebe_rm)
+                  calculate_critical_potentials (q, 1.0, 0.0)
+                  set_parameter_limits (phoebe_pot1, ext_L1crit, ext_L2crit)
+                  }
+                set chi2 = minimize_using_nms (1e-3, 0, fix_boundaries ())
+
+2005-05-08: - The recent change in a way VGA was calculated actually downgraded
+              the fit quality, which is obvious come to think of it: instead of
+              multiplying and dividing (the original way), subtraction and ad-
+              dition was used, which in turn resembles a simple bisection. This
+              is of course very slow to converge. On the other hand, by using
+              multiplication and division, this approach resembles the Newton's
+              method, which is fast, but we must be careful not to start with
+              vga=0, because it will never be able to change. This point is
+              added to the source code along with the updated implementation.
+            - Parameter constraining added to NMS. This is an initial implemen-
+              tation that places a chi2 barrier at parameter value boundaries
+              that prevent the fit to go outside of the prescribed domain. In
+              future this may be made a bit more elegant by using smooth yet
+              steep functions (e.g. logs) at boundaries.
+            - Synchronicity parameters F1 and F2 were set to 0.0 by default,
+              which is now fixed to 1.0.
+            - Spurious crashes within NMS have been fixed, which were due to
+              values of parameters being well out-of-bounds for WD to handle
+              them. To avoid any further such crashes, a crash wrapper is added
+              to NMS chi2 computation that will dump all relevant files and
+              terminate with a fatal error message. This will help debug NMS,
+              so if you encounter this problem, please report it ASAP! That
+              said, it should happen only if you managed to get the values of
+              parameters way off.
+2005-05-07: - Computing synthetic RV curves always assumed that the first curve
+              is RV1 and that the second curve is RV2. This is now fixed.
+            - Few other functions updated to conform to the SPECS.
+            - Commands compute_lc and compute_rv were checking if the curve in-
+              dex was out of range too late in the command flow, which has now
+              been optimized.
+2005-05-06: - OK, are you ready for this? During the last 5 days, PHOEBE source
+              layout was *completely* changed. PHOEBE is now a library that is
+              used by main.c and by the GUI to create the executables. Library
+              sources are placed in the top-level phoebe/ directory. Scripter
+              source is placed in the top-level src/ directory. Graphical user
+              interface (GUI) is placed in the top-level gui/ directory. All
+              autotools' files have been updated accordingly. The changes are
+              still only local, but the CVS will be updated shortly.
+            - SPECS conformation continued: several functions that were retur-
+              ning non-conventional values have been fixed.
+2005-05-01: - Several small issues were present if HLAs are set to be calculated
+              and the color index constraint was set. They're all fixed now.
+            - VGA calculation support added to DC. Still the same drawback
+              exists as with HLA calculation, namely that due to unmodified WD
+              one redundant LC computation has to be done. Yet another TODO list
+              tick gone! :)
+2005-04-30: - HLA calculation support added to DC. Unfortunately, this couldn't
+              be done conveniently without changing WD, so the penalty for using
+              this feature is a redundant LC run. This means that calculating
+              HLAs doesn't improve efficiency, only solution stability.
+2005-04-29: - Tests for (f)lex and bison/yacc added to configure.ac. Since the
+              sources for bison in PHOEBE don't comply with yacc and since the
+              autoconf macro AC_PROG_YACC defines bison in a yacc-compatible
+              mode, for the time being the $YACC variable is ignored and bison
+              is enforced in src/Makefile.am. As soon as PHOEBE sources conform
+              to yacc and not only to bison (well, it's really easy - one only
+              needs to rename the files, but I simply don't like that and until
+              someone reads this and starts bugging me, I may simply forget
+              about it). From now on issuing "make distclean" won't hurt the
+              distribution anymore. Furthermore, if yacced/lexed files are
+              already present, yacc and lex won't be run - this will be the
+              typical case for all PHOEBE distributions.
+            - Test scripts in the tests/ directory are now executed by the
+              make check call. This is yet another tick in the TODO list, so
+              only 4 more ticks to go and we'll have a new release! :)
+2005-04-28: - Error handling facility has been enhanced - a new function called
+              phoebe_error () is introduced that translates error codes into a
+              human-readable output. This greatly simplifies error reporting by
+              making it consistent and robust.
+            - Most frequently used error codes have been adapted to this new
+              error handling scheme.
+            - Color constraining ability added to DC.
+2005-04-27: - Redundant blocks caused an annoying message about it to appear.
+              This message will now be output only in debugging mode.
+            - 'return' directive was allowed to be used in the top stack level,
+              which caused all functions to assume this value upon the first
+              invocation. Fixed.
+            - Scoping didn't work for pure blocks. Fixed.
+2005-04-05: - Color-index constraining implemented. The logic is as follows:
+              boolean parameter phoebe_cindex_switch determines whether the
+              chi2 function should use color index values or not. If not, then
+              original logic applies. If so, the function queries the parameter
+              phoebe_cindex, which is an array of doubles. The first element is
+              the scaling factor for L1[1] and unless it should be displaced,
+              its value must be 1.0. Other elements are simply L1[i]/L1[1].
+              This way, regardless of the way how L1's are determined (fitted
+              or calculated), all L1[i]'s will be set to fulfill the color-index
+              constraint. The usual practice to use this is to determine L1's
+              for any decent solution regardless of its physical feasibility.
+              Next, calculate all individual (N-1) color indices, where N is
+              the number of light curves, and fill them to phoebe_cindex[i]
+              while making sure that phoebe_cindex[1] is set to 1.0. Set
+              phoebe_cindex_switch to 1 and from that moment on colors will be
+              preserved throughout the fit. If phoebe_calculate_hla is set to 1,
+              PHOEBE will calculate L1[1] to match the observations and L1[i]'s
+              to match the colors.
+              This constraining works only with NMS at the moment.
+2005-04-04: - Calculation of average value in NMS's chi2 function slightly simp-
+              lified.
+            - Test data weighting changed from sigmas to weights.
+            - A bug in L1 calculation that multiplied the synthetic average with
+              HLA has been fixed. This manifested in slower convergence if HLA
+              was set to be calculated rather than fitted.
+            - Transformation of magnitude sigma to flux sigma for individual and
+              curve-wise weights wasn't done by the same transformation: the
+              first used [10^(2/5 \sigma) - 1] and the other used
+              [1 - 10^(-2/5 \sigma)]. The difference is negligible, but the
+              overall calculation is coherent now.
+            - Top-level TODO file updated.
+2005-04-02: - Source files phoebe_keywords.c/.h renamed to phoebe_qualifiers.c/
+              .h.
+            - Qualifiers phoebe_cindex_switch and phoebe_cindex added to PHOEBE.
+              These two qualifiers implement the color-index constraint. The
+              first one is a switch and the second one is an array of doubles
+              with the dimension equal to the number of light curves. The first
+              element of that array is the value of L1[1] and the rest are color
+              indices expressed in L1[1]/L1[i] flux ratios.
+            - The phoebe_asini qualifier had a redundant _value attached to its
+              name. Fixed.
+            - All typedeffed structs in phoebe_fitting.c moved to phoebe_fit-
+              ting.h to reduce redundancy.
+2005-03-22: - Some older RedHat compilers don't handle inline blocks correctly,
+              which prevented a successful PHOEBE compile. Inline block has
+              been slightly modified to work around this, so it should now
+              compile under older RedHats as well.
+            - The frac() function didn't act on arrays, which wasn't a necessary
+              limitation. It now works on arrays as well.
+            - PHOEBE scripter didn't protest against a single '!' delimeter for
+              a system call, which doesn't make sense. Fixed.
+2005-03-21: - The bugfix from 2005-03-15 somehow didn't get commited to the CVS
+              and hence it is still present in the 0.30pre3 distribution! :(
+              A new release 0.30pre3 is out.
+2005-03-15: - Top-level README file updated to conform to 0.30pre3.
+            - Makefile.am added to tests/ directory to include and distribute
+              test data and test scripts.
+            - Makefile.am in the pixmaps/ directory had slight formatting in-
+              convenience - tabs were replacing whitespaces, so several lines
+              were blown out of proportion. Fixed.
+            - Ulisse added to ACKNOWLEDGEMENTS.
+            - Home phone number removed from the top-level AUTHORS file.
+            - A bug that crashed PHOEBE when libreadline wasn't present fixed.
+              Many thanks to Mike Sallman for pointing this out!
+            - A bug that didn't write the name of the data directory to screen
+              properly has been fixed. This was a harmless bug that was mani-
+              fested only if GNU readline wasn't present; the setup was ok.
+            - PHOEBE 0.30pre3 released!
+2005-03-07: - When the data were given in magnitudes and individual weighting
+              was done with standard deviations, the transformation to total
+              flux didn't touch sigmas, which may be substantially wrong when
+              the data are of different order. The function now transforms the
+              magnitude sigmas to total-flux sigmas too. This was another re-
+              lease-critical tick in the TODO list, reducing the number to 2!
+            - To all passband-dependent parameters there is now a default value
+              attached. Whenever the number of passbands is changed, the newly
+              assigned values assume their defaults. This ticked yet another
+              release-critical TODO item! All that remains now are DC tests!
+            - DC printed out to stdout even if redirection operators were used.
+              Fixed.
+            - DC didn't convert VGA and temperature to proper units after the
+              fit. Fixed.
+            - DC tested against a suite of test data; there were no issues.
+              This removed the very last release-critical todo entry! A new
+              release will be out to coincide with the 10000th visitor! :)
+2005-03-06: - NMS tested against a suite of test data; there were indeed some
+              issues with only RV2 curve present and the center-of-mass velocity
+              was set to be calculated, which are now fixed. NMS now works 100%
+              reliably with any combination of input data! :)
+            - NMS printed out to stdout even if redirection operators were
+              used. Fixed.
+            - VGA calculation moved from NMS chi2 to a separate function so
+              that eventually it may be used with DC as well. The function is
+              called calculate_vga () and is put to phoebe_calculations.c.
+            - The 'print' directive printed an empty space if an empty array
+              was passed. It now prints "<empty array>", which is more infor-
+              mative.
+            - When an empty array was assigned to a variable and that variable
+              was passed to the calc directive, PHOEBE segfaulted. Fixed.
+            - A new parameter called 'scripter_verbosity_level' added that is
+              set to 1 by default. 1 means that the scripter outputs the text,
+              whereas 0 means that all output is omitted. This is useful when
+              PHOEBE is run in a batch and scripter messages would clobber the
+              output.
+            - 'clear' directive implemented, which clears the screen. It uses
+              ANSI escape sequence for this ('[2J'), so it will only work in
+              ANSI-capable terminals. Since most terminals around are indeed
+              such, this should be fairly portable.
+            - 'info' directive doesn't print keywords anymore.
+            - PHOEBE API updated.
+2005-03-03: - Some left-over screen outputs still referred to parameter files
+              as keyword files. Fixed.
+            - NMS didn't work if there was only 1 RV data file. Fixed.
+            - A suite of test data and test parameter files created to check
+              whether minimization works properly in all cases (0/1/2 LCs and
+              0/1/2 RVs in all possible combinations, including swapped RVs).
+2005-03-02: - Configuration settings fully implemented from command line. The
+              additional '-c, --configure' switch added to command line parser
+              that initializes PHOEBE configurator. It uses already configured
+              files as default if the config file already exists. If it doesn't,
+              it uses a smart, progressive scheme for offering default directo-
+              ries to the user. Readline usage is enabled, so tab completion
+              works. It has been completely fool-proofed, both with and without
+              readline library support. This has decreased the release-critical
+              feature count by one! :)
+            - The following qualifiers have been renamed:
+
+              phoebe_atm1                        -> phoebe_atm1_switch
+              phoebe_atm2                        -> phoebe_atm2_switch
+              phoebe_reflection_effect           -> phoebe_reffect_switch
+              phoebe_reflection_number           -> phoebe_reffect_reflections
+              phoebe_fine_grid1                  -> phoebe_grid_finesize1
+              phoebe_fine_grid2                  -> phoebe_grid_finesize2
+              phoebe_coarse_grid1                -> phoebe_grid_coarsesize1
+              phoebe_coarse_grid2                -> phoebe_grid_coarsesize2
+              phoebe_synthetic_scatter           -> phoebe_synscatter_switch
+              phoebe_synthetic_scatter_sigma     -> phoebe_synscatter_sigma
+              phoebe_synthetic_scatter_seed      -> phoebe_synscatter_seed
+              phoebe_synthetic_scatter_weighting -> phoebe_synscatter_levweight
+
+              These changes conclude the qualifier renaming according to the
+              specifications.
+            - Top-level file RELEASE-CRITICAL renamed to TODO.
+            - Specifications on how to build qualifiers added to Appendix B of
+              the PHOEBE API documentation.
+2005-02-28: - Scripter commands open_keyword_file and save_keyword_file changed
+              to open_parameter_file and save_parameter_file.
+            - After much delay, atmcof.dat and atmcofplanck.dat file locations
+              have been standardized. This means that WD's restriction for these
+              two files to be in the working directory is no longer imposed!
+              From now on PHOEBE will find them in their standard places, i.e.
+              $PHOEBE_BASE_DIRECTORY/wd.
+2005-02-27: - DC fully implemented. Values are now automatically updated after
+              each iteration, so it's up to the user to beware of the diver-
+              gences. Maybe this could be fool-proofed in some clever way in
+              future.
+            - Transition from keywords to qualifiers in PHOEBE API complete.
+              Keyword files are as of today referred to as parameter files.
+            - Qualifiers phoebe_msc1_switch and phoebe_msc2_switch added. They
+              turn the main-sequence constraint on and off for either or both
+              stars.
+            - There is no level-dependent weighting for RVs supported, so the
+              corresponding qualifier was removed.
+            - The following changes to qualifiers have been done:
+
+                phoebe_bin_switch          -> phoebe_bins_switch
+                phoebe_bin_number          -> phoebe_bins
+                phoebe_reddening_switch    -> phoebe_ie_switch
+                phoebe_reddening_factor    -> phoebe_ie_factor
+                phoebe_reddening_excess    -> phoebe_ie_excess
+                phoebe_lc_weight           -> phoebe_lc_indweight
+                phoebe_rv_weight           -> phoebe_rv_indweight
+                phoebe_lc_level_weighting  -> phoebe_lc_levweight
+                phoebe_rv1proximity_switch -> phoebe_proximity_rv1_switch
+                phoebe_rv2proximity_switch -> phoebe_proximity_rv2_switch
+
+            - There was an OB1 bug which failed to warn the user if the used
+              keyword (now the qualifier) in parameter file is invalid. Fixed.
+2005-02-24: - Added autoconfig/missing and autoconfig/depcomp files to avoid
+              the necessity of having auto*utils installed when checking out
+              and making the CVS version of PHOEBE.
+2005-02-23: - PHOEBE's DC format creator updated to 2004-10-16 version of DC.
+            - DC engine array sizes enlarged to accept Nmax = 60.
+            - All stop statements in LC changed to goto 9999, all stop state-
+              ments in DC changed to goto 8999; these lines were added just
+              before the subroutine end. This way WD won't terminate PHOEBE.
+            - close () statements for units 5 and 6 (input and output files)
+              added to LC/DC. This is just an esthetical change.
+            - WD's LC and DC programs contained waaaay too many unnecessary
+              whitespaces. All of them have now been removed. The change is
+              unbelievable: from 384987 to 179611 bytes, which is more than a
+              factor of 2! %-)
+            - WD's DC changed to return corrections, standard deviations and
+              chi2 of the fit.
+            - minimize_using_dc () command added to expressions. It returns the
+              weighted sum of squares of residuals.
+            - minimize_using_dc () description added to PHOEBE API.
+            - API Documentation on get_parameter_value () command updated.
+2005-02-22: - WD engine upgraded to 2004-10-16 version. All formatting has been
+              changed accordingly.
+            - A new qualifier for DC's Levenberg-Marquardt multiplier \lambda
+              added: 'phoebe_dc_lambda'.
+            - New qualifiers for spot adjustability added: 'phoebe_dc_spot1src',
+              'phoebe_dc_spot1id', 'phoebe_dc_spot2src' and 'phoebe_dc_spot2id'.
+            - Input type "RV in km/s" split to "Primary RV" and "Secondary RV".
+              This will finally take care of situations where only a secondary
+              RV curve is present. Only a framework has been done, NMS doesn't
+              yet support this, but it will be done as soon as DC implementation
+              is finished.
+            - A new qualifier for symmetric derivatives added: 'phoebe_dc_
+              _symder_switch'.
+            - Spot movement was by default turned off for both stars. This makes
+              sense only if hot spots in e.g. cataclysmic variables are modeled,
+              which isn't a majority of all cases. Spot movement is thus turned
+              on by default. This applies only for eccentric orbits and async-
+              hronous rotation, so it wasn't a big deal.
+            - After 10 straight hours of programming, DC implemented! %-) Now
+              I'll go and pass out, tomorrow I'll write what's been done.
+2005-02-21: - The obsolete 'define' directive synopsis removed from the grammar.
+              The 'define func(args) = expr' can thus no longer be used.
+            - Grammar definition for the 'define' directive simplified when
+              arguments to the functions are passed.
+            - PHOEBE API documentation updated to properly explain functions and
+              macros.
+            - Commands get_parameter_value () and minimize_using_nms () have
+              been moved to expr grammar rules. This means that they may be used
+              to initialize variables. It is especially important for the NMS,
+              because the returned value is the converged chi2.
+            - Global CHI2 variable that was set before by the NMS has been re-
+              moved. Please update your scripts!
+            - The 'minimize_using_nms ()' command will work either way: as be-
+              fore or with prepended directives.
+2005-02-08: - Reading out arrays from file columns fully implemented and tested.
+              Use the directive column (filename, colno) as an expression to
+              do the readout. Empty lines and comments are ok, too. If a readout
+              fails, the line is skipped, a warning is displayed and the readout
+              continues from the next line.
+2005-02-07: - A bug in grammar rule for macro definition has been somehow in-
+              troduced yesterday, which caused macro directive to malfunction.
+              Since this occured at development branch, PHOEBE was not affected.
+            - The return directive properly implemented. Now when I say proper-
+              ly, I don't mean elegantly; however, I do mean optimally! :)
+              There are two global variables defined, scripter_return_flag and
+              scripter_return_value. Whenever 'return' is encountered, the
+              flag is set to YES and all blocks above that statement are broken
+              and the value is set to the one evaluated by the return statement.
+            - A test for functions written and added to the tests/ directory.
+2005-02-06: - Built-in function dim() implemented. It returns the dimension of
+              the variable. For scalars it returns 1, for arrays it returns the
+              number of elements. It has been fool-proofed and documented.
+            - User functions slightly redesigned to take arrays as arguments
+              as well and to return any of numerical types (ints, doubles or
+              arrays).
+            - Added a lot of debug statements to the PHOEBE start-up function,
+              to make it easier to track start-up errors on other platforms.
+            - The configure.ac script improperly implemented the --enable-gsl
+              and --enable-readline options. Fixed.
+            - User functions completely reorganized! Now functions may be built
+              like macros, i.e. by using blocks. This enables branching and all
+              sorts of intermediate calculations. For more information please
+              refer to PHOEBE API.
+2005-02-05: - Same changes that were done to compute_lc () command have now also
+              been done to compute_rv ().
+2005-02-04: - Opening new keyword files wasn't working properly for parameters.
+              Fixed.
+            - Whenever the dimension of parameter arrays was set (e.g. the num-
+              ber of data curves, spots, ...), storage memory was reallocated
+              both when the dimension was actually changed as well as if it was
+              set to the same value. This manifested in resizing these arrays
+              whenever keyword files with 0 curves, 0 spots, ..., were opened.
+              As such, this only implied a small (negligible) overhead when
+              opening keyword files. This is now fixed.
+            - 0.2x -> 0.30pre3 keyword file converter updated and debugged.
+            - Command compute_lc () was querying experimental data file if the
+              phase range and the number of vertices wasn't given. This doesn't
+              really make sense; the default behavior is now to plot [-0.6, 0.6]
+              range with 300 vertices. This is hard-coded and cannot be changed
+              from the scripter.
+            - Command compute_lc () slightly changed. Verbosity is increased:
+              independent variable, plot interval and the number of vertices are
+              now outputted to the screen. If independent variable is time, the
+              command now by default uses the interval [hjd0-P/10, hjd+11P/10]
+              and 300 vertices. Debugging statements are added.
+2005-02-03: - PHOEBE API updated to reflect all recent changes to the code.
+2005-02-02: - All scripter directives that were influenced by this drastic chan-
+              ge were updated.
+            - Test script "test_st.script" for testing the symbol table has been
+              written. So far so good! :)
+            - Identifier operators (++, +=, ...) were poorly implemented. Fixed.
+            - Directive 'stdump' (symbol table dump) implemented. It is *not*
+              meant to be used as reference for declared variables, it is only
+              meant for checkups and debugging. Still, users may find it useful
+              too.
+            - The 'export' directive synopsis changed from 'export var = val' to
+              a simple 'export var'.
+            - A naaaasty bug has been discovered in symbol table implementation:
+              the adopted hash function returned NEGATIVE hash values for cer-
+              tain identifier strings, i.e. 'qwertzuiop'! The hash implementa-
+              tion was taken from the AST manual (I don't have it nearby, I'll
+              add the reference later) and is now replaced by the one proposed
+              by Kernighan & Pike (1999) in The Practice of Programming.
+2005-02-01: - A nasty bug that was decreasing the symbol table stack size when-
+              ever a macro was executed has been removed.
+            - Singular/plural fixed in macro argument counts in warning messa-
+              ges.
+            - Implicit variable declarations in for-loops have been removed.
+              Having an index variable preserve its validity after the loop is
+              finished doesn't make sense anymore now that the 'export' direc-
+              tive is implemented. If the index should preserve validity, simply
+              export it.
+            - Symbol table implementation *completely* rewritten. This was done
+              to allow for simpler export implementation, which was virtually
+              impossible to do elegantly with the stack logic as was the case
+              before. PHOEBE now uses an extended hash table that counts vari-
+              able values *and* variable depths. I'll write all about it in
+              PHOEBE API soon.
+2005-01-30: - The 'execute' directive for executing macros has been dropped for
+              simplicity. Unfortunately, this causes a shift-reduce conflict in
+              PHOEBE's grammar, which is now resolved internally by the AST type
+              checking. It is now much more intuitive to call macros by their
+              names instead of calling them as arguments to the 'execute' direc-
+              tive.
+            - PHOEBE extension script is started! This is where all nifty EB
+              related procedures will be implemented. For start, five macros
+              have been added:
+
+                calculate_pot1 (D, q, r, F, lambda, nu)
+                calculate_circ_pot1 (q, r)
+                calculate_pot2 (D, q, r, F, lambda, nu)
+                calculate_circ_pot2 (q, r)
+                calculate_critical_potentials (e, q, F)
+
+              Simply load these macros with 'execute "extensions.script"' and
+              you will have access to these 5 commands! :) And since the macro
+              invocation has changed today, instead of 'execute'ing them, simply
+              use them as commands! Nifty, right? :)
+2005-01-29: - The 'set' directive implementation used obsolete functions to han-
+              dle strings, which were removed. This greatly simplified the
+              whole implementation.
+            - The 'calc' directive implementation simplified.
+            - The most missed feature of user-defined macros in PHOEBE was the
+              export of variables. This is now done by the 'export' directive.
+              Its grammar rules are exactly the same as are for the 'set' di-
+              rective, only that 'export' makes local variables global. This
+              may be used for return values of macros. The directive has been
+              fool-proofed against usage outside of macro definitions.
+            - PHOEBE API updated.
+2005-01-24: - Entry "General binary system" of the list qualifier phoebe_model
+              changed to "Unconstrained binary system".
+            - Further changes to qualifiers:
+
+                phoebe_lc_individual_weighting -> phoebe_lc_weight
+                phoebe_rv_individual_weighting -> phoebe_lc_weight
+
+2005-01-22: - Before the release, qualifiers have been reviewed again and the
+              following changes have been incorporated:
+
+                phoebe_binning          -> phoebe_binning_switch
+                phoebe_binno            -> phoebe_binning_bins
+                phoebe_asini_constraint -> phoebe_asini_switch
+                phoebe_asini_constant   -> phoebe_asini
+                phoebe_reddening        -> phoebe_reddening_switch
+                phoebe_rv1_proximity    -> phoebe_rv1proximity_switch
+                phoebe_rv2_proximity    -> phoebe_rv2proximity_switch
+                phoebe_indep_variable   -> phoebe_indep
+
+              These changes are the beginning of a major logic rewrite. All
+              qualifiers will follow a strict naming convention: they are
+              composed of three parts:
+
+                qualifier:   module_purpose_type
+
+              The 'module' is a prefix showing to which module a particular
+              qualifier belongs to (e.g. 'phoebe' for all core parameters and
+              suitable prefixes for other plug-ins). The 'purpose' part states
+              the meaning of the qualifier (e.g. 'sma' for semi-major axis).
+              Finally, the 'type' part explicitly states the type of the pa-
+              rameter behind a qualifier. For values (integers, reals and
+              strings) the 'type' part should be omitted. In example, the semi-
+              major axis becomes 'phoebe_sma' and the binning switch becomes
+              'phoebe_binning_switch'.
+2005-01-21: - A remnant of a sin i constraint in CC removed from phoebe_allo-
+              cations.
+            - Started working on qualifiers in PHOEBE User Manual. It is going
+              to take a lot of work, but it is necessary and your help would
+              be very appreciated! O:-)
+            - Introduced a new parameter kind in PHOEBE: KIND_MENU. This will
+              be used for all parameters that are predefined string literals.
+              This way the user will be able either to pass a literal name to
+              the parameter or the beginning of that literal or an ID number.
+              I still have to think about the actual implementation, but this,
+              once operable, should be very convenient.
+            - Added debug statements to the function changing the dimension of
+              passband dependent arrays to show what arrays have been changed
+              and to what dimension.
+2005-01-19: - A new structure called PHOEBE_array added to phoebe_global.h. It
+              is similar to PHOEBE_vector, only more general, since it handles
+              any type of arrays. As such it makes PHOEBE_vector obsolete, but
+              since it is very convenient, it will be preserved. Handler func-
+              tions have been added to phoebe_type_handling.c.
+            - First application of this new structure: printing all kinds of
+              arrays is now implemented (e.g. by using the 'show' directive).
+2005-01-18: - Many structural changes in PHOEBE API documentation; as soon as
+              this is finished, 0.30pre3 will be released.
+            - A bug that sometimes caused segfault when help directive was used
+              found and eliminated.
+            - A remnant of manual type propagation from int to double prevented
+              macro definitions using int's from functioning properly (i.e.
+              renaming commands taking int's).
+            - Old qualifiers were used in scripter's compute_* commands, which
+              caused segfaults. Fixed.
+2005-01-05: - Command set_parameter_limits fully implemented and tested.
+            - Command set_parameter_step, following the same principles as
+              described for set_parameter_limits, fully implemented and tested.
+            - Directive 'info' added to the scripter. It takes one argument, a
+              qualifier or a keyword, and writes out all relevant information
+              about that parameter: its description, state, value etc.
+            - PHOEBE API updated to contain these two commands and a directive.
+              It has also been *heavily* reorganized so that it looks even
+              better than before! :) Command 'mark_for_adjustment' added to the
+              documentation. Still, a major revision is needed before 0.30pre3
+              release.
+2005-01-04: - Checkup added for asini constraint if both a and i are set for
+              adjustment. The algorithm presumes the inclination is more impor-
+              tant and it fits i and calculates a. This is done in the readout
+              function.
+            - A new scripter command set_parameter_limits (qualifier, min, max)
+              added to the grammar. Prototyping and fool-proofing is complete.
+              The only thing left to do is to implement phoebe_set_parameter_
+              _limits () function properly and that's it.
+2005-01-03: - HAPPY NEW YEAR!!!! :)
+            - A small readout bug for VGA calculation found and removed.
+            - All *_simplex functions renamed to *_nms throughout the source
+              code.
+            - Switch ASINI added to the list of parameters' struct.
+            - The ASINI conditional constraint implementation was faulty: if
+              a was smaller than a sin i, then i would be incalculable. The
+              checkup is now implemented. Furthermore, if there was only RV
+              data present, the ASINI constraint wasn't applied. Both problems
+              are now removed, although there is an issue with the passed gsl_
+              _vector * to the cost function being constant. Right now this
+              vector is recast to normal gsl_vector *, but I'm not sure this
+              will work on all compilers. I posted a question on gsl_discuss
+              mailing list concerning this issue and will act according to the
+              replies.
+2004-12-24: - A safety switch added that turns off HLA adjustment if HLAs are
+              to be calculated.
+            - Added "phoebe_calculate_vga" qualifier, which defaults to YES.
+              Its function is very much the same as phoebe_calculate_hla, just
+              for RVs. Everything that was done for HLAs is now done for VGA
+              as well.
+2004-12-23: - L1's have been always calculated during NMS runs. Now this is
+              optionalized via "phoebe_calculate_hla" switch. It is on by de-
+              fault. CALCHLA switch is added to WD_LCI_parameters struct.
+            - There was a bug in wavelength-dependent parameter updating part
+              of the fitting procedure - if HLAs were fitted, the procedure
+              segfaulted. Fixed.
+2004-12-16: - PHOEBE crashed if a legacy (0.2x) file was opened. Converters have
+              already been written that convert 0.1x and 0.2x keyword files to
+              0.30 keyword file standard, but they haven't been implemented yet
+              because I still haven't decided what's the best way to do version
+              recognition. Anyway, opening old keywords will issue a lot of
+              warnings, but it won't crash PHOEBE anymore.
+            - TODO file modernized.
+2004-12-06: - Main-sequence constraining improved to handle more than just T1
+              and T2 fitting. It is still necessary to fit *both* T1 and T2.
+2004-11-20: - Function read_in_plot_lc_data () is actually GUI-related, so
+              it is removed from the scripter and moved to the gui/ directory.
+            - kick_parameters () initialized its own randomizer based on time()
+              function. That meant that the function was able to produce a sin-
+              gle random number per second (because the seed was constantly
+              initialized to the same value). This is now fixed by introducing
+              a global PHOEBE_randomizer variable declared in phoebe_fitting.h.
+            - NMS implementation in GSL is insensitive to orders of parameter
+              values - if T's are of the order 10^3-10^4 and q's 10^-1, it is
+              still ok - this was tested.
+2004-11-19: - A nasty bug that miracleously didn't cause segfaults has been
+              fixed: parameter arrays weren't updated correctly after NMS
+              minimization.
+            - Another old, but not-at-all important bug removed: GSL's return
+              value for NMS not reaching convergence is -2, which clashed with
+              PHOEBE's way of enumerating exit status. If -2 is returned by
+              GSL, it is modified to 3, which is compliant with PHOEBE SPECS.
+2004-11-17: - Final cleanups of the NMS have been done, including a fix that
+              removed the segfault when HLAs were adjusted.
+2004-11-16: - Two new qualifiers added: phoebe_asini_constraint and phoebe_
+              _asini_constant. These are currently coupled with conditional
+              constraining CC switch (meaning that CC=2 automatically turns
+              the asini switch on).
+            - OK, ready for the grand finale? Care to find out why the heck
+              all of the past days' effort was really necessary? It was all
+              to allow simple CCing. As the first very important constraint,
+              (a sin i = const.) is implemented.
+            - NMS code cleaned - parts of the code have been rewritten to
+              be as optimized as possible. There is still room for improve-
+              ments, but only if another part of the back-end is changed (in
+              particular, if WD's LCI parameters are tabulated instead of
+              struct'ed).
+            - Command name minimize_using_simplex changed to minimize_using_
+              _nms. This is to enable eventual implementation of other simp-
+              lex methods like linear and non-linear programming etc.
+            - Debugging statements added to all NMS- and parameter-kicking-
+              related functions.
+2004-11-15: - JDPHS switch removed from read_in_wd_lci_parameters () function.
+            - NMS method modified to conform to recent changes.
+2004-11-14: - Keyword/qualifier changes incorporated into other allocation
+              functions.
+            - Redundant readout calls removed from get_wd_lci_parameters ()
+              function.
+            - Scripter command create_wd_lci_file () was broken (it expected
+              double to be passed instead of int, so it always returned 0).
+              Fixed.
+            - Test script was based on installed phoebe2 version. Now it will
+              be based on a compiled phoebe2 version, i.e. the one residing in
+              ../src/ directory.
+            - Empty lines in keyword files were reported as invalid. Now they
+              are simply ignored.
+            - Since there are no more _adjust qualifiers, a new scripter com-
+              mand is implemented to mark parameters to be adjusted: mark_for_
+              _adjustment (qualifier, boolean).
+            - Boolean literals extended to YES/NO in addition to TRUE/FALSE.
+2004-11-13: - A single commented header line added to keyword files created by
+              PHOEBE. This will help opening legacy files and deprecated key-
+              words.
+            - PHOEBE parameters reorganized completely. This rewrite is not
+              visible to the user, it only simplifies the delevoper's life a
+              whole lot. The following list of changes is thus very important
+              for everyone working ON PHOEBE, not WITH PHOEBE:
+            - PHOEBE_parameters "bond" attribute changed to "dependency",
+              since that's what it really is.
+            - Attributes "kind", "min", "max", "step" and "tba" added. "tba"
+              stands for "to be adjusted".
+            - A new enumeration type PHOEBE_parameter_kind added with the fol-
+              lowing enumerations: KIND_PARAMETER (static parameters that can-
+              not be adjusted), KIND_MODIFIER (static parameters that influence
+              dependent parameters: LCNO, RVNO, SPNO, ...), KIND_ADJUSTABLE
+              (parameters that can be adjusted) and KIND_SWITCH (boolean swit-
+              ches).
+            - All keyword-related functions rewritten and enhanced. Although
+              this aspect was never regarded as a speed-blocker, it's nice to
+              know that even these functons have now been optimized. :)
+            - Many qualifier and keyword names have been changed. Take a look
+              at PHOEBE API documentation for a complete list.
+            - Bandpass-dependent parameters are now distinguished not only by
+              a number, but by a '[num]' delimeter.
+            - Adjustable parameters now have an underscore '_' attached in
+              their keywords to easily tell different parts of parameters apart.
+              For example, VGA dissolves into VGA_VAL, VGA_STEP, VGA_ADJ,
+              VGA_MIN and VGA_MAX, but all-in-all, it is now only a single pa-
+              rameter VGA.
+2004-11-11: - When opening keyword files, PHOEBE silently discarded all invalid
+              ones. Now they are reported to the terminal as a warning.
+2004-11-01: - All printf's have been changed to fprintf (PHOEBE_output, ...)'s
+              in phoebe_scripter_ast functions to conform to using redirection
+              delimeters.
+            - A test script has been written that tests all PHOEBE grammar
+              rules. It is located in the tests/ directory along with the
+              expected result. Users should run it with phoebe2 -e test.script
+              > out and compare the results with diff test.result out .
+2004-10-31: - Significant part of the scripter parser has been rewritten to
+              allow flexible redirection using operators "->" and "->>" for
+              writing and appending to a file, respectively. The argument is
+              either a literal or a string identifier. It is fool-proofed and
+              tested: it may be used after statements, statements within blocks
+              or after blocks, so it's really flexible. :)
+            - Added PHOEBE invocation and Output redirection sections to PHOEBE
+              API documentation.
+            - System calls 'ls', 'cd' and 'pwd' implemented. To conform to
+              usual conventions used in the Linux world, PHOEBE's own conven-
+              tions are bent slightly: one doesn't need to use quotes when re-
+              ferring to filenames. The 'ls' implementation is system-dependent,
+              try to replace it with a portable version ASAP.
+            - Lexer didn't work well for 'ls' and 'cd' commands if filenames
+              contained '-' or '/' delimeters. The lexing was completely reor-
+              ganized and now it works.
+2004-10-26: - A small residual from hard-coded test has prevented CC from wor-
+              king properly, fixed.
+            - Scripts may now be executed directly from a command line - use
+              -e (execute) switch followed by a script filename. Generic fool-
+              proofing has also been done.
+2004-10-25: - A major bug discovered: chi2 values weren't weighted properly.
+              Since the value of chi2 depends on the flux level, same sigmas
+              would produce different weights for different bandpasses, which
+              is of course wrong. The solution is simple: prior to calculating
+              chi2, divide both synthetic and observational light curve with
+              synthetic quarter-phase value, which depends on a bandpass. This
+              will remove the flux dependence and yield correct chi2 weighting.
+              This not only improved the sanity of chi2 values, but it also
+              improved convergence: overweighting of the dimmest bandpasses
+              was causing spurious minima without any realistic notion! The
+              normalization is done in the function calling the chi2 calcula-
+              tion function, i.e. the NMS function. It seems best to normalize
+              *synthetic* quarter-phase to unity and not the observational
+              quarter-phase, since its position on the light curve is uniquely
+              determined and 100% accurate.
+            - New parameter added: phoebe_cc_value. CC stands for Conditional
+              Constraint. Currently only a Main-sequence constraint is suppor-
+              ted, but others are easy to incorporate later.
+            - Main sequence constraint is not hard-coded anymore. Turn it on
+              and off by using the phoebe_cc_value parameter.
+2004-10-23: - configure.ac updated: C and Fortran compiler tests stop the con-
+              figuration script is either of them isn't found; a nice message
+              is printed that the user needs to install it and restart ./con-
+              figure. Found compilers are displayed in the configure summary.
+            - Tests for flex and bison added to configure.ac. I don't have
+              internet access today, so I won't go into automatic grammar com-
+              piling today, but eventually this has to be done.
+            - Identifier operator '/=' returned an int when the identifier was
+              originally an int, i.e. "set i=5 set i/=2 print i" gave 2. Fixed.
+            - Functions 'trunc', 'round', 'int', 'frac' and 'abs' added.
+            - Binary operator for modulus '%' added. It acts only and exclusi-
+              vely on two integers.
+            - Error output of built-in functions improved.
+            - Scripter segfaulted if CTRL+D quitting was cancelled. Fixed.
+            - PHOEBE API updated.
+2004-10-21: - Unary operators '+' and '-' now act on arrays too.
+            - A bug in unary '-' definition that caused changing of the stored
+              value in an identifier (e.g. "set i=1 calc -i print i" shows -1)
+              has been fixed.
+            - Identifier operators ('++', '+=', ...) optimized - there were two
+              redundant symbol table referencing calls which just wasted time.
+2004-10-20: - A new global variable PHOEBE_NUMERICAL_ACCURACY implemented that
+              should be used for double-to-double equality comparison. Current-
+              ly it is set to 1E-10.
+            - Boolean operators implemented within a new operator scheme.
+              Certain operators' applicativity has been extended to arrays and
+              strings as well, e.g. the equality ('==') operator.
+            - Logical operators '&&' and '||' had higher precedence than the
+              comparison operators ('<', '>', ...). Fixed.
+            - A new operator scheme has now fully replaced the old one. This
+              one is formalistic and general, type propagation is done when
+              needed, not on-the-fly as before. The old scheme is removed from
+              the code.
+            - PHOEBE API nomenclature of vectors changed to arrays. The dot and
+              vector products have been removed from PHOEBE.
+2004-10-19: - Scripter grammar significantly modified to allow literal strings
+              in expressions. All allowed operands for the given operator are
+              summarized in PHOEBE API, Section Arithmetics.
+            - Basic five operators ('+', '-', '*', '/' and '^') re-implemented
+              and fool-proofed.
+            - Since boolean operators are still missing, this new implementation
+              is switched by #ifdef statements. The CVS version submitted today
+              still works with old code. The new code will be up and running
+              when boolean operators start working too.
+2004-10-12: - A left-over function for calculating reddening "the old way" (from
+              Allen) that wasn't used anywhere was removed.
+            - A new function, calculate_teff_from_bv_index () implemented. The
+              data is taken from Flower, private communication 2004-10-11.
+2004-09-25: - Added support for systems where GNU realine isn't installed. Red
+              Hat 9 is an example of a system where readline is indeed instal-
+              led, but it doesn't work. In such cases the scripter falls back
+              to standard fgets() function.
+2004-09-22: - Added a hard-coded main-sequence test.
+2004-09-20: - minimize_using_simplex () command didn't take integer arguments,
+              which is annoying when main-sequence constraint is applied (typi-
+              cal values of tolerance are 1 .. 10K, which are integers. Now the
+              integer value is propagated to double automatically.
+            - Parameter kicking strategy fully implemented. This method repla-
+              ces or complements all types of heuristic scans. The idea is sim-
+              ple: whenever a minimum (at least a vicinity) is reached, the
+              kicker modifies all adjusted parameter values randomly, conforming
+              to the Gaussian PDF. Standard deviation is passed as a parameter
+              and is dependent on the chi2 of the fit. The kick_parameters()
+              function has been implemented. For further details about the im-
+              plementation logic take a look at PHOEBE API.
+2004-09-16: - parse_data_line () function failed to initialize the string pro-
+              perly for comments. The parsing didn't cause a segfault, but was
+              indeed incorrect. Fixed.
+2004-09-13: - get_parameter_value () command now returns vectors when array
+              qualifiers are used without indices. Standard behavior is preser-
+              ved when indices are used.
+            - Defined/set invalid vectors caused a segfault, fixed.
+2004-09-12: - A bug in the readline caller that used uninitialized value for
+              strcat() function fixed.
+            - Since newlines have been removed, the '#' comment style wasn't
+              supported anymore. But '#' proves to be very practical and thus
+              comment parsing was moved from the parser to the readline() cal-
+              ler.
+            - PHOEBE API updated extensively.
+2004-09-11: - 'execute' directive implemented. The passed argument is either a
+              literal or a string variable. All exception handling is implemen-
+              ted too.
+            - 'define' directive extended to support calls without arguments.
+            - 'macro' directive implemented. It acts in the same way as the
+              'define' directive, only that it isn't meant to hold any numeric
+              value. It's like Pascal's procedure, so it's thus called PROC.
+            - 'execute' directive extended to act on macro definitions too.
+              'calc' directive won't work on macros, only on functions and vice
+              versa - 'execute' won't work on functions (since they return a
+              numeric value).
+2004-09-10: - 'show' directive extended to include arrays of doubles. To do this
+              properly, the underlaying code was changed - arrays of doubles
+              are now simply vectors and all functions work with them as with
+              a simple native type.
+            - GNU readline check added to the top-level configure.ac.
+            - Scripter grammar core changed to finally ignore newline characters
+              (\n). The buffering is now done before lexing using any line
+              reading function. There should be a built-in function substituting
+              the GNU readline library, but since GNU readline is standard,
+              this will be somewhat lower priority, unless of course someone
+              points out a good reason for having it ASAP.
+            - GNU readline interface fully implemented! It took me 8 hours to
+              do it, but it was worth it! Line completion, history & other
+              goodies are now fully supported! :) It might be even desirable
+              to expand the completion function to scripter directives and
+              commands, but this can wait for the next pre-release.
+            - The EOF marker is now tied to the 'quit' directive.
+            - Stack level is now numbered in interactive mode. This will help
+              the user to count block braces.
+            - A block recognition pattern is expanded to allow multiple nested
+              blocks without statements, e.g. {{{}}}.
+            - Blocks within blocks, if they serve no purpose, report redundancy
+              in calling. If the inner block does something, then there is no
+              redundancy. For example, {{{}}} is twice redundant, while {{{
+              print "no redundancy" }}} is not redundant.
+            - Few implicit declarations fixed.
+2004-09-09: - 'show' directive implemented. It takes one argument, a qualifier
+              or a keyword, and prints the corresponding parameter value.
+            - PHOEBE API updated.
+2004-09-05: - Function rand () implemented in PHOEBE scripter. It takes one
+              argument, the upper limit of the uniform range [0, limit] on which
+              the randomizer returns the value. The seed is set automatically
+              on PHOEBE startup based on time() function. The 'limit' argument
+              may also be negative. The value is then in [limit, 0] interval.
+              rand () obviously cannot act on vectors.
+            - Statistics' functions added for calculating unweighted and weigh-
+              ted standard deviation for mean and median values of the dataset.
+            - Missing wd/ directory in the top-level Makefile.am added.
+            - A very nasty bug in dci readout function that crashed PHOEBE when
+              only RV curves were fitted has been fixed.
+            - Automatic HLA/VGA leveling tested and assessed - not only it is
+              much faster, it is also more reliable and much more accurate.
+              This is a major achievement and will be stressed in PHOEBE's paper
+              due by the end of September.
+            - PHOEBE_API updated.
+2004-09-04: - PHOEBE data structure fully supported with dedicated handlers.
+              AST implementation still remains to be done, though.
+2004-09-03: - All PHOEBE_data constructs and handlers are now in phoebe_type_
+              _handling.c/.h. Structure types have been replaced with pointers
+              wherever appropriate, which should additionally speed up the code
+              because pointers now make struct copying obsolete.
+            - Some small optimizations done to NM simplex algorithm.
+            - A stale keyword for weighting scheme was present in UVLeo.phoebe
+              file in the data/ directory. Fixed.
+            - read_in_experimental_data () optimized furtherly.
+2004-09-02: - Systemic velocity (VGA) treatment unified with HLA. PHOEBE now
+              computes both values automatically in every simplex iteration.
+              HLA/VGA adjustability is still available, but it shouldn't be
+              used with the simplex method.
+            - Two new calculation functions implemented: calculate_weighted_sum
+              and calculate_weighted_average. Be sure to call these two func-
+              tions with real weights and *not* standard deviations.
+            - Weight conversion function (weight <--> sigma) implemented and
+              used when experimental data is read out. This is necessary for
+              the HLA/VGA simplex fit, because the weighted average has to be
+              done with standard weights and not standard deviations (sigmas).
+            - Started working on vector-data type unification.
+2004-09-01: - Fixed a compile problem where GSL isn't available: the command
+              minimize_using_simplex () had a call to the non-existent function
+              which is now changed with the warning that NMS cannot be done
+              without GSL support.
+            - phoebe2 put under the CVS with the module name phoebe-dev. Both
+              anonymous and developer access are enabled.
+            - I bought a new car: Ford Focus 1.4! :) I'm sure you always wanted
+              to see such crucial info in PHOEBE's ChangeLog, right? ;)
+2004-08-31: - Vector initialization implemented. Use '{' and '}' delimeters, e.
+              g. set vec={1,2,3}. Int->double propagation is also implemented.
+            - The simplex algorithm now calculates HLAs in every iteration step
+              by equaling both average values. This should be optional and will
+              be implemented soon.
+            - A bug in increment/decrement operators caused identifiers to be
+              inserted to a symbol table every time the operator is used, which
+              1) overflowed the stack for > 1000 iterations and 2) significantly
+              slowed down the execution (roughly 10x). It is now fixed.
+            - All functions now act on vectors too. They are evaluated on per-
+              element basis: sin(a) thus evaluates to {sin(a1), sin(a2), ...,
+              sin(aN)}. You may use either literal vectors ({...}) or identifi-
+              ers. Nesting and function combining is fully supported.
+            - HLA (Li) values added to simplex output. A few glitches that were
+              slowing down the calculation (double parameter value updating)
+              have been removed to no noticeable effect.
+            - PHOEBE API documentation updated.
+            - A thorough test on NM simplex initiated through scripting. It
+              should give a benchmark on time cost and needed heuristics. For
+              now heuristics is done by gridding, however it seems to be possi-
+              ble to use PCA (Principal Component Analysis) to restrict the
+              span of parameters even further.
+            - A small typo fixed in src/Makefile.am that prevented make dist
+              from functioning.
+            - Development timeline established. Consult it in the top-level
+              RELEASE-CRITICAL file.
+2004-08-26: - Dot product implemented. Use the '.' operator for calculating it.
+              Fool-proofing has been done in a sense that '.' operates only on
+              vectors.
+            - Vector product implemented. Unfortunately, I can't think of a nice
+              ASCII symbol for the vector product operator, so for now use the
+              'times' or 'TIMES' keyword. If you have any suggestion on the
+              ASCII character 1-127 that could be used, please let me know! :)
+              Fool-proofing is also fully implemented.
+            - Vector norm implemented. In order not to over-complicate and over-
+              restrict the user, the norm() function of scalar values simply
+              returns the value itself.
+2004-08-24: - Vector arithmetics implemented. To create a new vector, use the
+              vector (dimension) initializer. To see it, one may use 'print'
+              or 'calc'. To set it, use 'set'. Currently, addition, subtraction,
+              multiplication, division and multiplication-by-constant are im-
+              plemented. Please note that multiplication doesn't make any mathe-
+              matical sense as the scalar/vector product, it simply multiplies
+              all elements of one vector with elements of the other vector.
+              Scalar (dot) and vector products will be implemented shortly.
+2004-08-23: - HLA testing complete. Stiff corrections indeed significantly im-
+              prove the fit! The results will be discussed and presented short-
+              ly on phoebe-devel mailing list and if all developers agree, new
+              approach will be adopted for the main branch.
+            - PHOEBE_vector structure typedeffed in phoebe_global.h. It will be
+              added to the scripter capabilities shortly.
+2004-08-19: - PHOEBE_data structures are now accepted as basic PHOEBE scripter
+              type! One may read in the values from an external file simply by
+              issuing 'set data=phoebe_data("filename")'.
+            - phoebe_data_list () has been added to PHOEBE scripter. It lists
+              the contents of the PHOEBE_data variable to screen.
+            - All frame-work for vector arithmetics is done. What remains to be
+              done is to write and implement calculation functions. This is a
+              pretty high priority.
+            - Command transform_hjd_to_phase () implemented in scripter. Its
+              synopsis is: set new = transform_hjd_to_phase (orig [, hjd0,
+              period, dpdt, pshift]). If any of the optional parameters is
+              missing, the command takes values from the keyword table.
+            - PHOEBE API documentation updated.
+2004-08-17: - Started experimenting with HLA deprecation.
+2004-08-16: - The compute_lc scripter command was leaking memory. Fixed.
+            - read_in_synthetic_data () function changed to read in values ba-
+              sed on independent variable values.
+            - A new type-set of functions introduced: phoebe_data_*. These func-
+              tions should be used whenever work with PHOEBE_data struct is
+              done. Currently, four functions are available: phoebe_data_new,
+              phoebe_data_new_uniform, phoebe_data_copy and phoebe_data_free.
+            - compute_lc and compute_rv commands only took literals, which is
+              not always enough. The argument may now also be a string variable.
+              Furthermore, grammar has been changed to take the last three ar-
+              guments (phase start, phase end and no of vertices) optionally.
+              If they are not given, the points are taken from experimental
+              data.
+2004-08-15: - A serious bug in data readout counted *all* lines rather than only
+              valid lines in experimental data files. Thus if your experimental
+              data file contained any illegal lines, they increased the number
+              of data points thus creating a bogus data point. Fixed.
+            - Command show_data_stats () added to the scripter. This command
+              takes a literal or a string identifier as an experimental data
+              filename and queries it for the number of points, minimum and
+              maximum value, median and average.
+            - WD fortran routine caller changed: instead of phase limits, the
+              function now takes an array of independent variable points (cur-
+              rently phases) and computes fluxes or RVs in those phases. This
+              makes it possible to compute levels and chi2 much more accurately
+              than before.
+2004-08-13: - configure.ac script didn't recognize GSL under some architectures
+              because of particular library testing order. Fixed.
+2004-07-27: - configure.ac and Makefile.am generalized a bit more. There was
+              a residual -lgtkdatabox flag in the src/Makefile.am which preven-
+              ted PHOEBE from building without it. It is now fixed. The GTK+
+              flags are also removed, since they weren't needed. Unfortunately,
+              this fix comes just after the pre-release is out. :(
+2004-07-26: - Hard dependency of PHOEBE build on GTK+ and gtkdatabox is dropped!
+              PHOEBE should now compile and run on *any* ANSI-C platform! All
+              changes have been done in configure.ac.
+            - All version and name global definitions moved to configure.ac.
+              This means that all there is to do when a new release is prepared
+              is to change the configure.ac file and that's it! :)
+            - An option to manually disable the GUI build by using the switch
+              --disable-gui (passed to ./configure) added.
+            - PHOEBE 0.30pre2 released!
+2004-07-25: - Type propagation for double arrays wasn't performed. Fixed.
+            - A discussion on dangling-else problem and an example of type pro-
+              pagation added to the API documentation.
+            - Simplex minimizer returned an exception value -2 if the conver-
+              gence wasn't reached in the passed maximum number of iterations,
+              which was induced by the gsl minimizer itself. This was conflic-
+              ting with PHOEBE's way of enumerating things (+ for non-critical
+              and - for fatal exceptions), so it was changed to +3. As a side
+              effect, the benign (false) warning about incorrect experimental
+              data readout from before has been eliminated.
+2004-07-24: - Recognition pattern for identifiers extended to contain underscore
+              delimeter '_'.
+            - configure.ac changed to include gtkdatabox library www location if
+              the script cannot find it. This simplifies the build for users
+              that don't have the time to read the top-level README file.
+            - The legacy phoebe_scripting.c and phoebe_scripting.h removed from
+              the build process.
+            - The default configure.ac header name src/config.h was renamed to
+              src/phoebe_build_config.h. It contains all #define statements
+              determined at configure time, which govern the way PHOEBE is
+              built.
+            - Two global definitions added in configure.ac to remove the need
+              of editing main.c whenever a new version is released. Those are
+              PACKAGE_RELEASE_DATE and PACKAGE_RELEASE_TYPE. The date is clear,
+              I guess, the type stands for alpha (in heavy development), beta
+              (testing) or stable (debugging).
+            - FINALLY: the scripter part is *completely* separated from the
+              GUI. All GUI-related parts have been moved from the src/ direc-
+              tory to the gui/ directory.
+            - All implicit function definitions have been fixed by adding nece-
+              ssary #include directives to affected source files.
+            - All unused variables have been removed.
+2004-07-23: - #ifdef statements in phoebe_spectra.c/.h were missing to check
+              for GSL availability. The source should now compile cleanly under
+              system without GSL installed. Thanks to Dirk Terrell for pointing
+              this out!
+2004-07-22: - Types have been consistently introduced to PHOEBE scripter. The
+              user now has all four major types at disposal: int, double, bool
+              and strings!
+            - Everything has been updated to work with multi-type variables.
+            - 'get_parameter_value' command implemented. It takes two or three
+              arguments, the first being an identifier, the second the qualifier
+              and the third optionally the curve index.
+            - Error handling has been bullet-proofed. That's pretty much it,
+              now I need some feedback! :)
+            - API Documentation has been updated.
+2004-07-21: - All scripter commands have been moved to the independent source
+              file called phoebe_scripter_commands.c. All future command imple-
+              mentations should go there.
+            - All commands have been fool-proofed with hopefully a minimal bug
+              count. ;)
+            - Strings introduced into scripter. The concatenation via the 'set'
+              directive is possible, identifier substitution and printout as
+              well. There is an obvious need for integers, but this has yet to
+              come. All commands and directives that take literal arguments now
+              take identifiers as well and check whether they are indeed strings
+              and if not, an error message is returned.
+            - The system call syntax conflicted with the '!=' operator, so the
+              system calls are now restricted only to statements having '!' on
+              the beginning of the line.
+            - Again a huuuuuge improvement: the scripter AST (Abstract Syntax
+              Tree) has been practically rewritten to support *any* argument
+              type. Currently four basic types are supported: int, double,
+              bool and string, which is already much better than just doubles
+              and string emulations. But what is even better, it is now really
+              easy to expand the type space with arrays, for example. However,
+              this is not the priority now.
+2004-07-20: - System calls via '!' delimeter have been implemented in scripter.
+              Anything may be executed, as long as there is sufficient memory
+              to hold the process.
+            - Enumeration readouts have been handled for failed recognitions.
+              This is important when a user builds his own keyword file and
+              mistypes the literal. All functions should check the readout
+              values for exceptions.
+2004-07-19: - 'print' directive implemented. This directive takes variable num-
+              ber of arguments that must be either literals or expressions re-
+              turning numerical value. See PHOEBE API for further information.
+            - Syntax highlighting for PHOEBE scripter added to NEdit. I will
+              put the macro to PHOEBE's web page along with instructions on how
+              to add it to your nedit as soon as the scripter becomes beta.
+            - Error handling on set_parameter_value () function tightened.
+            - After finally finishing the scripter core, my attention turns to
+              the plug-in system. I'm learning how to implement that properly,
+              in the mean time I am fixing other small issues. The first such
+              annoying issue is the GUI Window title - it now changes to the
+              modeled star name. The driving function has been rewritten and
+              optimized to the fullest extent.
+            - PHOEBE keyword file converter written in flex. The converter
+              scans through the old keyword file format and outputs the new
+              (0.3x) keyword file format.
+            - The About window updated to contain both authors and both con-
+              tributors.
+            - A new frame added around status bar. It just looks a bit nicer,
+              that's all! :)
+            - A list of all qualifiers, keywords and types added to PHOEBE
+              API. If someone tries to make me do this again, I'm not guaran-
+              teeing for my behavior! %-) I'll just pass out now, thank you!
+2004-07-18: - Scripter commands 'compute_lc ()' and 'compute_rv ()' implemen-
+              ted. The API documentation updated. Both commands take five argu-
+              ments: the output filename, the target curve, phase start, phase
+              end and the number of vertices.
+            - A small bug removed from the experimental data readout function
+              that introduced a slight overhead in doubled readout.
+            - Nelder & Mead's Downhill simplex method extended to include RV
+              curves as well.
+            - Primitive weighting of different curves with their global stan-
+              dard deviations has been implemented. I hope this ancient
+              approach will be soon gotten rid of. Any suggestions on how to
+              handle this?
+2004-07-17: - WD fortran wrapper extended to support RV readout from the same
+              calling routine. To this routine two new functions have been
+              hooked up, namely call_wd_to_get_rv1 and call_wd_to_get_rv2.
+              Direct RV readout from WD is now possible!
+2004-07-16: - Loops and conditionals fully implemented in scripter.
+            - Identifier operators ++, --, +=, -=, *= and /= implemented in
+              scripter.
+            - First simplex minimizer heuristics search has been called from
+              script - it was the triple-nested for loop and it worked like a
+              charm! :)
+2004-07-15: - Although I have neglected this ChangeLog a bit, much has been
+              done: the scripter core has been rewritten from scratch. It is
+              now based on strict LALR(1) grammar and supports everything the
+              old scripter supported + full arithmetics + user-defineable
+              functions + proper error handling. Two tools have been used for
+              this: flex for lexing and bison for parsing. Abstract syntax
+              tree (AST) replaces the former functional definition of scripting
+              directives and commands. The need for realization delimeter ($)
+              and dereferencing delimeter (&) has been removed.
+            - Range checking added to bandpass-dependent parameters' readout.
+              All readout function return -2 to signal out-of-bounds error.
+            - Independent variable box added to the GUI Data tab and connected
+              to the core.
+            - Range checking added to WD LCI file generator function.
+            - 'create_wd_lci_file (filename, mpage, curve)' added to PHOEBE
+              scripter. You may use this function to create a raw Wilson-Devin-
+              ney input file. This might be interesting for testing different
+              WD versions, checking consistency etc.
+            - PHOEBE API document updated to contain completely up-to-date
+              information.
+2004-06-29: - Are you ready for this: simulated annealing has been implemented!
+              Although it isn't fast, it does render heuristic searches obso-
+              lete. Thus it might be useful to give simulated annealing a chan-
+              ce when we reached a given minimum with some fast method, e.g.
+              simplex or DC: simulated annealing would then be able to jump
+              out of it if it's only a local minimum. The implementation still
+              needs to be fool-proofed and the arguments decided on (oversimp-
+              lified vs. bloated argument set issue).
+2004-06-27: - Scripter command line realization automated. The scripter now
+              parses the command line automatically, replacing all variables
+              (denoted by the '$' delimeter) with their realized values, which
+              are read from the global user parameters lookup table. This sim-
+              plified the user parameter table access significantly and allows
+              the implementation of operators (+, -, *, / and others). The re-
+              alization has also been fool-proofed.
+2004-06-26: - Scripter interface has been fool-proofed. The scripter commands
+              now check for the number of arguments before they are passed to
+              the actual functions, since the variable call va_arg has unpre-
+              dictable results if the arguments aren't exactly as expected.
+            - The 'list' directive expanded to contain arguments. Currently
+              two arguments are supported, 'pars' and 'adjustables'. Fool-
+              proofing is also implemented.
+            - The 'help' directive expanded to contain arguments, but since
+              multi-language support with gettext library is planned, the on-
+              line help isn't available. Please refer to PHOEBE API for help
+              on PHOEBE scripting (and yes, that document is in fact up-to-
+              date! :) ).
+2004-06-24: - Implementation of the Kurucz spectra has begun! After this imple-
+              mentation is done, 0.30pre2 will be released! :)
+            - Two new keywords added to PHOEBE configuration file: PHOEBE_
+              KURUCZ_SWITCH and PHOEBE_KURUCZ_DIR. The readout is done as for
+              all other keywords, in phoebe_init() function.
+            - A scripter function 'query_spectra_repository (dirname)' added
+              to the scripter commands. It checks whether the passed directory
+              is indeed a spectra repository and it returns the number of
+              spectra in it.
+2004-06-22: - Nelder & Mead's Downhill simplex algorithm officially supported
+              by PHOEBE! The algorithm has been tested on UV Leonis data and
+              it showed remarkable convergence that *never* fails! :) Unfortu-
+              nately, the CVS server is still down due to the compromise, so
+              this support cannot be checked out yet. If you are reading this
+              and want to get the testing version, please e-mail me and I'll
+              send you the tarball of the local CVS snapshot.
+2004-06-21: - Experimental data readout in the downhill simplex routine was
+              moved from the chi2 function to the main minimization function.
+              This optimizes the chi2 calculation, since the readout is done
+              only once.
+            - Adjustment readout has been drastically enhanced - the values are
+              now written in arrays according to their scope - whether they
+              apply to the system level or to the filter-dependent level.
+            - Downhill simplex base and the corresponding chi2 cost function
+              have been expanded to minimize all light curves at once. There is
+              no LC-dependent weighting yet, which will be added immediately
+              after initial testing is done.
+2004-06-20: - There were a couple of newlines WD still produced and these were
+              now commented out.
+            - Major optimization in the simplex minimization function has been
+              done. There are still some smaller issues to be addressed, but
+              the gain is already noticeable. chi2 function now never accesses
+              any elements by itself, it only uses the values that have been
+              passed by the main minimization function, which saves a lot of
+              time.
+            - PHOEBE programming API renamed to PHOEBE Scripter API, since the
+              top-level SPECS already serves the programming API purpose. The
+              scripter has now become the scientific core of PHOEBE and as such
+              it needs a fine up-to-date documentation. To all directives and
+              commands in the Scripter API, many examples have been added to
+              help the user quickly catch on to the Scripter philosophy.
+2004-06-19: - WD function cleared of all write statements, so that now the
+              stdout isn't trashed with data anymore. This needs a lot of work
+              still, though.
+            - Downhill simplex algorithm implemented and tested. The premiere
+              minimization of the inclination value for UV Leonis was a suc-
+              cess! :) The links are still hard-coded, the cost function ut-
+              terly unoptimized, but everything seems indeed to be functional,
+              so I'll be cleaning and polishing tomorrow. I hope this minimizer
+              becomes useful for you guys! :) Oh, one more thing: the minimizer
+              can be initiated only from the scripter, I need the volunteer
+              (or more likely a bit of spare time) to implement the GUI.
+2004-06-18: - A nasty bug that crashed the scripter if only a hash mark was
+              used for a comment has been fixed.
+            - Global parameter lookup table split in two parts: the core part
+              and the GUI part. All lookup functions have been updated to
+              handle two distinct tables correctly. The benefit of this is
+              to avoid GUI initialization for scripter-only usage. The penalty
+              is that now two declaration functions exist and both should be
+              updated if a new parameter is introduced.
+            - phoebe_init () function split to phoebe_init () and phoebe_gui_
+              _init (). The first one initializes only the core and the second
+              one initializes both. It is difficult to distinct them completely,
+              major rewriting would be necessary, that's why the _gui_ function
+              doubles the job of the core function and it is therefore neces-
+              sary only to call *one* of the two functions. This has been han-
+              dled properly in main.c .
+            - An invalid free() call that caused the scripter to crash after
+              several consecutive calls to a single scripter function has been
+              fixed.
+2004-06-17: - Scripter functions used their own readout routines, which have
+              now been standardized.
+            - Array parameters can now read out user lookup tables and they can
+              be assigned the variable value rather than just explicit value.
+2004-06-16: - The overall design changed completely in the past month. This
+              change definitely deserves a new version branch, but since 0.30
+              was never released as stable, the versioning will remain the
+              same.
+            - Humongous effort has been made to completely split the science
+              part from the GUI. All keyword functions now work with global
+              parameter lookup table and the GUI is updated with the plug-in
+              system. The new functions are still under heavy testing. This all
+              means that PHOEBE has left completely the notion of being a
+              front-end to WD, for it now offers base scripting language and
+              new soon-to-be incorporated numerical algorithms for inverse
+              problem solving!
+            - Since the CVS has been compromised, all updates will be logged
+              in this ChangeLog, but the actual checkout will have been made
+              available after the CVS is restored.
+            - LDMODEL keyword wasn't initialized and thus created some GTK+
+              warnings. This bug was benign, but it's still nicer not to have
+              a single warning! :)
+2004-05-26: - A new allocation function implemented that scans through a global
+              parameter table and returns an array of booleans that show the
+              state of the adjustment switches.
+2004-05-25: - Two new source files added: phoebe_fitting.c and phoebe_fitting.h.
+            - An inconsistency in keywords' table fixed: limb darkening coefici-
+              ent adjustment switches had non-standard qualifier naming.
+2004-05-12: - After preparing and cleaning up 0.24 version, my attention returns
+              to 0.30 version. :) Further work on scripting has been done: the
+              set_parameter_value* family of commands can now take user-defined
+              variables rather than just numbers, but these have to be realized
+              (e.g. $a, not only a).
+2004-04-21: - PHOEBE Scripter API documentation updated to contain all currently
+              available directives and commands. Developers should use this API
+              for reference on scripter programming specifications.
+            - Checkup for the realize symbol '$' added for the 'set' directive.
+            - 'set' directive changed to conform to the newly written specs:
+              the variable-to-variable declaration has to use realized values,
+              e.g. set a=$b rather than set a=b.
+2004-04-20: - A small typo in scripter's help fixed.
+2004-04-16: - The scripter segfaulted if the non-existent variable was set to
+              another non-existing variable due to range overflow. Fixed.
+            - Scripter command get_parameter_value () re-implemented to work
+              with strings from the interactive scripter (thus assigning values
+              to user-defined variables).
+            - Added scripter commands 'set_parameter_value_in_array' and
+              'get_parameter_value_in_array'. These are used to set/get the
+              values of array elements.
+            - Scripter directives 'qualifiers' and 'keywords' implemented. They
+              list all qualifiers and keywords known to PHOEBE.
+2004-04-15: - Checking for parameter name validity implemented. The scripter now
+              checks whether the first character is in fact a letter.
+            - Directive 'show' expanded to take one argument - the name of the
+              variable to be queried for value. If the variable doesn't exist,
+              an error message is returned. Otherwise, only that variable is
+              written. Calling 'show' without arguments prints all defined va-
+              riables.
+            - PHOEBE was locale-dependent - the decimal point symbol, if dif-
+              ferent from '.', messed things up. PHOEBE now reads in the cur-
+              rent locate, changes the numbering scheme to "C" locale and
+              restores the original locale upon exit. This is only done for
+              decimal points, all other locale attributes remain the same.
+2004-04-14: - Double readout in scripter variable declaration fool-proofed.
+              Integer readout strengthened.
+            - PHOEBE 0.22 successfully set up on SUSE 8.2. Many thanks to
+              Michael Bauer for reporting this!
+2004-04-13: - Current working directory after start-up was set to the temporary
+              directory. It has now been changed to the start-up directory.
+              This makes much more sense when PHOEBE is started in scripting
+              mode.
+            - Did I say the interactive scripter is frozen? Hehe, well, it is
+              not. All script function executions fully implemented. Try star-
+              ting PHOEBE with -s switch and type help. Then try using any of
+              the given commands or directives.
+            - Resolving relative filenames fully supported and optimized.
+            - Scripter directives 'ls' and 'dir' implemented (along with the
+              get_directory_contents () function).
+            - Scripter's 'set' command implemented. The user may now declare
+              new variables. The scripter assigns a type to the declared vari-
+              able according to parsing rules: if a value of that variable con-
+              tains quotes (""), it is a string. If it is YES/TRUE or NO/FALSE,
+              it is boolean, if it has a decimal point, it is a double and in
+              all other cases it is an int or the assignment fails. These dec-
+              larations aren't yet fool-proofed, so be careful how you use 'em.
+              Also, all parameter names must start with non-numerical letter.
+            - Overwriting (updating) parameter values now fully functional as
+              well. Please don't change parameter types from strings to non-
+              strings, it will produce memory leaks. The easiest way to use
+              these variables is to stick to the given type once the variable
+              is declared. This would be easy to enforce, but it wouldn't be
+              the elegant solution.
+            - Yet another scripter feature: variable passing definitions fully
+              implemented! E.g. set a=10, set b=a works! :) The next step is to
+              support algebraic relations, but it's enough for today!
+            - One last thing, I promise ;) : I fool-proofed most of the varia-
+              ble declarations, it should be pretty safe to use. Please comment!
+            - Well, I broke my word, sorry! The above change of the initial di-
+              rectory broke the plotting scheme. It is now fixed. Also, warnings
+              are issued when atmcof.dat and atmcofplanck.dat aren't found ra-
+              ther than crashing PHOEBE.
+2004-04-10: - Interactive PHOEBE scripter implemented (its basics, actually).
+              To initiate interactive scripter, use -s or --scripter switch
+              in the command line. Before, -s executed the script, but now it
+              it has been changed to -e (--execute). Help screen has been up-
+              dated.
+            - First two commands implemented into interactive scripter: help
+              and quit. This development will freeze for now, since many other
+              things have to be done first. However, it should be written soon,
+              because script execution will be much faster after this is done!
+            - Scripter GUI window column alignment changed from centered to
+              left-aligned.
+            - Add action callback implemented in Scripter GUI window.
+2004-04-09: - A global parameter table expanded to contain array bonds. This way
+              all arrays (the dimensions of which depend on other parameters
+              (bonds)) may query the bond parameter to obtain their dimension.
+            - Array parameter readout added to get_parameter_value script com-
+              mand and to set_parameter_value script command. Fool-proofing is
+              not yet complete, please don't pass nonsense to the scripter, it
+              will crash.
+            - All GUI catch functions written. Whenever a parameter gets chan-
+              ged, the GUI will catch it and update the value in the widget.
+            - main.c changed temporarily to test scripting functions. This will
+              be on the CVS only two days, so if you want to test it, be sure
+              to extract today's version.
+2004-04-08: - Connectivity functions with the GUI prototyped.
+2004-04-07: - The global parameter table was expanded to contain actual values
+              of parameters. This is one more step towards complete scripter-
+              GUI separation.
+            - Parameter table index readout functions added to phoebe_keywords.
+              Now the index can be retrieved and used for obtaining parameter
+              values.
+            - Parameter type readout functions added to phoebe_keywords. These
+              functions return the type of parameters in the table.
+            - Script command set_parameter_value added to the scripter. It is
+              already functional for all non-array parameters, but even array
+              parameters should be easy to implement.
+            - Two new source files introduced: phoebe_connectivity.c and .h.
+              These sources hold the signals emitted by the scripter to which
+              PHOEBE plugins should connect to. Right now it is just the GUI,
+              but in future all kinds of expansions may be plugged in!
+2004-04-06: - Parameter data types changed from double pointers to single poin-
+              ters. This resulted in big optimization gain - the start-up is
+              is now noticeably faster. All follow-up functions have been
+              adopted to the new form (see phoebe_global.h for details).
+2004-04-05: - Top-level SPECS file expanded to contain further specification on
+              PHOEBE scripting.
+            - open_keyword_file script command tested and fool-proofed.
+            - Redundant #include statements removed from main.c.
+            - Main PHOEBE window is now showed from main.c rather then from
+              phoebe_gui_accessories. Without this change scripts still opened
+              the main window, even if it wasn't necessary.
+            - save_keyword_file script command tested and fool-proofed.
+2004-04-02: - First public PHOEBE presentation at Zdenek Kopal's Binary Star
+              Legacy and Memorial, Litomysl, Czech Republic.
+2004-03-26: - Two mailing lists created: phoebe-announce and phoebe-discuss.
+              To subscribe, please visit PHOEBE's homepage and follow the ins-
+              tructions.
+2004-03-25: - Imposed limits on luminosities for main sequence star calculator
+              were too low in the GUI - only to 100. Increased to 100000.
+2004-03-11: - There was a tiny bug in configure script output: if GSL wasn't
+              installed on the system, PHOEBE still reported support for it,
+              although it wasn't really used. Thus it was only a printing
+              problem, not usage problem. Fixed.
+            - Further work on scripting foundry done: the global record has been
+              extended to include argument names as well. These names are then
+              copied to the Scripter window and will eventually be used for
+              argument queries in interactive mode.
+            - Scripter window arguments and their names are now updated auto-
+              matically with OptionMenu contents' change. Thus nothing has to
+              be defined explicitly, the function takes everything from the
+              global structure. Neat, huh? ;)
+2004-03-08: - Generate seed button was too small and didn't rescale with the
+              window under certain window manager themes. Fixed. Thanks to
+              Mike Sallman for bringing this to my attention!
+            - Interstellar extinction (reddening) fully implemented. Not only
+              does it fix a serious bug from 0.2x versions that caused synthe-
+              tic data to be dereddened as well, now synthetic dereddening is
+              available via Utilities tab. This is very useful for testing and
+              assessing reddening influence on the solution. With proper insight
+              from dust catalogs this is a powerful physics add-on. So go ahead
+              and experiment!
+2004-03-07: - Scripter command names are now added automatically to the GUI part
+              (the scripter window) from the global command tables. It thus
+              isn't necessary to think of adding the commands individually via
+              Glade builder as before.
+2004-03-04: - Scripting backbone fully implemented. SPECS file further updated
+              to contain exact information on scripting.
+            - Scripting GUI window implemented. All signals have been hooked up,
+              but no actions are yet performed. Info list is completed and the
+              dimensions fixated. Looks nice.
+            - PHOEBE entered GTK's Success Stories! :-)
+              Check it out at http://www.gtk.org/success/
+2004-03-02: - Synthetic scatter seed generator implemented. Until now the button
+              was present, but clicking didn't do anything.
+            - Scripting facility enhanced and SPECSified. Please read the top-
+              level SPECS file for detailed implementation information.
+            - Exception handling functions moved to a separate source file.
+2004-01-26: - GSL (GNU Scientific Library) support added to autoconf & co. This
+              paves the ground for numerical algorithms which could be added
+              optionally to PHOEBE. GSL support may be disabled with the
+              --disable-gsl switch passed to ./configure, but I don't see any
+              reason why would someone want to do that.
+            - SPECS and phoebe_calculations.c updated with instructions on GSL
+              usage and definition switches.
+2004-01-25: - Logging service added to PHOEBE. It is fully functional already
+              and it allows the user to log his work and save it to disk. The
+              tags are already implemented, but they still have to be connected
+              to some toolbar editing buttons. Flushing to disk works, but the
+              filename of the log file should be written to the keywords file
+              and opened together with all other parameters. Alternatively, the
+              user should be able to open his log file from the Logging service
+              window. Finally, PHOEBE should be able to add time stamps and
+              reduction entries automatically to this service. All this remains
+              to be done.
+2004-01-18: - Toolbar buttons were way too big for nice overall appearance. They
+              have been now reduced to 70% of their original size.
+            - Main sequence calculator added to the Utilities tab. When we have
+              detached binaries for which no RV data are available, mass ratio
+              cannot be evaluated. However, if we presume that both stars are
+              close to main sequence, the mass ratio may be estimated from both
+              temperatures. So the idea is to calculate the effective tempera-
+              ture from the color index, fit relevant parameters, among which
+              also T1 and T2, then use these two to get RM, SMA, PHSV and PCSV
+              and repeat the whole process to satisfactory convergence.
+2004-01-17: - Debugging support added to configuration scripts. If PHOEBE is
+              configured with --enable-debug, all phoebe_debug () messages will
+              show up on stdout (the terminal). Potential problematic functions
+              should now undergo extensive adding of phoebe_debug () statments.
+            - Statistics frame added to Plot LC window. Looks quite spiffy!
+            - Function calculate_median () was changing the array that was
+              passed as the argument, which shouldn't be. Fixed.
+2004-01-14: - Debugging showed that gtk_tree_iter_free () function creates
+              segfaults under RedHat 9.0. Since this function is used for lan-
+              guage bindings and does not imply memory leaks, it has been re-
+              moved from the source. One more reason why I stick with Debian. ;)
+2004-01-11: - UV Leonis data now installed during installation script. It was
+              too confusing for the user to be forced to change the absolute
+              pathname in the first run.
+            - Default executable filename changed to phoebe2. This releives the
+              conflict against the old (0.21) version. PHOEBE should always be
+              called phoebe, but due to extensive testing by many people this
+              had to be incorporated.
+2004-01-08: - Function prototypes for catching clicks in LC plot TreeView have
+              been implemented. The idea is to make the single clicks go through
+              to the row, since the clicks are now "wasted" for selecting a
+              particular row. Also it will finally be possible to choose colors
+              for graphs. Signals are connected, the code remains to be written.
+            - Checkbox functionality has been implemented. Clicks now go through
+              to the checkbox immediately, without row selection.
+            - Function gtk_tree_view_column_get_index enhanced, following the
+              recommendations of GtkTreeView Tutorial, page 36-37.
+            - Hard-coded GdkPixbuf paths used for debugging removed. Phoebe2
+              should now be completely path-independent.
+2004-01-07: - LD button had a wrong widget name tied to the configuration
+              setting. Fixed.
+            - Dependency on binary WD code has been finally dropped!
+            - Installation scripts in autoutils have been updated.
+            - Default Base installation directory changed to phoebe2 instead
+              of phoebe so that 0.21 and 0.30 versions may coexist nicely.
+              This should be changed to version numbers ASAP!
+            - PHOEBE 0.30pre0 purely testing release is out!
+2004-01-01: - HAPPY NEW YEAR! A testing release is on its way! :)
+2003-12-16: - A tiny bug that incorrectly read in the very last keyword file
+              line if it is a toggle button delimeter is fixed.
+            - Another not-so-tiny bug that added spurious points when empty
+              lines in data files were read is fixed.
+2003-12-15: - Synthetic LC plotting fully supported (both fluxes and magnitu-
+              des). Readout is done by calling WD fortran subroutine.
+2003-12-10: - A bug in WLA readout fixed (double instead of integer readout!).
+            - A bug in MREF/NREF readout fixed (interchanged roles).
+            - Maximum reflection number changed from 100 to 10. Honestly, who
+              would ever need more than 10 reflection taken into account?
+            - Preliminary synthetic LC plotting supported.
+2003-12-09: - Memory leaks have been fixed for color icons. This was redundant
+              in a way, since it will be changed completely shortly.
+            - Experimental LC data plotting fully supported. Looks great! :)
+              All there is to do still is to incorporate color selection.
+2003-12-08: - A bug in synthetic noise option fixed - sigma value should be 0.0
+              if no synthetic noise is added.
+2003-12-07: - GUI TreeWidget enhancements incorporated to all widgets:
+              scrolling/resizing properties changed.
+2003-12-04: - A Major break-through in code logic: WD routines are now called
+              through a function wrapper and *not* as precompiled binaries!
+              The idea is to use WD physics to calculate flux as the function
+              of phase and let everything else be done by PHOEBE (calling e.g.
+              GSL or NR or Octave functions). The wrapper still has to be
+              cleaned of all write & co. statements, but it is already fully
+              functional!
+2003-11-25: - Toplevel configure.in renamed to configure.ac as recommended in
+              the autoconf documentation, section 3.1.
+            - Toplevel configure.ac PHOEBE version was updated to 0.30.
+            - Toplevel configure.ac heavily enhanced. Checkups for gtkdatabox
+              library and C functions implemented.
+            - The usage of acconfig.h is deprecated and was thus deleted from
+              the CVS.
+2003-11-16: - A bug in dependent LC plotting variable readout in allocations.c
+              fixed - the readout is now working properly.
+            - A heavy rewrite of the top-level SPECS file done to reflect upon
+              GTK+2.0 transition changes.
+            - Gtkdatabox credits added to PHOEBE's About window.
+            - Stable version date 0.30 changed to December 1.
+2003-11-15: - First global graphing variables used for plotting. The code isn't
+              cleaned or fool-proofed yet, but it was tested successfully and
+              seems to be working without any issues.
+2003-11-13: - PHOEBE's error handling routine phoebe_realloc was suffering from
+              an unnecessary termination when called with size=0. When size 0 is
+              passed to realloc, it calls free() on the passed pointer.
+            - Global graphing cache typedef created. GtkDatabox requests global
+              pointer definition for data validity and thus each plotting type
+              now has a corresponding cache memory reserved: PHOEBE_??_graph_
+              _cache, where ?? is lc for now and will be expanded to rv, sp, 3d
+              etc.
+            - Allocation handler that clears and sets the graphing cache has
+              been implemented in the callbacks part.
+2003-11-12: - PHOEBE 0.30 put under the CVS development as phoebe2.
+2003-11-11: - PHOEBE_graph_data typedef introduced; it is exactly the same as
+              PHOEBE_data typedeffed struct, only that it uses floats instead
+              of doubles. This is required for gtkdatabox complience. All read-
+              in and allocation functions implemented as well.
+2003-11-06: - read_in_experimental_data () function heavily tested and enhanced.
+              No problems were detected. All conversions fully functional.
+            - Normalized flux as the LC output option abandoned. It never had
+              any physical sense to have it; if the user wants his flux to be
+              normalized, he should do it via MNORM value from the Data tab.
+            - Binning and aliasing LC plot functionality fully restored.
+            - Finally: all SuperMongo dependencies removed! SuperMongo is no
+              longer required for PHOEBE's functionality! This means PHOEBE is
+              fully in open source, under GPL!
+2003-11-05: - After much testing, the library gtkdatabox was chosen to be added
+              to PHOEBE's plotting options. It is small, fast and could be dis-
+              tributed and build along with PHOEBE.
+            - Some data allocation routines enhanced.
+            - First graphing routines made with gtkdatabox.
+            - N1, N2 keywords had to be renamed to N1F and N2F, since PHOEBE
+              might confuse them with wavelength-dependent parameters differing
+              from N1C and N2C just by one character.
+            - Wavelength-dependent parameters' readout fool-proofed. It should
+              never happen that this error handler should be invoked, but if
+              it happens anyway, better be prepared.
+2003-11-03: - Phase calculation from ephemeris added to phoebe_calculations.c.
+            - Phase calculator added to Utilities tab. It should be decided on
+              phase shift treatment and adjust this calculation accordingly.
+2003-10-09: - GUI support added for internal graphing routines. This way all
+              SM library dependencies will be obsolete, but the functionality
+              will still be available through autoutils configuration. Internal
+              graphing routines will be implemented via GdkDrawable functions.
+2003-09-17: - WD_LCI_parameters struct created that made all other parameter
+              structs obsolete. This struct contains all parameters needed to
+              create an LCI file.
+            - GUI parts for N1/2 and N1/2C added to the Surface tab and connec-
+              ted by keywords within the program.
+            - IPB switch moved to the data tab, since it has more to do with
+              model constraints that luminosities. And it looks nicer this way!
+            - Few wrongly determined spin-button limits corrected.
+2003-09-16: - Data statistics window implementation finished.
+            - Default values for input columns changed to "Undefined". This key-
+              word is now used to test whether any action should or shouldn't
+              be performed. It stops redundant function calls.
+2003-09-04: - Opening keyword files from command line restored and fully tested.
+            - Error handling functions enhanced: phoebe_notice, phoebe_warning
+              and phoebe_fatal now take variable number of arguments, following
+              the same format as *printf functions.
+            - print_to_status_bar function also enhanced to take variable number
+              of arguments. All prior calls to this function updated.
+2003-09-01: - Initial migration to GTK2+ finished.

@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Phoebe 0.29 Tutorial - I feel comfortable, what next?</TITLE>
+<META NAME="description" CONTENT="I feel comfortable, what next?">
+<META NAME="keywords" CONTENT="phoebe_tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="phoebe_tutorial.css">
+
+<LINK REL="next" HREF="conventions.html">
+<LINK REL="previous" HREF="fitting.html">
+<LINK REL="up" HREF="index.html">
+<LINK REL="next" HREF="conventions.html">
+</HEAD>
+
+<BODY >
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+
+<B> Next:</B> <A NAME="tex2html270"  HREF="conventions.html">Physical parameters' conventions</A>
+<B> Up:</B> <A NAME="tex2html266"  HREF="index.html">PHOEBE Tutorial</A>
+<B> Previous:</B> <A NAME="tex2html260"  HREF="fitting.html">First steps of fitting</A>
+ &nbsp; <B>  <A NAME="tex2html268"  HREF="contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00050000000000000000">
+I feel comfortable, what next?</A>
+</H1>
+
+<P>
+What's next basically depends on your particular problem. In our case, it seems that the shape of the light curve is way off. The parameters which influence the light curve shape the most are Kopal potentials, so let us try and fit those. Go to the <code>System-related</code> tab and mark both primary and secondary star potentials (<code>PHSV</code>, <code>PCSV</code>) to be adjusted. Go to the <code>Fitting</code> tab and do as before: correct the values of potentials one step at the time. Note that the convergence is slower than for the luminosities, but be patient and keep going until you have reached satisfactory values. A piece of advice: keep a plotting window open and inspect what each iteration does to your synthetic light curve!
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="phoebe_after_phsv_fit_2"></A><A NAME="288"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 22:</STRONG>
+The 550nm (B) light curve after the fit of potentials.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+ ALIGN="BOTTOM" BORDER="0"
+ SRC="phoebe_after_phsv_fit_2.png"
+ ALT="phoebe after phsv fit 2"> 
+<BR>
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+If you have followed the above scheme, you should have landed with the primary and secondary potential values of 4.878 and 4.686, respectively. We now see how way off we have been with our calculated values. You may play with the values in the potential calculation window to see what presumption was wrong. The corrected values produce the following for both light curves:
+
+<P>
+This is much better already!
+
+<P>
+<BR>
+<BR>
+<BR>
+
+<P>
+... TO BE CONTINUED ...
+
+<P>
+
+<P>
+
+<DIV CLASS="navigation"><HR>
+<!--Navigation Panel-->
+
+<B> Next:</B> <A NAME="tex2html270"  HREF="conventions.html">Physical parameters' conventions</A>
+<B> Up:</B> <A NAME="tex2html266"  HREF="index.html">PHOEBE Tutorial</A>
+<B> Previous:</B> <A NAME="tex2html260"  HREF="fitting.html">First steps of fitting</A>
+ &nbsp; <B>  <A NAME="tex2html268"  HREF="contents.html">Contents</A></B> </DIV>
+<!--End of Navigation Panel-->
+
+</BODY>
+</HTML>

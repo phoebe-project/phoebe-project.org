@@ -1,0 +1,4014 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>phoebe_types</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="PHOEBE Reference Manual">
+<link rel="up" href="ch01.html" title="PHOEBE library consists of the following sources:">
+<link rel="prev" href="phoebe-phoebe-constraints.html" title="phoebe_constraints">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="PHOEBE library consists of the following sources:">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="phoebe-phoebe-constraints.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">PHOEBE Reference Manual</th>
+<td> </td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#phoebe-phoebe-types.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#phoebe-phoebe-types.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="phoebe-phoebe-types"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="phoebe-phoebe-types.top_of_page"></a>phoebe_types</span></h2>
+<p>phoebe_types</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="phoebe-phoebe-types.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+enum                <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>;
+enum                <a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a>;
+char*               <a class="link" href="phoebe-phoebe-types.html#phoebe-type-get-name" title="phoebe_type_get_name ()">phoebe_type_get_name</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a> type);
+                    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>;
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-new" title="phoebe_vector_new ()">phoebe_vector_new</a>                   ();
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-new-from-qualifier" title="phoebe_vector_new_from_qualifier ()">phoebe_vector_new_from_qualifier</a>    (char *qualifier);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-new-from-column" title="phoebe_vector_new_from_column ()">phoebe_vector_new_from_column</a>       (char *filename,
+                                                         int col);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-new-from-range" title="phoebe_vector_new_from_range ()">phoebe_vector_new_from_range</a>        (int dim,
+                                                         double start,
+                                                         double end);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-duplicate" title="phoebe_vector_duplicate ()">phoebe_vector_duplicate</a>             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-alloc" title="phoebe_vector_alloc ()">phoebe_vector_alloc</a>                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int dimension);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-realloc" title="phoebe_vector_realloc ()">phoebe_vector_realloc</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int dimension);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-pad" title="phoebe_vector_pad ()">phoebe_vector_pad</a>                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double value);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-free" title="phoebe_vector_free ()">phoebe_vector_free</a>                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-add" title="phoebe_vector_add ()">phoebe_vector_add</a>                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-subtract" title="phoebe_vector_subtract ()">phoebe_vector_subtract</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-multiply" title="phoebe_vector_multiply ()">phoebe_vector_multiply</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-divide" title="phoebe_vector_divide ()">phoebe_vector_divide</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-raise" title="phoebe_vector_raise ()">phoebe_vector_raise</a>                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-offset" title="phoebe_vector_offset ()">phoebe_vector_offset</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double offset);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-sum" title="phoebe_vector_sum ()">phoebe_vector_sum</a>                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *sum);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-mean" title="phoebe_vector_mean ()">phoebe_vector_mean</a>                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *mean);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-median" title="phoebe_vector_median ()">phoebe_vector_median</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *median);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-standard-deviation" title="phoebe_vector_standard_deviation ()">phoebe_vector_standard_deviation</a>    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *sigma);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-multiply-by" title="phoebe_vector_multiply_by ()">phoebe_vector_multiply_by</a>           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double factor);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-dot-product" title="phoebe_vector_dot_product ()">phoebe_vector_dot_product</a>           (double *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-vec-product" title="phoebe_vector_vec_product ()">phoebe_vector_vec_product</a>           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-submit" title="phoebe_vector_submit ()">phoebe_vector_submit</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-norm" title="phoebe_vector_norm ()">phoebe_vector_norm</a>                  (double *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-dim" title="phoebe_vector_dim ()">phoebe_vector_dim</a>                   (int *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-randomize" title="phoebe_vector_randomize ()">phoebe_vector_randomize</a>             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         double limit);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-min-max" title="phoebe_vector_min_max ()">phoebe_vector_min_max</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *min,
+                                                         double *max);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-min-index" title="phoebe_vector_min_index ()">phoebe_vector_min_index</a>             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int *index);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-max-index" title="phoebe_vector_max_index ()">phoebe_vector_max_index</a>             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int *index);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-rescale" title="phoebe_vector_rescale ()">phoebe_vector_rescale</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double ll,
+                                                         double ul);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-compare" title="phoebe_vector_compare ()">phoebe_vector_compare</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-less-than" title="phoebe_vector_less_than ()">phoebe_vector_less_than</a>             (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-leq-than" title="phoebe_vector_leq_than ()">phoebe_vector_leq_than</a>              (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-greater-than" title="phoebe_vector_greater_than ()">phoebe_vector_greater_than</a>          (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-geq-than" title="phoebe_vector_geq_than ()">phoebe_vector_geq_than</a>              (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-append-element" title="phoebe_vector_append_element ()">phoebe_vector_append_element</a>        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double val);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-remove-element" title="phoebe_vector_remove_element ()">phoebe_vector_remove_element</a>        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int index);
+                    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a>;
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a>*      <a class="link" href="phoebe-phoebe-types.html#phoebe-matrix-new" title="phoebe_matrix_new ()">phoebe_matrix_new</a>                   ();
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-matrix-alloc" title="phoebe_matrix_alloc ()">phoebe_matrix_alloc</a>                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a> *matrix,
+                                                         int cols,
+                                                         int rows);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-matrix-free" title="phoebe_matrix_free ()">phoebe_matrix_free</a>                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a> *matrix);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-matrix-get-row" title="phoebe_matrix_get_row ()">phoebe_matrix_get_row</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a> *matrix,
+                                                         int row);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-matrix-set-row" title="phoebe_matrix_set_row ()">phoebe_matrix_set_row</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a> *matrix,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int row);
+                    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a>;
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a>*       <a class="link" href="phoebe-phoebe-types.html#phoebe-array-new" title="phoebe_array_new ()">phoebe_array_new</a>                    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a> type);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a>*       <a class="link" href="phoebe-phoebe-types.html#phoebe-array-new-from-qualifier" title="phoebe_array_new_from_qualifier ()">phoebe_array_new_from_qualifier</a>     (char *qualifier);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a>*       <a class="link" href="phoebe-phoebe-types.html#phoebe-array-new-from-column" title="phoebe_array_new_from_column ()">phoebe_array_new_from_column</a>        (char *filename,
+                                                         int col);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-array-alloc" title="phoebe_array_alloc ()">phoebe_array_alloc</a>                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array,
+                                                         int dimension);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-array-realloc" title="phoebe_array_realloc ()">phoebe_array_realloc</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array,
+                                                         int dimension);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a>*       <a class="link" href="phoebe-phoebe-types.html#phoebe-array-duplicate" title="phoebe_array_duplicate ()">phoebe_array_duplicate</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-types.html#phoebe-array-compare" title="phoebe_array_compare ()">phoebe_array_compare</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-array-free" title="phoebe_array_free ()">phoebe_array_free</a>                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      <a class="link" href="phoebe-phoebe-types.html#phoebe-vector-new-from-array" title="phoebe_vector_new_from_array ()">phoebe_vector_new_from_array</a>        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array);
+                    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a>;
+enum                <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist-rebin-type" title="enum PHOEBE_hist_rebin_type">PHOEBE_hist_rebin_type</a>;
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a>*        <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-new" title="phoebe_hist_new ()">phoebe_hist_new</a>                     ();
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a>*        <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-new-from-arrays" title="phoebe_hist_new_from_arrays ()">phoebe_hist_new_from_arrays</a>         (int bins,
+                                                         double *binarray,
+                                                         double *valarray);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a>*        <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-new-from-file" title="phoebe_hist_new_from_file ()">phoebe_hist_new_from_file</a>           (char *filename);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a>*        <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-duplicate" title="phoebe_hist_duplicate ()">phoebe_hist_duplicate</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-alloc" title="phoebe_hist_alloc ()">phoebe_hist_alloc</a>                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         int bins);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-realloc" title="phoebe_hist_realloc ()">phoebe_hist_realloc</a>                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         int bins);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-free" title="phoebe_hist_free ()">phoebe_hist_free</a>                    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-set-ranges" title="phoebe_hist_set_ranges ()">phoebe_hist_set_ranges</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *bin_centers);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-set-values" title="phoebe_hist_set_values ()">phoebe_hist_set_values</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *values);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-get-bin-centers" title="phoebe_hist_get_bin_centers ()">phoebe_hist_get_bin_centers</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *bin_centers);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-get-bin" title="phoebe_hist_get_bin ()">phoebe_hist_get_bin</a>                 (int *bin,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double r);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-evaluate" title="phoebe_hist_evaluate ()">phoebe_hist_evaluate</a>                (double *y,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double x);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-integrate" title="phoebe_hist_integrate ()">phoebe_hist_integrate</a>               (double *integral,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double ll,
+                                                         double ul);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-shift" title="phoebe_hist_shift ()">phoebe_hist_shift</a>                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double shift);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-correlate" title="phoebe_hist_correlate ()">phoebe_hist_correlate</a>               (double *cfval,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *h1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *h2,
+                                                         double sigma1,
+                                                         double sigma2,
+                                                         double ll,
+                                                         double ul,
+                                                         double xi);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-pad" title="phoebe_hist_pad ()">phoebe_hist_pad</a>                     (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double val);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-crop" title="phoebe_hist_crop ()">phoebe_hist_crop</a>                    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double ll,
+                                                         double ul);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-compare" title="phoebe_hist_compare ()">phoebe_hist_compare</a>                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist2);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-resample" title="phoebe_hist_resample ()">phoebe_hist_resample</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *out,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *in,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist-rebin-type" title="enum PHOEBE_hist_rebin_type">PHOEBE_hist_rebin_type</a> type);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-rebin" title="phoebe_hist_rebin ()">phoebe_hist_rebin</a>                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *out,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *in,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist-rebin-type" title="enum PHOEBE_hist_rebin_type">PHOEBE_hist_rebin_type</a> type);
+                    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a>;
+                    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a>;
+enum                <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve-type" title="enum PHOEBE_curve_type">PHOEBE_curve_type</a>;
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-type-get-name" title="phoebe_curve_type_get_name ()">phoebe_curve_type_get_name</a>          (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve-type" title="enum PHOEBE_curve_type">PHOEBE_curve_type</a> ctype,
+                                                         char **name);
+enum                <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a>;
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-column-type-get-name" title="phoebe_column_type_get_name ()">phoebe_column_type_get_name</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> ctype,
+                                                         char **name);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-column-get-type" title="phoebe_column_get_type ()">phoebe_column_get_type</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> *type,
+                                                         const char *string);
+enum                <a class="link" href="phoebe-phoebe-types.html#PHOEBE-data-flag" title="enum PHOEBE_data_flag">PHOEBE_data_flag</a>;
+                    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a>;
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a>*       <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-new" title="phoebe_curve_new ()">phoebe_curve_new</a>                    ();
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a>*       <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-new-from-file" title="phoebe_curve_new_from_file ()">phoebe_curve_new_from_file</a>          (char *filename);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a>*       <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-new-from-pars" title="phoebe_curve_new_from_pars ()">phoebe_curve_new_from_pars</a>          (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve-type" title="enum PHOEBE_curve_type">PHOEBE_curve_type</a> ctype,
+                                                         int index);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a>*       <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-duplicate" title="phoebe_curve_duplicate ()">phoebe_curve_duplicate</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-alloc" title="phoebe_curve_alloc ()">phoebe_curve_alloc</a>                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         int dim);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-realloc" title="phoebe_curve_realloc ()">phoebe_curve_realloc</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         int dim);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-compute" title="phoebe_curve_compute ()">phoebe_curve_compute</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *nodes,
+                                                         int index,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> itype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> dtype);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-transform" title="phoebe_curve_transform ()">phoebe_curve_transform</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> itype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> dtype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> wtype);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-alias" title="phoebe_curve_alias ()">phoebe_curve_alias</a>                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         double phmin,
+                                                         double phmax);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-set-properties" title="phoebe_curve_set_properties ()">phoebe_curve_set_properties</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve-type" title="enum PHOEBE_curve_type">PHOEBE_curve_type</a> type,
+                                                         char *filename,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a> *passband,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> itype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> dtype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> wtype,
+                                                         double sigma);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-curve-free" title="phoebe_curve_free ()">phoebe_curve_free</a>                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve);
+enum                <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion">PHOEBE_spectrum_dispersion</a>;
+                    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>;
+enum                <a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-type" title="enum PHOEBE_minimizer_type">PHOEBE_minimizer_type</a>;
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-minimizer-type-get-name" title="phoebe_minimizer_type_get_name ()">phoebe_minimizer_type_get_name</a>      (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-type" title="enum PHOEBE_minimizer_type">PHOEBE_minimizer_type</a> minimizer,
+                                                         char **name);
+                    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a>;
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a>* <a class="link" href="phoebe-phoebe-types.html#phoebe-minimizer-feedback-new" title="phoebe_minimizer_feedback_new ()">phoebe_minimizer_feedback_new</a>
+                                                        ();
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a>* <a class="link" href="phoebe-phoebe-types.html#phoebe-minimizer-feedback-duplicate" title="phoebe_minimizer_feedback_duplicate ()">phoebe_minimizer_feedback_duplicate</a>
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a> *feedback);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-minimizer-feedback-alloc" title="phoebe_minimizer_feedback_alloc ()">phoebe_minimizer_feedback_alloc</a>     (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a> *feedback,
+                                                         int tba,
+                                                         int cno);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-minimizer-feedback-accept" title="phoebe_minimizer_feedback_accept ()">phoebe_minimizer_feedback_accept</a>    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a> *feedback);
+int                 <a class="link" href="phoebe-phoebe-types.html#phoebe-minimizer-feedback-free" title="phoebe_minimizer_feedback_free ()">phoebe_minimizer_feedback_free</a>      (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a> *feedback);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-duplicate" title="phoebe_spectrum_duplicate ()">phoebe_spectrum_duplicate</a>           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum);
+PHOEBE_value        <a class="link" href="phoebe-phoebe-types.html#phoebe-value-duplicate" title="phoebe_value_duplicate ()">phoebe_value_duplicate</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a> type,
+                                                         PHOEBE_value val);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-types.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-types.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="bool"></a><h3>enum bool</h3>
+<pre class="programlisting">typedef enum bool {
+	NO,
+	YES
+} bool;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-type"></a><h3>enum PHOEBE_type</h3>
+<pre class="programlisting">typedef enum PHOEBE_type {
+	TYPE_INT,
+	TYPE_BOOL,
+	TYPE_DOUBLE,
+	TYPE_STRING,
+	TYPE_INT_ARRAY,
+	TYPE_BOOL_ARRAY,
+	TYPE_DOUBLE_ARRAY,
+	TYPE_STRING_ARRAY,
+	TYPE_CURVE,
+	TYPE_SPECTRUM,
+	TYPE_MINIMIZER_FEEDBACK,
+	TYPE_ANY
+} PHOEBE_type;
+</pre>
+<p>
+Various data types used in Phoebe.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="TYPE-INT:CAPS"></a><span class="term"><code class="literal">TYPE_INT</code></span></p></td>
+<td>                The integer type.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-BOOL:CAPS"></a><span class="term"><code class="literal">TYPE_BOOL</code></span></p></td>
+<td>               The boolean type.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-DOUBLE:CAPS"></a><span class="term"><code class="literal">TYPE_DOUBLE</code></span></p></td>
+<td>             The double precision floating-point type.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-STRING:CAPS"></a><span class="term"><code class="literal">TYPE_STRING</code></span></p></td>
+<td>             The string type.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-INT-ARRAY:CAPS"></a><span class="term"><code class="literal">TYPE_INT_ARRAY</code></span></p></td>
+<td>          Array of integers.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-BOOL-ARRAY:CAPS"></a><span class="term"><code class="literal">TYPE_BOOL_ARRAY</code></span></p></td>
+<td>         Array of booleans.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-DOUBLE-ARRAY:CAPS"></a><span class="term"><code class="literal">TYPE_DOUBLE_ARRAY</code></span></p></td>
+<td>       Array of doubles.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-STRING-ARRAY:CAPS"></a><span class="term"><code class="literal">TYPE_STRING_ARRAY</code></span></p></td>
+<td>       Array of strings.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-CURVE:CAPS"></a><span class="term"><code class="literal">TYPE_CURVE</code></span></p></td>
+<td>              The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve"><span class="type">PHOEBE_curve</span></a> type.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-SPECTRUM:CAPS"></a><span class="term"><code class="literal">TYPE_SPECTRUM</code></span></p></td>
+<td>           The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum"><span class="type">PHOEBE_spectrum</span></a> type.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-MINIMIZER-FEEDBACK:CAPS"></a><span class="term"><code class="literal">TYPE_MINIMIZER_FEEDBACK</code></span></p></td>
+<td> The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback"><span class="type">PHOEBE_minimizer_feedback</span></a> type.
+</td>
+</tr>
+<tr>
+<td><p><a name="TYPE-ANY:CAPS"></a><span class="term"><code class="literal">TYPE_ANY</code></span></p></td>
+<td>                Can be any <a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type"><span class="type">PHOEBE_type</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-type-get-name"></a><h3>phoebe_type_get_name ()</h3>
+<pre class="programlisting">char*               phoebe_type_get_name                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a> type);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-vector"></a><h3>PHOEBE_vector</h3>
+<pre class="programlisting">typedef struct {
+	int dim;
+	double *val;
+} PHOEBE_vector;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term">int <em class="structfield"><code>dim</code></em>;</span></p></td>
+<td> Vector dimension.
+</td>
+</tr>
+<tr>
+<td><p><span class="term">double *<em class="structfield"><code>val</code></em>;</span></p></td>
+<td> An array of vector values.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-new"></a><h3>phoebe_vector_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      phoebe_vector_new                   ();</pre>
+<p>
+Initializes a vector for allocation.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-new-from-qualifier"></a><h3>phoebe_vector_new_from_qualifier ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      phoebe_vector_new_from_qualifier    (char *qualifier);</pre>
+<p>
+Allocates a new <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> and assigns it elements
+taken from the array parameter represented by <em class="parameter"><code>qualifier</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>qualifier</code></em> :</span></p></td>
+<td> The array parameter.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a>, or NULL if an error occured.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-new-from-column"></a><h3>phoebe_vector_new_from_column ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      phoebe_vector_new_from_column       (char *filename,
+                                                         int col);</pre>
+<p>
+Reads in the <em class="parameter"><code>col</code></em>-th column from file <em class="parameter"><code>filename</code></em>,
+parses it and stores it into the returned vector.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> The full path to the file to be read.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td> The column to be read.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a>, or NULL if an error occured.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-new-from-range"></a><h3>phoebe_vector_new_from_range ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      phoebe_vector_new_from_range        (int dim,
+                                                         double start,
+                                                         double end);</pre>
+<p>
+Creates a vector that starts at <em class="parameter"><code>start</code></em>, ends at <em class="parameter"><code>end</code></em>, and has <em class="parameter"><code>dim</code></em>
+equidistant steps.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td> vector dimension
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>start</code></em> :</span></p></td>
+<td> first vector element
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>end</code></em> :</span></p></td>
+<td> last vector element
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-duplicate"></a><h3>phoebe_vector_duplicate ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      phoebe_vector_duplicate             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);</pre>
+<p>
+Makes a duplicate copy of <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>vec</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td> The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to copy.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-alloc"></a><h3>phoebe_vector_alloc ()</h3>
+<pre class="programlisting">int                 phoebe_vector_alloc                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int dimension);</pre>
+<p>
+Allocates storage memory for a <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> of <em class="parameter"><code>dimension</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>       The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to store.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dimension</code></em> :</span></p></td>
+<td> The size of the new <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_VECTOR_ALREADY_ALLOCATED and ERROR_VECTOR_INVALID_DIMENSION.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-realloc"></a><h3>phoebe_vector_realloc ()</h3>
+<pre class="programlisting">int                 phoebe_vector_realloc               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int dimension);</pre>
+<p>
+Reallocates storage memory for a <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> of <em class="parameter"><code>dimension</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>       <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to reallocate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dimension</code></em> :</span></p></td>
+<td> new size for <em class="parameter"><code>vec</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_VECTOR_INVALID_DIMENSION.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-pad"></a><h3>phoebe_vector_pad ()</h3>
+<pre class="programlisting">int                 phoebe_vector_pad                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double value);</pre>
+<p>
+Pads all components of <em class="parameter"><code>vec</code></em> with <em class="parameter"><code>value</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>   The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to pad with <em class="parameter"><code>value</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td> The new value for all elements of <em class="parameter"><code>vec</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-free"></a><h3>phoebe_vector_free ()</h3>
+<pre class="programlisting">int                 phoebe_vector_free                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);</pre>
+<p>
+Frees the storage memory allocated for <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>vec</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td> The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to free.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-add"></a><h3>phoebe_vector_add ()</h3>
+<pre class="programlisting">int                 phoebe_vector_add                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);</pre>
+<p>
+Adds <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>fac1</code></em> to <em class="parameter"><code>fac2</code></em> and returns the sum <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>result</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-subtract"></a><h3>phoebe_vector_subtract ()</h3>
+<pre class="programlisting">int                 phoebe_vector_subtract              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);</pre>
+<p>
+Subtracts <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>fac2</code></em> from <em class="parameter"><code>fac1</code></em> and returns the difference
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>result</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-multiply"></a><h3>phoebe_vector_multiply ()</h3>
+<pre class="programlisting">int                 phoebe_vector_multiply              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);</pre>
+<p>
+Multiplies <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>fac1</code></em> with <em class="parameter"><code>fac2</code></em> and returns the product
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>result</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-divide"></a><h3>phoebe_vector_divide ()</h3>
+<pre class="programlisting">int                 phoebe_vector_divide                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);</pre>
+<p>
+Divides <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>fac1</code></em> with <em class="parameter"><code>fac2</code></em> and returns the quotient
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>result</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-raise"></a><h3>phoebe_vector_raise ()</h3>
+<pre class="programlisting">int                 phoebe_vector_raise                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);</pre>
+<p>
+Raises all elements of <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>fac1</code></em> to the corresponding element
+of <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>fac2</code></em>, basically result[i] = fac1[i]^fac2[i].</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-offset"></a><h3>phoebe_vector_offset ()</h3>
+<pre class="programlisting">int                 phoebe_vector_offset                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double offset);</pre>
+<p>
+Adds <em class="parameter"><code>offset</code></em> to all elements of <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>vec</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to be offset
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>offset</code></em> :</span></p></td>
+<td> offset value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-sum"></a><h3>phoebe_vector_sum ()</h3>
+<pre class="programlisting">int                 phoebe_vector_sum                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *sum);</pre>
+<p>
+Computes a sum of all vector elements.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> for which a sum is computed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sum</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-mean"></a><h3>phoebe_vector_mean ()</h3>
+<pre class="programlisting">int                 phoebe_vector_mean                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *mean);</pre>
+<p>
+Computes the mean (arithmetic average) of all vector elements.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> for which a mean is computed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mean</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-median"></a><h3>phoebe_vector_median ()</h3>
+<pre class="programlisting">int                 phoebe_vector_median                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *median);</pre>
+<p>
+Sorts the vector elements and returns a median value. The passed
+vector <em class="parameter"><code>vec</code></em> is not changed.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> for which a median is computed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>median</code></em> :</span></p></td>
+<td> placeholder for the median value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-standard-deviation"></a><h3>phoebe_vector_standard_deviation ()</h3>
+<pre class="programlisting">int                 phoebe_vector_standard_deviation    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *sigma);</pre>
+<p>
+Computes standard deviation (<em class="parameter"><code>sigma</code></em>) of vector elements.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> for which standard deviation is computed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sigma</code></em> :</span></p></td>
+<td> placeholder for standard deviation value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-multiply-by"></a><h3>phoebe_vector_multiply_by ()</h3>
+<pre class="programlisting">int                 phoebe_vector_multiply_by           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double factor);</pre>
+<p>
+Multiplies all elements of the <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>vec</code></em> with the scalar
+value <em class="parameter"><code>factor</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>    <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to be modified
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>factor</code></em> :</span></p></td>
+<td> scaling factor
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-dot-product"></a><h3>phoebe_vector_dot_product ()</h3>
+<pre class="programlisting">int                 phoebe_vector_dot_product           (double *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);</pre>
+<p>
+Returns the scalar (dot) product of two <span class="type">PHOEBE_vectors</span>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-vec-product"></a><h3>phoebe_vector_vec_product ()</h3>
+<pre class="programlisting">int                 phoebe_vector_vec_product           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fac2);</pre>
+<p>
+Returns the vector product of the two <span class="type">PHOEBE_vectors</span>. Both <em class="parameter"><code>fac1</code></em> and <em class="parameter"><code>fac2</code></em>
+need to have exactly 3 elements.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fac2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_VECTOR_DIMENSION_NOT_THREE, and ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-submit"></a><h3>phoebe_vector_submit ()</h3>
+<pre class="programlisting">int                 phoebe_vector_submit                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);</pre>
+<p>
+Calculates the functional value of <em class="parameter"><code>func</code></em> for each element of <em class="parameter"><code>vec</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>    The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to submit to <em class="parameter"><code>func</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-norm"></a><h3>phoebe_vector_norm ()</h3>
+<pre class="programlisting">int                 phoebe_vector_norm                  (double *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);</pre>
+<p>
+Returns the norm of <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>vec</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>    The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to norm.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-dim"></a><h3>phoebe_vector_dim ()</h3>
+<pre class="programlisting">int                 phoebe_vector_dim                   (int *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);</pre>
+<p>
+Returns the dimension of <em class="parameter"><code>vec</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>    The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to examine.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-randomize"></a><h3>phoebe_vector_randomize ()</h3>
+<pre class="programlisting">int                 phoebe_vector_randomize             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *result,
+                                                         double limit);</pre>
+<p>
+Fills all vector elements with random numbers from the
+interval [0, <em class="parameter"><code>limit</code></em>]. <em class="parameter"><code>limit</code></em> may also be negative, then it's [<em class="parameter"><code>limit</code></em>, 0].
+The vector must be allocated prior to calling this function.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for a return value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>limit</code></em> :</span></p></td>
+<td>  The upper limit for generated numbers.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_VECTOR_IS_EMPTY.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-min-max"></a><h3>phoebe_vector_min_max ()</h3>
+<pre class="programlisting">int                 phoebe_vector_min_max               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double *min,
+                                                         double *max);</pre>
+<p>
+Scans through the dataset of and assigns the minimal and the
+maximal value encountered to <em class="parameter"><code>min</code></em> and <em class="parameter"><code>max</code></em> variables.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td> The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to scan for minimum and maximum.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>min</code></em> :</span></p></td>
+<td> The placeholder for the minimal value in <em class="parameter"><code>vec</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>max</code></em> :</span></p></td>
+<td> The placeholder for the maximal value in <em class="parameter"><code>vec</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-min-index"></a><h3>phoebe_vector_min_index ()</h3>
+<pre class="programlisting">int                 phoebe_vector_min_index             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int *index);</pre>
+<p>
+Scans through the <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>vec</code></em> and assigns the index of
+the lowest value in <em class="parameter"><code>vec</code></em> to <em class="parameter"><code>index</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>   The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to scan for minimum.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td> The placeholder for the index of the minimal value in <em class="parameter"><code>vec</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-max-index"></a><h3>phoebe_vector_max_index ()</h3>
+<pre class="programlisting">int                 phoebe_vector_max_index             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int *index);</pre>
+<p>
+Scans through the <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>vec</code></em> and assigns the index of
+the highest value in <em class="parameter"><code>vec</code></em> to <em class="parameter"><code>index</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>   The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to scan for maximum.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td> The placeholder for the index of the maximal value in <em class="parameter"><code>vec</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-rescale"></a><h3>phoebe_vector_rescale ()</h3>
+<pre class="programlisting">int                 phoebe_vector_rescale               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double ll,
+                                                         double ul);</pre>
+<p>
+Linearly rescales the values of elements in the vector <em class="parameter"><code>vec</code></em> to the
+[<em class="parameter"><code>ll</code></em>, <em class="parameter"><code>ul</code></em>] interval.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td> The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to rescale.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td>  The lower limit for rescaling.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td>  The upper limit for rescaling.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-compare"></a><h3>phoebe_vector_compare ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_vector_compare               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);</pre>
+<p>
+Compares two passed <span class="type">PHOEBE_vectors</span>. It returns TRUE if all vector
+elements are the same; it returns FALSE otherwise. The comparison is
+done by comparing the difference of both elements to <a class="link" href="phoebe-phoebe-global.html#PHOEBE-NUMERICAL-ACCURACY:CAPS" title="PHOEBE_NUMERICAL_ACCURACY"><span class="type">PHOEBE_NUMERICAL_ACCURACY</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A boolean indicating whether the two vectors have identical elements.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-less-than"></a><h3>phoebe_vector_less_than ()</h3>
+<pre class="programlisting">int                 phoebe_vector_less_than             (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);</pre>
+<p>
+Tests whether *all* vector elements of <em class="parameter"><code>vec1</code></em> are less
+than their respective counterparts of <em class="parameter"><code>vec2</code></em>. If so, TRUE is returned,
+otherwise FALSE is returned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for the result.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors:
+  ERROR_VECTOR_NOT_INITIALIZED and
+  ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-leq-than"></a><h3>phoebe_vector_leq_than ()</h3>
+<pre class="programlisting">int                 phoebe_vector_leq_than              (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);</pre>
+<p>
+Tests whether *all* vector elements of <em class="parameter"><code>vec1</code></em> are less or
+equal to their respective counterparts of <em class="parameter"><code>vec2</code></em>. If so, TRUE is returned,
+otherwise FALSE is returned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for the result.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors:
+  ERROR_VECTOR_NOT_INITIALIZED and
+  ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-greater-than"></a><h3>phoebe_vector_greater_than ()</h3>
+<pre class="programlisting">int                 phoebe_vector_greater_than          (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);</pre>
+<p>
+Tests whether *all* vector elements of <em class="parameter"><code>vec1</code></em> are greater
+than their respective counterparts of <em class="parameter"><code>vec2</code></em>. If so, TRUE is returned,
+otherwise FALSE is returned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for the result.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors:
+  ERROR_VECTOR_NOT_INITIALIZED and
+  ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-geq-than"></a><h3>phoebe_vector_geq_than ()</h3>
+<pre class="programlisting">int                 phoebe_vector_geq_than              (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> *result,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec2);</pre>
+<p>
+Tests whether *all* vector elements of <em class="parameter"><code>vec1</code></em> are greater
+or equal to their respective counterparts of <em class="parameter"><code>vec2</code></em>. If so, TRUE is
+returned, otherwise FALSE is returned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> The placeholder for the result.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec1</code></em> :</span></p></td>
+<td>   Vector 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec2</code></em> :</span></p></td>
+<td>   Vector 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors:
+  ERROR_VECTOR_NOT_INITIALIZED and
+  ERROR_VECTOR_DIMENSIONS_MISMATCH.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-append-element"></a><h3>phoebe_vector_append_element ()</h3>
+<pre class="programlisting">int                 phoebe_vector_append_element        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double val);</pre>
+<p>
+Appends an element with value <em class="parameter"><code>val</code></em> to the <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>vec</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td> The vector to extend.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td> The value to append.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-remove-element"></a><h3>phoebe_vector_remove_element ()</h3>
+<pre class="programlisting">int                 phoebe_vector_remove_element        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int index);</pre>
+<p>
+Removes the <em class="parameter"><code>index</code></em>-th element from <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> <em class="parameter"><code>vec</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>   The vector to shorten.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td> The index of the element to be removed.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_INDEX_OUT_OF_RANGE.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-matrix"></a><h3>PHOEBE_matrix</h3>
+<pre class="programlisting">typedef struct {
+	int rows;
+	int cols;
+	double **val;
+} PHOEBE_matrix;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term">int <em class="structfield"><code>rows</code></em>;</span></p></td>
+<td> The horizontal dimension of the matrix.
+</td>
+</tr>
+<tr>
+<td><p><span class="term">int <em class="structfield"><code>cols</code></em>;</span></p></td>
+<td> The vertical dimension of the matrix.
+</td>
+</tr>
+<tr>
+<td><p><span class="term">double **<em class="structfield"><code>val</code></em>;</span></p></td>
+<td>  The elements of the matrix.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-matrix-new"></a><h3>phoebe_matrix_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a>*      phoebe_matrix_new                   ();</pre>
+<p>
+Initializes an unallocated <a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix"><span class="type">PHOEBE_matrix</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> An empty <a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix"><span class="type">PHOEBE_matrix</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-matrix-alloc"></a><h3>phoebe_matrix_alloc ()</h3>
+<pre class="programlisting">int                 phoebe_matrix_alloc                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a> *matrix,
+                                                         int cols,
+                                                         int rows);</pre>
+<p>
+Allocates storage memory for <em class="parameter"><code>matrix</code></em>. The
+subscripts are such that the elements of <em class="parameter"><code>matrix</code></em> should be accessed
+by <em class="parameter"><code>matrix</code></em>[<em class="parameter"><code>row</code></em>][<em class="parameter"><code>col</code></em>].</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>matrix</code></em> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix"><span class="type">PHOEBE_matrix</span></a> to allocate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cols</code></em> :</span></p></td>
+<td>   The number of columns for <em class="parameter"><code>matrix</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rows</code></em> :</span></p></td>
+<td>   The number of rows for <em class="parameter"><code>matrix</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+Possible errors: ERROR_MATRIX_ALREADY_ALLOCATED and ERROR_MATRIX_INVALID_DIMENSION.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-matrix-free"></a><h3>phoebe_matrix_free ()</h3>
+<pre class="programlisting">int                 phoebe_matrix_free                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a> *matrix);</pre>
+<p>
+Frees the storage memory allocated for <em class="parameter"><code>matrix</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>matrix</code></em> :</span></p></td>
+<td> The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix"><span class="type">PHOEBE_matrix</span></a> to be freed.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-matrix-get-row"></a><h3>phoebe_matrix_get_row ()</h3>
+<pre class="programlisting">int                 phoebe_matrix_get_row               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a> *matrix,
+                                                         int row);</pre>
+<p>
+Copies the contents of <em class="parameter"><code>row</code></em> of <em class="parameter"><code>matrix</code></em> to <em class="parameter"><code>vec</code></em>, assuming that <em class="parameter"><code>vec</code></em> is already
+allocated.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>    The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to store the values from <em class="parameter"><code>row</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>matrix</code></em> :</span></p></td>
+<td> The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix"><span class="type">PHOEBE_matrix</span></a> to read <em class="parameter"><code>row</code></em> from.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>    The row of <em class="parameter"><code>matrix</code></em> to be copied to <em class="parameter"><code>vec</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-matrix-set-row"></a><h3>phoebe_matrix_set_row ()</h3>
+<pre class="programlisting">int                 phoebe_matrix_set_row               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a> *matrix,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         int row);</pre>
+<p>
+Sets the elements of <em class="parameter"><code>row</code></em> of <em class="parameter"><code>matrix</code></em> to the values of elements in <em class="parameter"><code>vec</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>matrix</code></em> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix"><span class="type">PHOEBE_matrix</span></a> to modify.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>    The <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> to be placed in <em class="parameter"><code>matrix</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>row</code></em> :</span></p></td>
+<td>    The row of <em class="parameter"><code>matrix</code></em> to be replaced with <em class="parameter"><code>vec</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a> indicating the success of the operation.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-array"></a><h3>PHOEBE_array</h3>
+<pre class="programlisting">typedef struct {
+	int              dim;
+	PHOEBE_type     type;
+	union {
+		int      *iarray;
+		double   *darray;
+		bool     *barray;
+		char  **strarray;
+	} val;
+} PHOEBE_array;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term">int <em class="structfield"><code>dim</code></em>;</span></p></td>
+<td>  The size of the array.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a> <em class="structfield"><code>type</code></em>;</span></p></td>
+<td> The type of the array.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-array-new"></a><h3>phoebe_array_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a>*       phoebe_array_new                    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a> type);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-array-new-from-qualifier"></a><h3>phoebe_array_new_from_qualifier ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a>*       phoebe_array_new_from_qualifier     (char *qualifier);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>qualifier</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-array-new-from-column"></a><h3>phoebe_array_new_from_column ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a>*       phoebe_array_new_from_column        (char *filename,
+                                                         int col);</pre>
+<p>
+Reads in the <em class="parameter"><code>col</code></em>-th column from file <em class="parameter"><code>filename</code></em>, parses it and stores
+it into the returned array. The first element determines the type of
+the array.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> absolute path to the file to be read.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td> column to be read.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array"><span class="type">PHOEBE_array</span></a>, or NULL if an error occured.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-array-alloc"></a><h3>phoebe_array_alloc ()</h3>
+<pre class="programlisting">int                 phoebe_array_alloc                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array,
+                                                         int dimension);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dimension</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-array-realloc"></a><h3>phoebe_array_realloc ()</h3>
+<pre class="programlisting">int                 phoebe_array_realloc                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array,
+                                                         int dimension);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dimension</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-array-duplicate"></a><h3>phoebe_array_duplicate ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a>*       phoebe_array_duplicate              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-array-compare"></a><h3>phoebe_array_compare ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_array_compare                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array2);</pre>
+<p>
+Compares two passed <span class="type">PHOEBE_arrays</span>. It returns TRUE if all array
+elements are the same; it returns FALSE otherwise. In cases of double
+precision numbers the comparison is done by comparing the difference of
+both elements to <a class="link" href="phoebe-phoebe-global.html#PHOEBE-NUMERICAL-ACCURACY:CAPS" title="PHOEBE_NUMERICAL_ACCURACY"><span class="type">PHOEBE_NUMERICAL_ACCURACY</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array1</code></em> :</span></p></td>
+<td>   Array 1.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array2</code></em> :</span></p></td>
+<td>   Array 2.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> Boolean indicating whether the two arrays have identical elements.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-array-free"></a><h3>phoebe_array_free ()</h3>
+<pre class="programlisting">int                 phoebe_array_free                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-vector-new-from-array"></a><h3>phoebe_vector_new_from_array ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      phoebe_vector_new_from_array        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *array);</pre>
+<p>
+Converts the array of doubles into <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array"><span class="type">PHOEBE_array</span></a> of type <a class="link" href="phoebe-phoebe-types.html#TYPE-INT:CAPS"><span class="type">TYPE_INT</span></a> or <a class="link" href="phoebe-phoebe-types.html#TYPE-DOUBLE:CAPS"><span class="type">TYPE_DOUBLE</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a>, or NULL in case of failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-hist"></a><h3>PHOEBE_hist</h3>
+<pre class="programlisting">typedef struct {
+	int bins;
+	double *range;
+	double *val;
+} PHOEBE_hist;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term">int <em class="structfield"><code>bins</code></em>;</span></p></td>
+<td>  Number of histogram bins.
+</td>
+</tr>
+<tr>
+<td><p><span class="term">double *<em class="structfield"><code>range</code></em>;</span></p></td>
+<td> A vector of histogram ranges.
+</td>
+</tr>
+<tr>
+<td><p><span class="term">double *<em class="structfield"><code>val</code></em>;</span></p></td>
+<td>   A vector of histogram values.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-hist-rebin-type"></a><h3>enum PHOEBE_hist_rebin_type</h3>
+<pre class="programlisting">typedef enum PHOEBE_hist_rebin_type {
+	PHOEBE_HIST_CONSERVE_VALUES = 20,
+	PHOEBE_HIST_CONSERVE_DENSITY
+} PHOEBE_hist_rebin_type;
+</pre>
+<p>
+There are two ways to rebin a histogram:
+</p>
+<p>
+  1) conserve the values and
+  2) conserve the value densities.
+</p>
+<p>
+The first option is better if we are degrading the histogram, and the
+second option is better if we are oversampling the histogram.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="PHOEBE-HIST-CONSERVE-VALUES:CAPS"></a><span class="term"><code class="literal">PHOEBE_HIST_CONSERVE_VALUES</code></span></p></td>
+<td>  When rebinning, conserve the values.
+</td>
+</tr>
+<tr>
+<td><p><a name="PHOEBE-HIST-CONSERVE-DENSITY:CAPS"></a><span class="term"><code class="literal">PHOEBE_HIST_CONSERVE_DENSITY</code></span></p></td>
+<td> When rebinning, conserve the densities.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-new"></a><h3>phoebe_hist_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a>*        phoebe_hist_new                     ();</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-new-from-arrays"></a><h3>phoebe_hist_new_from_arrays ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a>*        phoebe_hist_new_from_arrays         (int bins,
+                                                         double *binarray,
+                                                         double *valarray);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bins</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>binarray</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>valarray</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-new-from-file"></a><h3>phoebe_hist_new_from_file ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a>*        phoebe_hist_new_from_file           (char *filename);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-duplicate"></a><h3>phoebe_hist_duplicate ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a>*        phoebe_hist_duplicate               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-alloc"></a><h3>phoebe_hist_alloc ()</h3>
+<pre class="programlisting">int                 phoebe_hist_alloc                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         int bins);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bins</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-realloc"></a><h3>phoebe_hist_realloc ()</h3>
+<pre class="programlisting">int                 phoebe_hist_realloc                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         int bins);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bins</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-free"></a><h3>phoebe_hist_free ()</h3>
+<pre class="programlisting">int                 phoebe_hist_free                    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-set-ranges"></a><h3>phoebe_hist_set_ranges ()</h3>
+<pre class="programlisting">int                 phoebe_hist_set_ranges              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *bin_centers);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bin_centers</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-set-values"></a><h3>phoebe_hist_set_values ()</h3>
+<pre class="programlisting">int                 phoebe_hist_set_values              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *values);</pre>
+<p>
+Sets bin values to the passed vector elements. The histogram <em class="parameter"><code>hist</code></em>
+must be initialized and allocated, and the dimension of <em class="parameter"><code>values</code></em> must
+match the number of bins.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td> histogram to be modified
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>values</code></em> :</span></p></td>
+<td> a vector of values to be copied to the histogram
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-get-bin-centers"></a><h3>phoebe_hist_get_bin_centers ()</h3>
+<pre class="programlisting">int                 phoebe_hist_get_bin_centers         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *bin_centers);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bin_centers</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-get-bin"></a><h3>phoebe_hist_get_bin ()</h3>
+<pre class="programlisting">int                 phoebe_hist_get_bin                 (int *bin,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double r);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-evaluate"></a><h3>phoebe_hist_evaluate ()</h3>
+<pre class="programlisting">int                 phoebe_hist_evaluate                (double *y,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double x);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-integrate"></a><h3>phoebe_hist_integrate ()</h3>
+<pre class="programlisting">int                 phoebe_hist_integrate               (double *integral,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double ll,
+                                                         double ul);</pre>
+<p>
+This function integrates the passed histogram <em class="parameter"><code>hist</code></em> from <em class="parameter"><code>ll</code></em> to <em class="parameter"><code>ul</code></em>
+by a simple rectangular scheme.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>integral</code></em> :</span></p></td>
+<td> placeholder for the integral value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td> histogram to be integrated
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td> lower integral limit
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td> upper integral limit
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-shift"></a><h3>phoebe_hist_shift ()</h3>
+<pre class="programlisting">int                 phoebe_hist_shift                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double shift);</pre>
+<p>
+Shifts the contents of the histogram <em class="parameter"><code>hist</code></em> in pixel-space by the passed
+<em class="parameter"><code>shift</code></em>. If <em class="parameter"><code>shift</code></em> is positive, the contents are shifted to the right;
+if it is negative, they are shifted to the left. The bin structure is
+retained, the bins outside the shifted range are padded with 0.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td> histogram to be shifted
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>shift</code></em> :</span></p></td>
+<td> pixel-space shift
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-correlate"></a><h3>phoebe_hist_correlate ()</h3>
+<pre class="programlisting">int                 phoebe_hist_correlate               (double *cfval,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *h1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *h2,
+                                                         double sigma1,
+                                                         double sigma2,
+                                                         double ll,
+                                                         double ul,
+                                                         double xi);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cfval</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>h1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>h2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sigma1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sigma2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>xi</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-pad"></a><h3>phoebe_hist_pad ()</h3>
+<pre class="programlisting">int                 phoebe_hist_pad                     (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double val);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-crop"></a><h3>phoebe_hist_crop ()</h3>
+<pre class="programlisting">int                 phoebe_hist_crop                    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist,
+                                                         double ll,
+                                                         double ul);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-compare"></a><h3>phoebe_hist_compare ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_hist_compare                 (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *hist2);</pre>
+<p>
+Compares the contents of histograms <em class="parameter"><code>hist1</code></em> and <em class="parameter"><code>hist2</code></em>. All ranges and
+values are compared by evaluating the absolute difference between the
+elements and comparing that to <a class="link" href="phoebe-phoebe-global.html#PHOEBE-NUMERICAL-ACCURACY:CAPS" title="PHOEBE_NUMERICAL_ACCURACY"><span class="type">PHOEBE_NUMERICAL_ACCURACY</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist1</code></em> :</span></p></td>
+<td> histogram 1 to be compared
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hist2</code></em> :</span></p></td>
+<td> histogram 2 to be compared
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><span class="type">TRUE</span></a> if the histograms are the same, <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS"
+><span class="type">FALSE</span></a> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-resample"></a><h3>phoebe_hist_resample ()</h3>
+<pre class="programlisting">int                 phoebe_hist_resample                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *out,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *in,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist-rebin-type" title="enum PHOEBE_hist_rebin_type">PHOEBE_hist_rebin_type</a> type);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-hist-rebin"></a><h3>phoebe_hist_rebin ()</h3>
+<pre class="programlisting">int                 phoebe_hist_rebin                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *out,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *in,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist-rebin-type" title="enum PHOEBE_hist_rebin_type">PHOEBE_hist_rebin_type</a> type);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>out</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-ld"></a><h3>PHOEBE_ld</h3>
+<pre class="programlisting">typedef struct {
+	char *set;
+	char *name;
+	char *reftable;
+	PHOEBE_vector *lin_x;
+	PHOEBE_vector *log_x;
+	PHOEBE_vector *log_y;
+	PHOEBE_vector *sqrt_x;
+	PHOEBE_vector *sqrt_y;
+} PHOEBE_ld;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-passband"></a><h3>PHOEBE_passband</h3>
+<pre class="programlisting">typedef struct {
+	int          id;
+	char        *set;
+	char        *name;
+	double       effwl;
+	PHOEBE_hist *tf;
+	PHOEBE_ld   *ld;
+} PHOEBE_passband;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term">int <em class="structfield"><code>id</code></em>;</span></p></td>
+<td>    ID number of the passband
+</td>
+</tr>
+<tr>
+<td><p><span class="term">char *<em class="structfield"><code>set</code></em>;</span></p></td>
+<td>   Filter-set of the passband, i.e. "Cousins"
+</td>
+</tr>
+<tr>
+<td><p><span class="term">char *<em class="structfield"><code>name</code></em>;</span></p></td>
+<td>  Passband identifier, i.e. "Rc"
+</td>
+</tr>
+<tr>
+<td><p><span class="term">double <em class="structfield"><code>effwl</code></em>;</span></p></td>
+<td> Effective wavelength of the passband.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-hist" title="PHOEBE_hist">PHOEBE_hist</a> *<em class="structfield"><code>tf</code></em>;</span></p></td>
+<td>    Passband transmission function
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a> *<em class="structfield"><code>ld</code></em>;</span></p></td>
+<td>    Limb darkening table (attached optionally)
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-curve-type"></a><h3>enum PHOEBE_curve_type</h3>
+<pre class="programlisting">typedef enum PHOEBE_curve_type {
+	PHOEBE_CURVE_UNDEFINED,
+	PHOEBE_CURVE_LC,
+	PHOEBE_CURVE_RV
+} PHOEBE_curve_type;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="PHOEBE-CURVE-UNDEFINED:CAPS"></a><span class="term"><code class="literal">PHOEBE_CURVE_UNDEFINED</code></span></p></td>
+<td> The type of the curve is unknown.
+</td>
+</tr>
+<tr>
+<td><p><a name="PHOEBE-CURVE-LC:CAPS"></a><span class="term"><code class="literal">PHOEBE_CURVE_LC</code></span></p></td>
+<td>        A light curve.
+</td>
+</tr>
+<tr>
+<td><p><a name="PHOEBE-CURVE-RV:CAPS"></a><span class="term"><code class="literal">PHOEBE_CURVE_RV</code></span></p></td>
+<td>        A radial velocity curve.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-type-get-name"></a><h3>phoebe_curve_type_get_name ()</h3>
+<pre class="programlisting">int                 phoebe_curve_type_get_name          (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve-type" title="enum PHOEBE_curve_type">PHOEBE_curve_type</a> ctype,
+                                                         char **name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-column-type"></a><h3>enum PHOEBE_column_type</h3>
+<pre class="programlisting">typedef enum PHOEBE_column_type {
+	PHOEBE_COLUMN_UNDEFINED,
+	PHOEBE_COLUMN_HJD,
+	PHOEBE_COLUMN_PHASE,
+	PHOEBE_COLUMN_MAGNITUDE,
+	PHOEBE_COLUMN_FLUX,
+	PHOEBE_COLUMN_PRIMARY_RV,
+	PHOEBE_COLUMN_SECONDARY_RV,
+	PHOEBE_COLUMN_SIGMA,
+	PHOEBE_COLUMN_WEIGHT,
+	PHOEBE_COLUMN_INVALID
+} PHOEBE_column_type;
+</pre>
+<p>
+Various sorts of data that can be found in files usable by Phoebe.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-column-type-get-name"></a><h3>phoebe_column_type_get_name ()</h3>
+<pre class="programlisting">int                 phoebe_column_type_get_name         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> ctype,
+                                                         char **name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-column-get-type"></a><h3>phoebe_column_get_type ()</h3>
+<pre class="programlisting">int                 phoebe_column_get_type              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> *type,
+                                                         const char *string);</pre>
+<p>
+Parses the passed <em class="parameter"><code>string</code></em> and converts it to the enumerated type of
+the column (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type"><span class="type">PHOEBE_column_type</span></a>).</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td> placeholder for the enumerated column type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string</code></em> :</span></p></td>
+<td> string representation of the column type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-data-flag"></a><h3>enum PHOEBE_data_flag</h3>
+<pre class="programlisting">typedef enum PHOEBE_data_flag {
+	PHOEBE_DATA_REGULAR,
+	PHOEBE_DATA_ALIASED,
+	PHOEBE_DATA_DELETED,
+	PHOEBE_DATA_OMITTED
+} PHOEBE_data_flag;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-curve"></a><h3>PHOEBE_curve</h3>
+<pre class="programlisting">typedef struct {
+	PHOEBE_curve_type  type;
+	PHOEBE_passband   *passband;
+	PHOEBE_vector     *indep;
+	PHOEBE_vector     *dep;
+	PHOEBE_vector     *weight;
+	PHOEBE_array      *flag;
+	PHOEBE_column_type itype;
+	PHOEBE_column_type dtype;
+	PHOEBE_column_type wtype;
+	char              *filename;
+	double             sigma;
+} PHOEBE_curve;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve-type" title="enum PHOEBE_curve_type">PHOEBE_curve_type</a> <em class="structfield"><code>type</code></em>;</span></p></td>
+<td>     Type of the curve.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a> *<em class="structfield"><code>passband</code></em>;</span></p></td>
+<td> Passband of the curve.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *<em class="structfield"><code>indep</code></em>;</span></p></td>
+<td>    Elements of the independant variable vector.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *<em class="structfield"><code>dep</code></em>;</span></p></td>
+<td>      Elements of the dependant variable vector.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *<em class="structfield"><code>weight</code></em>;</span></p></td>
+<td>   Elements of the weight vector.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *<em class="structfield"><code>flag</code></em>;</span></p></td>
+<td>     data flag of the enumerated <a class="link" href="phoebe-phoebe-types.html#PHOEBE-data-flag" title="enum PHOEBE_data_flag"><span class="type">PHOEBE_data_flag</span></a> type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> <em class="structfield"><code>itype</code></em>;</span></p></td>
+<td>    Column type of the independant variable.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> <em class="structfield"><code>dtype</code></em>;</span></p></td>
+<td>    Column type of the dependant variable.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> <em class="structfield"><code>wtype</code></em>;</span></p></td>
+<td>    Column type of the weights.
+</td>
+</tr>
+<tr>
+<td><p><span class="term">char *<em class="structfield"><code>filename</code></em>;</span></p></td>
+<td> Absolute path to the file containing the curve.
+</td>
+</tr>
+<tr>
+<td><p><span class="term">double <em class="structfield"><code>sigma</code></em>;</span></p></td>
+<td>    Sigma value of the curve.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-new"></a><h3>phoebe_curve_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a>*       phoebe_curve_new                    ();</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-new-from-file"></a><h3>phoebe_curve_new_from_file ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a>*       phoebe_curve_new_from_file          (char *filename);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-new-from-pars"></a><h3>phoebe_curve_new_from_pars ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a>*       phoebe_curve_new_from_pars          (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve-type" title="enum PHOEBE_curve_type">PHOEBE_curve_type</a> ctype,
+                                                         int index);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ctype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-duplicate"></a><h3>phoebe_curve_duplicate ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a>*       phoebe_curve_duplicate              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-alloc"></a><h3>phoebe_curve_alloc ()</h3>
+<pre class="programlisting">int                 phoebe_curve_alloc                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         int dim);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-realloc"></a><h3>phoebe_curve_realloc ()</h3>
+<pre class="programlisting">int                 phoebe_curve_realloc                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         int dim);</pre>
+<p>
+Reallocates storage memory for <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve"><span class="type">PHOEBE_curve</span></a> <em class="parameter"><code>curve</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve"><span class="type">PHOEBE_curve</span></a> to reallocate.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td> the new size of <em class="parameter"><code>curve</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+
+Error codes:
+
+  <span class="type">ERROR_CURVE_INVALID_DIMENSION</span>
+  <span class="type">SUCCESS</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-compute"></a><h3>phoebe_curve_compute ()</h3>
+<pre class="programlisting">int                 phoebe_curve_compute                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *nodes,
+                                                         int index,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> itype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> dtype);</pre>
+<p>
+Computes the <em class="parameter"><code>index</code></em>-th model light curve or RV curve in <em class="parameter"><code>nodes</code></em>.
+The computation is governed by the enumerated choices of <em class="parameter"><code>itype</code></em>
+and <em class="parameter"><code>dtype</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td> a pointer to the initialized <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve"><span class="type">PHOEBE_curve</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nodes</code></em> :</span></p></td>
+<td> a vector of nodes in which the curve should be computed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td> curve index
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>itype</code></em> :</span></p></td>
+<td> requested independent data type (see <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type"><span class="type">PHOEBE_column_type</span></a>)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dtype</code></em> :</span></p></td>
+<td> requested dependent data type (see <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type"><span class="type">PHOEBE_column_type</span></a>)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-transform"></a><h3>phoebe_curve_transform ()</h3>
+<pre class="programlisting">int                 phoebe_curve_transform              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> itype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> dtype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> wtype);</pre>
+<p>
+Transforms curve columns to requested types.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve"><span class="type">PHOEBE_curve</span></a> to be transformed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>itype</code></em> :</span></p></td>
+<td> requested independent variable (time or phase)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dtype</code></em> :</span></p></td>
+<td> requested dependent variable (flux, magnitude, RV)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wtype</code></em> :</span></p></td>
+<td> requested weight variable (standard weight, standard deviation,
+        none)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-alias"></a><h3>phoebe_curve_alias ()</h3>
+<pre class="programlisting">int                 phoebe_curve_alias                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         double phmin,
+                                                         double phmax);</pre>
+<p>
+This function redimensiones the array of data phases by aliasing points
+to outside the [-0.5, 0.5] range. If the new interval is narrower, the
+points are omitted, otherwise they are aliased.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td> curve to be aliased
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>phmin</code></em> :</span></p></td>
+<td> start phase
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>phmax</code></em> :</span></p></td>
+<td> end phase
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-set-properties"></a><h3>phoebe_curve_set_properties ()</h3>
+<pre class="programlisting">int                 phoebe_curve_set_properties         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve-type" title="enum PHOEBE_curve_type">PHOEBE_curve_type</a> type,
+                                                         char *filename,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a> *passband,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> itype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> dtype,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-column-type" title="enum PHOEBE_column_type">PHOEBE_column_type</a> wtype,
+                                                         double sigma);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>passband</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>itype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dtype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wtype</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sigma</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-curve-free"></a><h3>phoebe_curve_free ()</h3>
+<pre class="programlisting">int                 phoebe_curve_free                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-spectrum-dispersion"></a><h3>enum PHOEBE_spectrum_dispersion</h3>
+<pre class="programlisting">typedef enum PHOEBE_spectrum_dispersion {
+	PHOEBE_SPECTRUM_DISPERSION_LINEAR,
+	PHOEBE_SPECTRUM_DISPERSION_LOG,
+	PHOEBE_SPECTRUM_DISPERSION_NONE
+} PHOEBE_spectrum_dispersion;
+</pre>
+<p>
+Spectrum dispersion tells us how dx is connected to dlambda. If the
+dispersion is linear, then dx is proportional to dlambda. If it is log,
+dx is proportional to dlambda/lambda. If there is no dispersion function,
+that means that there is no simple transformation from wavelength space
+to pixel space. In that case everything must be done according to histogram
+ranges.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-spectrum"></a><h3>PHOEBE_spectrum</h3>
+<pre class="programlisting">typedef struct {
+	double  R;
+	double  Rs;
+	PHOEBE_spectrum_dispersion disp;
+	PHOEBE_hist *data;
+} PHOEBE_spectrum;
+</pre>
+<p>
+The spectrum structure is defined here, but the manipulation functions
+reside in phoebe_spectra files.</p>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-minimizer-type"></a><h3>enum PHOEBE_minimizer_type</h3>
+<pre class="programlisting">typedef enum PHOEBE_minimizer_type {
+	PHOEBE_MINIMIZER_NMS,
+	PHOEBE_MINIMIZER_DC
+} PHOEBE_minimizer_type;
+</pre>
+<p>
+The available minimizers.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="PHOEBE-MINIMIZER-NMS:CAPS"></a><span class="term"><code class="literal">PHOEBE_MINIMIZER_NMS</code></span></p></td>
+<td> The Nead-Medler minimizer.
+</td>
+</tr>
+<tr>
+<td><p><a name="PHOEBE-MINIMIZER-DC:CAPS"></a><span class="term"><code class="literal">PHOEBE_MINIMIZER_DC</code></span></p></td>
+<td>  The differential-corrections minimizer.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-minimizer-type-get-name"></a><h3>phoebe_minimizer_type_get_name ()</h3>
+<pre class="programlisting">int                 phoebe_minimizer_type_get_name      (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-type" title="enum PHOEBE_minimizer_type">PHOEBE_minimizer_type</a> minimizer,
+                                                         char **name);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>minimizer</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-minimizer-feedback"></a><h3>PHOEBE_minimizer_feedback</h3>
+<pre class="programlisting">typedef struct {
+	PHOEBE_minimizer_type algorithm;
+	bool             converged;
+	double           cputime;
+	int              iters;
+	double           cfval;
+	PHOEBE_array    *qualifiers;
+	PHOEBE_vector   *initvals;
+	PHOEBE_vector   *newvals;
+	PHOEBE_vector   *ferrors;
+	PHOEBE_vector   *chi2s;
+	PHOEBE_vector   *wchi2s;
+	PHOEBE_matrix   *cormat;
+} PHOEBE_minimizer_feedback;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-type" title="enum PHOEBE_minimizer_type">PHOEBE_minimizer_type</a> <em class="structfield"><code>algorithm</code></em>;</span></p></td>
+<td>  Minimizer (algorithm) type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> <em class="structfield"><code>converged</code></em>;</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term">double <em class="structfield"><code>cputime</code></em>;</span></p></td>
+<td>    CPU time required for algorithm execution
+</td>
+</tr>
+<tr>
+<td><p><span class="term">int <em class="structfield"><code>iters</code></em>;</span></p></td>
+<td>      Number of performed iterations
+</td>
+</tr>
+<tr>
+<td><p><span class="term">double <em class="structfield"><code>cfval</code></em>;</span></p></td>
+<td>      Cost function value (combined chi2)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array">PHOEBE_array</a> *<em class="structfield"><code>qualifiers</code></em>;</span></p></td>
+<td> A list of TBA qualifiers
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *<em class="structfield"><code>initvals</code></em>;</span></p></td>
+<td>   A list of initial parameter values
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *<em class="structfield"><code>newvals</code></em>;</span></p></td>
+<td>    A list of new parameter values
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *<em class="structfield"><code>ferrors</code></em>;</span></p></td>
+<td>    A list of formal error estimates
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *<em class="structfield"><code>chi2s</code></em>;</span></p></td>
+<td>      A list of passband chi2 values
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *<em class="structfield"><code>wchi2s</code></em>;</span></p></td>
+<td>     A list of weighted passband chi2 values
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-matrix" title="PHOEBE_matrix">PHOEBE_matrix</a> *<em class="structfield"><code>cormat</code></em>;</span></p></td>
+<td>     Correlation matrix
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-minimizer-feedback-new"></a><h3>phoebe_minimizer_feedback_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a>* phoebe_minimizer_feedback_new
+                                                        ();</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-minimizer-feedback-duplicate"></a><h3>phoebe_minimizer_feedback_duplicate ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a>* phoebe_minimizer_feedback_duplicate
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a> *feedback);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>feedback</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-minimizer-feedback-alloc"></a><h3>phoebe_minimizer_feedback_alloc ()</h3>
+<pre class="programlisting">int                 phoebe_minimizer_feedback_alloc     (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a> *feedback,
+                                                         int tba,
+                                                         int cno);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>feedback</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tba</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cno</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-minimizer-feedback-accept"></a><h3>phoebe_minimizer_feedback_accept ()</h3>
+<pre class="programlisting">int                 phoebe_minimizer_feedback_accept    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a> *feedback);</pre>
+<p>
+Traverses through all the parameters stored in the feedback structure
+and copies the values to the currently active parameter table. After
+all the values have been updated, the function satisfies all constraints
+as well.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>feedback</code></em> :</span></p></td>
+<td> minimizer feedback with new values of parameters.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-minimizer-feedback-free"></a><h3>phoebe_minimizer_feedback_free ()</h3>
+<pre class="programlisting">int                 phoebe_minimizer_feedback_free      (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback" title="PHOEBE_minimizer_feedback">PHOEBE_minimizer_feedback</a> *feedback);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>feedback</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-duplicate"></a><h3>phoebe_spectrum_duplicate ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    phoebe_spectrum_duplicate           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum);</pre>
+<p>
+Makes a duplicate copy of <em class="parameter"><code>spectrum</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-value-duplicate"></a><h3>phoebe_value_duplicate ()</h3>
+<pre class="programlisting">PHOEBE_value        phoebe_value_duplicate              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a> type,
+                                                         PHOEBE_value val);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>val</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

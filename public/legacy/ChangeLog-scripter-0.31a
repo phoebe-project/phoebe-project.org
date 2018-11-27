@@ -1,0 +1,1992 @@
+2008-06-16 23:57  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  PHOEBE 0.31a release branch created.
+
+2008-06-15 04:01  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Segmentation fault in phoebe-scripter for non-existent files in
+	  the column() command fixed.
+
+2008-06-12 02:42  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Configuration option PHOEBE_SOURCE_DIR removed because it wasn't
+	  used in any way nor is there any prospect that it will ever be
+	  useful.
+
+2008-06-10 18:55  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The release version in the development branch of the GUI and the
+	  scripter changed to 'svn'.
+
+2008-06-10 14:48  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The '+' operator now works on arrays. Supported propagations:
+	  
+	  int + int array = int array; double + int array = vector; string
+	  + int array = string array; vector + int array = vector;
+	  
+	  int + double array = vector; double + double array = vector;
+	  string + double array = string array; vector + double array =
+	  vector;
+	  
+	  int + string array = string array; double + string array = string
+	  array; string + string array = string array; vector + string
+	  array = string array;
+	  
+	  array + array = array of the same type.
+
+2008-05-28 12:57  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  String arrays implemented. It is now possible to define:
+	  
+	  set a = {"array", "of", "strings"}
+	  
+	  and refer to elements as usual, i.e. a[1], a[2] and a[3]. The
+	  implementation first attempts to convert the array to a vector,
+	  and if it fails, it attempts to convert it to an array of
+	  strings. If that also fails, the assignment will fail.
+
+2008-05-27 19:44  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The new spectrum interpolation function is now used in the
+	  scripter.
+
+2008-05-24 21:00  Patrick Wils <patrickwils@yahoo.com>
+
+	* :
+	  
+	  Function compute_critical_potentials added to scripter (code
+	  supplied by Eric Broens).
+
+2008-04-21 16:08  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Build system upgraded (a consequence of upgrade to Hardy).
+
+2008-04-15 03:48  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Identifier operators ++, --, +=, -=, /=, and *= fully operational
+	  again.
+
+2008-04-08 15:16  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The remaining wrappers for comparison parameters written and
+	  implemented in the arithmetics source.
+
+2008-04-08 07:24  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The command compute_chi2 () segfaulted if a filename of the
+	  passed curve doesn't exist or is invalid; fixed.
+
+2008-04-08 06:51  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  All stale instances of phoebe_error() changed to
+	  phoebe_scripter_error().
+
+2008-04-08 06:47  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Wrappers for the >= and <= operators written and implemented.
+	  These comparison operators can now mix vectors and scalars, i.e.
+	  {1,2,3} < 4 is valid.
+
+2008-03-27 21:15  Patrick Wils <patrickwils@yahoo.com>
+
+	* :
+	  
+	  Changes to make plots possible on Windows: - workaround for
+	  missing mkstemp and mkfifo functions - call pgnuplot instead of
+	  gnuplot
+
+2008-03-25 13:43  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Private function intern_read_in_ephemeris_parameters () in the
+	  scripter was colliding with the one from the library; the
+	  scripter instance renamed to
+	  intern_scripter_read_in_ephemeris_parameters (). Both are still
+	  private functions.
+
+2008-03-25 12:25  Patrick Wils <patrickwils@yahoo.com>
+
+	* :
+	  
+	  Specific differences for the MingW/MSYS compilation on Windows
+	  are dealt with (conditional compilation depending on wheteher
+	  __MINGW32__ is defined): - missing function mkstemp (replaced by
+	  g_mkstemp) - mkdir has only one argument - gnuplot executable is
+	  called pgnuplot.exe - libglade lacks the GtkFileChooserButton
+	  widget (using glade_register_widget)
+
+2008-03-21 20:42  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Recent changes in the library affected ephemeris lookup, so the
+	  wrapper that was public before had to be make internal to the
+	  scripter.
+
+2008-03-03 03:15  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  All build files modified so that the gfortran-based library is
+	  now the default library (i.e. libphoebe_nof2c renamed to
+	  libphoebe, etc). Configure in phoebe-lib changed so that the F77
+	  lookup order starts with gfortran instead of g77.
+
+2008-03-03 03:02  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  New (gfortran-based) repository copied to the main trunk.
+
+2008-02-26 16:12  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The built-in dim() function in the scripter now works on light/RV
+	  curves as well.
+
+2008-02-09 20:04  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Comparing ast values in the scripter is now done through a
+	  wrapper. This removes the first #warning (out of 6) from the
+	  sources.
+
+2008-02-09 14:25  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command compute_light_levels () was segfaulting if a non-existing
+	  file is passed for data in the parameter file. Fixed.
+
+2008-02-03 19:14  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The scripter now uses a new LD interpolation scheme.
+
+2008-01-23 04:23  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Build system versioning (0.30 -> 0.30-svn) ported from main
+	  (revisions 1012-1014).
+
+2007-12-30 17:40  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The unified handling of all binary and comparison operators was
+	  also triggered on any directive with exactly two arguments, i.e.
+	  print 1, 2. This caused memory leaks for each such directive, and
+	  the arguments to that directive got evaluated twice. Fixed.
+	  
+	  While at it, #warnings added to the code to remind me to write
+	  wrappers for comparison operators.
+
+2007-12-30 07:30  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Code indentation beautified in the core.
+	  
+	  A new command added: compute_light_levels (). It takes one
+	  optional argument, curve index, and it computes light levels for
+	  the passed curve or for all curves rigorously.
+
+2007-12-17 19:58  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Recent revisions propagated to gfortran branch.
+
+2007-12-13 05:56  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Trunk ported to the gfortran branch; command minimize_using_nms
+	  () updated accordingly.
+
+2007-12-11 22:42  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  All build files changed to *not* depend on f2c or lib[fg]2c. They
+	  do depend on gfortran, though. Perhaps this build would work with
+	  g77, but it might be suffering from the same bug in g_char as g77
+	  uses libg2c internally.
+	  
+	  The bottom line is that this setup builds on my computers, both
+	  32bit and 64bit arches. Please test.
+
+2007-12-08 21:39  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The gcc 4.0 and later do not support g77 anymore and libg2c is
+	  lost as well. This branch will modify the build files to support
+	  gfortran. Here we need to figure out a way how to mix C and
+	  Fortran portably. Dependency on f2c and lib[fg]2c will be
+	  dropped, and dependency on gfortran will be instated.
+
+2007-12-05 21:43  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  If gnuplot is not installed, the scripter now informs the user
+	  that it cannot use plot_*_using_gnuplot on their invocation.
+	  Missing gnuplot error handling moved from the library to the
+	  scripter.
+
+2007-12-05 18:04  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Build files updated to work without f2c, flex or bison if the
+	  source files are present (i.e. from a distribution tarball, but
+	  not from SVN). Hopefully this commit resolves all remaining
+	  problems with the missing f2c.
+
+2007-11-20 05:05  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  All functions in phoebe_accessories (except atob) have been
+	  prefixed with phoebe_. Affected GUI and scripter functions
+	  updated accordingly.
+
+2007-11-16 06:44  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Scripter build files and documentation updated to 0.30.
+
+2007-11-15 14:33  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Plotting observed LC/RV curves with invalid, non-NULL filenames
+	  in the scripter was causing segfaults; fixed.
+
+2007-11-06 04:49  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Correlation matrix computation implemented. Minimizer feedback
+	  now features a new field, cormat, that is PHOEBE_matrix that
+	  holds the correlation matrix. The scripter has been updated and
+	  now prints the correlation matrix along with other minimizer
+	  results.
+	  
+	  To use, simply do:
+	  
+	  feedback->cormat->val[i][j]
+	  
+	  where i runs over columns and j runs over rows. See the scripter
+	  code for examples.
+
+2007-11-03 15:17  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Scripter README written.
+
+2007-11-03 15:12  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  This file was empty; fixed.
+
+2007-11-03 15:11  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Top-level AUTHORS file updated.
+
+2007-11-03 15:07  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  All TODO entries moved to sourceforge; reference to homepage
+	  given in TODO.
+
+2007-11-03 14:45  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  ACKNOWLEDGEMENTS and SPECS removed, version renamed to 0.30rc2.
+
+2007-11-01 16:12  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Those build files are not needed after all; removed. Also, the
+	  tarball name changed from phoebe_scripter-0.30 to
+	  phoebe-scripter-0.30.
+
+2007-11-01 15:54  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Hard dependency on flex and bison removed from the scripter. The
+	  same hacks needed to be done that were done in the library. In
+	  adition, several missing build files for make dist have been
+	  added to autoconfig directory.
+
+2007-10-30 04:14  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The obsolete function query_spectra_repository () removed; printf
+	  statements changed to phoebe_debug statements.
+	  
+	  Also GTK+ dependency stepped down to 2.4 and
+	  gtk_window_set_deleteable commented out; this is a
+	  semi-accidental commit but it might motivate us to get it fixed
+	  sooner. ;)
+
+2007-10-30 03:19  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command set_spectra_repository () functionality restored.
+
+2007-10-30 03:04  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Configuration file was not saved to phoebe-0.30 properly; fixed.
+
+2007-10-24 17:05  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Configure wasn't checking for flex-new properly; fixed.
+
+2007-10-16 02:54  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Function alias_phase_points () renamed to phoebe_curve_alias ().
+	  The arguments to this function have been changed to accept
+	  PHOEBE_curve instead of PHOEBE_vectors; error handling has also
+	  been improved significantly. All drivers have been updated.
+
+2007-10-16 01:51  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Default configuration directory changed from ~/.phoebe2 to
+	  ~/.phoebe-VERSION, i.e. ~/.phoebe-0.30 etc. All drivers updated
+	  accordingly.
+
+2007-10-11 18:37  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The names of executables changed from phoebe_scripter and
+	  phoebe_gui to phoebe-scripter and phoebe-gui.
+	  
+	  Please remove the old instances from /usr/local/bin by hand or do
+	  a make uninstall *before* you do ./configure.
+
+2007-10-09 04:02  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Scripter command column () can now read in any type of columns,
+	  including non-numeric data like strings.
+	  
+	  Built-in command dim() now returns the dimension of arrays as
+	  well.
+
+2007-09-30 15:24  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Scripter command plot_eb_using_gnuplot () committed.
+
+2007-09-27 03:02  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Help system in the scripter slightly reworked - the directives
+	  are now automatically switched rather than going through the
+	  manual switch.
+	  
+	  The help file for get_spectrum_from_repository () added.
+
+2007-09-27 02:46  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The help directive text wrapped to fit 80-character terminals.
+
+2007-09-27 02:44  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The code adapted to the configuration changes. Two configuration
+	  entries added: SCRIPTER_HOME_DIR and SCRIPTER_HELP_DIR.
+	  
+	  Readline now works with the -c switch (the problem was in the
+	  missing #include statement).
+
+2007-09-27 02:15  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Scripter version bumped from pre5 to RC1.
+
+2007-09-22 23:20  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Built-in function isnan () added to the scripter. This function
+	  tests whether the passed argument is nan (not a number). If it
+	  is, it returns true, and if it is not, it returns false.
+	  
+	  Examples:
+	  
+	  isnan (5) returns TRUE isnan (sqrt (-1)) returns FALSE
+	  
+	  This is primarily intended to catch DC divergence, i.e. something
+	  like:
+	  
+	  set result = minimize_using_dc () for (k = 1; k <= PARS_TBA; k++)
+	  if (isnan (result.newvals[k])) print "DC diverged."
+
+2007-09-17 06:40  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command open_parameter_file () does not report success on every
+	  successful open anymore.
+
+2007-09-14 23:52  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Spot handling fully functional. The following parameters have
+	  been defined:
+	  
+	  phoebe_spots_colatitude_tba phoebe_spots_longitude_tba
+	  phoebe_spots_radius_tba phoebe_spots_tempfactor_tba
+	  
+	  These are all boolean arrays and expect 1 or 0 (TRUE or FALSE)
+	  for each spot separately. The newly implemented function
+	  wd_spots_parameters_get () is a wrapper that transfers the data
+	  from PHOEBE spots parameters phoebe_spots_* to WD spots
+	  parameters wd_spots_*. This is done to temporarily (until we
+	  implement our version of DC) support up to two adjustable spots
+	  in DC *and/or* NMS.
+	  
+	  To recap: if you want to adjust, say, radius of the third spot
+	  and colatitude on the fourth spot, you would set:
+	  
+	  phoebe_parameter_set_value (phoebe_spots_radius_tba, 1, 3);
+	  phoebe_parameter_set_value (phoebe_spots_colatitude_tba, 1, 4);
+	  
+	  Note that the source star for these spots is defined by the 3rd
+	  and 4th element of the phoebe_spots_source parameter.
+
+2007-09-06 14:10  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  During the test build under Debian a very serious problem emerged
+	  with the C-to-Fortran bridge: typedeffed variables integer and
+	  doublereal were erroneausly assumed to correspond to int and
+	  double, whereas they /currently/ correspond to long int and
+	  double. To accomodate for this, a whole range of changes had to
+	  be introduced:
+	  
+	  1) the fields in the WD_LCI_parameters and WD_DCI_parameters have
+	  been changed from int, bool and double to integer and doublereal,
+	  
+	  2) f2c.h has been included explicitly (there seems to be no other
+	  way, sorry),
+	  
+	  3) Fortran related sources have been moved from
+	  phoebe_allocations to phoebe_fortran_interface,
+	  
+	  4) Function read_in_wd_lci_parameters () has been renamed to
+	  wd_lci_parameters_get (), and all the values of parameters
+	  obtained therein have been casted to (integer) or (doublereal).
+	  
+	  This commit should also fix the missing min() and max()
+	  definition in phoebe_sources.h reported by Gal.
+
+2007-09-06 02:24  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  1) Function phoebe_parameter_option_get_index () implemented. It
+	  has been fool-proofed, but not thoroughly tested. Please report
+	  any problems.
+	  
+	  2) Gnuplot check moved from the library to the scripter.
+	  
+	  3) Plotting moved from the library to the scripter.
+
+2007-09-04 04:52  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Library type "anytype" renamed to "PHOEBE_value". This change has
+	  been propagated to the scripter and the GUI as well.
+
+2007-09-04 01:05  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Build file docs/reference/Makefile.am tweaked to produce
+	  phoebe-sections file after every source change. This means that
+	  the functions finally auto-update, and new function automagically
+	  appear in the docs.
+	  
+	  phoebe_configuration sources have been documented *completely*.
+	  Please review and comment if anything is not clear.
+	  
+	  Scripter configuration function scripter_create_config_file ()
+	  now sets Kurucz's model atmospheres switch and directory as well.
+	  To try it out, run phoebe_scripter with the -c switch.
+
+2007-09-03 18:39  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  This will cost me another beer... Sigh... ;)
+
+2007-09-03 17:34  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Configuration handling changed. Instead of having a bunch of
+	  global variables laying around, there is now a proper way (TM)
+	  implemented. In order to add a new configuration entry, use:
+	  
+	  phoebe_config_entry_add (type, keyword, defval);
+	  
+	  where:
+	  
+	  type is PHOEBE_type (TYPE_INT, ..., TYPE_STRING)
+	  
+	  keyword is a string (i.e. "PHOEBE_BASE_DIR")
+	  
+	  defval is the default value (i.e. "/usr/local/share/phoebe")
+	  
+	  To set or get the value of the configuration entry, use:
+	  
+	  phoebe_config_entry_set (keyword, value);
+	  
+	  phoebe_config_entry_get (keyword, &value);
+	  
+	  Please take a look at phoebe_configuration.c to see the complete
+	  implementation. All necessary changes in the scripter and the GUI
+	  have been incorporated as well. The options get loaded and saved
+	  automatically by using:
+	  
+	  phoebe_config_load (char *filename);
+	  
+	  phoebe_config_save (char *filename);
+	  
+	  The only thing that still remains to be done is legacy support.
+
+2007-08-25 16:28  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command open_parameter_file () now prints the filename explicitly
+	  if not found to help the user track down the problem.
+
+2007-08-23 23:21  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Function read_in_synthetic_data () renamed to
+	  phoebe_curve_compute () and moved from phoebe_allocations.c to
+	  phoebe_types.c. All calls to this functions in the scripter have
+	  been renamed.
+
+2007-08-23 19:05  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  All non-void functions that weren't returning the error code have
+	  been fixed.
+
+2007-08-23 18:58  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The obsolete function kick_parameters () removed from the
+	  sources.
+
+2007-08-23 17:30  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Obsolete PHOEBE_curve fields removed and everything adapted to
+	  the new KIND_COMPUTED parameters, both in the library and the
+	  scripter.
+	  
+	  Another small issue has been resolved: a passband field was not
+	  set automatically by read_in_synthetic_data (). Fixed.
+
+2007-08-22 18:35  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Commands plot_lc_using_gnuplot () and plot_rv_using_gnuplot ()
+	  simplified by using phoebe_curve_new_from_pars ().
+
+2007-08-22 03:36  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Computed parameters (passband luminosities, masses, radii,
+	  surface gravities, bolometric magnitudes and polar surface
+	  brightnesses) added to the library and the scripter. The
+	  following parameters have been declared:
+	  
+	  phoebe_mass1 phoebe_mass2 phoebe_radius1 phoebe_radius2
+	  phoebe_logg1 phoebe_logg2 phoebe_mbol1 phoebe_mbol2 phoebe_sbr1
+	  phoebe_sbr2
+	  
+	  These are all of KIND_COMPUTED parameter kind that is added to
+	  the enum. Their values are set by call_wd_to_get_* functions.
+	  They should be considered read-only, although fool-proofing
+	  hasn't been done yet. To get their values, use them as any other
+	  parameter, thus something like:
+	  
+	  double value;
+	  
+	  phoebe_parameter_get_value ( phoebe_parameter_lookup
+	  ("phoebe_mass1"), &value);
+
+2007-08-22 02:50  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Changed the flex test to the one from the library (at least
+	  2.5.33) and updated the release date.
+
+2007-08-03 19:02  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command compute_chi () simplified with the new library wrapper
+	  phoebe_curve_new_from_pars () and updated to the new name
+	  phoebe_cf_compute () instead of calculate_chi2 () function.
+
+2007-07-30 18:01  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Two new fields, R1 and R2, are added to the curve structure.
+
+2007-07-29 19:11  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command adopt_minimizer_results () now calls the library function
+	  instead of handling it locally.
+
+2007-07-27 20:20  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The command compute_chi2 () depended on the phoebe_indep setting,
+	  which should not be the case. The reason was that observed data
+	  were always transformed to phase. This has now been fixed.
+
+2007-07-26 23:03  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Qualifiers can now appear as arguments to user-defined macros.
+	  
+	  Example:
+	  
+	  macro setp (arg1, arg2) { set_parameter_value (arg1, arg2) } setp
+	  (phoebe_sma, 10)
+
+2007-07-24 13:03  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A former "optimization" to the set_parameter_value () command
+	  broke the integer-to-menuitem propagation. This has now been
+	  fixed.
+
+2007-07-03 13:37  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Updated the top-level AUTHORS file.
+
+2007-06-24 02:01  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Started working on updating the NMS minimizer. It has already
+	  been significantly simplified thanks to PHOEBE_curve structure,
+	  but there is still room for improvement. This edit does not break
+	  the build. The function name changed from find_minimum_with_nms
+	  () to phoebe_minimize_using_nms (). Scripter command updated.
+
+2007-06-23 23:35  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The very last show-stoppers removed from the scripter: it now
+	  builds and runs fine again.
+
+2007-06-22 04:57  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The remaining functions in phoebe_scripter_commands () have been
+	  updated. These are:
+	  
+	  scripter_plot_using_gnuplot () scripter_plot_lc_using_gnuplot ()
+	  scripter_plot_rv_using_gnuplot () scripter_compute_lc ()
+	  scripter_compute_rv () scripter_set_lc_properties ()
+	  scripter_compute_chi2 () scripter_get_ld_coefficients ()
+	  
+	  Proceeding to phoebe_scripter_directives...
+
+2007-06-21 04:50  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The long work of updating everything in the scripter to the new
+	  library functions has begun. The following functions have been
+	  updated:
+	  
+	  scripter_set_parameter_value () scripter_mark_for_adjustment ()
+	  scripter_set_parameter_limits () scripter_set_parameter_step ()
+	  scripter_get_parameter_value () scripter_minimize_using_dc ()
+	  scripter_adopt_minimizer_results ()
+	  scripter_transform_flux_to_magnitude ()
+	  
+	  The scripter still doesn't build, though; it will take a few more
+	  days...
+
+2007-06-14 02:44  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  All phoebe_get_* and phoebe_set_* function calls updated to
+	  phoebe_parameter_get_* and phoebe_parameter_set_*.
+
+2007-06-01 04:46  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  CPU execution time rounded to two decimal points (instead of
+	  six).
+
+2007-05-24 00:50  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  All references to the obsolete read_in_observational_data () have
+	  been removed. The scripter is now clean in that respect! :)
+
+2007-05-23 15:06  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A stale printf() statement removed.
+
+2007-05-23 15:03  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A regression in observed data readout crept in when the readout
+	  was transferred to the phoebe_curve_new_from_file () function.
+	  Fixed.
+
+2007-05-15 15:33  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Same thing, plot_rv_using_gnuplot () command.
+
+2007-05-15 15:32  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  An explicit check added to plot_lc_using_gnuplot () command for
+	  the existence of the data file.
+
+2007-05-15 15:03  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The prototype for the function phoebe_spectrum_rebin () has
+	  changed, calls in the scripter updated to reflect that change.
+
+2007-05-11 02:15  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A lot of work done on support for manipulating histograms and
+	  spectra. Most functions have been thoroughly tested.
+
+2007-05-01 20:01  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Spectra arithmetics did not copy the ranges properly. Fixed.
+
+2007-04-24 02:09  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The raise operator (^) function moved from phoebe_scripter_ast to
+	  phoebe_arithmetics. Its kind renamed from kind_pot to kind_raise.
+	  
+	  Because of the upgrade to Feisty, a new autoconf (2.61) has been
+	  used to recreate auto* files.
+
+2007-04-19 04:23  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Functions phoebe_*_resample renamed to phoebe_*_rebin, for this
+	  is what they really do.
+
+2007-04-16 20:31  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Initial commit of the devel branch.
+
+2007-04-14 21:08  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The bug in spectra arithmetics was present in all types of
+	  scalars, and has now been removed completely.
+
+2007-04-14 20:57  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Several commands have been updated to reflect the PHOEBE_spectrum
+	  structure change in the library. There was also a bug in the
+	  multiplication of a spectrum by a scalar (wavelengths weren't
+	  copied to the new spectrum) that has been fixed.
+
+2007-04-10 05:09  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command get_ld_coefficients () was temporarily disabled because
+	  of the transition to new passband designations. The conversion is
+	  now complete and the command is updated and enabled again.
+
+2007-04-09 04:30  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command get_spectrum_from_repository () now takes 3 arguments
+	  instead of 4, since vrot is no longer allowed. See the most
+	  recent phoebe-lib log entry for details.
+
+2007-03-22 02:34  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A new directive 'list' added to the grammar. The API
+	  documentation has been updated. Build files have also been
+	  updated to conform to the recent library build change.
+
+2007-02-20 03:46  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Syncing with phoebe library changes on a ton of stuff.
+
+2007-01-26 16:26  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Accessing string array elements caused the original element to be
+	  freed, which resulted in a segfault. Fixed.
+
+2007-01-10 04:03  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  I/O function for PHOEBE_curve and field definitions SBR1 and SBR2
+	  added to reflect the library inclusion of polar surface
+	  brightness fields in the PHOEBE_curve structure. The 'print'
+	  directive now writes these values out, and you can access the
+	  fields by var.SBR1 and var.SBR2, where var needs to be a light or
+	  RV curve.
+
+2006-11-28 02:38  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Grammar rule tp access the help file for 'if' and 'if-else'
+	  added.
+
+2006-11-28 02:33  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Help file for 'if' and 'if-else' constructs added.
+
+2006-11-28 02:22  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  IF and IF-ELSE handler beautified.
+
+2006-11-28 02:15  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The IF and IF-ELSE grammar constructs simplified to allow
+	  one-line statements to be used as well, i.e.
+	  
+	  if (condition) statement if (condition) statement else statement
+	  
+	  Since a statement can be a block, original functionality is of
+	  course retained:
+	  
+	  if (condition) { statement } if (condition) { statement } else {
+	  statement }
+	  
+	  The handlers for IF and IF-ELSE constructs have been unified and
+	  moved to phoebe_scripter_directives.c.
+
+2006-09-02 20:52  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Several improvements to the lexer incorporated:
+	  
+	  *) handling comments ('#') is now handled by the lexer instead of
+	  the wrapper in the core
+	  
+	  *) literals may now contain escape characters and comments.
+	  Supported escape characters are:
+	  
+	  \a .. alert (bell) \b .. backspace \f .. form feed \n .. new line
+	  \r .. carriage return \t .. horizontal tab \v .. vertical tab
+	  
+	  Other escaped characters are copied directly, e.g.
+	  
+	  \\ .. \ \% .. % \{ .. { \} .. } etc.
+	  
+	  *) error handling on unterminated literals added - parsing is now
+	  aborted on the lexer level.
+
+2006-07-12 14:33  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A regression bug that caused the division between two integers to
+	  be integer has been fixed.
+
+2006-07-11 11:38  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Basic infrastructure added for the newly introduced structure
+	  PHOEBE_curve. The functionality closely mimicks that of the
+	  minimizer feedback structure - fields may be accessed in the same
+	  generic way, by using the '.' operator. These are:
+	  
+	  PHOEBE_curve.type ... curve type (LC or RV) PHOEBE_curve.indep
+	  ... an array of independent data points PHOEBE_curve.dep ... an
+	  array of dependent data points PHOEBE_curve.L1 ... star 1
+	  passband luminosity PHOEBE_curve.L2 ... star 2 passband
+	  luminosity
+	  
+	  For thorough description on this new structure please refer to
+	  the PHOEBE API document.
+
+2006-07-03 13:42  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Functions for subtracting, multiplying and dividing
+	  scripter_ast_values have been moved to
+	  phoebe_scripter_arithmetics sources.
+
+2006-07-02 17:20  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Boolean comparisons between vectors implemented. For example:
+	  
+	  {1,2,3} < {2,3,4} {1,2,3} <= {2,3,4} {1,2,3} >= {2,3,4} {1,2,3} >
+	  {2,3,4}
+	  
+	  will now evaluate to TRUE or FALSE. The dimensions of vectors
+	  must match, otherwise the comparison is aborted.
+
+2006-07-02 16:51  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Another significant change has been incorporated. This time,
+	  handling the results of minimization has been rewritten. The
+	  scripter no longer returns just a chi2 value of the fit, but the
+	  whole read-only structure. For example:
+	  
+	  set result = minimize_using_dc () print result
+	  
+	  will print out all fields of this new structure. It is a generic
+	  structure that is independent of the minimizer used, e.g. all
+	  minimizers return the same structure. This minimizer feedback
+	  structure contains the following fields:
+	  
+	  algorithm .. Name of the minimization algorithm iters .. Number
+	  of performed iterations cputime .. Computational time cost in
+	  seconds pars .. A list of adjusted parameters initvals .. A list
+	  of initial parameter values newvals .. A list of converged
+	  parameter values ferrors .. A list of formal parameter errors
+	  chi2s .. A list of passband chi2 values wchi2s .. A list of
+	  weighted passband chi2 values cfval .. Cost function value
+	  (master chi2)
+	  
+	  Structure fields are accessed by using the '.' operator:
+	  
+	  print result.algorithm print result.newvals ... [etc] ...
+	  
+	  Since the minimizer feedback now contains a wealth of
+	  information, automatic updating of corrected values has finally
+	  been abandoned. To update the values, use the function
+	  adopt_minimizer_results (); see below.
+	  
+	  Full documentation for this new principle has been written and
+	  added to the Scripter API; please refer to that document for
+	  details.
+	  
+	  Furthermore, two new scripter commands have been added:
+	  
+	  set var = compute_chi2 ([curve_index])
+	  
+	  and
+	  
+	  adopt_minimizer_results (result)
+	  
+	  The first command computes weighted chi2 values of the whole set
+	  and returns an array of these values. If an optional argument
+	  curve_index is passed, then chi2 of only that passband is
+	  computed.
+	  
+	  The second command adopts the new (corrected) results of the
+	  minimizer feedback structure 'result'. This way the user may test
+	  the results for convergence and decide if he wants to keep or
+	  discard the new values.
+	  
+	  This roughly sums up a ton of work. ;) The back-end had to
+	  change, since now structures need to be supported too. Both NMS
+	  and DC minimizers were significantly enhanced, but there are
+	  still several glitches that need to be worked out - #warning-s
+	  hav been added to critical places. The API documentation has been
+	  updated to properly explain all these changes.
+	  
+	  The new implementation has been tested for the last 3 days to a
+	  reasonable extent. It should be safe to use it for regular work,
+	  but some caution should still be exercised and, as usual, any
+	  encountered problems reported as soon as possible. O:)
+
+2006-06-26 11:41  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Help directive was causing a segfault when applied to directives.
+	  Fixed.
+
+2006-06-19 09:53  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Indeed, two regressions have been found and both have been fixed;
+	  while at it, I also added full support for spots that was missing
+	  so far.
+
+2006-06-19 07:51  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Finished! :) All up-to-the-specs corrections of phoebe_parameters
+	  source file have been done! This means that finally this
+	  long-lasting TODO entry has been removed! Caution is still
+	  advised because of heavy changing of the sources, I will spend
+	  today in testing and fixing if any problem jumps out.
+
+2006-06-14 21:26  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Another two phoebe_parameters.c functions (and their
+	  dependencies) cleaned. That leaves 4 tough ones to go...
+
+2006-06-14 20:33  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  More code tidying and specs conformation done. I really hope to
+	  finish this task as soon as possible and, even more, I really
+	  hope it is worth the effort. This way we will have a very clean,
+	  specs-compliant code to work with and develop... :)
+
+2006-06-14 13:13  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A heavy and substantial code beautification and up-to-specs
+	  conformation done for phoebe_parameters.c source and all other
+	  affected sources. The changes were quite voluminous, and some
+	  care should be taken and some effort invested to verify that no
+	  regressions have been introduced.
+
+2006-06-04 19:32  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Configure script modified to output the information on GNU
+	  readline presence in the summary table. Newer autotools are now
+	  used to create the script.
+
+2006-05-27 09:50  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Upon Josef Kallrath's request a new builtin function strlen ()
+	  has been implemented. It returns the length of the passed string.
+
+2006-05-26 23:50  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Arithmetic operations on ASTs (and their evaluated values) are
+	  being moved to the newly introduced source files
+	  phoebe_scripter_arithmetics.c and .h. This will reduce the
+	  problem of the totally crowded phoebe_scripter_ast.c source file.
+
+2006-05-25 19:44  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Two new functions for primitive adding and subtracting spectra
+	  have been used in the binary operations, e.g. 'set s = s1 + s2'
+	  and 'set s = s1 - s2'. Others are soon to follow.
+
+2006-05-16 04:39  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Scripter command set_parameter_value () was registered twice.
+	  Fixed.
+
+2006-05-08 20:29  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The original functionality of get_parameter_value () command has
+	  been restored. The user may now use both variants to obtain
+	  values for array qualifiers, namely:
+	  
+	  set var = get_parameter_value (qualifier) set var =
+	  get_parameter_value (qualifier, index)
+	  
+	  The first form will return an array in case the qualifier is an
+	  array and the second form will return a scalar of the type that
+	  corresponds to that qualifier.
+
+2006-03-23 01:12  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Error handling in set_parameter_value () command improved. A
+	  small bug has also been discovered that caused a failure in
+	  automatic int->double propagation; fixed.
+
+2006-03-23 00:03  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  All instances of phoebe_error () replaced with
+	  phoebe_scripter_error (), which wraps around the original
+	  phoebe_error () function while adding the error messages that are
+	  purely scripter-related.
+
+2006-03-23 00:01  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Stale #include statements removed from phoebe_scripter_types.c.
+
+2006-03-23 00:01  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Print functions were not conforming to SPECS regarding return
+	  values (they were still returning negative status codes). Fixed.
+
+2006-03-22 23:50  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Stale #include statements removed from phoebe_scripter_io.c.
+
+2006-03-22 23:49  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Stale #include statements removed from
+	  phoebe_scripter_directives.c.
+
+2006-03-22 23:44  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Stale (yet commented) #include statements that were referring to
+	  individual header files of the library removed from main.c.
+
+2006-03-22 23:27  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A trailing comma in scripter_ast_value type enum removed.
+
+2006-03-22 23:26  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Function scripter_ast_value_free () was triggering an exception
+	  handler on type_void, which is attributed to all optional
+	  parameters that are not passed to commands. This type is now
+	  handled explicitly (falls through).
+
+2006-03-16 15:11  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Another small memory leak found and removed: type_qualifier
+	  variables initialized a string that was never freed. Fixed.
+	  Exception handler is now added to scripter_ast_value_free ()
+	  function.
+
+2006-03-13 23:57  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Sigh... Another tiny memory leak discovered and removed. These
+	  8-byte leaks are really annoying... Anyway, the problem was in
+	  the reverse_list function if it is called with the same pointer
+	  as the one that is being reversed. There was an instance in the
+	  user-defined function handler that is now fixed.
+
+2006-03-13 23:08  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Recent changes in the spectra handling functions of the library
+	  imposed a change in the driver functions. All of them have been
+	  simplified and reduced in size, so the change in prototypes is
+	  indeed welcome.
+
+2006-03-07 23:35  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Redundant scripter_ast_detach_list () function removed.
+
+2006-03-07 23:24  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  After 15 straight hours of work, I reduced the percentage of
+	  memory leaks in the scripter to 0.0%, which amounts to 0 lost
+	  blocks! A gigantic work, believe me, and now if you don't mind,
+	  I'll go pass out... ;) I *am* happy, though, as this makes me
+	  realize that memory management was pretty much on the track from
+	  the beginning. :)
+
+2006-03-07 23:10  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Updated Makefile.in to correspond to the new Makefile.am.
+
+2006-03-07 23:10  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Makefile changed so that the flexer generates the header file
+	  phoebe_ _scripter_grammar.h. This header file should be included
+	  whenever the flexer's buffer is needed, because the typedefs are
+	  otherwise unavailable.
+
+2006-03-07 23:08  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  This file will now be automatically generated by the flexer, it
+	  is thus removed from the CVS.
+
+2006-03-06 01:50  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A small memory leak in the info directive fixed; this does not
+	  seem like much, but if e.g. spectra were copied, they could have
+	  consumed a lot of memory.
+
+2006-03-05 21:50  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Memory management has finally been improved. The ASTs are now
+	  getting freed as soon as they are no longer needed; the strategy
+	  for freeing is the following: ASTs are created by the parser and
+	  evaluated once the kind_statement node is built. When this
+	  evaluation is finished, the AST is no longer required and it is
+	  freed. The current code was almost ready for this step, with two
+	  notable exceptions: functions and macros. In their definition,
+	  only AST pointers were referenced in the symbol table, whereas
+	  they are now getting freed as soon as their definition (node
+	  evaluation) is done. This has been fixed by implementing a new
+	  AST function called scripter_ast_duplicate () that does just
+	  that: duplicates an AST. A pointer to this copy is now stored in
+	  a symbol table, so the original AST may well be freed.
+	  
+	  Everything seems to be working after these changes, but please
+	  note that due to their nature (fiddling with memory) and initial
+	  implementation things may go wrong. Badly wrong. ;) If there's
+	  anyone on Earth reading this besides me (which I doubt), please
+	  report any segfaults you might encounter.
+
+2006-03-05 00:32  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Oops, the first memory leak from the previous commit actually
+	  wasn't a leak, it was supposed to be that way; the ASTs and AST
+	  values are two different structures and each needs its own
+	  allocation. Fixed.
+
+2006-03-04 23:25  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Two very significant memory leaks have been fixed: the AST
+	  evaluation function made copies of primitive type AST arrays
+	  (vectors, arrays, spectra), which only duplicated memory
+	  needlessly. The second memory leak was caused by a stale original
+	  AST that was copied to the newly allocated AST node in the symbol
+	  table. Both have been fixed.
+
+2006-03-04 19:43  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Prototype of function scripter_ast_value_array_free () changed to
+	  take a pointer instead of pointer-to-pointer. This is done only
+	  for esthetic reasons.
+
+2006-03-04 18:54  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A typo in a comment fixed.
+
+2006-03-04 18:18  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A bug in symbol_table_lookup () function caused a segfault if a
+	  non-existent table was looked up. This bug occured only when
+	  stdump directive was used with a non-existing symbol table; since
+	  this directive is internal, the users are not affected by this
+	  issue. Fixed.
+
+2006-03-04 17:51  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Two changes:
+	  
+	  1) the command convolve_spectra () renamed to multiply_spectra
+	  (), according to the samewise change in the library,
+	  
+	  2) the kind_set_element node now handles spectral columns as
+	  well, e.g.
+	  
+	  set sp[2] = sp[2]/10
+	  
+	  will divide the 2nd column of the spectrum 'sp' (usually flux) by
+	  10.
+
+2006-03-03 23:52  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Spectrum columns may now be extracted as identifier elements. For
+	  a given spectrum s, for example, s[1] will return an array of
+	  wavelengths (or whatever appears in the first column) and s[2]
+	  will return an array of fluxes (or whatever appears in the second
+	  column).
+
+2006-03-03 23:32  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Two instances of 'vector' in scripter output messages changed to
+	  'array'.
+
+2006-03-01 12:00  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command add_spectra () renamed to merge_spectra ().
+
+2006-02-28 11:23  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Error handling for resample_spectrum () command has been improved
+	  and a corresponding help file has been added.
+
+2006-02-27 23:25  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Debugging scripter ASTs has been rewritten and is now both more
+	  informative and visually more attractive, given in a rigorously
+	  strict tabular form. This will show only when the scripter is
+	  configured with the --enable-debug switch.
+
+2006-02-27 18:37  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A new grammar design for directives caused the bypassing of
+	  kind_statement node creation (which must be its void parent);
+	  fixed.
+
+2006-02-27 14:27  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  User-defined function evaluation did not account for spectra;
+	  fixed. In addition, an exception handling has been added to the
+	  evaluation function that asks the users to report such
+	  inconsistencies should they occur in future.
+
+2006-02-27 13:55  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Makefiles now install the added help files with the distribution.
+
+2006-02-27 13:53  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Help file for apply_doppler_shift () command added.
+
+2006-02-26 20:52  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command apply_rotational_broadening () added to the scripter,
+	  including a help file.
+	  
+	  Synopsis:
+	  
+	  set out = apply_rotational_broadening (in, vsini, x_ld)
+	  
+	  Here 'in' is the input spectrum, 'vsini' is the projected radial
+	  velocity and 'x_ld' is a linear limb-darkening coefficient. The
+	  command convolves the original spectrum with a broadening
+	  function G(\lambda) adopted after Gray's Chapter 17, p. 374.
+
+2006-02-25 13:31  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command spectrum () added. It takes three arguments: the
+	  dimension of the spectrum, the true resolving power R and the
+	  sampling power Rs.
+
+2006-02-25 13:18  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The array () command implementation was obsolete - it used a
+	  separate AST that didn't conform to the standard definition of
+	  commands in the scripter. The command is now added and registered
+	  properly.
+
+2006-02-25 12:57  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Help file for the info directive updated.
+
+2006-02-25 12:51  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command set_spectrum_properties () was changing the properties of
+	  the copy of the spectrum rather than the variable contents
+	  themselves. Fixed.
+
+2006-02-25 12:43  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The 'info' directive has been generalized to display information
+	  not only on qualifiers, but on variables as well. The user may
+	  now do something like the following:
+	  
+	  set i=1 set j=vector(5) info i info j
+	  
+	  The directive will list the variable type and in the latter case
+	  the variable dimension. It will *not* write out its value -
+	  directive print should be used for that.
+
+2006-02-23 20:01  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Two new commands have been implemented:
+	  
+	  set_spectrum_properties (s, R, Rs),
+	  
+	  where 's' is the target spectrum, 'R' is the true resolving power
+	  and 'Rs' is the sampling power of the spectrum;
+	  
+	  set_lc_properties (curve_idx, passband, indep, dep, weight,
+	  sigma, fname)
+	  
+	  where all arguments correspond to parameters that fully determine
+	  LCs.
+
+2006-02-21 23:44  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Help directive updated so that it automatically handles all
+	  commands. If a help file is missing for a particular command, the
+	  scripter will write a notice to the user about it. It will work
+	  for user-contributed commands as well - they only need to be
+	  accompanied with command_name.help file in the help/ directory.
+
+2006-02-21 23:27  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Help file for the broaden_spectrum () command added.
+
+2006-02-21 23:11  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command broaden_spectrum () added to the scripter. This function
+	  utilizes the newly added library function phoebe_spectrum_broaden
+	  ().
+
+2006-02-12 09:37  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Needless dereferencing of pointers in phoebe_ast_free ()
+	  definition removed and all calling instances updated.
+
+2006-02-06 21:47  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Excessive tabs removed.
+
+2006-02-06 21:45  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Stale tokens removed from the parser.
+
+2006-02-06 21:41  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Parser rule lit_or_id removed in favor of the more general expr.
+	  The only two uses of this grammar structure were the statement
+	  redirection operators, both of them already had proper error
+	  handling implemented that needed no adaptation to the new grammar
+	  logic. This further simplified grammar rules.
+
+2006-02-06 21:31  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A major rewrite in scripter command logic has been done. Commands
+	  are now dynamically defined by calling the
+	  scripter_command_register () function defined in
+	  phoebe_scripter_types.c. Both lexer and parser, as well as AST
+	  handler, are significantly simplified because of this rewrite. A
+	  side effect is that all commands are now uniformly prototyped to
+	  return scripter_ast_value. Several small memory leaks have also
+	  been identified and removed.
+	  
+	  The bottom line is that external plugin-like codes can simply
+	  register new scripter commands without having to interfere with
+	  scripter grammar directly. This will be extremely useful once
+	  people start writing plugins to PHOEBE.
+
+2006-02-02 13:30  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Command plot_spectrum_using_gnuplot () added. It takes three
+	  arguments, the spectrum to be plotted, and optionally a lower and
+	  upper wavelength interval limits:
+	  
+	  plot_spectrum_using_gnuplot (spectrum [, ll, ul])
+	  
+	  The function has been fool-proofed and tested to a reasonable
+	  extend.
+
+2006-01-30 19:59  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The same change, only this time done right! ;)
+
+2006-01-30 19:56  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Out-of-bounds check for curve index added for commands
+	  plot_lc_using_gnuplot () and plot_rv_using_gnuplot ().
+
+2006-01-29 15:51  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  AST node for the command set_parameter_step () passed the parent
+	  node to the library, which caused OB1 error in argument count.
+	  Fixed.
+
+2006-01-26 10:34  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Makefile.in added to facilitate builds.
+
+2006-01-18 20:31  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  An autoconf checkup added for the presence of PHOEBE library. If
+	  it is absent, ./configure stops with a failure.
+
+2006-01-18 20:27  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Distribution file Makefile.am added.
+
+2006-01-16 14:04  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  This ChangeLog part consists of two pretty large changes which
+	  are completely different; the CVS server is down over the
+	  weekend, unfortunately, so I couldn't have committed each change
+	  separately. Here is the description:
+	  
+	  When defining arrays explicitly, e.g. set a = {1,2,3}, the
+	  elements of the array itself were evaluated during the parse.
+	  This posed no problems for arrays in the main script flow, but it
+	  caused syntax errors in macro definitions where elements of the
+	  defined array were variables. Consider the following example:
+	  
+	  macro test () { set i = 1 set a = {i, i+1, i+2} print a }
+	  
+	  This is a perfectly legal macro definition, yet because of
+	  read-and-parse implementation the parsing of {i, i+1, i+2} caused
+	  a syntax error because the set directive wasn't yet evaluated and
+	  the variable i wasn't yet assigned. This is now fixed by changing
+	  the evaluation to occur with the statement itself and not
+	  separately.
+	  
+	  The second change is the total implementation of the prompt ()
+	  command. This command provides input from the user.
+	  
+	  Synopsis:
+	  
+	  set answer = prompt ("Question? " [, "expected_type"])
+	  
+	  First argument is a string that is used as the prompt to which
+	  the user has to give an answer. The answer is then parsed and
+	  returned as an expression. Typically one whould use this command
+	  as:
+	  
+	  set answer = prompt ("Is this correct [Y/n]? ")
+	  
+	  The second argument is optional and may be used to test the
+	  answer type. The expected_type is a string that must be one of
+	  the following:
+	  
+	  integer, boolean, double, string
+	  
+	  The command is completely fool-proof and will loop until the
+	  answer to the prompt is acceptable by the lexer. The command will
+	  interrupt on empty input or on CTRL+D.
+
+2006-01-11 19:01  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The command convolve_spectra () did not take optional arguments
+	  into account, it always used 2500, 10500, 50000 values. Fixed.
+
+2005-12-21 12:45  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Function phoebe_vector_new_from_list () contained a memory leak
+	  in case of a failed assignment. Fixed.
+
+2005-12-21 11:41  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Architecture for handling spectra has been implemented. It is
+	  still rudimentary, but most important operations are already
+	  supported. They include:
+	  
+	  - reading out a spectrum from a file - reading out a spectrum
+	  from repository - setting a spectra repository - applying a
+	  Doppler shift to a spectrum - resampling a spectrum to the given
+	  wavelength interval and a given resolution - weighted sumation of
+	  two spectra - convolving two spectra
+	  
+	  The scripter features the following new commands which are fully
+	  functional:
+	  
+	  set_spectra_repository (dirname) set var =
+	  get_spectrum_from_repository (T, log g/g0, [M/H], vrot) set var =
+	  get_spectrum_from_file (filename) set var = resample_spectrum
+	  (spectrum, ll, ul, R) set var = scripter_integrate_spectrum
+	  (spectrum [, ll, ul]) set var = add_spectra (spec1, spec2 [, w1,
+	  w2]) set var = convolve_spectra (spec1, spec2 [, ll, ul, R])
+	  
+	  Some of them still need to be polished, but the main
+	  functionality is tested.
+
+2005-11-01 11:00  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Hopefully this fixes the last regression that was introduced by
+	  returning pointers instead of copied data by
+	  scripter_ast_evaluate () function. All directives and commands
+	  are supposed to free the evaluated arguments once they are done
+	  using them so that memory leaks don't occur. If the variables
+	  contained only pointers to the data, the pointers would have been
+	  freed and the original data would be lost. Fixed.
+
+2005-10-29 14:34  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Would you believe it -- yet another regression. :( The print
+	  directive failed to increment pointers and thus mayhem occured if
+	  there was more than 1 value printed. Fixed.
+
+2005-10-29 14:17  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The same OB1 regression as below has affected compute_lc () and
+	  compute_rv () commands. Fixed.
+
+2005-10-29 14:03  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  A critical regression was discovered due to an OB1 error: the
+	  set_parameter_value () command did not properly update the values
+	  of arrays. Fixed.
+
+2005-10-22 18:16  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  An obsolete help-printing function removed from the code. Help
+	  for the 'while' loop added.
+
+2005-10-22 18:15  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Help file added.
+
+2005-10-22 17:09  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Functions are now added to the global symbol table as well.
+
+2005-10-22 17:07  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Symbol table handling frozen. There are two alternatives how to
+	  handle identifiers: to have automatic variables and only one
+	  scope per function or to have declared variables and local
+	  scopes. Since I think declarations are not practical for
+	  interpreted language, I decided to go with the first alternative.
+	  That is why all symbol tables feature variables that preserve
+	  their validity throughout the function/macro.
+	  
+	  There are two symbol tables that are generated on start-up: a
+	  global symbol table that contains all constants (CONST_*
+	  identifiers) and all macro and function names (initially empty),
+	  and the main symbol table that contains all variables that are
+	  declared within the main script structure (also initially empty).
+	  As new macros and functions are defined, new symbol tables are
+	  appended to a linked list. The lookup function first searches for
+	  a symbol in the symbol table of the current macro/function and
+	  then in the global symbol table. This enables macros/functions to
+	  call other macros/functions and to have all constants globally
+	  available. For example, the code:
+	  
+	  > macro func1 () { > print CONST_PI > } > > macro func2 () { >
+	  func1 () > } > > func2 ()
+	  
+	  is perfectly ok.
+
+2005-10-21 23:28  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Symbol table scoping removed completely. There seem to be two
+	  alternatives for handling symbol tables: having automatic
+	  variables and only a global scope or having declared variables
+	  and local scopes. Since it is not really practical for the
+	  interpreter to enforce variable declarations, I decided to go
+	  with the former alternative.
+
+2005-10-21 14:22  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Following the agreement between Gal and myself, the ChangeLog is
+	  removed from the CVS. It will now be created for the distribution
+	  by issuing:
+	  
+	  rcs2log -i 2 > ChangeLog
+	  
+	  This means that the ChangeLog build is now completely up to CVS
+	  and that the developers must describe the commited changes
+	  properly, not merely by the change date anymore.
+
+2005-10-21 14:19  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Online help system has been moved from hard-coded text to
+	  external files. The help directive now accesses these external
+	  help files and prints them on PHOEBE_output. Help files are put
+	  in the top-level help/ directory and will be installed in
+	  /usr/local/share/phoebe/help by default.
+
+2005-10-21 12:13  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Help file added.
+
+2005-10-20 23:00  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  * Grammar and directives further cleaned: calc, clear, print and
+	  stdump are now properly handled. In particular, the print
+	  directive now does not print its arguments as they are evaluated,
+	  but evaluates all arguments first and prints them out only if
+	  everything is ok. This removes error messages from the print
+	  output.
+	  
+	  * Error handler was leaking memory in case when the AST memory
+	  was allocated, but the AST type was invalid. Fixed.
+
+2005-10-20 09:35  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  The bison grammar file missed a semi-colon at the 'qualifier'
+	  non-terminal. It's curious to see that this error doesn't jump
+	  out under linux, but it does jump out under mac. Many thanks to
+	  Romain Gauderon for pointing this out!
+
+2005-10-20 08:33  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Initial commit.
+
+2005-10-20 08:32  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Update to a newer automake.
+
+2005-10-18 21:10  Gal Matijevič <gal.matijevic@fmf.uni-lj.si>
+
+	* :
+	  
+	  Initial commit.
+
+2005-10-18 21:07  Andrej Prša <andrej.prsa@villanova.edu>
+
+	* :
+	  
+	  Initial commit.
+

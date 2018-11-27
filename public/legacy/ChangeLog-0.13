@@ -1,0 +1,690 @@
+PHOEBE Project ChangeLog:
+----------------------------------------------------------------------------
+
+2002-09-19: - Fitting QuickBar connected to all main switches and values. It
+              is now completely usable.
+            - Mass ratio description changed -> secondary over primary part
+              deleted because it was confusing to connect it to appreciated
+              definition (secondary is *always* smaller than the primary).
+              This was suggested by Panos Niarcos.
+            - THE keyword for X-Ray binaries has been added to constraints
+              handler. The entry is now disabled for other models.
+            - More work on PHOEBE Homepage has been done.
+            - Top-level files WISDOM, CAVEATS and QUESTIONS have been dele-
+              ted, because their contents were obsolete.
+            - A nice "under construction" xpm icon added to Orbit tab. :)
+              This is the beginning of introducing small icons to PHOEBE
+              buttons. This will hopefully be even more pleasent for the
+              everyday user.
+            - A lot of CVS repository directory cleaning has been done: the
+              documentation was completely separated from phoebe source di-
+              rectory, icons and pixmaps have been distinguished (icons are
+              only those pixmaps which (will) appear on buttons and pixmaps
+              in general are empty LC/RV/Chi2 plots and logos), all contri-
+              butive files have been removed from the CVS. The data under
+              the CVS is only for UV Leonis (along with basic parameters)
+              and V505 Per (without any keyword file).
+            - PHOEBE-0.13 testing version released.
+2002-09-18: - Top-level README file SETTING UP section extended to include
+              instructions for adding PHOEBE-related devices to SuperMongo's
+              graphcap.local. Thanks to Frederic Royer for reminding me!
+2002-09-17: - PHOEBE Homepage has been created. It is not completely fini-
+              shed yet, but it is already functional and at present it re-
+              sides on http://www.fiz.uni-lj.si/~prsa/phoebe.
+2002-09-15: - Returned from the Monte Rosa GAIA conference. I have met Mr
+              Wilson, Mr Van Hamme and Mr Milone, basically the alpha and
+              omega of the eclipsing binaries world!!!
+            - Fixed an OB1 error because of which mass ratio couldn't be
+              fitted. This bug was fixed with help by Walter Van Hamme.
+2002-09-05: - Added "tinygif" plotting device; it is useful for creating
+              small animated gifs. Its size is 256x128 pixels.
+2002-09-04: - PHOEBE Scripter window created. A button added to a Fitting
+              tab that initiates the scripter. Scripter routines remain to
+              be written.
+2002-09-03: - Function prototypes that set widgets' sensitivity based on a
+              solution constraints implemented. Constraining works for de-
+              tached binaries and overcontact binaries.
+            - IPB switch now also influences the sensitivity of CLA-depen-
+              dent widgets. This tells the user when to expect CLAs to be
+              computed from temperature (widgets are off) and when to be
+              adjusted by user (widgets are on).
+            - RV readout handling fixed. It should now be immune to arbit-
+              rary comments within an .lco file.
+            - Comments in .lco files rerouted to screen as notice windows.
+              There are currently 4 supported notices (critical lobe and
+              critical potential) and only one ever encountered! :)
+2002-09-02: - WD98 .lco file obviously has only *more or less* standard sha-
+              pe! Thus in some cases WD inserts a comment in a file (e.g.
+              that the secondary star overfills the critical Roche lobe),
+              which alters all positions of parameters in a file. Therefore
+              PHOEBE crashed when such an unexpected comment was encountered
+              during the readout. The whole concept of reading in values had
+              to be changed. It has been done for LCs and remains to be done
+              for RVs.
+2002-09-01: - Cousins R and I filters added to the filter list.
+2002-08-30: - A remnant of older versions which limited LCs to 5 fixed; now
+              the top limit is set to 15 (Wilson 1998).
+            - Drastic changes made to the filter list. Descriptive lines
+              introduced for each filter set (Johnson, Stroemgren, Hippar-
+              cos, RV and GAIA). Some wavelengths were catastrophically
+              wrong! Fixed. It might be worth considering expandable list
+              of filters, such as a pop-up menu with submenues instead of
+              a combo box.
+            - Comments still interfered with RV plots. Fixed.
+            - Zillion new stars added to the data directory; they won't be
+              put under the CVS, though, because although great, these data
+              files bring nothing new, they just add to the bandpass amount
+              and will be available for optional download from the PHOEBE
+              homepage.
+2002-08-29: - Data aliasing completed for phases (both LCs and RVs). The
+              aliasing switch in both plotting windows initially turned on
+              (there is no obvious reason why the user wouldn't want to
+              use aliasing).
+            - "Update Selection" button in the DC window disabled, because
+              this option won't be implemented for quite some time (at
+              least until much more pressing issues remain).
+            - A Fitting QuickBar window created. Users have expressed the
+              wish that adjustment switches and steps be gathered in an
+              auxilliary window for faster access (so one doesn't have to
+              browse through main PHOEBE tabs). The "Show QuickBar" button
+              has been added to DC window. Callbacks haven't yet been con-
+              nected to the DC window, so the QuickBar isn't functional
+              yet.
+            - Commenting supported in input data files. If a line in a data
+              file contains '#', that line will be *completely* disregar-
+              ded, wherever '#' is placed within that line. This could be
+              improved in future so that PHOEBE disregards only the remain-
+              der of the line, but that would mean too much work right now.
+2002-08-28: - Chi2 3D plot wasn't working with orbital eccentricity. Fixed.
+            - Two decimal numbers in Chi2 3D plot limits wasn't enough. It
+              has been increased to 3. It would be useful to add automatic
+              ranging in future, but it is a long-term plan.
+            - PERR0 description changed. PERR0 value follows a strange
+              convention where PERR0 = 0 and PERR0 = pi means that the
+              elipse is oriented along the semi-minor axis.
+            - A new callback added to all Adjust switches which updates
+              the contents of the fitting window if these switches are
+              toggled.
+            - A bug fixed where original temperature values changed the
+              units from K to 10000K. Now they are always in K.
+            - Allocation in DCO readout wasn't correct for curve dependent
+              parameters. This crashed PHOEBE when more than one such pa-
+              rameters was to be adjusted. Fixed.
+            - HJD -> phase transformation was off by 1 if HDJ0 was larger
+              than HJD. Fixed.
+            - Aliasing function implemented. GUI still has to be updated.
+2002-08-27: - A new typedef "PHOEBE_dco_record" created. It holds all DCO
+              quantities. It is associated with the "read_in_dco_values"
+              function.
+            - PERR0 units are radians. The range of PERR0 was [0, 100] and
+              was obviously completely wrong. It is now set to [0, 2\pi].
+            - Chi2 info list created in DC window. It contains a sum of
+              squares for each data curve including only individual weig-
+              hts (supplied by the user). The list has been completely
+              integrated into normal operation.
+            - GAIA filter wavelengths (Munari 1998) added to filter list.
+            - LC/RV plotting parameters' updating is enhanced. There is no
+              need to re-click on the Data switch to reread their values.
+            - Systemic velocity step reduced from 1 (initially meant only
+              for km/s) to 0.01 (to conform with 100km/s too).
+            - PHOEBE documentation directory phoebe/doc put under a sepa-
+              rate CVS. This way the user doesn't have to download the
+              documentation if he doesn't want to.
+            - Van Hamme limb darkening tables (along with an auxilliary
+              PHOEBE file) added to the CVS directory catalogs/ld. This
+              way the user may, if he so desires, download the tables
+              independently from PHOEBE.
+            - Instructions for obtaining PHOEBE from the CVS added to the
+              top-level README file.
+2002-08-26: - After 20 days of brain-dead activities and outmost leisure I
+              have returned from a wonderful Montenegrian Sun. I can't say
+              I'm too happy about that but I did relax and now I hope that
+              PHOEBE will grow even smoother!
+            - A lot of useful comments recieved from TOmaz and Paola!
+              Thanks, guys!
+            - VGA entry added to PHOEBE_wl_dependent_parameters structure.
+            - A bug fixed in RV window: the VGA value wasn't updated when
+              experimental data was selected. It now works.
+            - Proximity effect switch (ICOR) split to two switches, each
+              for one RV curve (ICOR1 and ICOR2). GUI updated.
+2002-08-06: - Velocity units haven't been used in RV plotting. Fixed.
+            - VUNIT switch moved from the Switches tab to RV plotting win-
+              dow.
+            - LC Plotting window slightly rearranged. The flux factor and
+              magnitude base widgets are overlapping and are shown based on
+              the choice of the dependent variable. Grid and box buttons
+              moved more to the left. Phase normalization switch moved from
+              Switches tab to here.
+            - Switches tab finally deleted.
+            - Well, dear reader, I am happily signing off and going to the
+              Montenegrian seaside! Bye bye!
+2002-08-05: - Inclination fitting diverges if the starting value is 90. Thus
+              this value has been changed to 80.
+            - A bug introduced when NPPL switch was deleted that caused gar-
+              bage to be entered to a DCI file. Fixed.
+            - Chi2 calculation for RVs was accidentally left disabled. Now
+              it is back on.
+            - If only experimental data is selected in plotting windows,
+              synthetic curve (LC or RV) was calculated redundantly. Fixed.
+            - Zooming and moving the RV plot caused garbage to be written
+              as data points number. Fixed.
+            - A new typedef enum PHOEBE_plot_device added to phoebe_global.
+              It is passed to all plotting routines as an indicator of the
+              desired output.
+            - Plot to File button in LC plotting window enabled. Plotting
+              devices currently supported are x11 (the screen), encapsulated
+              postscript (eps), X Windows Pixmap (xpm) and columned plain
+              text (ascii).
+            - Prototypes for RV Plot to File functions created, but not
+              connected yet.
+            - A few small glitches smoothened out and unified through all
+              Plot to File related routines.
+            - Graphics Interchange Format (.gif) and Portable Pixmap (.ppm)
+              added to device list.
+            - RV Plot to File fully supported. Prototype functions made for
+              chi2 plot. The Plot to File button has been added to the fit-
+              ting window and callbacks generated. Chi2 plotting routine
+              first has to be rewritten to use SM library. Then and only
+              then Plot to File may be enabled.
+2002-08-04: - All DEL-XY delimeters changed to Step, because it seemed WD98
+              notation didn't help anyone, it just brought more confusion.
+            - Interest combo box finally deleted. Button box was extended to
+              include "Plot LC" button, "Plot RV" button and "Fitting" but-
+              ton. The "Run" button was deleted along with all attached
+              callback functions.
+            - A parameter table in plotting windows was updated even if syn-
+              thetic lightcurve wasn't plotted. Fixed.
+            - A typing error Modelling -> Modeling fixed in both plotting
+              windows.
+            - IPB switch had an old callback dangling which crashed PHOEBE
+              when the switch was turned on. Fixed.
+            - The weighting "Edit Entry" button was enabled by default,
+              which caused a segfault when clicked when no records were pre-
+              sent. Fixed.
+            - The tutorial extended significantly.
+2002-08-03: - Column number spin button in the Data tab was obsolete and was
+              deleted. Tutorial updated to reflect this change.
+            - NPPL number spin button in the Data tab was obsolete and was
+              deleted. Tutorial updated to reflect this change.
+            - Tutorial heavily modified; all sorts of updates and improve-
+              ments.
+2002-08-02: - A bug caused a fatal PHOEBE termination if assigned data file
+              didn't have any filters assigned. This was a consequence of
+              non-consistent filter names checking for plotting routines.
+              This bug is now fixed.
+            - Another bug that changed multiple filter names has been fixed:
+              if a data entry has been edited, but its filter remained un-
+              changed, then an extra #2 was appended to its name. Fixed.
+            - Fool-proofing added to data file format; if the format doesn't
+              conform to the format defined in Data tab, experimental data
+              output is suppressed.
+            - Fool-proofing added to missing filenames; again, if a file-
+              name is missing (invalid), PHOEBE warns the user about it
+              and suppresses any further data output.
+            - Corrected parameter values from fitting are now updated in
+              plotting windows as well. This eliminates the work-around
+              of turning off and then on the data switch in those windows.
+            - A bug that resetted original values when clicked on Update
+              button in the DC Corrections window, although there were
+              no corrections calculated, fixed. Now nothing happens.
+            - phoebe/data directory updated.
+2002-08-01: - PHOEBE 0.12 released. This is the first testing version.
+            - First 18 pages of PHOEBE 0.12 tutorial have been written.
+2002-07-31: - Binning checked, some minor type inconsistencies fixed.
+            - Code cleaning even furtherly purified PHOEBE.
+            - Synthetic grid buttons have been temporarily disabled, be-
+              cause of their unfinished state. They will be made available
+              in the next version (or the CVS shortly).
+2002-07-30: - After a long long time, RVs are working again without any ma-
+              jor issues. Plotting of *both* RVs at the same time is cur-
+              rently disabled, because it is very dangerous to examine both
+              curves at the same time -> users don't bother to check if
+              the right data belongs to the right synthetic RV curve. This
+              decision will be given more thought soon.
+            - A bug in filter naming (adding a #number to multiple curves
+              in same filters), which added extra #number if already num-
+              bered filter's record (other than the filter itself) was
+              changed, is now fixed.
+            - Level-dependent weighting (NOISE) added to wl_dependent type-
+              def and is read in properly.
+            - Fitting functions GREATLY simplified and working wonderfully.
+            - Mass ratio (RM) spin-button steps were too large. Fixed.
+            - An ambiguity in units of RVs fixed; fitting now *always* uses
+              100km/s as units, so PHOEBE takes care of the transformation
+              from km/s if necessary. That was the reason why the fitting
+              of semi-major axis failed; now it works without issues. How-
+              ever, mass ratio is still returning nan after fitting.
+            - A FIRST EVER preliminary result reached with PHOEBE: UV Leo.
+              The configuration file may be found in the data directory.
+2002-07-29: - A bug in RV dependent variable keyword entries fixed.
+            - A LOT of work rearranging routines has been done.
+2002-07-26: - phoebe_global.h created. It will hold all global variables and
+              typedefs from now on.
+            - phoebe_allocations.c and phoebe_allocations.h created. All
+              memory allocations, readouts, struct readins etc. go in here.
+            - All global declarations moved from main.h to phoebe_global.h
+              and main.h erased, Makefile.am updated.
+            - phoebe_gui_typedefs.c and phoebe_gui_typedefs.h erased.
+            - Memory allocation for PHOEBE_data_record types moved to
+              phoebe_allocations.c. Callbacks code cleaned with this.
+            - Default dependent variable in LC plot window changed from
+              Magnitude to Total Flux.
+            - A humongous fixing has begun; all functions now go through a
+              major rework and hopefully, everything after this fix will
+              be ready for the first ever major public release.
+2002-07-25: - FOUND THE BUG! Again, readout_str vs. working_str violation.
+            - open_keyword_file () function simplified with another readout
+              function. Implementation is finished, keywords still have to
+              be adopted.
+            - Secondary star temperature (TAVC) had wrong units in DC fit-
+              ting window. Fixed.
+            - DC Update All Corrections button functional. It works for
+              both plain widgets and CLists.
+            - LD interpolation window got hidden when values were updated.
+              This wasn't practical. The window now closes only on the
+              click to the Close button.
+            - Started working on SuperMongo library calls instead of ex-
+              ternal calls to SuperMongo itself. Library bindings work,
+              but we just lost on general portability. Autoutils should
+              check if these libs are available and if not, compile it
+              without SM support. If nothing else, ./configure must fail
+              if these libraries are missing.
+2002-07-24: - Seeking a bug that crashes PHOEBE while opening keyword file
+              on some machines (not including mine), but to no avail. Some
+              small irrelevant details changed in affected routines.
+2002-07-23: - A nonsense layout of X2A adjustability widget in LD tab fixed.
+            - Marquardt lambda (XLAMDA) widget added. A switches typedef
+              has been extended to include it, also read_in_switches ()
+              function reads it in as well. DCI creation routine has been
+              updated accordingly.
+            - Fitting parameters layout in Fitting tab changed.
+            - All "Adjustable" switches renamed to "Adjust" for obvious
+              reasons. Widget names have also been changed from _adjustable
+              to _adjust.
+            - Model combo box contents changed to be more user-friendly.
+            - A warning window, although created, didn't show up on the
+              screen in some circumstances. Fixed.
+2002-07-22: - Chi2 calculation button was not fool-proof against undefined
+              filter, which caused PHOEBE to crash. Fixed.
+            - main.c cleared; it now contains only init functions.
+            - An overflow bug in version number string fixed.
+            - MODE combo box moved from Switches to Data tab. Also, Name
+              entry for star name has been created. It has no significant
+              purpose other than easier paperwork.
+            - N1 and N2 separated and moved from Switches tab to Fitting
+              tab. Same has been done for N1L and N2L.
+            - ISYM switch (symetrical derivatives) moved to Fitting tab.
+            - Fool-proofing added to environment readout; PHOEBE scans the
+              environment to find the HOME entry. If it fails, it prompts
+              the user to define it and restart PHOEBE. $HOME is definitely
+              a must-have on Linux, so this doesn't seem too harsh.
+2002-07-19: - Some minor glitches of already existent CLists fixed.
+            - Limb Darkening Coefficients for RVs CListed.
+            - Level-dependent weighting CListed. This is the last LC/RV num-
+              ber dependent quantity, so hopefully we're through with chan-
+              ging the interface. Now routines will be optimized for as
+              many LCs and RVs as the user wants (actually, the current LC
+              limitation posed by WD98 is 25) and soon a new release will be
+              made.
+            - Finally, the doubling, tripling, ... of LC and/or RV curve
+              filters is handled correctly. To each filter name there is a
+              #number appended to separate one curve from another. It is
+              done in only one routine, which changes PHOEBE_*_data accor-
+              dingly. This means that all other functions that depend on
+              filters *must* read only PHOEBE_*_data[i].filter names.
+            - LD interpolation routine fixed to reflect the above change.
+2002-07-18: - 3rd light CListed.
+            - LC plotting turned off because of extensive changes in main
+              PHOEBE window.
+            - SPECS file enhanced with What Goes Where section and Widgets
+              Naming Convention section.
+            - phoebe_init () function created to lighten the load of main().
+            - Further code cleaning has been done.
+            - Limb Darkening Coefficients CListed. Interpolation routines
+              fixed accordingly.
+2002-07-17: - RV lists incorporated onto their designated places in Data and
+              Luminosities tabs. RV plotting is still turned off at the mo-
+              ment and will remain so until integration is complete.
+            - Keyword entries precision changed from single to double.
+            - Serious code cleaning done.
+            - Defaults main button activated.
+2002-07-16: - A small bug fixed: PHOEBE segfaulted when double-clicked on
+              the empty CList record. Checking is now incorporated every-
+              where.
+2002-07-15: - Theory of fields PASSED!!! :)
+2002-07-09: - Zero magnitude spin button added to Data tab. This is not to
+              be confused with MZERO value of WD98. This is a value of mag-
+              nitudes which is used to transform magnitude-given input fi-
+              les to fluxes. One should set this value (from now on reffer-
+              red to as MNORM) to have the flux in quarter phase after
+              transformation around unity and then adjust luminosities to
+              fit the exact values of normalization.
+            - Synthetic grid changed: previously it was arranged filter
+              after filter, which isn't really practical for reading out
+              the values. This is why it has been changed to sort the grid
+              by filters last, meaning different filters for same parameter
+              values are together.
+2002-07-08: - LC luminosities have been CListed and placed from Utilities
+              to Luminosities tab. Same has to be done for RVs.
+2002-07-05: - After much effort, CList for LC information has finally re-
+              placed all obsolete widgets. Same has to be done for RVs.
+            - Luminosities CList containers for both LCs and RVs created.
+              Both CLists now reside in Utilities tab and will be moved
+              to Luminosities as soon as possible.
+2002-07-04: - A few fixes on observational weighting have been done.
+            - Added new UV Leonis photometric data.
+2002-07-03: - An upper limit for LC number set to 25, according to (Wilson
+              2001, WD98, pg. 17).
+            - Created a toplevel WISDOM file, which contains physical in-
+              sights to PHOEBE related modeling.
+            - Normalization routine estimate_zero_magnitude added to trans-
+              formations. It is based on unweighted average, which is not
+              the best possible choice (median would be better). However,
+              input fluxes to DC are in arbitrary units (they *must* be
+              fluxes and not magnitudes, though), so normalization isn't
+              really important. It is the question of style, really; it is
+              nice to at least tend to normalize magnitude-supplied data
+              to unity at quarter phase. This remains in the TODO.
+            - All normalization procedures from magnitude-based input files
+              now go over estimate_zero_magnitude function. MZERO influen-
+              ces *only* the LC magnitude output. FACTORed LC output is
+              unnecessary and will probably dissapear soon.
+            - Luminosities and limb darkening coefficients all have as many
+              values as there are lightcurves. Therefore DC info list must
+              contain as many entries. Done.
+2002-07-02: - phoebe_warning function added to improve error handling.
+            - More work on DC calculation window integration has been done.
+            - Further file-list integration has been done. Old widgets are
+              slowly being deleted.
+            - Luminosity spin button limitations fixed; the upper limit was
+              4\pi, now it's 100.
+            - If there are no RV curves present, WD98 cannot calculate SMA,
+              so the adjustment button has to be disabled. Fixed.
+            - Temperature adjusting has to have changed units. Fixed.
+            - Memory initialization bug that caused DC computation to crash
+              when run without and RV curves fixed.
+            - String allocation bug in LD typedef fixed.
+            - Fixed a bug in DCI creation function that used the wrong va-
+              lue for YBOL1.
+2002-07-01: - DC calculation window created. It contains a list of all pa-
+              rameters selected for adjustment with their original values.
+              After the calculation all other cells are filled with read
+              data from DCO file.
+2002-06-30: - Added double-clicking editability of synthetic grid entries.
+              Unfortunately, this demanded that the list widget remains
+              active all the time, because disabling it during the editing
+              also disables "event" signal propagation. The sensitivity is
+              therefore kept on all the time.
+            - Added double-clicking editability of lightcurve data. The
+              same restrictions apply as above.
+            - 2D correlations Calculate button sensitivity fixed. If clic-
+              ked on that button when no lightcurves were defined, the
+              program crashed. It is now fixed.
+            - A DC minimization window created and adjusting parameter list
+              populated. Calculation functions are already finished, all we
+              yet have to do is to add individual experimental curves' sig-
+              mas and write the calculated values into the list.
+2002-06-28: - PHOEBE version number and date is now declared in main.c and
+              main.h. Up until now the label in GLADE file had to be chan-
+              ged and the whole package recompiled.
+            - A small header created for grid files.
+            - Grid-related source files phoebe_grid.c and phoebe_grid.h
+              introduced and all relevant functions and callbacks moved
+              there.
+2002-06-25: - Keyword file saving/opening now works for both old and new
+              LC declaration widgets. Old parts have been marked for dele-
+              tion.
+            - RV columned list has been added to Utilities window. Every-
+              thing is the same as for LC columned list, it just needs to
+              to be finished. The question is, of course, what is the mea-
+              ning of more than 2 RV curves.
+            - Synthetic grid calculator didn't refresh the list on conse-
+              cutive button-clicks. Fixed.
+            - Editing synthetic LC grid parameters is now possible; there
+              is a special window dedicated to that.
+            - Finally, grid calculation is about finished. Everything else
+              (including defining different grid parameters) will be done
+              in one of next releases.
+2002-06-24: - Dialog windows have been destroyed if one would close them by
+              pressing the (x) button on the window decoration. This beha-
+              vior was wrong; the window should only be hidden. Fixed.
+            - The effort to bring more LCs to PHOEBE has paid off during the
+              past few days; with a lot of testing and learning, PHOEBE is
+              finally capable of handling infinite light~ and radial velo-
+              city curves. Currently there is a columned list in Utilities
+              tab and it will remain so until everything works without any
+              issues. Keyword file saving has been modified already to re-
+              flect this change.
+            - Unfortunately, explained development has pushed the date of
+              0.12 release for another few weeks. I hope it was worth wai-
+              ting for.
+2002-06-17: - Grid calculation added to Utilities tab. Window is created and
+              templates have been set. Basic calculation is already availa-
+              ble.
+2002-06-14: - All variable names have been cleaned up for 0.12 release.
+2002-06-09: - PHOEBE UNDER CVS :pserver:andrej@deneb.ago.uni-lj.si:[path]!
+            - Chi2 plotting function cleaned of directory dependency; now
+              all calculations are performed in PHOEBE_TEMP_DIR.
+2002-06-06: - Extensive code cleaning performed.
+            - DEVELOPERS text file renamed to SPECS, since it contains spe-
+              cifications and suggestions for potential developers.
+            - The worst bug ever discovered in PHOEBE: a humongous memory
+              leak was produced by allocating, printing to and freeing
+              string pointers generated by GTK. This is prohibited by GTK
+              and that was the cause of earlier crashes (prior to multi-
+              ple strings work-around). It is now mainly fixed (in all ma­
+              jor .c sources) and it will be thoroughly checked before the
+              next release.
+2002-06-05: - Wavelength-dependent typedef is extended to read out RV data
+              next to already implemented LC readout. This drastically sim-
+              plifies RV plotting routines.
+2002-06-03: - An aspectxpm entry added to SuperMongo's graphcap.local. It
+              will eventually make aspectgif obsolete, which is done because
+              of GIF copyright problems.
+            - A small bug that prevented 3D Chi2 initial (empty) plot to
+              have a proper dimension has been fixed.
+            - All image formats changed to XPM instead of GIF.
+            - A new spin button has been put to PHOEBE_plot_lc window:
+              standard deviation. It is easier to "measure" how good the
+              experimental estimate for sigma is.
+            - A complete style unification has been started. At this point
+              no new features will be added until the code is cleaned com-
+              pletely.
+            - Clean-up functionality added; prior to exiting, PHOEBE now
+              deletes all the files it created in PHOEBE_TEMP_DIR directo-
+              ry -> all phoebe_* files.
+2002-06-02: - A small bug in file_exists function fixed; it returned errno
+              handler, which is volatile and thus not appropriate for re-
+              turns. The switch is now boolean and we use it like boolean:
+              if (file_exists ("bla")) or if (! file_exists ("bla")). All
+              functions have been updated accordingly (hopefully ;) ).
+            - Finally, believe it or not, A MAJOR FIX: the consecutive fi-
+              lenames for all config/run files have been numbered and no-
+              thing is lost anymore! The fine-tuning will be done as soon
+              as gif->xpm conversion is finished. 
+2002-05-30: - Error handling for malloc, realloc and fatal events implemen-
+              ted. Memory access is now called through those wrappers; this
+              is not a sound policy, but for as long as memory testing goes,
+              this seems to be best.
+            - Chi2 2D correlation works! Well, kind of; parameters' limits
+              still have to be taken from their spin buttons, a bunch of
+              non-important, stylistic buttons have to be finished, but
+              already a user can calculate and draw SMA vs. XINCL!
+2002-05-29: - An ugly bug fixed: when calculating chi2, the values further-
+              most to the right were treated as they were on the left due
+              to inaccurate inequality. It is now fixed.
+2002-05-27: - Independent variable switch deleted. It seems that that combo
+              has no purpose, since independent variable is set from the LC
+              Plotting window. The entry has also been deleted from keyword
+              files.
+            - Spin buttons FACTOR and MZERO were moved to LC Plotting win-
+              dow. It just makes more sense for them to be there.
+            - Third light and opacity support finished in LC Plotting.
+            - RV Plotting Window rearranged to reflect the changes in LC
+              Plotting window. It would be worth considering what are the
+              benefits of separate plotting window; is it really necessary?
+              Wouldn't it be more intuitive to have them integrated in the
+              main PHOEBE window?
+            - VGA spin button added to RV Plotting window. It seems like a
+              useful variable in the plotting window itself.
+            - Most of RV plotting routines have been enhanced and modified
+              so to follow the example from LC plotting.
+2002-05-24: - Synthetic noise support has been finished; the button has been
+              moved to Luminosities tab (for correspondence with weighting)
+              and keyword files hold the information on the switch state and
+              the seed value. A random number generator for seed has been
+              made.
+            - Standard deviation for synthetic noise background label and
+              spin button have been added; now hopefully synthetic noise
+              makes sense.
+            - Detailed reflection effect transferred to luminosities tab as
+              well; keywords and read_in functions have been updated to
+              reflect that change.
+            - 3rd light support finished: initial values changed from 10.0
+              to 0.0; wl_dependent read_in function extended to contain 3rd
+              light as well.
+            - Plot LC window rearranged to contain 3rd light and Opacity
+              function spin buttons. They are supported formally, but fil-
+              ter-dependent callbacks still have to be adjusted.
+2002-05-23: - A small inconsistency fixed in callback functions: the PHSV/
+              PCSV calculation routines used the separate function for
+              shading regulation, which already exists generically.
+            - RM and F1 values from main PHOEBE window are now transferred
+              to PHSV/PCSV calculation window prior to calculation.
+            - Status bar now informs the user that PHSV/PCSV calculation
+              has been initiated.
+            - A small bug fixed: if LC number was changed, the change didn't
+              reflect in fitting and plotting combo boxes. Now it does.
+2002-05-22: - Added filename parameter in create_dci_file routine. This
+              eliminated the "no write privilidges" warning.
+            - Deleted obsolete function variables for LCI file creation:
+              IFSMV1, IFSMV2, PHNORM, THE, VUNIT, FACTOR, MZERO. They have
+              already been included through typedefs. A new typedef has
+              been introduced for wavelength dependent parameters.
+            - Extensive code cleaning has been made around LC plotting.
+            - Another nasty bug has been eliminated; due to rounding error
+              in WD98 the number of synthetic points doesn't always corres-
+              pond to chosen number; thus renumbering was necessary and
+              now it has been done so.
+            - A Chi2 plotting function has been further implemented; it
+              now has a nice progress bar to ease your waiting. Also, the
+              implementation triggered a heavy code change; it is now even
+              more mature and I hope it now has more or less standard form.
+2002-05-21: - Default setting for semi-major axis changed from 1 to 10.
+            - A nasty bug fixed that caused segfault in LC plot: if binning
+              was active and independent variable was set to time and expe-
+              rimental data was turned on, the plot segfaulted due to bin-
+              ning attempt.
+2002-05-20: - Started working on DC section; a two-parameter correlation GUI
+              has been created in the Fitting tab, a routine for dcout read-
+              out has been prototyped.
+2002-05-17: - Higher Quantum Mechanics PASSED!!! :)
+2002-05-07: - LD interpolation button was active even if the LD switch in
+              configuration window was off. It is now fixed.
+            - MMS support finished. It is to be considered if it is impor-
+              tant to save MMS settings to keyword file. Currently it seems
+              unnecessary.
+2002-05-06: - Preliminary support for the method of multiple subsets has
+              been introduced to Fitting tab. Clicks and shades appear to
+              work correctly; the DCI creation still doesn't reflect the
+              implementation.
+2002-05-05: - About PHOEBE window created and connected to Help menu entry.
+2002-04-28: - Digits after a decimal place have been changed for temperature
+              from 5 to 0, since it makes no sense to have temperatures to
+              5 decimals accurate.
+            - Monochromatic/bolometric buttons have been joint to only one
+              interpolation button; the choice is now reflected in the se-
+              parate interpolation window through a combo box.
+            - All interpolation callbacks have been finished. Interpolation
+              now works for bolometric and monochromatic values.
+            - Log g and metallicity values added to keyword files.
+2002­04-27: - LD tables readout has been changed; return value is now a
+              typedefed PHOEBE_data, where .weight is used to carry error
+              handler and .indep and .dep return values for x and y. The
+              routine for bolometric readout is no longer necessary, for
+              the new routine has been introduced that reads out data based
+              on the desired filter, supplied as an argument.
+            - Fixed a rounding bug in metallicity string conversion.
+            - A file ld_availability.data has been created and put to LD
+              shared directory; it contains triplets (T, log g, M) that
+              are available in LD tables and is used for interpolation.
+            - Interpolation routine has been completed and tested. There
+              are potential flaws in out-of-range values, but for now just
+              avoid them; it will be fixed with global error-handling.
+            - Temperature spin-button limits have been changed accordingly:
+              from 2000-20000 to 3500-50000 interval of allowed values.
+            - A new GUI window for interpolation has been created, but only
+              the GUI layout. Callbacks still have to be connected.
+2002-04-21: - Error handling for LD table readout is provided through an
+              integer return value: 0 for OK and -1 for failure.
+2002-04-05: - Started working on limb darkening coefficients interpolation.
+              Configuration window has been modified to contain LD switch
+              and directory entry. Two new source files have been introdu-
+              ced: phoebe_limb_darkening.c and phoebe_limb_darkening.h.
+              A prototype for the interpolating function has been created.
+2002-03-22: - Transformation routines have been enhanced - they now use
+              typedefs instead of static variables. There was also a problem
+              with FACTORing, which is now fixed.
+            - All climb rates for spin buttons have been unified and set
+              to zero. Values change much more smoothly now.
+            - Normalization routine has been implemented for correct nor-
+              malization. Up until now the "normalization" only multiplied
+              the input data by FACTOR, now it actually normalizes data
+              at PHNORM and then multiplies it by FACTOR. Possible problems
+              exist if there are no data points close to PHNORM.
+2002-03-20: - Spin-button step for XINCL changed from 0.01 to 0.1.
+            - IPB and IFAT* switches have been moved to Luminosities tab.
+              IPB influences whether CLAs are to be taken into account, so
+              it makes more sense to have it there. Shading for CLAs has
+              been fixed to reflect this switch. IFAT2 switch never existed
+              and now it does.
+2002-03-17: - Prototypes for fitting functions have been made.
+            - A bug in DCI file creation has been fixed: due to cfortran.h
+              "feature" that images C's [0,n] to FORTRAN's [1,n+1] auto-
+              matically produced an OB1 error in PHOEBE code. Now it has
+              been fixed and tested.
+            - Due to ANSI C compatibility all GTK+ related typedefs (gint,
+              gchar, ...) have been replaced by original C declarations.
+              As PHOEBE progresses, it would be much better to check the
+              float/double/.../ dependent accuracy from a Makefile.am and
+              not by GTK+ typedefs.
+            - A bug in RV plot due to inconsistency between data VUNIT and
+              synthetic VUNIT has been fixed. It now works for arbitrary
+              synthetic VUNIT values.
+2002-03-14: - LC Binning finally fully supported. Any sense in binning RVs?
+            - A serious code-cleaning has been made concerning static and
+              dynamic space allocation. Hopefully everything will work
+              much better now that RAM is dinamically accessed.
+2002-03-11: - A bug fixed that wrote PHNORM value as integer instead of
+              double into a keyword file.
+2002-03-10: - Switches tab changed; it is eventually expected that this tab
+              will dissapear and its entries distributed to other tabs.
+2002-03-08: - Fixed-size arrays changed to dynamically allocated memory
+              blocks. The source hasn't been tested for leaks yet; the main
+              reason for this is to allow PHOEBE to receive as large input
+              data block as limited by RAM itself. Practically this means
+              that all limitations are set by the WD98, not by PHOEBE.
+2002-03-05: - Weighting supported in Luminosities tab. Now you may choose
+              between three different weighting options.
+2002-03-04: - Adjustable toggle buttons for LD coefficients have been
+              fixed: it is not bolometric values that can be adjusted,
+              but monochromatic ones.
+2002-02­28: - PHOEBE-0.11 pre-release version released.
+            - GUI has been changed even further: "Exotic" tab was renamed
+              to "Orbit", since it contains orbital parameters. Some space
+              is reserved for Roche lobe graph and slice diagrams. A new
+              tab has been created, "Luminosities", where all HLA and CLA
+              variables are put. Third light (EL3) support has been added.
+              The order of tabs has been changed to more meaningful order.
+2002-02-26: - RV plotting was accidentally turned off in PHOEBE-0.10. It is
+              now fixed and it uses FORTRAN routines for LCI creation.
+2002-02-25: - GUI has been changed to contain DEL parameters for fitting.
+2002-02-22: - PHOEBE-0.10 pre-release version released. This version is in-
+              tended only and explicitly for LCI compatibility testing pur-
+              poses.
+----------------------------------------------------------------------------
+
+Prior version of PHOEBE-0.10 was called WDGUI - Wilson-Devinney Graphical
+User Interface. Since that version was only a model for PHOEBE, this is a
+ChangeLog for PHOEBE-0.10 onward. If you wish to see prior ChangeLog file,
+please download the outdated WDGUI package.

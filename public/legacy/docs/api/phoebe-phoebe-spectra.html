@@ -1,0 +1,1222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PHOEBE spectra</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="PHOEBE Reference Manual">
+<link rel="up" href="ch01.html" title="PHOEBE library consists of the following sources:">
+<link rel="prev" href="phoebe-phoebe-data.html" title="phoebe_data">
+<link rel="next" href="phoebe-phoebe-configuration.html" title="phoebe_configuration">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="PHOEBE library consists of the following sources:">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="phoebe-phoebe-data.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">PHOEBE Reference Manual</th>
+<td><a accesskey="n" href="phoebe-phoebe-configuration.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#phoebe-phoebe-spectra.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#phoebe-phoebe-spectra.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="phoebe-phoebe-spectra"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="phoebe-phoebe-spectra.top_of_page"></a>PHOEBE spectra</span></h2>
+<p>PHOEBE spectra — functions that facilitate spectra manipulation</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="phoebe-phoebe-spectra.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="phoebe-phoebe-spectra.html#PHOEBE-specrep-tag" title="PHOEBE_specrep_tag">PHOEBE_specrep_tag</a>;
+                    <a class="link" href="phoebe-phoebe-spectra.html#PHOEBE-specrep" title="PHOEBE_specrep">PHOEBE_specrep</a>;
+extern              PHOEBE_specrep <a class="link" href="phoebe-phoebe-spectra.html#PHOEBE-spectra-repository" title="PHOEBE_spectra_repository">PHOEBE_spectra_repository</a>;
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectra-set-repository" title="phoebe_spectra_set_repository ()">phoebe_spectra_set_repository</a>       (char *rep_name);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectra-free-repository" title="phoebe_spectra_free_repository ()">phoebe_spectra_free_repository</a>      ();
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-new" title="phoebe_spectrum_new ()">phoebe_spectrum_new</a>                 ();
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-new-from-file" title="phoebe_spectrum_new_from_file ()">phoebe_spectrum_new_from_file</a>       (char *filename);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-new-from-repository" title="phoebe_spectrum_new_from_repository ()">phoebe_spectrum_new_from_repository</a> (double Teff,
+                                                         double logg,
+                                                         double met);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-create" title="phoebe_spectrum_create ()">phoebe_spectrum_create</a>              (double ll,
+                                                         double ul,
+                                                         double R,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion">PHOEBE_spectrum_dispersion</a> disp);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-duplicate" title="phoebe_spectrum_duplicate ()">phoebe_spectrum_duplicate</a>           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-get-column" title="phoebe_spectrum_get_column ()">phoebe_spectrum_get_column</a>          (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         int col);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-alloc" title="phoebe_spectrum_alloc ()">phoebe_spectrum_alloc</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         int dim);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-realloc" title="phoebe_spectrum_realloc ()">phoebe_spectrum_realloc</a>             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         int dim);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-free" title="phoebe_spectrum_free ()">phoebe_spectrum_free</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-rebin" title="phoebe_spectrum_rebin ()">phoebe_spectrum_rebin</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **src,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion">PHOEBE_spectrum_dispersion</a> disp,
+                                                         double ll,
+                                                         double ul,
+                                                         double R);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-integrate" title="phoebe_spectrum_integrate ()">phoebe_spectrum_integrate</a>           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         double ll,
+                                                         double ul,
+                                                         double *result);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-broaden" title="phoebe_spectrum_broaden ()">phoebe_spectrum_broaden</a>             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src,
+                                                         double R);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-crop" title="phoebe_spectrum_crop ()">phoebe_spectrum_crop</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         double ll,
+                                                         double ul);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-apply-doppler-shift" title="phoebe_spectrum_apply_doppler_shift ()">phoebe_spectrum_apply_doppler_shift</a> (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src,
+                                                         double velocity);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-apply-rotational-broadening" title="phoebe_spectrum_apply_rotational_broadening ()">phoebe_spectrum_apply_rotational_broadening</a>
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src,
+                                                         double vsini,
+                                                         double ldx);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-set-sampling" title="phoebe_spectrum_set_sampling ()">phoebe_spectrum_set_sampling</a>        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         double Rs);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-set-resolution" title="phoebe_spectrum_set_resolution ()">phoebe_spectrum_set_resolution</a>      (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         double R);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-multiply-by" title="phoebe_spectrum_multiply_by ()">phoebe_spectrum_multiply_by</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src,
+                                                         double factor);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-dispersion-guess" title="phoebe_spectrum_dispersion_guess ()">phoebe_spectrum_dispersion_guess</a>    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion">PHOEBE_spectrum_dispersion</a> *disp,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum);
+char*               <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-dispersion-type-get-name" title="phoebe_spectrum_dispersion_type_get_name ()">phoebe_spectrum_dispersion_type_get_name</a>
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion">PHOEBE_spectrum_dispersion</a> disp);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectra-add" title="phoebe_spectra_add ()">phoebe_spectra_add</a>                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectra-subtract" title="phoebe_spectra_subtract ()">phoebe_spectra_subtract</a>             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectra-merge" title="phoebe_spectra_merge ()">phoebe_spectra_merge</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2,
+                                                         double w1,
+                                                         double w2,
+                                                         double ll,
+                                                         double ul,
+                                                         double Rs);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectra-multiply" title="phoebe_spectra_multiply ()">phoebe_spectra_multiply</a>             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2,
+                                                         double ll,
+                                                         double ul,
+                                                         double R);
+int                 <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectra-divide" title="phoebe_spectra_divide ()">phoebe_spectra_divide</a>               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectra-compare" title="phoebe_spectra_compare ()">phoebe_spectra_compare</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spec2);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-spectra.description"></a><h2>Description</h2>
+<p>
+These are the functions that facilitate spectra manipulation, including
+the repository I/O.</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-spectra.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-specrep-tag"></a><h3>PHOEBE_specrep_tag</h3>
+<pre class="programlisting">typedef struct {
+	char *filename;
+	int type;
+	int resolution;
+	int lambda_min;
+	int lambda_max;
+	int temperature;
+	int metallicity;
+	int gravity;
+	int alpha;
+	int microturbulence;
+} PHOEBE_specrep_tag;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-specrep"></a><h3>PHOEBE_specrep</h3>
+<pre class="programlisting">typedef struct {
+	int                 no;
+	PHOEBE_specrep_tag *prop;
+	PHOEBE_array       *Teffnodes;
+	PHOEBE_array       *loggnodes;
+	PHOEBE_array       *metnodes;
+	PHOEBE_specrep_tag ****table;
+} PHOEBE_specrep;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-spectra-repository"></a><h3>PHOEBE_spectra_repository</h3>
+<pre class="programlisting">extern PHOEBE_specrep PHOEBE_spectra_repository;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectra-set-repository"></a><h3>phoebe_spectra_set_repository ()</h3>
+<pre class="programlisting">int                 phoebe_spectra_set_repository       (char *rep_name);</pre>
+<p>
+Traverses the path <em class="parameter"><code>rep_name</code></em> and parses all found filenames for spectra.
+Filenames must match the predefined format:
+</p>
+<p>
+  T%<code class="literal">5dG</code>%<code class="literal">2d</code>%<code class="literal">c</code>%<code class="literal">2dV000K</code>%<code class="literal">1dS</code>%<code class="literal">2cNV</code>%<code class="literal">3c</code>%<code class="literal">c</code>.ASC
+</p>
+<p>
+Only 0 rotational velocity spectra are parsed because PHOEBE uses its
+internal function for rotational broadening. Where available, this
+function calls <code class="function">ftw()</code> for traversing the tree; the spectra can then be
+separated into subdirectories (i.e. Munari et al. 2005) and <code class="function">ftw()</code> will
+traverse up to 10 subdirectories deep. When <code class="function">ftw()</code> is not available,
+a simplified parsing function is used that requires the spectra to be
+all in a single subdirectory.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rep_name</code></em> :</span></p></td>
+<td> path to the repository
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectra-free-repository"></a><h3>phoebe_spectra_free_repository ()</h3>
+<pre class="programlisting">int                 phoebe_spectra_free_repository      ();</pre>
+<p>
+Frees all fields of the spectrum repository. Since PHOEBE currently
+allows for a single spectrum repository, the function takes no arguments.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-new"></a><h3>phoebe_spectrum_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    phoebe_spectrum_new                 ();</pre>
+<p>
+Allocates memory for the new spectrum.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly allocated <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum"><span class="type">PHOEBE_spectrum</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-new-from-file"></a><h3>phoebe_spectrum_new_from_file ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    phoebe_spectrum_new_from_file       (char *filename);</pre>
+<p>
+Opens a two-column <em class="parameter"><code>filename</code></em> and reads its contents to a newly allocated
+spectrum. The columns are assumed to contain bin centers and fluxes. The
+function tries to guess the dispersion type and assigns all spectrum
+fields accordingly.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> spectrum filename
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a read-in <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum"><span class="type">PHOEBE_spectrum</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-new-from-repository"></a><h3>phoebe_spectrum_new_from_repository ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    phoebe_spectrum_new_from_repository (double Teff,
+                                                         double logg,
+                                                         double met);</pre>
+<p>
+Queries the spectrum repository and interpolates a spectrum with the
+passed parameters. If the parameters are out of range for the given
+repository, NULL is returned. The function uses all available nodes in
+the repository for the interpolation; if the queried spectrum is
+missing, the first adjacent spectrum is looked up. The interpolation
+is linear.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Teff</code></em> :</span></p></td>
+<td> effective temperature in K
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>logg</code></em> :</span></p></td>
+<td> surface gravity in cgs units
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>met</code></em> :</span></p></td>
+<td>  metallicity in solar abundances
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a queried <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum"><span class="type">PHOEBE_spectrum</span></a>, or <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><code class="literal">NULL</code></a> in case of failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-create"></a><h3>phoebe_spectrum_create ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    phoebe_spectrum_create              (double ll,
+                                                         double ul,
+                                                         double R,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion">PHOEBE_spectrum_dispersion</a> disp);</pre>
+<p>
+Creates an empty spectrum of resolving power <em class="parameter"><code>R</code></em>, sampled on the
+wavelength interval [<em class="parameter"><code>ll</code></em>, <em class="parameter"><code>ul</code></em>]. If the dispersion type is
+<code class="literal">PHOEBE_SPECTRUM_DISPERSION_LOG</code>, the resolving power is constant and the
+dispersion changes throughout the spectrum. If the dispersion type is
+<code class="literal">PHOEBE_SPECTRUM_DISPERSION_LINEAR</code>, the dispersion is constant and the
+resolving power changes. Dispersion relates to resolving power simply
+as delta = 1/<em class="parameter"><code>R</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td> lower wavelength limit in angstroms
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td> upper wavelength limit in angstroms
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>R</code></em> :</span></p></td>
+<td>  spectrum resolving power
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>disp</code></em> :</span></p></td>
+<td> spectrum dispersion type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly created <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum"><span class="type">PHOEBE_spectrum</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-duplicate"></a><h3>phoebe_spectrum_duplicate ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a>*    phoebe_spectrum_duplicate           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum);</pre>
+<p>
+Makes a duplicate copy of <em class="parameter"><code>spectrum</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td> spectrum to be duplicated
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a duplicated <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum"><span class="type">PHOEBE_spectrum</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-get-column"></a><h3>phoebe_spectrum_get_column ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a>*      phoebe_spectrum_get_column          (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         int col);</pre>
+<p>
+Allocates a vector and copies the contents of the <em class="parameter"><code>col</code></em>-th <em class="parameter"><code>spectrum</code></em>
+column to it. The value of <em class="parameter"><code>col</code></em> may be 1 (wavelength) or 2 (flux).</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td> input spectrum
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>col</code></em> :</span></p></td>
+<td> column index
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a>, or <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><span class="type">NULL</span></a> in case of a failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-alloc"></a><h3>phoebe_spectrum_alloc ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_alloc               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         int dim);</pre>
+<p>
+Allocates memory for <em class="parameter"><code>spectrum</code></em> with dimension <em class="parameter"><code>dim</code></em>. The <em class="parameter"><code>spectrum</code></em> must
+be initialized with <a class="link" href="phoebe-phoebe-spectra.html#phoebe-spectrum-new" title="phoebe_spectrum_new ()"><code class="function">phoebe_spectrum_new()</code></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td> initialized spectrum
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td> spectrum dimension
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-realloc"></a><h3>phoebe_spectrum_realloc ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_realloc             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         int dim);</pre>
+<p>
+Reallocates memory for <em class="parameter"><code>spectrum</code></em> with the new dimension <em class="parameter"><code>dim</code></em>. If <em class="parameter"><code>dim</code></em>
+is smaller than the current dimension, <em class="parameter"><code>spectrum</code></em> will be truncated.
+Otherwise all original values are retained.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td> initialized or allocated spectrum
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td> new spectrum dimension
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-free"></a><h3>phoebe_spectrum_free ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_free                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum);</pre>
+<p>
+Frees the allocated space for <em class="parameter"><code>spectrum</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td> spectrum to be freed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-rebin"></a><h3>phoebe_spectrum_rebin ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_rebin               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **src,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion">PHOEBE_spectrum_dispersion</a> disp,
+                                                         double ll,
+                                                         double ul,
+                                                         double R);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>disp</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>R</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-integrate"></a><h3>phoebe_spectrum_integrate ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_integrate           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         double ll,
+                                                         double ul,
+                                                         double *result);</pre>
+<p>
+Integrates the <em class="parameter"><code>spectrum</code></em> on the wavelength interval [<em class="parameter"><code>ll</code></em>, <em class="parameter"><code>ul</code></em>] using a
+simple rectangular rule:
+</p>
+<p>
+  I = \int_ll^ul s (\lambda) d\lambda = \sum s (\lambda) \Delta \lambda
+</p>
+<p>
+The units of <em class="parameter"><code>ll</code></em> and <em class="parameter"><code>ul</code></em> must match the units of the passed <em class="parameter"><code>spectrum</code></em>.
+</p>
+<p>
+The sum goes over all covered \Delta \lambda's, taking into account
+the partial coverage at interval borders.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td> input spectrum
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td> lower wavelength interval limit
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td> upper wavelength interval limit
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td> placeholder for the integral value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-broaden"></a><h3>phoebe_spectrum_broaden ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_broaden             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src,
+                                                         double R);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>R</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-crop"></a><h3>phoebe_spectrum_crop ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_crop                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         double ll,
+                                                         double ul);</pre>
+<p>
+Crops the passed spectrum to the [ll, ul] interval. All other spectrum
+properties are retained.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td> spectrum to be cropped
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td> lower wavelength limit
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td> upper wavelength limit
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-apply-doppler-shift"></a><h3>phoebe_spectrum_apply_doppler_shift ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_apply_doppler_shift (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src,
+                                                         double velocity);</pre>
+<p>
+Applies a non-relativistic Doppler shift to the spectrum. It does that
+by first shifting the ranges according to the passed velocity and then
+rebinning the obtained histogram to the original bins. c=299791 km/s is
+used for the speed of light.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td> a placeholter for the shifted spectrum
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>  original (unshifted) spectrum
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>velocity</code></em> :</span></p></td>
+<td> radial velocity in km/s
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-apply-rotational-broadening"></a><h3>phoebe_spectrum_apply_rotational_broadening ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_apply_rotational_broadening
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src,
+                                                         double vsini,
+                                                         double ldx);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vsini</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ldx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-set-sampling"></a><h3>phoebe_spectrum_set_sampling ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_set_sampling        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         double Rs);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Rs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-set-resolution"></a><h3>phoebe_spectrum_set_resolution ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_set_resolution      (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum,
+                                                         double R);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>R</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-multiply-by"></a><h3>phoebe_spectrum_multiply_by ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_multiply_by         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src,
+                                                         double factor);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>factor</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-dispersion-guess"></a><h3>phoebe_spectrum_dispersion_guess ()</h3>
+<pre class="programlisting">int                 phoebe_spectrum_dispersion_guess    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion">PHOEBE_spectrum_dispersion</a> *disp,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spectrum);</pre>
+<p>
+Tries to guess the type of the spectrum dispersion by evaluating all
+bin differences and quotients. If a difference is constant, <em class="parameter"><code>disp</code></em> is
+set to linear dispersion; if a quotient is constant, <em class="parameter"><code>disp</code></em> is set to
+log dispersion; otherwise <em class="parameter"><code>disp</code></em> is set to no dispersion. The constancy
+of the differences and quotients is checked to 1e-6 numerical accuracy.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>disp</code></em> :</span></p></td>
+<td> placeholder for the guessed dispersion
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td> spectrum for which the dispersion should be guessed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectrum-dispersion-type-get-name"></a><h3>phoebe_spectrum_dispersion_type_get_name ()</h3>
+<pre class="programlisting">char*               phoebe_spectrum_dispersion_type_get_name
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion">PHOEBE_spectrum_dispersion</a> disp);</pre>
+<p>
+Converts the enumerated value to a string.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>disp</code></em> :</span></p></td>
+<td> enumerated <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion" title="enum PHOEBE_spectrum_dispersion"><span class="type">PHOEBE_spectrum_dispersion</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> string
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectra-add"></a><h3>phoebe_spectra_add ()</h3>
+<pre class="programlisting">int                 phoebe_spectra_add                  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectra-subtract"></a><h3>phoebe_spectra_subtract ()</h3>
+<pre class="programlisting">int                 phoebe_spectra_subtract             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectra-merge"></a><h3>phoebe_spectra_merge ()</h3>
+<pre class="programlisting">int                 phoebe_spectra_merge                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2,
+                                                         double w1,
+                                                         double w2,
+                                                         double ll,
+                                                         double ul,
+                                                         double Rs);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>w2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Rs</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectra-multiply"></a><h3>phoebe_spectra_multiply ()</h3>
+<pre class="programlisting">int                 phoebe_spectra_multiply             (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2,
+                                                         double ll,
+                                                         double ul,
+                                                         double R);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ll</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ul</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>R</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectra-divide"></a><h3>phoebe_spectra_divide ()</h3>
+<pre class="programlisting">int                 phoebe_spectra_divide               (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> **dest,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *src2);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dest</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>src2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-spectra-compare"></a><h3>phoebe_spectra_compare ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_spectra_compare              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spec1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-spectrum" title="PHOEBE_spectrum">PHOEBE_spectrum</a> *spec2);</pre>
+<p>
+Compares spectra <em class="parameter"><code>spec1</code></em> and <em class="parameter"><code>spec2</code></em> by comparing the resolving power,
+sampling, dispersion, and by evaluating the absolute value of
+the differences of all elements (both wavelength and flux) and comparing
+it against PHOEBE_NUMERICAL_ACCURACY.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spec1</code></em> :</span></p></td>
+<td> spectrum 1 to be compared
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spec2</code></em> :</span></p></td>
+<td> spectrum 2 to be compared
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#TRUE:CAPS"
+><span class="type">TRUE</span></a> if the spectra are the same, <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#FALSE:CAPS"
+><span class="type">FALSE</span></a> otherwise.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>phoebe_ld</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="PHOEBE Reference Manual">
+<link rel="up" href="ch01.html" title="PHOEBE library consists of the following sources:">
+<link rel="prev" href="phoebe-phoebe-fitting.html" title="phoebe_fitting">
+<link rel="next" href="phoebe-phoebe-parameters.html" title="phoebe_parameters">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="PHOEBE library consists of the following sources:">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="phoebe-phoebe-fitting.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">PHOEBE Reference Manual</th>
+<td><a accesskey="n" href="phoebe-phoebe-parameters.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#phoebe-phoebe-ld.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#phoebe-phoebe-ld.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="phoebe-phoebe-ld"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="phoebe-phoebe-ld.top_of_page"></a>phoebe_ld</span></h2>
+<p>phoebe_ld</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="phoebe-phoebe-ld.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+                    <a class="link" href="phoebe-phoebe-ld.html#LD-table" title="LD_table">LD_table</a>;
+extern              LD_table *<a class="link" href="phoebe-phoebe-ld.html#PHOEBE-ld-table" title="PHOEBE_ld_table">PHOEBE_ld_table</a>;
+enum                <a class="link" href="phoebe-phoebe-ld.html#LD-model" title="enum LD_model">LD_model</a>;
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a>*          <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-new" title="phoebe_ld_new ()">phoebe_ld_new</a>                       ();
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a>*          <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-new-from-file" title="phoebe_ld_new_from_file ()">phoebe_ld_new_from_file</a>             (const char *filename);
+int                 <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-alloc" title="phoebe_ld_alloc ()">phoebe_ld_alloc</a>                     (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a> *table,
+                                                         int dim);
+int                 <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-realloc" title="phoebe_ld_realloc ()">phoebe_ld_realloc</a>                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a> *table,
+                                                         int dim);
+int                 <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-attach" title="phoebe_ld_attach ()">phoebe_ld_attach</a>                    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a> *table);
+int                 <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-attach-all" title="phoebe_ld_attach_all ()">phoebe_ld_attach_all</a>                (char *dir);
+int                 <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-free" title="phoebe_ld_free ()">phoebe_ld_free</a>                      (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a> *table);
+<a class="link" href="phoebe-phoebe-ld.html#LD-table" title="LD_table">LD_table</a>*           <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-table-intern-load" title="phoebe_ld_table_intern_load ()">phoebe_ld_table_intern_load</a>         (char *model_list);
+<a class="link" href="phoebe-phoebe-ld.html#LD-table" title="LD_table">LD_table</a>*           <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-table-vh1993-load" title="phoebe_ld_table_vh1993_load ()">phoebe_ld_table_vh1993_load</a>         (char *dir);
+int                 <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-table-free" title="phoebe_ld_table_free ()">phoebe_ld_table_free</a>                (<a class="link" href="phoebe-phoebe-ld.html#LD-table" title="LD_table">LD_table</a> *LD);
+int                 <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-get-coefficients" title="phoebe_ld_get_coefficients ()">phoebe_ld_get_coefficients</a>          (<a class="link" href="phoebe-phoebe-ld.html#LD-model" title="enum LD_model">LD_model</a> ldlaw,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a> *passband,
+                                                         double M,
+                                                         double T,
+                                                         double lg,
+                                                         double *x,
+                                                         double *y);
+<a class="link" href="phoebe-phoebe-ld.html#LD-model" title="enum LD_model">LD_model</a>            <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-model-type" title="phoebe_ld_model_type ()">phoebe_ld_model_type</a>                (const char *ldlaw);
+char*               <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-get-vh1993-passband-name" title="phoebe_ld_get_vh1993_passband_name ()">phoebe_ld_get_vh1993_passband_name</a>  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a> *passband);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-ld.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-ld.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="LD-table"></a><h3>LD_table</h3>
+<pre class="programlisting">typedef struct {
+	PHOEBE_array *Mnodes;
+	PHOEBE_array *Tnodes;
+	PHOEBE_array *lgnodes;
+	struct {
+		char *fn;
+		long int pos;
+	} ***table;
+} LD_table;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-ld-table"></a><h3>PHOEBE_ld_table</h3>
+<pre class="programlisting">extern LD_table *PHOEBE_ld_table;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="LD-model"></a><h3>enum LD_model</h3>
+<pre class="programlisting">typedef enum LD_model {
+	LD_LAW_LINEAR = 1,
+	LD_LAW_LOG,
+	LD_LAW_SQRT,
+	LD_LAW_INVALID
+} LD_model;
+</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="LD-LAW-LINEAR:CAPS"></a><span class="term"><code class="literal">LD_LAW_LINEAR</code></span></p></td>
+<td>  Linear cosine model
+</td>
+</tr>
+<tr>
+<td><p><a name="LD-LAW-LOG:CAPS"></a><span class="term"><code class="literal">LD_LAW_LOG</code></span></p></td>
+<td>     Logarithmic model
+</td>
+</tr>
+<tr>
+<td><p><a name="LD-LAW-SQRT:CAPS"></a><span class="term"><code class="literal">LD_LAW_SQRT</code></span></p></td>
+<td>    Square root model
+</td>
+</tr>
+<tr>
+<td><p><a name="LD-LAW-INVALID:CAPS"></a><span class="term"><code class="literal">LD_LAW_INVALID</code></span></p></td>
+<td> Invalid model or not set
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-new"></a><h3>phoebe_ld_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a>*          phoebe_ld_new                       ();</pre>
+<p>
+Initializes a new limb darkening (LD) table.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a pointer to the new <a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld"><span class="type">PHOEBE_ld</span></a> structure.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-new-from-file"></a><h3>phoebe_ld_new_from_file ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a>*          phoebe_ld_new_from_file             (const char *filename);</pre>
+<p>
+Reads in limb darkening coefficients. The table must have 5 columns:
+linear cosine coefficient, log coefficients, and sqrt coefficients.
+The <em class="parameter"><code>filename</code></em> can either be absolute or relative; if relative, its
+location is presumed to be one of the following:
+</p>
+<p>
+1) current working directory,
+2) limb darkening directory (as stored in the global <span class="type">PHOEBE_LD_DIR</span>
+   variable).</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> input file
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-alloc"></a><h3>phoebe_ld_alloc ()</h3>
+<pre class="programlisting">int                 phoebe_ld_alloc                     (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a> *table,
+                                                         int dim);</pre>
+<p>
+Allocates memory for the limb darkening table.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>table</code></em> :</span></p></td>
+<td> initialized limb darkening table
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td>   table dimension
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-realloc"></a><h3>phoebe_ld_realloc ()</h3>
+<pre class="programlisting">int                 phoebe_ld_realloc                   (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a> *table,
+                                                         int dim);</pre>
+<p>
+Reallocates memory for the limb darkening table.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>table</code></em> :</span></p></td>
+<td> initialized or already allocated limb darkening table
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dim</code></em> :</span></p></td>
+<td>   table dimension
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-attach"></a><h3>phoebe_ld_attach ()</h3>
+<pre class="programlisting">int                 phoebe_ld_attach                    (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a> *table);</pre>
+<p>
+Attaches the passed limb darkening <em class="parameter"><code>table</code></em> to its respective passband.
+The passband is determined from the limb darkening table keywords
+PASS_SET and PASSBAND -- these have to match passband definitions
+exactly. See <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband"><span class="type">PHOEBE_passband</span></a> and <a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld"><span class="type">PHOEBE_ld</span></a> structures for more
+information on identifying passbands.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>table</code></em> :</span></p></td>
+<td> populated limb darkening table
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-attach-all"></a><h3>phoebe_ld_attach_all ()</h3>
+<pre class="programlisting">int                 phoebe_ld_attach_all                (char *dir);</pre>
+<p>
+Opens the directory <em class="parameter"><code>dir</code></em>, scans all files in that directory and
+reads in all found LD tables. It attaches these tables to their
+respective passbands.
+</p>
+<p>
+This function must be called after <a class="link" href="phoebe-phoebe-data.html#phoebe-read-in-passbands" title="phoebe_read_in_passbands ()"><code class="function">phoebe_read_in_passbands()</code></a>,
+otherwise attaching will fail.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dir</code></em> :</span></p></td>
+<td> directory where limb darkening coefficients are stored
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-free"></a><h3>phoebe_ld_free ()</h3>
+<pre class="programlisting">int                 phoebe_ld_free                      (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-ld" title="PHOEBE_ld">PHOEBE_ld</a> *table);</pre>
+<p>
+Frees memory of the limb darkening <em class="parameter"><code>table</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>table</code></em> :</span></p></td>
+<td> limb darkening table to be freed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-table-intern-load"></a><h3>phoebe_ld_table_intern_load ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-ld.html#LD-table" title="LD_table">LD_table</a>*           phoebe_ld_table_intern_load         (char *model_list);</pre>
+<p>
+Loads the reference table for the internal PHOEBE database of limb
+darkening coefficients. The table must contain 3 columns: temperature,
+gravity and metallicity of the nodes. All values in the table must be
+integers, where gravity and metallicity are multiplied by 10. I.e., the
+entry for log(g)=4.5 is 45, the entry for [M/H]=-0.5 is -05.
+</p>
+<p>
+The reference table contains three <a class="link" href="phoebe-phoebe-types.html#PHOEBE-array" title="PHOEBE_array"><span class="type">PHOEBE_array</span></a>'s: Mnodes, Tnodes and
+lgnodes. These arrays contain all nodes, in addition to -1001 for the
+first and last element of the array, which simplifies the bounds check
+of the lookup function <a class="link" href="phoebe-phoebe-ld.html#phoebe-ld-get-coefficients" title="phoebe_ld_get_coefficients ()"><code class="function">phoebe_ld_get_coefficients()</code></a>.
+</p>
+<p>
+The table itself is a 3D matrix with dimensions of the three
+<span class="type">PHOEBE_arrays</span> mentioned above. The 'pos' fields are padded with -1
+if the node is not in the database, or the consecutive entry number in
+the reference table if it is. Since the LD tables are read to memory
+(in contrast to Van Hamme LD tables), the 'fn' field is always set to
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><span class="type">NULL</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>model_list</code></em> :</span></p></td>
+<td> filename of the reference table
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-ld.html#LD-table" title="LD_table"><span class="type">LD_table</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-table-vh1993-load"></a><h3>phoebe_ld_table_vh1993_load ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-ld.html#LD-table" title="LD_table">LD_table</a>*           phoebe_ld_table_vh1993_load         (char *dir);</pre>
+<p>
+Scans all files in the passed directory dir and extracts LD triplets (T,
+log g, M/H) from table headers. It then creates a 3D matrix what holds
+all of these elements so that LD[M][T][lg] is structured by indices and
+all non-existing nodes padded with nans. For optimized lookup this
+matrix has a border of nans in all three directions - so that the lookup
+function does not have to check for matrix boundaries.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dir</code></em> :</span></p></td>
+<td> directory that contains Van Hamme (1993) LD tables
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-table-free"></a><h3>phoebe_ld_table_free ()</h3>
+<pre class="programlisting">int                 phoebe_ld_table_free                (<a class="link" href="phoebe-phoebe-ld.html#LD-table" title="LD_table">LD_table</a> *LD);</pre>
+<p>
+Frees the contents of the limb darkening table <em class="parameter"><code>LD</code></em>. It is safe to call
+this function on the unallocated table, so there is no need to check
+for LD presence.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>LD</code></em> :</span></p></td>
+<td> limb darkening table
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-get-coefficients"></a><h3>phoebe_ld_get_coefficients ()</h3>
+<pre class="programlisting">int                 phoebe_ld_get_coefficients          (<a class="link" href="phoebe-phoebe-ld.html#LD-model" title="enum LD_model">LD_model</a> ldlaw,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a> *passband,
+                                                         double M,
+                                                         double T,
+                                                         double lg,
+                                                         double *x,
+                                                         double *y);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ldlaw</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>passband</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>M</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>T</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lg</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>y</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-model-type"></a><h3>phoebe_ld_model_type ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-ld.html#LD-model" title="enum LD_model">LD_model</a>            phoebe_ld_model_type                (const char *ldlaw);</pre>
+<p>
+Converts common name of the limb darkening model to the LD enumerator.
+See <a class="link" href="phoebe-phoebe-ld.html#LD-model" title="enum LD_model"><span class="type">LD_model</span></a> enumerator for a list of choices.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ldlaw</code></em> :</span></p></td>
+<td> name of the limb darkening model
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> enumerated <a class="link" href="phoebe-phoebe-ld.html#LD-model" title="enum LD_model"><span class="type">LD_model</span></a> value.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ld-get-vh1993-passband-name"></a><h3>phoebe_ld_get_vh1993_passband_name ()</h3>
+<pre class="programlisting">char*               phoebe_ld_get_vh1993_passband_name  (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a> *passband);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>passband</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

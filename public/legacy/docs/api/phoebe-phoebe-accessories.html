@@ -1,0 +1,582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>PHOEBE accessories</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="PHOEBE Reference Manual">
+<link rel="up" href="ch01.html" title="PHOEBE library consists of the following sources:">
+<link rel="prev" href="phoebe-phoebe-configuration.html" title="phoebe_configuration">
+<link rel="next" href="phoebe-phoebe-nms.html" title="phoebe_nms">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="PHOEBE library consists of the following sources:">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="phoebe-phoebe-configuration.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">PHOEBE Reference Manual</th>
+<td><a accesskey="n" href="phoebe-phoebe-nms.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#phoebe-phoebe-accessories.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#phoebe-phoebe-accessories.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="phoebe-phoebe-accessories"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="phoebe-phoebe-accessories.top_of_page"></a>PHOEBE accessories</span></h2>
+<p>PHOEBE accessories — functions that facilitate common type manipulation</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="phoebe-phoebe-accessories.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+int                 <a class="link" href="phoebe-phoebe-accessories.html#phoebe-open-directory" title="phoebe_open_directory ()">phoebe_open_directory</a>               (DIR **dirlist,
+                                                         const char *dirname);
+int                 <a class="link" href="phoebe-phoebe-accessories.html#phoebe-close-directory" title="phoebe_close_directory ()">phoebe_close_directory</a>              (DIR **dir);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-accessories.html#phoebe-filename-exists" title="phoebe_filename_exists ()">phoebe_filename_exists</a>              (const char *filename);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-accessories.html#phoebe-filename-has-write-permissions" title="phoebe_filename_has_write_permissions ()">phoebe_filename_has_write_permissions</a>
+                                                        (const char *filename);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-accessories.html#phoebe-filename-has-read-permissions" title="phoebe_filename_has_read_permissions ()">phoebe_filename_has_read_permissions</a>
+                                                        (const char *filename);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-accessories.html#phoebe-filename-has-execute-permissions" title="phoebe_filename_has_execute_permissions ()">phoebe_filename_has_execute_permissions</a>
+                                                        (const char *filename);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-accessories.html#phoebe-filename-has-full-permissions" title="phoebe_filename_has_full_permissions ()">phoebe_filename_has_full_permissions</a>
+                                                        (const char *filename);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-accessories.html#phoebe-filename-is-directory" title="phoebe_filename_is_directory ()">phoebe_filename_is_directory</a>        (const char *filename);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-accessories.html#phoebe-filename-is-regular-file" title="phoebe_filename_is_regular_file ()">phoebe_filename_is_regular_file</a>     (const char *filename);
+char*               <a class="link" href="phoebe-phoebe-accessories.html#phoebe-get-current-working-directory" title="phoebe_get_current_working_directory ()">phoebe_get_current_working_directory</a>
+                                                        ();
+char*               <a class="link" href="phoebe-phoebe-accessories.html#phoebe-resolve-relative-filename" title="phoebe_resolve_relative_filename ()">phoebe_resolve_relative_filename</a>    (char *filename);
+int                 <a class="link" href="phoebe-phoebe-accessories.html#phoebe-list-directory-contents" title="phoebe_list_directory_contents ()">phoebe_list_directory_contents</a>      (char *dir);
+char*               <a class="link" href="phoebe-phoebe-accessories.html#phoebe-concatenate-strings" title="phoebe_concatenate_strings ()">phoebe_concatenate_strings</a>          (const char *str,
+                                                         ...);
+char*               <a class="link" href="phoebe-phoebe-accessories.html#phoebe-clean-data-line" title="phoebe_clean_data_line ()">phoebe_clean_data_line</a>              (char *line);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-accessories.html#atob" title="atob ()">atob</a>                                (char *str);
+char*               <a class="link" href="phoebe-phoebe-accessories.html#phoebe-strdup" title="phoebe_strdup ()">phoebe_strdup</a>                       (const char *s);
+char*               <a class="link" href="phoebe-phoebe-accessories.html#phoebe-readline" title="phoebe_readline ()">phoebe_readline</a>                     (FILE *stream);
+char*               <a class="link" href="phoebe-phoebe-accessories.html#phoebe-create-temp-filename" title="phoebe_create_temp_filename ()">phoebe_create_temp_filename</a>         (char *templ);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-accessories.description"></a><h2>Description</h2>
+<p>
+These are the functions that facilitate common type manipulation.
+They mostly pertain to I/O and string handling.</p>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-accessories.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="phoebe-open-directory"></a><h3>phoebe_open_directory ()</h3>
+<pre class="programlisting">int                 phoebe_open_directory               (DIR **dirlist,
+                                                         const char *dirname);</pre>
+<p>
+This is a wrapper to <code class="function">opendir()</code> for opening the directory <em class="parameter"><code>dirname</code></em>
+gracefully. In case <code class="function">opendir()</code> is successful, a pointer to the directory
+stream <em class="parameter"><code>dir</code></em> is set and <code class="literal">SUCCESS</code> is returned. Otherwise <em class="parameter"><code>dir</code></em> is set to
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><code class="literal">NULL</code></a> and error code is returned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dirlist</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dirname</code></em> :</span></p></td>
+<td> path to the directory
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-close-directory"></a><h3>phoebe_close_directory ()</h3>
+<pre class="programlisting">int                 phoebe_close_directory              (DIR **dir);</pre>
+<p>
+This is a wrapper to <code class="function">closedir()</code> for closing the directory stream
+<em class="parameter"><code>dir</code></em> gracefully. In case <code class="function">closedir()</code> is successful, <code class="literal">SUCCESS</code> is returned;
+otherwise error code is returned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dir</code></em> :</span></p></td>
+<td> pointer to the directory stream
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-filename-exists"></a><h3>phoebe_filename_exists ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_filename_exists              (const char *filename);</pre>
+<p>
+Checks for existence of the file <em class="parameter"><code>filename</code></em>. Returns <code class="literal">YES</code> if it exists
+and <code class="literal">NO</code> if it does not exist.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> path to the file to be checked for existence
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-filename-has-write-permissions"></a><h3>phoebe_filename_has_write_permissions ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_filename_has_write_permissions
+                                                        (const char *filename);</pre>
+<p>
+Checks for write permissions of the file <em class="parameter"><code>filename</code></em>. Returns <code class="literal">YES</code> if it
+has write permissions and <code class="literal">NO</code> if it does not.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> path to the file to be checked for permissions
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-filename-has-read-permissions"></a><h3>phoebe_filename_has_read_permissions ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_filename_has_read_permissions
+                                                        (const char *filename);</pre>
+<p>
+Checks for read permissions of the file <em class="parameter"><code>filename</code></em>. Returns <code class="literal">YES</code> if it
+has read permissions and <code class="literal">NO</code> if it does not.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> path to the file to be checked for permissions
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-filename-has-execute-permissions"></a><h3>phoebe_filename_has_execute_permissions ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_filename_has_execute_permissions
+                                                        (const char *filename);</pre>
+<p>
+Checks for execute permissions of the file <em class="parameter"><code>filename</code></em>. Returns <code class="literal">YES</code> if it
+has execute permissions and <code class="literal">NO</code> if it does not.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> path to the file to be checked for permissions
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-filename-has-full-permissions"></a><h3>phoebe_filename_has_full_permissions ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_filename_has_full_permissions
+                                                        (const char *filename);</pre>
+<p>
+Checks for full (read, write, execute) permissions of the file <em class="parameter"><code>filename</code></em>.
+Returns <code class="literal">YES</code> if it has full permissions and <code class="literal">NO</code> if it does not.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> path to the file to be checked for permissions
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-filename-is-directory"></a><h3>phoebe_filename_is_directory ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_filename_is_directory        (const char *filename);</pre>
+<p>
+Checks whether the file <em class="parameter"><code>filename</code></em> is a directory. Returns <code class="literal">YES</code> if it
+is a directory and <code class="literal">NO</code> if it is not.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> path to the file to be checked for type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-filename-is-regular-file"></a><h3>phoebe_filename_is_regular_file ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_filename_is_regular_file     (const char *filename);</pre>
+<p>
+Checks whether the file <em class="parameter"><code>filename</code></em> is a regular file. Returns <code class="literal">YES</code> if it
+is a regular file and <code class="literal">NO</code> if it is not.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> path to the file to be checked for type
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-get-current-working-directory"></a><h3>phoebe_get_current_working_directory ()</h3>
+<pre class="programlisting">char*               phoebe_get_current_working_directory
+                                                        ();</pre>
+<p>
+Queries the system for the current working directory and returns it.
+This function allocates the memory to hold the path; the calling
+function has to free the allocated memory after it is done using it.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> path to the current working directory.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-resolve-relative-filename"></a><h3>phoebe_resolve_relative_filename ()</h3>
+<pre class="programlisting">char*               phoebe_resolve_relative_filename    (char *filename);</pre>
+<p>
+This function takes a relative filename and resolves it to absolute; it
+allocates the memory for the string itself, the calling function has to
+free it.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> relative path to be resolved (made absolute)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-list-directory-contents"></a><h3>phoebe_list_directory_contents ()</h3>
+<pre class="programlisting">int                 phoebe_list_directory_contents      (char *dir);</pre>
+<p>
+This function lists the contents of the directory <em class="parameter"><code>dir</code></em> on screen. It
+is used mostly for debugging purposes.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dir</code></em> :</span></p></td>
+<td> path to the directory to be listed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-concatenate-strings"></a><h3>phoebe_concatenate_strings ()</h3>
+<pre class="programlisting">char*               phoebe_concatenate_strings          (const char *str,
+                                                         ...);</pre>
+<p>
+Concatenates all passed strings into one string. The last argument to
+be passed must be <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><code class="literal">NULL</code></a>. The user should free the returned string when
+it is no longer necessary.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td> first string to be concatenated
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td> a <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><code class="literal">NULL</code></a>-terminated list of strings to be concatenated
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly allocated, concatenated string.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-clean-data-line"></a><h3>phoebe_clean_data_line ()</h3>
+<pre class="programlisting">char*               phoebe_clean_data_line              (char *line);</pre>
+<p>
+Takes a string, cleans it of all comment delimeters, spaces, tabs and
+newlines, and copies the contents to a newly allocated string. The
+original string is not modified in any way.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>line</code></em> :</span></p></td>
+<td> input string to be cleaned
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> clean string.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="atob"></a><h3>atob ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                atob                                (char *str);</pre>
+<p>
+This is a natural extension to C's ato* family of functions that
+converts a string <em class="parameter"><code>str</code></em> to a boolean.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td> string to be converted to boolean
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool"><span class="type">bool</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-strdup"></a><h3>phoebe_strdup ()</h3>
+<pre class="programlisting">char*               phoebe_strdup                       (const char *s);</pre>
+<p>
+The <code class="function">strdup()</code> function is used excessively throughout PHOEBE sources.
+Although virtually every single modern C library defines it in the
+string.h header file, we supply here a copy just to be sure for the
+remaining C libraries.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>s</code></em> :</span></p></td>
+<td> string to be duplicated
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a duplicate of string <em class="parameter"><code>s</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-readline"></a><h3>phoebe_readline ()</h3>
+<pre class="programlisting">char*               phoebe_readline                     (FILE *stream);</pre>
+<p>
+Reads a line from the file stream <em class="parameter"><code>stream</code></em>. The memory to hold the line
+is allocated dynamically, so there is no limit to the length of the
+line. It also means that the user must not allocate the string before
+the call to this function, and that the memory should be freed after
+its use.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>stream</code></em> :</span></p></td>
+<td> file stream from which to read a line
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a string containing the read line.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-create-temp-filename"></a><h3>phoebe_create_temp_filename ()</h3>
+<pre class="programlisting">char*               phoebe_create_temp_filename         (char *templ);</pre>
+<p>
+Creates a unique temporary filename in the directory <span class="type">PHOEBE_TEMP_DIR</span>.
+If a unique filename cannot be found, or if <em class="parameter"><code>templ</code></em> is invalid, <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><span class="type">NULL</span></a>
+is returned. The calling function should free the returned string.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>templ</code></em> :</span></p></td>
+<td> filename template; it must end with XXXXXX
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> string with a unique filename.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

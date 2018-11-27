@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>phoebe_data</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="PHOEBE Reference Manual">
+<link rel="up" href="ch01.html" title="PHOEBE library consists of the following sources:">
+<link rel="prev" href="phoebe-phoebe-radiation.html" title="phoebe_radiation">
+<link rel="next" href="phoebe-phoebe-spectra.html" title="PHOEBE spectra">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="PHOEBE library consists of the following sources:">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="phoebe-phoebe-radiation.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">PHOEBE Reference Manual</th>
+<td><a accesskey="n" href="phoebe-phoebe-spectra.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#phoebe-phoebe-data.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#phoebe-phoebe-data.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="phoebe-phoebe-data"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="phoebe-phoebe-data.top_of_page"></a>phoebe_data</span></h2>
+<p>phoebe_data</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="phoebe-phoebe-data.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+extern              PHOEBE_passband **<a class="link" href="phoebe-phoebe-data.html#PHOEBE-passbands" title="PHOEBE_passbands">PHOEBE_passbands</a>;
+extern              int               <a class="link" href="phoebe-phoebe-data.html#PHOEBE-passbands-no" title="PHOEBE_passbands_no">PHOEBE_passbands_no</a>;
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a>*    <a class="link" href="phoebe-phoebe-data.html#phoebe-passband-new" title="phoebe_passband_new ()">phoebe_passband_new</a>                 ();
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a>*    <a class="link" href="phoebe-phoebe-data.html#phoebe-passband-new-from-file" title="phoebe_passband_new_from_file ()">phoebe_passband_new_from_file</a>       (char *filename);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a>*    <a class="link" href="phoebe-phoebe-data.html#phoebe-passband-lookup" title="phoebe_passband_lookup ()">phoebe_passband_lookup</a>              (const char *name);
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a>*    <a class="link" href="phoebe-phoebe-data.html#phoebe-passband-lookup-by-id" title="phoebe_passband_lookup_by_id ()">phoebe_passband_lookup_by_id</a>        (const char *id);
+int                 <a class="link" href="phoebe-phoebe-data.html#phoebe-passband-free" title="phoebe_passband_free ()">phoebe_passband_free</a>                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a> *passband);
+int                 <a class="link" href="phoebe-phoebe-data.html#phoebe-read-in-passbands" title="phoebe_read_in_passbands ()">phoebe_read_in_passbands</a>            (char *dir_name);
+int                 <a class="link" href="phoebe-phoebe-data.html#phoebe-free-passbands" title="phoebe_free_passbands ()">phoebe_free_passbands</a>               ();
+int                 <a class="link" href="phoebe-phoebe-data.html#wd-passband-id-lookup" title="wd_passband_id_lookup ()">wd_passband_id_lookup</a>               (int *id,
+                                                         const char *passband);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-data.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-data.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-passbands"></a><h3>PHOEBE_passbands</h3>
+<pre class="programlisting">extern PHOEBE_passband **PHOEBE_passbands;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-passbands-no"></a><h3>PHOEBE_passbands_no</h3>
+<pre class="programlisting">extern int               PHOEBE_passbands_no;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-passband-new"></a><h3>phoebe_passband_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a>*    phoebe_passband_new                 ();</pre>
+<p>
+Initializes memory for a new <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband"><span class="type">PHOEBE_passband</span></a> and sets all fields to
+<a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><span class="type">NULL</span></a>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband"><span class="type">PHOEBE_passband</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-passband-new-from-file"></a><h3>phoebe_passband_new_from_file ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a>*    phoebe_passband_new_from_file       (char *filename);</pre>
+<p>
+Reads in passband transmission function (PTF) from the passed <em class="parameter"><code>filename</code></em>.
+</p>
+<p>
+Passband transmission functions are installed in a directory the path
+to which is stored in a <span class="type">PHOEBE_PTF_DIR</span> variable. In order to be able
+to pass a relative filename to <a class="link" href="phoebe-phoebe-types.html#phoebe-hist-new-from-file" title="phoebe_hist_new_from_file ()"><code class="function">phoebe_hist_new_from_file()</code></a>, this
+wrapper does the following, sequentially:
+</p>
+<p>
+1) if an absolute path is passed, use it;
+2) if there is a file with that name in the current directory, use it;
+3) if there is a file with that name in PHOEBE_PTF_DIR, use it;
+4) admit defeat and return NULL.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td> passband transmission function file
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband"><span class="type">PHOEBE_passband</span></a> on success, <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><span class="type">NULL</span></a> on failure.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-passband-lookup"></a><h3>phoebe_passband_lookup ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a>*    phoebe_passband_lookup              (const char *name);</pre>
+<p>
+Traverses the global passband table PHOEBE_passbands and returns a
+pointer to the passband that matches the passed name. The name is
+constructed by PASS_SET:PASSBAND, i.e. "Johnson:V".</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td> passband name, of the form PASS_SET:PASSBAND
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband"><span class="type">PHOEBE_passband</span></a> on success, or <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><span class="type">NULL</span></a> if <em class="parameter"><code>name</code></em> is not matched.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-passband-lookup-by-id"></a><h3>phoebe_passband_lookup_by_id ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a>*    phoebe_passband_lookup_by_id        (const char *id);</pre>
+<p>
+Looks up the passband that corresponds to the curve <em class="parameter"><code>id</code></em>.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td> curve ID (light or RV curve)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband"><span class="type">PHOEBE_passband</span></a> on success, or <a
+href="/usr/share/gtk-doc/html/glib/glib-Standard-Macros.html#NULL:CAPS"
+><span class="type">NULL</span></a> if <em class="parameter"><code>id</code></em> is not matched.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-passband-free"></a><h3>phoebe_passband_free ()</h3>
+<pre class="programlisting">int                 phoebe_passband_free                (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband">PHOEBE_passband</a> *passband);</pre>
+<p>
+Frees <em class="parameter"><code>passband</code></em> memory.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>passband</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-passband" title="PHOEBE_passband"><span class="type">PHOEBE_passband</span></a> to be freed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-read-in-passbands"></a><h3>phoebe_read_in_passbands ()</h3>
+<pre class="programlisting">int                 phoebe_read_in_passbands            (char *dir_name);</pre>
+<p>
+Opens the <em class="parameter"><code>dir_name</code></em> directory, scans all files in that directory and
+reads in all found passbands. Finally, it sorts them first by effective
+wavelength and then by set name.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dir_name</code></em> :</span></p></td>
+<td> directory where passband transmission functions (PTFs) are
+stored
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-free-passbands"></a><h3>phoebe_free_passbands ()</h3>
+<pre class="programlisting">int                 phoebe_free_passbands               ();</pre>
+<p>
+Traverses all defined passbands and frees them.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="wd-passband-id-lookup"></a><h3>wd_passband_id_lookup ()</h3>
+<pre class="programlisting">int                 wd_passband_id_lookup               (int *id,
+                                                         const char *passband);</pre>
+<p>
+Looks up the WD ID of the passband. If the passband is not set or if it
+is not supported by WD, ERROR_PASSBAND_INVALID is returned.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td> WD passband ID
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>passband</code></em> :</span></p></td>
+<td> PHOEBE passband name
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

@@ -1,0 +1,1993 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>phoebe_calculations</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="PHOEBE Reference Manual">
+<link rel="up" href="ch01.html" title="PHOEBE library consists of the following sources:">
+<link rel="prev" href="phoebe-phoebe-nms.html" title="phoebe_nms">
+<link rel="next" href="phoebe-phoebe-roche.html" title="phoebe_roche">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="PHOEBE library consists of the following sources:">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="phoebe-phoebe-nms.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">PHOEBE Reference Manual</th>
+<td><a accesskey="n" href="phoebe-phoebe-roche.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#phoebe-phoebe-calculations.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#phoebe-phoebe-calculations.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="phoebe-phoebe-calculations"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="phoebe-phoebe-calculations.top_of_page"></a>phoebe_calculations</span></h2>
+<p>phoebe_calculations</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="phoebe-phoebe-calculations.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+enum                <a class="link" href="phoebe-phoebe-calculations.html#PHOEBE-cost-function" title="enum PHOEBE_cost_function">PHOEBE_cost_function</a>;
+double              <a class="link" href="phoebe-phoebe-calculations.html#frac" title="frac ()">frac</a>                                (double x);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#diff" title="diff ()">diff</a>                                (const void *a,
+                                                         const void *b);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#diff-int" title="diff_int ()">diff_int</a>                            (const void *a,
+                                                         const void *b);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-interpolate" title="phoebe_interpolate ()">phoebe_interpolate</a>                  (int N,
+                                                         double *x,
+                                                         double *lo,
+                                                         double *hi,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a> type,
+                                                         ...);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-cf-compute" title="phoebe_cf_compute ()">phoebe_cf_compute</a>                   (double *cfval,
+                                                         <a class="link" href="phoebe-phoebe-calculations.html#PHOEBE-cost-function" title="enum PHOEBE_cost_function">PHOEBE_cost_function</a> cf,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *syndep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *obsdep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *obsweight,
+                                                         double scale);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-join-chi2" title="phoebe_join_chi2 ()">phoebe_join_chi2</a>                    (double *chi2,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *chi2s,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weights);
+#define             <a class="link" href="phoebe-phoebe-calculations.html#wd-lc" title="wd_lc()">wd_lc</a>                               (atmtab,pltab,lcin,request,vertno,L3perc,indeps,deps,poscoy,poscoz,params)
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-compute-lc-using-wd" title="phoebe_compute_lc_using_wd ()">phoebe_compute_lc_using_wd</a>          (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *indep,
+                                                         char *lcin);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-compute-rv1-using-wd" title="phoebe_compute_rv1_using_wd ()">phoebe_compute_rv1_using_wd</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *rv1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *indep,
+                                                         char *lcin);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-compute-rv2-using-wd" title="phoebe_compute_rv2_using_wd ()">phoebe_compute_rv2_using_wd</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *rv2,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *indep,
+                                                         char *lcin);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-compute-pos-using-wd" title="phoebe_compute_pos_using_wd ()">phoebe_compute_pos_using_wd</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *poscoy,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *poscoz,
+                                                         char *lcin,
+                                                         double phase);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#call-wd-to-get-logg-values" title="call_wd_to_get_logg_values ()">call_wd_to_get_logg_values</a>          (double *logg1,
+                                                         double *logg2);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-calculate-level-correction" title="phoebe_calculate_level_correction ()">phoebe_calculate_level_correction</a>   (double *alpha,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *syn,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *obs);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-calculate-gamma-correction" title="phoebe_calculate_gamma_correction ()">phoebe_calculate_gamma_correction</a>   (double *gamma,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *syn,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *obs);
+double              <a class="link" href="phoebe-phoebe-calculations.html#phoebe-calculate-pot1" title="phoebe_calculate_pot1 ()">phoebe_calculate_pot1</a>               (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> ELLIPTIC,
+                                                         double D,
+                                                         double q,
+                                                         double r,
+                                                         double F,
+                                                         double lambda,
+                                                         double nu);
+double              <a class="link" href="phoebe-phoebe-calculations.html#phoebe-calculate-pot2" title="phoebe_calculate_pot2 ()">phoebe_calculate_pot2</a>               (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> ELLIPTIC,
+                                                         double D,
+                                                         double q,
+                                                         double r,
+                                                         double F,
+                                                         double lambda,
+                                                         double nu);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-calculate-masses" title="phoebe_calculate_masses ()">phoebe_calculate_masses</a>             (double sma,
+                                                         double P,
+                                                         double q,
+                                                         double *M1,
+                                                         double *M2);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-calculate-critical-potentials" title="phoebe_calculate_critical_potentials ()">phoebe_calculate_critical_potentials</a>
+                                                        (double q,
+                                                         double F,
+                                                         double e,
+                                                         double *L1crit,
+                                                         double *L2crit);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-compute-critical-phases" title="phoebe_compute_critical_phases ()">phoebe_compute_critical_phases</a>      (double *pp,
+                                                         double *scp,
+                                                         double *icp,
+                                                         double *anp,
+                                                         double *dnp,
+                                                         double perr0,
+                                                         double ecc,
+                                                         double pshift);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#calculate-weighted-sum" title="calculate_weighted_sum ()">calculate_weighted_sum</a>              (double *sum,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *dep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weight);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#calculate-weighted-average" title="calculate_weighted_average ()">calculate_weighted_average</a>          (double *average,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *dep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weight);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#calculate-weighted-sigma" title="calculate_weighted_sigma ()">calculate_weighted_sigma</a>            (double *sigma,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *dep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weight);
+double              <a class="link" href="phoebe-phoebe-calculations.html#intern-calculate-phase-from-ephemeris" title="intern_calculate_phase_from_ephemeris ()">intern_calculate_phase_from_ephemeris</a>
+                                                        (double hjd,
+                                                         double hjd0,
+                                                         double period,
+                                                         double dpdt,
+                                                         double pshift);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#transform-hjd-to-phase" title="transform_hjd_to_phase ()">transform_hjd_to_phase</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double hjd0,
+                                                         double period,
+                                                         double dpdt,
+                                                         double pshift);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#transform-phase-to-hjd" title="transform_phase_to_hjd ()">transform_phase_to_hjd</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double hjd0,
+                                                         double period,
+                                                         double dpdt,
+                                                         double pshift);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#transform-magnitude-to-flux" title="transform_magnitude_to_flux ()">transform_magnitude_to_flux</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double mnorm);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#transform-magnitude-sigma-to-flux-sigma" title="transform_magnitude_sigma_to_flux_sigma ()">transform_magnitude_sigma_to_flux_sigma</a>
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weights,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fluxes);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#transform-flux-to-magnitude" title="transform_flux_to_magnitude ()">transform_flux_to_magnitude</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double mnorm);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#transform-flux-sigma-to-magnitude-sigma" title="transform_flux_sigma_to_magnitude_sigma ()">transform_flux_sigma_to_magnitude_sigma</a>
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weights,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fluxes);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#normalize-kms-to-orbit" title="normalize_kms_to_orbit ()">normalize_kms_to_orbit</a>              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double sma,
+                                                         double period);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#transform-sigma-to-weight" title="transform_sigma_to_weight ()">transform_sigma_to_weight</a>           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#transform-weight-to-sigma" title="transform_weight_to_sigma ()">transform_weight_to_sigma</a>           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#calculate-main-sequence-parameters" title="calculate_main_sequence_parameters ()">calculate_main_sequence_parameters</a>  (double T1,
+                                                         double T2,
+                                                         double P0,
+                                                         double *L1,
+                                                         double *L2,
+                                                         double *M1,
+                                                         double *M2,
+                                                         double *q,
+                                                         double *a,
+                                                         double *R1,
+                                                         double *R2,
+                                                         double *Omega1,
+                                                         double *Omega2);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#calculate-synthetic-scatter-seed" title="calculate_synthetic_scatter_seed ()">calculate_synthetic_scatter_seed</a>    (double *seed);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#apply-extinction-correction" title="apply_extinction_correction ()">apply_extinction_correction</a>         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         double A);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#apply-third-light-correction" title="apply_third_light_correction ()">apply_third_light_correction</a>        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-parameters.html#PHOEBE-el3-units" title="enum PHOEBE_el3_units">PHOEBE_el3_units</a> el3units,
+                                                         double el3value);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#apply-interstellar-extinction-correction" title="apply_interstellar_extinction_correction ()">apply_interstellar_extinction_correction</a>
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *wavelength,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *spectrum,
+                                                         double R,
+                                                         double E);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#calculate-teff-from-bv-index" title="calculate_teff_from_bv_index ()">calculate_teff_from_bv_index</a>        (int star_type,
+                                                         double bv,
+                                                         double *teff);
+int                 <a class="link" href="phoebe-phoebe-calculations.html#phoebe-wd-model-from-phoebe-model-parameter" title="phoebe_wd_model_from_phoebe_model_parameter ()">phoebe_wd_model_from_phoebe_model_parameter</a>
+                                                        ();
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-calculations.html#phoebe-phsv-constrained" title="phoebe_phsv_constrained ()">phoebe_phsv_constrained</a>             (int wd_model);
+<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                <a class="link" href="phoebe-phoebe-calculations.html#phoebe-pcsv-constrained" title="phoebe_pcsv_constrained ()">phoebe_pcsv_constrained</a>             (int wd_model);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-calculations.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-calculations.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-cost-function"></a><h3>enum PHOEBE_cost_function</h3>
+<pre class="programlisting">typedef enum PHOEBE_cost_function {
+	PHOEBE_CF_STANDARD_DEVIATION,
+	PHOEBE_CF_WEIGHTED_STANDARD_DEVIATION,
+	PHOEBE_CF_SUM_OF_SQUARES,
+	PHOEBE_CF_EXPECTATION_CHI2,
+	PHOEBE_CF_CHI2
+} PHOEBE_cost_function;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="frac"></a><h3>frac ()</h3>
+<pre class="programlisting">double              frac                                (double x);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="diff"></a><h3>diff ()</h3>
+<pre class="programlisting">int                 diff                                (const void *a,
+                                                         const void *b);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="diff-int"></a><h3>diff_int ()</h3>
+<pre class="programlisting">int                 diff_int                            (const void *a,
+                                                         const void *b);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>b</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-interpolate"></a><h3>phoebe_interpolate ()</h3>
+<pre class="programlisting">int                 phoebe_interpolate                  (int N,
+                                                         double *x,
+                                                         double *lo,
+                                                         double *hi,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type">PHOEBE_type</a> type,
+                                                         ...);</pre>
+<p>
+This is a general multi-dimensional linear interpolation function.
+It should be reasonably optimized - I gave it a lot of thought. It
+should also be reasonably well tested.
+</p>
+<p>
+The order of nodes and function values is very important; because of
+optimization, its order is inverse-binary:
+</p>
+<p>
+ lo[0] = lo[par1], lo[1] = lo[par2], ..., lo[N-1] = lo[parN]
+</p>
+<p>
+ hi[0] = hi[par1], hi[1] = hi[par2], ..., hi[N-1] = hi[parN]
+</p>
+<p>
+ fv[0] = fv (0 0 0 ... 0)
+</p>
+<p>
+ fv[1] = fv (1 0 0 ... 0)
+</p>
+<p>
+ fv[2] = fv (0 1 0 ... 0)
+</p>
+<p>
+ fv[3] = fv (1 1 0 ... 0)
+</p>
+<p>
+ fv[4] = fv (0 0 1 ... 0)
+</p>
+<p>
+ fv[5] = fv (1 0 1 ... 0)
+</p>
+<p>
+ fv[6] = fv (0 1 1 ... 0)
+</p>
+<p>
+ fv[7] = fv (1 1 1 ... 0)
+</p>
+<p>
+  .....................
+</p>
+<p>
+ where 0 and 1 are used for lower and upper node values, respectively,
+ listed in a consecutive parameter order.
+</p>
+<p>
+The function *modifies* the passed array fv[], so make sure you copy
+its contents if it is needed later. The result of the interpolation is
+contained in the first element of that array, fv[0].</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>N</code></em> :</span></p></td>
+<td> dimension of the interpolation space
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>x</code></em> :</span></p></td>
+<td> <em class="parameter"><code>N</code></em>-dimensional vector to the point of interest
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lo</code></em> :</span></p></td>
+<td> <em class="parameter"><code>N</code></em>-dimensional vector of lower node values
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hi</code></em> :</span></p></td>
+<td> <em class="parameter"><code>N</code></em>-dimensional vector of upper node values
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-type" title="enum PHOEBE_type"><span class="type">PHOEBE_type</span></a> od interpolation values
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>...</code></em> :</span></p></td>
+<td> (2^N)-dimensional vector of node function values of type <em class="parameter"><code>type</code></em>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-cf-compute"></a><h3>phoebe_cf_compute ()</h3>
+<pre class="programlisting">int                 phoebe_cf_compute                   (double *cfval,
+                                                         <a class="link" href="phoebe-phoebe-calculations.html#PHOEBE-cost-function" title="enum PHOEBE_cost_function">PHOEBE_cost_function</a> cf,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *syndep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *obsdep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *obsweight,
+                                                         double scale);</pre>
+<p>
+Computes the cost function value <em class="parameter"><code>cfval</code></em> of the passed cost function
+<em class="parameter"><code>cf</code></em>. The residuals are computed from vectors <em class="parameter"><code>syndep</code></em> and <em class="parameter"><code>obsdep</code></em>. If
+the cost function is weighted, each residual is multiplied by the
+inverse square of the individual <em class="parameter"><code>obsweight</code></em> value. Since the residuals
+for different curves are usually compared, a scaling constant <em class="parameter"><code>scale</code></em>
+can be used to renormalize the data. The <em class="parameter"><code>scale</code></em> is usually computed as
+4\pi/(L1+L2+4\piL3).
+</p>
+<p>
+Cost function <em class="parameter"><code>cf</code></em> is of the following:
+</p>
+<p>
+  <span class="type">PHOEBE_CF_STANDARD_DEVIATION</span>
+</p>
+<p>
+  <span class="type">PHOEBE_CF_WEIGHTED_STANDARD_DEVIATION</span>
+</p>
+<p>
+  <span class="type">PHOEBE_CF_SUM_OF_SQUARES</span>
+</p>
+<p>
+  <span class="type">PHOEBE_CF_EXPECTATION_CHI2</span>
+</p>
+<p>
+  <span class="type">PHOEBE_CF_CHI2</span></p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cfval</code></em> :</span></p></td>
+<td> the computed cost function value.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cf</code></em> :</span></p></td>
+<td> a <a class="link" href="phoebe-phoebe-calculations.html#PHOEBE-cost-function" title="enum PHOEBE_cost_function"><span class="type">PHOEBE_cost_function</span></a> to be evaluated.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>syndep</code></em> :</span></p></td>
+<td> a <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> of the model data.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obsdep</code></em> :</span></p></td>
+<td> a <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> of the observed data.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obsweight</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scale</code></em> :</span></p></td>
+<td> a scaling constant for computing the residuals.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-join-chi2"></a><h3>phoebe_join_chi2 ()</h3>
+<pre class="programlisting">int                 phoebe_join_chi2                    (double *chi2,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *chi2s,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weights);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chi2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>chi2s</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>weights</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="wd-lc"></a><h3>wd_lc()</h3>
+<pre class="programlisting">#define wd_lc(atmtab,pltab,lcin,request,vertno,L3perc,indeps,deps,poscoy,poscoz,params) lc_(atmtab,pltab,lcin,request,vertno,L3perc,indeps,deps,poscoy,poscoz,params,strlen(atmtab),strlen(pltab),strlen(lcin))
+</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>atmtab</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pltab</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lcin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>request</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vertno</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>L3perc</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indeps</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>deps</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>poscoy</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>poscoz</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>params</code></em> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-compute-lc-using-wd"></a><h3>phoebe_compute_lc_using_wd ()</h3>
+<pre class="programlisting">int                 phoebe_compute_lc_using_wd          (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *indep,
+                                                         char *lcin);</pre>
+<p>
+Uses WD's LC code through a FORTRAN wrapper to obtain the fluxes.
+<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve"><span class="type">PHOEBE_curve</span></a> <em class="parameter"><code>curve</code></em> must be initialized.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve"><span class="type">PHOEBE_curve</span></a> placeholder for computed fluxes
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indep</code></em> :</span></p></td>
+<td> an array of independent variable values (HJDs or phases)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lcin</code></em> :</span></p></td>
+<td>  WD's lci filename
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-compute-rv1-using-wd"></a><h3>phoebe_compute_rv1_using_wd ()</h3>
+<pre class="programlisting">int                 phoebe_compute_rv1_using_wd         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *rv1,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *indep,
+                                                         char *lcin);</pre>
+<p>
+Uses WD's LC code through a FORTRAN wrapper to obtain the primary
+star radial velocities. <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve"><span class="type">PHOEBE_curve</span></a> <em class="parameter"><code>rv1</code></em> must be initialized.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rv1</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve"><span class="type">PHOEBE_curve</span></a> placeholder for computed radial velocities
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indep</code></em> :</span></p></td>
+<td> an array of independent variable values (HJDs or phases);
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lcin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-compute-rv2-using-wd"></a><h3>phoebe_compute_rv2_using_wd ()</h3>
+<pre class="programlisting">int                 phoebe_compute_rv2_using_wd         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *rv2,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *indep,
+                                                         char *lcin);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rv2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indep</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lcin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-compute-pos-using-wd"></a><h3>phoebe_compute_pos_using_wd ()</h3>
+<pre class="programlisting">int                 phoebe_compute_pos_using_wd         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *poscoy,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *poscoz,
+                                                         char *lcin,
+                                                         double phase);</pre>
+<p>
+Uses WD's LC code through a FORTRAN wrapper to obtain the plane-of-sky
+coordinates. <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a><span class="type">s</span> <em class="parameter"><code>poscoy</code></em> and <em class="parameter"><code>poscoz</code></em> must be initialized.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>poscoy</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> placeholder for the plane-of-sky y coordinates
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>poscoz</code></em> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector"><span class="type">PHOEBE_vector</span></a> placeholder for the plane-of-sky z coordinates
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lcin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>phase</code></em> :</span></p></td>
+<td> phase at which the plane-of-sky coordinates are computed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="call-wd-to-get-logg-values"></a><h3>call_wd_to_get_logg_values ()</h3>
+<pre class="programlisting">int                 call_wd_to_get_logg_values          (double *logg1,
+                                                         double *logg2);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>logg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>logg2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-calculate-level-correction"></a><h3>phoebe_calculate_level_correction ()</h3>
+<pre class="programlisting">int                 phoebe_calculate_level_correction   (double *alpha,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *syn,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *obs);</pre>
+<p>
+Computes the correction <em class="parameter"><code>alpha</code></em> by solving:
+</p>
+<p>
+  \sum_i w_i (o_i - <em class="parameter"><code>alpha</code></em> c_i)^2 = min
+</p>
+<p>
+where o_i are observed data points with individual weights w_i, and c_i
+are the computed fluxes with the original value of L1. Solving this
+system requires solving the following least squares equation:
+</p>
+<p>
+  <em class="parameter"><code>alpha</code></em> = (A W A^T)^{-1} A W b = \sum_i w_i o_i c_i / \sum_i w_i o_i^2</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>alpha</code></em> :</span></p></td>
+<td> placeholder for level correction: L1 -&gt; L1/<em class="parameter"><code>alpha</code></em>, L2 -&gt; L2/<em class="parameter"><code>alpha</code></em>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>syn</code></em> :</span></p></td>
+<td>   synthetic (model) light curve
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obs</code></em> :</span></p></td>
+<td>   observed light curve
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-calculate-gamma-correction"></a><h3>phoebe_calculate_gamma_correction ()</h3>
+<pre class="programlisting">int                 phoebe_calculate_gamma_correction   (double *gamma,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *syn,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *obs);</pre>
+<p>
+Computes the correction <em class="parameter"><code>gamma</code></em> by solving:
+</p>
+<p>
+  \sum_i w_i (o_i - c_i - <em class="parameter"><code>gamma</code></em>)^2 = min
+</p>
+<p>
+where o_i are observed data points with individual weights w_i, and c_i
+are the computed fluxes with the original value of <em class="parameter"><code>gamma</code></em>. Solving this
+system requires solving the following least squares equation:
+</p>
+<p>
+  <em class="parameter"><code>gamma</code></em> = (A W A^T)^{-1} A W b = \sum_i w_i o_i / \sum_i w_i</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gamma</code></em> :</span></p></td>
+<td> placeholder for gamma (center-of-mass) velocity correction:
+        v -&gt; v + gamma
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>syn</code></em> :</span></p></td>
+<td>   synthetic (model) light curve
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>obs</code></em> :</span></p></td>
+<td>   observed light curve
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-calculate-pot1"></a><h3>phoebe_calculate_pot1 ()</h3>
+<pre class="programlisting">double              phoebe_calculate_pot1               (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> ELLIPTIC,
+                                                         double D,
+                                                         double q,
+                                                         double r,
+                                                         double F,
+                                                         double lambda,
+                                                         double nu);</pre>
+<p>
+Calculates the primary star surface potential according to Eq.(3.16)
+in PHOEBE scientific reference.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ELLIPTIC</code></em> :</span></p></td>
+<td> elliptic orbit switch: 1 for elliptic orbits, 0 for circular
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>D</code></em> :</span></p></td>
+<td> instantaneous separation in units of semi-major axis
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td> mass ratio
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td> effective radius of the star
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>F</code></em> :</span></p></td>
+<td> asynchronicity parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lambda</code></em> :</span></p></td>
+<td> direction cosine, <em class="parameter"><code>lambda</code></em> = sin(theta) cos(phi)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nu</code></em> :</span></p></td>
+<td> direction cosine, <em class="parameter"><code>nu</code></em> = cos(theta)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> value of the primary star surface potential
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-calculate-pot2"></a><h3>phoebe_calculate_pot2 ()</h3>
+<pre class="programlisting">double              phoebe_calculate_pot2               (<a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a> ELLIPTIC,
+                                                         double D,
+                                                         double q,
+                                                         double r,
+                                                         double F,
+                                                         double lambda,
+                                                         double nu);</pre>
+<p>
+Calculates the secondary star surface potential by transforming the
+coordinate system to the center of the secondary star according to
+Eq.(3.15) in PHOEBE scientific reference, and using Eq.(3.16) to do
+the calculation.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ELLIPTIC</code></em> :</span></p></td>
+<td> elliptic orbit switch: 1 for elliptic orbits, 0 for circular
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>D</code></em> :</span></p></td>
+<td> instantaneous separation in units of semi-major axis
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td> mass ratio
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>r</code></em> :</span></p></td>
+<td> effective radius of the star
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>F</code></em> :</span></p></td>
+<td> asynchronicity parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lambda</code></em> :</span></p></td>
+<td> direction cosine, <em class="parameter"><code>lambda</code></em> = sin(theta) cos(phi)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nu</code></em> :</span></p></td>
+<td> direction cosine, <em class="parameter"><code>nu</code></em> = cos(theta)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> value of the secondary star surface potential
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-calculate-masses"></a><h3>phoebe_calculate_masses ()</h3>
+<pre class="programlisting">int                 phoebe_calculate_masses             (double sma,
+                                                         double P,
+                                                         double q,
+                                                         double *M1,
+                                                         double *M2);</pre>
+<p>
+Computes the mass of the primary and the secondary star, in units of
+solar mass.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sma</code></em> :</span></p></td>
+<td> semi-major axis in solar radii
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>P</code></em> :</span></p></td>
+<td>   orbital period in days
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td>   mass ratio, M2/M1
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>M1</code></em> :</span></p></td>
+<td>  placeholder for the primary star mass
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>M2</code></em> :</span></p></td>
+<td>  placeholder for the secondary star mass
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-calculate-critical-potentials"></a><h3>phoebe_calculate_critical_potentials ()</h3>
+<pre class="programlisting">int                 phoebe_calculate_critical_potentials
+                                                        (double q,
+                                                         double F,
+                                                         double e,
+                                                         double *L1crit,
+                                                         double *L2crit);</pre>
+<p>
+Calculates the value of the primary surface potential in Lagrange points
+L1 and L2.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td> mass ratio
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>F</code></em> :</span></p></td>
+<td> asynchronicity parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>e</code></em> :</span></p></td>
+<td> eccentricity
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>L1crit</code></em> :</span></p></td>
+<td> placeholder for the inner (Roche) lobe value of the potential
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>L2crit</code></em> :</span></p></td>
+<td> placeholder for the outer lobe value of the potential
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-compute-critical-phases"></a><h3>phoebe_compute_critical_phases ()</h3>
+<pre class="programlisting">int                 phoebe_compute_critical_phases      (double *pp,
+                                                         double *scp,
+                                                         double *icp,
+                                                         double *anp,
+                                                         double *dnp,
+                                                         double perr0,
+                                                         double ecc,
+                                                         double pshift);</pre>
+<p>
+Computes critical phases by solving the Kepler problem for critical
+true anomalies:
+</p>
+<p>
+Periastron passage: <em class="parameter"><code>pp</code></em> = <em class="parameter"><code>perr0</code></em>/(2pi) - 0.25 + <em class="parameter"><code>pshift</code></em>
+Superior conjunction: T = pi/2-<em class="parameter"><code>perr0</code></em>
+Inferior conjunction: T = 3pi/2-<em class="parameter"><code>perr0</code></em>
+Ascending node:       T = -<em class="parameter"><code>perr0</code></em>
+Descending node:      T = pi-<em class="parameter"><code>perr0</code></em></p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pp</code></em> :</span></p></td>
+<td>  placeholder for periastron passage phase
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>scp</code></em> :</span></p></td>
+<td> placeholder for superior conjunction phase
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icp</code></em> :</span></p></td>
+<td> placeholder for inferior conjunction phase
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>anp</code></em> :</span></p></td>
+<td> placeholder for ascending node phase
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dnp</code></em> :</span></p></td>
+<td> placeholder for descending node phase
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>perr0</code></em> :</span></p></td>
+<td> argument of periastron, in radians
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ecc</code></em> :</span></p></td>
+<td> orbital eccentricity
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pshift</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="calculate-weighted-sum"></a><h3>calculate_weighted_sum ()</h3>
+<pre class="programlisting">int                 calculate_weighted_sum              (double *sum,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *dep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weight);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sum</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dep</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>weight</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="calculate-weighted-average"></a><h3>calculate_weighted_average ()</h3>
+<pre class="programlisting">int                 calculate_weighted_average          (double *average,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *dep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weight);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>average</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dep</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>weight</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="calculate-weighted-sigma"></a><h3>calculate_weighted_sigma ()</h3>
+<pre class="programlisting">int                 calculate_weighted_sigma            (double *sigma,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *dep,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weight);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sigma</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dep</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>weight</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="intern-calculate-phase-from-ephemeris"></a><h3>intern_calculate_phase_from_ephemeris ()</h3>
+<pre class="programlisting">double              intern_calculate_phase_from_ephemeris
+                                                        (double hjd,
+                                                         double hjd0,
+                                                         double period,
+                                                         double dpdt,
+                                                         double pshift);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hjd</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hjd0</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>period</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dpdt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pshift</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="transform-hjd-to-phase"></a><h3>transform_hjd_to_phase ()</h3>
+<pre class="programlisting">int                 transform_hjd_to_phase              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double hjd0,
+                                                         double period,
+                                                         double dpdt,
+                                                         double pshift);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hjd0</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>period</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dpdt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pshift</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="transform-phase-to-hjd"></a><h3>transform_phase_to_hjd ()</h3>
+<pre class="programlisting">int                 transform_phase_to_hjd              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double hjd0,
+                                                         double period,
+                                                         double dpdt,
+                                                         double pshift);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>hjd0</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>period</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dpdt</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pshift</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="transform-magnitude-to-flux"></a><h3>transform_magnitude_to_flux ()</h3>
+<pre class="programlisting">int                 transform_magnitude_to_flux         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double mnorm);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mnorm</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="transform-magnitude-sigma-to-flux-sigma"></a><h3>transform_magnitude_sigma_to_flux_sigma ()</h3>
+<pre class="programlisting">int                 transform_magnitude_sigma_to_flux_sigma
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weights,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fluxes);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>weights</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fluxes</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="transform-flux-to-magnitude"></a><h3>transform_flux_to_magnitude ()</h3>
+<pre class="programlisting">int                 transform_flux_to_magnitude         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double mnorm);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mnorm</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="transform-flux-sigma-to-magnitude-sigma"></a><h3>transform_flux_sigma_to_magnitude_sigma ()</h3>
+<pre class="programlisting">int                 transform_flux_sigma_to_magnitude_sigma
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *weights,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *fluxes);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>weights</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>fluxes</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="normalize-kms-to-orbit"></a><h3>normalize_kms_to_orbit ()</h3>
+<pre class="programlisting">int                 normalize_kms_to_orbit              (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec,
+                                                         double sma,
+                                                         double period);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sma</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>period</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="transform-sigma-to-weight"></a><h3>transform_sigma_to_weight ()</h3>
+<pre class="programlisting">int                 transform_sigma_to_weight           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="transform-weight-to-sigma"></a><h3>transform_weight_to_sigma ()</h3>
+<pre class="programlisting">int                 transform_weight_to_sigma           (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *vec);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>vec</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="calculate-main-sequence-parameters"></a><h3>calculate_main_sequence_parameters ()</h3>
+<pre class="programlisting">int                 calculate_main_sequence_parameters  (double T1,
+                                                         double T2,
+                                                         double P0,
+                                                         double *L1,
+                                                         double *L2,
+                                                         double *M1,
+                                                         double *M2,
+                                                         double *q,
+                                                         double *a,
+                                                         double *R1,
+                                                         double *R2,
+                                                         double *Omega1,
+                                                         double *Omega2);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>T1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>T2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>P0</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>L1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>L2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>M1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>M2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>a</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>R1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>R2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Omega1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Omega2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="calculate-synthetic-scatter-seed"></a><h3>calculate_synthetic_scatter_seed ()</h3>
+<pre class="programlisting">int                 calculate_synthetic_scatter_seed    (double *seed);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>seed</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="apply-extinction-correction"></a><h3>apply_extinction_correction ()</h3>
+<pre class="programlisting">int                 apply_extinction_correction         (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         double A);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>A</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="apply-third-light-correction"></a><h3>apply_third_light_correction ()</h3>
+<pre class="programlisting">int                 apply_third_light_correction        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-curve" title="PHOEBE_curve">PHOEBE_curve</a> *curve,
+                                                         <a class="link" href="phoebe-phoebe-parameters.html#PHOEBE-el3-units" title="enum PHOEBE_el3_units">PHOEBE_el3_units</a> el3units,
+                                                         double el3value);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>curve</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>el3units</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>el3value</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="apply-interstellar-extinction-correction"></a><h3>apply_interstellar_extinction_correction ()</h3>
+<pre class="programlisting">int                 apply_interstellar_extinction_correction
+                                                        (<a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *wavelength,
+                                                         <a class="link" href="phoebe-phoebe-types.html#PHOEBE-vector" title="PHOEBE_vector">PHOEBE_vector</a> *spectrum,
+                                                         double R,
+                                                         double E);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wavelength</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>spectrum</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>R</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>E</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="calculate-teff-from-bv-index"></a><h3>calculate_teff_from_bv_index ()</h3>
+<pre class="programlisting">int                 calculate_teff_from_bv_index        (int star_type,
+                                                         double bv,
+                                                         double *teff);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>star_type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bv</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>teff</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-wd-model-from-phoebe-model-parameter"></a><h3>phoebe_wd_model_from_phoebe_model_parameter ()</h3>
+<pre class="programlisting">int                 phoebe_wd_model_from_phoebe_model_parameter
+                                                        ();</pre>
+<p>
+Translates the parameter "phoebe_model" into the WD model number (-1 to 6).</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <em class="parameter"><code>wd_model</code></em>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-phsv-constrained"></a><h3>phoebe_phsv_constrained ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_phsv_constrained             (int wd_model);</pre>
+<p>
+Indicates whether the primary potential is constrained by the choice of model.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wd_model</code></em> :</span></p></td>
+<td> Model number used by WD (-1 to 6)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE/FALSE.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-pcsv-constrained"></a><h3>phoebe_pcsv_constrained ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-types.html#bool" title="enum bool">bool</a>                phoebe_pcsv_constrained             (int wd_model);</pre>
+<p>
+Indicates whether the secondary potential is constrained by the choice of model.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>wd_model</code></em> :</span></p></td>
+<td> Model number used by WD (-1 to 6)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> TRUE/FALSE.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

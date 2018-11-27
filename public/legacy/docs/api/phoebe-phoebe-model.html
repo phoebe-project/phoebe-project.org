@@ -1,0 +1,656 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>phoebe_model</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="PHOEBE Reference Manual">
+<link rel="up" href="ch01.html" title="PHOEBE library consists of the following sources:">
+<link rel="prev" href="phoebe-phoebe-global.html" title="phoebe_global">
+<link rel="next" href="phoebe-phoebe-fitting.html" title="phoebe_fitting">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="PHOEBE library consists of the following sources:">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="phoebe-phoebe-global.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">PHOEBE Reference Manual</th>
+<td><a accesskey="n" href="phoebe-phoebe-fitting.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#phoebe-phoebe-model.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#phoebe-phoebe-model.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="phoebe-phoebe-model"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="phoebe-phoebe-model.top_of_page"></a>phoebe_model</span></h2>
+<p>phoebe_model</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="phoebe-phoebe-model.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+typedef             <a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-id" title="PHOEBE_star_id">PHOEBE_star_id</a>;
+                    <a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a>;
+<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a>* <a class="link" href="phoebe-phoebe-model.html#phoebe-star-surface-new" title="phoebe_star_surface_new ()">phoebe_star_surface_new</a>            ();
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-surface-alloc" title="phoebe_star_surface_alloc ()">phoebe_star_surface_alloc</a>           (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         int lat_raster);
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-surface-rasterize" title="phoebe_star_surface_rasterize ()">phoebe_star_surface_rasterize</a>       (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         int lat_raster);
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-surface-compute-radii" title="phoebe_star_surface_compute_radii ()">phoebe_star_surface_compute_radii</a>   (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         double Omega,
+                                                         double q,
+                                                         double D,
+                                                         double F);
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-surface-compute-gradients" title="phoebe_star_surface_compute_gradients ()">phoebe_star_surface_compute_gradients</a>
+                                                        (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         double q,
+                                                         double D,
+                                                         double F);
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-surface-compute-cosbeta" title="phoebe_star_surface_compute_cosbeta ()">phoebe_star_surface_compute_cosbeta</a> (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface);
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-surface-compute-cos-coordinates" title="phoebe_star_surface_compute_cos_coordinates ()">phoebe_star_surface_compute_cos_coordinates</a>
+                                                        (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface);
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-surface-compute-pos-coordinates" title="phoebe_star_surface_compute_pos_coordinates ()">phoebe_star_surface_compute_pos_coordinates</a>
+                                                        (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         double incl,
+                                                         double phase);
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-surface-free" title="phoebe_star_surface_free ()">phoebe_star_surface_free</a>            (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface);
+                    <a class="link" href="phoebe-phoebe-model.html#PHOEBE-star" title="PHOEBE_star">PHOEBE_star</a>;
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-effective-radius" title="phoebe_star_effective_radius ()">phoebe_star_effective_radius</a>        (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star" title="PHOEBE_star">PHOEBE_star</a> *star,
+                                                         double *radius);
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-area" title="phoebe_star_area ()">phoebe_star_area</a>                    (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star" title="PHOEBE_star">PHOEBE_star</a> *star,
+                                                         double *area);
+int                 <a class="link" href="phoebe-phoebe-model.html#phoebe-star-volume" title="phoebe_star_volume ()">phoebe_star_volume</a>                  (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star" title="PHOEBE_star">PHOEBE_star</a> *star,
+                                                         double *volume);
+double              <a class="link" href="phoebe-phoebe-model.html#phoebe-compute-polar-radius" title="phoebe_compute_polar_radius ()">phoebe_compute_polar_radius</a>         (double Omega,
+                                                         double D,
+                                                         double q);
+double              <a class="link" href="phoebe-phoebe-model.html#phoebe-compute-radius" title="phoebe_compute_radius ()">phoebe_compute_radius</a>               (double rp,
+                                                         double q,
+                                                         double D,
+                                                         double F,
+                                                         double lambda,
+                                                         double nu);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-model.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-model.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-star-id"></a><h3>PHOEBE_star_id</h3>
+<pre class="programlisting">typedef int PHOEBE_star_id;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-star-surface"></a><h3>PHOEBE_star_surface</h3>
+<pre class="programlisting">typedef struct {
+	int     elemno;
+	double *theta;
+	double *phi;
+	double *dtheta;
+	double *dphi;
+	double *rho;
+	double *cosbeta;
+
+	struct {
+		double x;
+		double y;
+		double z;
+	} *grad;
+
+	/* Center-of-star coordinates: */
+	struct {
+		double x;
+		double y;
+		double z;
+	} *cos;
+
+	/* Plane-of-sky coordinates: */
+	struct {
+		double u;
+		double v;
+		double w;
+	} *pos;
+
+	/* These are WD-compatible arrays and may be removed in future: */
+	int    *mmsave;
+	double *sinth;
+	double *costh;
+	double *sinphi;
+	double *cosphi;
+} PHOEBE_star_surface;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-surface-new"></a><h3>phoebe_star_surface_new ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a>* phoebe_star_surface_new            ();</pre>
+<p>
+Initializes a new <a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface"><span class="type">PHOEBE_star_surface</span></a> structure.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> pointer to the newly initialized <a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface"><span class="type">PHOEBE_star_surface</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-surface-alloc"></a><h3>phoebe_star_surface_alloc ()</h3>
+<pre class="programlisting">int                 phoebe_star_surface_alloc           (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         int lat_raster);</pre>
+<p>
+Computes the number of elements from the passed latitude raster size
+<em class="parameter"><code>lat_raster</code></em>, and allocates memory for local surface quantities. The
+number of elements on one half of the stellar hemisphere is computed by
+dividing each of <em class="parameter"><code>theta</code></em> = pi/(2<em class="parameter"><code>lat_raster</code></em>) latitude circles into 1.3
+<em class="parameter"><code>lat_raster</code></em> sin(<em class="parameter"><code>theta</code></em>) longitude steps and adding them up. Factor 1.3 is
+introduced to make rasterization along longitude more dense, needed for
+a better edge determination. This number is then multiplied by 4 to get
+the whole star surface.
+</p>
+<p>
+Allocated local surface quantities are: stellar co-latitude (<em class="parameter"><code>theta</code></em>),
+longitude (<em class="parameter"><code>phi</code></em>), local radius (<em class="parameter"><code>rho</code></em>), and local gradient (<em class="parameter"><code>grad</code></em>).</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td> star surface elements to be allocated
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat_raster</code></em> :</span></p></td>
+<td> latitude raster size (number of latitude circles)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-surface-rasterize"></a><h3>phoebe_star_surface_rasterize ()</h3>
+<pre class="programlisting">int                 phoebe_star_surface_rasterize       (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         int lat_raster);</pre>
+<p>
+Rasterizes <em class="parameter"><code>surface</code></em> onto a gridded mesh with <em class="parameter"><code>lat_raster</code></em> elements in co-
+latitude and 1.3 <em class="parameter"><code>lat_raster</code></em> sin(<em class="parameter"><code>theta</code></em>) elements in longitude. Memory
+for the raster is allocated by the function and should be freed by the
+user after use.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td> stellar surface to be rasterized
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lat_raster</code></em> :</span></p></td>
+<td> raster size
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-surface-compute-radii"></a><h3>phoebe_star_surface_compute_radii ()</h3>
+<pre class="programlisting">int                 phoebe_star_surface_compute_radii   (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         double Omega,
+                                                         double q,
+                                                         double D,
+                                                         double F);</pre>
+<p>
+Computes local radii of all surface elements of the <a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface"><span class="type">PHOEBE_star_surface</span></a>
+<em class="parameter"><code>surface</code></em>. Memory for <em class="parameter"><code>surface</code></em> needs to be allocated prior to calling
+this function.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td> surface for which to compute the local radii
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Omega</code></em> :</span></p></td>
+<td> surface equipotential value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td> mass ratio
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>D</code></em> :</span></p></td>
+<td> instantaneous separation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>F</code></em> :</span></p></td>
+<td> asynchronicity parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-surface-compute-gradients"></a><h3>phoebe_star_surface_compute_gradients ()</h3>
+<pre class="programlisting">int                 phoebe_star_surface_compute_gradients
+                                                        (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         double q,
+                                                         double D,
+                                                         double F);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td> surface for which to compute local gradients
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td> mass ratio
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>D</code></em> :</span></p></td>
+<td> instantaneous separation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>F</code></em> :</span></p></td>
+<td> asynchronicity parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-surface-compute-cosbeta"></a><h3>phoebe_star_surface_compute_cosbeta ()</h3>
+<pre class="programlisting">int                 phoebe_star_surface_compute_cosbeta (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface);</pre>
+<p>
+Computes the cosine of the angle between surface normal (normalized
+gradient of the surface potential) and radius vector. This angle is
+directly related to surface deformation and thus surface element. The
+function requires gradients to be computed already.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td> surface for which to compute cos(beta)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-surface-compute-cos-coordinates"></a><h3>phoebe_star_surface_compute_cos_coordinates ()</h3>
+<pre class="programlisting">int                 phoebe_star_surface_compute_cos_coordinates
+                                                        (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-surface-compute-pos-coordinates"></a><h3>phoebe_star_surface_compute_pos_coordinates ()</h3>
+<pre class="programlisting">int                 phoebe_star_surface_compute_pos_coordinates
+                                                        (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface,
+                                                         double incl,
+                                                         double phase);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>incl</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>phase</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-surface-free"></a><h3>phoebe_star_surface_free ()</h3>
+<pre class="programlisting">int                 phoebe_star_surface_free            (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star-surface" title="PHOEBE_star_surface">PHOEBE_star_surface</a> *surface);</pre>
+<p>
+Frees memory allocated for the star surface <em class="parameter"><code>surface</code></em> and its fields.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>surface</code></em> :</span></p></td>
+<td> star surface to be freed
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> <a class="link" href="phoebe-phoebe-error-handling.html#PHOEBE-error-code" title="enum PHOEBE_error_code"><span class="type">PHOEBE_error_code</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-star"></a><h3>PHOEBE_star</h3>
+<pre class="programlisting">typedef struct {
+	PHOEBE_star_id       id;
+	PHOEBE_star_surface *surface;
+} PHOEBE_star;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-effective-radius"></a><h3>phoebe_star_effective_radius ()</h3>
+<pre class="programlisting">int                 phoebe_star_effective_radius        (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star" title="PHOEBE_star">PHOEBE_star</a> *star,
+                                                         double *radius);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>star</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>radius</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-area"></a><h3>phoebe_star_area ()</h3>
+<pre class="programlisting">int                 phoebe_star_area                    (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star" title="PHOEBE_star">PHOEBE_star</a> *star,
+                                                         double *area);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>star</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>area</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-star-volume"></a><h3>phoebe_star_volume ()</h3>
+<pre class="programlisting">int                 phoebe_star_volume                  (<a class="link" href="phoebe-phoebe-model.html#PHOEBE-star" title="PHOEBE_star">PHOEBE_star</a> *star,
+                                                         double *volume);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>star</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>volume</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-compute-polar-radius"></a><h3>phoebe_compute_polar_radius ()</h3>
+<pre class="programlisting">double              phoebe_compute_polar_radius         (double Omega,
+                                                         double D,
+                                                         double q);</pre>
+<p>
+Given the value of surface potential <em class="parameter"><code>Omega</code></em>, instantaneous separation <em class="parameter"><code>D</code></em>,
+and mass ratio <em class="parameter"><code>q</code></em>, this function computes the value of polar radius in
+units of semi-major axis. The computation is done iteratively, using the
+Newton-Raphson scheme.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>Omega</code></em> :</span></p></td>
+<td> surface equipotential value
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>D</code></em> :</span></p></td>
+<td> instantaneous separation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td> mass ratio
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> polar radius.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-compute-radius"></a><h3>phoebe_compute_radius ()</h3>
+<pre class="programlisting">double              phoebe_compute_radius               (double rp,
+                                                         double q,
+                                                         double D,
+                                                         double F,
+                                                         double lambda,
+                                                         double nu);</pre>
+<p>
+Computes the fractional radius at the given direction iteratively,
+using the Newton-Raphson scheme.</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>rp</code></em> :</span></p></td>
+<td> polar radius
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>q</code></em> :</span></p></td>
+<td> mass ratio
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>D</code></em> :</span></p></td>
+<td> instantaneous separation
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>F</code></em> :</span></p></td>
+<td> asynchronicity parameter
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>lambda</code></em> :</span></p></td>
+<td> direction cosine, <em class="parameter"><code>lambda</code></em> = sin(<span class="type">theta</span>) cos(<span class="type">phi</span>)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>nu</code></em> :</span></p></td>
+<td> direction cosine, <em class="parameter"><code>nu</code></em> = cos(<span class="type">theta</span>)
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> radius in units of semi-major axis.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

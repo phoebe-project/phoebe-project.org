@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
+<book xmlns="http://www.devhelp.net/book" title="PHOEBE Reference Manual" link="index.html" author="" name="phoebe">
+  <chapters>
+    <sub name="PHOEBE library consists of the following sources:" link="ch01.html">
+      <sub name="PHOEBE base" link="phoebe-phoebe-base.html"/>
+      <sub name="phoebe_global" link="phoebe-phoebe-global.html"/>
+      <sub name="phoebe_model" link="phoebe-phoebe-model.html"/>
+      <sub name="phoebe_fitting" link="phoebe-phoebe-fitting.html"/>
+      <sub name="phoebe_ld" link="phoebe-phoebe-ld.html"/>
+      <sub name="phoebe_parameters" link="phoebe-phoebe-parameters.html"/>
+      <sub name="phoebe_radiation" link="phoebe-phoebe-radiation.html"/>
+      <sub name="phoebe_data" link="phoebe-phoebe-data.html"/>
+      <sub name="PHOEBE spectra" link="phoebe-phoebe-spectra.html"/>
+      <sub name="phoebe_configuration" link="phoebe-phoebe-configuration.html"/>
+      <sub name="PHOEBE accessories" link="phoebe-phoebe-accessories.html"/>
+      <sub name="phoebe_nms" link="phoebe-phoebe-nms.html"/>
+      <sub name="phoebe_calculations" link="phoebe-phoebe-calculations.html"/>
+      <sub name="phoebe_roche" link="phoebe-phoebe-roche.html"/>
+      <sub name="phoebe_fortran_interface" link="phoebe-phoebe-fortran-interface.html"/>
+      <sub name="phoebe_error_handling" link="phoebe-phoebe-error-handling.html"/>
+      <sub name="phoebe_constraints" link="phoebe-phoebe-constraints.html"/>
+      <sub name="phoebe_types" link="phoebe-phoebe-types.html"/>
+    </sub>
+  </chapters>
+  <functions>
+    <function name="phoebe_init ()" link="phoebe-phoebe-base.html#phoebe-init"/>
+    <function name="phoebe_configure ()" link="phoebe-phoebe-base.html#phoebe-configure"/>
+    <function name="phoebe_quit ()" link="phoebe-phoebe-base.html#phoebe-quit"/>
+    <function name="phoebe_load_ld_tables ()" link="phoebe-phoebe-base.html#phoebe-load-ld-tables"/>
+    <function name="USER_HOME_DIR" link="phoebe-phoebe-global.html#USER-HOME-DIR:CAPS"/>
+    <function name="PHOEBE_VERSION_NUMBER" link="phoebe-phoebe-global.html#PHOEBE-VERSION-NUMBER:CAPS"/>
+    <function name="PHOEBE_VERSION_DATE" link="phoebe-phoebe-global.html#PHOEBE-VERSION-DATE:CAPS"/>
+    <function name="PHOEBE_PARAMETERS_FILENAME" link="phoebe-phoebe-global.html#PHOEBE-PARAMETERS-FILENAME:CAPS"/>
+    <function name="PHOEBE_DEFAULTS" link="phoebe-phoebe-global.html#PHOEBE-DEFAULTS:CAPS"/>
+    <function name="PHOEBE_CONFIG_EXISTS" link="phoebe-phoebe-global.html#PHOEBE-CONFIG-EXISTS:CAPS"/>
+    <function name="PHOEBE_STARTUP_DIR" link="phoebe-phoebe-global.html#PHOEBE-STARTUP-DIR:CAPS"/>
+    <function name="PHOEBE_HOME_DIR" link="phoebe-phoebe-global.html#PHOEBE-HOME-DIR:CAPS"/>
+    <function name="PHOEBE_CONFIG" link="phoebe-phoebe-global.html#PHOEBE-CONFIG:CAPS"/>
+    <function name="PHOEBE_PLOTTING_PACKAGE" link="phoebe-phoebe-global.html#PHOEBE-PLOTTING-PACKAGE:CAPS"/>
+    <function name="PHOEBE_INPUT_LOCALE" link="phoebe-phoebe-global.html#PHOEBE-INPUT-LOCALE:CAPS"/>
+    <function name="PHOEBE_INTERRUPT" link="phoebe-phoebe-global.html#PHOEBE-INTERRUPT:CAPS"/>
+    <function name="PHOEBE_3D_PLOT_CALLBACK_OPTION" link="phoebe-phoebe-global.html#PHOEBE-3D-PLOT-CALLBACK-OPTION:CAPS"/>
+    <function name="PHOEBE_CONFIRM_ON_SAVE" link="phoebe-phoebe-global.html#PHOEBE-CONFIRM-ON-SAVE:CAPS"/>
+    <function name="PHOEBE_CONFIRM_ON_QUIT" link="phoebe-phoebe-global.html#PHOEBE-CONFIRM-ON-QUIT:CAPS"/>
+    <function name="PHOEBE_WARN_ON_SYNTHETIC_SCATTER" link="phoebe-phoebe-global.html#PHOEBE-WARN-ON-SYNTHETIC-SCATTER:CAPS"/>
+    <function name="PHOEBE_NUMERICAL_ACCURACY" link="phoebe-phoebe-global.html#PHOEBE-NUMERICAL-ACCURACY:CAPS"/>
+    <function name="PHOEBE_star_id" link="phoebe-phoebe-model.html#PHOEBE-star-id"/>
+    <function name="PHOEBE_star_surface" link="phoebe-phoebe-model.html#PHOEBE-star-surface"/>
+    <function name="phoebe_star_surface_new ()" link="phoebe-phoebe-model.html#phoebe-star-surface-new"/>
+    <function name="phoebe_star_surface_alloc ()" link="phoebe-phoebe-model.html#phoebe-star-surface-alloc"/>
+    <function name="phoebe_star_surface_rasterize ()" link="phoebe-phoebe-model.html#phoebe-star-surface-rasterize"/>
+    <function name="phoebe_star_surface_compute_radii ()" link="phoebe-phoebe-model.html#phoebe-star-surface-compute-radii"/>
+    <function name="phoebe_star_surface_compute_gradients ()" link="phoebe-phoebe-model.html#phoebe-star-surface-compute-gradients"/>
+    <function name="phoebe_star_surface_compute_cosbeta ()" link="phoebe-phoebe-model.html#phoebe-star-surface-compute-cosbeta"/>
+    <function name="phoebe_star_surface_compute_cos_coordinates ()" link="phoebe-phoebe-model.html#phoebe-star-surface-compute-cos-coordinates"/>
+    <function name="phoebe_star_surface_compute_pos_coordinates ()" link="phoebe-phoebe-model.html#phoebe-star-surface-compute-pos-coordinates"/>
+    <function name="phoebe_star_surface_free ()" link="phoebe-phoebe-model.html#phoebe-star-surface-free"/>
+    <function name="PHOEBE_star" link="phoebe-phoebe-model.html#PHOEBE-star"/>
+    <function name="phoebe_star_effective_radius ()" link="phoebe-phoebe-model.html#phoebe-star-effective-radius"/>
+    <function name="phoebe_star_area ()" link="phoebe-phoebe-model.html#phoebe-star-area"/>
+    <function name="phoebe_star_volume ()" link="phoebe-phoebe-model.html#phoebe-star-volume"/>
+    <function name="phoebe_compute_polar_radius ()" link="phoebe-phoebe-model.html#phoebe-compute-polar-radius"/>
+    <function name="phoebe_compute_radius ()" link="phoebe-phoebe-model.html#phoebe-compute-radius"/>
+    <function name="wd_dc()" link="phoebe-phoebe-fitting.html#wd-dc"/>
+    <function name="phoebe_chi2_cost_function ()" link="phoebe-phoebe-fitting.html#phoebe-chi2-cost-function"/>
+    <function name="phoebe_minimize_using_dc ()" link="phoebe-phoebe-fitting.html#phoebe-minimize-using-dc"/>
+    <function name="phoebe_minimize_using_nms ()" link="phoebe-phoebe-fitting.html#phoebe-minimize-using-nms"/>
+    <function name="LD_table" link="phoebe-phoebe-ld.html#LD-table"/>
+    <function name="PHOEBE_ld_table" link="phoebe-phoebe-ld.html#PHOEBE-ld-table"/>
+    <function name="enum LD_model" link="phoebe-phoebe-ld.html#LD-model"/>
+    <function name="phoebe_ld_new ()" link="phoebe-phoebe-ld.html#phoebe-ld-new"/>
+    <function name="phoebe_ld_new_from_file ()" link="phoebe-phoebe-ld.html#phoebe-ld-new-from-file"/>
+    <function name="phoebe_ld_alloc ()" link="phoebe-phoebe-ld.html#phoebe-ld-alloc"/>
+    <function name="phoebe_ld_realloc ()" link="phoebe-phoebe-ld.html#phoebe-ld-realloc"/>
+    <function name="phoebe_ld_attach ()" link="phoebe-phoebe-ld.html#phoebe-ld-attach"/>
+    <function name="phoebe_ld_attach_all ()" link="phoebe-phoebe-ld.html#phoebe-ld-attach-all"/>
+    <function name="phoebe_ld_free ()" link="phoebe-phoebe-ld.html#phoebe-ld-free"/>
+    <function name="phoebe_ld_table_intern_load ()" link="phoebe-phoebe-ld.html#phoebe-ld-table-intern-load"/>
+    <function name="phoebe_ld_table_vh1993_load ()" link="phoebe-phoebe-ld.html#phoebe-ld-table-vh1993-load"/>
+    <function name="phoebe_ld_table_free ()" link="phoebe-phoebe-ld.html#phoebe-ld-table-free"/>
+    <function name="phoebe_ld_get_coefficients ()" link="phoebe-phoebe-ld.html#phoebe-ld-get-coefficients"/>
+    <function name="phoebe_ld_model_type ()" link="phoebe-phoebe-ld.html#phoebe-ld-model-type"/>
+    <function name="phoebe_ld_get_vh1993_passband_name ()" link="phoebe-phoebe-ld.html#phoebe-ld-get-vh1993-passband-name"/>
+    <function name="enum PHOEBE_parameter_kind" link="phoebe-phoebe-parameters.html#PHOEBE-parameter-kind"/>
+    <function name="PHOEBE_parameter_options" link="phoebe-phoebe-parameters.html#PHOEBE-parameter-options"/>
+    <function name="PHOEBE_parameter_list" link="phoebe-phoebe-parameters.html#PHOEBE-parameter-list"/>
+    <function name="PHOEBE_parameter_table" link="phoebe-phoebe-parameters.html#PHOEBE-parameter-table"/>
+    <function name="PHOEBE_parameter_table_list" link="phoebe-phoebe-parameters.html#PHOEBE-parameter-table-list"/>
+    <function name="PHOEBE_pt_list" link="phoebe-phoebe-parameters.html#PHOEBE-pt-list"/>
+    <function name="PHOEBE_pt" link="phoebe-phoebe-parameters.html#PHOEBE-pt"/>
+    <function name="phoebe_parameter_table_new ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-table-new"/>
+    <function name="phoebe_parameter_table_duplicate ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-table-duplicate"/>
+    <function name="phoebe_parameter_table_activate ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-table-activate"/>
+    <function name="phoebe_parameter_table_print ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-table-print"/>
+    <function name="phoebe_parameter_table_free ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-table-free"/>
+    <function name="phoebe_parameter_new ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-new"/>
+    <function name="phoebe_parameter_add ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-add"/>
+    <function name="phoebe_parameter_hash ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-hash"/>
+    <function name="phoebe_parameter_lookup ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-lookup"/>
+    <function name="phoebe_parameter_commit ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-commit"/>
+    <function name="phoebe_parameter_add_option ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-add-option"/>
+    <function name="phoebe_parameter_update_deps ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-update-deps"/>
+    <function name="phoebe_parameter_free ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-free"/>
+    <function name="phoebe_parameter_option_get_index ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-option-get-index"/>
+    <function name="phoebe_parameter_option_is_valid ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-option-is-valid"/>
+    <function name="phoebe_init_parameters ()" link="phoebe-phoebe-parameters.html#phoebe-init-parameters"/>
+    <function name="phoebe_free_parameters ()" link="phoebe-phoebe-parameters.html#phoebe-free-parameters"/>
+    <function name="phoebe_init_parameter_options ()" link="phoebe-phoebe-parameters.html#phoebe-init-parameter-options"/>
+    <function name="phoebe_parameters_check_bounds ()" link="phoebe-phoebe-parameters.html#phoebe-parameters-check-bounds"/>
+    <function name="phoebe_is_qualifier ()" link="phoebe-phoebe-parameters.html#phoebe-is-qualifier"/>
+    <function name="phoebe_qualifier_string_parse ()" link="phoebe-phoebe-parameters.html#phoebe-qualifier-string-parse"/>
+    <function name="phoebe_qualifier_is_constrained ()" link="phoebe-phoebe-parameters.html#phoebe-qualifier-is-constrained"/>
+    <function name="phoebe_parameter_get_value ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-get-value"/>
+    <function name="phoebe_parameter_set_value ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-set-value"/>
+    <function name="phoebe_parameter_get_tba ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-get-tba"/>
+    <function name="phoebe_parameter_set_tba ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-set-tba"/>
+    <function name="phoebe_parameter_get_step ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-get-step"/>
+    <function name="phoebe_parameter_set_step ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-set-step"/>
+    <function name="phoebe_parameter_get_min ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-get-min"/>
+    <function name="phoebe_parameter_set_min ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-set-min"/>
+    <function name="phoebe_parameter_get_max ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-get-max"/>
+    <function name="phoebe_parameter_set_max ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-set-max"/>
+    <function name="phoebe_parameter_get_limits ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-get-limits"/>
+    <function name="phoebe_parameter_set_limits ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-set-limits"/>
+    <function name="phoebe_parameter_is_within_limits ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-is-within-limits"/>
+    <function name="phoebe_parameter_list_reverse ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-list-reverse"/>
+    <function name="phoebe_parameter_list_get_marked_tba ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-list-get-marked-tba"/>
+    <function name="phoebe_parameter_list_sort_marked_tba ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-list-sort-marked-tba"/>
+    <function name="phoebe_spots_units_to_wd_conversion_factor ()" link="phoebe-phoebe-parameters.html#phoebe-spots-units-to-wd-conversion-factor"/>
+    <function name="enum PHOEBE_el3_units" link="phoebe-phoebe-parameters.html#PHOEBE-el3-units"/>
+    <function name="phoebe_el3_units_id ()" link="phoebe-phoebe-parameters.html#phoebe-el3-units-id"/>
+    <function name="phoebe_active_curves_get ()" link="phoebe-phoebe-parameters.html#phoebe-active-curves-get"/>
+    <function name="phoebe_active_spots_get ()" link="phoebe-phoebe-parameters.html#phoebe-active-spots-get"/>
+    <function name="phoebe_open_parameter_file ()" link="phoebe-phoebe-parameters.html#phoebe-open-parameter-file"/>
+    <function name="phoebe_open_legacy_parameter_file ()" link="phoebe-phoebe-parameters.html#phoebe-open-legacy-parameter-file"/>
+    <function name="phoebe_save_parameter_file ()" link="phoebe-phoebe-parameters.html#phoebe-save-parameter-file"/>
+    <function name="phoebe_restore_default_parameters ()" link="phoebe-phoebe-parameters.html#phoebe-restore-default-parameters"/>
+    <function name="phoebe_parameter_file_import_bm3 ()" link="phoebe-phoebe-parameters.html#phoebe-parameter-file-import-bm3"/>
+    <function name="phoebe_compute_passband_intensity ()" link="phoebe-phoebe-radiation.html#phoebe-compute-passband-intensity"/>
+    <function name="PHOEBE_passbands" link="phoebe-phoebe-data.html#PHOEBE-passbands"/>
+    <function name="PHOEBE_passbands_no" link="phoebe-phoebe-data.html#PHOEBE-passbands-no"/>
+    <function name="phoebe_passband_new ()" link="phoebe-phoebe-data.html#phoebe-passband-new"/>
+    <function name="phoebe_passband_new_from_file ()" link="phoebe-phoebe-data.html#phoebe-passband-new-from-file"/>
+    <function name="phoebe_passband_lookup ()" link="phoebe-phoebe-data.html#phoebe-passband-lookup"/>
+    <function name="phoebe_passband_lookup_by_id ()" link="phoebe-phoebe-data.html#phoebe-passband-lookup-by-id"/>
+    <function name="phoebe_passband_free ()" link="phoebe-phoebe-data.html#phoebe-passband-free"/>
+    <function name="phoebe_read_in_passbands ()" link="phoebe-phoebe-data.html#phoebe-read-in-passbands"/>
+    <function name="phoebe_free_passbands ()" link="phoebe-phoebe-data.html#phoebe-free-passbands"/>
+    <function name="wd_passband_id_lookup ()" link="phoebe-phoebe-data.html#wd-passband-id-lookup"/>
+    <function name="PHOEBE_specrep_tag" link="phoebe-phoebe-spectra.html#PHOEBE-specrep-tag"/>
+    <function name="PHOEBE_specrep" link="phoebe-phoebe-spectra.html#PHOEBE-specrep"/>
+    <function name="PHOEBE_spectra_repository" link="phoebe-phoebe-spectra.html#PHOEBE-spectra-repository"/>
+    <function name="phoebe_spectra_set_repository ()" link="phoebe-phoebe-spectra.html#phoebe-spectra-set-repository"/>
+    <function name="phoebe_spectra_free_repository ()" link="phoebe-phoebe-spectra.html#phoebe-spectra-free-repository"/>
+    <function name="phoebe_spectrum_new ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-new"/>
+    <function name="phoebe_spectrum_new_from_file ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-new-from-file"/>
+    <function name="phoebe_spectrum_new_from_repository ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-new-from-repository"/>
+    <function name="phoebe_spectrum_create ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-create"/>
+    <function name="phoebe_spectrum_duplicate ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-duplicate"/>
+    <function name="phoebe_spectrum_get_column ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-get-column"/>
+    <function name="phoebe_spectrum_alloc ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-alloc"/>
+    <function name="phoebe_spectrum_realloc ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-realloc"/>
+    <function name="phoebe_spectrum_free ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-free"/>
+    <function name="phoebe_spectrum_rebin ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-rebin"/>
+    <function name="phoebe_spectrum_integrate ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-integrate"/>
+    <function name="phoebe_spectrum_broaden ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-broaden"/>
+    <function name="phoebe_spectrum_crop ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-crop"/>
+    <function name="phoebe_spectrum_apply_doppler_shift ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-apply-doppler-shift"/>
+    <function name="phoebe_spectrum_apply_rotational_broadening ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-apply-rotational-broadening"/>
+    <function name="phoebe_spectrum_set_sampling ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-set-sampling"/>
+    <function name="phoebe_spectrum_set_resolution ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-set-resolution"/>
+    <function name="phoebe_spectrum_multiply_by ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-multiply-by"/>
+    <function name="phoebe_spectrum_dispersion_guess ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-dispersion-guess"/>
+    <function name="phoebe_spectrum_dispersion_type_get_name ()" link="phoebe-phoebe-spectra.html#phoebe-spectrum-dispersion-type-get-name"/>
+    <function name="phoebe_spectra_add ()" link="phoebe-phoebe-spectra.html#phoebe-spectra-add"/>
+    <function name="phoebe_spectra_subtract ()" link="phoebe-phoebe-spectra.html#phoebe-spectra-subtract"/>
+    <function name="phoebe_spectra_merge ()" link="phoebe-phoebe-spectra.html#phoebe-spectra-merge"/>
+    <function name="phoebe_spectra_multiply ()" link="phoebe-phoebe-spectra.html#phoebe-spectra-multiply"/>
+    <function name="phoebe_spectra_divide ()" link="phoebe-phoebe-spectra.html#phoebe-spectra-divide"/>
+    <function name="phoebe_spectra_compare ()" link="phoebe-phoebe-spectra.html#phoebe-spectra-compare"/>
+    <function name="PHOEBE_config_entry" link="phoebe-phoebe-configuration.html#PHOEBE-config-entry"/>
+    <function name="PHOEBE_config_table" link="phoebe-phoebe-configuration.html#PHOEBE-config-table"/>
+    <function name="PHOEBE_config_table_size" link="phoebe-phoebe-configuration.html#PHOEBE-config-table-size"/>
+    <function name="phoebe_config_entry_new ()" link="phoebe-phoebe-configuration.html#phoebe-config-entry-new"/>
+    <function name="phoebe_config_entry_add ()" link="phoebe-phoebe-configuration.html#phoebe-config-entry-add"/>
+    <function name="phoebe_config_entry_get ()" link="phoebe-phoebe-configuration.html#phoebe-config-entry-get"/>
+    <function name="phoebe_config_entry_set ()" link="phoebe-phoebe-configuration.html#phoebe-config-entry-set"/>
+    <function name="phoebe_config_entry_free ()" link="phoebe-phoebe-configuration.html#phoebe-config-entry-free"/>
+    <function name="phoebe_config_populate ()" link="phoebe-phoebe-configuration.html#phoebe-config-populate"/>
+    <function name="phoebe_config_free ()" link="phoebe-phoebe-configuration.html#phoebe-config-free"/>
+    <function name="phoebe_configure ()" link="phoebe-phoebe-configuration.html#phoebe-configure"/>
+    <function name="phoebe_config_peek ()" link="phoebe-phoebe-configuration.html#phoebe-config-peek"/>
+    <function name="phoebe_config_load ()" link="phoebe-phoebe-configuration.html#phoebe-config-load"/>
+    <function name="phoebe_config_save ()" link="phoebe-phoebe-configuration.html#phoebe-config-save"/>
+    <function name="phoebe_config_import ()" link="phoebe-phoebe-configuration.html#phoebe-config-import"/>
+    <function name="phoebe_open_directory ()" link="phoebe-phoebe-accessories.html#phoebe-open-directory"/>
+    <function name="phoebe_close_directory ()" link="phoebe-phoebe-accessories.html#phoebe-close-directory"/>
+    <function name="phoebe_filename_exists ()" link="phoebe-phoebe-accessories.html#phoebe-filename-exists"/>
+    <function name="phoebe_filename_has_write_permissions ()" link="phoebe-phoebe-accessories.html#phoebe-filename-has-write-permissions"/>
+    <function name="phoebe_filename_has_read_permissions ()" link="phoebe-phoebe-accessories.html#phoebe-filename-has-read-permissions"/>
+    <function name="phoebe_filename_has_execute_permissions ()" link="phoebe-phoebe-accessories.html#phoebe-filename-has-execute-permissions"/>
+    <function name="phoebe_filename_has_full_permissions ()" link="phoebe-phoebe-accessories.html#phoebe-filename-has-full-permissions"/>
+    <function name="phoebe_filename_is_directory ()" link="phoebe-phoebe-accessories.html#phoebe-filename-is-directory"/>
+    <function name="phoebe_filename_is_regular_file ()" link="phoebe-phoebe-accessories.html#phoebe-filename-is-regular-file"/>
+    <function name="phoebe_get_current_working_directory ()" link="phoebe-phoebe-accessories.html#phoebe-get-current-working-directory"/>
+    <function name="phoebe_resolve_relative_filename ()" link="phoebe-phoebe-accessories.html#phoebe-resolve-relative-filename"/>
+    <function name="phoebe_list_directory_contents ()" link="phoebe-phoebe-accessories.html#phoebe-list-directory-contents"/>
+    <function name="phoebe_concatenate_strings ()" link="phoebe-phoebe-accessories.html#phoebe-concatenate-strings"/>
+    <function name="phoebe_clean_data_line ()" link="phoebe-phoebe-accessories.html#phoebe-clean-data-line"/>
+    <function name="atob ()" link="phoebe-phoebe-accessories.html#atob"/>
+    <function name="phoebe_strdup ()" link="phoebe-phoebe-accessories.html#phoebe-strdup"/>
+    <function name="phoebe_readline ()" link="phoebe-phoebe-accessories.html#phoebe-readline"/>
+    <function name="phoebe_create_temp_filename ()" link="phoebe-phoebe-accessories.html#phoebe-create-temp-filename"/>
+    <function name="PHOEBE_nms_simplex" link="phoebe-phoebe-nms.html#PHOEBE-nms-simplex"/>
+    <function name="PHOEBE_nms_parameters" link="phoebe-phoebe-nms.html#PHOEBE-nms-parameters"/>
+    <function name="phoebe_nms_simplex_new ()" link="phoebe-phoebe-nms.html#phoebe-nms-simplex-new"/>
+    <function name="phoebe_nms_simplex_alloc ()" link="phoebe-phoebe-nms.html#phoebe-nms-simplex-alloc"/>
+    <function name="phoebe_nms_simplex_free ()" link="phoebe-phoebe-nms.html#phoebe-nms-simplex-free"/>
+    <function name="phoebe_nms_simplex_set ()" link="phoebe-phoebe-nms.html#phoebe-nms-simplex-set"/>
+    <function name="phoebe_nms_simplex_iterate ()" link="phoebe-phoebe-nms.html#phoebe-nms-simplex-iterate"/>
+    <function name="enum PHOEBE_cost_function" link="phoebe-phoebe-calculations.html#PHOEBE-cost-function"/>
+    <function name="frac ()" link="phoebe-phoebe-calculations.html#frac"/>
+    <function name="diff ()" link="phoebe-phoebe-calculations.html#diff"/>
+    <function name="diff_int ()" link="phoebe-phoebe-calculations.html#diff-int"/>
+    <function name="phoebe_interpolate ()" link="phoebe-phoebe-calculations.html#phoebe-interpolate"/>
+    <function name="phoebe_cf_compute ()" link="phoebe-phoebe-calculations.html#phoebe-cf-compute"/>
+    <function name="phoebe_join_chi2 ()" link="phoebe-phoebe-calculations.html#phoebe-join-chi2"/>
+    <function name="wd_lc()" link="phoebe-phoebe-calculations.html#wd-lc"/>
+    <function name="phoebe_compute_lc_using_wd ()" link="phoebe-phoebe-calculations.html#phoebe-compute-lc-using-wd"/>
+    <function name="phoebe_compute_rv1_using_wd ()" link="phoebe-phoebe-calculations.html#phoebe-compute-rv1-using-wd"/>
+    <function name="phoebe_compute_rv2_using_wd ()" link="phoebe-phoebe-calculations.html#phoebe-compute-rv2-using-wd"/>
+    <function name="phoebe_compute_pos_using_wd ()" link="phoebe-phoebe-calculations.html#phoebe-compute-pos-using-wd"/>
+    <function name="call_wd_to_get_logg_values ()" link="phoebe-phoebe-calculations.html#call-wd-to-get-logg-values"/>
+    <function name="phoebe_calculate_level_correction ()" link="phoebe-phoebe-calculations.html#phoebe-calculate-level-correction"/>
+    <function name="phoebe_calculate_gamma_correction ()" link="phoebe-phoebe-calculations.html#phoebe-calculate-gamma-correction"/>
+    <function name="phoebe_calculate_pot1 ()" link="phoebe-phoebe-calculations.html#phoebe-calculate-pot1"/>
+    <function name="phoebe_calculate_pot2 ()" link="phoebe-phoebe-calculations.html#phoebe-calculate-pot2"/>
+    <function name="phoebe_calculate_masses ()" link="phoebe-phoebe-calculations.html#phoebe-calculate-masses"/>
+    <function name="phoebe_calculate_critical_potentials ()" link="phoebe-phoebe-calculations.html#phoebe-calculate-critical-potentials"/>
+    <function name="phoebe_compute_critical_phases ()" link="phoebe-phoebe-calculations.html#phoebe-compute-critical-phases"/>
+    <function name="calculate_weighted_sum ()" link="phoebe-phoebe-calculations.html#calculate-weighted-sum"/>
+    <function name="calculate_weighted_average ()" link="phoebe-phoebe-calculations.html#calculate-weighted-average"/>
+    <function name="calculate_weighted_sigma ()" link="phoebe-phoebe-calculations.html#calculate-weighted-sigma"/>
+    <function name="intern_calculate_phase_from_ephemeris ()" link="phoebe-phoebe-calculations.html#intern-calculate-phase-from-ephemeris"/>
+    <function name="transform_hjd_to_phase ()" link="phoebe-phoebe-calculations.html#transform-hjd-to-phase"/>
+    <function name="transform_phase_to_hjd ()" link="phoebe-phoebe-calculations.html#transform-phase-to-hjd"/>
+    <function name="transform_magnitude_to_flux ()" link="phoebe-phoebe-calculations.html#transform-magnitude-to-flux"/>
+    <function name="transform_magnitude_sigma_to_flux_sigma ()" link="phoebe-phoebe-calculations.html#transform-magnitude-sigma-to-flux-sigma"/>
+    <function name="transform_flux_to_magnitude ()" link="phoebe-phoebe-calculations.html#transform-flux-to-magnitude"/>
+    <function name="transform_flux_sigma_to_magnitude_sigma ()" link="phoebe-phoebe-calculations.html#transform-flux-sigma-to-magnitude-sigma"/>
+    <function name="normalize_kms_to_orbit ()" link="phoebe-phoebe-calculations.html#normalize-kms-to-orbit"/>
+    <function name="transform_sigma_to_weight ()" link="phoebe-phoebe-calculations.html#transform-sigma-to-weight"/>
+    <function name="transform_weight_to_sigma ()" link="phoebe-phoebe-calculations.html#transform-weight-to-sigma"/>
+    <function name="calculate_main_sequence_parameters ()" link="phoebe-phoebe-calculations.html#calculate-main-sequence-parameters"/>
+    <function name="calculate_synthetic_scatter_seed ()" link="phoebe-phoebe-calculations.html#calculate-synthetic-scatter-seed"/>
+    <function name="apply_extinction_correction ()" link="phoebe-phoebe-calculations.html#apply-extinction-correction"/>
+    <function name="apply_third_light_correction ()" link="phoebe-phoebe-calculations.html#apply-third-light-correction"/>
+    <function name="apply_interstellar_extinction_correction ()" link="phoebe-phoebe-calculations.html#apply-interstellar-extinction-correction"/>
+    <function name="calculate_teff_from_bv_index ()" link="phoebe-phoebe-calculations.html#calculate-teff-from-bv-index"/>
+    <function name="phoebe_wd_model_from_phoebe_model_parameter ()" link="phoebe-phoebe-calculations.html#phoebe-wd-model-from-phoebe-model-parameter"/>
+    <function name="phoebe_phsv_constrained ()" link="phoebe-phoebe-calculations.html#phoebe-phsv-constrained"/>
+    <function name="phoebe_pcsv_constrained ()" link="phoebe-phoebe-calculations.html#phoebe-pcsv-constrained"/>
+    <function name="phoebe_compute_polar_radius ()" link="phoebe-phoebe-roche.html#phoebe-compute-polar-radius"/>
+    <function name="phoebe_get_radius ()" link="phoebe-phoebe-roche.html#phoebe-get-radius"/>
+    <function name="wd_wrlci()" link="phoebe-phoebe-fortran-interface.html#wd-wrlci"/>
+    <function name="wd_wrdci()" link="phoebe-phoebe-fortran-interface.html#wd-wrdci"/>
+    <function name="WD_LCI_parameters" link="phoebe-phoebe-fortran-interface.html#WD-LCI-parameters"/>
+    <function name="WD_DCI_parameters" link="phoebe-phoebe-fortran-interface.html#WD-DCI-parameters"/>
+    <function name="create_lci_file ()" link="phoebe-phoebe-fortran-interface.html#create-lci-file"/>
+    <function name="create_dci_file ()" link="phoebe-phoebe-fortran-interface.html#create-dci-file"/>
+    <function name="wd_lci_parameters_get ()" link="phoebe-phoebe-fortran-interface.html#wd-lci-parameters-get"/>
+    <function name="wd_spots_parameters_get ()" link="phoebe-phoebe-fortran-interface.html#wd-spots-parameters-get"/>
+    <function name="wd_dci_parameters_new ()" link="phoebe-phoebe-fortran-interface.html#wd-dci-parameters-new"/>
+    <function name="read_in_wd_dci_parameters ()" link="phoebe-phoebe-fortran-interface.html#read-in-wd-dci-parameters"/>
+    <function name="wd_dci_parameters_free ()" link="phoebe-phoebe-fortran-interface.html#wd-dci-parameters-free"/>
+    <function name="phoebe_wd_model ()" link="phoebe-phoebe-fortran-interface.html#phoebe-wd-model"/>
+    <function name="enum PHOEBE_error_code" link="phoebe-phoebe-error-handling.html#PHOEBE-error-code"/>
+    <function name="phoebe_error ()" link="phoebe-phoebe-error-handling.html#phoebe-error"/>
+    <function name="phoebe_lib_error ()" link="phoebe-phoebe-error-handling.html#phoebe-lib-error"/>
+    <function name="phoebe_lib_warning ()" link="phoebe-phoebe-error-handling.html#phoebe-lib-warning"/>
+    <function name="phoebe_debug ()" link="phoebe-phoebe-error-handling.html#phoebe-debug"/>
+    <function name="phoebe_malloc ()" link="phoebe-phoebe-error-handling.html#phoebe-malloc"/>
+    <function name="phoebe_realloc ()" link="phoebe-phoebe-error-handling.html#phoebe-realloc"/>
+    <function name="hla_request_is_sane ()" link="phoebe-phoebe-error-handling.html#hla-request-is-sane"/>
+    <function name="vga_request_is_sane ()" link="phoebe-phoebe-error-handling.html#vga-request-is-sane"/>
+    <function name="dpdt_request_is_sane ()" link="phoebe-phoebe-error-handling.html#dpdt-request-is-sane"/>
+    <function name="enum PHOEBE_node_type" link="phoebe-phoebe-constraints.html#PHOEBE-node-type"/>
+    <function name="PHOEBE_ast" link="phoebe-phoebe-constraints.html#PHOEBE-ast"/>
+    <function name="PHOEBE_ast_value" link="phoebe-phoebe-constraints.html#PHOEBE-ast-value"/>
+    <function name="PHOEBE_ast_list" link="phoebe-phoebe-constraints.html#PHOEBE-ast-list"/>
+    <function name="phoebe_ast_construct_list ()" link="phoebe-phoebe-constraints.html#phoebe-ast-construct-list"/>
+    <function name="phoebe_ast_list_reverse ()" link="phoebe-phoebe-constraints.html#phoebe-ast-list-reverse"/>
+    <function name="phoebe_ast_list_length ()" link="phoebe-phoebe-constraints.html#phoebe-ast-list-length"/>
+    <function name="phoebe_ast_add_index ()" link="phoebe-phoebe-constraints.html#phoebe-ast-add-index"/>
+    <function name="phoebe_ast_add_numval ()" link="phoebe-phoebe-constraints.html#phoebe-ast-add-numval"/>
+    <function name="phoebe_ast_add_builtin ()" link="phoebe-phoebe-constraints.html#phoebe-ast-add-builtin"/>
+    <function name="phoebe_ast_add_parameter ()" link="phoebe-phoebe-constraints.html#phoebe-ast-add-parameter"/>
+    <function name="phoebe_ast_add_node ()" link="phoebe-phoebe-constraints.html#phoebe-ast-add-node"/>
+    <function name="phoebe_ast_duplicate ()" link="phoebe-phoebe-constraints.html#phoebe-ast-duplicate"/>
+    <function name="phoebe_ast_evaluate ()" link="phoebe-phoebe-constraints.html#phoebe-ast-evaluate"/>
+    <function name="phoebe_ast_print ()" link="phoebe-phoebe-constraints.html#phoebe-ast-print"/>
+    <function name="phoebe_ast_free ()" link="phoebe-phoebe-constraints.html#phoebe-ast-free"/>
+    <function name="phoebe_constraint_new ()" link="phoebe-phoebe-constraints.html#phoebe-constraint-new"/>
+    <function name="phoebe_constraint_get_qualifier ()" link="phoebe-phoebe-constraints.html#phoebe-constraint-get-qualifier"/>
+    <function name="phoebe_constraint_satisfy_all ()" link="phoebe-phoebe-constraints.html#phoebe-constraint-satisfy-all"/>
+    <function name="phoebe_free_constraints ()" link="phoebe-phoebe-constraints.html#phoebe-free-constraints"/>
+    <function name="pcparse ()" link="phoebe-phoebe-constraints.html#pcparse"/>
+    <function name="enum bool" link="phoebe-phoebe-types.html#bool"/>
+    <function name="enum PHOEBE_type" link="phoebe-phoebe-types.html#PHOEBE-type"/>
+    <function name="phoebe_type_get_name ()" link="phoebe-phoebe-types.html#phoebe-type-get-name"/>
+    <function name="PHOEBE_vector" link="phoebe-phoebe-types.html#PHOEBE-vector"/>
+    <function name="phoebe_vector_new ()" link="phoebe-phoebe-types.html#phoebe-vector-new"/>
+    <function name="phoebe_vector_new_from_qualifier ()" link="phoebe-phoebe-types.html#phoebe-vector-new-from-qualifier"/>
+    <function name="phoebe_vector_new_from_column ()" link="phoebe-phoebe-types.html#phoebe-vector-new-from-column"/>
+    <function name="phoebe_vector_new_from_range ()" link="phoebe-phoebe-types.html#phoebe-vector-new-from-range"/>
+    <function name="phoebe_vector_duplicate ()" link="phoebe-phoebe-types.html#phoebe-vector-duplicate"/>
+    <function name="phoebe_vector_alloc ()" link="phoebe-phoebe-types.html#phoebe-vector-alloc"/>
+    <function name="phoebe_vector_realloc ()" link="phoebe-phoebe-types.html#phoebe-vector-realloc"/>
+    <function name="phoebe_vector_pad ()" link="phoebe-phoebe-types.html#phoebe-vector-pad"/>
+    <function name="phoebe_vector_free ()" link="phoebe-phoebe-types.html#phoebe-vector-free"/>
+    <function name="phoebe_vector_add ()" link="phoebe-phoebe-types.html#phoebe-vector-add"/>
+    <function name="phoebe_vector_subtract ()" link="phoebe-phoebe-types.html#phoebe-vector-subtract"/>
+    <function name="phoebe_vector_multiply ()" link="phoebe-phoebe-types.html#phoebe-vector-multiply"/>
+    <function name="phoebe_vector_divide ()" link="phoebe-phoebe-types.html#phoebe-vector-divide"/>
+    <function name="phoebe_vector_raise ()" link="phoebe-phoebe-types.html#phoebe-vector-raise"/>
+    <function name="phoebe_vector_offset ()" link="phoebe-phoebe-types.html#phoebe-vector-offset"/>
+    <function name="phoebe_vector_sum ()" link="phoebe-phoebe-types.html#phoebe-vector-sum"/>
+    <function name="phoebe_vector_mean ()" link="phoebe-phoebe-types.html#phoebe-vector-mean"/>
+    <function name="phoebe_vector_median ()" link="phoebe-phoebe-types.html#phoebe-vector-median"/>
+    <function name="phoebe_vector_standard_deviation ()" link="phoebe-phoebe-types.html#phoebe-vector-standard-deviation"/>
+    <function name="phoebe_vector_multiply_by ()" link="phoebe-phoebe-types.html#phoebe-vector-multiply-by"/>
+    <function name="phoebe_vector_dot_product ()" link="phoebe-phoebe-types.html#phoebe-vector-dot-product"/>
+    <function name="phoebe_vector_vec_product ()" link="phoebe-phoebe-types.html#phoebe-vector-vec-product"/>
+    <function name="phoebe_vector_submit ()" link="phoebe-phoebe-types.html#phoebe-vector-submit"/>
+    <function name="phoebe_vector_norm ()" link="phoebe-phoebe-types.html#phoebe-vector-norm"/>
+    <function name="phoebe_vector_dim ()" link="phoebe-phoebe-types.html#phoebe-vector-dim"/>
+    <function name="phoebe_vector_randomize ()" link="phoebe-phoebe-types.html#phoebe-vector-randomize"/>
+    <function name="phoebe_vector_min_max ()" link="phoebe-phoebe-types.html#phoebe-vector-min-max"/>
+    <function name="phoebe_vector_min_index ()" link="phoebe-phoebe-types.html#phoebe-vector-min-index"/>
+    <function name="phoebe_vector_max_index ()" link="phoebe-phoebe-types.html#phoebe-vector-max-index"/>
+    <function name="phoebe_vector_rescale ()" link="phoebe-phoebe-types.html#phoebe-vector-rescale"/>
+    <function name="phoebe_vector_compare ()" link="phoebe-phoebe-types.html#phoebe-vector-compare"/>
+    <function name="phoebe_vector_less_than ()" link="phoebe-phoebe-types.html#phoebe-vector-less-than"/>
+    <function name="phoebe_vector_leq_than ()" link="phoebe-phoebe-types.html#phoebe-vector-leq-than"/>
+    <function name="phoebe_vector_greater_than ()" link="phoebe-phoebe-types.html#phoebe-vector-greater-than"/>
+    <function name="phoebe_vector_geq_than ()" link="phoebe-phoebe-types.html#phoebe-vector-geq-than"/>
+    <function name="phoebe_vector_append_element ()" link="phoebe-phoebe-types.html#phoebe-vector-append-element"/>
+    <function name="phoebe_vector_remove_element ()" link="phoebe-phoebe-types.html#phoebe-vector-remove-element"/>
+    <function name="PHOEBE_matrix" link="phoebe-phoebe-types.html#PHOEBE-matrix"/>
+    <function name="phoebe_matrix_new ()" link="phoebe-phoebe-types.html#phoebe-matrix-new"/>
+    <function name="phoebe_matrix_alloc ()" link="phoebe-phoebe-types.html#phoebe-matrix-alloc"/>
+    <function name="phoebe_matrix_free ()" link="phoebe-phoebe-types.html#phoebe-matrix-free"/>
+    <function name="phoebe_matrix_get_row ()" link="phoebe-phoebe-types.html#phoebe-matrix-get-row"/>
+    <function name="phoebe_matrix_set_row ()" link="phoebe-phoebe-types.html#phoebe-matrix-set-row"/>
+    <function name="PHOEBE_array" link="phoebe-phoebe-types.html#PHOEBE-array"/>
+    <function name="phoebe_array_new ()" link="phoebe-phoebe-types.html#phoebe-array-new"/>
+    <function name="phoebe_array_new_from_qualifier ()" link="phoebe-phoebe-types.html#phoebe-array-new-from-qualifier"/>
+    <function name="phoebe_array_new_from_column ()" link="phoebe-phoebe-types.html#phoebe-array-new-from-column"/>
+    <function name="phoebe_array_alloc ()" link="phoebe-phoebe-types.html#phoebe-array-alloc"/>
+    <function name="phoebe_array_realloc ()" link="phoebe-phoebe-types.html#phoebe-array-realloc"/>
+    <function name="phoebe_array_duplicate ()" link="phoebe-phoebe-types.html#phoebe-array-duplicate"/>
+    <function name="phoebe_array_compare ()" link="phoebe-phoebe-types.html#phoebe-array-compare"/>
+    <function name="phoebe_array_free ()" link="phoebe-phoebe-types.html#phoebe-array-free"/>
+    <function name="phoebe_vector_new_from_array ()" link="phoebe-phoebe-types.html#phoebe-vector-new-from-array"/>
+    <function name="PHOEBE_hist" link="phoebe-phoebe-types.html#PHOEBE-hist"/>
+    <function name="enum PHOEBE_hist_rebin_type" link="phoebe-phoebe-types.html#PHOEBE-hist-rebin-type"/>
+    <function name="phoebe_hist_new ()" link="phoebe-phoebe-types.html#phoebe-hist-new"/>
+    <function name="phoebe_hist_new_from_arrays ()" link="phoebe-phoebe-types.html#phoebe-hist-new-from-arrays"/>
+    <function name="phoebe_hist_new_from_file ()" link="phoebe-phoebe-types.html#phoebe-hist-new-from-file"/>
+    <function name="phoebe_hist_duplicate ()" link="phoebe-phoebe-types.html#phoebe-hist-duplicate"/>
+    <function name="phoebe_hist_alloc ()" link="phoebe-phoebe-types.html#phoebe-hist-alloc"/>
+    <function name="phoebe_hist_realloc ()" link="phoebe-phoebe-types.html#phoebe-hist-realloc"/>
+    <function name="phoebe_hist_free ()" link="phoebe-phoebe-types.html#phoebe-hist-free"/>
+    <function name="phoebe_hist_set_ranges ()" link="phoebe-phoebe-types.html#phoebe-hist-set-ranges"/>
+    <function name="phoebe_hist_set_values ()" link="phoebe-phoebe-types.html#phoebe-hist-set-values"/>
+    <function name="phoebe_hist_get_bin_centers ()" link="phoebe-phoebe-types.html#phoebe-hist-get-bin-centers"/>
+    <function name="phoebe_hist_get_bin ()" link="phoebe-phoebe-types.html#phoebe-hist-get-bin"/>
+    <function name="phoebe_hist_evaluate ()" link="phoebe-phoebe-types.html#phoebe-hist-evaluate"/>
+    <function name="phoebe_hist_integrate ()" link="phoebe-phoebe-types.html#phoebe-hist-integrate"/>
+    <function name="phoebe_hist_shift ()" link="phoebe-phoebe-types.html#phoebe-hist-shift"/>
+    <function name="phoebe_hist_correlate ()" link="phoebe-phoebe-types.html#phoebe-hist-correlate"/>
+    <function name="phoebe_hist_pad ()" link="phoebe-phoebe-types.html#phoebe-hist-pad"/>
+    <function name="phoebe_hist_crop ()" link="phoebe-phoebe-types.html#phoebe-hist-crop"/>
+    <function name="phoebe_hist_compare ()" link="phoebe-phoebe-types.html#phoebe-hist-compare"/>
+    <function name="phoebe_hist_resample ()" link="phoebe-phoebe-types.html#phoebe-hist-resample"/>
+    <function name="phoebe_hist_rebin ()" link="phoebe-phoebe-types.html#phoebe-hist-rebin"/>
+    <function name="PHOEBE_ld" link="phoebe-phoebe-types.html#PHOEBE-ld"/>
+    <function name="PHOEBE_passband" link="phoebe-phoebe-types.html#PHOEBE-passband"/>
+    <function name="enum PHOEBE_curve_type" link="phoebe-phoebe-types.html#PHOEBE-curve-type"/>
+    <function name="phoebe_curve_type_get_name ()" link="phoebe-phoebe-types.html#phoebe-curve-type-get-name"/>
+    <function name="enum PHOEBE_column_type" link="phoebe-phoebe-types.html#PHOEBE-column-type"/>
+    <function name="phoebe_column_type_get_name ()" link="phoebe-phoebe-types.html#phoebe-column-type-get-name"/>
+    <function name="phoebe_column_get_type ()" link="phoebe-phoebe-types.html#phoebe-column-get-type"/>
+    <function name="enum PHOEBE_data_flag" link="phoebe-phoebe-types.html#PHOEBE-data-flag"/>
+    <function name="PHOEBE_curve" link="phoebe-phoebe-types.html#PHOEBE-curve"/>
+    <function name="phoebe_curve_new ()" link="phoebe-phoebe-types.html#phoebe-curve-new"/>
+    <function name="phoebe_curve_new_from_file ()" link="phoebe-phoebe-types.html#phoebe-curve-new-from-file"/>
+    <function name="phoebe_curve_new_from_pars ()" link="phoebe-phoebe-types.html#phoebe-curve-new-from-pars"/>
+    <function name="phoebe_curve_duplicate ()" link="phoebe-phoebe-types.html#phoebe-curve-duplicate"/>
+    <function name="phoebe_curve_alloc ()" link="phoebe-phoebe-types.html#phoebe-curve-alloc"/>
+    <function name="phoebe_curve_realloc ()" link="phoebe-phoebe-types.html#phoebe-curve-realloc"/>
+    <function name="phoebe_curve_compute ()" link="phoebe-phoebe-types.html#phoebe-curve-compute"/>
+    <function name="phoebe_curve_transform ()" link="phoebe-phoebe-types.html#phoebe-curve-transform"/>
+    <function name="phoebe_curve_alias ()" link="phoebe-phoebe-types.html#phoebe-curve-alias"/>
+    <function name="phoebe_curve_set_properties ()" link="phoebe-phoebe-types.html#phoebe-curve-set-properties"/>
+    <function name="phoebe_curve_free ()" link="phoebe-phoebe-types.html#phoebe-curve-free"/>
+    <function name="enum PHOEBE_spectrum_dispersion" link="phoebe-phoebe-types.html#PHOEBE-spectrum-dispersion"/>
+    <function name="PHOEBE_spectrum" link="phoebe-phoebe-types.html#PHOEBE-spectrum"/>
+    <function name="enum PHOEBE_minimizer_type" link="phoebe-phoebe-types.html#PHOEBE-minimizer-type"/>
+    <function name="phoebe_minimizer_type_get_name ()" link="phoebe-phoebe-types.html#phoebe-minimizer-type-get-name"/>
+    <function name="PHOEBE_minimizer_feedback" link="phoebe-phoebe-types.html#PHOEBE-minimizer-feedback"/>
+    <function name="phoebe_minimizer_feedback_new ()" link="phoebe-phoebe-types.html#phoebe-minimizer-feedback-new"/>
+    <function name="phoebe_minimizer_feedback_duplicate ()" link="phoebe-phoebe-types.html#phoebe-minimizer-feedback-duplicate"/>
+    <function name="phoebe_minimizer_feedback_alloc ()" link="phoebe-phoebe-types.html#phoebe-minimizer-feedback-alloc"/>
+    <function name="phoebe_minimizer_feedback_accept ()" link="phoebe-phoebe-types.html#phoebe-minimizer-feedback-accept"/>
+    <function name="phoebe_minimizer_feedback_free ()" link="phoebe-phoebe-types.html#phoebe-minimizer-feedback-free"/>
+    <function name="phoebe_spectrum_duplicate ()" link="phoebe-phoebe-types.html#phoebe-spectrum-duplicate"/>
+    <function name="phoebe_value_duplicate ()" link="phoebe-phoebe-types.html#phoebe-value-duplicate"/>
+  </functions>
+</book>

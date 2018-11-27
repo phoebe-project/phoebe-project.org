@@ -1,0 +1,586 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>phoebe_constraints</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.73.2">
+<link rel="start" href="index.html" title="PHOEBE Reference Manual">
+<link rel="up" href="ch01.html" title="PHOEBE library consists of the following sources:">
+<link rel="prev" href="phoebe-phoebe-error-handling.html" title="phoebe_error_handling">
+<link rel="next" href="phoebe-phoebe-types.html" title="phoebe_types">
+<meta name="generator" content="GTK-Doc V1.10 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="PHOEBE library consists of the following sources:">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="phoebe-phoebe-error-handling.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">PHOEBE Reference Manual</th>
+<td><a accesskey="n" href="phoebe-phoebe-types.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts"><nobr><a href="#phoebe-phoebe-constraints.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#phoebe-phoebe-constraints.description" class="shortcut">Description</a></nobr></td></tr>
+</table>
+<div class="refentry" lang="en">
+<a name="phoebe-phoebe-constraints"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="phoebe-phoebe-constraints.top_of_page"></a>phoebe_constraints</span></h2>
+<p>phoebe_constraints</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="phoebe-phoebe-constraints.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+enum                <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-node-type" title="enum PHOEBE_node_type">PHOEBE_node_type</a>;
+                    <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>;
+                    <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-value" title="PHOEBE_ast_value">PHOEBE_ast_value</a>;
+                    <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a>;
+<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a>*    <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-construct-list" title="phoebe_ast_construct_list ()">phoebe_ast_construct_list</a>           (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *ast,
+                                                         <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *list);
+<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a>*    <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-list-reverse" title="phoebe_ast_list_reverse ()">phoebe_ast_list_reverse</a>             (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *c,
+                                                         <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *p);
+int                 <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-list-length" title="phoebe_ast_list_length ()">phoebe_ast_list_length</a>              (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *list);
+<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-add-index" title="phoebe_ast_add_index ()">phoebe_ast_add_index</a>                (int idx);
+<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-add-numval" title="phoebe_ast_add_numval ()">phoebe_ast_add_numval</a>               (double numval);
+<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-add-builtin" title="phoebe_ast_add_builtin ()">phoebe_ast_add_builtin</a>              (char *builtin);
+<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-add-parameter" title="phoebe_ast_add_parameter ()">phoebe_ast_add_parameter</a>            (char *qualifier);
+<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-add-node" title="phoebe_ast_add_node ()">phoebe_ast_add_node</a>                 (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-node-type" title="enum PHOEBE_node_type">PHOEBE_node_type</a> type,
+                                                         <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *args);
+<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-duplicate" title="phoebe_ast_duplicate ()">phoebe_ast_duplicate</a>                (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *ast);
+<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-value" title="PHOEBE_ast_value">PHOEBE_ast_value</a>    <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-evaluate" title="phoebe_ast_evaluate ()">phoebe_ast_evaluate</a>                 (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *ast);
+int                 <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-print" title="phoebe_ast_print ()">phoebe_ast_print</a>                    (int depth,
+                                                         <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *in);
+int                 <a class="link" href="phoebe-phoebe-constraints.html#phoebe-ast-free" title="phoebe_ast_free ()">phoebe_ast_free</a>                     (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *ast);
+int                 <a class="link" href="phoebe-phoebe-constraints.html#phoebe-constraint-new" title="phoebe_constraint_new ()">phoebe_constraint_new</a>               (const char *constraint);
+char*               <a class="link" href="phoebe-phoebe-constraints.html#phoebe-constraint-get-qualifier" title="phoebe_constraint_get_qualifier ()">phoebe_constraint_get_qualifier</a>     (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *constraint);
+int                 <a class="link" href="phoebe-phoebe-constraints.html#phoebe-constraint-satisfy-all" title="phoebe_constraint_satisfy_all ()">phoebe_constraint_satisfy_all</a>       ();
+int                 <a class="link" href="phoebe-phoebe-constraints.html#phoebe-free-constraints" title="phoebe_free_constraints ()">phoebe_free_constraints</a>             ();
+int                 <a class="link" href="phoebe-phoebe-constraints.html#pcparse" title="pcparse ()">pcparse</a>                             (void);
+</pre>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-constraints.description"></a><h2>Description</h2>
+<p>
+
+</p>
+</div>
+<div class="refsect1" lang="en">
+<a name="phoebe-phoebe-constraints.details"></a><h2>Details</h2>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-node-type"></a><h3>enum PHOEBE_node_type</h3>
+<pre class="programlisting">typedef enum {
+	PHOEBE_NODE_TYPE_CONSTRAINT,
+	PHOEBE_NODE_TYPE_PARAMETER,
+	PHOEBE_NODE_TYPE_ADD,
+	PHOEBE_NODE_TYPE_SUB,
+	PHOEBE_NODE_TYPE_MUL,
+	PHOEBE_NODE_TYPE_DIV,
+	PHOEBE_NODE_TYPE_POT,
+	PHOEBE_NODE_TYPE_BUILTIN
+} PHOEBE_node_type;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-ast"></a><h3>PHOEBE_ast</h3>
+<pre class="programlisting">typedef struct {
+	enum {
+		PHOEBE_AST_INDEX,
+		PHOEBE_AST_NUMVAL,
+		PHOEBE_AST_STRING,
+		PHOEBE_AST_PARAMETER,
+		PHOEBE_AST_NODE
+	} type;
+	union {
+		int    idx;
+		double numval;
+		char  *str;
+		struct {
+			PHOEBE_node_type        type;
+			struct PHOEBE_ast_list *args;
+		} node;
+	} val;
+} PHOEBE_ast;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-ast-value"></a><h3>PHOEBE_ast_value</h3>
+<pre class="programlisting">typedef struct {
+	enum {
+		PHOEBE_AST_VALUE_VOID,
+		PHOEBE_AST_VALUE_INT,
+		PHOEBE_AST_VALUE_DOUBLE,
+		PHOEBE_AST_VALUE_STRING,
+		PHOEBE_AST_VALUE_PARAMETER
+	} type;
+	union {
+		int               idx;
+		double            numval;
+		char             *str;
+	} val;
+} PHOEBE_ast_value;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="PHOEBE-ast-list"></a><h3>PHOEBE_ast_list</h3>
+<pre class="programlisting">typedef struct {
+	PHOEBE_ast *elem;
+	struct PHOEBE_ast_list *next;
+} PHOEBE_ast_list;
+</pre>
+<p>
+
+</p>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-construct-list"></a><h3>phoebe_ast_construct_list ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a>*    phoebe_ast_construct_list           (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *ast,
+                                                         <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *list);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ast</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-list-reverse"></a><h3>phoebe_ast_list_reverse ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a>*    phoebe_ast_list_reverse             (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *c,
+                                                         <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *p);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>c</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>p</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-list-length"></a><h3>phoebe_ast_list_length ()</h3>
+<pre class="programlisting">int                 phoebe_ast_list_length              (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *list);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-add-index"></a><h3>phoebe_ast_add_index ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         phoebe_ast_add_index                (int idx);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>idx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-add-numval"></a><h3>phoebe_ast_add_numval ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         phoebe_ast_add_numval               (double numval);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>numval</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-add-builtin"></a><h3>phoebe_ast_add_builtin ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         phoebe_ast_add_builtin              (char *builtin);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>builtin</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-add-parameter"></a><h3>phoebe_ast_add_parameter ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         phoebe_ast_add_parameter            (char *qualifier);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>qualifier</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-add-node"></a><h3>phoebe_ast_add_node ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         phoebe_ast_add_node                 (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-node-type" title="enum PHOEBE_node_type">PHOEBE_node_type</a> type,
+                                                         <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-list" title="PHOEBE_ast_list">PHOEBE_ast_list</a> *args);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>args</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-duplicate"></a><h3>phoebe_ast_duplicate ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a>*         phoebe_ast_duplicate                (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *ast);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ast</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-evaluate"></a><h3>phoebe_ast_evaluate ()</h3>
+<pre class="programlisting"><a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast-value" title="PHOEBE_ast_value">PHOEBE_ast_value</a>    phoebe_ast_evaluate                 (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *ast);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ast</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-print"></a><h3>phoebe_ast_print ()</h3>
+<pre class="programlisting">int                 phoebe_ast_print                    (int depth,
+                                                         <a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *in);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>depth</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>in</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-ast-free"></a><h3>phoebe_ast_free ()</h3>
+<pre class="programlisting">int                 phoebe_ast_free                     (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *ast);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ast</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-constraint-new"></a><h3>phoebe_constraint_new ()</h3>
+<pre class="programlisting">int                 phoebe_constraint_new               (const char *constraint);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>constraint</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-constraint-get-qualifier"></a><h3>phoebe_constraint_get_qualifier ()</h3>
+<pre class="programlisting">char*               phoebe_constraint_get_qualifier     (<a class="link" href="phoebe-phoebe-constraints.html#PHOEBE-ast" title="PHOEBE_ast">PHOEBE_ast</a> *constraint);</pre>
+<p>
+</p>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>constraint</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a newly allocated qualifier that appears in the constraint.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-constraint-satisfy-all"></a><h3>phoebe_constraint_satisfy_all ()</h3>
+<pre class="programlisting">int                 phoebe_constraint_satisfy_all       ();</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="phoebe-free-constraints"></a><h3>phoebe_free_constraints ()</h3>
+<pre class="programlisting">int                 phoebe_free_constraints             ();</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" lang="en">
+<a name="pcparse"></a><h3>pcparse ()</h3>
+<pre class="programlisting">int                 pcparse                             (void);</pre>
+<p>
+
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+
+
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.10</div>
+</body>
+</html>

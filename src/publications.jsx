@@ -48,7 +48,7 @@ class Publication extends Component {
     return (
       <div className="row">
         <Link to={this.props.adsLink}>{this.props.author}</Link>
-        {this.props.pdf ? <span> (<a href={"https://github.com/kecnry/phoebe-project.org/raw/master/public/pdf/"+this.props.pdf}>download pdf</a>) </span> : null}
+        {this.props.pdf ? <span> (<Link to={"/pdf/"+this.props.pdf}>download pdf</Link>) </span> : null}
         <span> - {this.props.title}</span>
         {this.props.release ? <span> (<Link to={"/releases/"+this.props.release+"/"}>PHOEBE {this.props.release} release</Link>)</span> : null}
       </div>

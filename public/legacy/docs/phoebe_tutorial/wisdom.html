@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.71)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Phoebe 0.29 Tutorial - Common wisdom</TITLE>
+<META NAME="description" CONTENT="Common wisdom">
+<META NAME="keywords" CONTENT="phoebe_tutorial">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-2">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="phoebe_tutorial.css">
+
+<LINK REL="next" HREF="transformations.html">
+<LINK REL="previous" HREF="conventions.html">
+<LINK REL="up" HREF="index.html">
+<LINK REL="next" HREF="transformations.html">
+</HEAD>
+
+<BODY>
+
+<DIV CLASS="navigation"><!--Navigation Panel-->
+<B> Next:</B> <A NAME="tex2html294"  HREF="transformations.html">Transformation rules</A>
+<B> Up:</B> <A NAME="tex2html290"  HREF="index.html">PHOEBE Tutorial</A>
+<B> Previous:</B> <A NAME="tex2html284"  HREF="conventions.html">Physical parameters' conventions</A>
+ &nbsp; <B>  <A NAME="tex2html292"  HREF="contents.html">Contents</A></B> 
+<BR>
+<BR></DIV>
+<!--End of Navigation Panel-->
+
+<H1><A NAME="SECTION00070000000000000000">
+Common wisdom</A>
+</H1>
+
+<P>
+<DL COMPACT>
+<DT></DT>
+<DD><B>Exclusive RV fitting</B>: to correctly determine mass ratio, it is wise to fit only the radial velocity data. There is a very important caveat you must be aware of while doing this: if you try to fit only the mass ratio <SPAN CLASS="MATH"><IMG
+ WIDTH="14" HEIGHT="33" ALIGN="MIDDLE" BORDER="0"
+ SRC="img52.png"
+ ALT="$q$"></SPAN> while you keep inclination and semi-major axis fixed, you most probably won't obtain a proper solution! The sound policy is to keep the inclination at <SPAN CLASS="MATH"><IMG
+ WIDTH="31" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img20.png"
+ ALT="$90^o$"></SPAN> and release the semi-major axis, where one must recognise the obtained solution for <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.png"
+ ALT="$a$"></SPAN> is in fact <SPAN CLASS="MATH"><IMG
+ WIDTH="50" HEIGHT="16" ALIGN="BOTTOM" BORDER="0"
+ SRC="img54.png"
+ ALT="$a \sin i$"></SPAN> and not merely <SPAN CLASS="MATH"><IMG
+ WIDTH="15" HEIGHT="19" ALIGN="BOTTOM" BORDER="0"
+ SRC="img53.png"
+ ALT="$a$"></SPAN>, since the RV amplitude (e.g. <SPAN CLASS="MATH"><IMG
+ WIDTH="28" HEIGHT="35" ALIGN="MIDDLE" BORDER="0"
+ SRC="img1.png"
+ ALT="$K_1$"></SPAN>) is:
+<BR><P></P>
+<DIV ALIGN="CENTER" CLASS="mathdisplay">
+<!-- MATH
+ \begin{displaymath}
+K_1 = \frac{2 \pi a \sin i}{t_0} \left( \frac{q}{q+1} \right).
+\end{displaymath}
+ -->
+
+<IMG
+ WIDTH="201" HEIGHT="53" BORDER="0"
+ SRC="img55.png"
+ ALT="\begin{displaymath}
+K_1 = \frac{2 \pi a \sin i}{t_0} \left( \frac{q}{q+1} \right).
+\end{displaymath}">
+</DIV>
+<BR CLEAR="ALL">
+<P></P>
+</DD>
+</DL>
+
+<P>
+<BR><HR>
+
+</BODY>
+</HTML>

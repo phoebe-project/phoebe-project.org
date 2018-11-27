@@ -6,16 +6,18 @@ import {Link as RouterLink, NavLink as RouterNavLink, Redirect as RouterRedirect
 export const metaKeywords = "phoebe, phoebe-project, eclipsing binaries, eclipsing binary stars, astronomy";
 
 function processLink(link) {
-  if (!link.startsWith("http")) {
-    if (link.startsWith("#")) {
-      link = link
-    } else {
-      if (!link.startsWith("/")) {
-        link = "/" + link
-      }
-      if (!link.startsWith(process.env.PUBLIC_URL)) {
-        link = process.env.PUBLIC_URL + link
-      }
+  if (link.startsWith("http") || link.startsWith("ftp")) {
+    return link
+  }
+
+  if (link.startsWith("#")) {
+    link = link
+  } else {
+    if (!link.startsWith("/")) {
+      link = "/" + link
+    }
+    if (!link.startsWith(process.env.PUBLIC_URL)) {
+      link = process.env.PUBLIC_URL + link
     }
   }
   return link
@@ -80,6 +82,7 @@ export class Link extends React.Component {
     super(props);
     this.state = {
       downloadContent: null,
+      href: null,
     };
   }
   componentDidMount() {
@@ -98,7 +101,11 @@ export class Link extends React.Component {
   }
   render() {
     var to = processLink(this.props.to)
-    if (to.startsWith("http")) {
+    if (to!==this.state.href) {
+      this.setState({href: to})
+    }
+
+    if (to.startsWith("http") || to.startsWith("ftp")) {
       if (this.props.downloadFilename) {
         if (this.state.downloadContent) {
           return (
@@ -114,6 +121,10 @@ export class Link extends React.Component {
           <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"> </span>}{this.props.children}</a>
         )
       }
+    } else if (to.startsWith(process.env.PUBLIC_URL)) {
+      return (
+        <a {...this.props} href={to}>{this.props.children}</a>
+      )
     } else {
       return (
         <RouterLink {...this.props} to={to}>{this.props.children}</RouterLink>
