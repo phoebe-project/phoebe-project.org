@@ -33,18 +33,19 @@ to create a local webserver running the site.
 
 ## Deploying
 
-### GitHub pages
-
 In the root directory, issue:
 
 ```
 npm run deploy
 ```
 
-You will need to provide your GitHub username and password (or API token) 2-3 times.  This will build the website and commit and push to the `gh-pages` branch.  It may then take a few minutes before those changes then go live to the website itself.
+This assumes that you have `clusty` as a servername on your machine and permissions to write to the correct directory.  If not, you can manually build and scp the files:
 
+```
+npm run build
+scp -r build/* clusty:/srv/www/phoebe-project/
+```
 
-To serve to a separate URL, edit the entry in [CNAME](./public/CNAME), the value of homepage in [package.json](./package.json), and follow the [github instructions](https://help.github.com/articles/using-a-custom-domain-with-github-pages/) to use a custom domain for pointing the DNS to GitHub pages.
 
 ## General Notes on Layout/Conventions
 
