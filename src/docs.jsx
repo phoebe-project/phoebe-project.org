@@ -152,7 +152,7 @@ export class Docs extends Component {
               <p>To update PHOEBE, see information on the <Link to="/releases/latest">latest release</Link> as well as <Link to="/install/latest">installation/update instructions</Link>.</p>
             </Alert>
           }
-          <GitHubContent repo='phoebe2-docs' branch={version+"-react"} path={this.state.contentPath} loadingText="LOADING DOCS..." reportHTML={reportHTML}>
+          <GitHubContent repo='phoebe2-docs' branch={version} path={this.state.contentPath} loadingText="LOADING DOCS..." reportHTML={reportHTML}>
             <div>
               <h1>About PHOEBE {version}</h1>
               <p>You can read about the features added during the <Link to={"/releases/"+version}>{version} release</Link> as well as read the changelog entries.</p>
