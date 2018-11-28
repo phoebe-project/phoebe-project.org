@@ -70,10 +70,17 @@ export class Redirect extends React.Component {
 export class NavLink extends React.Component {
   render() {
     var to = processLink(this.props.to)
-    return (
-      /* data-toggle and data-target will collapse the drop-down menu on mobile if open */
-      <RouterNavLink {...this.props} to={to} data-toggle="collapse" data-target=".navbar-collapse.in"s>{this.props.children}</RouterNavLink>
-    )
+
+    if (to.startsWith("http") || to.startsWith("ftp")) {
+      return (
+        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"> </span>}{this.props.children}</a>
+      )
+    } else {
+      return (
+        /* data-toggle and data-target will collapse the drop-down menu on mobile if open */
+        <RouterNavLink {...this.props} to={to} data-toggle="collapse" data-target=".navbar-collapse.in"s>{this.props.children}</RouterNavLink>
+      )
+    }
   }
 }
 
