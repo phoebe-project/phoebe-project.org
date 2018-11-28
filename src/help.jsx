@@ -153,6 +153,24 @@ export class HelpIPYNB extends Component {
   }
 }
 
+export class HelpVersion extends Component {
+  render() {
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | How To: Check Installed Version of PHOEBE</title>
+        </Helmet>
+        <Header>
+          <h1><span class="hidden-xs">How To: Check Installed Version of PHOEBE</span><span class="visible-xs">How To: PHOEBE Version</span></h1>
+        </Header>
+        <Content>
+          <p>To check your version of PHOEBE, call <code>python -c "import phoebe; print(phoebe.__version__)"</code> at the command line or <code>print(phoebe.__version__)</code> from a python console with phoebe already imported.</p>
+        </Content>
+      </div>
+    )
+  }
+}
+
 export class HelpContact extends Component {
   render() {
     return (

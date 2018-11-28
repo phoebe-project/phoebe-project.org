@@ -148,7 +148,7 @@ export class Docs extends Component {
             :
             <Alert level="danger">
               <p><b>WARNING:</b> these are the docs for an outdated version of PHOEBE ({version}).  View <Link to={getDocsLink("latest", this.state.subdir, this.state.slug)}>docs for the latest release ({docs_versions[0]})</Link> or use the version switcher at the bottom of the page to select the correct version of PHOEBE.</p>
-              <p>To check your version of PHOEBE, call <code>python -c "import phoebe; print(phoebe.__version__)"</code> at the command line.</p>
+              <p>If you're not sure, <Link to="/help/version">check your installed version of PHOEBE</Link>.</p>
               <p>To update PHOEBE, see information on the <Link to="/releases/latest">latest release</Link> as well as <Link to="/install/latest">installation/update instructions</Link>.</p>
             </Alert>
           }

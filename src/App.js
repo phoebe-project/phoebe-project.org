@@ -23,7 +23,7 @@ import {Workshop, WorkshopRegistration} from './workshops';
 import {Publications} from './publications';
 import {Source} from './source';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
-import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, HelpIPYNB} from './help';
+import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, HelpVersion, HelpIPYNB} from './help';
 import {NotFound} from './errors';
 
 function parseReadmeChangelog(text) {
@@ -111,6 +111,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/help/contact'} component={HelpContact}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/contact/:mailinglist'} component={HelpMailingList}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/faq'} component={HelpFAQ}/>
+            <Route exact path={process.env.PUBLIC_URL + '/help/version'} component={HelpVersion}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/ipynb'} component={HelpIPYNB}/>
 
             <Route path="*" component={NotFound} />
