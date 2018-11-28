@@ -24,11 +24,11 @@ export class Navbar extends React.Component {
     var navbarStyle = {}
     var navbarBrandStyle = {}
     var navbarLinkStyle = {}
-    var navbarLogo = '/logo_blue.svg'
+    var navbarLogo = '/logos/logo_blue.svg'
     if (this.state.navbarDark) {
       navbarClassName = navbarClassName + " navbar-transparent"
       // navbarStyle = {backgroundColor: "#2B71B1", boxShadow: "none", transition: "none", color: "#E6E6E6"}
-      navbarLogo = '/logo_invert.svg'
+      navbarLogo = '/logos/logo_invert.svg'
       navbarBrandStyle = {color: "#E6E6E6", fontVariant: "small-caps"}
       navbarLinkStyle = {color: "#E6E6E6"}
 

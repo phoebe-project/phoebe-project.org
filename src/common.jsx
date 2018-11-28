@@ -121,7 +121,7 @@ export class Link extends React.Component {
           <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"> </span>}{this.props.children}</a>
         )
       }
-    } else if (to.startsWith(process.env.PUBLIC_URL)) {
+    } else if (to.startsWith(process.env.PUBLIC_URL) || to.startsWith("/static/")) {
       return (
         <a {...this.props} href={to}>{this.props.children}</a>
       )

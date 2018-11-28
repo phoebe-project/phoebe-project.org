@@ -241,32 +241,32 @@ export class LegacyDocs extends Component {
               <td> PHOEBE scientific reference </td>
               <td> 182pp </td>
               <td> 2011-06-14 </td>
-              <td> <Link to="/legacy/docs/phoebe_science.pdf"> pdf </Link> </td>
+              <td> <Link to="/static/legacy/docs/phoebe_science.pdf"> pdf </Link> </td>
               </tr>
               <tr>
               <td> PHOEBE API </td>
               <td> 71pp </td>
               <td> 2008-04-21 </td>
-              <td> <Link to="/legacy/docs/phoebe_api.pdf"> pdf </Link> </td>
+              <td> <Link to="/static/legacy/docs/phoebe_api.pdf"> pdf </Link> </td>
               </tr>
               <tr>
               <td> PHOEBE user manual </td>
               <td> 21pp </td>
               <td> 2011-04-13 </td>
-              <td> <Link to="/legacy/docs/phoebe_manual.pdf"> pdf </Link> </td>
+              <td> <Link to="/static/legacy/docs/phoebe_manual.pdf"> pdf </Link> </td>
               </tr>
               <tr style={{borderBottom: "1px solid gray"}}><td colspan="100%"></td></tr>
               <tr>
               <td> PHOEBE tutorial </td>
               <td> 36pp </td>
               <td> 2007-06-20 </td>
-              <td> <Link to="/legacy/docs/phoebe_tutorial/phoebe_tutorial.html"> html </Link> </td>
+              <td> <Link to="/static/legacy/docs/phoebe_tutorial/phoebe_tutorial.html"> html </Link> </td>
               </tr>
               <tr>
               <td> PHOEBE library API </td>
               <td>  </td>
               <td> 2018-04-27 </td>
-              <td> <Link to="/legacy/docs/api/index.html"> html </Link> </td>
+              <td> <Link to="/static/legacy/docs/api/index.html"> html </Link> </td>
               </tr>
               <tr>
               <td> PHOEBE FAQ </td>
@@ -334,107 +334,107 @@ export class LegacyDownload extends Component {
           </tr><tr style={{borderBottom: "1px solid gray"}}><td colspan="100%"></td></tr>
 
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-lib-0.31a.tar.gz"> PHOEBE Lib 0.31a </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-lib-0.31a.tar.gz"> PHOEBE Lib 0.31a </Link></td>
           <td valign="middle"> 2.3MB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2008-06-16 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-lib-0.31a"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-lib-0.31a"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-scripter-0.31a.tar.gz"> PHOEBE Scripter 0.31a </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-scripter-0.31a.tar.gz"> PHOEBE Scripter 0.31a </Link></td>
           <td valign="middle"> 206KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2008-06-16 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-scripter-0.31a"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-scripter-0.31a"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-gui-0.31a.tar.gz"> PHOEBE GUI 0.31a </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-gui-0.31a.tar.gz"> PHOEBE GUI 0.31a </Link></td>
           <td valign="middle"> 220KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2008-06-16 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-GUI-0.31a"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-GUI-0.31a"> View </Link> </td>
           </tr>
 
           <tr style={{borderBottom: "1px solid gray"}}><td colspan="100%"></td></tr>
 
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-lib-0.31.tar.gz"> PHOEBE Lib 0.31 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-lib-0.31.tar.gz"> PHOEBE Lib 0.31 </Link></td>
           <td valign="middle"> 2.3MB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2008-06-01 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-lib-0.31"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-lib-0.31"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-scripter-0.31.tar.gz"> PHOEBE Scripter 0.31 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-scripter-0.31.tar.gz"> PHOEBE Scripter 0.31 </Link></td>
           <td valign="middle"> 205KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2008-06-01 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-scripter-0.31"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-scripter-0.31"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-gui-0.31.tar.gz"> PHOEBE GUI 0.31 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-gui-0.31.tar.gz"> PHOEBE GUI 0.31 </Link></td>
           <td valign="middle"> 217KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2008-06-01 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-GUI-0.31"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-GUI-0.31"> View </Link> </td>
           </tr>
 
           <tr style={{borderBottom: "1px solid gray"}}><td colspan="100%"></td></tr>
 
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-lib-0.30.tar.gz"> PHOEBE Lib 0.30 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-lib-0.30.tar.gz"> PHOEBE Lib 0.30 </Link></td>
           <td valign="middle"> 1.6MB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2007-11-15 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-lib-0.30"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-lib-0.30"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-scripter-0.30.tar.gz"> PHOEBE Scripter 0.30 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-scripter-0.30.tar.gz"> PHOEBE Scripter 0.30 </Link></td>
           <td valign="middle"> 199KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2007-11-15 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-scripter-0.30"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-scripter-0.30"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-gui-0.30.tar.gz"> PHOEBE GUI 0.30 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-gui-0.30.tar.gz"> PHOEBE GUI 0.30 </Link></td>
           <td valign="middle"> 191KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2007-11-15 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-GUI-0.30"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-GUI-0.30"> View </Link> </td>
           </tr>
 
           <tr style={{borderBottom: "1px solid gray"}}><td colspan="100%"></td></tr>
 
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-lib-0.30rc2.tar.gz"> PHOEBE Lib 0.30RC2 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-lib-0.30rc2.tar.gz"> PHOEBE Lib 0.30RC2 </Link></td>
           <td valign="middle"> 1.6MB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2007-11-03 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-0.30rc2"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.30rc2"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-scripter-0.30rc2.tar.gz"> PHOEBE Scripter 0.30RC2 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-scripter-0.30rc2.tar.gz"> PHOEBE Scripter 0.30RC2 </Link></td>
           <td valign="middle"> 199KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2007-11-03 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-0.30rc2"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.30rc2"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-gui-0.30rc2.tar.gz"> PHOEBE GUI 0.30RC2 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-gui-0.30rc2.tar.gz"> PHOEBE GUI 0.30RC2 </Link></td>
           <td valign="middle"> 184KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2007-11-03 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-0.30rc2"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.30rc2"> View </Link> </td>
           </tr>
 
           <tr style={{borderBottom: "1px solid gray"}}><td colspan="100%"></td></tr>
 
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-0.30rc1.tar.gz"> PHOEBE 0.30RC1 (monolithic) </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-0.30rc1.tar.gz"> PHOEBE 0.30RC1 (monolithic) </Link></td>
           <td valign="middle"> 3.6MB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 2007-10-15 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-0.30RC1"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.30RC1"> View </Link> </td>
           </tr>
           </tbody></table><br/>
 
@@ -454,39 +454,39 @@ export class LegacyDownload extends Component {
           </tr><tr style={{borderBottom: "1px solid gray"}}><td colspan="100%"></td></tr>
 
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-0.30pre4.tar.gz"> PHOEBE 0.30pre4 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-0.30pre4.tar.gz"> PHOEBE 0.30pre4 </Link></td>
           <td valign="middle"> 1.8MB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 16. 05. 2005 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-0.30pre4"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.30pre4"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-0.30pre3.tar.gz"> PHOEBE 0.30pre3 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-0.30pre3.tar.gz"> PHOEBE 0.30pre3 </Link></td>
           <td valign="middle"> 1.5MB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 15. 03. 2005 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-0.30pre3"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.30pre3"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-0.30pre2.tar.gz"> PHOEBE 0.30pre2 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-0.30pre2.tar.gz"> PHOEBE 0.30pre2 </Link></td>
           <td valign="middle"> 1.4MB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 26. 07. 2004 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-0.30pre2"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.30pre2"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-0.30pre1.tar.gz"> PHOEBE 0.30pre1 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-0.30pre1.tar.gz"> PHOEBE 0.30pre1 </Link></td>
           <td valign="middle"> 524KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 26. 03. 2004 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-0.30pre1"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.30pre1"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/phoebe-0.30pre0.tar.gz"> PHOEBE 0.30pre0 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/phoebe-0.30pre0.tar.gz"> PHOEBE 0.30pre0 </Link></td>
           <td valign="middle"> 512KB </td>
           <td valign="middle"> Tarball (.tar.gz) </td>
           <td valign="middle"> 07. 01. 2004 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-0.30pre0"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.30pre0"> View </Link> </td>
           </tr>
           </tbody></table>
 
@@ -508,25 +508,25 @@ export class LegacyDownload extends Component {
           </tr><tr style={{borderBottom: "1px solid gray"}}><td colspan="100%"></td></tr>
 
           <tr>
-          <td valign="middle"> <Link to="/legacy/windows_builds/phoebe0.32-setup.exe"> PHOEBE 0.32-snapshot </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/windows_builds/phoebe0.32-setup.exe"> PHOEBE 0.32-snapshot </Link></td>
           <td valign="middle"> 13MB </td>
           <td valign="middle"> Executable (.exe) </td>
           <td valign="middle"> 2017-09-25 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-lib-0.31a"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-lib-0.31a"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/windows_builds/phoebe0.31a-setup.exe"> PHOEBE 0.31a </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/windows_builds/phoebe0.31a-setup.exe"> PHOEBE 0.31a </Link></td>
           <td valign="middle"> 15MB </td>
           <td valign="middle"> Executable (.exe) </td>
           <td valign="middle"> 2008-06-16 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-lib-0.31a"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-lib-0.31a"> View </Link> </td>
           </tr>
           <tr>
-          <td valign="middle"> <Link to="/legacy/windows_builds/phoebe0.31-setup.exe"> PHOEBE 0.31 </Link></td>
+          <td valign="middle"> <Link to="/static/legacy/windows_builds/phoebe0.31-setup.exe"> PHOEBE 0.31 </Link></td>
           <td valign="middle"> 15MB </td>
           <td valign="middle"> Executable (.exe) </td>
           <td valign="middle"> 2008-06-01 </td>
-          <td valign="middle"> <Link to="/legacy/ChangeLog-lib-0.31"> View </Link> </td>
+          <td valign="middle"> <Link to="/static/legacy/ChangeLog-lib-0.31"> View </Link> </td>
           </tr>
           </tbody></table>
 
@@ -614,109 +614,109 @@ export class LegacyDownload extends Component {
             </tr><tr style={{borderBottom: "1px solid gray"}}><td colspan="100%"></td></tr>
 
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.29d.tar.gz"> PHOEBE 0.29d </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.29d.tar.gz"> PHOEBE 0.29d </Link></td>
             <td valign="middle"> 1689KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 25. 09. 2007 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.29d"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.29d"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.29c.tar.gz"> PHOEBE 0.29c </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.29c.tar.gz"> PHOEBE 0.29c </Link></td>
             <td valign="middle"> 1560KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 04. 07. 2006 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.29c"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.29c"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.29b.tar.gz"> PHOEBE 0.29b </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.29b.tar.gz"> PHOEBE 0.29b </Link></td>
             <td valign="middle"> 1560KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 21. 06. 2006 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.29b"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.29b"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.29a.tar.gz"> PHOEBE 0.29a </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.29a.tar.gz"> PHOEBE 0.29a </Link></td>
             <td valign="middle"> 1618KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 31. 01. 2006 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.29a"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.29a"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.29.tar.gz"> PHOEBE 0.29 </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.29.tar.gz"> PHOEBE 0.29 </Link></td>
             <td valign="middle"> 1610KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 13. 01. 2006 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.29"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.29"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.28a.tar.gz"> PHOEBE 0.28a </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.28a.tar.gz"> PHOEBE 0.28a </Link></td>
             <td valign="middle"> 1609KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 10. 11. 2005 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.28a"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.28a"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.28.tar.gz"> PHOEBE 0.28 </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.28.tar.gz"> PHOEBE 0.28 </Link></td>
             <td valign="middle"> 1609KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 01. 11. 2005 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.28"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.28"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.27.tar.gz"> PHOEBE 0.27 </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.27.tar.gz"> PHOEBE 0.27 </Link></td>
             <td valign="middle"> 1625KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 30. 05. 2005 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.27"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.27"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.26.tar.gz"> PHOEBE 0.26 </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.26.tar.gz"> PHOEBE 0.26 </Link></td>
             <td valign="middle"> 1472KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 21. 10. 2004 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.26"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.26"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.25.tar.gz"> PHOEBE 0.25 </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.25.tar.gz"> PHOEBE 0.25 </Link></td>
             <td valign="middle"> 1471KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 23. 07. 2004 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.25"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.25"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.24.tar.gz"> PHOEBE 0.24 </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.24.tar.gz"> PHOEBE 0.24 </Link></td>
             <td valign="middle"> 1473KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 03. 05. 2004 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.24"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.24"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.23.tar.gz"> PHOEBE 0.23 </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.23.tar.gz"> PHOEBE 0.23 </Link></td>
             <td valign="middle"> 1463KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 14. 04. 2004 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.23"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.23"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.22.tar.gz"> PHOEBE 0.22 </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.22.tar.gz"> PHOEBE 0.22 </Link></td>
             <td valign="middle"> 1472KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 19. 01. 2004 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.22"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.22"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.21.tar.gz"> PHOEBE 0.21 </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.21.tar.gz"> PHOEBE 0.21 </Link></td>
             <td valign="middle"> 1472KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 17. 12. 2003 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.21"> View </Link> </td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.21"> View </Link> </td>
             </tr>
             <tr>
-            <td valign="middle"> <Link to="/legacy/phoebe-0.20.tar.gz">PHOEBE 0.20</Link></td>
+            <td valign="middle"> <Link to="/static/legacy/phoebe-0.20.tar.gz">PHOEBE 0.20</Link></td>
             <td valign="middle"> 684KB </td>
             <td valign="middle"> Tarball (.tar.gz) </td>
             <td valign="middle"> 01. 06. 2003 </td>
-            <td valign="middle"> <Link to="/legacy/ChangeLog-0.20">              View </Link></td>
+            <td valign="middle"> <Link to="/static/legacy/ChangeLog-0.20">              View </Link></td>
             </tr>
             </tbody></table> <br/>
           </details>
@@ -726,9 +726,9 @@ export class LegacyDownload extends Component {
 
               Extensive computation of limb darkening coefficients is facilitated by providing precomputed tables from which PHOEBE can interpolate the coefficients. PHOEBE can either use the Van Hamme (1993) limb darkening tables or the internal limb darkening tables.<br/><br/>
 
-              Download <Link to="/legacy/ld/ld_vanhamme1993.tar.gz">Van Hamme (1993) tables</Link>. To install, unpack them in a directory of your choice, start PHOEBE and click on <code>Settings-&gt;Preferences</code>. Then select <code>Van Hamme (1993) tables</code> and enter the directory to which you saved the tables. <em>You do not need <code>models.list</code> or any of the tables listed below.</em> If Van Hamme tables are all you are going to use, you are done.<br/><br/>
+              Download <Link to="/static/legacy/ld/ld_vanhamme1993.tar.gz">Van Hamme (1993) tables</Link>. To install, unpack them in a directory of your choice, start PHOEBE and click on <code>Settings-&gt;Preferences</code>. Then select <code>Van Hamme (1993) tables</code> and enter the directory to which you saved the tables. <em>You do not need <code>models.list</code> or any of the tables listed below.</em> If Van Hamme tables are all you are going to use, you are done.<br/><br/>
 
-              Download <Link to="/legacy/ld/ld_phoebe.tar.gz">internal (2011) tables</Link>. To install, unpack them in a directory of your choice, start PHOEBE and click on <code>Settings-&gt;Preferences</code>. Then select <code>PHOEBE (2011) tables</code> and enter the directory to which you saved the files. The internal limb darkening tables are computed per-passband and new passbands are being added as they become available. The list below lists all currently available passbands. For fine-grained control you can download only the tables you will use.<br/><br/>
+              Download <Link to="/static/legacy/ld/ld_phoebe.tar.gz">internal (2011) tables</Link>. To install, unpack them in a directory of your choice, start PHOEBE and click on <code>Settings-&gt;Preferences</code>. Then select <code>PHOEBE (2011) tables</code> and enter the directory to which you saved the files. The internal limb darkening tables are computed per-passband and new passbands are being added as they become available. The list below lists all currently available passbands. For fine-grained control you can download only the tables you will use.<br/><br/>
 
               <font color="#ff0000">IMPORTANT:</font> do not put the two tables in the same directory. PHOEBE tables read in the contents for the entire directory and will use up a lot of time to needlessly parse the (incompatible) Van Hamme tables.<br/><br/>
 
@@ -759,7 +759,7 @@ export class LegacyDownload extends Component {
               </tbody></table>
               </div><br/>
 
-              The coefficients have been precomputed across the H-R diagram. The file <Link to="/legacy/ld/models.list">models.list</Link> contains 3 columns: Teff, log(g) and [M/H], and 3800 rows, one for each model from Castelli &amp; Kurucz's (2004) atlas. This file is used for index lookup and must be present in the designated LD directory.<br/><br/>
+              The coefficients have been precomputed across the H-R diagram. The file <Link to="/static/legacy/ld/models.list">models.list</Link> contains 3 columns: Teff, log(g) and [M/H], and 3800 rows, one for each model from Castelli &amp; Kurucz's (2004) atlas. This file is used for index lookup and must be present in the designated LD directory.<br/><br/>
 
               All remaining files are limb darkening coefficients for a given passband. They start with a header that contains the following keywords: PASS_SET for the passband set (i.e. Johnson), PASSBAND for the passband name (i.e. J), and VERSION to allow for versioning when, for example, a better transmission curve becomes available. Any comments (lines starting with `#') are ignored. What follows is a table with 11 columns and 3800 rows. The columns are: x<sub>lin</sub>, x<sub>log</sub>, y<sub>log</sub>, x<sub>sqrt</sub>, y<sub>sqrt</sub>, x<sub>quad</sub>, y<sub>quad</sub>, c<sub>1</sub>, c<sub>2</sub>, c<sub>3</sub> and c<sub>4</sub>, for each limb darkening law. The 3800 rows are indexed according to the <code>models.list</code> lookup table.<br/><br/>
 
@@ -769,171 +769,171 @@ export class LegacyDownload extends Component {
               <table width="80%">
               <tbody><tr><th> File: </th> <th> Passband reference: </th>
               </tr><tr>
-              <td> <Link to="/legacy/ld/models.list">models.list</Link> </td>
+              <td> <Link to="/static/legacy/ld/models.list">models.list</Link> </td>
               <td> Indexing (lookup) table </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/2mass_j.ld">2MASS J</Link> </td>
+              <td> <Link to="/static/legacy/ld/2mass_j.ld">2MASS J</Link> </td>
               <td> <Link to="http://www.ipac.caltech.edu/2mass/releases/second/doc/sec3_1b1.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> 2MASS handbook</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/2mass_h.ld">2MASS H</Link> </td>
+              <td> <Link to="/static/legacy/ld/2mass_h.ld">2MASS H</Link> </td>
               <td> <Link to="http://www.ipac.caltech.edu/2mass/releases/second/doc/sec3_1b1.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> 2MASS handbook</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/2mass_ks.ld">2MASS Ks</Link> </td>
+              <td> <Link to="/static/legacy/ld/2mass_ks.ld">2MASS Ks</Link> </td>
               <td> <Link to="http://www.ipac.caltech.edu/2mass/releases/second/doc/sec3_1b1.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> 2MASS handbook</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/bolometric.ld">Bolometric</Link> </td>
+              <td> <Link to="/static/legacy/ld/bolometric.ld">Bolometric</Link> </td>
               <td> Flat on the 300-1000nm range </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/corot_exo.ld">CoRoT exo</Link> </td>
+              <td> <Link to="/static/legacy/ld/corot_exo.ld">CoRoT exo</Link> </td>
               <td> Carla Maceroni, priv.comm. </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/corot_sis.ld">CoRoT sismo</Link> </td>
+              <td> <Link to="/static/legacy/ld/corot_sis.ld">CoRoT sismo</Link> </td>
               <td> Carla Maceroni, priv.comm. </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/cousins_r.ld">Cousins R</Link> </td>
+              <td> <Link to="/static/legacy/ld/cousins_r.ld">Cousins R</Link> </td>
               <td> <Link to="http://adsabs.harvard.edu/abs/1976MmRAS..81...25C"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Cousins (1976), MmRAS 81, 25</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/cousins_i.ld">Cousins I</Link> </td>
+              <td> <Link to="/static/legacy/ld/cousins_i.ld">Cousins I</Link> </td>
               <td> <Link to="http://adsabs.harvard.edu/abs/1976MmRAS..81...25C"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Cousins (1976), MmRAS 81, 25</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/geneva_u.ld">Geneva U</Link> </td>
+              <td> <Link to="/static/legacy/ld/geneva_u.ld">Geneva U</Link> </td>
               <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/geneva_b.ld">Geneva B</Link> </td>
+              <td> <Link to="/static/legacy/ld/geneva_b.ld">Geneva B</Link> </td>
               <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/geneva_b1.ld">Geneva B1</Link> </td>
+              <td> <Link to="/static/legacy/ld/geneva_b1.ld">Geneva B1</Link> </td>
               <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/geneva_b2.ld">Geneva B2</Link> </td>
+              <td> <Link to="/static/legacy/ld/geneva_b2.ld">Geneva B2</Link> </td>
               <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/geneva_v.ld">Geneva V</Link> </td>
+              <td> <Link to="/static/legacy/ld/geneva_v.ld">Geneva V</Link> </td>
               <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/geneva_v1.ld">Geneva V1</Link> </td>
+              <td> <Link to="/static/legacy/ld/geneva_v1.ld">Geneva V1</Link> </td>
               <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/geneva_g.ld">Geneva G</Link> </td>
+              <td> <Link to="/static/legacy/ld/geneva_g.ld">Geneva G</Link> </td>
               <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/hipparcos.ld">Hipparcos Hp</Link> </td>
+              <td> <Link to="/static/legacy/ld/hipparcos.ld">Hipparcos Hp</Link> </td>
               <td> Hipparcos and Tycho Catalogues, ESA pub. SP-1200, Vol. 1, pg. 39 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/tycho_bT.ld">Hipparcos (Tycho) bT</Link> </td>
+              <td> <Link to="/static/legacy/ld/tycho_bT.ld">Hipparcos (Tycho) bT</Link> </td>
               <td> Maiz Apellaniz (2006), AJ 131, 1184 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/tycho_vT.ld">Hipparcos (Tycho) vT</Link> </td>
+              <td> <Link to="/static/legacy/ld/tycho_vT.ld">Hipparcos (Tycho) vT</Link> </td>
               <td> Maiz Apellaniz (2006), AJ 131, 1184 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/johnson_u.ld">Johnson U</Link> </td>
+              <td> <Link to="/static/legacy/ld/johnson_u.ld">Johnson U</Link> </td>
               <td> Maiz Apellaniz (2006), AJ 131, 1184 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/johnson_b.ld">Johnson B</Link> </td>
+              <td> <Link to="/static/legacy/ld/johnson_b.ld">Johnson B</Link> </td>
               <td> Maiz Apellaniz (2006), AJ 131, 1184 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/johnson_v.ld">Johnson V</Link> </td>
+              <td> <Link to="/static/legacy/ld/johnson_v.ld">Johnson V</Link> </td>
               <td> Maiz Apellaniz (2006), AJ 131, 1184 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/kepler.ld">Kepler</Link> </td>
+              <td> <Link to="/static/legacy/ld/kepler.ld">Kepler</Link> </td>
               <td> Kepler Science Book </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/lsst_u.ld">LSST u</Link> </td>
+              <td> <Link to="/static/legacy/ld/lsst_u.ld">LSST u</Link> </td>
               <td> LSST Science Book </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/lsst_g.ld">LSST g</Link> </td>
+              <td> <Link to="/static/legacy/ld/lsst_g.ld">LSST g</Link> </td>
               <td> LSST Science Book </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/lsst_r.ld">LSST r</Link> </td>
+              <td> <Link to="/static/legacy/ld/lsst_r.ld">LSST r</Link> </td>
               <td> LSST Science Book </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/lsst_i.ld">LSST i</Link> </td>
+              <td> <Link to="/static/legacy/ld/lsst_i.ld">LSST i</Link> </td>
               <td> LSST Science Book </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/lsst_z.ld">LSST z</Link> </td>
+              <td> <Link to="/static/legacy/ld/lsst_z.ld">LSST z</Link> </td>
               <td> LSST Science Book </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/lsst_y3.ld">LSST y3</Link> </td>
+              <td> <Link to="/static/legacy/ld/lsst_y3.ld">LSST y3</Link> </td>
               <td> LSST Science Book </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/lsst_y4.ld">LSST y4</Link> </td>
+              <td> <Link to="/static/legacy/ld/lsst_y4.ld">LSST y4</Link> </td>
               <td> LSST Science Book </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/most.ld">MOST</Link> </td>
+              <td> <Link to="/static/legacy/ld/most.ld">MOST</Link> </td>
               <td> Walker et al. (2003), PASP 115, 1023 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/sloan_u.ld">Sloan u'</Link> </td>
+              <td> <Link to="/static/legacy/ld/sloan_u.ld">Sloan u'</Link> </td>
               <td> Fukugita et al. (1996) AJ 111, 1748 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/sloan_g.ld">Sloan g'</Link> </td>
+              <td> <Link to="/static/legacy/ld/sloan_g.ld">Sloan g'</Link> </td>
               <td> Fukugita et al. (1996) AJ 111, 1748 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/sloan_r.ld">Sloan r'</Link> </td>
+              <td> <Link to="/static/legacy/ld/sloan_r.ld">Sloan r'</Link> </td>
               <td> Fukugita et al. (1996) AJ 111, 1748 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/sloan_i.ld">Sloan i'</Link> </td>
+              <td> <Link to="/static/legacy/ld/sloan_i.ld">Sloan i'</Link> </td>
               <td> Fukugita et al. (1996) AJ 111, 1748 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/sloan_z.ld">Sloan z'</Link> </td>
+              <td> <Link to="/static/legacy/ld/sloan_z.ld">Sloan z'</Link> </td>
               <td> Fukugita et al. (1996) AJ 111, 1748 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/stromgren_u.ld">Stromgren u</Link> </td>
+              <td> <Link to="/static/legacy/ld/stromgren_u.ld">Stromgren u</Link> </td>
               <td> Maiz Apellaniz (2006), AJ 131, 1184 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/stromgren_v.ld">Stromgren v</Link> </td>
+              <td> <Link to="/static/legacy/ld/stromgren_v.ld">Stromgren v</Link> </td>
               <td> Maiz Apellaniz (2006), AJ 131, 1184 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/stromgren_b.ld">Stromgren b</Link> </td>
+              <td> <Link to="/static/legacy/ld/stromgren_b.ld">Stromgren b</Link> </td>
               <td> Maiz Apellaniz (2006), AJ 131, 1184 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/stromgren_y.ld">Stromgren y</Link> </td>
+              <td> <Link to="/static/legacy/ld/stromgren_y.ld">Stromgren y</Link> </td>
               <td> Maiz Apellaniz (2006), AJ 131, 1184 </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/swasp_2004.ld">SuperWASP pre-2004</Link> </td>
+              <td> <Link to="/static/legacy/ld/swasp_2004.ld">SuperWASP pre-2004</Link> </td>
               <td> <Link to="https://ui.adsabs.harvard.edu/#abs/2006PASP..118.1407P/abstract"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Pollacco et al. (2006), PASP 118, 1407</Link> </td>
               </tr>
               <tr>
-              <td> <Link to="/legacy/ld/swasp_2006.ld">SuperWASP post-2004</Link> </td>
+              <td> <Link to="/static/legacy/ld/swasp_2006.ld">SuperWASP post-2004</Link> </td>
               <td> <Link to="https://ui.adsabs.harvard.edu/#abs/2006PASP..118.1407P/abstract"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Pollacco et al. (2006), PASP 118, 1407</Link> </td>
               </tr>
               </tbody></table>

@@ -30,7 +30,7 @@ export class HeaderIndex extends React.Component {
         <div>
           <div className="row">
               <div className="col-md-2 col-xs-4 text-center">
-                  <Image src="/logo_invert.svg" alt="Home" style={{maxHeight: "160px"}}/>
+                  <Image src="/logos/logo_invert.svg" alt="Home" style={{maxHeight: "160px"}}/>
               </div>
               <div className="col-md-8">
                   <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE</h1>
@@ -68,7 +68,7 @@ export class HeaderLegacy extends React.Component {
         <div>
           <div className="row">
             <div className="col-md-2 col-xs-4 text-center">
-              <Image src="phoebe-gui.png" alt="logo" style={{minHeight: "100px", maxHeight: "160px"}}/>
+              <Image src="/logos/phoebe-gui.png" alt="logo" style={{minHeight: "100px", maxHeight: "160px"}}/>
             </div>
             <div className="col-md-8">
               <h1>PHOEBE 1.0 (legacy)</h1><h4><i>PHysics of Eclipsing BinariEs</i></h4>

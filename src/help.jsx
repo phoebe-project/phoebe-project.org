@@ -89,7 +89,7 @@ class DeveloperInfo extends Component {
     return (
       <div class="row">
           <div class="col-md-2 text-center">
-              <Image src={this.props.image} width="128"/>
+              <Image src={"/images/devel/"+this.props.image} width="128"/>
           </div>
           <div class="col-md-10">
               <p>{this.props.children}</p>

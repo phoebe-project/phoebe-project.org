@@ -4,7 +4,7 @@ phoebe-project.org is a single-page ReactJS website, with content dynamically pu
 
 * changelog and patch-release information (including knowing the latest patch-version for each release to render install instructions) is pulled from the README on the master branch of the [phoebe2 repository](http://github.com/phoebe-project/phoebe2).
 * documentation is pulled from the [phoebe2-docs repository](http://github.com/phoebe-project/phoebe2-docs) where each branch in the repository corresponds to a minor release of PHOEBE available on the documentation page.
-* workshop information will eventually be pulled from the corresponding branches in the [phoebe2-workshop](http://github.com/phoebe-project/phoebe2-workshop).
+* workshop information is pulled from the corresponding branches in the [phoebe2-workshop](http://github.com/phoebe-project/phoebe2-workshop).
 
 ## Dependencies
 
@@ -29,6 +29,8 @@ npm start
 ```
 
 to create a local webserver running the site.
+
+NOTE on `/static/` files: all files referenced as /static/ are NOT included in the git repository, but rather served separately by apache on clusty.  These include large downloads such as atmosphere tables and PHOEBE legacy builds and documentation.  These links WILL NOT WORK when running a local server, as they will not be able to find the correct directory.  See below in "General Notes on Layout/Conventions" for more details on what to put in `static` vs `public`.
 
 
 ## Deploying
@@ -66,6 +68,8 @@ scp -r build/* clusty:/srv/www/phoebe-project/
 * Please use the internal `Link` (for internal links), `NavLink` (for the navigation bar) component from [common.jsx](./src/common.jsx), or `HeaderNavButton` (for within-tab navigation) component from [header.jsx](./src/header.jsx) instead of adding html `<a>` tags manually.  This way internal vs external links are handled correctly by the component (so that internal links just change the state/router and do not refresh the entire source).  To override the addition of the "external link" icon for `Link` components, pass `hideExternal={true}`.  The only exception to using these components is within external content that is dynamically loaded (e.g. markdown files in other repositories): for now these will render `<a>` tags and cause a page refresh.
 
 * Please use the internal `Image` component from [common.jsx](./src/common.jsx) instead of adding html `<img>` tags manually.  This makes sure to reference internal image sources correctly.
+
+* Static files (`static` vs `public`): large download files and legacy documentation/builds are stored EXTERNALLY on clusty and hosted by apache.  Any large downloads that do not need to be placed under version control should be manually placed here in reasonably-named subdirectories.  They can then be referenced via the `Link` component with `to='/static/whatever'`, which will handle writing the `<a>` tag correctly without using the Router.  Any smaller files (images, logos, etc) can be placed in the repository's [public](./public) directory and can be referenced via the `Link` component with `to='/whatever'`.  Be careful of name conflicts - any match within the public directory will be served first before falling back on the React-Router (for example: creating a `public/docs` directory could have unfortunate consequences).  Additionally, `static/css` and `static/js` are configured (via apache) to point to the react `build/static` - so creating `css` or `js` directories in the `static` directory will have no effect and will not be accessible.
 
 ## Releasing a New Version of PHOEBE
 

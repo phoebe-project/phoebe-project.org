@@ -82,7 +82,7 @@ class ReleaseContent extends Component {
     var logo = "logo_blue.svg";
     var content = null;
     if (this.props.version === '1.0' || this.props.version === 'legacy') {
-      logo = "phoebe-gui.png"
+      logo = "logo_release_10.png"
       content = <div>
                   <p>The legacy releases of PHOEBE (0.x and soon culminating in the official release of version 1.0) are built upon the <Link to="ftp://ftp.astro.ufl.edu/pub/wilson">Wilson-Devinney code</Link>.</p>
                   <p>All the archived 0.x releases of PHOEBE and their respective changelogs can be found on the <Link to="/install/1.0">PHOEBE legacy install page</Link>.</p>
@@ -168,7 +168,7 @@ class ReleaseContent extends Component {
         {this.props.showHeader ? <h2><Link to={"releases/"+this.props.version+"/"}>PHOEBE {this.props.version}</Link></h2> : null}
         <div className="row">
           <div className="col-md-2 text-center">
-            <Image src={logo} width="128"/>
+            <Image src={"/logos/"+logo} width="128"/>
           </div>
           <div className="col-md-10">
             <Link to={"/install/"+this.props.version+"/"}><span className="fa fa-download"></span> Install PHOEBE {this.props.version}</Link> &nbsp;&nbsp;&nbsp;
