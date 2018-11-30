@@ -36,7 +36,7 @@ class SourceEntry extends Component {
     // props: adsLink, authors, title, release (optional)
     return (
       <div className="row">
-        <Link to={this.props.githubLink}>{this.props.title}</Link> - {this.props.children}
+        <Link to={this.props.githubLink} hideExternal={true}>{this.props.title}</Link> - {this.props.children}
       </div>
     )
   }

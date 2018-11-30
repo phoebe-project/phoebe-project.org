@@ -97,10 +97,10 @@ export class Install extends Component {
           <div className="row">
              <div className="col-md-6"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Install from PIP" description="Install from PIP" to={"#pip"} icon="fab fa-python"/>
+               <HeaderNavButton title="From PIP" description="Install from PIP" to={"#pip"} icon="fab fa-python"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Install from Source" description="Install from Source" to={"#source"} icon="fa fa-code"/>
+               <HeaderNavButton title="From Source" description="Install from Source-Code" to={"#source"} icon="fa fa-code"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Testing" description="Testing" to={"#testing"} icon="fa fa-vial"/>

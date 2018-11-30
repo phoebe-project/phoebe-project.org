@@ -69,12 +69,12 @@ export class HelpDevel extends Component {
             Kelly Hambleton is a postdoctoral researcher at Villanova University after receiving her PhD from the University of Central Lancashire, England. Her main research interests include pulsating stars and binary star systems, specifically heartbeat stars with tidally induced pulsations. Kelly developed the parsing algorithms that enabled PHOEBE 2.0-alpha to use PHOEBE legacy parameter files.
           </DeveloperInfo>
 
-          <div class="row">&nbsp;</div>
+          <div className="row">&nbsp;</div>
 
-          <div class="row">
-              <div class="col-md-2">
+          <div className="row">
+              <div className="col-md-2">
               </div>
-              <div class="col-md-10">
+              <div className="col-md-10">
                   <p>We also thank all the additional developers and contributors who helped make and improve the <Link to="/1.0">PHOEBE legacy version</Link>.</p>
               </div>
           </div>
@@ -87,11 +87,11 @@ export class HelpDevel extends Component {
 class DeveloperInfo extends Component {
   render() {
     return (
-      <div class="row" style={{marginTop: "20px"}}>
-          <div class="col-md-2 text-center">
+      <div className="row" style={{marginTop: "20px"}}>
+          <div className="col-md-2 text-center">
               <Image src={"/images/devel/"+this.props.image} style={{borderRadius: "8px"}} width="128"/>
           </div>
-          <div class="col-md-10">
+          <div className="col-md-10">
               <p>{this.props.children}</p>
           </div>
       </div>
@@ -107,7 +107,7 @@ export class HelpFAQ extends Component {
           <title>PHOEBE | FAQ</title>
         </Helmet>
         <Header>
-          <h1><span class="hidden-xs">Frequently Asked Questions</span><span class="visible-xs">FAQ</span></h1>
+          <h1><span className="hidden-xs">Frequently Asked Questions</span><span className="visible-xs">FAQ</span></h1>
         </Header>
         <Content>
           Q: Is PHOEBE 2.x backwards compatible with PHOEBE 2.0 alpha releases?
@@ -143,7 +143,7 @@ export class HelpIPYNB extends Component {
           <title>PHOEBE | How To: Jupyter Notebooks</title>
         </Helmet>
         <Header>
-          <h1><span class="hidden-xs">How To: Jupyter/Ipython Notebooks</span><span class="visible-xs">How To: ipynb</span></h1>
+          <h1><span className="hidden-xs">How To: Jupyter/Ipython Notebooks</span><span className="visible-xs">How To: ipynb</span></h1>
         </Header>
         <Content>
           <p>Any tutorial or example script in the <Link to="/docs">documentation</Link> can be downloaded as an IPython/Jupyter Notebook or a python script (see the link at the top of any tutorial). To run these locally you’ll need PHOEBE <Link to="/install">installed</Link> on your system, as well as IPython &amp; Jupyter notebooks (<code>sudo pip install jupyter; sudo apt-get install ipython-notebook</code>). Then simply start the notebook service (<code>ipython notebook</code> or <code>jupyter notebook</code>, depending on your version). This will allow you to interact with the tutorial - running it line-by-line and making alterations to see how they change the output.</p>
@@ -161,7 +161,7 @@ export class HelpVersion extends Component {
           <title>PHOEBE | How To: Check Installed Version of PHOEBE</title>
         </Helmet>
         <Header>
-          <h1><span class="hidden-xs">How To: Check Installed Version of PHOEBE</span><span class="visible-xs">How To: PHOEBE Version</span></h1>
+          <h1><span className="hidden-xs">How To: Check Installed Version of PHOEBE</span><span className="visible-xs">How To: PHOEBE Version</span></h1>
         </Header>
         <Content>
           <p>To check your version of PHOEBE, call <code>python -c "import phoebe; print(phoebe.__version__)"</code> at the command line or <code>print(phoebe.__version__)</code> from a python console with phoebe already imported.</p>
@@ -181,37 +181,39 @@ export class HelpContact extends Component {
         <Header>
           <h1>Contact Us</h1>
 
-          <p>There are several options to get help with PHOEBE. The obvious one is to start with the <Link to="/docs/latest/">documentation and tutorials</Link>. We also have several mailing lists set up where you can ask questions and exchange experiences with other users and developers.</p>
 
         </Header>
         <Content>
-          <div class="row">
+          <div className="row">
+            <p>There are several options to get help with PHOEBE. The obvious one is to start with the <Link to="/docs/latest/">documentation and tutorials</Link>. We also have several mailing lists set up where you can ask questions and exchange experiences with other users and developers.</p>
+          </div>
+          <div className="row">
           Electronic mailing lists enable people to communicate, ask for help and share experiences with other subscribers on the given list. There are three PHOEBE-related mailing lists where you are invited to participate:
           </div>
 
-          <div class="row">
-              <div class="col-sm-2">
+          <div className="row">
+              <div className="col-sm-2">
                   <Link to="/help/contact/phoebe-announce"><strong>PHOEBE announcements</strong></Link>
               </div>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                   PHOEBE announcements is a low traffic list. It informs you of new releases and critical updates concerning PHOEBE. Typically the number of messages that are sent out is 1 per month.
               </div>
           </div>
 
-          <div class="row">
-              <div class="col-sm-2">
+          <div className="row">
+              <div className="col-sm-2">
                   <Link to="/help/contact/phoebe-discuss"><strong>PHOEBE discussion</strong></Link>
               </div>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                   PHOEBE discussion is a higher traffic list. It is meant for active and potential PHOEBE users to exchange knowledge and experience and to help others with their problems.
               </div>
           </div>
 
-          <div class="row">
-              <div class="col-sm-2">
+          <div className="row">
+              <div className="col-sm-2">
                   <Link to="/help/contact/phoebe-devel"><strong>PHOEBE development</strong></Link>
               </div>
-              <div class="col-sm-10">
+              <div className="col-sm-10">
                   PHOEBE development mailing list is meant for people that are or would like to join active PHOEBE development. Technical and programming issues are discussed here.
               </div>
           </div>
@@ -250,22 +252,22 @@ export class HelpMailingList extends Component {
           <h1>{mailinglist}</h1>
         </Header>
         <Content>
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">About {title}</h3>
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h3 className="panel-title">About {title}</h3>
               </div>
-              <div class="panel-body">
+              <div className="panel-body">
                 {description}
 
                 To see the collection of prior postings to the list, visit the <Link to={"http://sourceforge.net/mailarchive/forum.php?forum_name="+mailinglist}>{mailinglist} archives</Link>.
               </div>
             </div>
 
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Using {title}</h3>
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h3 className="panel-title">Using {title}</h3>
               </div>
-              <div class="panel-body">
+              <div className="panel-body">
                 To post a message to all the list members, send email to:
                 <center><a href={"mailto:"+mailinglist+"@lists.sourceforge.net"}>{mailinglist}@lists.sourceforge.net</a>. </center>
 
@@ -273,26 +275,26 @@ export class HelpMailingList extends Component {
               </div>
             </div>
 
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">Subscribing to {title}</h3>
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h3 className="panel-title">Subscribing to {title}</h3>
               </div>
-              <div class="panel-body">
-                <form class="form-horizontal" role="form" method="post" action={"https://lists.sourceforge.net/lists/subscribe/"+mailinglist}>
+              <div className="panel-body">
+                <form className="form-horizontal" role="form" method="post" action={"https://lists.sourceforge.net/lists/subscribe/"+mailinglist}>
 
                     Subscribe to {mailinglist} by filling out the following form. You will be sent email requesting confirmation, to prevent others from gratuitously subscribing you.
 
 
-                    <div class="form-group">
-                        <label for="email" class="col-sm-4 control-label">Email</label>
-                        <div class="col-sm-6 required">
-                          <input type="email" class="form-control" name="email" placeholder="me@example.com"/>
+                    <div className="form-group">
+                        <label for="email" className="col-sm-4 control-label">Email</label>
+                        <div className="col-sm-6 required">
+                          <input type="email" className="form-control" name="email" placeholder="me@example.com"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="name" class="col-sm-4 control-label">Name (optional)</label>
-                        <div class="col-sm-6">
-                          <input type="text" class="form-control" name="fullname" placeholder=""/>
+                    <div className="form-group">
+                        <label for="name" className="col-sm-4 control-label">Name (optional)</label>
+                        <div className="col-sm-6">
+                          <input type="text" className="form-control" name="fullname" placeholder=""/>
                         </div>
                     </div>
 
@@ -301,31 +303,31 @@ export class HelpMailingList extends Component {
 
                     If you choose not to enter a password, one will be automatically generated for you, and it will be sent to you once you've confirmed your subscription.  You can always request a mail-back of your password when you edit your personal options.
 
-                    <div class="form-group">
-                        <label for="pw" class="col-sm-4 control-label">Password</label>
-                        <div class="col-sm-6 required">
-                          <input type="password" class="form-control" name="pw"/>
+                    <div className="form-group">
+                        <label for="pw" className="col-sm-4 control-label">Password</label>
+                        <div className="col-sm-6 required">
+                          <input type="password" className="form-control" name="pw"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="pw-conf" class="col-sm-4 control-label">Confirm Password</label>
-                        <div class="col-sm-6 required">
-                          <input type="password" class="form-control" name="pw-conf"/>
+                    <div className="form-group">
+                        <label for="pw-conf" className="col-sm-4 control-label">Confirm Password</label>
+                        <div className="col-sm-6 required">
+                          <input type="password" className="form-control" name="pw-conf"/>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="digest" class="col-sm-4 control-label">Format</label>
-                        <div class="col-sm-6">
-                            <select name="digest" class="form-control">
+                    <div className="form-group">
+                        <label for="digest" className="col-sm-4 control-label">Format</label>
+                        <div className="col-sm-6">
+                            <select name="digest" className="form-control">
                                 <option value="0">Individual emails</option>
                                 <option value="1">Daily digest</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                      <div class="col-sm-offset-4 col-sm-6">
-                        <button type="submit" name="email-button" class="btn btn-default btn-block">Subscribe to {title}</button>
+                    <div className="form-group">
+                      <div className="col-sm-offset-4 col-sm-6">
+                        <button type="submit" name="email-button" className="btn btn-default btn-block">Subscribe to {title}</button>
                       </div>
                     </div>
 
@@ -333,26 +335,26 @@ export class HelpMailingList extends Component {
               </div>
             </div>
 
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title">{title} preferences</h3>
+            <div className="panel panel-default">
+              <div className="panel-heading">
+                <h3 className="panel-title">{title} preferences</h3>
               </div>
-              <div class="panel-body">
-                <form class="form-horizontal" role="form" method="POST" action={"https://lists.sourceforge.net/lists/options/"+mailinglist}>
+              <div className="panel-body">
+                <form className="form-horizontal" role="form" method="POST" action={"https://lists.sourceforge.net/lists/options/"+mailinglist}>
                     To get a password reminder, or change your subscription options, or unsubscribe from {mailinglist}, enter your subscription email address:
 
-                    <div class="form-group">
-                        <label for="email" class="col-sm-4 control-label">Email</label>
-                        <div class="col-sm-6 required">
-                          <input type="email" class="form-control" name="email" placeholder="me@example.com"/>
+                    <div className="form-group">
+                        <label for="email" className="col-sm-4 control-label">Email</label>
+                        <div className="col-sm-6 required">
+                          <input type="email" className="form-control" name="email" placeholder="me@example.com"/>
                         </div>
                     </div>
 
                     <input name="language" type="HIDDEN" value="en"/>
 
-                    <div class="form-group">
-                      <div class="col-sm-offset-4 col-sm-6">
-                        <button type="submit" name="UserOptions" class="btn btn-default btn-block">Edit options</button>
+                    <div className="form-group">
+                      <div className="col-sm-offset-4 col-sm-6">
+                        <button type="submit" name="UserOptions" className="btn btn-default btn-block">Edit options</button>
                       </div>
                     </div>
 

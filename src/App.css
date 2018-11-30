@@ -13,6 +13,21 @@ img {
   max-width: 100%;
 }
 
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-flip-vert {
+        -moz-transform: scaleY(-1);
+        -o-transform: scaleY(-1);
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
+        filter: FlipV;
+        -ms-filter: "FlipV";
+}
+
 h1, .h1 {
   font-size: 40px;
 }
@@ -35,11 +50,16 @@ p {
   color: #E6E6E6;
 }
 
-.content-dark a {
-  color: white !important;
+.content-dark h1 {
+  color: #E6E6E6
 }
 
-.content-dark img {
+.content-dark a {
+  color: white !important;
+  font-weight: bold;
+}
+
+.content-dark img.img-handle-invert {
    -webkit-filter: grayscale(1) invert(1) brightness(1.5);
    filter: grayscale(1) invert(1) brightness(1.5);
  }

@@ -149,6 +149,29 @@ export class Image extends React.Component {
   }
 }
 
+export class Separator extends React.Component {
+  render() {
+    var height = this.props.height || "30px"
+    var marginTop = this.props.marginTop || "0px"
+    var marginBottom = this.props.marginBottom || "-45px"
+    var marginRight = this.props.marginRight || "auto"
+    if (this.props.large) {
+      var height = this.props.height || "50px"
+      var marginTop = this.props.marginTop || "0px"
+      var marginBottom = this.props.marginBottom || "-50px"
+    }
+    var className = this.props.className || ""
+
+    if (this.props.flip) {
+      className = className + " img-flip-vert"
+    }
+
+    return (
+      <Image src="/logos/hex_separator.svg" className={"img-center "+className} style={{height: height, marginTop: marginTop, marginBottom: marginBottom, marginRight: marginRight}}/>
+    )
+  }
+}
+
 export class Alert extends React.Component {
   render() {
     var level = this.props.level

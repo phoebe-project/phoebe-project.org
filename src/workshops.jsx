@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect} from './common';
+import {Content, Link, Redirect, Separator} from './common';
 import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
@@ -36,16 +36,20 @@ export class Workshop extends Component {
           <Content>
             <p>PHOEBE Workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/help/devel">developers</Link> to learn what features and improvements can be made.</p>
             <p>These workshops are made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>.</p>
-            <h1>Upcoming Workshops</h1>
-              {Object.keys(active_workshops).length ?
-                <ul>{Object.keys(active_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
-                :
-                <p>There are no currently planned workshops.  Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
-              }
+            <Separator large={false} marginTop="30px" marginBottom="-65px"/>
+          </Content>
+          <Content dark={true}>
             <h1>Past Workshops</h1>
-              <ul>{Object.keys(archived_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
-
-
+            <ul>{Object.keys(archived_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
+            <Separator flip={true} large={false} marginTop="30px" marginBottom="-65px"/>
+          </Content>
+          <Content>
+            <h1>Upcoming Workshops</h1>
+            {Object.keys(active_workshops).length ?
+              <ul>{Object.keys(active_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
+              :
+              <p>There are no currently planned workshops.  Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
+            }
           </Content>
         </div>
       )

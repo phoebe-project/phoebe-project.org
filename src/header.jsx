@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {LogoSplash} from './logo';
-import {Link, Image} from './common';
+import {Link, Image, Separator} from './common';
 
 export class NoHeader extends React.Component {
   render() {
@@ -13,11 +13,29 @@ export class NoHeader extends React.Component {
 
 export class Header extends React.Component {
   render() {
+    var separator = this.props.separator || "left"
+
     return (
-      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", overflowX: "hidden", overflowY: "hidden", paddingTop: "50px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
+      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", overflow: "visible", paddingTop: "50px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
         <div className="container">
           {this.props.children}
         </div>
+        {separator==='left' ?
+          <Separator large={true} flip={true} marginRight="85%" className="hidden-sm hidden-xs"/>
+          :
+          null
+        }
+        {separator==='center' ?
+          <Separator large={true} flip={true} marginRight="auto" className="hidden-sm hidden-xs"/>
+          :
+          null
+        }
+        {separator==='right' ?
+          <Separator large={true} flip={true} marginRight="15%" className="hidden-sm hidden-xs"/>
+          :
+          null
+        }
+
       </div>
 
     )
@@ -27,7 +45,7 @@ export class Header extends React.Component {
 export class HeaderIndex extends React.Component {
   render() {
     return (
-      <Header>
+      <Header separator='right'>
         <div>
           <div className="row visible-md visible-sm visible-xs" style={{paddingBottom: "25px"}}>
               <div className="col-md-2 col-sm-4 col-xs-12 text-center">
@@ -78,11 +96,16 @@ export class HeaderLegacy extends React.Component {
       <Header>
         <div>
           <div className="row">
-            <div className="col-md-2 col-xs-4 text-center">
+            <div className="col-md-2 col-sm-4 col-xs-12 text-center">
               <Image src="/logos/phoebe-gui.png" alt="logo" style={{minHeight: "100px", maxHeight: "160px"}}/>
             </div>
-            <div className="col-md-8">
-              <h1>PHOEBE 1.0 (legacy)</h1><h4><i>PHysics of Eclipsing BinariEs</i></h4>
+            <div className="hidden-xs col-md-10 col-sm-8">
+                <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE 1.0 (legacy)</h1>
+                <h4 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}><i>PHysics Of Eclipsing BinariEs</i></h4>
+            </div>
+            <div className="visible-xs col-xs-12" style={{textAlign: "center"}}>
+                <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE 1.0 (legacy)</h1>
+                <h4 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}><i>PHysics Of Eclipsing BinariEs</i></h4>
             </div>
           </div>
 

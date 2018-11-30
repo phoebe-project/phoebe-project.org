@@ -4,7 +4,7 @@ import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helm
 
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
 
-import {Content, Link, Redirect, Image, getLatestPatchVersion} from './common';
+import {Content, Link, Redirect, Image, Separator, getLatestPatchVersion} from './common';
 import {NotFound} from './errors';
 import {docs_versions} from './docs';
 import {Header, HeaderNavButton} from './header';
@@ -40,7 +40,7 @@ export class Releases extends Component {
           </p>
         </Content>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
-        {docs_versions_reverse.map((version, index) => <ReleaseContent version={version} release_changelogs={this.props.release_changelogs} dark={Boolean(index % 2)} showHeader={true}/>)}
+        {docs_versions_reverse.map((version, index) => <ReleaseContent version={version} release_changelogs={this.props.release_changelogs} dark={Boolean(index % 2)} showSeparator={Boolean(index < docs_versions_reverse.length - 1)} showHeader={true}/>)}
       </div>
     );
   }
@@ -168,7 +168,7 @@ class ReleaseContent extends Component {
         {this.props.showHeader ? <h2><Link to={"releases/"+this.props.version+"/"}>PHOEBE {this.props.version}</Link></h2> : null}
         <div className="row">
           <div className="col-md-2 text-center">
-            <Image src={"/logos/"+logo} width="128"/>
+            <Image src={"/logos/"+logo} className="img-handle-invert" width="128"/>
           </div>
           <div className="col-md-10">
             <Link to={"/install/"+this.props.version+"/"}><span className="fa fa-download"></span> Install PHOEBE {this.props.version}</Link> &nbsp;&nbsp;&nbsp;
@@ -192,6 +192,11 @@ class ReleaseContent extends Component {
             }
           </div>
         </div>
+        {this.props.showSeparator ?
+          <Separator large={false} marginTop="30px" marginBottom="-65px" flip={this.props.dark}/>
+          :
+          null
+        }
       </Content>
     )
   }
