@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /static/cssjs/
+Disallow: /static/favicons/
+Disallow: /static/logos/
+Disallow: /static/images/
+Disallow: /static/pdf/
