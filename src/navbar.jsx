@@ -25,12 +25,13 @@ export class Navbar extends React.Component {
     var navbarBrandStyle = {}
     var navbarLinkStyle = {}
     var navbarLogo = '/logos/logo_blue.svg'
+    var navbarLogoClass="navbar-brand-logo"
     if (this.state.navbarDark) {
       navbarClassName = navbarClassName + " navbar-transparent"
       // navbarStyle = {backgroundColor: "#2B71B1", boxShadow: "none", transition: "none", color: "#E6E6E6"}
-      navbarLogo = '/logos/logo_invert.svg'
       navbarBrandStyle = {color: "#E6E6E6", fontVariant: "small-caps"}
       navbarLinkStyle = {color: "#E6E6E6"}
+      navbarLogoClass = navbarLogoClass + " logo-invert"
 
     }
 
@@ -52,7 +53,7 @@ export class Navbar extends React.Component {
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
             </button>
-              <NavLink to="/" className="navbar-brand" style={navbarBrandStyle}><b><Image className="navbar-brand-logo" height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>
+              <NavLink to="/" className="navbar-brand" style={navbarBrandStyle}><b><Image className={navbarLogoClass} height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>
           </div>
 
           <div className="collapse navbar-collapse">
