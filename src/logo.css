@@ -154,33 +154,33 @@
 }
 
 .TransitionIn > .PLTB5 {
-  animation-delay: 0ms;
+  animation-delay: 1600ms;
 }
 
 .TransitionIn > .PLTB4, .TransitionIn > .PLTB6 {
-  animation-delay: 200ms;
+  animation-delay: 2200ms;
 }
 
 .TransitionIn > .PLTB3, .TransitionIn > .PLTB7 {
-  animation-delay: 400ms;
+  animation-delay: 2800ms;
 }
 
 .TransitionIn > .PLTB2 {
-  animation-delay: 600ms;
+  animation-delay: 3400ms;
 }
 
 .TransitionIn > .PLTB1 {
-  animation-delay: 800ms;
+  animation-delay: 4000ms;
 }
 
 .PLT8 {
   animation: plt8fadein 1 ease-in forwards;
-  animation-duration: 600ms
+  animation-duration: 1800ms
 }
 
 .TransitionIn > .PLT8 {
-  animation-duration: 1200ms;
-  animation-delay: 1200ms;
+  animation-duration: 2000ms;
+  animation-delay: 5200ms;
 }
 
 
