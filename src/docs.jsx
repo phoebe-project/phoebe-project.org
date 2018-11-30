@@ -237,7 +237,7 @@ class VersionSwitcherButton extends Component {
       to = this.props.to
     }
     return (
-      <Link to={to} style={{textDecoration: "none", margin: "0px 3px 3px 0px", color: "#2196f3"}} className="btn btn-default btn-md other">{this.props.version}</Link>
+      <Link to={to} style={{textDecoration: "none", margin: "0px 3px 3px 0px", color: "#2B71B1"}} className="btn btn-default btn-md other">{this.props.version}</Link>
     )
   }
 }
