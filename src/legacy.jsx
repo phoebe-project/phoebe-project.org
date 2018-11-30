@@ -11,6 +11,7 @@ export class LegacyIntro extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | Legacy</title>
+          <meta name="description" content="PHOEBE 1 (legacy version)"/>
         </Helmet>
         <HeaderLegacy/>
         <Content>

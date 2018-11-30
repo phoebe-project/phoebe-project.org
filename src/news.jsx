@@ -294,6 +294,7 @@ export class News extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | {helmetTitle}</title>
+          <meta name="description" content={"PHOEBE News: "+helmetTitle}/>
         </Helmet>
         <Header>
           <h1>{headerTitle}</h1>

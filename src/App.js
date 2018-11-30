@@ -79,7 +79,7 @@ class App extends Component {
         <div id='main'>
           <Helmet>
               <title>PHOEBE</title>
-              <meta name="description" content="phoebe astronomy software project"/>
+              <meta name="description" content="PHOEBE is an astronomical python software package which robustly generates synthetic models of the light curves, radial velocity curves, and spectral line profiles of eclipsing system and eclipsing binary stars."/>
               <meta name="keywords" content={metaKeywords}/>
           </Helmet>
 

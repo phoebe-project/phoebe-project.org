@@ -29,6 +29,7 @@ export class Workshop extends Component {
         <div>
           <Helmet>
             <title>PHOEBE | Workshops</title>
+            <meta name="description" content="workshops are designed to help teach the community how to use the PHOEBE software package"/>
           </Helmet>
           <Header>
             <h1>PHOEBE Workshops</h1>

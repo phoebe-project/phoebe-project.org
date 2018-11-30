@@ -11,6 +11,7 @@ export class Publications extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | Publications</title>
+          <meta name="description" content="list of publications about PHOEBE - including poster and conference proceedings."/>
         </Helmet>
         <Header>
           <h1>Publications</h1>

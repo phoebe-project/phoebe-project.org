@@ -18,6 +18,7 @@ export class Releases extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | Releases</title>
+          <meta name="description" content="PHOEBE software version-releases."/>
         </Helmet>
         <Header>
           <h1>Releases</h1>

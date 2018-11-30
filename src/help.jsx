@@ -12,6 +12,7 @@ export class HelpDevel extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | Development Team</title>
+          <meta name="description" content="PHOEBE development-team"/>
         </Helmet>
         <Header>
           <span className="hidden-xs"><h1>PHOEBE Development Team</h1></span>
@@ -105,6 +106,7 @@ export class HelpFAQ extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | FAQ</title>
+          <meta name="description" content="PHOEBE 2 frequently asked questions"/>
         </Helmet>
         <Header>
           <h1><span className="hidden-xs">Frequently Asked Questions</span><span className="visible-xs">FAQ</span></h1>
@@ -141,6 +143,7 @@ export class HelpIPYNB extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | How To: Jupyter Notebooks</title>
+          <meta name="description" content="How to download and run the jupyter notebooks provided for the PHOEBE 2 tutorials and examle scripts"/>
         </Helmet>
         <Header>
           <h1><span className="hidden-xs">How To: Jupyter/Ipython Notebooks</span><span className="visible-xs">How To: ipynb</span></h1>
@@ -159,6 +162,7 @@ export class HelpVersion extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | How To: Check Installed Version of PHOEBE</title>
+          <meta name="description" content="how to check your version of PHOEBE"/>
         </Helmet>
         <Header>
           <h1><span className="hidden-xs">How To: Check Installed Version of PHOEBE</span><span className="visible-xs">How To: PHOEBE Version</span></h1>
@@ -177,6 +181,7 @@ export class HelpContact extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | Contact Us</title>
+          <meta name="description" content="mailing lists and contact the PHOEBE development team"/>
         </Helmet>
         <Header>
           <h1>Contact Us</h1>
@@ -247,6 +252,7 @@ export class HelpMailingList extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | {mailinglist} mailinglist</title>
+          <meta name="description" content={"PHOEBE mailinglist "+mailinglist}/>
         </Helmet>
         <Header>
           <h1>{mailinglist}</h1>

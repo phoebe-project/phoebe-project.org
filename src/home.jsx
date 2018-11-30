@@ -29,8 +29,8 @@ export class Home extends Component {
           <AlertVersion/>
 
           <div className="col-md-12">
-            <p>PHOEBE is an eclipsing binary modeling suite - reproducing and fitting light curve and radial velocity curves of eclipsing systems.</p>
-            <p>PHOEBE 2 is a completely rewritten version of the popular <Link to="/1.0">PHOEBE legacy suite</Link> that aims to provide better precision, <Link to="/docs/latest/physics">new physics</Link>, and modeling of <Link to="/docs/latest/datasets">additional observables</Link> - all with intuitive and powerful python interfaces.</p>
+            <p>PHOEBE is an eclipsing binary modeling code - reproducing and fitting light curve, radial velocity curves, and spectral line profiles of eclipsing systems.</p>
+            <p>PHOEBE 2 is a completely rewritten version of the popular <Link to="/1.0">PHOEBE legacy suite</Link> that aims to provide better precision, <Link to="/docs/latest/physics">new physics</Link>, and modeling of <Link to="/docs/latest/datasets">additional observables</Link> - all with intuitive and powerful python package interfaces.</p>
           </div>
 
           <div className="col-md-12">

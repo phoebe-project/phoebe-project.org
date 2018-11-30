@@ -3,7 +3,7 @@ import {Link as RouterLink, NavLink as RouterNavLink, Redirect as RouterRedirect
 
 // var smoothScroll = require('smoothscroll'); // https://github.com/alicelieutier/smoothScroll
 
-export const metaKeywords = "phoebe, phoebe-project, eclipsing binaries, eclipsing binary stars, astronomy";
+export const metaKeywords = "phoebe, phoebe-project, eclipsing binaries, eclipsing binary, eclipsing binary stars, modeling, astronomy, software, program, code, python, package";
 
 function processLink(link) {
   if (link.startsWith("http") || link.startsWith("ftp")) {

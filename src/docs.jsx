@@ -110,6 +110,7 @@ export class Docs extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | Documentation</title>
+          <meta name="description" content={"PHOEBE "+version+" documentation"}/>
           <meta name="keywords" content={metaKeywords+", documentation, docs"}/>
         </Helmet>
         <Header>

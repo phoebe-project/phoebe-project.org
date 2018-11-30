@@ -11,6 +11,7 @@ export class Source extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | Source-Code</title>
+          <meta name="description" content="links to various PHOEBE source-code repositories"/>
         </Helmet>
         <Header>
           <h1>Source-Code</h1>

@@ -90,6 +90,7 @@ export class Install extends Component {
         <Helmet>
           <title>PHOEBE | Download & Install</title>
           <meta name="keywords" content={metaKeywords+", download, install"}/>
+          <meta name="description" content="Instructions for downloading and installing PHOEBE 2"/>
         </Helmet>
         <Header>
           <h1>Download &amp; Install PHOEBE {version_long}</h1>
