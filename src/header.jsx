@@ -1,5 +1,6 @@
 import React from 'react';
 
+import {LogoSplash} from './logo';
 import {Link, Image} from './common';
 
 export class NoHeader extends React.Component {
@@ -13,7 +14,7 @@ export class NoHeader extends React.Component {
 export class Header extends React.Component {
   render() {
     return (
-      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", overflowX: "hidden", paddingTop: "50px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
+      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", overflowX: "hidden", overflowY: "hidden", paddingTop: "50px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
         <div className="container">
           {this.props.children}
         </div>
@@ -28,16 +29,26 @@ export class HeaderIndex extends React.Component {
     return (
       <Header>
         <div>
-          <div className="row">
-              <div className="col-md-2 col-xs-4 text-center">
+          <div className="row visible-md visible-sm visible-xs" style={{paddingBottom: "25px"}}>
+              <div className="col-md-2 col-sm-4 col-xs-12 text-center">
                   <Image src="/logos/logo_invert.svg" alt="Home" style={{maxHeight: "160px"}}/>
               </div>
-              <div className="col-md-8">
+              <div className="visible-md visible-sm col-sm-8">
+                  <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE</h1>
+                  <h4 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}><i>PHysics Of Eclipsing BinariEs</i></h4>
+              </div>
+              <div className="visible-xs col-xs-12" style={{textAlign: "center"}}>
                   <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE</h1>
                   <h4 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}><i>PHysics Of Eclipsing BinariEs</i></h4>
               </div>
           </div>
-          <div className="row">
+          <div className="row hidden-md hidden-sm hidden-xs" style={{textAlign: "center", paddingBottom: "50px"}}>
+              <LogoSplash/>
+              <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather", paddingTop: "60px"}}>PHOEBE</h1>
+              <h4 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}><i>PHysics Of Eclipsing BinariEs</i></h4>
+              <h5 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>Eclipsing Binary Modeling Software</h5>
+          </div>
+          <div className="row visible-xs">
               <div className="col-md-4">
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>

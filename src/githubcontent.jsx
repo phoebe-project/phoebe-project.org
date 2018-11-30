@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Link} from './common'
+import {LogoSpinner} from './logo'
 
 import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
@@ -91,14 +92,18 @@ export class GitHubContent extends React.Component {
                        </div>
       }
 
-    } else if (this.state.contentType) {
-      content_html = <div style={{textAlign: "center"}}>
-                       <h3>No content could be found... please try again.</h3>
-                       {/* <h3>No content could be found... please try again.  Or if you think something should be here or you followed an internal link, please <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?body=followed+link+from:+PLEASE+PASTE+URL+THAT+LINKED+TO+THIS+PAGE&title=no+content+found+at+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}>report the issue here</Link>.</h3> */}
-                     </div>
+    // } else if (this.state.contentType) {
+    //   content_html = <div style={{textAlign: "center"}}>
+    //                    <h3>No content could be found... please try again.</h3>
+    //                    {/* <h3>No content could be found... please try again.  Or if you think something should be here or you followed an internal link, please <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?body=followed+link+from:+PLEASE+PASTE+URL+THAT+LINKED+TO+THIS+PAGE&title=no+content+found+at+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}>report the issue here</Link>.</h3> */}
+    //                  </div>
     } else if (this.state.path){
-      // TODO: replace this with a nice loading icon
-      content_html = <p>{this.props.loadingText || "LOADING EXTERNAL CONTENT..."}</p>
+      content_html = <div>
+                        <div className='hidden-xs'>
+                          <LogoSpinner pltStyle={{backgroundColor: "rgb(43, 113, 177)"}}/>
+                        </div>
+                        <p style={{textAlign: "center", fontSize: "18pt"}}>{this.props.loadingText || "LOADING EXTERNAL CONTENT..."}</p>
+                     </div>
     } else {
       content_html = this.props.children
     }
