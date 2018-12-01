@@ -11,8 +11,7 @@ import {Header, HeaderNavButton} from './header';
 
 export class Releases extends Component {
   render() {
-    // NOTE: we do this to force a deep-copy
-    var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions.concat("legacy"))).reverse()
+    var docs_versions_incl_legacy = docs_versions.concat("legacy")
     var latest_patch_version = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
     return (
       <div>
@@ -41,7 +40,7 @@ export class Releases extends Component {
           </p>
         </Content>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
-        {docs_versions_reverse.map((version, index) => <ReleaseContent version={version} release_changelogs={this.props.release_changelogs} dark={Boolean(index % 2)} showSeparator={Boolean(index < docs_versions_reverse.length - 1)} showHeader={true}/>)}
+        {docs_versions_incl_legacy.map((version, index) => <ReleaseContent version={version} release_changelogs={this.props.release_changelogs} dark={Boolean(index % 2)} showSeparator={Boolean(index < docs_versions_incl_legacy.length - 1)} showHeader={true}/>)}
       </div>
     );
   }
