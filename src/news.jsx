@@ -11,7 +11,7 @@ export var newsStoriesDicts = [
   {
     title: "Improved Tutorials and API Documentation",
     slug: "improved-tutorials-and-api-documentation",
-    pinned: true,
+    pinnedDays: 30,
     date: "November 27, 2018",
     author: "Kyle Conroy",
     content: <div>
@@ -35,7 +35,7 @@ export var newsStoriesDicts = [
   {
     title: "PHOEBE 2.1 released",
     slug: "phoebe-21-released",
-    pinned: true,
+    pinnedDays: 45,
     date: "October 29, 2018",
     author: "Kyle Conroy",
     content: <div>
@@ -47,7 +47,6 @@ export var newsStoriesDicts = [
   {
     title: "PHOEBE 2.1 coming soon!",
     slug: "phoebe-21-coming-soon",
-    pinned: false,
     date: "June 25, 2018",
     author: "Kyle Conroy",
     content: <div>
@@ -59,7 +58,6 @@ export var newsStoriesDicts = [
   {
     title: "PHOEBE Workshop 1",
     slug: "phoebe-workshop-1",
-    pinned: false,
     date: "February 13, 2018",
     author: "Kyle Conroy",
     content: <div>
@@ -85,7 +83,6 @@ export var newsStoriesDicts = [
   {
     title: "Official PHOEBE 2.0 Release",
     slug: "official-phoebe-20-release",
-    pinned: false,
     date: "March 22, 2017",
     author: "Kyle Conroy",
     content: <div>
@@ -119,7 +116,6 @@ export var newsStoriesDicts = [
   {
     title: "PHOEBE 2.0-beta Released!",
     slug: "phoebe-20-beta-released",
-    pinned: false,
     date: "September 27, 2016",
     author: "Kyle Conroy",
     content: <div>
@@ -141,7 +137,6 @@ export var newsStoriesDicts = [
   {
     title: "New Website",
     slug: "new-website",
-    pinned: false,
     date: "January 26, 2016",
     author: "Kyle Conroy",
     content: <div>
@@ -161,7 +156,6 @@ export var newsStoriesDicts = [
   {
     title: "Phoebe being introduced and used at the Binary workshop in Leuven (BE)",
     slug: "phoebe-being-introduced-and-used-at-the-binary-wor",
-    pinned: false,
     date: "April 13, 2015",
     author: "Kyle Conroy",
     content: <div>
@@ -199,7 +193,6 @@ export var newsStoriesDicts = [
   {
     title: "Power meeting: fun with temperature distributions",
     slug: "power-meeting-fun-with-temperature-distributions",
-    pinned: false,
     date: "October 14, 2014",
     author: "Andrej Prsa",
     content: <div>
@@ -214,7 +207,6 @@ export var newsStoriesDicts = [
   {
     title: "6th PHOEBE power-meeting",
     slug: "6th-phoebe-power-meeting",
-    pinned: false,
     date: "October 12, 2014",
     author: "Andrej Prsa",
     content: <div>
@@ -227,7 +219,6 @@ export var newsStoriesDicts = [
   {
     title: "PHOEBE 2.0-alpha released!",
     slug: "phoebe-20-alpha-released",
-    pinned: false,
     date: "April 28, 2014",
     author: "Andrej Prsa",
     content: <div>
@@ -248,7 +239,6 @@ export var newsStoriesDicts = [
   {
     title: "5th PHOEBE power-meeting",
     slug: "5th-phoebe-power-meeting",
-    pinned: false,
     date: "April 10, 2014",
     author: "Andrej Prsa",
     content: <div>

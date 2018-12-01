@@ -8,10 +8,20 @@ import {Footer} from './footer';
 import {newsStoriesDicts, NewsContent} from './news';
 
 export class Home extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      now: new Date(),
+    };
+  }
   render() {
+    var newsStoryDate = null;
+    var newsStoryPinnedDays = null;
     var pinnedNewsStoryDicts = [];
     newsStoriesDicts.forEach((newsStoryDict, index) => {
-    	if (newsStoryDict.pinned) {
+      newsStoryDate = new Date(newsStoryDict.date)
+      newsStoryPinnedDays = newsStoryDict.pinnedDays || 30
+    	if (this.state.now - newsStoryDate < newsStoryPinnedDays*24*60*60*1000) {
         pinnedNewsStoryDicts.push(newsStoryDict)
       }
     });

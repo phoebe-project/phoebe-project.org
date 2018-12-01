@@ -99,7 +99,7 @@ Versions displayed in the version switcher are defined in [docs.jsx](./src/docs.
 
 ## Updating News Entries
 
-News entries are defined in `newsStoriesDicts` variable in [news.jsx](./src/news.jsx).  To add a new article, add a dictionary to the TOP of this list, copying the format of other existing entries.  Pay particular attention to making sure all commas exist correctly (and test locally before deploying).  The `pinned` key in the dictionary will determine whether any given entry will also be shown on the top of the homepage.  Set this to true, if desired, but remember to set it to false after the article is no longer timely.  The `content` must be wrapped in an outer `<div>` element.
+News entries are defined in `newsStoriesDicts` variable in [news.jsx](./src/news.jsx).  To add a new article, add a dictionary to the TOP of this list, copying the format of other existing entries.  Pay particular attention to making sure all commas exist correctly (and test locally before deploying).  The `pinnedDays` key in the dictionary will determine how long the given entry will also be shown on the top of the homepage.  If not provided, this will default to 30 days.  NOTE: the `content` must be wrapped in an outer `<div>` element.
 
 ## Workshops
 
