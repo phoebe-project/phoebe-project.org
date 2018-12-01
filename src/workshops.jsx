@@ -40,12 +40,12 @@ export class Workshop extends Component {
             <Separator large={false}/>
           </Content>
           <Content dark={true}>
-            <h1>Past Workshops</h1>
+            <h2>Past Workshops</h2>
             <ul>{Object.keys(archived_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
             <Separator flip={true} large={false}/>
           </Content>
           <Content>
-            <h1>Upcoming Workshops</h1>
+            <h2>Upcoming Workshops</h2>
             {Object.keys(active_workshops).length ?
               <ul>{Object.keys(active_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
               :

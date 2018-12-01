@@ -22,8 +22,10 @@ import {News, NewsEntry} from './news';
 import {Workshop, WorkshopRegistration} from './workshops';
 import {Publications} from './publications';
 import {Source} from './source';
+import {Contribute} from './contribute';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
 import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, HelpVersion, HelpIPYNB} from './help';
+import {Devel, TeleconRedirect, TeleconNotesRedirect} from './devel';
 import {NotFound} from './errors';
 
 function parseReadmeChangelog(text) {
@@ -103,6 +105,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop/:slug'} component={Workshop}/>
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
+            <Route exact path={process.env.PUBLIC_URL + '/contribute'} component={Contribute}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0'} component={LegacyIntro}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0/gpl'} component={LegacyGPL}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0/docs'} component={LegacyDocs}/>
@@ -113,6 +116,9 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/help/faq'} component={HelpFAQ}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/version'} component={HelpVersion}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/ipynb'} component={HelpIPYNB}/>
+            <Route exact path={process.env.PUBLIC_URL + '/devel'} component={Devel}/>
+            <Route exact path={process.env.PUBLIC_URL + '/devel/telecon-notes'} component={TeleconNotesRedirect}/>
+            <Route exact path={process.env.PUBLIC_URL + '/devel/telecon'} component={TeleconRedirect}/>
 
             <Route path="*" component={NotFound} />
           </Switch>

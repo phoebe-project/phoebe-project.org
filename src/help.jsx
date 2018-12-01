@@ -27,12 +27,12 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="kyle.jpg">
-            <Link to="http://www.keconroy.com" hideExternal={true}>Kyle Conroy</Link> is a post-doc at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings into PHOEBE 2 and has led the development of the 2.0 release as well as building and maintaining this website.
+            <Link to="http://www.keconroy.com" hideExternal={true}>Kyle Conroy</Link> is a post-doc at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings into PHOEBE 2 and leads the development and releases of PHOEBE 2.  Kyle also developed and maintains this website.
           </DeveloperInfo>
 
 
           <DeveloperInfo image="martin.jpg">
-            <Link to="http://chaos.fmf.uni-lj.si/horvat" hideExternal={true}>Martin Horvat</Link> is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <Link to="https://www.springer.com/gp/book/9783319786186">computational physics</Link>, as well as general relativity. He is developing the background calculations of PHOEBE 2 related to meshing of stellar objects and accurate calculation of their properties. He is also developing the framework for misaligned orbits and heat redistribution.
+            <Link to="http://chaos.fmf.uni-lj.si/horvat" hideExternal={true}>Martin Horvat</Link> is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <Link to="https://www.springer.com/gp/book/9783319786186">computational physics</Link>, as well as general relativity. He is developing the background calculations of PHOEBE 2 related to meshing of stellar objects and accurate calculation of their properties and lead the <Link to="/releases/2.1">2.1 release featuring misaligned orbits</Link>.  He is also working on developing the framework for heat redistribution.
           </DeveloperInfo>
 
 
@@ -73,11 +73,18 @@ export class HelpDevel extends Component {
           <div className="row">&nbsp;</div>
 
           <div className="row">
-              <div className="col-md-2">
-              </div>
-              <div className="col-md-10">
-                  <p>We also thank all the additional developers and contributors who helped make and improve the <Link to="/1.0">PHOEBE legacy version</Link>.</p>
-              </div>
+            <div className="col-md-2">
+            </div>
+            <div className="col-md-10">
+              <p>We also thank all the additional developers and contributors who helped make and improve the <Link to="/1.0">PHOEBE legacy version</Link>.</p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-2">
+            </div>
+            <div className="col-md-10">
+              <p>You can contact us through the <Link to="/help/contact/phoebe-devel">phoebe-devel mailing list</Link>.  Or if you're interested in contributing, see how to <Link to="/contribute#testing">test PHOEBE</Link>, <Link to="/contribute#issues">report issues</Link>, <Link to="/contribute#features">request new features</Link>, or even <Link to="/contribute#develop">join the development team</Link>.</p>
+            </div>
           </div>
         </Content>
       </div>
@@ -190,10 +197,13 @@ export class HelpContact extends Component {
         </Header>
         <Content>
           <div className="row">
-            <p>There are several options to get help with PHOEBE. The obvious one is to start with the <Link to="/docs/latest/">documentation and tutorials</Link>. We also have several mailing lists set up where you can ask questions and exchange experiences with other users and developers.</p>
-          </div>
-          <div className="row">
-          Electronic mailing lists enable people to communicate, ask for help and share experiences with other subscribers on the given list. There are three PHOEBE-related mailing lists where you are invited to participate:
+            <p>
+              There are several options to get help with PHOEBE. The obvious one is to start with the <Link to="/docs/latest/">documentation and tutorials</Link>. If you think you've found a bug, please <Link to="/contribute#issues">report an issue</Link> or if you can't find something that you think should exist, <Link to="/contribute#features">request a new feature</Link>.
+            </p>
+            <p>
+              We also have several mailing lists set up where you can ask questions and exchange experiences with other users and developers.
+              These Electronic mailing lists enable people to communicate, ask for help and share experiences with other subscribers on the given list. There are three PHOEBE-related mailing lists where you are invited to participate:
+            </p>
           </div>
 
           <div className="row">

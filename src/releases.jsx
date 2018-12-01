@@ -168,7 +168,7 @@ class ReleaseContent extends Component {
         {this.props.showHeader ? <h2><Link to={"releases/"+this.props.version+"/"}>PHOEBE {this.props.version}</Link></h2> : null}
         <div className="row">
           <div className="col-md-2 text-center">
-            <Image src={"/logos/"+logo} className="img-handle-invert" width="128"/>
+            <Image src={"/logos/"+logo} className={this.props.version!=='legacy' ? "img-handle-invert" : null} width="128"/>
           </div>
           <div className="col-md-10">
             <Link to={"/install/"+this.props.version+"/"}><span className="fa fa-download"></span> Install PHOEBE {this.props.version}</Link> &nbsp;&nbsp;&nbsp;

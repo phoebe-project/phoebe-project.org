@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect, Image, Separator, Alert, getLatestPatchVersion, metaKeywords} from './common';
+import {Content, Link, Redirect, Image, Separator, Alert, getLatestPatchVersion, metaKeywords, NosetestsDiv} from './common';
 import {NotFound} from './errors';
 import {docs_versions, getDocsLink} from './docs';
 import {Header, HeaderNavButton} from './header';
@@ -34,12 +34,7 @@ export class Install extends Component {
       window.scrollTo(0,offsetTop-80);
     }
   }
-  // componentDidMount() {
-  //   console.log("componentDidMount "+this.state.hash)
-  //   this.scrollToHash()
-  // }
   componentDidUpdate() {
-    console.log("componentDidUpdate "+this.state.hash)
     this.scrollToHash()
   }
   render() {
@@ -120,7 +115,7 @@ export class Install extends Component {
             </Alert>
           }
 
-          <h2 ref={this.refpip}>Installing from PIP</h2>
+          <h2 ref={this.refpip}><span className="fab fa-xs fa-python"></span> Installing from PIP</h2>
           <p>Installing PHOEBE from PIP is probably the easiest.  {version ? "To install version "+version_long : 'To install the latest version'}:</p>
           <pre>
             pip install phoebe{version ? "=="+version_long : null}
@@ -184,8 +179,8 @@ export class Install extends Component {
           </pre>
           <Separator large={false}/>
         </Content>
-        <Content dark={true}>
-          <h2 ref={this.refsource}>Installing from Source</h2>
+        <Content dark={true} preventScrollTop={this.props.location.hash}>
+          <h2 ref={this.refsource}><span className="fa fa-xs fa-code"></span> Installing from Source</h2>
           <h3>Download Source Code</h3>
 
           <p>Download the archive version below and unpack the source-code:
@@ -249,22 +244,15 @@ export class Install extends Component {
           </pre>
           <Separator large={false} flip={true}/>
         </Content>
-        <Content>
+        <Content preventScrollTop={this.props.location.hash}>
+          <h2 ref={this.reftesting}><span className="fa fa-xs fa-vial"></span> Running Nosetests</h2>
+          <NosetestsDiv/>
 
-          <h2 ref={this.reftesting}>Testing</h2>
-          <p>The following additional dependencies are required to run the nosetests:</p>
-          <ul>
-            <li><Link to="http://nose.readthedocs.io/en/latest/">nose</Link></li>
-            <li><Link to="https://github.com/phoebe-project/phoebe1">PHOEBE 1.0</Link> with the phoebe-py wrapper</li>
-            <li><Link to="https://github.com/phoebe-project/photodynam">photodynam</Link></li>
-            <li><Link to="https://github.com/hannorein/rebound">rebound</Link></li>
-          </ul>
-          <p>To run all tests locally on your machine, run the following in the ‘tests’ directory in the source.</p>
-          <pre>
-            python run_tests nosetests
-          </pre>
+          <p>
+            For more information, read about <Link to="/contribute#testing">testing PHOEBE</Link> and <Link to="/contribute#issues">reporting issues and bugs</Link>.
+            If you run into issues, you can always contact us on the <Link to="/help/contact/phoebe-devel">phoebe-devel mailing list</Link>.
+          </p>
 
-          <p>Please <Link to="https://github.com/phoebe-project/phoebe2/issues">report any issues or bugs</Link>.</p>
         </Content>
       </div>
     );
