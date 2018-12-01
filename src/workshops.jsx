@@ -37,12 +37,12 @@ export class Workshop extends Component {
           <Content>
             <p>PHOEBE Workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/help/devel">developers</Link> to learn what features and improvements can be made.</p>
             <p>These workshops are made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>.</p>
-            <Separator large={false} marginTop="30px" marginBottom="-65px"/>
+            <Separator large={false}/>
           </Content>
           <Content dark={true}>
             <h1>Past Workshops</h1>
             <ul>{Object.keys(archived_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
-            <Separator flip={true} large={false} marginTop="30px" marginBottom="-65px"/>
+            <Separator flip={true} large={false}/>
           </Content>
           <Content>
             <h1>Upcoming Workshops</h1>

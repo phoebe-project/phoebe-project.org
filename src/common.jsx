@@ -151,14 +151,14 @@ export class Image extends React.Component {
 
 export class Separator extends React.Component {
   render() {
-    var height = this.props.height || "30px"
-    var marginTop = this.props.marginTop || "0px"
-    var marginBottom = this.props.marginBottom || "-45px"
+    var height = this.props.height || "24px"
+    var marginTop = this.props.marginTop || "30px"
+    var marginBottom = this.props.marginBottom || "-62px"
     var marginRight = this.props.marginRight || "auto"
     if (this.props.large) {
-      var height = this.props.height || "50px"
+      var height = this.props.height || "40px"
       var marginTop = this.props.marginTop || "0px"
-      var marginBottom = this.props.marginBottom || "-50px"
+      var marginBottom = this.props.marginBottom || "-45px"
     }
     var className = this.props.className || ""
 

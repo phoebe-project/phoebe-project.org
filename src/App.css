@@ -59,8 +59,14 @@ a {
   color: #E6E6E6;
 }
 
-.content-dark h1 {
+.content-dark h1, .content-dark h2, .content-dark h3, .content-dark h4, .content-dark h5 {
   color: #E6E6E6
+}
+
+.content-dark pre {
+  background-color: #456583;
+  border-color: #f5f5f5; /* same as pre background-color */
+  color: white;
 }
 
 .content-dark a {

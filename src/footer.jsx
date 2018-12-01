@@ -7,7 +7,7 @@ export class Footer extends React.Component {
 
     return (
       <div className="jumbotron" style={{marginBottom: "0px", marginTop: "50px"}}>
-        <Separator large={true} marginTop="-50px" marginBottom="0px" className="hidden-xs"/>
+        <Separator large={true} marginTop="-45px" marginBottom="0px" className="hidden-sm hidden-xs"/>
         <div className="container">
           <div className="row">
             <div className="col-md-2 col-xs-12">

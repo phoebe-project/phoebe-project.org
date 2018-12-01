@@ -194,7 +194,7 @@ class ReleaseContent extends Component {
           </div>
         </div>
         {this.props.showSeparator ?
-          <Separator large={false} marginTop="30px" marginBottom="-65px" flip={this.props.dark}/>
+          <Separator large={false} flip={this.props.dark}/>
           :
           null
         }

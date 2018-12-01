@@ -21,7 +21,7 @@ export class Publications extends Component {
           <Publication author="Horvat et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/#abs/2018ApJS..237...26H" pdf="2018Horvat+.pdf" title="Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment" release="2.1"/>
           <Publication author="Prsa et al. (2016)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P" pdf="2016Prsa+.pdf" title="Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity" release="2.0"/>
           <Publication author="Prsa et al. (2005)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2005ApJ...628..426P" title="A Computational Guide to Physics of Eclipsing Binaries. I. Demonstrations and Perspectives" release="legacy"/>
-          <Separator large={false} marginTop="30px" marginBottom="-65px"/>
+          <Separator large={false}/>
         </Content>
 
         <Content dark={true}>
@@ -32,7 +32,7 @@ export class Publications extends Component {
           <Publication author="Conroy et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2013EAS....64..295C" title="PHOEBE 2.0 - Triple and multiple systems"/>
           <Publication author="Hambleton et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2013EAS....64..285H" title="Physics of Eclipsing Binaries: Heartbeat Stars and Tidally Induced Pulsations"/>
           <Publication author="Prsa et al. (2007)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2007ASPC..370..175P" title="Introducing Powell's Direction Set Method to a Fully Automated Analysis of Eclipsing Binary Stars"/>
-          <Separator flip={true} large={false} marginTop="30px" marginBottom="-65px"/>
+          <Separator flip={true} large={false}/>
         </Content>
 
         <Content>

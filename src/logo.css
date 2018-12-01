@@ -1,24 +1,23 @@
 .PhoebeLogo {
   display: block;
   margin: auto;
-  width: 180px; /* allows auto-centering */
-  height: 300px;
+  width: 136px; /* allows auto-centering */
+  height: 260px;
   box-sizing: border-box;
-  margin-bottom: 50px;
 }
 
 .PhoebeLogoSpinner {
   display: block;
   margin: auto;
-  width: 180px; /* allows auto-centering */
-  height: 400px
+  width: 136px; /* allows auto-centering */
+  height: 260px
 }
 
 /* size and position of triangles */
 .PLT, .PLTB {
   position: relative;
-  height: 100px;
-  width: 86px;
+  height: 75px;
+  width: 64.5px;
 }
 
 .PLTB {
@@ -68,77 +67,77 @@
 }
 
 .PLT3, .PLT4, .PLT5 {
-  left: 95px;
+  left: 70px;
 }
 
 .PLTB1, .PLTB2, .PLTB6, .PLTB7 {
-  left: -95px;
+  left: -70px;
 }
 
 .PLTB3, .PLTB4, .PLTB5 {
-  left: -190px;
+  left: -140px;
 }
 
 
 /* top offset for rows (note these are weird because of relative positioning)*/
 .PLT1 {
-  top: 60px;
+  top: 45px;
 }
 
 .PLT2 {
-  top: -100px;
+  top: -75px;
 }
 
 .PLT3 {
-  top: -200px;
+  top: -150px;
 }
 
 .PLT4 {
-  top: -240px;
+  top: -180px;
 }
 
 .PLT5 {
-  top: -280px;
+  top: -210px;
 }
 
 .PLT6 {
-  top: -380px;
+  top: -285px;
 }
 
 .PLT7 {
-  top: -420px;
+  top: -315px;
 }
 
 .PLT8 {
-  top: -460px;
+  top: -345px;
 }
 
 .PLTB1 {
-  top: -500px;
+  top: -380px;
 }
 
 .PLTB2 {
-  top: -540px;
+  top: -410px;
 }
 
 .PLTB3 {
-  top: -640px;
+  top: -485px;
 }
 
 .PLTB4 {
-  top: -680px;
+  top: -515px;
 }
 
 .PLTB5 {
-  top: -720px;
+  top: -545px;
 }
 
 .PLTB6 {
-  top: -820px;
+  top: -620px;
 }
 
 .PLTB7 {
-  top: -980px;
+  top: -740px;
 }
 
 

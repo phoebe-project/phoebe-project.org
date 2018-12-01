@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect, Image, Alert, getLatestPatchVersion, metaKeywords} from './common';
+import {Content, Link, Redirect, Image, Separator, Alert, getLatestPatchVersion, metaKeywords} from './common';
 import {NotFound} from './errors';
 import {docs_versions, getDocsLink} from './docs';
 import {Header, HeaderNavButton} from './header';
@@ -182,7 +182,10 @@ export class Install extends Component {
           <pre>
             rm -rf &lt;myphoebedir&gt;
           </pre>
-          <h2 ref={this.refsource}>From Source</h2>
+          <Separator large={false}/>
+        </Content>
+        <Content dark={true}>
+          <h2 ref={this.refsource}>Installing from Source</h2>
           <h3>Download Source Code</h3>
 
           <p>Download the archive version below and unpack the source-code:
@@ -244,6 +247,9 @@ export class Install extends Component {
             python setup.py build<br/>
             sudo python setup.py install
           </pre>
+          <Separator large={false} flip={true}/>
+        </Content>
+        <Content>
 
           <h2 ref={this.reftesting}>Testing</h2>
           <p>The following additional dependencies are required to run the nosetests:</p>

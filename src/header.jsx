@@ -16,7 +16,7 @@ export class Header extends React.Component {
     var separator = this.props.separator || "left"
 
     return (
-      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", overflow: "visible", paddingTop: "50px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
+      <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", overflow: "visible", paddingTop: "25px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
         <div className="container">
           {this.props.children}
         </div>
@@ -47,7 +47,7 @@ export class HeaderIndex extends React.Component {
     return (
       <Header separator='right'>
         <div>
-          <div className="row visible-md visible-sm visible-xs" style={{paddingBottom: "25px"}}>
+          <div className="row visible-sm visible-xs" style={{paddingBottom: "25px"}}>
               <div className="col-md-2 col-sm-4 col-xs-12 text-center">
                   <Image src="/logos/logo_invert.svg" alt="Home" style={{maxHeight: "160px"}}/>
               </div>
@@ -60,9 +60,9 @@ export class HeaderIndex extends React.Component {
                   <h4 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}><i>PHysics Of Eclipsing BinariEs</i></h4>
               </div>
           </div>
-          <div className="row hidden-md hidden-sm hidden-xs" style={{textAlign: "center", paddingBottom: "50px"}}>
+          <div className="row hidden-sm hidden-xs" style={{textAlign: "center", paddingBottom: "20px"}}>
               <LogoSplash/>
-              <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather", paddingTop: "60px"}}>PHOEBE</h1>
+              <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE</h1>
               <h4 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}><i>PHysics Of Eclipsing BinariEs</i></h4>
               <h5 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>Eclipsing Binary Modeling Software</h5>
           </div>
