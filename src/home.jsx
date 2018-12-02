@@ -29,7 +29,7 @@ export class Home extends Component {
     return (
       <div>
         <Helmet>
-          <title>PHOEBE | Introducing PHOEBE 2</title>
+          <title>PHOEBE | Eclipsing Binary Modeling Software</title>
         </Helmet>
         <HeaderIndex />
         <Content>

@@ -9,7 +9,7 @@ import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
 export var docs_versions = ['2.1', '2.0'];
-var docs_versions_dev = docs_versions + ['2.0b', 'development']
+var docs_versions_dev = docs_versions + ['development']
 
 export function getDocsLink(version, subdir, slug) {
   if (subdir) {
@@ -112,6 +112,11 @@ export class Docs extends Component {
           <title>PHOEBE | Documentation</title>
           <meta name="description" content={"PHOEBE "+version+" documentation"}/>
           <meta name="keywords" content={metaKeywords+", documentation, docs"}/>
+          {docs_versions.indexOf(version)===-1 ?
+            <meta name="robots" content="NOINDEX, NOFOLLOW"/>
+            :
+            null
+          }
         </Helmet>
         <Header>
           <span className="hidden-xs"><h1>PHOEBE {version} Documentation</h1></span>
