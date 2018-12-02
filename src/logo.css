@@ -273,3 +273,31 @@
   animation: none !important;
   background-color: rgba(230, 230, 230, 0.65);
 }
+
+@media screen and (min-width: 1600px) {
+  /* CSS TO APPLY FOR XL WIDTH */
+  .PhoebeLogo {
+    zoom: 1.1
+  }
+}
+
+@media screen and (max-width: 1200px){
+  /* CSS TO APPLY FOR MEDIUM WIDTH */
+  .PhoebeLogo, .PhoebeLogoSpinner {
+    zoom: 0.8;
+  }
+}
+
+@media screen and (max-width: 1000px){
+  /* CSS TO APPLY FOR SMALL WIDTH */
+  .PhoebeLogo, .PhoebeLogoSpinner {
+    zoom: 0.75;
+  }
+}
+
+@media screen and (max-width: 767px){
+  /* CSS TO APPLY FOR XS WIDTH (MOBILE) */
+  .PhoebeLogo, .PhoebeLogoSpinner {
+    zoom: 0.7;
+  }
+}

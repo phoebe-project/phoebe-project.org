@@ -99,9 +99,7 @@ export class GitHubContent extends React.Component {
                      </div>
     } else if (this.state.path){
       content_html = <div>
-                        <div className='hidden-xs'>
-                          <LogoSpinner pltStyle={{backgroundColor: "rgb(43, 113, 177)"}}/>
-                        </div>
+                        <LogoSpinner pltStyle={{backgroundColor: "rgb(43, 113, 177)"}}/>
                         <p style={{textAlign: "center", fontSize: "18pt"}}>{this.props.loadingText || "LOADING EXTERNAL CONTENT..."}</p>
                      </div>
     } else {
