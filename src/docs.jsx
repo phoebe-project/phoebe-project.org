@@ -160,27 +160,27 @@ export class Docs extends Component {
           }
           <GitHubContent repo='phoebe2-docs' branch={version} path={this.state.contentPath} loadingText="LOADING DOCS..." reportHTML={reportHTML}>
             <div>
-              <h2><span className="fa fa-xs fa-tag"></span> About PHOEBE {version}</h2>
+              <h2><span className="fa fa-fw fa-xs fa-tag"></span> About PHOEBE {version}</h2>
               <p>You can read about the features added during the <Link to={"/releases/"+version}>{version} release</Link> as well as read the changelog entries.</p>
 
-              <h2><span className="fas fa-xs fa-download"></span> Download &amp; Install</h2>
+              <h2><span className="fas fa-fw fa-xs fa-download"></span> Download &amp; Install</h2>
               <p>If you don't already have PHOEBE installed, see the <Link to={"/install/"+version}>installation instructions for PHOEBE {version}.</Link></p>
 
-              <h2><span className="fas fa-xs fa-hands-helping"></span> Tutorials</h2>
+              <h2><span className="fas fa-fw fa-xs fa-hands-helping"></span> Tutorials</h2>
               <p>Tutorials are built to slowly build upon each other and provide narration about how to use PHOEBE.</p>
               <p>View <Link to={"/docs/"+version+"/tutorials"}>tutorials for PHOEBE {version}</Link>.</p>
 
-              <h2><span className="fas fa-xs fa-table"></span> Datasets &amp; Observables</h2>
+              <h2><span className="fas fa-fw fa-xs fa-table"></span> Datasets &amp; Observables</h2>
               <p><Link to={"/docs/"+version+"/datasets"}>These tutorials</Link> explain each of the different dataset types that are supported by PHOEBE, as well as all applicable options.</p>
 
-              <h2><span className="fas fa-xs fa-atom"></span> Physics &amp; Individual Parameters</h2>
+              <h2><span className="fas fa-fw fa-xs fa-atom"></span> Physics &amp; Individual Parameters</h2>
               <p><Link to={"/docs/"+version+"/physics"}>This set of tutorials</Link> describe the various physics effects implemented in PHOEBE {version} and the choices of the individual parameters that control those effects.</p>
 
-              <h2><span className="fa fa-xs fa-file-code"></span> Example Scripts</h2>
+              <h2><span className="fa fa-fw fa-xs fa-file-code"></span> Example Scripts</h2>
               <p>Example scripts provide less commentary that tutorials, but can be useful if trying to accomplish something specific or mimic another use-case.</p>
               <p>View <Link to={"/docs/"+version+"/examples"}>example scripts for PHOEBE {version}</Link>.</p>
 
-              <h2><span className="fa fa-xs fa-terminal"></span> API Documentation</h2>
+              <h2><span className="fa fa-fw fa-xs fa-terminal"></span> API Documentation</h2>
               <p>API Documentation shows the calling arguments and options for all classes/functions/methods in PHOEBE.  Note that these same instructions can be called by calling Python's help function (i.e. help(phoebe.bundle) or help(b.run_compute)).</p>
               <p>View <Link to={"/docs/"+version+"/api"}>API docs for PHOEBE {version}</Link>.</p>
             </div>

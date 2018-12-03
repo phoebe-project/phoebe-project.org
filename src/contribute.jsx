@@ -72,7 +72,7 @@ export class Contribute extends Component {
            </div>
         </Header>
         <Content preventScrollTop={this.props.location.hash}>
-          <h2 ref={this.reftesting}><span className="fa fa-xs fa-vial"></span> Testing PHOEBE</h2>
+          <h2 ref={this.reftesting}><span className="fa fa-fw fa-xs fa-vial"></span> Testing PHOEBE</h2>
           <p>
             The easiest way to help contribute to PHOEBE is to help by testing the code - both by testing systems and configurations we may not have considered and also on a variety of different machines and installations.
           </p>
@@ -93,7 +93,7 @@ export class Contribute extends Component {
           <Separator large={false}/>
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
-          <h2 ref={this.refissues}><span className="fas fa-xs fa-bug"></span> Report Bugs and Issues</h2>
+          <h2 ref={this.refissues}><span className="fas fa-fw fa-xs fa-bug"></span> Report Bugs and Issues</h2>
           <p>
             Found an issue or a bug?  Let us know so that we can try to fix it.
           </p>
@@ -109,7 +109,7 @@ export class Contribute extends Component {
           <Separator large={false} flip={true}/>
         </Content>
         <Content preventScrollTop={this.props.location.hash}>
-          <h2 ref={this.reffeatures}><span className="fas fa-xs fa-flask"></span> Request New Features</h2>
+          <h2 ref={this.reffeatures}><span className="fas fa-fw fa-xs fa-flask"></span> Request New Features</h2>
           <p>
             Think PHOEBE should be able to do something that it can't?  This could be any of the following:
           </p>
@@ -126,7 +126,7 @@ export class Contribute extends Component {
           <Separator large={false}/>
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
-          <h2 ref={this.refdevelop}><span className="fas fa-xs fa-user-plus"></span> Join Us and Help Develop PHOEBE</h2>
+          <h2 ref={this.refdevelop}><span className="fas fa-fw fa-xs fa-user-plus"></span> Join Us and Help Develop PHOEBE</h2>
           <p>
             Interested in getting your hands dirty and writing some code?  We'd be happy to help you get started.
           </p>

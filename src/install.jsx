@@ -129,7 +129,7 @@ export class Install extends Component {
             null
           }
 
-          <h2 ref={this.refpip}><span className="fab fa-xs fa-python"></span> Installing from PIP</h2>
+          <h2 ref={this.refpip}><span className="fab fa-fw fa-xs fa-python"></span> Installing from PIP</h2>
           <p>Installing PHOEBE from PIP is probably the easiest.  {version ? "To install version "+version_long : 'To install the latest version'}:</p>
           <pre>
             pip install phoebe{version ? "=="+version_long : null}
@@ -194,7 +194,7 @@ export class Install extends Component {
           <Separator large={false}/>
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
-          <h2 ref={this.refsource}><span className="fa fa-xs fa-code"></span> Installing from Source</h2>
+          <h2 ref={this.refsource}><span className="fa fa-fw fa-xs fa-code"></span> Installing from Source</h2>
           <h3>Download Source Code</h3>
 
           <p>Download the archive version below and unpack the source-code:
@@ -259,7 +259,7 @@ export class Install extends Component {
           <Separator large={false} flip={true}/>
         </Content>
         <Content preventScrollTop={this.props.location.hash}>
-          <h2 ref={this.reftesting}><span className="fa fa-xs fa-vial"></span> Running Nosetests</h2>
+          <h2 ref={this.reftesting}><span className="fa fa-fw fa-xs fa-vial"></span> Running Nosetests</h2>
           <NosetestsDiv/>
 
           <p>

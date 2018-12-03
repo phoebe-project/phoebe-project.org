@@ -58,23 +58,23 @@ export class Navbar extends React.Component {
 
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li><NavLink to="/releases" style={navbarLinkStyle} title="Releases"><span className="fa fa-tags"></span> Releases</NavLink></li>
-              <li><NavLink to="/install" style={navbarLinkStyle} title="Download & Install"><span className="fa fa-download"></span> <span>Install</span></NavLink></li>
-              <li><NavLink to="/docs" style={navbarLinkStyle} title="Documentation"><span className="fa fa-book-open"></span> <span className="hidden-md hidden-sm">Documentation</span><span className="visible-md-inline-block visible-sm-inline-block">Docs</span></NavLink></li>
-              <li><NavLink to="/news" style={navbarLinkStyle} title="News"><span className="far fa-newspaper"></span> <span className="">News</span></NavLink></li>
-              <li><NavLink to="/workshops" style={navbarLinkStyle} title="Workshops"><span className="fas fa-chalkboard-teacher"></span> <span className="hidden-sm">Workshops</span></NavLink></li>
-              <li><NavLink to="/publications" style={navbarLinkStyle} title="Publications"><span className="fas fa-copy"></span> <span className="hidden-md hidden-sm">Publications</span><span className="visible-md-inline-block hidden-sm">Papers</span></NavLink></li>
-              <li><NavLink to="/source" style={navbarLinkStyle} title="Source-Code"><span className="fas fa-code-branch"></span> <span className="hidden-sm">Source</span></NavLink></li>
-              <li><NavLink to="/contribute" style={navbarLinkStyle} title="Contribute"><span className="fas fa-user-plus"></span> <span className="hidden-sm">Contribute</span></NavLink></li>
+              <li><NavLink to="/releases" style={navbarLinkStyle} title="Releases"><span className="fa fa-fw fa-tags"></span> Releases</NavLink></li>
+              <li><NavLink to="/install" style={navbarLinkStyle} title="Download & Install"><span className="fa fa-fw fa-download"></span> <span>Install</span></NavLink></li>
+              <li><NavLink to="/docs" style={navbarLinkStyle} title="Documentation"><span className="fa fa-fw fa-book-open"></span> <span className="hidden-md hidden-sm">Documentation</span><span className="visible-md-inline-block visible-sm-inline-block">Docs</span></NavLink></li>
+              <li><NavLink to="/news" style={navbarLinkStyle} title="News"><span className="far fa-fw fa-newspaper"></span> <span className="">News</span></NavLink></li>
+              <li><NavLink to="/workshops" style={navbarLinkStyle} title="Workshops"><span className="fas fa-fw fa-chalkboard-teacher"></span> <span className="hidden-sm">Workshops</span></NavLink></li>
+              <li><NavLink to="/publications" style={navbarLinkStyle} title="Publications"><span className="fas fa-fw fa-copy"></span> <span className="hidden-md hidden-sm">Publications</span><span className="visible-md-inline-block hidden-sm">Papers</span></NavLink></li>
+              <li><NavLink to="/source" style={navbarLinkStyle} title="Source-Code"><span className="fas fa-fw fa-code-branch"></span> <span className="hidden-sm">Source</span></NavLink></li>
+              <li><NavLink to="/contribute" style={navbarLinkStyle} title="Contribute"><span className="fas fa-fw fa-user-plus"></span> <span className="hidden-sm">Contribute</span></NavLink></li>
               {/* <li><NavLink to="/1.0" style={navbarLinkStyle} title="PHOEBE 1.0 (Legacy)"><span className="fa fa-archive"></span> <span className="hidden-sm hidden-md">Legacy</span></NavLink></li> */}
               <li className="dropdown">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" title="Help" style={navbarLinkStyle}><span className="fa fa-question"></span> <span className="hidden-sm hidden-md">Help</span> <b className="caret"></b></a>
+                <a href="#" className="dropdown-toggle" data-toggle="dropdown" title="Help" style={navbarLinkStyle}><span className="fa fa-fw fa-question"></span> <span className="hidden-sm hidden-md">Help</span> <b className="caret"></b></a>
                 <ul className="dropdown-menu">
-                  <li><NavLink to="/help/devel" style={navbarLinkStyle} title="PHOEBE Development Team"><span className="fa fa-users"></span> Development Team</NavLink></li>
-                  <li><NavLink to="/help/contact" style={navbarLinkStyle} title="Mailing Lists & Contact Info"><span className="far fa-envelope"></span> Mailing Lists</NavLink></li>
-                  <li><NavLink to="/help/faq" style={navbarLinkStyle} title="Frequently Asked Questions"><span className="fa fa-question"></span> FAQ</NavLink></li>
-                  <li><NavLink to="https://github.com/phoebe-project/phoebe2/issues/new" style={navbarLinkStyle} hideExternal={true} title="Report an Issue with PHOEBE"><span className="fas fa-bug"></span> Report an Issue</NavLink></li>
-                  <li><NavLink to="https://github.com/phoebe-project/phoebe-project.org/issues/new" style={navbarLinkStyle} hideExternal={true} title="Report an Issue with this Website"><span className="fas fa-bug"></span> Report a Website Issue</NavLink></li>
+                  <li><NavLink to="/help/devel" style={navbarLinkStyle} title="PHOEBE Development Team"><span className="fa fa-fw fa-users"></span> Development Team</NavLink></li>
+                  <li><NavLink to="/help/contact" style={navbarLinkStyle} title="Mailing Lists & Contact Info"><span className="far fa-fw fa-envelope"></span> Mailing Lists</NavLink></li>
+                  <li><NavLink to="/help/faq" style={navbarLinkStyle} title="Frequently Asked Questions"><span className="fa fa-fw fa-question"></span> FAQ</NavLink></li>
+                  <li><NavLink to="https://github.com/phoebe-project/phoebe2/issues/new" style={navbarLinkStyle} hideExternal={true} title="Report an Issue with PHOEBE"><span className="fas fa-fw fa-bug"></span> Report an Issue</NavLink></li>
+                  <li><NavLink to="https://github.com/phoebe-project/phoebe-project.org/issues/new" style={navbarLinkStyle} hideExternal={true} title="Report an Issue with this Website"><span className="fas fa-fw fa-bug"></span> Report a Website Issue</NavLink></li>
                 </ul>
               </li>
             </ul>
