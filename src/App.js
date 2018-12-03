@@ -24,7 +24,7 @@ import {Publications} from './publications';
 import {Source} from './source';
 import {Contribute} from './contribute';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
-import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, HelpVersion, HelpIPYNB} from './help';
+import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, Help1vs2, HelpVersion, HelpIPYNB} from './help';
 import {Devel, TeleconRedirect, TeleconNotesRedirect} from './devel';
 import {NotFound} from './errors';
 
@@ -114,6 +114,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/help/contact'} component={HelpContact}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/contact/:mailinglist'} component={HelpMailingList}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/faq'} component={HelpFAQ}/>
+            <Route exact path={process.env.PUBLIC_URL + '/help/1vs2'} component={Help1vs2}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/version'} component={HelpVersion}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/ipynb'} component={HelpIPYNB}/>
             <Route exact path={process.env.PUBLIC_URL + '/devel'} component={Devel}/>

@@ -31,13 +31,16 @@ export class Releases extends Component {
 
         </Header>
         <Content>
-          <p>
-            The first version of PHOEBE (<Link to="/releases/legacy">0.20</Link>) was officially released in 2003.
-            Development on the 2.X versions of PHOEBE began in 2011, with the <Link to="/releases/2.0">2.0 version</Link> finally released in 2017.
-            Since then, the <Link to="/help/devel">development team</Link> has been working on incorporating new features into the code.
-            The latest available version is currently <Link to={"/releases/"+docs_versions[0]}>PHOEBE {latest_patch_version}</Link>.
-            Below is a chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
-          </p>
+          <div className="col-md-12">
+            <p>
+              The first version of PHOEBE (<Link to="/releases/legacy">0.20</Link>) was officially released in 2003.
+              Development on the 2.X versions of PHOEBE began in 2011, with the <Link to="/releases/2.0">2.0 version</Link> finally released in 2017.
+              Since then, the <Link to="/help/devel">development team</Link> has been working on incorporating new features into the code.
+              The latest available version is currently <Link to={"/releases/"+docs_versions[0]}>PHOEBE {latest_patch_version}</Link>.
+              Below is a chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
+            </p>
+            <p>Not sure whether to use PHOEBE 2 or PHOEBE 1 (legacy)?  Read this overview of the <Link to="/help/1vs2">differences between PHOEBE 1 and 2</Link>.</p>
+          </div>
         </Content>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
         {docs_versions_incl_legacy.map((version, index) => <ReleaseContent version={version} release_changelogs={this.props.release_changelogs} dark={Boolean(index % 2)} showSeparator={Boolean(index < docs_versions_incl_legacy.length - 1)} showHeader={true}/>)}

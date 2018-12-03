@@ -186,25 +186,6 @@ export class Alert extends React.Component {
   }
 }
 
-
-export class AlertVersion extends React.Component {
-  render() {
-    return (
-      <Alert level='warning'>
-        PHOEBE 2 is officially released, but does not fully support all features in the original version of PHOEBE and should still be used with some caution.
-
-        Below are the versions we suggest using based on your needs:
-
-        <ul>
-            <li><Link to="/releases/legacy">PHOEBE 1.0 (legacy)</Link> should be used for reliable <em>trustable science results</em> and for cases that do not require the precision or additional physics introduced by PHOEBE 2.  PHOEBE 1.0 (legacy) is still significantly faster than PHOEBE 2.</li>
-            <li><Link to="/releases/latest">PHOEBE 2</Link> should be used to learn the interface for PHOEBE going forward, and will be updated with future releases to include new physics. Although we have made every effort to test the science-results, please make sure all results make sense and report any issues.</li>
-
-        </ul>
-      </Alert>
-    )
-  }
-}
-
 export class NosetestsDiv extends React.Component {
   render() {
     return (

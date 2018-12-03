@@ -119,6 +119,10 @@ export class HelpFAQ extends Component {
           <h1><span className="hidden-xs">Frequently Asked Questions</span><span className="visible-xs">FAQ</span></h1>
         </Header>
         <Content>
+          Q: Which release of PHOEBE should I use?
+          <br/>
+          A: That depends.  If you're considering using PHOEBE 1 (legacy) or a version of PHOEBE 2, click <Link to="/help/1vs2">here to read about the differences</Link>.  Otherwise, unless there is a good reason, its suggested that you use the <Link to="/releases/latest">latest release</Link>.
+          <br/><br/>
           Q: Is PHOEBE 2.x backwards compatible with PHOEBE 2.0 alpha releases?
           <br/>
           A: Unfortunately, no. We simply learned too much from the alpha-release that we decided that a complete rewrite was needed. However, many of the syntax concepts should be very familiar if you’ve used the frontend in the alpha releases.
@@ -150,13 +154,41 @@ export class HelpIPYNB extends Component {
       <div>
         <Helmet>
           <title>PHOEBE | How To: Jupyter Notebooks</title>
-          <meta name="description" content="How to download and run the jupyter notebooks provided for the PHOEBE 2 tutorials and examle scripts"/>
+          <meta name="description" content="How to download and run the jupyter notebooks provided for the PHOEBE 2 tutorials and example scripts"/>
         </Helmet>
         <Header>
           <h1><span className="hidden-xs">How To: Jupyter/Ipython Notebooks</span><span className="visible-xs">How To: ipynb</span></h1>
         </Header>
         <Content>
           <p>Any tutorial or example script in the <Link to="/docs">documentation</Link> can be downloaded as an IPython/Jupyter Notebook or a python script (see the link at the top of any tutorial). To run these locally you’ll need PHOEBE <Link to="/install">installed</Link> on your system, as well as IPython &amp; Jupyter notebooks (<code>sudo pip install jupyter; sudo apt-get install ipython-notebook</code>). Then simply start the notebook service (<code>ipython notebook</code> or <code>jupyter notebook</code>, depending on your version). This will allow you to interact with the tutorial - running it line-by-line and making alterations to see how they change the output.</p>
+        </Content>
+      </div>
+    )
+  }
+}
+
+export class Help1vs2 extends Component {
+  render() {
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | PHOEBE 1 (legacy) vs PHOEBE 2</title>
+          <meta name="description" content="PHOEBE 1 vs PHOEBE 2"/>
+        </Helmet>
+        <Header>
+          <h1>PHOEBE 1 vs. PHOEBE 2</h1>
+        </Header>
+        <Content>
+          <p>
+            PHOEBE 2 is officially released, but does not fully support all features in the original version of PHOEBE and should still be used with some caution.
+          </p>
+          <p>
+          Below are the versions we suggest using based on your needs:
+          </p>
+          <ul>
+            <li><Link to="/releases/legacy">PHOEBE 1.0 (legacy)</Link> should be used for reliable <em>trustable science results</em> and for cases that do not require the precision or additional physics introduced by PHOEBE 2.  PHOEBE 1.0 (legacy) is still significantly faster than PHOEBE 2.</li>
+            <li><Link to="/releases/latest">PHOEBE 2</Link> should be used to learn the interface for PHOEBE going forward, and will be updated with future releases to include new physics. Although we have made every effort to test the science-results, please make sure all results make sense and report any issues.</li>
+          </ul>
         </Content>
       </div>
     )

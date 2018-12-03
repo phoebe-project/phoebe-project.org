@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, AlertVersion} from './common';
+import {Content, Link} from './common';
 import {HeaderIndex} from './header';
 import {Footer} from './footer';
 import {newsStoriesDicts, NewsContent} from './news';
@@ -36,7 +36,6 @@ export class Home extends Component {
           {pinnedNewsStoryDicts.map(newsStoryDict => <NewsContent title={newsStoryDict.title} slug={newsStoryDict.slug} author={newsStoryDict.author} date={newsStoryDict.date} showAsSummary={true} wrapHeight={100}>{newsStoryDict.content}</NewsContent>)}
 
           <h1>Introducing PHOEBE 2</h1>
-          <AlertVersion/>
 
           <div className="col-md-12">
             <p>PHOEBE is an eclipsing binary modeling code - reproducing and fitting light curve, radial velocity curves, and spectral line profiles of eclipsing systems.</p>
@@ -46,6 +45,10 @@ export class Home extends Component {
           <div className="col-md-12">
             <p>PHOEBE is written by an international team of <Link to="/help/devel">professional astronomers</Link>, and is completely <Link to="/source">open-source</Link>.</p>
             <p>Feel free to <Link to="/install">download and install</Link> the latest version of PHOEBE (or any of the <Link to="/releases">previous releases</Link>) and then follow the <Link to="/docs/latest/tutorials">tutorials</Link>.  If (or when) you get stuck, refer to the <Link to="/docs">documentation</Link>, or always feel free to <Link to="/help/contact">contact us</Link>.</p>
+          </div>
+
+          <div className="col-md-12">
+            <p>Not sure whether to use PHOEBE 2 or PHOEBE 1 (legacy)?  Read this overview of the <Link to="/help/1vs2">differences between PHOEBE 1 and 2</Link>.</p>
           </div>
 
           <br/>
