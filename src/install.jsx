@@ -78,6 +78,12 @@ export class Install extends Component {
       return (<NotFound>Release version {version_short} not found, try the general <Link to="/install">download instructions</Link> or choose from one of the available <Link to="/releases">releases</Link>.</NotFound>)
     }
 
+    /* http://www.javascripter.net/faq/operatin.htm */
+    var OSName="Unknown OS";
+    if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+    if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+    if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+    if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
 
 
     return (
@@ -111,8 +117,16 @@ export class Install extends Component {
             </Alert>
             :
             <Alert level="warning">
-              <p><b>Note:</b> these instruction will download and install the <Link to="/releases/latest">latest release (version {docs_versions[0]})</Link> of PHOEBE.  To install a specific version, choose and click install from the appropriate <Link to="/releases">release</Link>.</p>
+              <p><b>Note:</b> these instructions will download and install the <Link to="/releases/latest">latest release (version {docs_versions[0]})</Link> of PHOEBE.  To install a specific version, choose and click install from the appropriate <Link to="/releases">release</Link>.</p>
             </Alert>
+          }
+
+          {OSName === 'Windows' ?
+            <Alert level="danger">
+              <p>PHOEBE is not yet officially supported on Windows.  If you're interested in helping port and test PHOEBE to Windows, please <Link to="/help/contact">contact us</Link>.</p>
+            </Alert>
+            :
+            null
           }
 
           <h2 ref={this.refpip}><span className="fab fa-xs fa-python"></span> Installing from PIP</h2>
