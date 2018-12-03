@@ -45,7 +45,7 @@ export class LogoSplash extends Component {
   }
   onMouseEnter = () => {
     // console.log("LogoSplash.onMouseEnter")
-    console.log(this.phoebelogo)
+    // console.log(this.phoebelogo)
 
     if (this.didClearTransitionIn==false) {
       // console.log("clearing TransitionIn");

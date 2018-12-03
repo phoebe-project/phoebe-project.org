@@ -197,13 +197,12 @@ export class Install extends Component {
           <h2 ref={this.refsource}><span className="fa fa-fw fa-xs fa-code"></span> Installing from Source</h2>
           <h3>Download Source Code</h3>
 
-          <p>Download the archive version below and unpack the source-code:
-            <ul>
-              <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".tar.gz"} hideExternal={true}><span className="far fa-file-archive"></span> PHOEBE.{version_long}.tar.gz</Link></li>
-              <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".zip"} hideExternal={true}><span className="fas fa-archive"></span> PHOEBE.{version_long}.zip</Link></li>
-              <li><Link to="/releases"><span className="fa fa-tags"></span> other releases</Link></li>
-            </ul>
-          </p>
+          <p>Download the archive version below and unpack the source-code:</p>
+          <ul>
+            <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".tar.gz"} hideExternal={true}><span className="far fa-file-archive"></span> PHOEBE.{version_long}.tar.gz</Link></li>
+            <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".zip"} hideExternal={true}><span className="fas fa-archive"></span> PHOEBE.{version_long}.zip</Link></li>
+            <li><Link to="/releases"><span className="fa fa-tags"></span> other releases</Link></li>
+          </ul>
 
           <p>Or, to download via the <Link to="https://github.com/phoebe-project/phoebe2/">github repository</Link>, run:</p>
           <pre>
