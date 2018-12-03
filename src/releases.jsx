@@ -83,9 +83,15 @@ export class ReleaseVersion extends Component {
 class ReleaseContent extends Component {
   render() {
     var logo = "logo_blue.svg";
+    var releasePaper = "Release Paper"
+    var adsLink = null;
+    var pdf = null;
     var content = null;
     if (this.props.version === '1.0' || this.props.version === 'legacy') {
       logo = "logo_release_10.png"
+      releasePaper = "Prša & Zwitter (2005)"
+      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2005ApJ...628..426P"
+      pdf = "2005Prsa+.pdf"
       content = <div>
                   <p>The legacy releases of PHOEBE (0.x and soon culminating in the official release of version 1.0) are built upon the <Link to="ftp://ftp.astro.ufl.edu/pub/wilson">Wilson-Devinney code</Link>.</p>
                   <p>All the archived 0.x releases of PHOEBE and their respective changelogs can be found on the <Link to="/install/1.0">PHOEBE legacy install page</Link>.</p>
@@ -93,6 +99,9 @@ class ReleaseContent extends Component {
                 </div>
     } else if (this.props.version === '2.0') {
       logo = "logo_release_20.svg"
+      releasePaper = "Prša et al. (2016)"
+      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P"
+      pdf = "2016Prsa+.pdf"
       content = <div>
                   <p>PHOEBE 2.0 is the first official release of the completely redesigned and rewritten version of PHOEBE with a Python frontend interface.  The 2.0 release aims to provide fully-tested functionality that matches that of the <Link to="/1.0">legacy version of PHOEBE</Link> (light curve and radial velocity forward model of binary star systems) but with improved precision and the introduction of a Python frontend.</p>
                   <p>
@@ -140,6 +149,9 @@ class ReleaseContent extends Component {
                 </div>
     } else if (this.props.version === '2.1') {
       logo = "logo_release_21.svg"
+      releasePaper = "Horvat et al. (2018)"
+      adsLink = "https://ui.adsabs.harvard.edu/#abs/2018ApJS..237...26H"
+      pdf = "2018Horvat+.pdf"
       content = <div>
                   <p>PHOEBE 2.1 builds on the <Link to="/releases/2.0">2.0 release</Link> and introduces support for spin-orbit misalignment and spectral line-profiles as an observable dataset.</p>
                   <p>
@@ -174,25 +186,43 @@ class ReleaseContent extends Component {
             <Image src={"/logos/"+logo} className={this.props.version!=='legacy' ? "img-handle-invert" : null} width="128"/>
           </div>
           <div className="col-md-10">
-            <Link to={"/install/"+this.props.version+"/"}><span className="fa fa-download"></span> Install PHOEBE {this.props.version}</Link> &nbsp;&nbsp;&nbsp;
-            <Link to={"/docs/"+this.props.version+"/"}><span className="fa fa-book-open"></span> Read PHOEBE {this.props.version} docs</Link>
-            <br/><br/>
-            {content}
-
-            <br/><br/>
-            {Object.keys(this.props.release_changelogs).indexOf(this.props.version)!==-1 ?
-              <details>
-                <summary><b>Individual Patch Releases and Changelog</b></summary>
-                <ul>
-                  {this.props.release_changelogs[this.props.version].map((changelogContent, patchIndex) => <li style={{paddingBottom: "15px"}}><ReleaseChangelogEntry versionLong={this.props.version+"."+patchIndex} changelogContent={changelogContent}/></li>)}
-                </ul>
-              </details>
+            <div className="row" style={{marginTop: 0}}>
+              <Link to={"/install/"+this.props.version+"/"}><span className="fa fa-fw fa-download"></span> Install PHOEBE {this.props.version}</Link>
+            </div>
+            <div className="row" style={{marginTop: 0}}>
+              <Link to={"/docs/"+this.props.version+"/"}><span className="fa fa-fw fa-book-open"></span> Read PHOEBE {this.props.version} docs</Link>
+            </div>
+            {adsLink!==null ?
+              <div className="row" style={{marginTop: 0}}>
+                <Link to={adsLink} hideExternal={true}><span className="fas fa-fw fa-copy"></span> {releasePaper}</Link> &nbsp;
+                {pdf!==null ?
+                  <span>(<Link to={"/pdf/"+pdf}>download pdf</Link>)</span>
+                  :
+                  null
+                }
+              </div>
               :
-              Object.keys(this.props.release_changelogs).length > 0 ?
-                null
-                :
-                <p>loading changelog entries...</p>
+              null
             }
+
+            <div className="row">
+              {content}
+
+              <br/><br/>
+              {Object.keys(this.props.release_changelogs).indexOf(this.props.version)!==-1 ?
+                <details>
+                  <summary><b>Individual Patch Releases and Changelog</b></summary>
+                  <ul>
+                    {this.props.release_changelogs[this.props.version].map((changelogContent, patchIndex) => <li style={{paddingBottom: "15px"}}><ReleaseChangelogEntry versionLong={this.props.version+"."+patchIndex} changelogContent={changelogContent}/></li>)}
+                  </ul>
+                </details>
+                :
+                Object.keys(this.props.release_changelogs).length > 0 ?
+                  null
+                  :
+                  <p>loading changelog entries...</p>
+              }
+            </div>
           </div>
         </div>
         {this.props.showSeparator ?
