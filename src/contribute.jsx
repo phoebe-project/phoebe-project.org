@@ -67,7 +67,7 @@ export class Contribute extends Component {
                <HeaderNavButton title="Request Features" description="Request New Features" to={"#features"} icon="fas fa-flask"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Join Us" description="Join Us and Help Develop PHOEBE" to={"#develop"} icon="fas fa-user-plus"/>
+               <HeaderNavButton title="Write Code" description="Write Code and Help Develop PHOEBE" to={"#develop"} icon="fas fa-user-plus"/>
              </div>
            </div>
         </Header>
@@ -87,7 +87,7 @@ export class Contribute extends Component {
             Once all of the tests pass, you know that your installation is working as far as all the official tests.  Now continue to abuse PHOEBE, are report anytime that PHOEBE crashes, takes an exceedingly long amount of time, or returns wrong science.
           </p>
           <p>
-            If you find a corner of PHOEBE that is not covered by the nosetests, feel free to write and submit your own.  You can always fork the <Link to="http://github.com/phoebe-project/phoebe2">GitHub repository</Link> and submit a Pull-Request, or see below for more information on how to <Link to="#develop">join the development team</Link>, if you so wish.
+            If you find a corner of PHOEBE that is not covered by the nosetests, <Link to="/contribute/development#nosetests">feel free to write and submit your own</Link>.  You can always fork the <Link to="http://github.com/phoebe-project/phoebe2">GitHub repository</Link> and submit a Pull-Request, or see below for more information on how to <Link to="#develop">join the development team</Link>, if you so wish.
           </p>
 
           <Separator large={false}/>
@@ -126,7 +126,7 @@ export class Contribute extends Component {
           <Separator large={false}/>
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
-          <h2 ref={this.refdevelop}><span className="fas fa-fw fa-xs fa-user-plus"></span> Join Us and Help Develop PHOEBE</h2>
+          <h2 ref={this.refdevelop}><span className="fas fa-fw fa-xs fa-user-plus"></span> Write Code &amp; Develop PHOEBE</h2>
           <p>
             Interested in getting your hands dirty and writing some code?  We'd be happy to help you get started.
           </p>
@@ -134,20 +134,296 @@ export class Contribute extends Component {
             All development occurs in the various <Link to="/source">GitHub repositories</Link>.  Without being a member of the team, you will be unable to push changes to the repository.  For small changes, you're welcome to create a fork under your own username and open a pull-request back to the official repository.  If you're interested in leading the development of a new feature, for example, you may want to join the <Link to="/help/devel">PHOEBE development team</Link> so that you have permissions to push directly to the official repositories.  The development team generally meets weekly by telecon and contributes to all feature <Link to="/releases">releases</Link> and <Link to="/publications">publications</Link>.  If this interests you, reach out to us on the <Link to="/help/contact/phoebe-devel">phoebe-devel mailing list</Link>.
           </p>
           <p>
-            Whether forking or pushing to the official repositories, its important to make sure you're developing in the appropriate branch.
-          </p>
-          <ul>
-            <li><Link to="http://github.com/phoebe-project/phoebe2">phoebe2</Link>: <b>NO</b> development is done directly in the master branch.  Changes that warrant a bug-fix release are done in branches off of master and merged via a pull-request.  The development of new features are done in branches off of development and merged once ready to be released.  Other smaller changes are done within development (or a branch off development and then merged) and are released with the next feature release.</li>
-            <li><Link to="http://github.com/phoebe-project/phoebe2-docs">phoebe2-docs</Link>: each branch in the repository represents a minor release of PHOEBE.  Changes affecting multiple releases should therefore be "cherrypicked" between all the relevant branches.  The latest release can be merged into master via a pull-request.</li>
-            <li><Link to="http://github.com/phoebe-project/phoebe2-tables">phoebe2-tables</Link>: all development is done directly in the master branch (or a branch off of master and then merged in via a pull-request).  Once in master, the files will be live for all users of PHOEBE - so make sure not to break backwards-compatibility.</li>
-            <li><Link to="http://github.com/phoebe-project/phoebe-project.org">phoebe-project.org</Link>: all development is currently committed or merged into the master branch as soon as its tested and ready to be pushed live to the website.  Any experimental changes that are not ready to go live should be done in a separate branch and a pull-request submitted once ready to be merged.</li>
-          </ul>
-          <p>
-            <b>COMING SOON</b>: we're working on a document/tutorial to help find your way around the PHOEBE source-code.  Until then, feel free to reach out to us and we can help you find your way around and get started.
+            Once you're ready to start coding, see the <Link to="/contribute/development">development guide</Link> which will help you find your way around the code and make sure you're working in the <Link to="/contribute/development#branches">appropriate branch</Link>.
           </p>
         </Content>
 
       </div>
     );
+  }
+}
+
+export class ContributeDevelopment extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+        hash: null,
+      };
+      this.refreleases = React.createRef();
+      this.refbranches = React.createRef();
+      this.reftours = React.createRef();
+      this.refnosetests = React.createRef();
+      this.refdocs = React.createRef();
+  }
+  scrollToHash() {
+    var offsetTop = null;
+    var hash = this.state.hash
+    if (hash==='#releases') {
+      offsetTop = this.releases.current.offsetTop;
+    } else if (hash==='#branches') {
+      offsetTop = this.refbranches.current.offsetTop;
+    } else if (hash==='#tours') {
+      offsetTop = this.reftours.current.offsetTop;
+    } else if (hash==='#nosetests') {
+      offsetTop = this.refnosetests.current.offsetTop;
+    } else if (hash==='#docs') {
+      offsetTop = this.refdocs.current.offsetTop;
+    }
+
+    if (offsetTop) {
+      window.scrollTo(0,offsetTop-80);
+    }
+  }
+  componentDidUpdate() {
+    this.scrollToHash()
+  }
+  render() {
+    if (this.props.location.hash !== this.state.hash) {
+      this.setState({hash: this.props.location.hash})
+    }
+
+
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | Development Guide</title>
+          <meta name="keywords" content={metaKeywords+", contribute"}/>
+          <meta name="description" content="Contribute to the development of PHOEBE"/>
+        </Helmet>
+        <Header>
+          <h1>Development Guide</h1>
+
+          <div className="row">
+             <div className="col-md-2"></div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Releases" description="Release Conventions" to={"#releases"} icon="fa fa-tags"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Repos & Branches" description="Repositories and Branches" to={"#branches"} icon="fas fa-code-branch"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Code Tours" description="Tours of Code Layout and Structure" to={"#tours"} icon="fas fa-microscope"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Nosetests" description="Writing Nosetests" to={"#nosetests"} icon="fa fa-vial"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Documentation" description="Writing Documentation" to={"#docs"} icon="fa fa-book-open"/>
+             </div>
+           </div>
+        </Header>
+        <Content preventScrollTop={this.props.location.hash}>
+
+          <p>
+            Digging into the PHOEBE 2 <Link to="/source">source-code</Link>?
+            The following sections aim to give an overview of the code-structure and conventions used throughout PHOEBE.
+            If you run into any problems or think something should be here that isn't, please feel free to <Link to="/help/contact">reach out to us</Link>.
+          </p>
+          <p>
+            See the page on <Link to="/contribute">contributing to PHOEBE</Link> for instructions on testing, forking, and joining the development team.
+            The rest of this document assumes that you have a local copy of the source-code on your machine and are fairly comfortable as a PHOEBE user.
+          </p>
+
+          <h2 ref={this.refreleases}><span className="fa fa-fw fa-xs fa-tags"></span> Release Conventions</h2>
+          <p>
+            PHOEBE 2 follows the conventions of <Link to="https://semver.org">semantic versioning</Link> as closely as possible.
+            Versions of PHOEBE are tagged as MAJOR.MINOR.PATCH (i.e. 2.1.9 - note <b>no leading zeros</b>) where:
+          </p>
+          <ul>
+            <li>MAJOR: an increment in the first digit represents a significant rewrite and infrastructure change.</li>
+            <li>MINOR: an increment in the second digit generally represents the introduction of a significant new feature and is generally accompanied by a release paper.  Slightly different than the conventions of semantic versioning, we do allow changing the API in a way that may break backwards-compatibility with existing scripts, but make all efforts to clearly spell these out and handle importing saved files from previous releases into the new release.</li>
+            <li>PATCH: an increment in the last digit represents a hot/bug-fix.  These should address critical issues in the current release that cannot wait to be merged into the next feature/minor release and should take all reasonable measures to avoid compatibility issues.  The documentation is only archived per-minor release, so any changes to API etc, must be explicitly noted.  For example: tutorials/example scripts/API will need notes stating the applicable differences.</li>
+          </ul>
+
+          <Separator large={false}/>
+        </Content>
+        <Content dark={true} preventScrollTop={this.props.location.hash}>
+          <h2 ref={this.refbranches}><span className="fas fa-fw fa-xs fa-code-branch"></span> Repositories &amp; Branches</h2>
+
+          <p>
+            When developing, it is important to contribute your work to the appropriate repository/branch.
+            If you are not a member of the development team, you will need to fork the repository under your own GitHub username, commit and push your changes to your forked repository, and then open a pull-request into the official repository (preferably to the appropriate branch).
+            If you plan to make significant contributions, consider <Link to="/contribute#develop">joining the development team</Link>.
+          </p>
+
+          <h3>phoebe2 repo</h3>
+
+          <p>
+            The <Link to="http://github.com/phoebe-project/phoebe2">phoebe2 repository</Link> contains the source-code for PHOEBE 2 itself and is the main repository of the project.
+            We follow a <Link to="https://nvie.com/posts/a-successful-git-branching-model/">Git-Flow like</Link> strategy for branches as follows:
+          </p>
+
+          <ul>
+            <li>master: the master branch should always contain the latest release only.  Commits should not be made directly to the master branch, but rather are compiled and tested in their own pre-release branches before being merged and tagged as a new release in the master branch.  This way, the landing page of the repo always shows the latest stable released version.</li>
+            <li>hotfix: bug fixes which will likely be assigned a hotfix/patch-release should be branched off of master, merged via a pull-request into *both master and development*, and tagged as a new release.  In general, these branches should be short-lived and consist of a minimal number of commits.  If possible (especially if all work is done by a single author), the pull-request should squash all commits.</li>
+            <li>development: the development branch contains all current work that is not worthy of a hotfix or a part of a feature under development.  All changes in development will be incorporated into the next feature/minor release.  If working on something that requires multiple commits, consider creating a local branch off of development and squashing/merging once complete and tested.</li>
+            <li>
+              features: all feature branches should be branched off of development.
+              These are often long-lived and take significant time and changes to the code before they're ready to be released, so it may be necessary to occasionally merge development into the feature branch (note: not the other way around).
+              Once ready to release, development should be merged into the feature branch and the release prepared and tested.
+              Once finalized, the release/feature branch should be merged into <i>both master and development</i>.
+            </li>
+          </ul>
+
+          <h3>phoebe2-docs repo</h3>
+
+          <p>
+            The <Link to="http://github.com/phoebe-project/phoebe2-docs">phoebe2-docs repository</Link> contains all documentation (tutorials, example scripts, this document, etc).
+            As this documentation is archived (but still editable) for all past feature/minor releases, the branch name corresponds directly the the PHOEBE 2 releases.
+          </p>
+
+          <ul>
+            <li>master: the master branch generally contains the latest updates of the latest release of PHOEBE.  This can be done via pull-requests, cherrypicking, etc.  The master branch is never actually used to render documentation from the website, but is the landing page for the repo, so should be kept somewhat up-to-date.</li>
+            <li>2.0, 2.1, etc: a branch exists for each version of PHOEBE 2.  It is important when making changes to tutorials, etc, to commit and push to all applicable branches.  This way we can keep the documentation for older releases current.</li>
+            <li>development, etc: branches can exist in the phoebe2-docs repository that correspond to branches (particularly feature branches) in the main phoebe2 repository.  These exist to prepare documentation for future releases (without knowing the release number yet).</li>
+          </ul>
+
+          <h3>phoebe2-tables repo</h3>
+
+          <p>
+            The <Link to="http://github.com/phoebe-project/phoebe2-tables">phoebe2-tables repository</Link> contains all passband/atmosphere tables available for download by any user's installation of PHOEBE.  Currently it only consists of a master branch.  Be careful when making updates - these updates must work for *all* versions of PHOEBE 2.x that anyone may still have installed.
+          </p>
+
+          <h3>phoebe-project.org repo</h3>
+
+          <p>
+            The <Link to="http://github.com/phoebe-project/phoebe-project.org">phoebe-project.org repository</Link> contains the source-code for the phoebe-project.org website.  Changes can be made to the master branch as long as they are tested and ready to go-live.  Changes under development can be made in other branches and merged into master when ready.  See the <Link to="http://github.com/phoebe-project/phoebe-project.org/blob/master/README.md">phoebe-project.org README</Link> for more information.
+          </p>
+
+          <Separator large={false} flip={true}/>
+        </Content>
+        <Content preventScrollTop={this.props.location.hash}>
+          <h2 ref={this.reftours}><span className="fas fa-fw fa-xs fa-microscope"></span> Tours of Code Layout &amp; Structure</h2>
+
+          <p>
+            The source-code of PHOEBE 2 can be split into several different levels, starting with the frontend which you're probably most familiar with as a user and if reading through the <Link to="/docs">documentation</Link>.
+            Depending on what you're trying to develop, you may need to dig deeper into the code.
+          </p>
+
+          <b>Coming Soon: links to code-tours for the following:</b>
+          <ul>
+            <li><Link to="/contribute/tour/frontend">frontend</Link></li>
+            <li><Link to="/contribute/tour/backend">Python-backend</Link></li>
+            <li><Link to="/contribute/tour/libphoebe">C-backend (libphoebe)</Link></li>
+          </ul>
+
+          <Separator large={false}/>
+        </Content>
+        <Content dark={true} preventScrollTop={this.props.location.hash}>
+          <h2 ref={this.refnosetests}><span className="fa fa-fw fa-xs fa-vial"></span> Writing Nosetests</h2>
+
+          <p>
+            Nosetests run (via Travis-CI) after every commit is pushed to GitHub to ensure that that commit didn't break anything.
+            If it does break a test, the author is notified so they can address the issue.
+            Nevertheless, it's always a good idea to run the tests locally before pushing to GitHub.  If you're unfamiliar, see <Link to="/contribute#testing">how to run the tests</Link> on your own machine.
+            However, the testing is only as good as the tests themselves, so as new features are developed it is important to cover them as thoroughly as possible through this suite of tests.
+          </p>
+
+          <p>
+            The nosetests all live in the <Link to="https://github.com/phoebe-project/phoebe2/tree/master/tests/nosetests">tests/nosetests</Link> directory in the phoebe2 source-code.
+            If you browse this directory, you'll see a list of subdirectories (each starting with 'test_') and one or multiple python files in each subdirectory.
+            If you look at the <Link to="https://github.com/phoebe-project/phoebe2/blob/master/tests/nosetests/test_blackbody/test_blackbody.py">test/nosetests/test_blackbody/test_blackbody.py</Link>, for example, you'll then see one (or more in some cases) functions (also named 'test_').
+            These functions are each run by nosetests (and Travis) and should consist of Assertion statements.  If any of these Assertion statements fail, the error will be printed in the Travis log, and the build will show as "broken".
+            At the bottom of that file, you'll see: <code>if name=='__main__':</code>.  This section of the code is run only if calling the script directly, and just simply manually calls each of the 'test_' functions.
+          </p>
+          <p>
+            Some of the existing nosetests test to make sure the physics remains unchanged.  These often compare the output model to that from PHOEBE 1 or a saved file.  Other nosetests make sure that errors are raised when necessary (if a forbidden value is provided, for example).
+          </p>
+          <p>
+            If you think something needs to be added to the nosetests, browse around the existing tests and see if it can be added to one that already exists.  If not, go ahead and create a new subdirectory and/or file with a reasonable name.  Just make sure to follow these conventions:
+          </p>
+          <ul>
+            <li>all subdirectories and files are named with the test_ prefix</li>
+            <li>all functions within the test file that do not start with an underscore will be run by nosetests.  It doesn't hurt to prefix them with test_ as well, just to be clear.</li>
+            <li>include all test_ functions in the main block at the bottom of the code so that any errors from nosetests can easily be reproduced simply by running the script from the command-line</li>
+            <li>consider having a switch that defaults to False but is passed as True from the main-block for any debugging/verbose outputs</li>
+            <li>never plot by default.  If plotting is helpful to debug, include in a switch which defaults to False.</li>
+          </ul>
+
+          <Separator large={false} flip={true}/>
+        </Content>
+        <Content preventScrollTop={this.props.location.hash}>
+          <h2 ref={this.refdocs}><span className="fa fa-fw fa-xs fa-book-open"></span> Writing Documentation</h2>
+
+          <p>
+            The <Link to="/docs">documentation</Link> for PHOEBE is divided into several different styles or types:
+          </p>
+          <ul>
+            <li>Tutorials: tutorials aim to provide a narrated introduction to concepts without getting in-depth and generally build on each other.  These are all Jupyter notebooks and in the tutorials directory and are linked from tutorials.md file in phoebe2-docs.</li>
+            <li>Datasets/Physics: tutorials (although not as verbose as the ordered-tutorials above) that introduce the various datasets and types of physics implemented in PHOEBE.  These are all Jupyter notebooks in the tutorials directory and are linked from either datasets.md or physics.md in phoebe2-docs.</li>
+            <li>Examples: example scripts aim to provide a more focused... example, but with less narration than tutorials.  They assume a basic understanding of using PHOEBE and skip over the basics.  These are also all Jupyter notebooks and in the examples directory and are linked from examples.md in phoebe2-docs.</li>
+            <li>API Docs: API docs provide in-depth documentation for the arguments for each function/method.  These are in the docstrings of the PHOEBE code itself and are automatically generated into the api directory in phoebe2-docs.  Any changes to an archived version of PHOEBE can be made directly to the markdown files, but changes to the current or future releases should be done in the source-code itself.</li>
+          </ul>
+
+          <p>
+            For all new Jupyter notebooks: please copy the template_tutorial.ipynb or template_example.ipynb file in the correct directory and rename it to something sensible.
+          </p>
+
+          <p>
+            Note: make sure you're updating in the <Link to="#branches">correct branch</Link>.
+          </p>
+
+
+        </Content>
+
+      </div>
+    );
+  }
+}
+
+export class TourFrontend extends Component {
+  render() {
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | Frontend Code Tour</title>
+          <meta name="description" content="Tour of the frontend source-code"/>
+        </Helmet>
+        <Header>
+          <h1>Frontend Code Tour</h1>
+        </Header>
+        <Content>
+          <p>COMING SOON...</p>
+        </Content>
+      </div>
+    )
+  }
+}
+
+export class TourBackend extends Component {
+  render() {
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | Python-Backend Code Tour</title>
+          <meta name="description" content="Tour of the Python-Backend source-code"/>
+        </Helmet>
+        <Header>
+          <h1>Python-Backend Code Tour</h1>
+        </Header>
+        <Content>
+          <p>COMING SOON...</p>
+        </Content>
+      </div>
+    )
+  }
+}
+
+export class TourLibphoebe extends Component {
+  render() {
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | C-Backend (libphoebe) Code Tour</title>
+          <meta name="description" content="Tour of the C-Backend (libphoebe) source-code"/>
+        </Helmet>
+        <Header>
+          <h1>C-Backend (libphoebe) Code Tour</h1>
+        </Header>
+        <Content>
+          <p>COMING SOON...</p>
+        </Content>
+      </div>
+    )
   }
 }

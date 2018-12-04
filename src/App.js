@@ -22,7 +22,7 @@ import {News, NewsEntry} from './news';
 import {Workshop, WorkshopRegistration} from './workshops';
 import {Publications} from './publications';
 import {Source} from './source';
-import {Contribute} from './contribute';
+import {Contribute, ContributeDevelopment,TourFrontend, TourBackend, TourLibphoebe} from './contribute';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
 import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, Help1vs2, HelpVersion, HelpIPYNB} from './help';
 import {Devel, TeleconRedirect, TeleconNotesRedirect} from './devel';
@@ -106,6 +106,10 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute'} component={Contribute}/>
+            <Route exact path={process.env.PUBLIC_URL + '/contribute/development'} component={ContributeDevelopment}/>
+            <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/frontend'} component={TourFrontend}/>
+            <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/backend'} component={TourBackend}/>
+            <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/libphoebe'} component={TourLibphoebe}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0'} component={LegacyIntro}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0/gpl'} component={LegacyGPL}/>
             <Route exact path={process.env.PUBLIC_URL + '/1.0/docs'} component={LegacyDocs}/>
