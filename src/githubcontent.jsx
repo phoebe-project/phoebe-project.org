@@ -63,7 +63,7 @@ export class GitHubContent extends React.Component {
 
     if (this.state.content) {
 
-      edit_html = <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-github"></span> View/Edit on GitHub</Link>
+      edit_html = <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-fw fa-github"></span> View/Edit on GitHub</Link>
       report_html = this.props.reportHTML || null;
 
       if (this.state.contentType === 'ipynb') {
@@ -75,6 +75,9 @@ export class GitHubContent extends React.Component {
                     &nbsp;(<Link to={"/help/ipynb"}>ipynb help</Link>)
                     <br/>
                     <Link to={this.state.contentURLRaw.split(slug+".ipynb")[0]+"/py/"+slug+".py"} downloadFilename={slug+".py"}>Download Python Script: {slug}.py</Link>
+                    <br/>
+                    <Link to={"https://colab.research.google.com/github/phoebe-project/"+this.props.repo+"/blob/"+this.props.branch+"/"+this.props.path} hideExternal={true}><span className="far fa-fw fa-play-circle"></span> Open in Colab live-session</Link>
+                    &nbsp;(<Link to={"/quickstart/"+this.props.branch}>colab help</Link>)
                   </div>
 
 
@@ -109,14 +112,17 @@ export class GitHubContent extends React.Component {
 
     return (
       <div>
-        <div style={{float: "right"}}>
-          {edit_html}
-          <br/>
-          {report_html}
+        <div className="row">
+          <div className="col-md-9 col-sm-12">
+            {dl_html}
+          </div>
+          <div className="col-md-3 col-sm-12 float-right">
+            {edit_html}
+            <br/>
+            {report_html}
+          </div>
         </div>
-        <div>
-          {dl_html}
-        </div>
+
 
         {content_html}
       </div>

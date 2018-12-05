@@ -16,6 +16,7 @@ import {metaKeywords} from './common';
 import {Navbar} from './navbar';
 import {Home} from './home';
 import {Releases, ReleaseVersion} from './releases';
+import {Quickstart} from './quickstart';
 import {Install} from './install';
 import {Docs} from './docs';
 import {News, NewsEntry} from './news';
@@ -24,7 +25,7 @@ import {Publications} from './publications';
 import {Source} from './source';
 import {Contribute, ContributeDevelopment,TourFrontend, TourBackend, TourLibphoebe} from './contribute';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
-import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, Help1vs2, HelpVersion, HelpIPYNB} from './help';
+import {HelpDevel, HelpContact, HelpMailingList, HelpFAQ, Help1vs2, HelpVersion, HelpIPYNB, HelpColab} from './help';
 import {Devel, TeleconRedirect, TeleconNotesRedirect} from './devel';
 import {NotFound} from './errors';
 
@@ -91,6 +92,8 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
             <Route exact path={process.env.PUBLIC_URL + '/releases'} render={(props) => <Releases {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/releases/:version/'} render={(props) => <ReleaseVersion {...props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route exact path={process.env.PUBLIC_URL + '/quickstart'} component={Quickstart}/>
+            <Route exact path={process.env.PUBLIC_URL + '/quickstart/:version/'} component={Quickstart}/>
             <Route exact path={process.env.PUBLIC_URL + '/install'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs'} component={Docs}/>
@@ -106,7 +109,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute'} component={Contribute}/>
-            <Route exact path={process.env.PUBLIC_URL + '/contribute/development'} component={ContributeDevelopment}/>
+            <Route exact path={process.env.PUBLIC_URL + '/contribute/development-guide'} component={ContributeDevelopment}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/frontend'} component={TourFrontend}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/backend'} component={TourBackend}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/libphoebe'} component={TourLibphoebe}/>
@@ -121,6 +124,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/help/1vs2'} component={Help1vs2}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/version'} component={HelpVersion}/>
             <Route exact path={process.env.PUBLIC_URL + '/help/ipynb'} component={HelpIPYNB}/>
+            <Route exact path={process.env.PUBLIC_URL + '/help/colab'} component={HelpColab}/>
             <Route exact path={process.env.PUBLIC_URL + '/devel'} component={Devel}/>
             <Route exact path={process.env.PUBLIC_URL + '/devel/telecon-notes'} component={TeleconNotesRedirect}/>
             <Route exact path={process.env.PUBLIC_URL + '/devel/telecon'} component={TeleconRedirect}/>

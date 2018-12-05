@@ -116,7 +116,7 @@ export class Link extends React.Component {
       if (this.props.downloadFilename) {
         if (this.state.downloadContent) {
           return (
-            <a {...this.props} href={"data:text/plain,"+this.state.downloadContent} type="text/x-python" download={this.props.downloadFilename}><span className="fas fa-file-download"></span> {this.props.children}</a>
+            <a {...this.props} href={"data:text/plain,"+this.state.downloadContent} type="text/x-python" download={this.props.downloadFilename}><span className="fas fa-fw fa-file-download"></span> {this.props.children}</a>
           )
         } else {
           return (
@@ -125,7 +125,7 @@ export class Link extends React.Component {
         }
       } else {
         return (
-          <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"> </span>}{this.props.children}</a>
+          <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-fw fa-external-link-alt"> </span>}{this.props.children}</a>
         )
       }
     } else if (to.startsWith(process.env.PUBLIC_URL) || to.startsWith("/static/")) {
@@ -168,6 +168,20 @@ export class Separator extends React.Component {
 
     return (
       <Image src="/logos/hex_separator.svg" className={"img-center "+className} style={{height: height, marginTop: marginTop, marginBottom: marginBottom, marginRight: marginRight}}/>
+    )
+  }
+}
+
+export class Button extends React.Component {
+  render() {
+    var description = this.props.description
+    if (!description) {
+      description = this.props.title
+    }
+    // var level = this.props.level || "primary"
+
+    return (
+      <Link role="button" className="btn btn-primary" style={this.props.style} title={description} to={this.props.to} hideExternal={this.props.hideExternal || this.props.icon}><span className={this.props.icon}></span> {this.props.title}</Link>
     )
   }
 }

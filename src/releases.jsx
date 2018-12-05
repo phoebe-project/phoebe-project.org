@@ -86,12 +86,14 @@ class ReleaseContent extends Component {
     var releasePaper = "Release Paper"
     var adsLink = null;
     var pdf = null;
+    var quickstart = true
     var content = null;
     if (this.props.version === '1.0' || this.props.version === 'legacy') {
       logo = "logo_release_10.png"
       releasePaper = "Prša & Zwitter (2005)"
       adsLink = "https://ui.adsabs.harvard.edu/?#abs/2005ApJ...628..426P"
       pdf = "2005Prsa+.pdf"
+      quickstart = false
       content = <div>
                   <p>The legacy releases of PHOEBE (0.x and soon culminating in the official release of version 1.0) are built upon the <Link to="ftp://ftp.astro.ufl.edu/pub/wilson">Wilson-Devinney code</Link>.</p>
                   <p>All the archived 0.x releases of PHOEBE and their respective changelogs can be found on the <Link to="/install/1.0">PHOEBE legacy install page</Link>.</p>
@@ -192,6 +194,13 @@ class ReleaseContent extends Component {
             <div className="row" style={{marginTop: 0}}>
               <Link to={"/docs/"+this.props.version+"/"}><span className="fa fa-fw fa-book-open"></span> Read PHOEBE {this.props.version} docs</Link>
             </div>
+            {quickstart ?
+              <div className="row" style={{marginTop: 0}}>
+                <Link to={"/quickstart/"+this.props.version}><span className="far fa-fw fa-play-circle"></span> PHOEBE {this.props.version} Quickstart</Link>
+              </div>
+              :
+              null
+            }
             {adsLink!==null ?
               <div className="row" style={{marginTop: 0}}>
                 <Link to={adsLink} hideExternal={true}><span className="fas fa-fw fa-copy"></span> {releasePaper}</Link> &nbsp;
@@ -204,6 +213,7 @@ class ReleaseContent extends Component {
               :
               null
             }
+
 
             <div className="row">
               {content}

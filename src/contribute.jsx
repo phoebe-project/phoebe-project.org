@@ -87,7 +87,7 @@ export class Contribute extends Component {
             Once all of the tests pass, you know that your installation is working as far as all the official tests.  Now continue to abuse PHOEBE, are report anytime that PHOEBE crashes, takes an exceedingly long amount of time, or returns wrong science.
           </p>
           <p>
-            If you find a corner of PHOEBE that is not covered by the nosetests, <Link to="/contribute/development#nosetests">feel free to write and submit your own</Link>.  You can always fork the <Link to="http://github.com/phoebe-project/phoebe2">GitHub repository</Link> and submit a Pull-Request, or see below for more information on how to <Link to="#develop">join the development team</Link>, if you so wish.
+            If you find a corner of PHOEBE that is not covered by the nosetests, <Link to="/contribute/development-guide#nosetests">feel free to write and submit your own</Link>.  You can always fork the <Link to="http://github.com/phoebe-project/phoebe2">GitHub repository</Link> and submit a Pull-Request, or see below for more information on how to <Link to="#develop">join the development team</Link>, if you so wish.
           </p>
 
           <Separator large={false}/>
@@ -134,7 +134,7 @@ export class Contribute extends Component {
             All development occurs in the various <Link to="/source">GitHub repositories</Link>.  Without being a member of the team, you will be unable to push changes to the repository.  For small changes, you're welcome to create a fork under your own username and open a pull-request back to the official repository.  If you're interested in leading the development of a new feature, for example, you may want to join the <Link to="/help/devel">PHOEBE development team</Link> so that you have permissions to push directly to the official repositories.  The development team generally meets weekly by telecon and contributes to all feature <Link to="/releases">releases</Link> and <Link to="/publications">publications</Link>.  If this interests you, reach out to us on the <Link to="/help/contact/phoebe-devel">phoebe-devel mailing list</Link>.
           </p>
           <p>
-            Once you're ready to start coding, see the <Link to="/contribute/development">development guide</Link> which will help you find your way around the code and make sure you're working in the <Link to="/contribute/development#branches">appropriate branch</Link>.
+            Once you're ready to start coding, see the <Link to="/contribute/development-guide">development guide</Link> which will help you find your way around the code and make sure you're working in the <Link to="/contribute/development-guide#branches">appropriate branch</Link>.
           </p>
         </Content>
 

@@ -181,8 +181,9 @@ a {
 
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus {
-  background-color: #2B71B1;
-  color: #E6E6E6;
+  background-color: transparent;
+  color: #2B71B1;
+  border: 1px solid #2B71B1;
 }
 
 .btn-transparent, .btn-transparent:focus {
@@ -265,10 +266,11 @@ a.news-permalink {
 
 .prompt{
   /* hide the input number in the Jupyter notebook prompts */
-  text-indent: 100%;
-  white-space: nowrap;
-  overflow: hidden;
+  /* text-indent: 100%; */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
   /* width: 0 !important; */
+  display: none;
 }
 
 .nteract-display-area-stdout, .nteract-display-area-stderr{
@@ -295,6 +297,16 @@ a.news-permalink {
   color: red;
 }
 
+.content-margin {
+  padding-left: 0 !important;
+}
+
+.outputs {
+  padding-left: 0 !important;
+}
+
+
+/* RESPONSIVE CUSTOM LAYOUT */
 
 @media screen and (max-width: 767px){
   /* CSS TO APPLY WHEN NAVBAR COLLAPSED */

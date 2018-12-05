@@ -6,6 +6,7 @@ import {Content, Link} from './common';
 import {HeaderIndex} from './header';
 import {Footer} from './footer';
 import {newsStoriesDicts, NewsContent} from './news';
+import {docs_versions} from './docs';
 
 export class Home extends Component {
   constructor(props) {
@@ -45,6 +46,10 @@ export class Home extends Component {
           <div className="col-md-12">
             <p>PHOEBE is written by an international team of <Link to="/help/devel">professional astronomers</Link>, and is completely <Link to="/source">open-source</Link>.</p>
             <p>Feel free to <Link to="/install">download and install</Link> the latest version of PHOEBE (or any of the <Link to="/releases">previous releases</Link>) and then follow the <Link to="/docs/latest/tutorials">tutorials</Link>.  If (or when) you get stuck, refer to the <Link to="/docs">documentation</Link>, or always feel free to <Link to="/help/contact">contact us</Link>.</p>
+            <p>
+              If you want to try PHOEBE before installing, feel free to jump into the <Link to="/quickstart"><span className="far fa-fw fa-play-circle"></span> PHOEBE {docs_versions[0]} Quickstart</Link>.
+              You can also run any of the <Link to="/docs/latest/tutorials">tutorials</Link> or <Link to="/docs/latest/examples">example scripts</Link> by clicking the link in the upper-left corner.
+            </p>
           </div>
 
           <div className="col-md-12">

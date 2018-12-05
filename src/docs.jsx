@@ -104,7 +104,7 @@ export class Docs extends Component {
       this.updateDocs(version, subdir, slug)
     }
 
-    var reportHTML = <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?title=issue+with+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}><span className="fas fa-bug"></span> Issue/Question on this Page?</Link>
+    var reportHTML = <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?title=issue+with+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
 
     return (
       <div>
@@ -162,6 +162,16 @@ export class Docs extends Component {
             <div>
               <h2><span className="fa fa-fw fa-xs fa-tag"></span> About PHOEBE {version}</h2>
               <p>You can read about the features added during the <Link to={"/releases/"+version}>{version} release</Link> as well as read the changelog entries.</p>
+
+              <h2><span className="far fa-fw fa-xs fa-play-circle"></span> Try PHOEBE {version} in a Live-Session</h2>
+              <p>
+                You can try PHOEBE {version} in a live Google Colab Session before installing it on your local machine.
+                All of the example scripts and tutorials here will include a link in the top-left to open that notebook in a live-session.
+                Or you can follow the <Link to={"/quickstart/"+version}><span className="far fa-fw fa-play-circle"></span> PHOEBE {version} Quickstart</Link>.
+              </p>
+              <p>
+                Learn more <Link to="/help/colab">about Google Colab Live Sessions</Link>.
+              </p>
 
               <h2><span className="fas fa-fw fa-xs fa-download"></span> Download &amp; Install</h2>
               <p>If you don't already have PHOEBE installed, see the <Link to={"/install/"+version}>installation instructions for PHOEBE {version}.</Link></p>

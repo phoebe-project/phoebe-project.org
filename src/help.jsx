@@ -167,6 +167,43 @@ export class HelpIPYNB extends Component {
   }
 }
 
+export class HelpColab extends Component {
+  render() {
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | How To: Live Sessions in Google Colab</title>
+          <meta name="description" content="How to download and run the jupyter notebooks provided for the PHOEBE 2 tutorials and example scripts"/>
+        </Helmet>
+        <Header>
+          <h1><span className="hidden-xs">How To: Live Sessions in Google Colab</span><span className="visible-xs">How To: Colab</span></h1>
+        </Header>
+        <Content>
+          <p>
+            Any tutorial or example script in the <Link to="/docs">documentation</Link> can be opened in a live <Link to="http://colab.research.google.com">Google Colab</Link> session.
+            Additionally, a <Link to="/quickstart">quickstart</Link> script can launched for any <Link to="/releases">release</Link> of PHOEBE, allowing you to quickly install that version and import phoebe, along with a few links to get started.
+            Running in these sessions will allow you to run the script <i>without</i> installing PHOEBE on your local machine (but you will have to wait for PHOEBE and the dependencies to install in each separate session/notebook).
+            This gives the convenience of being able to try any release of PHOEBE from a web browser without having to install - but ultimately, if you want to do science with PHOEBE, you'll likely see better performance (and not have to reinstall everytime you restart a script) if you have a <Link to="/install">local installation</Link>.
+          </p>
+          <p>
+            In order to open the notebook, you may need to log in with your Google account and accept that you trust the source of the file.
+          </p>
+          <p>
+            Once opened, you can run each cell by selecting it and pressing shift+Enter (to execute and select the next cell), ctrl+Enter (to execute and stay selected on the current cell), or alt+Enter (to execute and create a new cell below).
+            On mobile, you can run a cell by clicking the play button on the left.
+          </p>
+          <p>
+            Note: because of the default installation of matplotlib in Colab, importing PHOEBE will likely give a bunch of warnings.  So long as they're just warnings from matplotlib, they're nothing to be too concerned about.
+          </p>
+          <p>
+            You can read more about <Link to="http://colab.research.google.com">Google Colab</Link> on <Link to="https://research.google.com/colaboratory/faq.html">their FAQ page</Link>.
+          </p>
+        </Content>
+      </div>
+    )
+  }
+}
+
 export class Help1vs2 extends Component {
   render() {
     return (

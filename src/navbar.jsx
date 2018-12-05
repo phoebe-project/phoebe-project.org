@@ -72,7 +72,7 @@ export class Navbar extends React.Component {
                   <li><NavLink to="/help/devel" style={navbarLinkStyle} title="PHOEBE Development Team"><span className="fa fa-fw fa-users"></span> Development Team</NavLink></li>
                   <li><NavLink to="/help/contact" style={navbarLinkStyle} title="Mailing Lists & Contact Info"><span className="far fa-fw fa-envelope"></span> Mailing Lists</NavLink></li>
                   <li><NavLink to="/help/faq" style={navbarLinkStyle} title="Frequently Asked Questions"><span className="fa fa-fw fa-question"></span> FAQ</NavLink></li>
-                  <li><NavLink to="/contribute/development" style={navbarLinkStyle} title="Development Guide"><span className="fas fa-fw fa-microscope"></span> Development Guide</NavLink></li>
+                  <li><NavLink to="/contribute/development-guide" style={navbarLinkStyle} title="Development Guide"><span className="fas fa-fw fa-microscope"></span> Development Guide</NavLink></li>
                   <li><NavLink to="/contribute#issues" style={navbarLinkStyle} hideExternal={true} title="Report an Issue"><span className="fas fa-fw fa-bug"></span> Report an Issue</NavLink></li>
                 </ul>
               </li>
