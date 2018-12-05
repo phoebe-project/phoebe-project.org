@@ -15,7 +15,7 @@ import './App.css';
 import {metaKeywords} from './common';
 import {Navbar} from './navbar';
 import {Home} from './home';
-import {Releases, ReleaseVersion} from './releases';
+import {Releases, ReleaseVersion, ReleaseVersionRedirect} from './releases';
 import {Quickstart} from './quickstart';
 import {Install} from './install';
 import {Docs} from './docs';
@@ -129,6 +129,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/devel/telecon-notes'} component={TeleconNotesRedirect}/>
             <Route exact path={process.env.PUBLIC_URL + '/devel/telecon'} component={TeleconRedirect}/>
 
+            <Route exact path={process.env.PUBLIC_URL + '/:version'} component={ReleaseVersionRedirect}/>
             <Route path="*" component={NotFound} />
           </Switch>
 

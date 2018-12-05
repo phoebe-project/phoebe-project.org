@@ -9,6 +9,21 @@ import {NotFound} from './errors';
 import {docs_versions} from './docs';
 import {Header, HeaderNavButton} from './header';
 
+export class ReleaseVersionRedirect extends Component {
+  render() {
+    var version = this.props.match.params.version
+    if (docs_versions.indexOf(version)!==-1) {
+      return (
+        <Redirect to={"/releases/"+version}/>
+      )
+    } else {
+      return (
+        <NotFound/>
+      )
+    }
+  }
+}
+
 export class Releases extends Component {
   render() {
     var docs_versions_incl_legacy = docs_versions.concat("legacy")

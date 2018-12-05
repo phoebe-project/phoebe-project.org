@@ -60,10 +60,15 @@ export class Content extends React.Component {
 export class Redirect extends React.Component {
   render() {
     var to = processLink(this.props.to)
-    console.log("redirect to "+to)
-    return (
-      <RouterRedirect {...this.props} to={to}>{this.props.children}</RouterRedirect>
-    )
+    // console.log("redirect to "+to)
+    if (to.startsWith("http") || to.startsWith("ftp")) {
+      window.location(to)
+      return (null)
+    } else {
+      return (
+        <RouterRedirect {...this.props} to={to}>{this.props.children}</RouterRedirect>
+      )
+    }
   }
 }
 
