@@ -49,6 +49,11 @@ a {
   color: #2B71B1;
 }
 
+code {
+  color: #2B71B1;
+  background-color: #e6f2fe;
+}
+
 .logo-invert {
   -webkit-filter: grayscale(1) invert(1) brightness(1.5);
   filter: grayscale(1) invert(1) brightness(1.5);
@@ -67,6 +72,11 @@ a {
   background-color: #456583;
   border-color: #f5f5f5; /* same as pre background-color */
   color: white;
+}
+
+.content-dark code {
+  color: #e6f2fe;
+  background-color: #456583;
 }
 
 .content-dark a {

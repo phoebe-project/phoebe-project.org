@@ -298,13 +298,14 @@ export class ContributeDevelopment extends Component {
           <p>
             The source-code of PHOEBE 2 can be split into several different levels, starting with the frontend which you're probably most familiar with as a user and if reading through the <Link to="/docs">documentation</Link>.
             Depending on what you're trying to develop, you may need to dig deeper into the code.
+            Below are code-tours of the different "layers" of PHOEBE.
+            These aim to show you the general layout and structure of the PHOEBE code and get you familiar with where certain pieces of logic belong.
           </p>
 
-          <b>Coming Soon: links to code-tours for the following:</b>
           <ul>
             <li><Link to="/contribute/tour/frontend">frontend</Link></li>
-            <li><Link to="/contribute/tour/backend">Python-backend</Link></li>
-            <li><Link to="/contribute/tour/libphoebe">C-backend (libphoebe)</Link></li>
+            <li><Link to="/contribute/tour/backend">Python-backend</Link> (<b>COMING SOON</b>)</li>
+            <li><Link to="/contribute/tour/libphoebe">C-backend (libphoebe)</Link> (<b>COMING SOON</b>)</li>
           </ul>
 
           <Separator large={false}/>
@@ -383,7 +384,109 @@ export class TourFrontend extends Component {
           <h1>Frontend Code Tour</h1>
         </Header>
         <Content>
-          <p>COMING SOON...</p>
+          <p>
+            NOTE: this code tour is kept current (hopefully) for the <Link to="/releases/latest">latest release</Link>.  It should (mostly) apply to the development branch, but may not be accurate if you're working off of a previous release.
+          </p>
+          <p>
+            The PHOEBE frontend consists of the user-interaction-layer of PHOEBE: all top-level convenience functions, the Bundle, ParameterSets, Parameters, and ParameterSet-creation functions (i.e. functions to create and attach datasets, compute options, etc).
+            All of the public funtionality in the frontend is exposed in the <Link to="/docs/latest/api">API Docs</Link>, but there are also "private" methods, conventionally notated by the underscore or double-underscore prefix.
+          </p>
+          <h2>Top-Level Convenience Functions</h2>
+
+          <ul>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideExternal={true}>phoebe.__init__.py source on GitHub</Link></li>
+            <li><Link to="/docs/latest/api/phoebe">phoebe API Docs</Link></li>
+          </ul>
+
+          <p>
+            Several commonly-used functions are exposed at the top-level of PHOEBE.
+            Some of these are just imported from their respective sub-packages so that they're available as <code>phoebe.whatever</code>, while others are simple wrappers.
+            For example, <code>phoebe.open</code> is defined as a wrapper in <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideExternal={true}>__init__.py</Link> because its calling a classmethod of the Bundle rather than an actual function.
+          </p>
+
+
+          <p>
+            <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideExternal={true}>__init__.py</Link> is also responsible for exposing the logger and autofig/nparray convenience functions as well as setting reasonable defaults (for MPI for example) and parsing any supported environment variables.
+            Lastly, but importantly, <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideExternal={true}>__init__.py</Link> handles the MPI logic to keep any worker processors in a wait loop until they receive tasks.
+          </p>
+
+          <Separator large={false} flip={false}/>
+        </Content>
+        <Content dark={true}>
+          <h2>The Bundle</h2>
+
+          <ul>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/frontend/bundle.py" hideExternal={true}>phoebe.frontend.bundle source on GitHub</Link></li>
+            <li><Link to="/docs/latest/api/phoebe.frontend.bundle.Bundle">phoebe.frontend.bundle.Bundle API Docs</Link></li>
+          </ul>
+
+          <p>
+            The bundle subpackage (<Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/frontend/bundle.py" hideExternal={true}>phoebe.frontend.bundle source</Link>) consists solely of the Bundle class, which is a subclass of a ParameterSet (see below).
+            All methods that are applicable to filtered ParameterSets should be defined at the ParameterSet level instead of the Bundle.  For example, if you want to be able to do <code>b.filter().my_method()</code>, then the method <b>must</b> be defined in the ParameterSet, even if they require access to the entire Bundle (hierarchy, etc).
+            This leaves most of the context-dependent methods in the Bundle, including:
+          </p>
+          <ul>
+            <li>add_*</li>
+            <li>rename_*</li>
+            <li>remove_*</li>
+            <li>run_*</li>
+          </ul>
+
+          <p>
+            Additionally, the Bundle class includes classmethods for creating default systems or loading/importing, as well as saving the entire Bundle object to a file.
+            These have the <code>@classmethod</code> decorator and are used as <code>b=Bundle.open()</code>.
+          </p>
+
+          <Separator large={false} flip={true}/>
+        </Content>
+        <Content>
+          <h2>The ParameterSet</h2>
+
+          <ul>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/parameters.py" hideExternal={true}>phoebe.parameters source on GitHub</Link></li>
+            <li><Link to="/docs/latest/api/phoebe.parameters.ParameterSet">phoebe.parameters.ParameterSet API Docs</Link></li>
+          </ul>
+
+          <p>NOTE: because of the import statements in <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/__init__.py" hideExternal={true}>phoebe.parameters.__init__.py</Link>, everything in phoebe/parameters/parameters.py is available from python directly from phoebe.parameters.</p>
+
+          <p>
+            The ParameterSet class contains all logic for filtering the list of Parameters and acting on those Parameters.  Whenever these "filtering" methods return another ParameterSet instance, those become chainable: allowing <code>b.filter(context='component').filter(component='primary')</code>.
+            Some of these methods are in the ParameterSet instead of the Bundle because of this desire to be chainable, but still require the presence of a "parent" Bundle instance.  In these cases, you can access <code>self._bundle</code>, but make sure to account for the case where this may not exist (and which case <code>self._bundle = None</code>.
+          </p>
+
+          <Separator large={false} flip={false}/>
+        </Content>
+        <Content dark={true}>
+          <h2>Parameters</h2>
+
+          <ul>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/parameters.py" hideExternal={true}>phoebe.parameters source on GitHub</Link></li>
+            <li><Link to="/docs/latest/api/phoebe.parameters.Parameter">phoebe.parameters.Parameter API Docs</Link></li>
+            <li><Link to="/docs/latest/api/phoebe.parameters">phoebe.parameters API Docs</Link> (contains links to all Parameter subclasses)</li>
+          </ul>
+
+          <p>
+            The Parameter class contains all logic that is shared among all (or at least most) of the different types of Parameters supported by PHOEBE, but is not meant to be used on its own.
+            The individual types (FloatParameter, for example) all subclass the Parameter class and override whatever methods are necessary to add the functionality needed by that type.
+          </p>
+
+          <Separator large={false} flip={true}/>
+        </Content>
+        <Content>
+          <h2>Creation-Functions</h2>
+
+          <ul>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/" hideExternal={true}>phoebe.parameters source on GitHub</Link> (contains links to all creation-function subpackages)</li>
+            <li><Link to="/docs/latest/api/phoebe.parameters">phoebe.parameters API Docs</Link> (contains links to all creation-function subpackages)</li>
+          </ul>
+
+          <p>
+            Also within the phoebe/parameters directory are a number of subpackages to create default ParameterSets.
+            These are generally named after the appropriate context (<Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/component.py" hideExternal={true}>component.py</Link>, <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/dataset.py" hideExternal={true}>dataset.py</Link>, <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/compute.py" hideExternal={true}>compute.py</Link>, etc).
+            The functions within these subpackages are queried whenever the corresponding Bundle.add_ method is called.  For example, <code>b.add_dataset('lc')</code> looks in <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/dataset.py" hideExternal={true}>dataset.py</Link> for a function called "lc".
+            Since that does exist, it calls that function to get the default ParameterSet to attach to the Bundle for a new light curve.
+            If it did not exist, <code>b.add_dataset</code> would raise an error.
+          </p>
         </Content>
       </div>
     )
