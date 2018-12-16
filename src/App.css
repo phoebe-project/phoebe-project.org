@@ -13,6 +13,11 @@ img {
   max-width: 100%;
 }
 
+.PhoebeLogo{
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 .img-center {
     display: block;
     margin-left: auto;

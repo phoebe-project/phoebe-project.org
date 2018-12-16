@@ -1,6 +1,8 @@
 .PhoebeLogo {
   display: block;
   margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
   width: 136px; /* allows auto-centering */
   height: 260px;
   box-sizing: border-box;
@@ -14,23 +16,23 @@
 }
 
 /* size and position of triangles */
-.PLT, .PLTB {
+.PLT, .PLTB, .PLTT {
   position: relative;
   height: 75px;
   width: 64.5px;
 }
 
-.PLTB {
+.PLTB, .PLTT {
   pointer-events: none; /* so they don't trigger animation/hover effects */
 }
 
 /* right pointing triangles */
-.PLT1, .PLT3, .PLT5, .PLT7, .PLTB2, .PLTB4, .PLTB6 {
+.PLT1, .PLT3, .PLT5, .PLT7, .PLTB2, .PLTB4, .PLTB6, .PLTT1, .PLTT3 {
   clip-path: polygon(0 0, 0% 100%, 100% 50%);
 }
 
 /* left pointing triangles */
-.PLT2, .PLT4, .PLT6, .PLT8, .PLTB1, .PLTB3, .PLTB5, .PLTB7 {
+.PLT2, .PLT4, .PLT6, .PLT8, .PLTB1, .PLTB3, .PLTB5, .PLTB7, .PLTT2, .PLTT4 {
   clip-path: polygon(100% 0, 0 50%, 100% 100%);
 }
 
@@ -60,6 +62,10 @@
   background-color: blue !important;
 }
 
+.PLTT {
+  background-color: rgba(230, 230, 230, 0);
+}
+
 
 /* left offset for columns */
 .PLT1, .PLT2, .PLT6, .PLT7, .PLT8 {
@@ -67,7 +73,7 @@
 }
 
 .PLT3, .PLT4, .PLT5 {
-  left: 70px;
+  left: 72px;
 }
 
 .PLTB1, .PLTB2, .PLTB6, .PLTB7 {
@@ -75,7 +81,23 @@
 }
 
 .PLTB3, .PLTB4, .PLTB5 {
-  left: -140px;
+  left: -142px;
+}
+
+.PLTT1 {
+  left: 340px;
+}
+
+.PLTT2 {
+  left: 275px;
+}
+
+.PLTT3 {
+  left: 350px;
+}
+
+.PLTT4 {
+  left: 260px;
 }
 
 
@@ -140,36 +162,28 @@
   top: -740px;
 }
 
+.PLTT1 {
+  top: -900px;
+}
+
+.PLTT2 {
+  top: -900px;
+}
+
+.PLTT3 {
+  top: -1075px;
+}
+
+.PLTT4 {
+  top: -1025px;
+}
+
 
 
 /* handle different animation types */
-.PLTB {
+.PLTB, .PLTT {
   animation: pltbfadeout 1 ease-out forwards;
   animation-duration: 800ms;
-}
-
-.TransitionIn > .PLTB {
-  animation-duration: 1200ms;
-}
-
-.TransitionIn > .PLTB5 {
-  animation-delay: 1600ms;
-}
-
-.TransitionIn > .PLTB4, .TransitionIn > .PLTB6 {
-  animation-delay: 2200ms;
-}
-
-.TransitionIn > .PLTB3, .TransitionIn > .PLTB7 {
-  animation-delay: 2800ms;
-}
-
-.TransitionIn > .PLTB2 {
-  animation-delay: 3400ms;
-}
-
-.TransitionIn > .PLTB1 {
-  animation-delay: 4000ms;
 }
 
 .PLT8 {
@@ -177,7 +191,41 @@
   animation-duration: 1800ms
 }
 
-.TransitionIn > .PLT8 {
+.transitionInNone > .PLTB, .transitionInNone > .PLTT, .transitionInNone > .PLT8 {
+  animation-duration: 0ms;
+}
+
+.transitionInContact > .PLTT {
+  animation-duration: 0ms;
+}
+
+.transitionInContact > .PLTB {
+  animation-duration: 1200ms;
+}
+
+.transitionInContact > .PLTB5 {
+  animation-delay: 1600ms;
+}
+
+.transitionInContact > .PLTB4, .transitionInContact > .PLTB6 {
+  animation-delay: 2200ms;
+}
+
+.transitionInContact > .PLTB3, .transitionInContact > .PLTB7 {
+  animation-delay: 2800ms;
+}
+
+.transitionInContact > .PLTB2 {
+  animation-delay: 3400ms;
+}
+
+.transitionInContact > .PLTB1 {
+  animation-delay: 4000ms;
+}
+
+
+
+.transitionInContact > .PLT8 {
   animation-duration: 2000ms;
   animation-delay: 5200ms;
 }
@@ -223,11 +271,8 @@
   }
 }
 
-.AnimateFade > .PLT1, .AnimateFade > .PLT2, .AnimateFade > .PLT3, .AnimateFade > .PLT4, .AnimateFade > .PLT5, .AnimateFade > .PLT6 {
-  animation: spinnerfade 1200ms infinite ease-in-out;
-}
 
-@keyframes spinnerfade {
+@keyframes spinnerFade {
   0%,
   80%,
   100% {
@@ -238,66 +283,131 @@
   }
 }
 
+.animateSpinner > .PLT1, .animateSpinner > .PLT2, .animateSpinner > .PLT3, .animateSpinner > .PLT4, .animateSpinner > .PLT5, .animateSpinner > .PLT6 {
+  animation: spinnerFade 1200ms infinite ease-in-out;
+}
 
 /* handle spinner delays */
-.AnimateSpinner > .PLT1 {
+.animateSpinner > .PLT1 {
   animation-delay: 0ms;
 }
 
-.AnimateSpinner > .PLT2 {
+.animateSpinner > .PLT2 {
   animation-delay: 200ms;
 }
 
-.AnimateSpinner > .PLT3 {
+.animateSpinner > .PLT3 {
   animation-delay: 400ms;
 }
 
-.AnimateSpinner > .PLT4 {
+.animateSpinner > .PLT4 {
   animation-delay: 600ms;
 }
 
-.AnimateSpinner > .PLT5 {
+.animateSpinner > .PLT5 {
   animation-delay: 800ms;
 }
 
-.AnimateSpinner > .PLT6 {
+.animateSpinner > .PLT6 {
   animation-delay: 1000ms;
 }
 
 /* ignore hover effects on spinner */
-.AnimateSpinner > .PLTB {
+.animateSpinner > .PLTB {
   opacity: 0
 }
 
-.AnimateSpinner > .PLT8 {
+.animateSpinner > .PLT8 {
   animation: none !important;
   background-color: rgba(230, 230, 230, 0.65);
 }
 
-@media screen and (min-width: 1600px) {
-  /* CSS TO APPLY FOR XL WIDTH */
-  .PhoebeLogo {
-    zoom: 1.1
+
+@keyframes shimmerFade {
+  0%,
+  80%,
+  100% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.5;
   }
 }
 
-@media screen and (max-width: 1200px){
-  /* CSS TO APPLY FOR MEDIUM WIDTH */
+.animateShimmer > .PLT {
+  animation: shimmerFade 4000ms infinite ease-in-out;
+  background-color: rgba(230, 230, 230, 0.65)
+}
+
+.animateShimmer > .PLT8 {
+  animation-delay: 0ms;
+}
+
+.animateShimmer > .PLT7 {
+  animation-delay: 100ms;
+}
+
+.animateShimmer > .PLT6 {
+  animation-delay: 200ms;
+}
+
+.animateShimmer > .PLT1, .animateShimmer > .PLT5 {
+  animation-delay: 300ms;
+}
+
+.animateShimmer > .PLT2, .animateShimmer > .PLT4 {
+  animation-delay: 400ms;
+}
+
+.animateShimmer > .PLT3 {
+  animation-delay: 500ms;
+}
+
+
+/* Set responsive zoom-levels for the entire logo */
+
+.PhoebeLogo {
+  zoom: 1.8;
+}
+
+@media screen and (max-height: 1000px){
   .PhoebeLogo, .PhoebeLogoSpinner {
-    zoom: 0.8;
+    zoom: 1.6;
   }
 }
 
-@media screen and (max-width: 1000px){
-  /* CSS TO APPLY FOR SMALL WIDTH */
+@media screen and (max-height: 900px){
   .PhoebeLogo, .PhoebeLogoSpinner {
-    zoom: 0.75;
+    zoom: 1.4;
   }
 }
 
-@media screen and (max-width: 767px){
-  /* CSS TO APPLY FOR XS WIDTH (MOBILE) */
+@media screen and (max-height: 800px){
+  .PhoebeLogo, .PhoebeLogoSpinner {
+    zoom: 1.0;
+  }
+}
+
+@media screen and (max-height: 700px){
+  .PhoebeLogo, .PhoebeLogoSpinner {
+    zoom: 0.85;
+  }
+}
+
+@media screen and (max-height: 600px){
   .PhoebeLogo, .PhoebeLogoSpinner {
     zoom: 0.7;
+  }
+}
+
+@media screen and (max-height: 500px){
+  .PhoebeLogo, .PhoebeLogoSpinner {
+    zoom: 0.5;
+  }
+}
+
+@media screen and (max-height: 400px){
+  .PhoebeLogo, .PhoebeLogoSpinner {
+    display: none;
   }
 }

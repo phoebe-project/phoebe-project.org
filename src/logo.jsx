@@ -4,20 +4,8 @@ import './logo.css';
 
 export class LogoSpinner extends Component {
   render() {
-    var divClasses = "PhoebeLogoSpinner AnimateFade AnimateSpinner"
-    var pltStyle = this.props.pltStyle || {}
-
     return(
-      <div className={divClasses}>
-        <div className='PLT PLT1' style={pltStyle} ref={this.plt1}/>
-        <div className='PLT PLT2' style={pltStyle} ref={this.plt2}/>
-        <div className='PLT PLT3' style={pltStyle} ref={this.plt3}/>
-        <div className='PLT PLT4' style={pltStyle} ref={this.plt4}/>
-        <div className='PLT PLT5' style={pltStyle} ref={this.plt5}/>
-        <div className='PLT PLT6' style={pltStyle} ref={this.plt6}/>
-        <div className='PLT PLT7' style={pltStyle} ref={this.plt7}/>
-        <div className='PLT PLT8' style={pltStyle} ref={this.plt8}/>
-      </div>
+      <LogoSplash {...this.props} className="PhoebeLogoSpinner" animationEffect="animateSpinner"/>
     )
   }
 }
@@ -42,18 +30,43 @@ export class LogoSplash extends Component {
     this.pltb5 = React.createRef();
     this.pltb6 = React.createRef();
     this.pltb7 = React.createRef();
+    this.pltt1 = React.createRef();
+    this.pltt2 = React.createRef();
+    this.pltt3 = React.createRef();
+    this.pltt4 = React.createRef();
   }
-  onMouseEnter = () => {
-    // console.log("LogoSplash.onMouseEnter")
-    // console.log(this.phoebelogo)
-
-    if (this.didClearTransitionIn==false) {
-      // console.log("clearing TransitionIn");
-      this.phoebelogo.current.classList.remove('TransitionIn');
+  clearTransitionIn = () => {
+    if (this.didClearTransitionIn===false) {
+      this.phoebelogo.current.classList.remove(this.props.transitionIn || "transitionInNone");
       this.didClearTransitionIn = true;
     }
+  }
+  disableAnimation = () => {
+    if (this.props.animationEffect) {
+      this.phoebelogo.current.classList.remove(this.props.animationEffect);
+    }
+  }
+  enableAnimation = () => {
+    if (this.props.animationEffect) {
+      this.phoebelogo.current.classList.add(this.props.animationEffect);
+    }
+  }
+  showSingle = () => {
+    this.clearTransitionIn();
+    this.clearTemporary();
+    this.disableAnimation();
+
     this.plt8.current.classList.add('tmphide');
-    this.pltb1.current.classList.add('tmpshow');
+    this.plt7.current.classList.add('tmphide');
+  }
+  showDetached = () => {
+    this.clearTransitionIn();
+    this.clearTemporary();
+    this.disableAnimation();
+
+    this.plt8.current.classList.add('tmphide');
+    this.plt7.current.classList.add('tmphide');
+    // this.pltb1.current.classList.add('tmpshow');
     this.pltb2.current.classList.add('tmpshow');
     this.pltb3.current.classList.add('tmpshow');
     this.pltb4.current.classList.add('tmpshow');
@@ -61,20 +74,73 @@ export class LogoSplash extends Component {
     this.pltb6.current.classList.add('tmpshow');
     this.pltb7.current.classList.add('tmpshow');
   }
-  onMouseLeave = () => {
-    // console.log("LogoSplash.onMouseLeave")
+  showSemidetachedPrimary = () => {
+    this.showDetached();
+    this.plt7.current.classList.remove('tmphide');
+  }
+  showSemidetachedSecondary = () => {
+    this.showDetached();
+    this.pltb1.current.classList.add('tmpshow');
+  }
+  showContact = () => {
+    this.showDetached();
+    this.pltb1.current.classList.add('tmpshow');
+    this.plt7.current.classList.remove('tmphide');
+  }
+  showTriple21Detached = () => {
+    this.showDetached();
+
+    this.pltt2.current.classList.add('tmpshow');
+  }
+  showTriple21Contact = () => {
+    this.showContact();
+
+    this.pltt2.current.classList.add('tmpshow');
+  }
+  showTriple12Detached = () => {
+    this.showSingle();
+
+    this.pltt3.current.classList.add('tmpshow');
+    this.pltt4.current.classList.add('tmpshow');
+  }
+  showTriple12Contact = () => {
+    this.showSingle();
+
+    this.pltt1.current.classList.add('tmpshow');
+    this.pltt2.current.classList.add('tmpshow');
+  }
+  clearTemporary = () => {
     HTMLCollection.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
     for (var element of this.phoebelogo.current.children) {
       element.classList.remove('tmphide', 'tmpshow');
     }
+    this.enableAnimation();
   }
-
   render() {
-    var divClasses = "PhoebeLogo TransitionIn"
+    // onMouseEnter: null (default), showSingle, showDetached, showContact, ...
+    // transitionIn: null/"transitionInNone" (default), "transitionInContact"
+    // animationEffect: null (default), "animateSpinner", "animateShimmer"
+    // className: null (default), string of any other classes to add to the entire div
+    // pltStyle: {} (default), dictionary to pass to css style of EACH triangle (i.e. to change color)
+
+    var transitionIn = this.props.transitionIn || "transitionInNone"
+    var animationEffect = this.props.animationEffect || ""
+    var additionalClasses = this.props.className || ""
+
+    var onMouseEnter = this.props.onMouseEnter || null;
+    if (onMouseEnter === 'showSingle') {
+      onMouseEnter = this.showSingle
+    } else if (onMouseEnter === 'showDetached') {
+      onMouseEnter = this.showDetached
+    } else if (onMouseEnter === 'showContact') {
+      onMouseEnter = this.showContact
+    }
+
+    var divClasses = "PhoebeLogo"+" "+transitionIn+" "+animationEffect+" "+additionalClasses
     var pltStyle = this.props.pltStyle || {}
 
     return(
-      <div className={divClasses} ref={this.phoebelogo} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
+      <div className={divClasses} ref={this.phoebelogo} onMouseEnter={onMouseEnter} onMouseLeave={this.clearTemporary}>
         <div className='PLT PLT1' style={pltStyle} ref={this.plt1}/>
         <div className='PLT PLT2' style={pltStyle} ref={this.plt2}/>
         <div className='PLT PLT3' style={pltStyle} ref={this.plt3}/>
@@ -90,6 +156,10 @@ export class LogoSplash extends Component {
         <div className='PLTB PLTB5' style={pltStyle} ref={this.pltb5}></div>
         <div className='PLTB PLTB6' style={pltStyle} ref={this.pltb6}></div>
         <div className='PLTB PLTB7' style={pltStyle} ref={this.pltb7}></div>
+        <div className='PLTT PLTT1' style={pltStyle} ref={this.pltt1}></div>
+        <div className='PLTT PLTT2' style={pltStyle} ref={this.pltt2}></div>
+        <div className='PLTT PLTT3' style={pltStyle} ref={this.pltt3}></div>
+        <div className='PLTT PLTT4' style={pltStyle} ref={this.pltt4}></div>
       </div>
     )
 
