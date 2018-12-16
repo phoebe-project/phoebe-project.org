@@ -233,7 +233,7 @@ export class VersionSwitcher extends Component {
 class VersionSwitcherTarget extends Component {
   render() {
     return (
-      <div className="btn btn-primary btn-md current" style={{margin: '0px 3px 3px 0px'}}>
+      <div className="btn btn-primary btn-md current" style={{margin: '0px 3px 3px 0px', backgroundColor: "white"}}>
         <span className="hidden-xs">Doc Version: <strong>{this.props.version}</strong></span>
         <span className="visible-xs">ver: <strong>{this.props.version}</strong></span>
       </div>
