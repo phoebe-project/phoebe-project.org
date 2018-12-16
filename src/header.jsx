@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import {LogoSplash} from './logo';
 import {Link, Image, Separator} from './common';
 
-export class NoHeader extends React.Component {
+export class NoHeader extends Component {
   render() {
     return (
       <div style={{paddingTop: "60px"}}></div>
@@ -11,7 +11,7 @@ export class NoHeader extends React.Component {
   }
 }
 
-export class Header extends React.Component {
+export class Header extends Component {
   render() {
     var separator = this.props.separator || "left"
 
@@ -42,7 +42,7 @@ export class Header extends React.Component {
   }
 }
 
-export class HeaderIndex extends React.Component {
+export class HeaderIndex extends Component {
   render() {
     return (
       <Header separator='right'>
@@ -77,7 +77,7 @@ export class HeaderIndex extends React.Component {
 }
 
 
-export class HeaderLegacy extends React.Component {
+export class HeaderLegacy extends Component {
   render() {
     return (
       <Header>
@@ -115,7 +115,7 @@ export class HeaderLegacy extends React.Component {
   }
 }
 
-export class HeaderNavButton extends React.Component {
+export class HeaderNavButton extends Component {
   render() {
     var description = this.props.description
     if (!description) {

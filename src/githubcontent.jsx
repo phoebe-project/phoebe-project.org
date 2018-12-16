@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import {Link} from './common'
 import {LogoSpinner} from './logo'
@@ -6,7 +6,7 @@ import {LogoSpinner} from './logo'
 import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
 
-export class GitHubContent extends React.Component {
+export class GitHubContent extends Component {
   constructor(props) {
     super(props);
     this.state = {

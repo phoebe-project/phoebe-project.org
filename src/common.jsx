@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {Link as RouterLink, NavLink as RouterNavLink, Redirect as RouterRedirect} from 'react-router-dom';
 
 // var smoothScroll = require('smoothscroll'); // https://github.com/alicelieutier/smoothScroll
@@ -32,7 +32,7 @@ export function getLatestPatchVersion(version_short, release_changelogs) {
   return version_short + "." + largestPatchVersion
 }
 
-export class Content extends React.Component {
+export class Content extends Component {
   componentDidMount() {
     // smoothScroll(0, 500);
     if (!this.props.preventScrollTop) {
@@ -57,12 +57,12 @@ export class Content extends React.Component {
   }
 }
 
-export class Redirect extends React.Component {
+export class Redirect extends Component {
   render() {
     var to = processLink(this.props.to)
     // console.log("redirect to "+to)
     if (to.startsWith("http") || to.startsWith("ftp")) {
-      window.location(to)
+      window.location.replace(to)
       return (null)
     } else {
       return (
@@ -72,7 +72,7 @@ export class Redirect extends React.Component {
   }
 }
 
-export class NavLink extends React.Component {
+export class NavLink extends Component {
   render() {
     var to = processLink(this.props.to)
 
@@ -89,7 +89,7 @@ export class NavLink extends React.Component {
   }
 }
 
-export class Link extends React.Component {
+export class Link extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -145,7 +145,7 @@ export class Link extends React.Component {
   }
 }
 
-export class Image extends React.Component {
+export class Image extends Component {
   render() {
     var src = processLink(this.props.src)
     return (
@@ -154,7 +154,7 @@ export class Image extends React.Component {
   }
 }
 
-export class Separator extends React.Component {
+export class Separator extends Component {
   render() {
     var height = this.props.height || "24px"
     var marginTop = this.props.marginTop || "30px"
@@ -177,7 +177,7 @@ export class Separator extends React.Component {
   }
 }
 
-export class Button extends React.Component {
+export class Button extends Component {
   render() {
     var description = this.props.description
     if (!description) {
@@ -191,7 +191,7 @@ export class Button extends React.Component {
   }
 }
 
-export class Alert extends React.Component {
+export class Alert extends Component {
   render() {
     var level = this.props.level
     if (!level) {
@@ -205,7 +205,7 @@ export class Alert extends React.Component {
   }
 }
 
-export class NosetestsDiv extends React.Component {
+export class NosetestsDiv extends Component {
   render() {
     return (
       <div>

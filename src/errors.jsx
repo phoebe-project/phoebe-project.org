@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react';
 
 import {NoHeader} from './header';
 import {Content} from './common';
 
-export class NotFound extends React.Component {
+export class NotFound extends Component {
   render() {
     return (
       <div>
