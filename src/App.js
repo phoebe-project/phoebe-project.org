@@ -3,7 +3,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Redirect
 } from 'react-router-dom'
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
@@ -106,6 +106,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/workshops/registration'} component={WorkshopRegistration}/>
             <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop'} component={Workshop}/>
             <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop/:slug'} component={Workshop}/>
+            <Route path={process.env.PUBLIC_URL + '/workshop'} render={(props) => <Redirect to="/workshops"/>}/> /* old website used "workshop" instead of "workshops" */
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute'} component={Contribute}/>
