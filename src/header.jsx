@@ -49,7 +49,7 @@ export class HeaderIndex extends Component {
         <div>
           <div className="row" style={{textAlign: "center", paddingBottom: "20px"}}>
               <div style={{zoom: 0.7}}>
-                <LogoSplash transitionIn="transitionInContact" onMouseEnter="showContact" />
+                <LogoSplash excludeTriple={true} transitionIn="transitionInContact" onMouseEnter="showContact" />
               </div>
               <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE</h1>
               <h4 className="hidden-xs" style={{color: "#E6E6E6", fontFamily: "Merriweather"}}><i>PHysics Of Eclipsing BinariEs</i></h4>
