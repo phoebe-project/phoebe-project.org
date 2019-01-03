@@ -10,11 +10,23 @@ export class Footer extends Component {
         <Separator large={true} marginTop="-45px" marginBottom="0px" className="hidden-sm hidden-xs"/>
         <div className="container">
           <div className="row">
-            <div className="col-md-2 col-xs-12">
-              <Image src="/logos/nsf1.gif" className="img-center" height="60"/>
+            <div className="col-sm-4 col-xs-2 visible-sm visible-xs"/>
+            <div className="col-md-2 col-sm-2 col-xs-4">
+              <Image src="/logos/NSF_logo.gif" className="img-center" height="60" width="60" style={{marginTop: "15px", marginBottom: "15px"}}/>
             </div>
-            <div className="col-md-10 col-xs-12">
-               <p style={{marginTop: "10px"}}>PHOEBE is funded in part by the National Science Foundation (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474" style={{textDecoration: "none", color: "#E6E6E6"}} target="_blank" rel="noopener noreferrer">NSF grant #1517474</a>)</p>
+            <div className="col-sm-2 col-xs-4 visible-sm visible-xs">
+              <Image src="/logos/NASA_logo.svg" className="img-center" height="70" width="70" style={{marginTop: "10px", marginBottom: "10px"}}/>
+            </div>
+            <div className="col-sm-4 col-xs-2 visible-sm visible-xs"/>
+            <div className="col-md-8 col-xs-12">
+               <p style={{marginTop: "10px", textAlign: "center"}}>
+                 PHOEBE is funded in part by
+                 the National Science Foundation (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474" style={{textDecoration: "none", color: "#E6E6E6"}} target="_blank" rel="noopener noreferrer">NSF grant #1517474</a>)
+                 and the National Aeronautics and Space Administration (NASA 17-ADAP17-68).
+              </p>
+            </div>
+            <div className="col-md-2 hidden-sm hidden-xs">
+              <Image src="/logos/NASA_logo.svg" className="img-center" height="70" width="70" style={{marginTop: "10px", marginBottom: "10px"}}/>
             </div>
 
           </div>
