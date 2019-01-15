@@ -24,6 +24,7 @@ export class GitHubContent extends Component {
 
     if (repo && path) {
       var contentURL = "https://github.com/phoebe-project/"+repo+"/blob/"+branch+"/"+path
+      var contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
       var contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
 
       var contentType = null;
@@ -47,9 +48,22 @@ export class GitHubContent extends Component {
             return null;
           }
         })
-        .then(content => this.setState({content: content, contentURL: contentURL, contentURLRaw: contentURLRaw, contentType: contentType}))
-    }
+        .then(content => {
+          if (contentType === 'ipynb') {
+            // console.log(content.cells)
+            for (var i=0; i<content.cells.length; i++) {
+              if (content.cells[i]['cell_type'] === 'markdown') {
+                for (var j=0; j<content.cells[i].source.length; j++) {
+                  content.cells[i].source[j] = content.cells[i].source[j].replace(/\(([a-z,_,0-9,-]*).(gif||png)\)/, `(${contentURLRawDir}/$1.$2)`)
+                }
+              }
+            }
+          }
 
+
+          this.setState({content: content, contentURL: contentURL, contentURLRaw: contentURLRaw, contentType: contentType})
+        })
+    }
   }
   render() {
     if (this.props.repo !== this.state.repo || this.props.branch !== this.state.branch || this.props.path !== this.state.path) {
