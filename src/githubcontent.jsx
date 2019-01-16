@@ -54,7 +54,7 @@ export class GitHubContent extends Component {
             for (var i=0; i<content.cells.length; i++) {
               if (content.cells[i]['cell_type'] === 'markdown') {
                 for (var j=0; j<content.cells[i].source.length; j++) {
-                  content.cells[i].source[j] = content.cells[i].source[j].replace(/\(([a-z,_,0-9,-]*).(gif||png)\)/, `(${contentURLRawDir}/$1.$2)`)
+                  content.cells[i].source[j] = content.cells[i].source[j].replace(/\(([a-z,_,0-9,-]*).(gif|png)\)/, `(${contentURLRawDir}/$1.$2)`)
                 }
               }
             }
