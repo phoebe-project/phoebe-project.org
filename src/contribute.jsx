@@ -224,7 +224,8 @@ export class ContributeDevelopment extends Component {
             The rest of this document assumes that you have a local copy of the source-code on your machine and are fairly comfortable as a PHOEBE user.
           </p>
 
-          <h2 ref={this.refreleases}><span className="fa fa-fw fa-xs fa-tags"></span> Release Conventions</h2>
+          <h2 ref={this.refreleases}><span className="fa fa-fw fa-xs fa-tags"></span> Releases</h2>
+          <h3>Version Tag Conventions</h3>
           <p>
             PHOEBE 2 follows the conventions of <Link to="https://semver.org">semantic versioning</Link> as closely as possible.
             Versions of PHOEBE are tagged as MAJOR.MINOR.PATCH (i.e. 2.1.9 - note <b>no leading zeros</b>) where:
@@ -235,6 +236,55 @@ export class ContributeDevelopment extends Component {
             <li>PATCH: an increment in the last digit represents a hot/bug-fix.  These should address critical issues in the current release that cannot wait to be merged into the next feature/minor release and should take all reasonable measures to avoid compatibility issues.  The documentation is only archived per-minor release, so any changes to API etc, must be explicitly noted.  For example: tutorials/example scripts/API will need notes stating the applicable differences.</li>
           </ul>
 
+          <h3>Release Checklist</h3>
+          <p>Bugfix releases:</p>
+          <ul>
+            <li>All bug release development should be done in their own independent <Link to="#branches">branch</Link> off of master.</li>
+            <li>Update versioning information in setup.py and __init__.py and add changelog entry to README.md, commit to bugfix branch.</li>
+            <li>Merge master into the branch if necessary (probably only if working on multiple bugfixes simultaneously).</li>
+            <li>Open pull-request from the bugfix branch into master.</li>
+            <li>Confirm all CI tests pass on Travis.</li>
+            <li>Close pull-request by squashing if a single author, or merge commit otherwise.  Make sure to link to and close any relevant issues that the bugfix addresses.</li>
+            <li>Create and tag release on GitHub.</li>
+            <li>Merge master into development and any other active branches.</li>
+            <li>See below for instructions on publishing to pip.</li>
+          </ul>
+
+          <p>Feature releases:</p>
+          <ul>
+            <li>All feature release or bug release development should be done in their own independent <Link to="#branches">branch</Link> off of development.</li>
+            <li>Merge development into the feature branch.</li>
+            <li>Branch development into a release-2.X branch.</li>
+            <li>Update versioning information in setup.py and __init__.py and add changelog entry to README.md, commit to release-2.X branch.</li>
+            <li>Create and prepare a 2.X branch on phoebe2-docs: update/rerun all tutorials, add migration tutorials, update API docs, etc.</li>
+            <li>Open pull-request from release-2.X into master.</li>
+            <li>Confirm all CI tests pass on Travis.</li>
+            <li>Close pull-request via a merge commit.</li>
+            <li>Create and tag release on GitHub.</li>
+            <li>Prepare release entry on website, see <Link to="https://github.com/phoebe-project/phoebe-project.org#releasing-a-new-version-of-phoebe">instructions here</Link>.</li>
+            <li>Merge master into development and any other active branches.</li>
+            <li>See below for instructions on publishing to pip.</li>
+          </ul>
+
+          <p>Publishing to PIP (see <Link to="https://packaging.python.org/distributing/#semantic-versioning-preferred">pip documentation</Link>):</p>
+          <ul>
+            <li>make sure you have a ~/.pypirc (<Link to="https://wiki.python.org/moin/TestPyPI">more info</Link>).</li>
+            <li>make sure you have twine installed (<code>sudo pip install twine</code>).</li>
+            <li>build distribution releases (<code>python setup.py sdist</code>).</li>
+            <li>upload to pypi server (<code>twine upload -r pypi -u [username] -p [password] dist/phoebe-[VERSION].tar.gz</code>).</li>
+            <li>test in a virtual environment:
+              <ul>
+                <li>make sure you have virtualenv installed (<code>sudo pip install virtualenv</code>).</li>
+                <li>create temporary virtualenv (<code>virtualenv ~/.tmpvirtualenv</code>).</li>
+                <li>activate virtualenv (<code>source ~/.tmpvirtualenv/bin/activate</code>).</li>
+                <li>install phoebe (<code>pip install --no-cache-dir numpy phoebe</code>).</li>
+                <li>run tests (or at least confirm that you can import phoebe from within python).</li>
+                <li>leave virtualenv (<code>deactivate</code>).</li>
+                <li>delete virtualenv (<code>rm -rf ~/.tmpvirtualenv</code>).</li>
+              </ul>
+            </li>
+
+          </ul>
           <Separator large={false}/>
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
