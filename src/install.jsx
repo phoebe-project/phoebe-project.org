@@ -121,9 +121,29 @@ export class Install extends Component {
             </Alert>
           }
 
+          {version_short < 2.2 ?
+            <Alert level="warning">
+              <p><b>Note:</b> PHOEBE {version_short} only supports Python 2.7+. Support for Python 3 is currently under development and will be introduced in a future release.</p>
+            </Alert>
+            :
+            null
+          }
+
+
           {OSName === 'Windows' ?
             <Alert level="danger">
               <p>PHOEBE is not yet officially supported on Windows.  If you're interested in helping port and test PHOEBE to Windows, please <Link to="/help/contact">contact us</Link>.</p>
+            </Alert>
+            :
+            null
+          }
+
+          {OSName === 'MacOS' ?
+            <Alert level="warning">
+              <p>
+                <b>Note for mac users</b>: it is suggested to use <Link to="https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/">homebrew to install a parallel version of Python</Link>.
+                PHOEBE has currently been tested to compile correctly using homebrew on El Capitan.
+              </p>
             </Alert>
             :
             null
@@ -162,7 +182,7 @@ export class Install extends Component {
             pip install numpy scipy matplotlib "astropy&gt;=1.0,&lt;3.0"
           </pre>
 
-          <p>If pip cannot build the C-sources, make sure you have Python.h headers for the correct version of Python, by installing python-dev or python3-dev via your package manager.  For debian systems, the following should work:</p>
+          <p>If pip cannot build the C-sources, make sure you have Python.h headers for the correct version of Python, by installing python-dev {version_short < 2.2 ? null : <span>or python3-dev</span>} via your package manager.  For debian systems, the following should work:</p>
           <pre>
             sudo apt-get install python-dev
           </pre>
@@ -212,33 +232,40 @@ export class Install extends Component {
 
 
           <h3>Dependencies</h3>
-          <p>
-            Note for <strong>mac users</strong>: it is suggested to use <Link to="https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/">homebrew to install a parallel version of python</Link>.
-            PHOEBE has currently been tested to compile correctly using homebrew on El Capitan.
-          </p>
           <p>The C++ code in PHOEBE requires a compiler that supports C++11, either of the following should build correctly:</p>
           <ul>
             <li>g++5 (or newer)</li>
             <li>clang3.3 (or newer)</li>
           </ul>
-          <p>Note for <strong>Ubuntu 14.04 users</strong>: g++5 is not installed by default.  You’ll likely need to to do the following in order to install PHOEBE:</p>
-          <pre>
-            sudo add-apt-repository ppa:ubuntu-toolchain-r/test<br/>
-            sudo apt-get install g++-5 gcc-5 libstdc++-5-dev<br/>
-            export CXX=g++-5
-          </pre>
+          {OSName === 'Linux' ?
+            <div>
+              <p>Note for <strong>Ubuntu 14.04 users</strong>: g++5 is not installed by default.  You’ll likely need to to do the following in order to install PHOEBE:</p>
+              <pre>
+                sudo add-apt-repository ppa:ubuntu-toolchain-r/test<br/>
+                sudo apt-get install g++-5 gcc-5 libstdc++-5-dev<br/>
+                export CXX=g++-5
+              </pre>
+            </div>
+            :
+            null
+          }
 
-          <p>PHOEBE requires python 2.7+ (not yet fully tested on python 3.x) with the following packages:</p>
+
+          {version_short < 2.2 ?
+            <p>PHOEBE {version_short} requires Python 2.7+ (but does not support Python 3.x) with the following packages:</p>
+            :
+            <p>PHOEBE {version_short} requires Python 2.7+ or 3.6+ with the following packages:</p>
+          }
           <ul>
-            <li>python-dev or python3-dev (Python.h needed to compile C-sources)</li>
+            <li>python-dev {version_short < 2.2 ? null : <span>or python3-dev</span>} (Python.h needed to compile C-sources)</li>
             <li>numpy (1.10+)</li>
             <li>scipy</li>
-            <li>astropy (1.0+ but not 3.0+ as that requires Python 3)</li>
+            <li>astropy {version_short < 2.2 ? <span>(1.0+ but not 3.0+ as that requires Python 3)</span> : <span>(1.0+)</span>}</li>
           </ul>
           <p>And suggested packages (required for some optional but commonly used features):</p>
           <ul>
             <li>matplotlib (suggested for plotting)</li>
-            <li>sympy (for safer and more flexible constraints)</li>
+            {/* <li>sympy (for safer and more flexible constraints)</li> */}
           </ul>
 
 
