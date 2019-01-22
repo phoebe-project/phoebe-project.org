@@ -52,7 +52,7 @@ export class Releases extends Component {
               Development on the 2.X versions of PHOEBE began in 2011, with the <Link to="/releases/2.0">2.0 version</Link> finally released in 2017.
               Since then, the <Link to="/help/devel">development team</Link> has been working on incorporating new features into the code.
               The latest available version is currently <Link to={"/releases/"+docs_versions[0]}>PHOEBE {latest_patch_version}</Link>.
-              Below is a chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
+              Below is a reverse-chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
             </p>
             <p>Not sure whether to use PHOEBE 2 or PHOEBE 1 (legacy)?  Read this overview of the <Link to="/help/1vs2">differences between PHOEBE 1 and 2</Link>.</p>
           </div>
@@ -89,7 +89,7 @@ export class ReleaseVersion extends Component {
           <h1>PHOEBE {version}</h1>
         </Header>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
-        <ReleaseContent version={version} release_changelogs={this.props.release_changelogs}/>
+        <ReleaseContent version={version} release_changelogs={this.props.release_changelogs} open_changelog={true}/>
       </div>
     )
   }
@@ -235,9 +235,9 @@ class ReleaseContent extends Component {
 
               <br/><br/>
               {Object.keys(this.props.release_changelogs).indexOf(this.props.version)!==-1 ?
-                <details>
+                <details open={this.props.open_changelog}>
                   <summary><b>Individual Patch Releases and Changelog</b></summary>
-                  <ul>
+                  <ul style={{display: "flex", flexDirection: "column-reverse"}}>
                     {this.props.release_changelogs[this.props.version].map((changelogContent, patchIndex) => <li style={{paddingBottom: "15px"}}><ReleaseChangelogEntry versionLong={this.props.version+"."+patchIndex} changelogContent={changelogContent}/></li>)}
                   </ul>
                 </details>
@@ -264,16 +264,16 @@ class ReleaseChangelogEntry extends Component {
   render() {
     return (
       <div>
-        <b>PHOEBE {this.props.versionLong}</b>
-        <br/>
+        <span><b>PHOEBE {this.props.versionLong}</b></span>
         <div style={{paddingLeft: "20px", paddingTop: "5px", paddingBottom: "10px"}}>
-          <Link to={"/install/"+this.props.versionLong}><span className="fa fa-download"></span> Install PHOEBE {this.props.versionLong}</Link>
+          <Link to={"/install/"+this.props.versionLong}><span className="fa fa-fw fa-download"></span> Install PHOEBE {this.props.versionLong}</Link>
           <br/>
-          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".tar.gz"} hideExternal={true}><span className="fas fa-archive"></span> PHOEBE.{this.props.versionLong}.tar.gz</Link>
+          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".tar.gz"} hideExternal={true}><span className="fas fa-fw fa-archive"></span> PHOEBE.{this.props.versionLong}.tar.gz</Link>
           <br/>
-          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".zip"} hideExternal={true}><span className="far fa-file-archive"></span> PHOEBE.{this.props.versionLong}.zip</Link>
+          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".zip"} hideExternal={true}><span className="far fa-fw fa-file-archive"></span> PHOEBE.{this.props.versionLong}.zip</Link>
         </div>
-        <ReactMarkdown source={this.props.changelogContent}/>
+        <b style={{paddingLeft: "20px"}}>{this.props.changelogContent.title}</b>
+        <ReactMarkdown source={this.props.changelogContent.description}/>
       </div>
     )
   }

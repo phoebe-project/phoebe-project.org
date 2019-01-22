@@ -37,6 +37,7 @@ function parseReadmeChangelog(text) {
   var splitIndex = null;
   var version_long = null;
   var version_short = null;
+  var versionTitle = null;
   var versionDescription = null;
   for (var textVersion of textVersions.reverse()) {
     if (!textVersion.startsWith("\n")) {
@@ -47,7 +48,8 @@ function parseReadmeChangelog(text) {
       if (Object.keys(versions).indexOf(version_short)==-1) {
         versions[version_short] = Array()
       }
-      versions[version_short].push(versionDescription)
+      versionTitle = versionDescription.split("\n\n")[0].split("- ")[1]
+      versions[version_short].push({title: versionTitle.replace("\\_", "_"), description: versionDescription.replace("- "+versionTitle, "")})
     }
   }
 
