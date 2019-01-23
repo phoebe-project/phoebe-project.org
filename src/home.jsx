@@ -69,8 +69,10 @@ export class Home extends Component {
 
               <Expander expandText="List new physics">
                 <ul>
-                  <li><Link to="/docs/latest/tutorials/beaming_boosting/">Doppler boosting/beaming</Link></li>
+                  <li><Link to="/docs/latest/tutorials/beaming_boosting">Doppler boosting/beaming</Link></li>
+                  <li><Link to="/docs/latest/examples/sun">Single rotating stars</Link></li>
                   <li>Roemer and light-time delay (LTTE effects)</li>
+                  <li><Link to="/docs/latest/tutorials/pitch_yaw">Spin-orbit misalignment</Link> (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
                   <li><b>Coming soon:</b> Reddening and Extinction</li>
                   <li><b>Coming soon:</b> Reflection with heat redistribution</li>
                   <li><b>Coming soon:</b> Pulsations (spherical and oblique)</li>
@@ -90,10 +92,10 @@ export class Home extends Component {
 
               <Expander expandText="List observables">
                 <ul>
-                  <li>Photometry (Light Curves) (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
-                  <li>Radial Velocities (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
-                  <li>Orbits (positions and velocities) (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
-                  <li>Line profiles (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
+                  <li><Link to="/docs/latest/tutorials/LC">Photometry (Light Curves)</Link> (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
+                  <li><Link to="/docs/latest/tutorials/RV">Radial Velocities</Link> (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
+                  <li><Link to="/docs/latest/tutorials/ORB">Orbits</Link> (positions and velocities) (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
+                  <li><Link to="/docs/latest/tutorials/LP">Line Profiles</Link> (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
                   <li><b>Coming soon:</b> Spectra</li>
                   <li><b>Coming soon:</b> Polarimetry</li>
                   <li><b>Coming soon:</b> Interferometry</li>

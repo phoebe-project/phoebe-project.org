@@ -127,22 +127,22 @@ class ReleaseContent extends Component {
 
                   <ul>
                     <li>detached and semi-detached (since 2.0.5) roche binaries</li>
-                    <li>keplerian orbits (including eccentric orbits with volume conservation)</li>
+                    <li>keplerian orbits (including <Link to="/docs/2.0/tutorials/ecc">eccentric orbits with volume conservation</Link>)</li>
                     <li>passbands/atmospheres</li>
-                    <li>limb-darkening</li>
+                    <li><Link to="/docs/2.0/tutorials/limb_darkening">limb-darkening</Link></li>
                     <li>gravity darkening</li>
-                    <li>reflection (heating without redistribution)</li>
+                    <li><Link to="/docs/2.0/tutorials/reflection_heating">reflection</Link> (heating without redistribution)</li>
                     <li>finite integration time via oversampling (for light curves only)</li>
-                    <li>circular spots</li>
-                    <li>contact systems (to mimic WD)</li>
+                    <li><Link to="/docs/2.0/examples/binary_spots">circular spots</Link></li>
+                    <li><Link to="/docs/2.0/examples/minimal_contact_binary">contact systems</Link> (to mimic WD)</li>
                   </ul>
 
                   <p>
                     New Physics (not in PHOEBE legacy):
                   </p>
                   <ul>
-                    <li>Doppler boosting</li>
-                    <li>Single rotating stars</li>
+                    <li><Link to="/docs/2.0/tutorials/beaming_boosting">Doppler boosting</Link></li>
+                    <li><Link to="/docs/2.0/examples/sun">Single rotating stars</Link></li>
                     <li>Lambert scattering</li>
                   </ul>
 
@@ -175,7 +175,7 @@ class ReleaseContent extends Component {
                     New Physics introduced in version 2.1:
                   </p>
                   <ul>
-                    <li>Spin-orbit misalignment (via pitch and yaw parameters)</li>
+                    <li>Spin-orbit misalignment (via <Link to="/docs/2.1/tutorials/pitch_yaw">pitch and yaw</Link> parameters)</li>
                     <li>Support for creating <Link to="/docs/2.1/tutorials/LP">synthetic line profiles</Link></li>
                   </ul>
 
@@ -183,10 +183,10 @@ class ReleaseContent extends Component {
                     Major changes since 2.0:
                   </p>
                   <ul>
-                    <li>switch parameterization from <Link to="/docs/2.1/tutorials/20_21_requiv">rpole/pot to requiv</Link> (including new <Link to="/docs/2.1/tutorials/20_21_semidetached">semi-detached</Link> and contact constraints)</li>
+                    <li>switch parameterization from <Link to="/docs/2.1/tutorials/20_21_requiv">rpole/pot to requiv</Link> (including new <Link to="/docs/2.1/tutorials/20_21_semidetached">semi-detached</Link> and <Link to="/docs/2.1/tutorials/20_21_contact">contact</Link> constraints)</li>
                     <li>rewrite of <Link to="/docs/2.1/tutorials/20_21_plotting">plotting infrastructure</Link> to use <Link to="http://github.com/kecnry/autofig">autofig</Link></li>
                     <li>rewrite of <Link to="/docs/2.1/tutorials/20_21_mesh">mesh dataset infrastructure</Link> to allow choosing which columns are exposed in the model</li>
-                    <li>Distinguish Roche (xyz) from Plane-of-Sky (uvw) coordinates</li>
+                    <li>Distinguish <Link to="/docs/2.1/tutorials/20_21_xyz_uvw">Roche (xyz) from Plane-of-Sky (uvw) coordinates</Link></li>
                   </ul>
                 </div>
     } else {
