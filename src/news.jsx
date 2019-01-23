@@ -2,12 +2,39 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link} from './common';
+import {Content, Link, Image} from './common';
 import {Header} from './header';
 import {NotFound} from './errors';
 
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
+  {
+    title: "New Book: Modeling and Analysis of Eclipsing Binary Stars",
+    slug: "modeling-and-analysis-book",
+    pinnedDays: 30,
+    date: "January 23, 2019",
+    author: "Kyle Conroy",
+    content: <div>
+              <div>
+                <div style={{textAlign: "center", paddingBottom: "15px"}}>
+                  <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideExternal={true}><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/></Link>
+                </div>
+                <div>
+                  <p>
+                    "Modeling and Analysis of Eclipsing Binary Stars: The theory and design principles of PHOEBE" by Andrej Prša has officially been released as an <Link to="https://doi.org/10.1088/978-0-7503-1287-5">IOP ebook</Link>.
+                    This new book gives a comprehensive overview of the approaches to modeling binary star systems - particularly focused on providing a theoretical basis to the implementation adopted within PHOEBE.
+                  </p>
+                  <p>
+                    You can find a link to this book, as well as various other journal, poster, and conference proceedings on the <Link to="/publications">publications</Link> page.
+                  </p>
+                </div>
+              </div>
+
+
+
+
+             </div>
+  },
   {
     title: "Improved Tutorials and API Documentation",
     slug: "improved-tutorials-and-api-documentation",

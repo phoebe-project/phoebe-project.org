@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Separator} from './common';
+import {Content, Link, Image, Separator} from './common';
 import {Header} from './header';
 
 export class Publications extends Component {
@@ -18,6 +18,10 @@ export class Publications extends Component {
           <span className="visible-xs"><h1>Papers</h1></span>
         </Header>
         <Content>
+          <div style={{textAlign: "center", padding: "25px"}}>
+            <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideExternal={true}><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/><br/><br/>Modeling and Analysis of Eclipsing Binary Stars:<br/>The theory and design principles of PHOEBE<br/>Andrej Prša (2019)</Link>
+          </div>
+
           <h2>PHOEBE Paper Series</h2>
           <Publication author="Horvat et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/#abs/2018ApJS..237...26H" pdf="2018Horvat+.pdf" title="Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment" release="2.1"/>
           <Publication author="Prša et al. (2016)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P" pdf="2016Prsa+.pdf" title="Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity" release="2.0"/>

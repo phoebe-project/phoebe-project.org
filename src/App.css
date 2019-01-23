@@ -190,6 +190,12 @@ code {
     color: #E6E6E6;
 }
 
+.img-dropshadow {
+  -webkit-box-shadow: 5px 5px 13px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 5px 5px 13px -3px rgba(0,0,0,0.75);
+  box-shadow: 5px 5px 13px -3px rgba(0,0,0,0.75);
+}
+
 /* BOOTSTRAP GRID */
 
 .row {
