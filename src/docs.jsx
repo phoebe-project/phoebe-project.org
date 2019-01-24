@@ -4,12 +4,16 @@ import ReactDOM from 'react-dom'
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import {Content, Link, Redirect, Alert, metaKeywords} from './common';
+import {VersionSwitcher} from './versionswitcher';
 import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
 export var docs_versions = ['2.1', '2.0'];
 var docs_versions_dev = docs_versions + ['development']
+
+// NOTE: we do this to force a deep-copy
+var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
 
 export function getDocsLink(version, subdir, slug) {
   if (subdir) {
@@ -195,65 +199,9 @@ export class Docs extends Component {
               <p>View <Link to={"/docs/"+version+"/api"}>API docs for PHOEBE {version}</Link>.</p>
             </div>
           </GitHubContent>
-          <VersionSwitcher version={this.state.version} subdir={this.state.subdir} slug={this.state.slug}/>
+          <VersionSwitcher titleLong="Doc Version:" version={this.state.version} versions={docs_versions_reverse} versionLinks={docs_versions_reverse.map(version => getDocsLink(version, this.state.subdir, this.state.slug))}/>
         </Content>
       </div>
     );
-  }
-}
-
-export class VersionSwitcher extends Component {
-  /* inspired by docs.djangoproject.com */
-  constructor(props) {
-    super(props);
-    this.state = {
-      expanded: false,
-    };
-  }
-  hoverOn = () => {
-    this.setState({expanded: true});
-  }
-  hoverOff = () => {
-    this.setState({expanded: false});
-  }
-  render() {
-    // NOTE: we do this to force a deep-copy
-    var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
-
-    return (
-      <div className='versionSwitcher' style={{position: 'fixed', display: 'inline-block', right: '10px', bottom: '10px', padding: '0px', zIndex: 1}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-        <VersionSwitcherButton visible={this.state.expanded} version="1.0" to="/1.0/docs"/>
-        {docs_versions_reverse.map(version => <VersionSwitcherButton visible={this.state.expanded} version={version} subdir={this.props.subdir} slug={this.props.slug}/>)}
-        <VersionSwitcherTarget version={this.props.version}/>
-      </div>
-    )
-  }
-}
-
-class VersionSwitcherTarget extends Component {
-  render() {
-    return (
-      <div className="btn btn-primary btn-md current" style={{margin: '0px 3px 3px 0px', backgroundColor: "white"}}>
-        <span className="hidden-xs">Doc Version: <strong>{this.props.version}</strong></span>
-        <span className="visible-xs">ver: <strong>{this.props.version}</strong></span>
-      </div>
-    )
-  }
-}
-
-class VersionSwitcherButton extends Component {
-  render() {
-    if (!this.props.visible) {
-      return null;
-    }
-
-    var to = getDocsLink(this.props.version, this.props.subdir, this.props.slug)
-
-    if (this.props.to) {
-      to = this.props.to
-    }
-    return (
-      <Link to={to} style={{textDecoration: "none", margin: "0px 3px 3px 0px", color: "#2B71B1"}} className="btn btn-default btn-md other">{this.props.version}</Link>
-    )
   }
 }
