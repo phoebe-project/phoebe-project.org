@@ -200,7 +200,7 @@ export class Docs extends Component {
             </div>
           </GitHubContent>
           <VersionSwitcherContainer>
-            <VersionSwitcher titleLong="Doc Version:" version={this.state.version} versions={docs_versions_reverse} versionLinks={docs_versions_reverse.map(version => getDocsLink(version, this.state.subdir, this.state.slug))}/>
+            <VersionSwitcher titleLong="Doc Version:" version={this.state.version} versions={["1.0"].concat(docs_versions_reverse)} versionLinks={["/1.0/docs"].concat(docs_versions_reverse.map(version => getDocsLink(version, this.state.subdir, this.state.slug)))}/>
           </VersionSwitcherContainer>
         </Content>
       </div>
