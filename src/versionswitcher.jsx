@@ -3,6 +3,16 @@ import ReactDOM from 'react-dom';
 
 import {Link} from './common';
 
+export class VersionSwitcherContainer extends Component {
+  render() {
+    return (
+      <div className='versionSwitcherContainer' style={{position: 'fixed', textAlign: 'right', right: '10px', bottom: '10px', width: 'calc(100% - 10px)', padding: '0px', zIndex: 1}}>
+        {this.props.children}
+      </div>
+    )
+  }
+}
+
 export class VersionSwitcher extends Component {
   /* inspired by docs.djangoproject.com */
   constructor(props) {
@@ -19,8 +29,7 @@ export class VersionSwitcher extends Component {
   }
   render() {
     return (
-      <div className='versionSwitcher' style={{position: 'fixed', display: 'inline-block', right: '10px', bottom: '10px', padding: '0px', zIndex: 1}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-        {/* <VersionSwitcherButton visible={this.state.expanded} version="1.0" to="/1.0/docs"/> */}
+      <div className='versionSwitcher' style={{display: "block", verticalAlign: "bottom"}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
         {this.props.versions.map((version, i) => <VersionSwitcherButton visible={this.state.expanded} version={version} to={this.props.versionLinks[i]}/>)}
         <VersionSwitcherTarget titleLong={this.props.titleLong} titleShort={this.props.titleShort} version={this.props.version}/>
       </div>

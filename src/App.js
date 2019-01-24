@@ -98,6 +98,8 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/quickstart/:version/'} component={Quickstart}/>
             <Route exact path={process.env.PUBLIC_URL + '/install'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route exact path={process.env.PUBLIC_URL + '/install/:version/:version_os'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route exact path={process.env.PUBLIC_URL + '/install/:version/:version_os/:version_py'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:slug'} component={Docs}/>

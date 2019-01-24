@@ -3,11 +3,16 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import {Content, Link, Redirect, Image, Separator, Alert, getLatestPatchVersion, metaKeywords, NosetestsDiv} from './common';
+import {VersionSwitcherContainer, VersionSwitcher} from './versionswitcher';
 import {NotFound} from './errors';
 import {docs_versions, getDocsLink} from './docs';
 import {Header, HeaderNavButton} from './header';
 
+// NOTE: we do this to force a deep-copy
+var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
 
+var versions_os = ["auto", "mac", "linux", "windows"]
+var versions_py = ["python2", "python3"]
 
 export class Install extends Component {
   constructor(props) {
@@ -48,17 +53,19 @@ export class Install extends Component {
 
     if (version==null) {
       // then we'll display generic instructions
-      version = null;
+      version = "latest";
+      // version = docs_versions[0]
     } else if (version==='latest') {
       // allow latest as the version in the URL, but show whatever is latest
-      version = docs_versions[0]
+      // version = docs_versions[0]
+      version = "latest";
     } else if (version==='1.0' || version==='legacy') {
       // then redirect to the 1.0 page
       return(<Redirect to="/1.0/download"/>)
     }
 
     // handle 2.1.0 vs 2.1 cases (we want the full version for the instructions, but short version for docs/internal links)
-    if (version == null) {
+    if (version == "latest") {
       version_short = docs_versions[0]
       version_long = getLatestPatchVersion(version_short, this.props.release_changelogs)
     } else if ((version.match(/\./g) || []).length === 1){
@@ -79,12 +86,21 @@ export class Install extends Component {
     }
 
     /* http://www.javascripter.net/faq/operatin.htm */
-    var OSName="Unknown OS";
-    if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
-    if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
-    if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
-    if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
 
+
+    var version_os = this.props.match.params.version_os || "auto"
+
+    var OSName=null;
+    if (version_os === "auto") {
+      if (navigator.appVersion.indexOf("Win")!=-1) OSName="windows";
+      if (navigator.appVersion.indexOf("Mac")!=-1) OSName="max";
+      // if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+      if (navigator.appVersion.indexOf("Linux")!=-1) OSName="linux";
+    } else {
+      OSName = version_os
+    }
+
+    var version_py = this.props.match.params.version_py || "python2"
 
     return (
       <div>
@@ -111,7 +127,7 @@ export class Install extends Component {
         </Header>
         <Content preventScrollTop={this.props.location.hash}>
           {/* <b style={{color: "red"}}>version long: {version_long} (<b>TODO:</b> need to get the latest patch version if not specified)<br/>version short: {version_short}</b> */}
-          {version ?
+          {version!=='latest' ?
             <Alert level={version_short === docs_versions[0] ? "warning" : "danger"}>
               <p><b>Warning:</b> these instructions will download and install the {version_long} version of PHOEBE.  To download and install a different version, choose and click install from the appropriate <Link to="/releases">release</Link>, or follow instructions to <Link to="install">install the latest version</Link>.</p>
             </Alert>
@@ -130,7 +146,7 @@ export class Install extends Component {
           }
 
 
-          {OSName === 'Windows' ?
+          {OSName === 'windows' ?
             <Alert level="danger">
               <p>PHOEBE is not yet officially supported on Windows.  If you're interested in helping port and test PHOEBE to Windows, please <Link to="/help/contact">contact us</Link>.</p>
             </Alert>
@@ -138,7 +154,7 @@ export class Install extends Component {
             null
           }
 
-          {OSName === 'MacOS' ?
+          {OSName === 'mac' ?
             <Alert level="warning">
               <p>
                 <b>Note for mac users</b>: it is suggested to use <Link to="https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/">homebrew to install a parallel version of Python</Link>.
@@ -150,12 +166,12 @@ export class Install extends Component {
           }
 
           <h2 ref={this.refpip}><span className="fab fa-fw fa-xs fa-python"></span> Installing from PIP</h2>
-          <p>Installing PHOEBE from PIP is probably the easiest.  {version ? "To install version "+version_long : 'To install the latest version'}:</p>
+          <p>Installing PHOEBE from PIP is probably the easiest.  {version!=='latest' ? "To install version "+version_long : 'To install the latest version'}:</p>
           <pre>
-            pip install phoebe{version ? "=="+version_long : null}
+            pip install phoebe{version!=='latest' ? "=="+version_long : null}
           </pre>
 
-          {version ?
+          {version!=='latest' ?
             <div>
               <p>To upgrade/downgrad a previous installation to version {version_long}:</p>
               <pre>
@@ -199,7 +215,7 @@ export class Install extends Component {
             pip install virtualenv<br/>
             virtualenv &lt;myphoebedir&gt;<br/>
             source &lt;myphoebedir&gt;/bin/activate<br/>
-            pip install numpy scipy "astropy&gt;=1.0,&lt;3.0" matplotlib phoebe{version ? "=="+version_long : null}
+            pip install numpy scipy "astropy&gt;=1.0,&lt;3.0" matplotlib phoebe{version!=='latest' ? "=="+version_long : null}
           </pre>
 
           <p>To leave the virtual environment:</p>
@@ -226,7 +242,7 @@ export class Install extends Component {
 
           <p>Or, to download via the <Link to="https://github.com/phoebe-project/phoebe2/">github repository</Link>, run:</p>
           <pre>
-            git clone --depth=1 {version ? '-b "'+version_long+'"' : null} https://github.com/phoebe-project/phoebe2.git
+            git clone --depth=1 {version!=='latest' ? '-b "'+version_long+'"' : null} https://github.com/phoebe-project/phoebe2.git
           </pre>
           <p>Note: developers should exclude the depth=1 to get the entire git history (download size will be larger).</p>
 
@@ -237,7 +253,7 @@ export class Install extends Component {
             <li>g++5 (or newer)</li>
             <li>clang3.3 (or newer)</li>
           </ul>
-          {OSName === 'Linux' ?
+          {OSName === 'linux' ?
             <div>
               <p>Note for <strong>Ubuntu 14.04 users</strong>: g++5 is not installed by default.  You’ll likely need to to do the following in order to install PHOEBE:</p>
               <pre>
@@ -294,6 +310,12 @@ export class Install extends Component {
           </p>
 
         </Content>
+        <VersionSwitcherContainer>
+          <VersionSwitcher titleLong="Python:" titleShort="Py:" version={version_py.slice(-1)} versions={versions_py} versionLinks={versions_py.map(version_py => "/install/"+version+"/"+version_os+"/"+version_py)}/>
+          <VersionSwitcher titleLong="OS:" titleShort="OS:" version={version_os} versions={versions_os} versionLinks={versions_os.map(version_os => "/install/"+version+"/"+version_os+"/"+version_py)}/>
+          <VersionSwitcher titleLong="PHOEBE:" titleShort="PHOEBE:" version={version} versions={docs_versions_reverse} versionLinks={docs_versions_reverse.map(version => "/install/"+version+"/"+version_os+"/"+version_py)}/>
+        </VersionSwitcherContainer>
+
       </div>
     );
   }

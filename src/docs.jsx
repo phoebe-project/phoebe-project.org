@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import {Content, Link, Redirect, Alert, metaKeywords} from './common';
-import {VersionSwitcher} from './versionswitcher';
+import {VersionSwitcherContainer, VersionSwitcher} from './versionswitcher';
 import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
@@ -199,7 +199,9 @@ export class Docs extends Component {
               <p>View <Link to={"/docs/"+version+"/api"}>API docs for PHOEBE {version}</Link>.</p>
             </div>
           </GitHubContent>
-          <VersionSwitcher titleLong="Doc Version:" version={this.state.version} versions={docs_versions_reverse} versionLinks={docs_versions_reverse.map(version => getDocsLink(version, this.state.subdir, this.state.slug))}/>
+          <VersionSwitcherContainer>
+            <VersionSwitcher titleLong="Doc Version:" version={this.state.version} versions={docs_versions_reverse} versionLinks={docs_versions_reverse.map(version => getDocsLink(version, this.state.subdir, this.state.slug))}/>
+          </VersionSwitcherContainer>
         </Content>
       </div>
     );
