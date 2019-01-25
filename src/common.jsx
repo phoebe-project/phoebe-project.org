@@ -40,7 +40,7 @@ export class Content extends Component {
     }
   }
   render() {
-    var style = {paddingTop: "25px", paddingLeft: "10%", paddingRight: "10%", paddingBottom: "50px"}
+    var style = {paddingTop: "25px", paddingLeft: "10%", paddingRight: "10%", paddingBottom: this.props.paddingBottom || "50px"}
     var className = "content"
 
     if (this.props.dark) {
@@ -207,6 +207,8 @@ export class Alert extends Component {
 
 export class NosetestsDiv extends Component {
   render() {
+    var python = this.props.python || "python"
+
     return (
       <div>
         <p>The following additional dependencies are required to run the nosetests:</p>
@@ -218,7 +220,7 @@ export class NosetestsDiv extends Component {
         </ul>
         <p>To run all tests locally on your machine, run the following in the ‘tests’ directory in the source.</p>
         <pre>
-          python run_tests.py nosetests
+          {python} run_tests.py nosetests
         </pre>
       </div>
     )
