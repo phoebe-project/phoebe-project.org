@@ -74,11 +74,11 @@ export class Home extends Component {
                   <li>Roemer and light-time delay (LTTE effects)</li>
                   <li><Link to="/docs/latest/tutorials/pitch_yaw">Spin-orbit misalignment</Link> (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
                   <li><b>Coming soon:</b> Reddening and Extinction</li>
-                  <li><b>Coming soon:</b> Reflection with heat redistribution</li>
+                  {/* <li><b>Coming soon:</b> Reflection with heat redistribution</li> */}
                   <li><b>Coming soon:</b> Pulsations (spherical and oblique)</li>
-                  <li><b>Coming soon:</b> Differential Rotation</li>
-                  <li><b>Coming soon:</b> Magnetic Fields</li>
-                  <li><b>Coming soon:</b> Rings/Accretion Disks</li>
+                  {/* <li><b>Coming soon:</b> Differential Rotation</li> */}
+                  {/* <li><b>Coming soon:</b> Magnetic Fields</li> */}
+                  {/* <li><b>Coming soon:</b> Rings/Accretion Disks</li> */}
                   <li><b>Coming soon:</b> Hierarchical Multiple Systems</li>
                 </ul>
               </Expander>
@@ -88,18 +88,19 @@ export class Home extends Component {
 
             <div className="col-md-4">
               <h3>Additional Observables</h3>
-              <p>PHOEBE 2 now has the capability of modeling a large range of multiple <Link to="/docs/latest/datasets">observable types</Link>, all of which can be included while fitting your model to available data.  Many of these new observables still require testing or are not yet fully supported.</p>
+              <p>PHOEBE 2 now has the capability of modeling a large range of multiple <Link to="/docs/latest/datasets">observable types</Link>, all of which can be included while fitting your model to available data.</p>
 
               <Expander expandText="List observables">
                 <ul>
-                  <li><Link to="/docs/latest/tutorials/LC">Photometry (Light Curves)</Link> (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
-                  <li><Link to="/docs/latest/tutorials/RV">Radial Velocities</Link> (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
-                  <li><Link to="/docs/latest/tutorials/ORB">Orbits</Link> (positions and velocities) (as of the <Link to="/releases/2.0">2.0 release</Link>)</li>
+                  <li><Link to="/docs/latest/tutorials/LC">Photometry (Light Curves)</Link></li>
+                  <li><Link to="/docs/latest/tutorials/RV">Radial Velocities</Link></li>
+                  <li><Link to="/docs/latest/tutorials/ORB">Orbits</Link> (positions and velocities)</li>
                   <li><Link to="/docs/latest/tutorials/LP">Line Profiles</Link> (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
-                  <li><b>Coming soon:</b> Spectra</li>
+                  <li><Link to="/docs/latest/tutorials/MESH">Underlying Mesh Model</Link></li>
+                  {/* <li><b>Coming soon:</b> Spectra</li>
                   <li><b>Coming soon:</b> Polarimetry</li>
                   <li><b>Coming soon:</b> Interferometry</li>
-                  <li><b>Coming soon:</b> Astrometry</li>
+                  <li><b>Coming soon:</b> Astrometry</li> */}
                   <li><b>Coming soon:</b> Eclipse Timing Variations</li>
                 </ul>
               </Expander>
