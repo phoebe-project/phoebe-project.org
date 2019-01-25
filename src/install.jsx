@@ -216,16 +216,16 @@ export class Install extends Component {
                 }
 
 
-                <p>Additionally, in order to build the C-sources, make sure you have Python.h headers for the correct version of Python, by installing python-dev {version_short < 2.2 ? null : <span>or python3-dev</span>} via your package manager.</p>
+                <p>Additionally, in order to build the C-sources, make sure you have Python.h headers for the correct version of Python, by installing {python}-dev via your package manager.</p>
                 {OSName === 'linux' ?
                   <div>
                     <p>The following should work for debian-based systems (Ubuntu, etc):</p>
                     <pre>
-                      sudo apt-get install python-dev
+                      sudo apt-get install {python}-dev
                     </pre>
                     <p>or for rpm-based systems (Fedora, etc):</p>
                     <pre>
-                      yum install python-devel
+                      yum install {python}-devel
                     </pre>
                   </div>
                   :
@@ -270,7 +270,7 @@ export class Install extends Component {
                   {pip} install numpy scipy matplotlib {version_py==="python2" ? "\"astropy>=1.0,<3.0\"" : "\"astropy>=1.0\""}
                 </pre>
 
-                <p>Please check the version of PHOEBE you have installed to make sure you are using the corresponding version of the <Link to={getDocsLink(version_short, null, null)}>documentation</Link>.  You can check the version once PHOEBE is imported via</p>
+                <p>Please check the version of PHOEBE you have installed to make sure you are using the corresponding version of the <Link to={getDocsLink(version_short, null, null)}>documentation</Link>.  You can check the version once PHOEBE is installed via:</p>
                 <pre>
                   {python} -c "import phoebe; print(phoebe.__version__)"
                 </pre>
@@ -346,6 +346,12 @@ export class Install extends Component {
                   {python} setup.py build<br/>
                   sudo {python} setup.py install
                 </pre>
+
+                <p>Please check the version of PHOEBE you have installed to make sure you are using the corresponding version of the <Link to={getDocsLink(version_short, null, null)}>documentation</Link>.  You can check the version once PHOEBE is installed via:</p>
+                <pre>
+                  {python} -c "import phoebe; print(phoebe.__version__)"
+                </pre>
+
                 <Separator large={false} flip={false}/>
               </Content>
               <Content dark={true} preventScrollTop={this.props.location.hash}>
