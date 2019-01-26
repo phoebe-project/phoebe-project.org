@@ -84,7 +84,7 @@ export class Contribute extends Component {
             If any of the tests fail, see below on how to <Link to="#issues">report an issue</Link>.
           </p>
           <p>
-            Once all of the tests pass, you know that your installation is working as far as all the official tests.  Now continue to abuse PHOEBE, are report anytime that PHOEBE crashes, takes an exceedingly long amount of time, or returns wrong science.
+            Once all of the tests pass, you know that your installation is working as far as all the official tests.  Now continue to abuse PHOEBE, and report anytime that PHOEBE crashes, takes an exceedingly long amount of time, or returns wrong science.
           </p>
           <p>
             If you find a corner of PHOEBE that is not covered by the nosetests, <Link to="/contribute/development-guide#nosetests">feel free to write and submit your own</Link>.  You can always fork the <Link to="http://github.com/phoebe-project/phoebe2">GitHub repository</Link> and submit a Pull-Request, or see below for more information on how to <Link to="#develop">join the development team</Link>, if you so wish.
