@@ -123,25 +123,22 @@ export class HelpFAQ extends Component {
           <br/>
           A: That depends.  If you're considering using PHOEBE 1 (legacy) or a version of PHOEBE 2, click <Link to="/help/1vs2">here to read about the differences</Link>.  Otherwise, unless there is a good reason, its suggested that you use the <Link to="/releases/latest">latest release</Link>.
           <br/><br/>
-          Q: Is PHOEBE 2.x backwards compatible with PHOEBE 2.0 alpha releases?
-          <br/>
-          A: Unfortunately, no. We simply learned too much from the alpha-release that we decided that a complete rewrite was needed. However, many of the syntax concepts should be very familiar if you’ve used the frontend in the alpha releases.
-          <br/><br/>
           Q: Can I speed up plotting in any way?
           <br/>
           A: You could try changing your backend, e.g via matplotlib.rcParams['backend'] = 'Agg' but do this before importing Phoebe.
           <br/><br/>
           Q: How do I add a custom passband to PHOEBE 2?
           <br/>
-          A: You will need a table of intensities that you can download from the PHOEBE homepage. Then you should follow the instructions available phoebe.atmospheres.passbands.Passband
+          A: You will need a table of intensities that you can download from the PHOEBE homepage. Then you should follow the instructions available in the <Link to="/docs/latest/tutorials/passbands">custom passbands tutorial</Link> and reference the <Link to="/docs/latest/api/phoebe.atmospheres.passbands.Passband">passband API docs</Link>.
+          Alternatively, you can <Link to="https://github.com/phoebe-project/phoebe2-tables/issues/new?title=passband+request:&labels=passband+request">request a passband</Link> - please provide all necessary information and we'll see if we can add it to the repository.
           <br/><br/>
           Q: Is PHOEBE 2.x Python 3.x ready?
           <br/>
-          A: PHOEBE has been tested on Python 2.7 with various compilers. We are working towards testing PHOEBE on Python 3.x.
+          A: PHOEBE has been tested on Python 2.7+ with various compilers. We are working towards testing PHOEBE on Python 3.x.  See the <Link to="/install">install</Link> page for more information.
           <br/><br/>
           Q: Is it safe to use PHOEBE?
           <br/>
-          A: For the most part, yes. If you do not have sympy installed, then constraints will be evaluated using the ‘eval’ command - which could potentially be dangerous if you blindly open a bundle from an untrusted source. To avoid this, simply install the sympy optional dependency.
+          A: For the most part, yes. Constraints will be evaluated using the ‘eval’ command - which could potentially be dangerous if you blindly open a bundle from an untrusted source.
         </Content>
       </div>
     )

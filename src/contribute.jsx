@@ -117,8 +117,8 @@ export class Contribute extends Component {
             <li>support for new physics</li>
             <li>new dataset/observable type</li>
             <li>support for an additional alternate backend</li>
-            <li>additional atmosphere table</li>
-            <li>additional passband</li>
+            <li>request an <Link to="https://github.com/phoebe-project/phoebe2-tables/issues/new?title=atmosphere+request:">additional atmosphere table</Link></li>
+            <li>request an <Link to="https://github.com/phoebe-project/phoebe2-tables/issues/new?title=passband+request:&labels=passband+request">additional passband</Link></li>
           </ul>
           <p>
             To submit a feature request, file a request in the <Link to="http://github.com/phoebe-project/phoebe2/issues/new?title=feature+request:&labels=feature">phoebe2 issue tracker</Link> tagged with "feature".  Include as much information as possible, and we'll try to get back to you if its feasible.  For large features, you may also consider <Link to="#develop">contributing and writing it yourself</Link> (we're of course happy to help you get started).
