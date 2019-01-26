@@ -197,6 +197,15 @@ export class Install extends Component {
                   null
                 }
 
+                {version_py==="python2" ?
+                  <p>PHOEBE {version_short} has been tested to build and run on python 2.7+ {version_short >= 2.2 ? <span>(<Link to={"/install/"+version+"/"+version_os+"/python3#source"}>or python 3.5+</Link>)</span> : <span>(but does not support python 3)</span>}.  You can check your installed version of {python} with:</p>
+                  :
+                  <p>PHOEBE {version_short} has been tested to build and run on python 3.5+ (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or python 2.7+</Link>).    You can check your installed version of {python} with:</p>
+                }
+                <pre>
+                  {python} --version
+                </pre>
+
                 <p>The C++ code in PHOEBE requires a compiler that supports C++11, either of the following should build correctly:</p>
                 <ul>
                   <li>g++5 (or newer)</li>
@@ -216,7 +225,7 @@ export class Install extends Component {
                 }
 
 
-                <p>Additionally, in order to build the C-sources, make sure you have Python.h headers for the correct version of Python, by installing {python}-dev via your package manager.</p>
+                <p>Additionally, in order to build the C-sources, make sure you have Python.h headers for the correct version of {python}, by installing {python}-dev via your package manager.</p>
                 {OSName === 'linux' ?
                   <div>
                     <p>The following should work for debian-based systems (Ubuntu, etc):</p>
@@ -238,9 +247,9 @@ export class Install extends Component {
               <Content dark={true} preventScrollTop={this.props.location.hash}>
 
                 <h2 ref={this.refpip}><span className="fab fa-fw fa-xs fa-python"></span> Installing from PIP</h2>
-                <p>Installing PHOEBE from PIP is probably the easiest.  {version!=='latest' ? "To install version "+version_long : 'To install the latest version'}:</p>
+                <p>Installing PHOEBE from PIP is probably the easiest.  Since the build process requires numpy, we'll make sure that's installed first.  {version!=='latest' ? "To install version "+version_long+" of PHOEBE" : 'To install the latest version of PHOEBE'}:</p>
                 <pre>
-                  {pip} install phoebe{version!=='latest' ? "=="+version_long : null}
+                  {pip} install numpy phoebe{version!=='latest' ? "=="+version_long : null}
                 </pre>
 
                 {version!=='latest' ?
@@ -317,11 +326,7 @@ export class Install extends Component {
 
 
                 <h3>Dependencies</h3>
-                {version_py==="python2" ?
-                  <p>In addition to the <Link to="#dependencies">system dependencies</Link>, PHOEBE {version_short} requires Python 2.7+ {version_short >= 2.2 ? <span>(<Link to={"/install/"+version+"/"+version_os+"/python3#source"}>or Python 3.6+</Link>)</span> : <span>(but does not support Python 3)</span>} with the following packages:</p>
-                  :
-                  <p>In addition to the <Link to="#dependencies">system dependencies</Link>, PHOEBE {version_short} requires Python 3.6+ (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or Python 2.7+</Link>) with the following packages:</p>
-                }
+                <p>In addition to the <Link to="#dependencies">system dependencies</Link>, PHOEBE {version_short} requires the following {python} packages:</p>
 
                 <ul>
                   <li>numpy (1.10+)</li>
