@@ -143,11 +143,12 @@ class ReleaseContent extends Component {
                   <ul>
                     <li><Link to="/docs/2.0/tutorials/beaming_boosting">Doppler boosting</Link></li>
                     <li><Link to="/docs/2.0/examples/sun">Single rotating stars</Link></li>
+                    <li><Link to="/docs/2.0/tutorials/ltte">Rømer and Light Travel Time Effects (ltte)</Link></li>
                     <li>Lambert scattering</li>
                   </ul>
 
                   <p>
-                    Unsupported Physics (from PHOEBE legacy) PHOEBE 2.0 can not yet handle:
+                    Unsupported Physics (from PHOEBE legacy) that PHOEBE 2.0 can not yet handle:
                   </p>
                   <ul>
                     <li>X-ray binaries</li>
