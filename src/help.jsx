@@ -132,6 +132,18 @@ export class HelpFAQ extends Component {
           A: You will need a table of intensities that you can download from the PHOEBE homepage. Then you should follow the instructions available in the <Link to="/docs/latest/tutorials/passbands">custom passbands tutorial</Link> and reference the <Link to="/docs/latest/api/phoebe.atmospheres.passbands.Passband">passband API docs</Link>.
           Alternatively, you can <Link to="https://github.com/phoebe-project/phoebe2-tables/issues/new?title=passband+request:&labels=passband+request">request a passband</Link> - please provide all necessary information and we'll see if we can add it to the repository.
           <br/><br/>
+          Q: <Link to="/docs/latest/api/phoebe.list_online_passbands">phoebe.list_online_passbands()</Link> returns an empty list and <Link to="/docs/latest/api/phoebe.download_passband">phoebe.download_passband()</Link> fails with the following error:
+          <code>
+            ssl.SSLError: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version
+          </code>
+          What do I do?
+          <br/>
+          A: Assuming you're on Mac OS, this seems to be caused by the native openssl of Mac OS X not being sufficiently recent to deal with the url redirect on github. You can solve this by updating openssl and forcing python to use that version (with brew this is relatively straightforward just running <code>brew install openssl</code> followed by <code>brew install python@2</code>).
+          <br/><br/>
+          Q: The following error is being raised while compiling PHOEBE: <code>error: ‘void it0’ has incomplete type it0 = P.insert(it_min, Pi + 1, Pi + nt - 1)</code>.  What does this mean?
+          <br/>
+          A: This probably means your compiler does not support C++11.  Make sure you meet all the dependencies on the <Link to="/install">install instructions</Link>.
+          <br/><br/>
           Q: Is PHOEBE 2.x Python 3.x ready?
           <br/>
           A: PHOEBE has been tested on Python 2.7+ with various compilers. We are working towards testing PHOEBE on Python 3.x.  See the <Link to="/install">install</Link> page for more information.
