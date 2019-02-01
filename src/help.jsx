@@ -144,6 +144,10 @@ export class HelpFAQ extends Component {
           <br/>
           A: This probably means your compiler does not support C++11.  Make sure you meet all the dependencies on the <Link to="/install">install instructions</Link>.
           <br/><br/>
+          Q: I get an error when trying to run PHOEBE inside MCMC/EMCEE/mpirun, what's the problem?
+          <br/>
+          A: If you're running PHOEBE inside any other code that handles parallelization, you need to disable PHOEBE's internal handling of parallelization, via <Link to="/docs/latest/api/phoebe.mpi_off">phoebe.mpi_off()</Link>.  Also see the <Link to="/docs/latest/tutorials/mpi">tutorial on running PHOEBE in MPI</Link> for more information.
+          <br/><br/>
           Q: Is PHOEBE 2.x Python 3.x ready?
           <br/>
           A: PHOEBE has been tested on Python 2.7+ with various compilers. We are working towards testing PHOEBE on Python 3.x.  See the <Link to="/install">install</Link> page for more information.
