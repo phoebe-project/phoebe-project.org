@@ -4,6 +4,114 @@ import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helm
 
 import {Content, Link, Image, Separator} from './common';
 import {Header} from './header';
+import {NotFound} from './errors';
+
+export class PublicationEntry extends Component {
+  render() {
+    var publication = this.props.match.params.publication
+
+    var author = null;
+    var authorsFull = null;
+    var titleShort = null;
+    var title = null;
+    var abstract = null;
+    var adsLink = null;
+    var pdf = null;
+    var release = null;
+    var figures = [];
+
+    if (publication=='2005Prsa+') {
+      author = "Prša & Zwitter (2005)"
+      authorsFull = "Prša, A.; Zwitter, T."
+      titleShort = "PHOEBE I: Demonstrations and Perspectives"
+      title = "A Computational Guide to Physics of Eclipsing Binaries. I. Demonstrations and Perspectives"
+      abstract = "PHOEBE (PHysics Of Eclipsing BinariEs) is a modeling package for eclipsing binary stars, built on top of the widely used WD program of Wilson & Devinney. This introductory paper gives an overview of the most important scientific extensions (incorporating observational spectra of eclipsing binaries into the solution-seeking process, extracting individual temperatures from observed color indices, main-sequence constraining, and proper treatment of the reddening), numerical innovations (suggested improvements to WD's differential corrections method, the new Nelder & Mead downhill simplex method), and technical aspects (back-end scripter structure, graphical user interface). While PHOEBE retains 100% WD compatibility, its add-ons are a powerful way to enhance WD by encompassing even more physics and solution reliability. The operability of all these extensions is demonstrated on a synthetic main-sequence test binary; applications to real data will be published in follow-up papers. PHOEBE is released under the GNU General Public License, which guarantees it to be free and open to anyone interested in joining in on future development."
+      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2005ApJ...628..426P"
+      pdf = "2005Prsa+.pdf"
+      release = "1.0"
+
+    } else if (publication=='2016Prsa+') {
+      author = "Prša et al. (2016)"
+      authorsFull = "Prša, A.; Conroy, K. E.; Horvat, M.; Pablo, H.; Kochoska, A.; Bloemen, S.; Giammarco, J.; Hambleton, K. M.; Degroote, P."
+      titleShort = "PHOEBE II: Toward the Increased Model Fidelity"
+      title = "Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity"
+      abstract = "The precision of photometric and spectroscopic observations has been systematically improved in the last decade, mostly thanks to space-borne photometric missions and ground-based spectrographs dedicated to finding exoplanets. The field of eclipsing binary stars strongly benefited from this development. Eclipsing binaries serve as critical tools for determining fundamental stellar properties (masses, radii, temperatures, and luminosities), yet the models are not capable of reproducing observed data well, either because of the missing physics or because of insufficient precision. This led to a predicament where radiative and dynamical effects, insofar buried in noise, started showing up routinely in the data, but were not accounted for in the models. PHOEBE (PHysics Of Eclipsing BinariEs; http://phoebe-project.org) is an open source modeling code for computing theoretical light and radial velocity curves that addresses both problems by incorporating missing physics and by increasing the computational fidelity. In particular, we discuss triangulation as a superior surface discretization algorithm, meshing of rotating single stars, light travel time effects, advanced phase computation, volume conservation in eccentric orbits, and improved computation of local intensity across the stellar surfaces that includes the photon-weighted mode, the enhanced limb darkening treatment, the better reflection treatment, and Doppler boosting. Here we present the concepts on which PHOEBE is built and proofs of concept that demonstrate the increased model fidelity."
+      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P"
+      pdf = "2016Prsa+.pdf"
+      release = "2.0"
+      figures = [
+                  {"name": "Figure 5", "image": "2016Prsa+_fig5.png", "link": "/docs/2.0/tutorials/intens_weighting"},
+                  {"name": "Figure 8", "image": "2016Prsa+_fig8.png", "link": "/docs/2.0/tutorials/irrad_method_horvat"}
+                ]
+
+    } else if (publication=='2018Horvat+') {
+      author = "Horvat et al. (2018)"
+      authorsFull = "Prša, A.; Conroy, K. E.; Horvat, M.; Pablo, H.; Kochoska, A.; Bloemen, S.; Giammarco, J.; Hambleton, K. M.; Degroote, P."
+      titleShort = "PHOEBE III: Spin-Orbit Misalignment"
+      title = "Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment"
+      abstract = "The precision of photometric and spectroscopic observations has been systematically improved in the last decade, mostly thanks to space-borne photometric missions and ground-based spectrographs dedicated to finding exoplanets. The field of eclipsing binary stars strongly benefited from this development. Eclipsing binaries serve as critical tools for determining fundamental stellar properties (masses, radii, temperatures, and luminosities), yet the models are not capable of reproducing observed data well, either because of the missing physics or because of insufficient precision. This led to a predicament where radiative and dynamical effects, insofar buried in noise, started showing up routinely in the data, but were not accounted for in the models. PHOEBE (PHysics Of Eclipsing BinariEs; http://phoebe-project.org) is an open source modeling code for computing theoretical light and radial velocity curves that addresses both problems by incorporating missing physics and by increasing the computational fidelity. In particular, we discuss triangulation as a superior surface discretization algorithm, meshing of rotating single stars, light travel time effects, advanced phase computation, volume conservation in eccentric orbits, and improved computation of local intensity across the stellar surfaces that includes the photon-weighted mode, the enhanced limb darkening treatment, the better reflection treatment, and Doppler boosting. Here we present the concepts on which PHOEBE is built and proofs of concept that demonstrate the increased model fidelity."
+      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P"
+      pdf = "2018Horvat+.pdf"
+      release = "2.1"
+      figures = [
+                  {"name": "Figure 8", "image": "2018Horvat+_fig8.png", "link": "/docs/2.1/examples/diher_misaligned"}
+                ]
+
+    } else {
+      return (
+        <NotFound>
+          <h1>No publication with name: {publication}</h1>
+        </NotFound>
+      )
+    }
+
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | Publication | {titleShort}</title>
+        </Helmet>
+        <Header>
+          <h1>{titleShort}</h1>
+        </Header>
+        <Content>
+          <p>
+            <h2>{title}</h2>
+          </p>
+          <p>
+            {authorsFull}
+          </p>
+          <p>
+            <span style={{padding: "15px", fontSize: "16pt"}}><Link to={adsLink} hideExternal={true}><span className="ai ai-ads"></span> ADS</Link></span>
+            <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/pdf/"+this.props.pdf}><span className="far fa-fw fa-file-pdf"></span> PDF</Link></span>
+            {release ?
+              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/releases/"+release}><span className="fas fa-fw fa-tags"></span> {release} Release</Link></span>
+              :
+              null
+            }
+          </p>
+          <p>
+            {abstract}
+          </p>
+          <p>
+            {figures.length > 0 ?
+              <h3>Reproducible Content</h3>
+              :
+              null
+            }
+            {figures.map(figure => {
+              return (
+                <div>
+                  <h4 style={{fontSize: "14pt"}}>{figure.name}</h4>
+                  <Link to={figure.link}><img src={"/images/figures/"+figure.image} width="600px" style={{maxWidth: "100%"}}/></Link>
+                </div>
+              )
+            })}
+          </p>
+        </Content>
+      </div>
+    )
+  }
+}
 
 export class Publications extends Component {
   render() {
@@ -23,9 +131,9 @@ export class Publications extends Component {
           </div>
 
           <h2>PHOEBE Release Series</h2>
-          <Publication author="Horvat et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/#abs/2018ApJS..237...26H" pdf="2018Horvat+.pdf" title="Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment" release="2.1"/>
-          <Publication author="Prša et al. (2016)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P" pdf="2016Prsa+.pdf" title="Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity" release="2.0"/>
-          <Publication author="Prša & Zwitter (2005)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2005ApJ...628..426P" pdf="2005Prsa+.pdf" title="A Computational Guide to Physics of Eclipsing Binaries. I. Demonstrations and Perspectives" release="legacy"/>
+          <Publication author="Horvat et al. (2018)" entryLink="/publications/2018Horvat+" title="Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment" release="2.1"/>
+          <Publication author="Prša et al. (2016)" entryLink="/publications/2016Prsa+" title="Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity" release="2.0"/>
+          <Publication author="Prša & Zwitter (2005)" entryLink="/publications/2005Prsa+" title="A Computational Guide to Physics of Eclipsing Binaries. I. Demonstrations and Perspectives" release="legacy"/>
           <Separator large={false}/>
         </Content>
 
@@ -84,7 +192,7 @@ class Publication extends Component {
     // props: adsLink, authors, title, release (optional)
     return (
       <div className="row">
-        <Link to={this.props.adsLink} hideExternal={true}>{this.props.author}</Link>
+        <Link to={this.props.entryLink || this.props.adsLink} hideExternal={true}>{this.props.author}</Link>
         {this.props.pdf ? <span> (<Link to={"/pdf/"+this.props.pdf}>download pdf</Link>) </span> : null}
         <span> - {this.props.title}</span>
         {this.props.release ? <span> (<Link to={"/releases/"+this.props.release+"/"}>PHOEBE {this.props.release} release</Link>)</span> : null}

@@ -99,15 +99,13 @@ class ReleaseContent extends Component {
   render() {
     var logo = "logo_blue.svg";
     var releasePaper = "Release Paper"
-    var adsLink = null;
-    var pdf = null;
+    var publicationLink = null
     var quickstart = true
     var content = null;
     if (this.props.version === '1.0' || this.props.version === 'legacy') {
       logo = "logo_release_10.png"
       releasePaper = "Prša & Zwitter (2005)"
-      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2005ApJ...628..426P"
-      pdf = "2005Prsa+.pdf"
+      publicationLink = "2005Prsa+"
       quickstart = false
       content = <div>
                   <p>The legacy releases of PHOEBE (0.x and soon culminating in the official release of version 1.0) are built upon the <Link to="ftp://ftp.astro.ufl.edu/pub/wilson">Wilson-Devinney code</Link>.</p>
@@ -117,8 +115,7 @@ class ReleaseContent extends Component {
     } else if (this.props.version === '2.0') {
       logo = "logo_release_20.svg"
       releasePaper = "Prša et al. (2016)"
-      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P"
-      pdf = "2016Prsa+.pdf"
+      publicationLink = "/publications/2016Prsa+"
       content = <div>
                   <p>PHOEBE 2.0 is the first official release of the completely redesigned and rewritten version of PHOEBE with a Python frontend interface.  The 2.0 release aims to provide fully-tested functionality that matches that of the <Link to="/1.0">legacy version of PHOEBE</Link> (light curve and radial velocity forward model of binary star systems) but with improved precision and the introduction of a Python frontend.</p>
                   <p>
@@ -168,8 +165,7 @@ class ReleaseContent extends Component {
     } else if (this.props.version === '2.1') {
       logo = "logo_release_21.svg"
       releasePaper = "Horvat et al. (2018)"
-      adsLink = "https://ui.adsabs.harvard.edu/#abs/2018ApJS..237...26H"
-      pdf = "2018Horvat+.pdf"
+      publicationLink = "/publications/2018Horvat+"
       content = <div>
                   <p>PHOEBE 2.1 builds on the <Link to="/releases/2.0">2.0 release</Link> and introduces support for spin-orbit misalignment and spectral line-profiles as an observable dataset.</p>
                   <p>
@@ -217,14 +213,9 @@ class ReleaseContent extends Component {
               :
               null
             }
-            {adsLink!==null ?
+            {publicationLink!==null ?
               <div className="row" style={{marginTop: 0}}>
-                <Link to={adsLink} hideExternal={true}><span className="fas fa-fw fa-copy"></span> {releasePaper}</Link> &nbsp;
-                {pdf!==null ?
-                  <span>(<Link to={"/pdf/"+pdf}>download pdf</Link>)</span>
-                  :
-                  null
-                }
+                <Link to={publicationLink}> <span className="fas fa-fw fa-copy"></span> {releasePaper}</Link>
               </div>
               :
               null

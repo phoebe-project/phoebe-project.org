@@ -119,7 +119,7 @@ All workshops display the same buttons/format (with the exception of the change 
 
 ## Updating Publications
 
-The list of publications is currently created manually in the `Publications` component in [publications.jsx](./src/publications.jsx).  For each entry, use the `Publication` component (see existing entries) which takes the following arguments: adsLink, authors, title, and release (optional - if provided, must match a valid release branch/tag).
+The list of publications is currently created manually in the `Publications` component in [publications.jsx](./src/publications.jsx).  For each entry, use the `Publication` component (see existing entries) which takes the following arguments: adsLink, authors, title, and release (optional - if provided, must match a valid release branch/tag).  To link to a dedicated page with links to reproducible content, use entryLink instead of adsLink and fillout an entry in the `PublicationEntry` component.
 
 ## Updating/Adding Developer Bios
 

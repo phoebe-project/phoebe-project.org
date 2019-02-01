@@ -21,7 +21,7 @@ import {Install} from './install';
 import {Docs} from './docs';
 import {News, NewsEntry} from './news';
 import {Workshop, WorkshopRegistration} from './workshops';
-import {Publications} from './publications';
+import {Publications, PublicationEntry} from './publications';
 import {Source} from './source';
 import {Contribute, ContributeDevelopment,TourFrontend, TourBackend, TourLibphoebe} from './contribute';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
@@ -112,6 +112,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop/:slug'} component={Workshop}/>
             <Route path={process.env.PUBLIC_URL + '/workshop'} render={(props) => <Redirect to="/workshops"/>}/> /* old website used "workshop" instead of "workshops" */
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
+            <Route exact path={process.env.PUBLIC_URL + '/publications/:publication/'} component={PublicationEntry}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute'} component={Contribute}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute/development-guide'} component={ContributeDevelopment}/>
