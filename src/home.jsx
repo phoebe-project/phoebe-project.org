@@ -72,6 +72,7 @@ export class Home extends Component {
                   <li><Link to="/docs/latest/tutorials/beaming_boosting">Doppler boosting/beaming</Link></li>
                   <li><Link to="/docs/latest/examples/sun">Single rotating stars</Link></li>
                   <li><Link to="/docs/latest/tutorials/ltte">Rømer and Light Travel Time Effects (ltte)</Link></li>
+                  <li><Link to="/docs/latest/tutorials/irrad_method_horvat">Irradiation with Lambert Scattering</Link></li>
                   <li><Link to="/docs/latest/tutorials/pitch_yaw">Spin-orbit misalignment</Link> (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
                   <li><b>Coming soon:</b> Reddening and Extinction</li>
                   {/* <li><b>Coming soon:</b> Reflection with heat redistribution</li> */}

@@ -128,11 +128,11 @@ class ReleaseContent extends Component {
                   <ul>
                     <li>detached and semi-detached (since 2.0.5) roche binaries</li>
                     <li>keplerian orbits (including <Link to="/docs/2.0/tutorials/ecc">eccentric orbits with volume conservation</Link>)</li>
-                    <li>passbands/atmospheres</li>
+                    <li><Link to="/docs/2.0/tutorials/atm_passbands">passbands/atmospheres</Link></li>
                     <li><Link to="/docs/2.0/tutorials/limb_darkening">limb-darkening</Link></li>
-                    <li>gravity darkening</li>
+                    <li><Link to="/docs/2.0/tutorials/gravb_bol">gravity brightening/darkening</Link></li>
                     <li><Link to="/docs/2.0/tutorials/reflection_heating">reflection</Link> (heating without redistribution)</li>
-                    <li>finite integration time via oversampling (for light curves only)</li>
+                    <li><Link to="/docs/2.0/tutorials/fti">finite time of integration</Link> via oversampling (for light curves only)</li>
                     <li><Link to="/docs/2.0/examples/binary_spots">circular spots</Link></li>
                     <li><Link to="/docs/2.0/examples/minimal_contact_binary">contact systems</Link> (to mimic WD)</li>
                   </ul>
@@ -144,7 +144,7 @@ class ReleaseContent extends Component {
                     <li><Link to="/docs/2.0/tutorials/beaming_boosting">Doppler boosting</Link></li>
                     <li><Link to="/docs/2.0/examples/sun">Single rotating stars</Link></li>
                     <li><Link to="/docs/2.0/tutorials/ltte">Rømer and Light Travel Time Effects (ltte)</Link></li>
-                    <li>Lambert scattering</li>
+                    <li><Link to="/docs/2.0/tutorials/irrad_method_horvat">Lambert scattering</Link></li>
                   </ul>
 
                   <p>
@@ -176,7 +176,7 @@ class ReleaseContent extends Component {
                     New Physics introduced in version 2.1:
                   </p>
                   <ul>
-                    <li>Spin-orbit misalignment (via <Link to="/docs/2.1/tutorials/pitch_yaw">pitch and yaw</Link> parameters)</li>
+                    <li><Link to="/docs/2.1/examples/diher_misaligned">Spin-orbit misalignment</Link> (via <Link to="/docs/2.1/tutorials/pitch_yaw">pitch and yaw</Link> parameters)</li>
                     <li>Support for creating <Link to="/docs/2.1/tutorials/LP">synthetic line profiles</Link></li>
                   </ul>
 
