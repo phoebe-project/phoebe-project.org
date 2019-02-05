@@ -82,7 +82,7 @@ export class PublicationEntry extends Component {
           </p>
           <p>
             <span style={{padding: "15px", fontSize: "16pt"}}><Link to={adsLink} hideExternal={true}><span className="ai ai-ads"></span> ADS</Link></span>
-            <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/pdf/"+this.props.pdf}><span className="far fa-fw fa-file-pdf"></span> PDF</Link></span>
+            <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/pdf/"+pdf}><span className="far fa-fw fa-file-pdf"></span> PDF</Link></span>
             {release ?
               <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/releases/"+release}><span className="fas fa-fw fa-tags"></span> {release} Release</Link></span>
               :
