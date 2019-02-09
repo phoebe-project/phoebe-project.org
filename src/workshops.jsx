@@ -36,7 +36,7 @@ export class Workshop extends Component {
           </Header>
           <Content>
             <p>PHOEBE Workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/help/devel">developers</Link> to learn what features and improvements can be made.</p>
-            <p>These workshops are made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>.</p>
+            <p>These workshops are made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link> and the Villanova University College of Arts and Sciences Development Grant.</p>
             <Separator large={false}/>
           </Content>
           <Content dark={true}>
