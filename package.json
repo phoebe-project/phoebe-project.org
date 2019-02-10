@@ -18,12 +18,12 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
+    "analyze": "source-map-explorer build/static/js/main.*",
     "predeploy": "npm run build",
     "deploy": "npm run build && scp -r build/* clusty:/srv/www/phoebe-project-new/"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1"
+    "gh-pages": "^2.0.1",
+    "source-map-explorer": "^1.6.0"
   }
 }

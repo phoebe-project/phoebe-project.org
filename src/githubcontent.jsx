@@ -1,10 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, Suspense } from 'react';
 
 import {Link} from './common'
 import {LogoSpinner} from './logo'
 
-import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
+// import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
+
+const NotebookPreview = React.lazy(() => import('@nteract/notebook-preview'));
 
 export class GitHubContent extends Component {
   constructor(props) {
@@ -75,6 +77,11 @@ export class GitHubContent extends Component {
     var report_html = null;
     var content_html = null;
 
+    var loadingDiv = <div>
+                      <LogoSpinner pltStyle={{backgroundColor: "rgb(43, 113, 177)"}}/>
+                      <p style={{textAlign: "center", fontSize: "18pt"}}>{this.props.loadingText || "LOADING EXTERNAL CONTENT..."}</p>
+                    </div>
+
     if (this.state.content) {
 
       edit_html = <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-fw fa-github"></span> View/Edit on GitHub</Link>
@@ -96,7 +103,9 @@ export class GitHubContent extends Component {
 
 
 
-        content_html = <NotebookPreview notebook={this.state.content}/> // unfortunately this is creating a bunch of <a>'s where we want <Link>s...'
+        content_html = <Suspense fallback={loadingDiv}>
+                        <NotebookPreview notebook={this.state.content}/>
+                       </Suspense>
 
 
       } else if (this.state.contentType === 'md') {
@@ -115,10 +124,7 @@ export class GitHubContent extends Component {
                        {/* <h3>No content could be found... please try again.  Or if you think something should be here or you followed an internal link, please <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?body=followed+link+from:+PLEASE+PASTE+URL+THAT+LINKED+TO+THIS+PAGE&title=no+content+found+at+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}>report the issue here</Link>.</h3> */}
                      </div>
     } else if (this.state.path){
-      content_html = <div>
-                        <LogoSpinner pltStyle={{backgroundColor: "rgb(43, 113, 177)"}}/>
-                        <p style={{textAlign: "center", fontSize: "18pt"}}>{this.props.loadingText || "LOADING EXTERNAL CONTENT..."}</p>
-                     </div>
+      content_html = loadingDiv
     } else {
       content_html = this.props.children
     }
