@@ -7,7 +7,7 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-var active_workshops = {};
+var active_workshops = {"2019july": "July 2019, Villanova PA"};
 var archived_workshops = {"2018june": "June 2018, Villanova PA"};
 
 export class Workshop extends Component {
@@ -64,37 +64,16 @@ export class Workshop extends Component {
   }
 }
 
-class WorkshopActive extends Component {
-  render() {
-    var workshop = this.props.workshop
-    var description = active_workshops[workshop]
-
-    return (
-      <div>
-        <Helmet>
-          <title>PHOEBE | Workshops | {description}</title>
-        </Helmet>
-        <Header>
-          <h1>PHOEBE Workshop | {description}</h1>
-
-          <div className="row">
-
-           </div>
-
-        </Header>
-        <Content>
-          <p>workshop content here, dynamically loaded from GitHub similar to <Link to="/docs">docs</Link></p>
-        </Content>
-      </div>
-    )
-  }
-}
-
 class WorkshopEntry extends Component {
   render() {
     var active = this.props.active;
     var workshop = this.props.workshop
-    var description = archived_workshops[workshop]
+    var description = ''
+    if (active) {
+      description = active_workshops[workshop]
+    } else {
+      description = archived_workshops[workshop]
+    }
     var slug = this.props.slug
 
     if (!slug) {
