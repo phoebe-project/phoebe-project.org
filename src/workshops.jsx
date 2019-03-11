@@ -147,7 +147,7 @@ class WorkshopEntry extends Component {
 
 export class WorkshopRegistration extends Component {
   render() {
-    window.location = 'https://docs.google.com/forms/d/e/1FAIpQLSfjVAb4zAjdoO7GeEVTPCupxhkIrrk611__8a_3Ya6rqVNj4Q/viewform'
+    window.location = 'https://docs.google.com/forms/d/e/1FAIpQLSfWKv6d69TFnBGM0PUbNPpRDpbgTjMs4DuBkUmEm4OdrcxOHg/viewform'
     return(
       null
     )
