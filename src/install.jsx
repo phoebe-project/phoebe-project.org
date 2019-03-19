@@ -198,9 +198,9 @@ export class Install extends Component {
                 }
 
                 {version_py==="python2" ?
-                  <p>PHOEBE {version_short} has been tested to build and run on python 2.7+ {version_short >= 2.2 ? <span>(<Link to={"/install/"+version+"/"+version_os+"/python3#source"}>or python 3.5+</Link>)</span> : <span>(but does not support python 3)</span>}.  You can check your installed version of {python} with:</p>
+                  <p>PHOEBE {version_short} has been tested to build and run on python 2.7+ {version_short >= 2.2 ? <span>(<Link to={"/install/"+version+"/"+version_os+"/python3#source"}>or python 3.6+</Link>)</span> : <span>(but does not support python 3)</span>}.  You can check your installed version of {python} with:</p>
                   :
-                  <p>PHOEBE {version_short} has been tested to build and run on python 3.5+ (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or python 2.7+</Link>).    You can check your installed version of {python} with:</p>
+                  <p>PHOEBE {version_short} has been tested to build and run on python 3.6+ (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or python 2.7+</Link>).    You can check your installed version of {python} with:</p>
                 }
                 <pre>
                   {python} --version
