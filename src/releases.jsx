@@ -105,7 +105,7 @@ class ReleaseContent extends Component {
     if (this.props.version === '1.0' || this.props.version === 'legacy') {
       logo = "logo_release_10.png"
       releasePaper = "Prša & Zwitter (2005)"
-      publicationLink = "2005Prsa+"
+      publicationLink = "/publications/2005Prsa+"
       quickstart = false
       content = <div>
                   <p>The legacy releases of PHOEBE (0.x and soon culminating in the official release of version 1.0) are built upon the <Link to="ftp://ftp.astro.ufl.edu/pub/wilson">Wilson-Devinney code</Link>.</p>
