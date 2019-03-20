@@ -9,6 +9,31 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "Second PHOEBE Workshop",
+    slug: "phoebe-workshop-2",
+    pinnedDays: 30,
+    date: "March 15, 2019",
+    author: "Kyle Conroy",
+    content: <div>
+              <p>
+                Dear Colleagues,
+              </p>
+              <p>
+                We will be holding the second PHOEBE Workshop at Villanova University, Villanova, Pennsylvania, USA, July 8th-12th, 2019.
+              </p>
+              <p>
+                Further information and the registration form can be found at <Link to="/workshops/2019july">http://phoebe-project.org/workshops/2019july</Link>.  Registration is now open and will remain open until April 15th, 2019.
+              </p>
+              <p>
+                We look forward to welcoming you to Villanova University in July!
+              </p>
+              <p>
+                Kind regards,<br/>
+                The <Link to="/help/devel">PHOEBE team</Link>
+              </p>
+            </div>
+  },
+  {
     title: "New Book: Modeling and Analysis of Eclipsing Binary Stars",
     slug: "modeling-and-analysis-book",
     pinnedDays: 30,
@@ -83,7 +108,7 @@ export var newsStoriesDicts = [
             </div>
   },
   {
-    title: "PHOEBE Workshop 1",
+    title: "First PHOEBE Workshop",
     slug: "phoebe-workshop-1",
     date: "February 13, 2018",
     author: "Kyle Conroy",
@@ -105,7 +130,6 @@ export var newsStoriesDicts = [
                 The <Link to="/help/devel">PHOEBE team</Link>
               </p>
             </div>
-
   },
   {
     title: "Official PHOEBE 2.0 Release",
