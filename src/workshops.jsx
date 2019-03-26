@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect, Separator} from './common';
+import {Content, Link, Image, Redirect, Separator} from './common';
 import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
@@ -35,23 +35,33 @@ export class Workshop extends Component {
             <h1>PHOEBE Workshops</h1>
           </Header>
           <Content>
-            <p>PHOEBE Workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/help/devel">developers</Link> to learn what features and improvements can be made.</p>
-            <p>These workshops are made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link> and the Villanova University College of Arts and Sciences Development Grant.</p>
+            <p>
+              PHOEBE workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/help/devel">developers</Link> to learn what features and improvements can be made.
+              Generally these week-long workshops consist of a small group of participants and are organized to include both tutorial and short talks introducing the science and features implemented in the latest PHOEBE release as well as a sneak peak into features under development.
+              These workshops have been made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>, the Villanova University College of Arts and Sciences Faculty Research and Development Grant, and the <Link to="https://www1.villanova.edu/villanova/artsci/astronomy.html">Villanova Department of Astrophysics and Planetary Sciences</Link>.
+            </p>
+            <div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "25px"}}>
+              <Image src={"/images/workshops/PHOEBE_workshop_1_1.jpg"} style={{borderRadius: "4px", transform: "rotate(90deg)"}} width="200" maxWidth="80%"/>
+              <Image src={"/images/workshops/PHOEBE_workshop_1.jpg"} style={{borderRadius: "4px"}} height="200" maxWidth="80%"/>
+              <Image src={"/images/workshops/PHOEBE_workshop_1_2.jpg"} style={{borderRadius: "4px", transform: "rotate(90deg)"}} width="200" maxWidth="80%"/>
+            </div>
+            <p>See below for archived content from past workshops that have been held, as well as announcements and registration details for any planned upcoming workshops.  We hope you will be able to join us soon at a PHOEBE workshop soon!</p>
             <Separator large={false}/>
           </Content>
           <Content dark={true}>
-            <h2>Past Workshops</h2>
-            <ul>{Object.keys(archived_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
-            <Separator flip={true} large={false}/>
-          </Content>
-          <Content>
             <h2>Upcoming Workshops</h2>
             {Object.keys(active_workshops).length ?
               <ul>{Object.keys(active_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
               :
               <p>There are no currently planned workshops.  Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
             }
+            <Separator flip={true} large={false}/>
           </Content>
+          <Content>
+            <h2>Past Workshops</h2>
+            <ul>{Object.keys(archived_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
+          </Content>
+
         </div>
       )
     } else if (Object.keys(active_workshops).indexOf(this.state.workshop)!==-1) {
