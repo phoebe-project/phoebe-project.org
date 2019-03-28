@@ -69,8 +69,8 @@ export class Docs extends Component {
     if (version==='latest') {
       // allow latest as the version in the URL, but show whatever is latest
       version = docs_versions[0]
-    } else if (version==='dev') {
-      // allow dev to be an alias of development
+    } else if (version==='dev' || version=='devel') {
+      // allow dev/devel to be an alias of development
       version = 'development'
     } else if (version==='1.0' || version==='legacy') {
       // then redirect to the 1.0 page
@@ -156,29 +156,44 @@ export class Docs extends Component {
           {this.state.version===docs_versions[0] ?
             null
             :
-            <Alert level="danger">
-              <p><b>WARNING:</b> these are the docs for an outdated version of PHOEBE ({version}).  View <Link to={getDocsLink("latest", this.state.subdir, this.state.slug)}>docs for the latest release ({docs_versions[0]})</Link> or use the version switcher at the bottom of the page to select the correct version of PHOEBE.</p>
-              <p>If you're not sure, <Link to="/help/version">check your installed version of PHOEBE</Link>.</p>
-              <p>To update PHOEBE, see information on the <Link to="/releases/latest">latest release</Link> as well as <Link to="/install/latest">installation/update instructions</Link>.</p>
-            </Alert>
+            version=="development" ?
+              <Alert level="danger">
+                <p><b>WARNING:</b> these are the docs for the development (unreleased) version of PHOEBE.  View <Link to={getDocsLink("latest", this.state.subdir, this.state.slug)}>docs for the latest release ({docs_versions[0]})</Link> or use the version switcher at the bottom of the page to select the correct version of PHOEBE.</p>
+              </Alert>
+
+              :
+              <Alert level="danger">
+                <p><b>WARNING:</b> these are the docs for an outdated version of PHOEBE ({version}).  View <Link to={getDocsLink("latest", this.state.subdir, this.state.slug)}>docs for the latest release ({docs_versions[0]})</Link> or use the version switcher at the bottom of the page to select the correct version of PHOEBE.</p>
+                <p>If you're not sure, <Link to="/help/version">check your installed version of PHOEBE</Link>.</p>
+                <p>To update PHOEBE, see information on the <Link to="/releases/latest">latest release</Link> as well as <Link to="/install/latest">installation/update instructions</Link>.</p>
+              </Alert>
+
+
           }
           <GitHubContent repo='phoebe2-docs' branch={version} path={this.state.contentPath} loadingText="LOADING DOCS..." reportHTML={reportHTML}>
             <div>
-              <h2><span className="fa fa-fw fa-xs fa-tag"></span> About PHOEBE {version}</h2>
-              <p>You can read about the features added during the <Link to={"/releases/"+version}>{version} release</Link> as well as read the changelog entries.</p>
+              {version!="development" ?
+                <div>
+                  <h2><span className="fa fa-fw fa-xs fa-tag"></span> About PHOEBE {version}</h2>
+                  <p>You can read about the features added during the <Link to={"/releases/"+version}>{version} release</Link> as well as read the changelog entries.</p>
 
-              <h2><span className="far fa-fw fa-xs fa-play-circle"></span> Try PHOEBE {version} in a Live-Session</h2>
-              <p>
-                You can try PHOEBE {version} in a live Google Colab Session before installing it on your local machine.
-                All of the example scripts and tutorials here will include a link in the top-left to open that notebook in a live-session.
-                Or you can follow the <Link to={"/quickstart/"+version}><span className="far fa-fw fa-play-circle"></span> PHOEBE {version} Quickstart</Link>.
-              </p>
-              <p>
-                Learn more <Link to="/help/colab">about Google Colab Live Sessions</Link>.
-              </p>
+                  <h2><span className="far fa-fw fa-xs fa-play-circle"></span> Try PHOEBE {version} in a Live-Session</h2>
+                  <p>
+                    You can try PHOEBE {version} in a live Google Colab Session before installing it on your local machine.
+                    All of the example scripts and tutorials here will include a link in the top-left to open that notebook in a live-session.
+                    Or you can follow the <Link to={"/quickstart/"+version}><span className="far fa-fw fa-play-circle"></span> PHOEBE {version} Quickstart</Link>.
+                  </p>
+                  <p>
+                    Learn more <Link to="/help/colab">about Google Colab Live Sessions</Link>.
+                  </p>
 
-              <h2><span className="fas fa-fw fa-xs fa-download"></span> Download &amp; Install</h2>
-              <p>If you don't already have PHOEBE installed, see the <Link to={"/install/"+version}>installation instructions for PHOEBE {version}.</Link></p>
+                  <h2><span className="fas fa-fw fa-xs fa-download"></span> Download &amp; Install</h2>
+                  <p>If you don't already have PHOEBE installed, see the <Link to={"/install/"+version}>installation instructions for PHOEBE {version}.</Link></p>
+
+                </div>
+                :
+                null
+              }
 
               <h2><span className="fas fa-fw fa-xs fa-hands-helping"></span> Tutorials</h2>
               <p>Tutorials are built to slowly build upon each other and provide narration about how to use PHOEBE.</p>

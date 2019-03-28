@@ -23,6 +23,12 @@ export class Devel extends Component {
         <Content>
           <ul>
             <li>
+              <Link to="/docs/development">Development Docs</Link>
+            </li>
+            <li>
+              <Link to="/contribute/development-guide">Development Guide</Link>
+            </li>
+            <li>
               <Link to="/devel/telecon">Telecon (Zoom) Link</Link>
             </li>
             <li>

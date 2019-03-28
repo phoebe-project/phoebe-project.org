@@ -223,6 +223,9 @@ export class ContributeDevelopment extends Component {
             See the page on <Link to="/contribute">contributing to PHOEBE</Link> for instructions on testing, forking, and joining the development team.
             The rest of this document assumes that you have a local copy of the source-code on your machine and are fairly comfortable as a PHOEBE user.
           </p>
+          <p>
+            If you're working on an unreleased branch of the source-code, see the <Link to="/docs/development">development branch documentation</Link> (which may not be entirely up-to-date).
+          </p>
 
           <h2 ref={this.refreleases}><span className="fa fa-fw fa-xs fa-tags"></span> Releases</h2>
           <h3>Version Tag Conventions</h3>
