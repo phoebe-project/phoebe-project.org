@@ -4,9 +4,15 @@ import {Link} from './common'
 import {LogoSpinner} from './logo'
 
 // import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
-import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
+import ReactMarkdown from "react-markdown/with-html"; // https://github.com/rexxars/react-markdown
+// import htmlParser from 'react-markdown/plugins/html-parser';
 
 const NotebookPreview = React.lazy(() => import('@nteract/notebook-preview'));
+
+// const parseHtml = htmlParser({
+//   isValidNode: node => node.type == 'link',
+//   processingInstructions: [/* ... */]
+// })
 
 export class GitHubContent extends Component {
   constructor(props) {
@@ -109,7 +115,9 @@ export class GitHubContent extends Component {
 
 
       } else if (this.state.contentType === 'md') {
-        content_html =  <div style={{paddingTop: "50px"}}><ReactMarkdown source={this.state.content}/></div>
+        content_html =  <div style={{paddingTop: "50px"}}>
+                          <ReactMarkdown source={this.state.content} escapeHtml={false}/>
+                        </div>
       } else {
         edit_html = null;
         report_html = null;
