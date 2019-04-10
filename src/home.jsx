@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link} from './common';
+import {Content, Separator, Link} from './common';
 import {HeaderIndex} from './header';
 import {Footer} from './footer';
 import {newsStoriesDicts, NewsContent} from './news';
+import {InteractiveGettingStarted} from './interactive_getting_started';
 import {docs_versions} from './docs';
 
 export class Home extends Component {
@@ -34,13 +35,30 @@ export class Home extends Component {
         </Helmet>
         <HeaderIndex />
         <Content>
-          {pinnedNewsStoryDicts.map(newsStoryDict => <NewsContent title={newsStoryDict.title} slug={newsStoryDict.slug} author={newsStoryDict.author} date={newsStoryDict.date} showAsSummary={true} wrapHeight={100}>{newsStoryDict.content}</NewsContent>)}
+          {pinnedNewsStoryDicts.length > 0 ?
+            <div style={{paddingBottom: "40px"}}>
+              {pinnedNewsStoryDicts.map(newsStoryDict => <NewsContent title={newsStoryDict.title} slug={newsStoryDict.slug} author={newsStoryDict.author} date={newsStoryDict.date} showAsSummary={true} wrapHeight={100}>{newsStoryDict.content}</NewsContent>)}
+            </div>
+            :
+            null
+          }
 
-          <h1>Introducing PHOEBE 2</h1>
+
+          <InteractiveGettingStarted/>
+
+          <Separator large={false} flip={false}/>
+        </Content>
+        <Content dark={true}>
+
+          <h1>Meet PHOEBE</h1>
 
           <div className="col-md-12">
             <p>PHOEBE is an eclipsing binary modeling code - reproducing and fitting light curve, radial velocity curves, and spectral line profiles of eclipsing systems.</p>
             <p>PHOEBE 2 is a completely rewritten version of the popular <Link to="/1.0">PHOEBE legacy suite</Link> that aims to provide better precision, <Link to="/docs/latest/physics">new physics</Link>, and modeling of <Link to="/docs/latest/datasets">additional observables</Link> - all with intuitive and powerful python package interfaces.</p>
+          </div>
+
+          <div className="col-md-12">
+            <p>Not sure whether to use PHOEBE 2 or PHOEBE 1 (legacy)?  Read this overview of the <Link to="/help/1vs2">differences between PHOEBE 1 and 2</Link>.</p>
           </div>
 
           <div className="col-md-12">
@@ -52,15 +70,20 @@ export class Home extends Component {
             </p>
           </div>
 
-          <div className="col-md-12">
-            <p>Not sure whether to use PHOEBE 2 or PHOEBE 1 (legacy)?  Read this overview of the <Link to="/help/1vs2">differences between PHOEBE 1 and 2</Link>.</p>
-          </div>
+
 
           <br/>
 
+          <Separator large={false} flip={true}/>
+        </Content>
+        <Content>
+
+          <h1>Why PHOEBE 2?</h1>
+
+
           <div className="row">
             <div className="col-md-4">
-              <h3>Better precision</h3>
+              <h3>Better Precision</h3>
               <p>PHOEBE 2 uses a new method for meshing surfaces and <Link to="/docs/latest/tutorials/eclipse/">handling eclipsing regions</Link> - allowing for high-precision modeling of eclipse events.</p>
             </div>
             <div className="col-md-4">

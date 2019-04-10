@@ -227,6 +227,12 @@ code {
   border-width: 1.2px;
 }
 
+.btn-transparent-light {
+  border-color: #D6D6D6 !important;
+  background-color: transparent;
+  /* color: #D6D6D6 !improtat; */
+}
+
 /* BOOSTRAP ALERTS */
 
 .alert-danger{
