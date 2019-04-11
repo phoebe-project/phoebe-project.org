@@ -109,17 +109,17 @@ export class InteractiveGettingStarted extends Component {
           <PythonPrompt>b.run_compute()</PythonPrompt>
           <PythonPrompt>b.plot({this.state.optionPhase ? "x='phases', " : null}show=True)</PythonPrompt>
 
-          {this.state.optionTeff || window.innerHeight < 800 ?
+          {this.state.optionTeff || window.innerHeight < 700 ?
             null
             :
             <br/>
           }
-          {this.state.optionQ || window.innerHeight < 800 ?
+          {this.state.optionQ || window.innerHeight < 700 ?
             null
             :
             <br/>
           }
-          {this.state.optionRV || window.innerHeight < 800 ?
+          {this.state.optionRV || window.innerHeight < 700 ?
             null
             :
             <br/>

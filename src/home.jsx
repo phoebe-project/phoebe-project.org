@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Separator, Link} from './common';
+import {Content, Separator, Link, getLatestPatchVersion} from './common';
 import {HeaderIndex} from './header';
 import {Footer} from './footer';
 import {newsStoriesDicts, NewsContent} from './news';
@@ -28,6 +28,8 @@ export class Home extends Component {
       }
     });
 
+    var version_latest_long = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
+
     return (
       <div>
         <Helmet>
@@ -44,6 +46,16 @@ export class Home extends Component {
           }
 
 
+          <div style={{padding: "20px", maxWidth: "800px", margin: "0px auto", textAlign: "center"}}>
+            <pre style={{backgroundColor: "white", border: "none", fontSize: "20px", textAlign: "center", padding: "0px", margin: "0px"}}>
+              pip install phoebe
+            </pre>
+            <span>latest release: <Link to="/releases/latest">PHOEBE {version_latest_long}</Link></span>
+            <br/>
+            <span><Link to="/install">full installation instructions</Link></span>
+          </div>
+
+
           <InteractiveGettingStarted/>
 
           <Separator large={false} flip={false}/>
@@ -52,58 +64,57 @@ export class Home extends Component {
 
           <h1>Meet PHOEBE</h1>
 
-          <div className="col-md-12">
-            <p>PHOEBE is an eclipsing binary modeling code - reproducing and fitting light curve, radial velocity curves, and spectral line profiles of eclipsing systems.</p>
-            <p>PHOEBE 2 is a completely rewritten version of the popular <Link to="/1.0">PHOEBE legacy suite</Link> that aims to provide better precision, <Link to="/docs/latest/physics">new physics</Link>, and modeling of <Link to="/docs/latest/datasets">additional observables</Link> - all with intuitive and powerful python package interfaces.</p>
+          <div className="row">
+            <div className="col-md-12">
+              <p>PHOEBE is an eclipsing binary modeling code - reproducing and fitting light curves, radial velocity curves, and spectral line profiles of eclipsing systems.</p>
+              <p>PHOEBE 2 is a completely rewritten version of the popular <Link to="/1.0">PHOEBE legacy suite</Link> that aims to provide improved precision, <Link to="/docs/latest/physics">new advanced physics</Link>, and modeling of <Link to="/docs/latest/datasets">additional observables</Link> - all with an intuitive and powerful python package interface.</p>
+            </div>
+
+            <div className="col-md-12">
+              <p>Not sure whether to use PHOEBE 2 or PHOEBE 1 (legacy)?  Read this overview on a <Link to="/help/1vs2">comparison between PHOEBE 1 and 2</Link> or go to the main <Link to="/1.0">PHOEBE 1 (legacy) landing page</Link>.</p>
+            </div>
+
+            <div className="col-md-12">
+              <p>PHOEBE is written by an international team of <Link to="/help/devel">professional astronomers</Link>, and is completely <Link to="/source">open-source</Link>, under a <Link hideExternal={true} to="https://github.com/phoebe-project/phoebe2/blob/master/LICENSE.md">GPL v3 License</Link>.</p>
+              <p>Feel free to <Link to="/install">download and install</Link> the latest version of PHOEBE (or any of the <Link to="/releases">previous releases</Link>) and then follow the <Link to="/docs/latest/tutorials">tutorials</Link>.  If (or when) you get stuck, refer to the <Link to="/docs">documentation</Link>, or always feel free to <Link to="/help/contact">contact us</Link>.</p>
+              <p>
+                If you want to try PHOEBE before installing, feel free to jump into the <Link to="/quickstart"><span className="far fa-fw fa-play-circle"></span> PHOEBE {docs_versions[0]} Quickstart</Link>.
+                You can also run any of the <Link to="/docs/latest/tutorials">tutorials</Link> or <Link to="/docs/latest/examples">example scripts</Link> by clicking the link in the upper-left corner.
+              </p>
+            </div>
           </div>
 
-          <div className="col-md-12">
-            <p>Not sure whether to use PHOEBE 2 or PHOEBE 1 (legacy)?  Read this overview of the <Link to="/help/1vs2">differences between PHOEBE 1 and 2</Link>.</p>
-          </div>
-
-          <div className="col-md-12">
-            <p>PHOEBE is written by an international team of <Link to="/help/devel">professional astronomers</Link>, and is completely <Link to="/source">open-source</Link>.</p>
-            <p>Feel free to <Link to="/install">download and install</Link> the latest version of PHOEBE (or any of the <Link to="/releases">previous releases</Link>) and then follow the <Link to="/docs/latest/tutorials">tutorials</Link>.  If (or when) you get stuck, refer to the <Link to="/docs">documentation</Link>, or always feel free to <Link to="/help/contact">contact us</Link>.</p>
-            <p>
-              If you want to try PHOEBE before installing, feel free to jump into the <Link to="/quickstart"><span className="far fa-fw fa-play-circle"></span> PHOEBE {docs_versions[0]} Quickstart</Link>.
-              You can also run any of the <Link to="/docs/latest/tutorials">tutorials</Link> or <Link to="/docs/latest/examples">example scripts</Link> by clicking the link in the upper-left corner.
-            </p>
-          </div>
-
-
-
-          <br/>
 
           <Separator large={false} flip={true}/>
         </Content>
         <Content>
 
-          <h1>Why PHOEBE 2?</h1>
+          <h1>Features &amp; Capabilities</h1>
 
 
           <div className="row">
             <div className="col-md-4">
-              <h3>Better Precision</h3>
-              <p>PHOEBE 2 uses a new method for meshing surfaces and <Link to="/docs/latest/tutorials/eclipse/">handling eclipsing regions</Link> - allowing for high-precision modeling of eclipse events.</p>
+              <h3>Improved Precision</h3>
+              <p>PHOEBE 2 uses a new method for meshing surfaces and <Link to="/docs/latest/tutorials/eclipse/">handling eclipsing regions</Link> - allowing for high-precision modeling of eclipse events.  PHOEBE also includes full <Link to="/docs/latest/tutorials/atm_passbands">atmosphere and passband</Link>, <Link to="/docs/latest/tutorials/limb_darkening">limb-darkening</Link> and <Link to="/docs/latest/tutorials/gravb_bol">gravity brightening/darkening</Link> support.</p>
             </div>
             <div className="col-md-4">
-              <h3>New Physics</h3>
-              <p>PHOEBE 2 allows for new <Link to="/docs/latest/physics">physics</Link> to be included in your model.  Many of these features are currently still being tested.</p>
+              <h3>Advanced Physics</h3>
+              <p>PHOEBE 2 allows for advanced <Link to="/docs/latest/physics">physics effects</Link> to be included in your model.  We're currently working on implementing more advanced physics into the model in future releases.</p>
 
-              <Expander expandText="List new physics">
+              <Expander expandText="List advanced physics">
                 <ul>
                   <li><Link to="/docs/latest/tutorials/beaming_boosting">Doppler boosting/beaming</Link></li>
                   <li><Link to="/docs/latest/examples/sun">Single rotating stars</Link></li>
                   <li><Link to="/docs/latest/tutorials/ltte">Rømer and Light Travel Time Effects (ltte)</Link></li>
                   <li><Link to="/docs/latest/tutorials/irrad_method_horvat">Irradiation with Lambert Scattering</Link></li>
                   <li><Link to="/docs/latest/tutorials/pitch_yaw">Spin-orbit misalignment</Link> (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
-                  <li><b>Coming soon:</b> Reddening and Extinction</li>
+                  <li><b>Coming Soon:</b> Reddening and Extinction</li>
                   {/* <li><b>Coming soon:</b> Reflection with heat redistribution</li> */}
-                  <li><b>Coming soon:</b> Pulsations (spherical and oblique)</li>
+                  <li><b>Coming Soon:</b> Pulsations (spherical and oblique)</li>
                   {/* <li><b>Coming soon:</b> Differential Rotation</li> */}
                   {/* <li><b>Coming soon:</b> Magnetic Fields</li> */}
                   {/* <li><b>Coming soon:</b> Rings/Accretion Disks</li> */}
-                  <li><b>Coming soon:</b> Hierarchical Multiple Systems</li>
+                  <li><b>Coming Soon:</b> Hierarchical Multiple Systems</li>
                 </ul>
               </Expander>
 
@@ -112,7 +123,7 @@ export class Home extends Component {
 
             <div className="col-md-4">
               <h3>Additional Observables</h3>
-              <p>PHOEBE 2 now has the capability of modeling a large range of multiple <Link to="/docs/latest/datasets">observable types</Link>, all of which can be included while fitting your model to available data.</p>
+              <p>PHOEBE 2 has the capability of modeling a large range of multiple <Link to="/docs/latest/datasets">observable types</Link>, all of which can be included while fitting your model to available data.</p>
 
               <Expander expandText="List observables">
                 <ul>
@@ -125,7 +136,7 @@ export class Home extends Component {
                   <li><b>Coming soon:</b> Polarimetry</li>
                   <li><b>Coming soon:</b> Interferometry</li>
                   <li><b>Coming soon:</b> Astrometry</li> */}
-                  <li><b>Coming soon:</b> Eclipse Timing Variations</li>
+                  <li><b>Coming Soon:</b> Eclipse Timing Variations</li>
                 </ul>
               </Expander>
             </div>
@@ -134,14 +145,14 @@ export class Home extends Component {
           <div className="row">
             <div className="col-md-4">
               <h3>Parallelization</h3>
-              <p>As of the <Link to="/releases/2.1">2.1 release</Link>, PHOEBE 2 support parallelization via MPI.</p>
+              <p>As of the <Link to="/releases/2.1">2.1 release</Link>, PHOEBE 2 supports parallelization via MPI.</p>
               <p><b>Coming Soon:</b> eventually PHOEBE will also be parallelized at the fitting level with support for submitting a computational job with a scheduler directly from the frontend interface.</p>
 
               <Expander expandText="List supported types">
                 <ul>
                   <li><Link to="http://mpi4py.scipy.org/">mpi4py</Link> (see <Link to="/docs/latest/api/phoebe.mpi_on">phoebe.mpi_on API docs</Link>)</li>
-                  <li><b>Coming soon:</b> <Link to="http://www.adaptivecomputing.com/products/open-source/torque/">torque</Link></li>
-                  <li><b>Coming soon:</b> <Link to="https://computing.llnl.gov/linux/slurm/">slurm</Link></li>
+                  <li><b>Coming Soon:</b> <Link to="http://www.adaptivecomputing.com/products/open-source/torque/">torque</Link></li>
+                  <li><b>Coming Soon:</b> <Link to="https://computing.llnl.gov/linux/slurm/">slurm</Link></li>
                 </ul>
               </Expander>
             </div>
@@ -153,8 +164,10 @@ export class Home extends Component {
               <Expander expandText="List supported backends">
                 <ul>
                   <li><Link to="/docs/latest/examples/legacy/">PHOEBE 1.0 Legacy</Link> (Wilson-Devinney)</li>
-                  <li><b>Coming soon:</b> <Link to="http://www.astro.keele.ac.uk/jkt/codes/jktebop.html">jktebop</Link></li>
-                  <li><b>Coming soon:</b> Josh Carter's <Link to="https://github.com/dfm/photodynam">photodynam</Link></li>
+                  <li><b>Coming Soon:</b> John Southworth's <Link to="http://www.astro.keele.ac.uk/jkt/codes/jktebop.html">jktebop</Link></li>
+                  <li><b>Coming Soon:</b> Josh Carter's <Link to="https://github.com/dfm/photodynam">photodynam</Link></li>
+                  <li><b>Coming Soon:</b> Pierre Maxted's <Link to="https://github.com/pmaxted/ellc">ellc</Link></li>
+                  <li><b>Coming Soon:</b> Jerry Orosz's <Link to="https://ui.adsabs.harvard.edu/abs/2018AJ....156..297S">elc</Link></li>
                 </ul>
                 <p>Follow along with the <Link to="/docs/latest/tutorials/alternate_backends/">alternate backends tutorial</Link> for how to utilize these alternate backends.</p>
                 <p><Link to="/help/contact">Contact Us</Link> if you'd like another backend supported.</p>
@@ -163,11 +176,11 @@ export class Home extends Component {
 
             <div className="col-md-4">
               <h3>Interface with Fitting Routines</h3>
-              <p><b>Coming soon:</b> PHOEBE 2 will include wrappers that interface directly with many off-the-shelf fitting routines.</p>
+              <p><b>Coming Soon:</b> PHOEBE 2 will include wrappers that interface directly with many off-the-shelf fitting routines.</p>
 
               <Expander expandText="List fitting routines">
                 <ul>
-                  <li><b>Coming soon:</b> <Link to="http://dan.iel.fm/emcee">emcee</Link> (MCMC)</li>
+                  <li><b>Coming Soon:</b> <Link to="http://dan.iel.fm/emcee">emcee</Link> (MCMC)</li>
                   <li>
                       <Link to="http://lmfit.github.io/lmfit-py/">lmfit</Link>
                       <ul>
@@ -175,13 +188,13 @@ export class Home extends Component {
                           <li>Nelder-Mead</li>
                       </ul>
                   </li>
-                  <li><b>Coming soon:</b> <Link to="http://pymc-devs.github.io/pymc/">pymc</Link></li>
-                  <li><b>Coming soon:</b> <Link to="http://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/">minuit</Link></li>
+                  <li><b>Coming Soon:</b> <Link to="http://pymc-devs.github.io/pymc/">pymc</Link></li>
+                  <li><b>Coming Soon:</b> <Link to="http://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/">minuit</Link></li>
                 </ul>
                 <p>as well as several built into PHOEBE iteslf:</p>
                 <ul>
-                  <li><b>Coming soon:</b> grid search</li>
-                  <li><b>Coming soon:</b> differential corrections</li>
+                  <li><b>Coming Soon:</b> grid search</li>
+                  <li><b>Coming Soon:</b> differential corrections</li>
                 </ul>
               </Expander>
             </div>
@@ -200,8 +213,46 @@ export class Home extends Component {
             </div>
           </div> */}
 
-
+          {/* <Separator large={false} flip={false}/> */}
         </Content>
+        {/* <Content dark={true}>
+          <h1>Getting Started</h1>
+          <div className="row">
+            <div className="col-md-4">
+              <h3>Install</h3>
+              <pre>
+                $ pip install numpy phoebe
+              </pre>
+              or see the full <Link to="/install">installation instructions</Link>.
+            </div>
+
+            <div className="col-md-4">
+              <h3>Import</h3>
+              <pre>
+                >>> import phoebe
+                <br/>
+                >>> b=phoebe.default_binary()
+              </pre>
+              or try the <Link to="/quickstart"><span className="far fa-fw fa-play-circle"></span> PHOEBE {docs_versions[0]} Quickstart</Link>.
+            </div>
+
+            <div className="col-md-4">
+              <h3>Learn</h3>
+
+            </div>
+          </div>
+
+          <Separator large={false} flip={true}/>
+        </Content> */}
+        {/* <Content>
+
+          <h1>Community</h1>
+
+
+          <h1>Sponsors</h1>
+
+        </Content> */}
+
         <Footer />
 
       </div>

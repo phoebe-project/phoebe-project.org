@@ -91,7 +91,7 @@ class App extends Component {
           <Navbar />
 
           <Switch>
-            <Route exact path={process.env.PUBLIC_URL + '/'} component={Home}/>
+            <Route exact path={process.env.PUBLIC_URL + '/'} render={(props) => <Home {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/releases'} render={(props) => <Releases {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/releases/:version/'} render={(props) => <ReleaseVersion {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/quickstart'} component={Quickstart}/>
