@@ -246,26 +246,25 @@ export class ContributeDevelopment extends Component {
             <li>Update versioning information in setup.py and __init__.py and add changelog entry to README.md, commit to bugfix branch.</li>
             <li>Merge master into the branch if necessary (probably only if working on multiple bugfixes simultaneously).</li>
             <li>Open pull-request from the bugfix branch into master.</li>
-            <li>Confirm all CI tests pass on Travis.</li>
+            <li>Confirm all CI tests pass on Travis, both in the bugfix branch and the PR.</li>
             <li>Close pull-request by squashing if a single author, or merge commit otherwise.  Make sure to link to and close any relevant issues that the bugfix addresses.</li>
             <li>Create and tag release on GitHub.</li>
-            <li>Merge master into development and any other active branches.</li>
+            <li>Merge master into development and any other active branches, merging in the changes to the readme, but leaving the version at 'devel'.</li>
             <li>See below for instructions on publishing to pip.</li>
           </ul>
 
           <p>Feature releases:</p>
           <ul>
             <li>All feature release or bug release development should be done in their own independent <Link to="#branches">branch</Link> off of development.</li>
-            <li>Merge development into the feature branch.</li>
-            <li>Branch development into a release-2.X branch.</li>
-            <li>Update versioning information in setup.py and __init__.py and add changelog entry to README.md, commit to release-2.X branch.</li>
+            <li>Merge development (which should already include everything in master) into the feature/release branch (can create a new release-2.x branch if desired).</li>
+            <li>Update versioning information in setup.py and __init__.py and add changelog entry to README.md, commit to feature/release branch.</li>
             <li>Create and prepare a 2.X branch on phoebe2-docs: update/rerun all tutorials, add migration tutorials, update API docs, etc.</li>
-            <li>Open pull-request from release-2.X into master.</li>
-            <li>Confirm all CI tests pass on Travis.</li>
+            <li>Open pull-request from feature/release into master.</li>
+            <li>Confirm all CI tests pass on Travis, both on the feature/release and the PR.</li>
             <li>Close pull-request via a merge commit.</li>
             <li>Create and tag release on GitHub.</li>
             <li>Prepare release entry on website, see <Link to="https://github.com/phoebe-project/phoebe-project.org#releasing-a-new-version-of-phoebe">instructions here</Link>.</li>
-            <li>Merge master into development and any other active branches.</li>
+            <li>Merge master into development and any other active branches, merging in the changes to the readme, but leaving the version at 'devel'.</li>
             <li>See below for instructions on publishing to pip.</li>
           </ul>
 
