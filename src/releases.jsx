@@ -46,15 +46,30 @@ export class Releases extends Component {
 
         </Header>
         <Content>
-          <div className="col-md-12">
-            <p>
-              The first version of PHOEBE (<Link to="/releases/legacy">0.20</Link>) was officially released in 2003.
-              Development on the 2.X versions of PHOEBE began in 2011, with the <Link to="/releases/2.0">2.0 version</Link> finally released in 2017.
-              Since then, the <Link to="/help/devel">development team</Link> has been working on incorporating new features into the code.
-              The latest available version is currently <Link to={"/releases/"+docs_versions[0]}>PHOEBE {latest_patch_version}</Link>.
-              Below is a reverse-chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
-            </p>
-            <p>Not sure whether to use PHOEBE 2 or PHOEBE 1 (legacy)?  Read this overview of the <Link to="/help/1vs2">differences between PHOEBE 1 and 2</Link>.</p>
+          <div className="hidden-xs" style={{display: "flex", justifyContent: "space-between"}}>
+            <span/>
+            <div style={{marginRight: "-40px"}}>
+              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+            </div>
+          </div>
+
+          <div className="row visible-xs">
+            <div style={{paddingLeft: "15px"}}>
+              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className="col-md-12">
+              <p>
+                The first version of PHOEBE (<Link to="/releases/legacy">0.20</Link>) was officially released in 2003.
+                Development on the 2.X versions of PHOEBE began in 2011, with the <Link to="/releases/2.0">2.0 version</Link> finally released in 2017.
+                Since then, the <Link to="/help/devel">development team</Link> has been working on incorporating new features into the code.
+                The latest available version is currently <Link to={"/releases/"+docs_versions[0]}>PHOEBE {latest_patch_version}</Link>.
+                Below is a reverse-chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
+              </p>
+              <p>Not sure whether to use PHOEBE 2 or PHOEBE 1 (legacy)?  Read this overview of the <Link to="/help/1vs2">differences between PHOEBE 1 and 2</Link>.</p>
+            </div>
           </div>
         </Content>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
@@ -200,21 +215,21 @@ class ReleaseContent extends Component {
             <Image src={"/logos/"+logo} className={this.props.version!=='legacy' ? "img-handle-invert" : null} width="128"/>
           </div>
           <div className="col-md-10">
-            <div className="row" style={{marginTop: 0}}>
+            <div style={{marginTop: 0}}>
               <Link to={"/install/"+this.props.version+"/"}><span className="fa fa-fw fa-download"></span> Install PHOEBE {this.props.version}</Link>
             </div>
-            <div className="row" style={{marginTop: 0}}>
+            <div style={{marginTop: 0}}>
               <Link to={"/docs/"+this.props.version+"/"}><span className="fa fa-fw fa-book-open"></span> Read PHOEBE {this.props.version} docs</Link>
             </div>
             {quickstart ?
-              <div className="row" style={{marginTop: 0}}>
+              <div style={{marginTop: 0}}>
                 <Link to={"/quickstart/"+this.props.version}><span className="far fa-fw fa-play-circle"></span> PHOEBE {this.props.version} Quickstart</Link>
               </div>
               :
               null
             }
             {publicationLink!==null ?
-              <div className="row" style={{marginTop: 0}}>
+              <div style={{marginTop: 0}}>
                 <Link to={publicationLink}> <span className="fas fa-fw fa-copy"></span> {releasePaper}</Link>
               </div>
               :
@@ -222,7 +237,7 @@ class ReleaseContent extends Component {
             }
 
 
-            <div className="row">
+            <div style={{paddingTop: "15px"}}>
               {content}
 
               <br/><br/>

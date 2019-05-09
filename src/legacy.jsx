@@ -15,57 +15,72 @@ export class LegacyIntro extends Component {
         </Helmet>
         <HeaderLegacy/>
         <Content>
-          <em>Note: the legacy version of PHOEBE (0.x and 1.0) is no longer actively developed. The code is still maintained and any problems should be reported.
-          Users starting from scratch should consider using <Link to="/releases">PHOEBE 2</Link> instead.</em>
+          <h1 style={{display: "flex", justifyContent: "space-between"}}>PHOEBE Legacy
+            <div className="hidden-xs" style={{marginRight: "-40px"}}>
+              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe1&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+            </div>
+          </h1>
 
-          <br/><br/>
+          <div className="row visible-xs">
+            <div style={{paddingLeft: "15px"}}>
+              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe1&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+            </div>
+          </div>
 
-          <strong>PHOEBE</strong> stands for <strong>PH</strong>ysics <strong>O</strong>f <strong>E</strong>clipsing <strong>B</strong>inari<strong>E</strong>s.
-          It is a tool for the modeling of eclipsing binary stars based on real photometric and spectroscopic (radial velocity) data.
+          <div className="row">
+            <div className="col-sm-12">
+              <em>Note: the legacy version of PHOEBE (0.x and 1.0) is no longer actively developed. The code is still maintained and any problems should be reported.
+              Users starting from scratch should consider using <Link to="/releases">PHOEBE 2</Link> instead.</em>
 
-          <br/><br/>
+              <br/><br/>
 
-          PHOEBE 1.0 (legacy) is based on the <Link to="ftp://ftp.astro.ufl.edu/pub/wilson"><strong>Wilson-Devinney (WD)</strong></Link> code.
+              <strong>PHOEBE</strong> stands for <strong>PH</strong>ysics <strong>O</strong>f <strong>E</strong>clipsing <strong>B</strong>inari<strong>E</strong>s.
+              It is a tool for the modeling of eclipsing binary stars based on real photometric and spectroscopic (radial velocity) data.
 
-          The suite consists of three parts:<br/><br/>
+              <br/><br/>
 
-          <ul>
-            <li>
-              <strong>The library: <code>phoebe-lib</code></strong> <br/>
+              PHOEBE 1.0 (legacy) is based on the <Link to="ftp://ftp.astro.ufl.edu/pub/wilson"><strong>Wilson-Devinney (WD)</strong></Link> code.
 
-              This is PHOEBE's scientific and computational core. It contains functions and algorithms that are used for eclipsing binary modeling. It is not a stand-alone application.
-              <em> As such, it cannot be run, nor can it be used in any direct fashion. </em> For interaction with the user a driver is needed.
-              Provided are three drivers: the GUI, the scripter, and the python wrapper. These are the interfaces between the user and the library.
-              If you wish to write your own driver, the library is all you need.
-            </li>
-            <li>
-              <strong>The graphical user interface: <code>phoebe-gui</code></strong> <br/>
+              The suite consists of three parts:<br/><br/>
 
-              The most straight-forward and intuitive way to start using PHOEBE is through a graphical user interface (GUI). It is a heavily structured
-              interface for setting parameter values, plotting light and radial velocity curves, invoking the minimizer and reviewing model results.
-              The GUI is suited particularly well for analyzing single objects.
-            </li>
-            <li>
-              <strong>The scripter: <code>phoebe-scripter</code></strong> <br/>
+              <ul>
+                <li>
+                  <strong>The library: <code>phoebe-lib</code></strong> <br/>
 
-              This is a terminal-based driver that features a full-fledged scripting language developed especially for PHOEBE. It comes with a somewhat steeper learning curve,
-              to the benefit of flexibility and the power of scripting.  The scripter may prove useful to users with at least superficial experience in working with the GUI and
-              eclipsing binaries in general. It is suited well for statistical tests and the analyses of larger data-sets.
-            </li>
+                  This is PHOEBE's scientific and computational core. It contains functions and algorithms that are used for eclipsing binary modeling. It is not a stand-alone application.
+                  <em> As such, it cannot be run, nor can it be used in any direct fashion. </em> For interaction with the user a driver is needed.
+                  Provided are three drivers: the GUI, the scripter, and the python wrapper. These are the interfaces between the user and the library.
+                  If you wish to write your own driver, the library is all you need.
+                </li>
+                <li>
+                  <strong>The graphical user interface: <code>phoebe-gui</code></strong> <br/>
 
-            <li>
-              <strong>The python wrapper: <code>phoebe-py</code></strong> <br/>
+                  The most straight-forward and intuitive way to start using PHOEBE is through a graphical user interface (GUI). It is a heavily structured
+                  interface for setting parameter values, plotting light and radial velocity curves, invoking the minimizer and reviewing model results.
+                  The GUI is suited particularly well for analyzing single objects.
+                </li>
+                <li>
+                  <strong>The scripter: <code>phoebe-scripter</code></strong> <br/>
 
-              For python enthusiasts, the forward model of PHOEBE is wrapped into python. It supports core functions: computing light curves, radial velocity curves and
-              cost functions. The wrapper is used predominantly for Markov Chain Monte Carlo sampling of the parameter space and probabilistic analysis.
-            </li>
-          </ul>
+                  This is a terminal-based driver that features a full-fledged scripting language developed especially for PHOEBE. It comes with a somewhat steeper learning curve,
+                  to the benefit of flexibility and the power of scripting.  The scripter may prove useful to users with at least superficial experience in working with the GUI and
+                  eclipsing binaries in general. It is suited well for statistical tests and the analyses of larger data-sets.
+                </li>
 
-          <br/>
-          PHOEBE is and will always be free: both free of charge and free in a sense that you may re-use its code in any way you see fit, for as long as your product remains free,
-          released under the <Link to="/1.0/gpl">General Public License</Link>. However, please think of PHOEBE as postcardware - if you want to express symbolic recognition and
-          stimulate further PHOEBE development, please send a postcard to the <Link to="/help/devel">developers</Link>!
+                <li>
+                  <strong>The python wrapper: <code>phoebe-py</code></strong> <br/>
 
+                  For python enthusiasts, the forward model of PHOEBE is wrapped into python. It supports core functions: computing light curves, radial velocity curves and
+                  cost functions. The wrapper is used predominantly for Markov Chain Monte Carlo sampling of the parameter space and probabilistic analysis.
+                </li>
+              </ul>
+
+              <br/>
+              PHOEBE is and will always be free: both free of charge and free in a sense that you may re-use its code in any way you see fit, for as long as your product remains free,
+              released under the <Link to="/1.0/gpl">General Public License</Link>. However, please think of PHOEBE as postcardware - if you want to express symbolic recognition and
+              stimulate further PHOEBE development, please send a postcard to the <Link to="/help/devel">developers</Link>!
+            </div>
+          </div>
         </Content>
       </div>
     );
