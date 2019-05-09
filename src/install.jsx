@@ -373,7 +373,12 @@ export class Install extends Component {
 
             </div>
             :
-            null
+            <div>
+              <h2 ref={this.refdeps}></h2>
+              <h2 ref={this.refpip}></h2>
+              <h2 ref={this.refsource}></h2>
+              <h2 ref={this.reftesting}></h2>
+            </div>
           }
         <VersionSwitcherContainer>
           <VersionSwitcher titleLong="Python:" titleShort="Py:" version={version_py.slice(-1)} versions={versions_py} versionLinks={versions_py.map(version_py => "/install/"+version+"/"+version_os+"/"+version_py)}/>
