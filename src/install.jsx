@@ -174,7 +174,8 @@ export class Install extends Component {
 
           {OSName === 'windows' ?
             <Alert level="danger">
-              <p>PHOEBE is not yet officially supported on Windows.  If you're interested in helping port and test PHOEBE on Windows, please <Link to="/help/contact">contact us</Link>.  Or see instructions for installing on <Link to={"/install/"+version+"/linux/"+version_py}>Linux</Link> or <Link to={"/install/"+version+"/mac/"+version_py}>MacOS</Link>.</p>
+              <p>PHOEBE is not yet officially supported on Windows.  If you're running Windows 10 and use "Windows Subsystem for Linux", you should be able to successfully install PHOEBE there by following the <Link to={"/install/"+version+"/linux/"+version_py}>Linux installation instructions</Link>.</p>
+              <p>If you're interested in helping port and test PHOEBE on Windows, please <Link to="/help/contact">contact us</Link>.  Or see instructions for installing on <Link to={"/install/"+version+"/linux/"+version_py}>Linux</Link> or <Link to={"/install/"+version+"/mac/"+version_py}>MacOS</Link>.</p>
             </Alert>
             :
             null
