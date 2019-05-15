@@ -93,23 +93,10 @@ export class Link extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      downloadContent: null,
       href: null,
     };
   }
   componentDidMount() {
-    if (this.props.downloadFilename) {
-      fetch(processLink(this.props.to))
-        .catch(() => this.setState({content: null}))
-        .then(res => {
-          if (res.ok) {
-            return res.text();
-          } else {
-            return null;
-          }
-        })
-        .then(content => this.setState({downloadContent: content}))
-      }
   }
   render() {
     var to = processLink(this.props.to)
@@ -118,21 +105,13 @@ export class Link extends Component {
     }
 
     if (to.startsWith("http") || to.startsWith("ftp")) {
-      if (this.props.downloadFilename) {
-        if (this.state.downloadContent) {
-          return (
-            <a {...this.props} href={"data:text/plain,"+this.state.downloadContent} type="text/x-python" download={this.props.downloadFilename}><span className="fas fa-fw fa-file-download"></span> {this.props.children}</a>
-          )
-        } else {
-          return (
-            <p style={{display: "inline"}}>{this.props.children}</p>
-          )
-        }
-      } else {
-        return (
-          <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-fw fa-external-link-alt"> </span>}{this.props.children}</a>
-        )
+      var icon = 'fa-external-link-alt';
+      if (to.endsWith("py") || to.endsWith("ipynb")) {
+        icon = 'fa-file-download';
       }
+      return (
+        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className={"fas fa-fw "+icon}> </span>}{this.props.children}</a>
+      )
     } else if (to.startsWith(process.env.PUBLIC_URL) || to.startsWith("/static/")) {
       return (
         <a {...this.props} href={to}>{this.props.children}</a>

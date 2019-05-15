@@ -34,6 +34,10 @@ export class GitHubContent extends Component {
       var contentURL = "https://github.com/phoebe-project/"+repo+"/blob/"+branch+"/"+path
       var contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
       var contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
+      if (repo === 'phoebe2-docs' && (path.endsWith(".py") || path.endsWith(".ipynb"))) {
+        var contentURLRawDir = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
+        var contentURLRaw = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path
+      }
 
       var contentType = null;
       var extension = path.split('.').slice(-1)[0];
@@ -98,10 +102,10 @@ export class GitHubContent extends Component {
 
         // ok... this is a bit hardcoded to our specific situation.  Probably should handle this with a callback of some sort
         dl_html = <div>
-                    <Link to={this.state.contentURLRaw} downloadFilename={slug+".ipynb"}>Download IPython Notebook: {slug}.ipynb</Link>
+                    <Link to={this.state.contentURLRaw}>Download IPython Notebook: {slug}.ipynb</Link>
                     &nbsp;(<Link to={"/help/ipynb"}>ipynb help</Link>)
                     <br/>
-                    <Link to={this.state.contentURLRaw.split(slug+".ipynb")[0]+"/py/"+slug+".py"} downloadFilename={slug+".py"}>Download Python Script: {slug}.py</Link>
+                    <Link to={this.state.contentURLRaw.split(".ipynb")[0]+".py"}>Download Python Script: {slug}.py</Link>
                     <br/>
                     <Link to={"https://colab.research.google.com/github/phoebe-project/"+this.props.repo+"/blob/"+this.props.branch+"/"+this.props.path} hideExternal={true}><span className="far fa-fw fa-play-circle"></span> Open in Colab live-session</Link>
                     &nbsp;(<Link to={"/quickstart/"+this.props.branch}>colab help</Link>)

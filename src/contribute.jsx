@@ -325,7 +325,7 @@ export class ContributeDevelopment extends Component {
           </p>
 
           <ul>
-            <li>master: the master branch is intentionally left blank with a README explaining the branch structure.</li>
+            <li>master: the master branch is intentionally left blank (except for built .py and .ipynb files hosted by GitHub pages) with a README explaining the branch structure.</li>
             <li>2.0, 2.1, etc: a branch exists for each version of PHOEBE 2.  It is important when making changes to tutorials, etc, to commit and push to all applicable branches.  This way we can keep the documentation for older releases current.</li>
             <li>development, etc: branches can exist in the phoebe2-docs repository that correspond to branches (particularly feature branches) in the main phoebe2 repository.  These exist to prepare documentation for future releases (without knowing the release number yet).</li>
           </ul>
