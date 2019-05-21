@@ -29,7 +29,7 @@ export var newsStoriesDicts = [
               </p>
               <p>
                 Kind regards,<br/>
-                The <Link to="/help/devel">PHOEBE team</Link>
+                The <Link to="/development-team">PHOEBE team</Link>
               </p>
             </div>
   },
@@ -127,7 +127,7 @@ export var newsStoriesDicts = [
               </p>
               <p>
                 Kind regards,<br/>
-                The <Link to="/help/devel">PHOEBE team</Link>
+                The <Link to="/development-team">PHOEBE team</Link>
               </p>
             </div>
   },
@@ -160,7 +160,7 @@ export var newsStoriesDicts = [
                 Although we have done our best to thoroughly test for this release, please submit any issues through github or, as always, feel free to email us with any problems.
               </p>
               <p>
-                The <Link to="/help/devel">PHOEBE development team</Link>
+                The <Link to="/development-team">PHOEBE development team</Link>
               </p>
             </div>
   },
@@ -181,7 +181,7 @@ export var newsStoriesDicts = [
                 <li><Link to="http://arxiv.org/abs/1609.08135">Release paper (submitted, arXiv)</Link></li>
               </ul>
               <p>
-                The <Link to="/help/devel">PHOEBE development team</Link>
+                The <Link to="/development-team">PHOEBE development team</Link>
               </p>
             </div>
   },
@@ -212,7 +212,7 @@ export var newsStoriesDicts = [
     content: <div>
               <p>
                 This week (13-17 April 2015) a binary workshop is being organised in Leuven (BE) in the framework of the SpaceInn project (<Link to="http://www.spaceinn.eu">http://www.spaceinn.eu</Link>).
-                From our <Link to="/help/devel">devel team</Link>, Kyle Conroy, Angela Kochoska, Jonas Debosscher and Steven Bloemen are present to train the participants to use Phoebe 2.0 to model binary star light curves and radial velocity curves.
+                From our <Link to="/development-team">devel team</Link>, Kyle Conroy, Angela Kochoska, Jonas Debosscher and Steven Bloemen are present to train the participants to use Phoebe 2.0 to model binary star light curves and radial velocity curves.
                 The tutorials and slides prepared by Kyle for this workshop are available below <b>(note: these will not be updated with changes to the frontend syntax.  Please see the frontend examples in the docs for up-to-date scripts)</b>:
               </p>
               <p>
@@ -283,7 +283,7 @@ export var newsStoriesDicts = [
                  Wishing you an enjoyable experience while taking the new PHOEBE for a spin!
                </p>
                <p>
-                 Your <Link to="/help/devel">PHOEBE development team</Link>
+                 Your <Link to="/development-team">PHOEBE development team</Link>
                </p>
             </div>
   },

@@ -18,7 +18,7 @@ export class Source extends Component {
         </Header>
         <Content>
           <div>
-            <p>All PHOEBE repositories are hosted on the <Link to="http://github.com/phoebe-project">phoebe-project GitHub page</Link>.  Below we list the major repositories under development by the <Link to="/help/devel">PHOEBE development team</Link>.</p>
+            <p>All PHOEBE repositories are hosted on the <Link to="http://github.com/phoebe-project">phoebe-project GitHub page</Link>.  Below we list the major repositories under development by the <Link to="/development-team">PHOEBE development team</Link>.</p>
           </div>
 
           <h2>PHOEBE 2 Repositories</h2>

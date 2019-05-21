@@ -69,7 +69,7 @@ export class Navbar extends Component {
               <li className="dropdown">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown" title="Help" style={navbarLinkStyle}><span className="fa fa-fw fa-question"></span> <span className="hidden-sm hidden-md">Help</span> <b className="caret"></b></a>
                 <ul className="dropdown-menu">
-                  <li><NavLink to="/help/devel" style={navbarLinkStyle} title="PHOEBE Development Team"><span className="fa fa-fw fa-users"></span> Development Team</NavLink></li>
+                  <li><NavLink to="/development-team" style={navbarLinkStyle} title="PHOEBE Development Team"><span className="fa fa-fw fa-users"></span> Development Team</NavLink></li>
                   <li><NavLink to="/help/contact" style={navbarLinkStyle} title="Mailing Lists & Contact Info"><span className="far fa-fw fa-envelope"></span> Mailing Lists</NavLink></li>
                   <li><NavLink to="/help/faq" style={navbarLinkStyle} title="Frequently Asked Questions"><span className="fa fa-fw fa-question"></span> FAQ</NavLink></li>
                   <li><NavLink to="/contribute/development-guide" style={navbarLinkStyle} title="Development Guide"><span className="fas fa-fw fa-microscope"></span> Development Guide</NavLink></li>

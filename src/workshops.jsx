@@ -36,7 +36,7 @@ export class Workshop extends Component {
           </Header>
           <Content>
             <p>
-              PHOEBE workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/help/devel">developers</Link> to learn what features and improvements can be made.
+              PHOEBE workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/development-team">developers</Link> to learn what features and improvements can be made.
               Generally these week-long workshops consist of a small group of participants and are organized to include both tutorial and short talks introducing the science and features implemented in the latest PHOEBE release as well as a sneak peak into features under development.
               These workshops have been made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>, the Villanova University College of Arts and Sciences Faculty Research and Development Grant, and the <Link to="https://www1.villanova.edu/villanova/artsci/astronomy.html">Villanova Department of Astrophysics and Planetary Sciences</Link>.
             </p>

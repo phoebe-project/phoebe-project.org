@@ -64,7 +64,7 @@ export class Releases extends Component {
               <p>
                 The first version of PHOEBE (<Link to="/releases/legacy">0.20</Link>) was officially released in 2003.
                 Development on the 2.X versions of PHOEBE began in 2011, with the <Link to="/releases/2.0">2.0 version</Link> finally released in 2017.
-                Since then, the <Link to="/help/devel">development team</Link> has been working on incorporating new features into the code.
+                Since then, the <Link to="/development-team">development team</Link> has been working on incorporating new features into the code.
                 The latest available version is currently <Link to={"/releases/"+docs_versions[0]}>PHOEBE {latest_patch_version}</Link>.
                 Below is a reverse-chronological list of the major releases of PHOEBE along with a description of the major (and sometimes minor) changes introduced in that release.
               </p>

@@ -78,7 +78,7 @@ export class LegacyIntro extends Component {
               <br/>
               PHOEBE is and will always be free: both free of charge and free in a sense that you may re-use its code in any way you see fit, for as long as your product remains free,
               released under the <Link to="/1.0/gpl">General Public License</Link>. However, please think of PHOEBE as postcardware - if you want to express symbolic recognition and
-              stimulate further PHOEBE development, please send a postcard to the <Link to="/help/devel">developers</Link>!
+              stimulate further PHOEBE development, please send a postcard to the <Link to="/development-team">developers</Link>!
             </div>
           </div>
         </Content>
