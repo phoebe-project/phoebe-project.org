@@ -33,6 +33,7 @@ export class GitHubContent extends Component {
     if (repo && path) {
       var contentURL = "https://github.com/phoebe-project/"+repo+"/blob/"+branch+"/"+path
       var contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
+      var contentURLRawDirImages = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
       var contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
       if (repo === 'phoebe2-docs' && (path.endsWith(".py") || path.endsWith(".ipynb"))) {
         var contentURLRawDir = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
@@ -66,7 +67,7 @@ export class GitHubContent extends Component {
             for (var i=0; i<content.cells.length; i++) {
               if (content.cells[i]['cell_type'] === 'markdown') {
                 for (var j=0; j<content.cells[i].source.length; j++) {
-                  content.cells[i].source[j] = content.cells[i].source[j].replace(/([a-z,_,0-9,-,\+]*).(gif|png)/, `${contentURLRawDir}/$1.$2`)
+                  content.cells[i].source[j] = content.cells[i].source[j].replace(/([a-z,_,0-9,-,\+]*).(gif|png)/, `${contentURLRawDirImages}/$1.$2`)
                 }
               }
             }
