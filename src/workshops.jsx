@@ -7,8 +7,9 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-var active_workshops = {"2019july": "July 2019, Villanova PA"};
-var archived_workshops = {"2018june": "June 2018, Villanova PA"};
+var upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
+var active_workshops = {"2019july": "July 2019, Villanova PA"}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
+var archived_workshops = {"2018june": "June 2018, Villanova PA"}; // WORKSHOP OVER
 
 export class Workshop extends Component {
   constructor(props) {
@@ -49,12 +50,23 @@ export class Workshop extends Component {
             <Separator large={false}/>
           </Content>
           <Content dark={true}>
-            <h2>Upcoming Workshops</h2>
+
             {Object.keys(active_workshops).length ?
-              <ul>{Object.keys(active_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
+              <div>
+                <h2>Current Workshops</h2>
+                <ul>{Object.keys(active_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
+              </div>
               :
-              <p>There are no currently planned workshops.  Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
+              <div>
+                <h2>Upcoming Workshops</h2>
+                {Object.keys(upcoming_workshops).length ?
+                  <ul>{Object.keys(upcoming_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{upcoming_workshops[slug]}</Link></li>)}</ul>
+                  :
+                  <p>There are no currently planned workshops.  Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
+                }
+              </div>
             }
+
             <Separator flip={true} large={false}/>
           </Content>
           <Content>
@@ -65,7 +77,9 @@ export class Workshop extends Component {
         </div>
       )
     } else if (Object.keys(active_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={true} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<WorkshopEntry active={true} upcoming={false} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+    } else if (Object.keys(upcoming_workshops).indexOf(this.state.workshop)!==-1) {
+      return(<WorkshopEntry active={true} upcoming={true} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else if (Object.keys(archived_workshops).indexOf(this.state.workshop)!==-1) {
       return(<WorkshopEntry active={false} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else {
@@ -76,7 +90,8 @@ export class Workshop extends Component {
 
 class WorkshopEntry extends Component {
   render() {
-    var active = this.props.active;
+    var active = this.props.active || false;
+    var upcoming = this.props.upcoming || false;
     var workshop = this.props.workshop
     var description = ''
     if (active) {
@@ -106,26 +121,48 @@ class WorkshopEntry extends Component {
           <h1>PHOEBE Workshop | {description}</h1>
 
              {active ?
-               <div className="row">
-                 <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                   <HeaderNavButton title="Rationale" description="Rationale" to={"/workshops/"+workshop+"/rationale"} icon="fas fa-scroll"/>
+               upcoming ?
+                 <div className="row">
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Rationale" description="Rationale" to={"/workshops/"+workshop+"/rationale"} icon="fas fa-scroll"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Registration" description="Registration" to={"/workshops/"+workshop+"/registration"} icon="fas fa-user-plus"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Important Dates" description="Important Dates" to={"/workshops/"+workshop+"/important_dates"} icon="far fa-calendar-alt"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Schedule" description="Schedule" to={"/workshops/"+workshop+"/schedule"} icon="fas fa-clipboard-list"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Committee" description="Organizing Committee" to={"/workshops/"+workshop+"/organizing_committee"} icon="fas fa-people-carry"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="At the Meeting" description="At the Meeting" to={"/workshops/"+workshop+"/at_the_meeting"} icon="fas fa-map-marker-alt"/>
+                   </div>
                  </div>
-                 <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                   <HeaderNavButton title="Registration" description="Registration" to={"/workshops/"+workshop+"/registration"} icon="fas fa-user-plus"/>
+                 :
+                 <div className="row">
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Rationale" description="Rationale" to={"/workshops/"+workshop+"/rationale"} icon="fas fa-scroll"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Important Dates" description="Important Dates" to={"/workshops/"+workshop+"/important_dates"} icon="far fa-calendar-alt"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Schedule" description="Schedule" to={"/workshops/"+workshop+"/schedule"} icon="fas fa-clipboard-list"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Committee" description="Organizing Committee" to={"/workshops/"+workshop+"/organizing_committee"} icon="fas fa-people-carry"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="At the Meeting" description="At the Meeting" to={"/workshops/"+workshop+"/at_the_meeting"} icon="fas fa-map-marker-alt"/>
+                   </div>
+                   <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                     <HeaderNavButton title="Materials" description="Materials" to={"/workshops/"+workshop+"/materials"} icon="far fa-file-alt"/>
+                   </div>
                  </div>
-                 <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                   <HeaderNavButton title="Important Dates" description="Important Dates" to={"/workshops/"+workshop+"/important_dates"} icon="far fa-calendar-alt"/>
-                 </div>
-                 <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                   <HeaderNavButton title="Schedule" description="Schedule" to={"/workshops/"+workshop+"/schedule"} icon="fas fa-clipboard-list"/>
-                 </div>
-                 <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                   <HeaderNavButton title="Committee" description="Organizing Committee" to={"/workshops/"+workshop+"/organizing_committee"} icon="fas fa-people-carry"/>
-                 </div>
-                 <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                   <HeaderNavButton title="At the Meeting" description="At the Meeting" to={"/workshops/"+workshop+"/at_the_meeting"} icon="fas fa-map-marker-alt"/>
-                 </div>
-               </div>
                :
                <div className="row">
                  <div className="col-md-4"></div>
