@@ -173,6 +173,7 @@ export class Publications extends Component {
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
 
+          <Publication author="Abdul-Masih et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019arXiv190601066A" title="Clues on the Origin and Evolution of Massive Contact Binaries: Atmosphere Analysis of VFTS 352"/>
           <Publication author="Kabath et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019arXiv190504665K" title="Detection limits of exoplanetary atmospheres with 2-m class telescopes"/>
           <Publication author="Jones et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2019MNRAS.482L..75J" title="The short orbital period binary star at the heart of the planetary nebula M 3-1★"/>
           <Publication author="Boffin et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2018A&A...619A..84B" title="When nature tries to trick us. An eclipsing eccentric close binary superposed on the central star of the planetary nebula M 3-2"/>
