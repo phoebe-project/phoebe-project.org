@@ -162,10 +162,10 @@ export class Button extends Component {
     if (!description) {
       description = this.props.title
     }
-    // var level = this.props.level || "primary"
+    var level = this.props.level || "primary"
 
     return (
-      <Link role="button" className="btn btn-primary" style={this.props.style} title={description} to={this.props.to} hideExternal={this.props.hideExternal || this.props.icon}><span className={this.props.icon}></span> {this.props.title}</Link>
+      <Link role="button" className={"btn btn-"+level} style={this.props.style} title={description} to={this.props.to} hideExternal={this.props.hideExternal || this.props.icon}><span className={this.props.icon}></span> {this.props.title}</Link>
     )
   }
 }

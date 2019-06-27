@@ -58,12 +58,13 @@ export class Navbar extends Component {
 
           <div className="collapse navbar-collapse">
             <ul className="nav navbar-nav">
-              <li><NavLink to="/releases" style={navbarLinkStyle} title="Releases"><span className="fa fa-fw fa-tags"></span> Releases</NavLink></li>
-              <li><NavLink to="/install" style={navbarLinkStyle} title="Download & Install"><span className="fa fa-fw fa-download"></span> <span>Install</span></NavLink></li>
-              <li><NavLink to="/docs" style={navbarLinkStyle} title="Documentation"><span className="fa fa-fw fa-book-open"></span> <span className="hidden-md hidden-sm">Documentation</span><span className="visible-md-inline-block visible-sm-inline-block">Docs</span></NavLink></li>
+              <li><NavLink to="/releases" style={navbarLinkStyle} title="Releases"><span className="fa fa-fw fa-tags"></span> <span className="hidden-sm">Releases</span></NavLink></li>
+              <li><NavLink to="/install" style={navbarLinkStyle} title="Download & Install"><span className="fa fa-fw fa-download"></span> <span className="hidden-sm">Install</span></NavLink></li>
+              {/* <li><NavLink to="/clients" style={navbarLinkStyle} title="Interactive Clients"><span className="fa fa-fs fa-desktop"></span> <span className="hidden-sm">Clients</span></NavLink></li> */}
+              <li><NavLink to="/docs" style={navbarLinkStyle} title="Documentation"><span className="fa fa-fw fa-book-open"></span> <span className="hidden-sm hidden-xs">Docs</span><span className="visible-xs-inline">Documentation</span></NavLink></li>
               <li><NavLink to="/news" style={navbarLinkStyle} title="News"><span className="far fa-fw fa-newspaper"></span> <span className="hidden-sm">News</span></NavLink></li>
-              <li><NavLink to="/workshops" style={navbarLinkStyle} title="Workshops"><span className="fas fa-fw fa-chalkboard-teacher"></span> <span className="hidden-sm">Workshops</span></NavLink></li>
-              <li><NavLink to="/publications" style={navbarLinkStyle} title="Publications"><span className="fas fa-fw fa-copy"></span> <span className="hidden-md hidden-sm">Publications</span><span className="visible-md-inline-block hidden-sm">Papers</span></NavLink></li>
+              <li><NavLink to="/publications" style={navbarLinkStyle} title="Publications"><span className="fas fa-fw fa-copy"></span> <span className="hidden-sm">Publications</span></NavLink></li>
+              <li><NavLink to="/workshops" style={navbarLinkStyle} title="Workshops"><span className="fas fa-fw fa-chalkboard-teacher"></span> <span className="hidden-md hidden-sm">Workshops</span></NavLink></li>
               <li><NavLink to="/source" style={navbarLinkStyle} title="Source-Code"><span className="fas fa-fw fa-code-branch"></span> <span className="hidden-md hidden-sm">Source</span></NavLink></li>
               <li><NavLink to="/contribute" style={navbarLinkStyle} title="Contribute"><span className="fas fa-fw fa-user-plus"></span> <span className="hidden-md hidden-sm">Contribute</span></NavLink></li>
               <li className="dropdown">

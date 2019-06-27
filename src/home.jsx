@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Separator, Link, getLatestPatchVersion} from './common';
+import {Content, Separator, Link, Button, getLatestPatchVersion} from './common';
 import {HeaderIndex} from './header';
 import {Footer} from './footer';
 import {newsStoriesDicts, NewsContent} from './news';
-import {InteractiveGettingStarted} from './interactive_getting_started';
+import {InteractiveGettingStarted, DesktopUI} from './mockups';
 import {docs_versions} from './docs';
 
 export class Home extends Component {
@@ -46,17 +46,37 @@ export class Home extends Component {
           }
 
 
-          <div style={{padding: "20px", maxWidth: "800px", margin: "0px auto", textAlign: "center"}}>
-            <pre style={{backgroundColor: "white", border: "none", fontSize: "20px", textAlign: "center", padding: "0px", margin: "0px"}}>
-              pip install phoebe
-            </pre>
-            <span>latest release: <Link to="/releases/latest">PHOEBE {version_latest_long}</Link></span>
-            <br/>
-            <span><Link to="/install">full installation instructions</Link></span>
+          <div className="row">
+            {/* use col-lg-6 col-md-12 and uncomment other div once clients are supported */}
+            <div className="col-lg-12 col-md-12">
+            {/* <div className="col-lg-6 col-md-12"> */}
+              <div style={{padding: "20px", maxWidth: "800px", height: "130px", margin: "0px auto", textAlign: "center"}}>
+                <pre style={{backgroundColor: "white", border: "none", fontSize: "20px", textAlign: "center", padding: "0px", margin: "0px"}}>
+                  pip install phoebe
+                </pre>
+                <span>latest release: <Link to="/releases/latest">PHOEBE {version_latest_long}</Link></span>
+                <br/>
+                <span><Link to="/install">full installation instructions</Link></span>
+              </div>
+
+
+              <InteractiveGettingStarted/>
+            </div>
+            {/* <div className="col-lg-6 col-md-12">
+              <div style={{padding: "20px", maxWidth: "800px", height: "130px", margin: "0px auto", textAlign: "center"}}>
+                <Button level="primary" style={{lineHeight: "2.5em", fontSize: "12px"}} to={"http://ui-phoebe-project.kecnry.com"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
+                <br/>
+                <span>or install the <Link to="/client#desktop">desktop client</Link></span>
+                <br/>
+                <span><Link to="/clients">full client information</Link></span>
+              </div>
+
+
+              <DesktopUI/>
+            </div> */}
+
           </div>
 
-
-          <InteractiveGettingStarted/>
 
           <Separator large={false} flip={false}/>
         </Content>

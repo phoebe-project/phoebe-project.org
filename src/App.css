@@ -84,12 +84,12 @@ code {
   background-color: #456583;
 }
 
-.content-dark a {
+.content-dark a:not(.btn) {
   color: #E6E6E6 !important;
   font-weight: bold;
 }
 
-.content-dark a:hover {
+.content-dark a:not(.btn):hover {
   color: white !important;
 }
 
@@ -209,6 +209,12 @@ code {
   background-color: transparent;
   color: #2B71B1;
   border: 1px solid #2B71B1;
+}
+
+.btn-primary-invert, .btn-primary-invert:hover, .btn-primary-invert:active, .btn-primary-invert:focus {
+  background-color: white;
+  color: #2B71B1 !important;
+  border: 1px solid white;
 }
 
 .btn-transparent, .btn-transparent:focus {
