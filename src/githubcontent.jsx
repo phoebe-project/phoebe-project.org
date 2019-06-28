@@ -51,7 +51,10 @@ export class GitHubContent extends Component {
       fetch(contentURLRaw)
         .catch(() => this.setState({content: null}))
         .then(res => {
-          if (res.ok) {
+          if (res === undefined) {
+            // then this could be caused by an adblocker
+            alert("Failed to load the requested file from GitHub.  This can sometimes be caused by an adblocker blocking the request.  Please try whitelisting phoebe-project.org (we don't serve ANY ads), and if the problem persists, contact us and report the issue.")
+          } else if (res.ok) {
             if (contentType === 'ipynb') {
               return res.json();
             } else {
