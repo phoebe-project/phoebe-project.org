@@ -118,7 +118,7 @@ export class Clients extends Component {
             </Alert>
 
             <p>
-              The web client allows you to run PHOEBE in your browser, <b>without</b> any installation!  However, this does come with some important limitations:
+              The web client allows you to run PHOEBE in your browser, without any installation!  However, this does come with some important limitations:
             </p>
             <ul>
               <li>You'll need to have a constant internet connection, and a slow internet connection could result in laggy performance.</li>
@@ -136,7 +136,7 @@ export class Clients extends Component {
           <WebUI dark={true}/>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui-phoebe-project.kecnry.com"} icon="far fa-fw fa-play-circle" title={"Launch (EXPERIMENTAL/PREVIEW) PHOEBE Web Client"}/>
+            <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch (EXPERIMENTAL/PREVIEW) PHOEBE Web Client"}/>
           </div>
 
           <Separator large={false} flip={true}/>
