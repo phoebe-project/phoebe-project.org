@@ -9,13 +9,16 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-export var docs_versions = ['2.1', '2.0'];
-var docs_versions_dev = docs_versions + ['development']
+export var docs_versions = ['2.1', '2.0', 'dev'];
 
 // NOTE: we do this to force a deep-copy
 var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
 
 export function getDocsLink(version, subdir, slug) {
+  if (["dev", "devel"].indexOf(version) !== -1) {
+    version = "development"
+  }
+
   if (subdir) {
     return process.env.PUBLIC_URL + '/docs/'+version+'/'+subdir+'/'+slug
   } else if (slug) {
@@ -69,8 +72,8 @@ export class Docs extends Component {
     if (version==='latest') {
       // allow latest as the version in the URL, but show whatever is latest
       version = docs_versions[0]
-    } else if (version==='dev' || version=='devel') {
-      // allow dev/devel to be an alias of development
+    } else if (version==='dev' || version=='devel' || version==='development') {
+      // allow dev/devel/development to be an alias of dev
       version = 'development'
     } else if (version==='1.0' || version==='legacy') {
       // then redirect to the 1.0 page
@@ -84,7 +87,7 @@ export class Docs extends Component {
       } else {
         this.props.history.replace(getDocsLink(version, null, null))
       }
-    } else if (docs_versions_dev.indexOf(version)===-1){
+    } else if (docs_versions.indexOf(version)===-1){
       // something not recognized, let's throw a page not found
       return (<NotFound></NotFound>)
     }
