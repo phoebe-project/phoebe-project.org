@@ -9,10 +9,12 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-export var docs_versions = ['2.1', '2.0', 'dev'];
+export var docs_versions = ['2.1', '2.0'];
+var docs_versions_dev = docs_versions.concat('dev');
 
 // NOTE: we do this to force a deep-copy
-var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
+// var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
+var docs_versions_dev_reverse = JSON.parse(JSON.stringify(docs_versions_dev)).reverse()
 
 export function getDocsLink(version, subdir, slug) {
   if (["dev", "devel"].indexOf(version) !== -1) {
@@ -87,7 +89,7 @@ export class Docs extends Component {
       } else {
         this.props.history.replace(getDocsLink(version, null, null))
       }
-    } else if (docs_versions.indexOf(version)===-1){
+    } else if (docs_versions_dev.indexOf(version)===-1){
       // something not recognized, let's throw a page not found
       return (<NotFound></NotFound>)
     }
@@ -218,7 +220,7 @@ export class Docs extends Component {
             </div>
           </GitHubContent>
           <VersionSwitcherContainer>
-            <VersionSwitcher titleLong="PHOEBE:" titleShort="PHOEBE:" version={this.state.version} versions={["1.0"].concat(docs_versions_reverse)} versionLinks={["/1.0/docs"].concat(docs_versions_reverse.map(version => getDocsLink(version, this.state.subdir, this.state.slug)))}/>
+            <VersionSwitcher titleLong="PHOEBE:" titleShort="PHOEBE:" version={this.state.version} versions={["1.0"].concat(docs_versions_dev_reverse)} versionLinks={["/1.0/docs"].concat(docs_versions_dev_reverse.map(version => getDocsLink(version, this.state.subdir, this.state.slug)))}/>
           </VersionSwitcherContainer>
         </Content>
       </div>
