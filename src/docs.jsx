@@ -10,7 +10,7 @@ import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
 export var docs_versions = ['2.1', '2.0'];
-var docs_versions_dev = docs_versions.concat('dev');
+var docs_versions_dev = ['dev'].concat(docs_versions);
 
 // NOTE: we do this to force a deep-copy
 // var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
