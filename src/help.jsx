@@ -152,6 +152,10 @@ export class HelpFAQ extends Component {
           <br/>
           A: This probably means your compiler does not support C++11.  Make sure you meet all the dependencies on the <Link to="/install">install instructions</Link>.
           <br/><br/>
+          Q: The following error is being raised when I try importing PHOEBE: <code>/lib64/libstdc++.so.6: version `CXXABI_1.3.8' not found</code>.  What does this mean?
+          <br/>
+          A: If you installed PHOEBE via pip, its possible that you need to force the compilation to be done on your own machine instead of using the precompiled binaries.  Try <code>pip install --no-binary :all: phoebe</code>.
+          <br/><br/>
           Q: I get an error when trying to run PHOEBE inside MCMC/EMCEE/mpirun, what's the problem?
           <br/>
           A: If you're running PHOEBE inside any other code that handles parallelization, you need to disable PHOEBE's internal handling of parallelization, via <Link to="/docs/latest/api/phoebe.mpi_off">phoebe.mpi_off()</Link>.  Also see the <Link to="/docs/latest/tutorials/mpi">tutorial on running PHOEBE in MPI</Link> for more information.
