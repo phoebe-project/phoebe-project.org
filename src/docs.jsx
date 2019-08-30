@@ -182,6 +182,8 @@ export class Docs extends Component {
                   <h2><span className="fa fa-fw fa-xs fa-tag"></span> About PHOEBE {version}</h2>
                   <p>You can read about the features added during the <Link to={"/releases/"+version}>{version} release</Link> as well as read the changelog entries.</p>
 
+                  <p>For a quick discussion on why PHOEBE 2 is designed the way it is and why the learning curve seems a little steep see the <Link to={"/docs/"+version+"/tutorials/design_concepts"}>General Design Concepts of PHOEBE 2</Link>.  Otherwise, feel free to jump in to the tutorials or example scripts below.</p>
+
                   <h2><span className="far fa-fw fa-xs fa-play-circle"></span> Try PHOEBE {version} in a Live-Session</h2>
                   <p>
                     You can try PHOEBE {version} in a live Google Colab Session before installing it on your local machine.
