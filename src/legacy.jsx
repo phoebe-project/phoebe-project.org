@@ -510,7 +510,7 @@ export class LegacyDownload extends Component {
           </details>
 
           <details>
-          <summary><font size="4">Download the Windows version</font></summary><br/>
+          <summary><font size="4">Install the Windows version</font></summary><br/>
 
           As of version 0.31, PHOEBE is available to MS Windows users. It has been built using GNU libraries, which implies a somewhat large self-extracting executable (~15MB). Click on the link below to initiate the download. Please report any problems to the <Link to="/help/contact/phoebe-devel">phoebe-devel</Link> mailing list.<br/><br/>
 
@@ -549,9 +549,61 @@ export class LegacyDownload extends Component {
           </details>
 
           <details>
-          <summary><font size="4">Download the Mac version</font></summary><br/>
+          <summary><font size="4">Install the Mac version</font></summary><br/>
 
-          These instructions are graciously provided by Carla Maceroni, and further edited by Francesc Villardel. It is still somewhat tricky to install PHOEBE on Macs. Here we provide general instructions in hope they are useful. Please report problems to <Link to="/help/contact/phoebe-devel">phoebe-devel</Link> mailing list.<br/><br/>
+          It is still somewhat tricky to install PHOEBE on Macs. Here we provide general instructions in hope they are useful. Please report problems to <Link to="/help/contact/phoebe-devel">phoebe-devel</Link> mailing list.<br/><br/>
+
+          <ol>
+            <li>Install homebrew</li>
+            {/* <li>Install python 2 via homebrew: <code>brew install python@2</code></li> */}
+            <li>Download or unpack PHOEBE 1 source-code (see "download the latest legacy version" or "download the stable version" above)</li>
+            <li>Install dependencies
+              <ul>
+                <li>gsl: <code>brew install gsl</code></li>
+                <li>flex: <code>brew install flex</code></li>
+                <li>bison: <code>brew install bison</code> then add the following line to your .bash_profile: <code>export PATH="/usr/local/opt/bison/bin:$PATH"</code>.  If the compiler still cannot locate bison, you may need to add the following line to .bash_profile: <code>export LDFLAGS="-L/usr/local/opt/bison/lib"</code></li>
+                <li>gcc compiler: <code>brew install gcc</code></li>
+                <li>gtk+ (only required if installing legacy GUI): <code>brew install gtk+</code></li>
+                <li>libglade (only required if installing legacy GUI): <code>brew install libglade</code></li>
+                <li>python 2 (only required if installing python wrappers): <code>brew install python@2</code></li>
+                <li>numpy (only required if installing python wrappers): <code>pip2 install numpy</code></li>
+              </ul>
+            </li>
+            <li>Install phoebe-lib:
+              <pre>&gt;$ cd phoebe-lib<br/>
+              &gt;$ ./configure<br/>
+              &gt;$ make<br/>
+              &gt;$ sudo make install
+              </pre>
+
+              If you get the following error during make <code>ld: library not found for -lgsl</code>, add the following to your bash profile: <code>export LIBRARY_PATH=/usr/local/Cellar/gsl/&lt;version number&gt;/lib/</code>
+
+            </li>
+            <li>Install phoebe-scripter (optional):
+              <pre>&gt;$ cd ../phoebe-scripter<br/>
+              &gt;$ ./configure<br/>
+              &gt;$ make<br/>
+              &gt;$ sudo make install
+              </pre>
+            </li>
+            <li>Install phoebe-gui (optional):
+              <pre>&gt;$ cd ../phoebe-gui<br/>
+              &gt;$ ./configure<br/>
+              &gt;$ make<br/>
+              &gt;$ sudo make install
+              </pre>
+            </li>
+            <li>Install (experimental) python wrappers (optional - but required to use as alternate backend in PHOEBE 2):
+              <pre>&gt;$ cd ../phoebe-py<br/>
+              &gt;$ python setup.py build<br/>
+              &gt;$ python setup.py install --user
+             </pre>
+             Alternatively, remove <code>--user</code> for a global installation (which may require admin privileges)
+            </li>
+          </ol>
+
+
+          For older version of Mac, these alternative instructions from Carla Maceroni (and edited by Francesc Villardel) that use xcode instead of homebrew may be of help:
 
           <ol>
           <li> Install the <code>Xcode</code> tools from MacOS installation disk or from the web page:
@@ -564,7 +616,7 @@ export class LegacyDownload extends Component {
 
           </li><li> Install some kind of open source porting system, for example, <code>fink</code> found at <Link to="http://www.finkproject.org/"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> The Fink Project</Link>. Binaries existed for Leopard (OS X 10.5.x) but not Snow Leopard (OS X 10.6.x) at the time of this writing. However, there were instructions and an automated build/install system for <code>fink</code> to run in Snow Leopard.
 
-          </li><li> Install the <Link to="?q=node/3">libraries required by PHOEBE</Link>, as well as gnuplot. Use <code>fink</code> install commands to do this. This may take a considerable time if you need to compile everything from source.</li>
+        </li><li> Install the dependencies (gsl, flex, bison, gtk+, libglade), as well as gnuplot. Use <code>fink</code> install commands to do this. This may take a considerable time if you need to compile everything from source.</li>
 
           <li> Be sure environment flags are properly set so the libraries are findable when compiling PHOEBE. For example, <code>fink</code> installs under <code>/sw</code> and an example of flag settings may be:<br/>
 
@@ -579,7 +631,8 @@ export class LegacyDownload extends Component {
           </pre>
           </li><li> Download PHOEBE sources and unpack them: <code>tar xvzf phoebe-*-0.31.tar.gz</code>
 
-          </li><li> Install <code>phoebe-lib</code> with:
+          </li>
+          <li> Install <code>phoebe-lib</code> with:
 
           <pre>&gt;$ cd phoebe-lib
           &gt;$ ./configure F77=gfortran FFLAGS="-std=legacy -Wl,-single_module"
