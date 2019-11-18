@@ -110,7 +110,7 @@ export class Link extends Component {
         icon = 'fa-file-download';
       }
       return (
-        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className={"fas fa-fw "+icon}> </span>}{this.props.children}</a>
+        <a {...this.props} href={to} target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className={"fas fa-fw "+icon}> </span>}{this.props.children}</a>
       )
     } else if (to.startsWith(process.env.PUBLIC_URL) || to.startsWith("/static/")) {
       return (
@@ -127,6 +127,10 @@ export class Link extends Component {
 export class Image extends Component {
   render() {
     var src = processLink(this.props.src)
+    if (this.props.href) {
+      return <a href={this.props.href} target="_blank" rel="noopener noreferrer"><Image {...this.props} href={false}/></a>
+    }
+
     return (
       <img {...this.props} src={src}/>
     )
