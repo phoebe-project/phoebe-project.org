@@ -24,7 +24,9 @@ export class Tables extends Component {
         hash: null,
         availablePassbands: [],
         availableContents: [],
+        requestedPassbandsMode: "choose from list",
         requestedPassbands: [],
+        requestedContentsMode: "all",
         requestedContents: []
       };
 
@@ -66,12 +68,18 @@ export class Tables extends Component {
       return content
     }
   }
+  onChangePassbandsMode = (e) => {
+    this.setState({requestedPassbandsMode: e.value})
+  }
   onChangePassbands = (e) => {
     var value = []
     if (e) {
       value = e.map((item) => item.value)
     }
     this.setState({requestedPassbands: value})
+  }
+  onChangeContentsMode = (e) => {
+    this.setState({requestedContentsMode: e.value})
   }
   onChangeContents = (e) => {
     var value = []
@@ -83,6 +91,25 @@ export class Tables extends Component {
   render() {
     if (this.props.location.hash !== this.state.hash) {
       this.setState({hash: this.props.location.hash})
+    }
+
+    var tablesurl_fetch = tablesurl
+    var fetch_tar = false
+
+    if (this.state.requestedPassbandsMode === 'all') {
+      tablesurl_fetch = tablesurl_fetch + "/all"
+      fetch_tar = true
+    } else {
+      tablesurl_fetch = tablesurl_fetch + "/" + this.state.requestedPassbands.join(",")
+      if (this.state.requestedPassbands.length > 1) {
+        fetch_tar = true
+      }
+    }
+
+    if (this.state.requestedContentsMode === 'all') {
+      tablesurl_fetch = tablesurl_fetch + "/all"
+    } else {
+      tablesurl_fetch = tablesurl_fetch + "/" + this.state.requestedContents.join(",")
     }
 
     return (
@@ -113,20 +140,33 @@ export class Tables extends Component {
 
           <div className="row">
             <h3>Download Passband(s):</h3>
-            <Select options={this.state.availablePassbands.map((choice) => ({value: choice, label: choice}))}  value={this.state.requestedPassbands.map((choice) => ({value: choice, label: choice}))} onChange={this.onChangePassbands} isMulti={true} isClearable={true} closeMenuOnSelect={false}/>
+            <Select options={["choose from list", "all"].map((choice) => ({value: choice, label: choice}))}  value={{value: this.state.requestedPassbandsMode, label: this.state.requestedPassbandsMode}} onChange={this.onChangePassbandsMode} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
+            {this.state.requestedPassbandsMode === 'choose from list'
+              ?
+              <Select options={this.state.availablePassbands.map((choice) => ({value: choice, label: choice}))}  value={this.state.requestedPassbands.map((choice) => ({value: choice, label: choice}))} onChange={this.onChangePassbands} isMulti={true} isClearable={true} closeMenuOnSelect={false}/>
+              :
+              null
+            }
 
             <h3>Choose Atmospheres/Tables:</h3>
             <p><b>NOTE</b>: these tables may not all exist for each passband, but those that are selected will be included whenever available.</p>
-            <Select options={this.state.availableContents.map((choice) => ({value: choice, label: this.mapContent(choice)}))}  value={this.state.requestedContents.map((choice) => ({value: choice, label: this.mapContent(choice)}))} onChange={this.onChangeContents} isMulti={true} isClearable={true} closeMenuOnSelect={false}/>
+
+            <Select options={["choose from list", "all"].map((choice) => ({value: choice, label: choice}))}  value={{value: this.state.requestedContentsMode, label: this.state.requestedContentsMode}} onChange={this.onChangeContentsMode} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
+            {this.state.requestedContentsMode === 'choose from list'
+              ?
+              <Select options={this.state.availableContents.map((choice) => ({value: choice, label: this.mapContent(choice)}))}  value={this.state.requestedContents.map((choice) => ({value: choice, label: this.mapContent(choice)}))} onChange={this.onChangeContents} isMulti={true} isClearable={true} closeMenuOnSelect={false}/>
+              :
+              null
+            }
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            {this.state.requestedPassbands.length * this.state.requestedContents.length > 0  ?
+            {(this.state.requestedPassbands.length > 0 || this.state.requestedPassbandsMode === 'all') && (this.state.requestedContents.length > 0 || this.state.requestedContentsMode === 'all') ?
               <Button level="primary"
                       style={{lineHeight: "2.5em", fontSize: "16px"}}
-                      to={tablesurl+"/"+this.state.requestedPassbands.join(',')+"/"+this.state.requestedContents.join(',')}
-                      icon={this.state.requestedPassbands.length > 1 ? "fas fa-fw fa-archive" : "fas fa-fw fa-th"}
-                      title={this.state.requestedPassbands.length > 1 ? "Download Archive" : "Download Passband File"}/>
+                      to={tablesurl_fetch}
+                      icon={fetch_tar ? "fas fa-fw fa-archive" : "fas fa-fw fa-th"}
+                      title={fetch_tar ? "Download Archive" : "Download Passband File"}/>
               :
               <span><b>choose at least one passband and table</b></span>
             }
