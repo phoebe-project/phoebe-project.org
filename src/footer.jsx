@@ -19,9 +19,9 @@ export class Footer extends Component {
             </div>
             <div className="col-sm-4 col-xs-2 visible-sm visible-xs"/>
             <div className="col-md-8 col-xs-12">
-               <p style={{marginTop: "10px", textAlign: "center", fontSize: "18px"}}>
+               <p style={{marginTop: "10px", textAlign: "center", fontSize: "16px"}}>
                  PHOEBE is funded in part by
-                 the National Science Foundation (<a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474" style={{textDecoration: "none", color: "#E6E6E6"}} target="_blank" rel="noopener noreferrer">NSF grant #1517474</a>)
+                 the National Science Foundation (NSF <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474" style={{textDecoration: "none", color: "#E6E6E6"}} target="_blank" rel="noopener noreferrer">#1517474</a>, <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1909109" style={{textDecoration: "none", color: "#E6E6E6"}} target="_blank" rel="noopener noreferrer">#1909109</a>)
                  and the National Aeronautics and Space Administration (<a href="https://ui.adsabs.harvard.edu/abs/2017adap.prop...68P" style={{textDecoration: "none", color: "#E6E6E6"}} target="_blank" rel="noopener noreferrer">NASA 17-ADAP17-68</a>).
               </p>
             </div>
