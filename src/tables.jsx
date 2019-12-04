@@ -15,7 +15,7 @@ import 'abortcontroller-polyfill';
 import {fetch} from 'whatwg-fetch';
 const abortableFetch = ('signal' in new Request('')) ? window.fetch : fetch
 
-const tablesurl = 'http://localhost:5555'
+const tablesurl = 'http://tables.phoebe-project.org'
 
 export class Tables extends Component {
   constructor(props) {
