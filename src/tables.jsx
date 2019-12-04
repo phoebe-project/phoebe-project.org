@@ -44,7 +44,7 @@ export class Tables extends Component {
   }
   componentWillMount() {
     this.abortGetParamsController = new window.AbortController();
-    abortableFetch(tablesurl+"/available", {signal: this.abortGetParamsController.signal})
+    abortableFetch(tablesurl+"/pbs/available", {signal: this.abortGetParamsController.signal})
       .then(res => res.json())
       .then(json => {
         this.setState({availablePassbands: json.passbands, availableContents: json.contents})
@@ -93,7 +93,7 @@ export class Tables extends Component {
       this.setState({hash: this.props.location.hash})
     }
 
-    var tablesurl_fetch = tablesurl
+    var tablesurl_fetch = tablesurl + "/pbs"
     var fetch_tar = false
 
     if (this.state.requestedPassbandsMode === 'all') {
@@ -111,6 +111,8 @@ export class Tables extends Component {
     } else {
       tablesurl_fetch = tablesurl_fetch + "/" + this.state.requestedContents.join(",")
     }
+
+    // add "/" this.state.requestedPhoebeVersion if we ever want to support selecting a version (will default to 'latest' otherwise)
 
     return (
       <div>
