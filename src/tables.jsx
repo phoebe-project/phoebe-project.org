@@ -15,6 +15,7 @@ import 'abortcontroller-polyfill';
 import {fetch} from 'whatwg-fetch';
 const abortableFetch = ('signal' in new Request('')) ? window.fetch : fetch
 
+// const tablesurl = 'http://localhost:5555'
 const tablesurl = 'http://tables.phoebe-project.org'
 
 export class Tables extends Component {
@@ -23,11 +24,16 @@ export class Tables extends Component {
       this.state = {
         hash: null,
         availablePassbands: [],
+        availablePassbandSets: [],
+        npassbandsPerSet: {},
         availableContents: [],
-        requestedPassbandsMode: "choose from list",
+        availableContentAtms: [],
+        requestedPassbandsMode: "choose list of individual passbands",
         requestedPassbands: [],
+        requestedPassbandSets: [],
         requestedContentsMode: "all",
-        requestedContents: []
+        requestedContents: [],
+        requestedContentAtms: []
       };
 
   }
@@ -47,7 +53,8 @@ export class Tables extends Component {
     abortableFetch(tablesurl+"/pbs/available", {signal: this.abortGetParamsController.signal})
       .then(res => res.json())
       .then(json => {
-        this.setState({availablePassbands: json.passbands, availableContents: json.contents})
+        console.log(json)
+        this.setState({availablePassbands: json.passbands, availablePassbandSets: json.passband_sets, npassbandsPerSet: json.npassbands_per_set, availableContents: json.content, availableContentAtms: json.content_atms})
 
       }, err=> {
         // then we canceled the request
@@ -62,11 +69,20 @@ export class Tables extends Component {
     this.scrollToHash()
   }
   mapContent = (content) => {
-    if (content.split('_').slice(-1) == 'ext') {
-      return content + ' ('+content.split('_').slice(0,1) + ' with extinction)'
+    if (content.split(':').slice(-1) == 'ext') {
+      return content + ' (extinction)'
+    } else if (content.split(':').slice(-1) == 'Inorm') {
+      return content + ' (normal intensities)'
+    } else if (content.split(':').slice(-1) == 'Imu') {
+      return content + ' (projected intensities)'
+    } else if (content.split(':').slice(-1) == 'ld') {
+      return content + ' (limb-darkening)'
+    } else if (content.split(':').slice(-1) == 'ldint') {
+      return content + ' (integrated limb-darkening profiles)'
     } else {
       return content
     }
+    return content
   }
   onChangePassbandsMode = (e) => {
     this.setState({requestedPassbandsMode: e.value})
@@ -78,6 +94,14 @@ export class Tables extends Component {
     }
     this.setState({requestedPassbands: value})
   }
+  onChangePassbandSets = (e) => {
+    var value = []
+    if (e) {
+      value = e.map((item) => item.value)
+    }
+    this.setState({requestedPassbandSets: value})
+  }
+
   onChangeContentsMode = (e) => {
     this.setState({requestedContentsMode: e.value})
   }
@@ -88,6 +112,13 @@ export class Tables extends Component {
     }
     this.setState({requestedContents: value})
   }
+  onChangeContentAtms = (e) => {
+    var value = []
+    if (e) {
+      value = e.map((item) => item.value)
+    }
+    this.setState({requestedContentAtms: value})
+  }
   render() {
     if (this.props.location.hash !== this.state.hash) {
       this.setState({hash: this.props.location.hash})
@@ -95,21 +126,45 @@ export class Tables extends Component {
 
     var tablesurl_fetch = tablesurl + "/pbs"
     var fetch_tar = false
+    var validSelectionPassband = false
+    var validSelectionContent = false
 
     if (this.state.requestedPassbandsMode === 'all') {
       tablesurl_fetch = tablesurl_fetch + "/all"
       fetch_tar = true
-    } else {
+      validSelectionPassband = true
+    } else if (this.state.requestedPassbandsMode === 'choose list of individual passbands') {
       tablesurl_fetch = tablesurl_fetch + "/" + this.state.requestedPassbands.join(",")
       if (this.state.requestedPassbands.length > 1) {
         fetch_tar = true
+      }
+      if (this.state.requestedPassbands.length) {
+        validSelectionPassband = true
+      }
+    } else if (this.state.requestedPassbandsMode === 'choose list of passband sets') {
+      tablesurl_fetch = tablesurl_fetch + "/" + this.state.requestedPassbandSets.join(",")
+
+      if (this.state.requestedPassbandSets.length > 1 || this.state.npassbandsPerSet[this.state.requestedPassbandSets[0]] > 1) {
+        fetch_tar = true
+      }
+      if (this.state.requestedPassbandSets.length) {
+        validSelectionPassband = true
       }
     }
 
     if (this.state.requestedContentsMode === 'all') {
       tablesurl_fetch = tablesurl_fetch + "/all"
-    } else {
+      validSelectionContent = true
+    } else if (this.state.requestedContentsMode === 'choose list of individual contents'){
       tablesurl_fetch = tablesurl_fetch + "/" + this.state.requestedContents.join(",")
+      if (this.state.requestedContents.length) {
+        validSelectionContent = true
+      }
+    } else if (this.state.requestedContentsMode === 'choose list of atmospheres'){
+      tablesurl_fetch = tablesurl_fetch + "/" + this.state.requestedContentAtms.join(",")
+      if (this.state.requestedContentAtms.length) {
+        validSelectionContent = true
+      }
     }
 
     // add "/" this.state.requestedPhoebeVersion if we ever want to support selecting a version (will default to 'latest' otherwise)
@@ -142,28 +197,41 @@ export class Tables extends Component {
 
           <div className="row">
             <h3>Download Passband(s):</h3>
-            <Select options={["choose from list", "all"].map((choice) => ({value: choice, label: choice}))}  value={{value: this.state.requestedPassbandsMode, label: this.state.requestedPassbandsMode}} onChange={this.onChangePassbandsMode} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
-            {this.state.requestedPassbandsMode === 'choose from list'
+            <Select options={["choose list of individual passbands", "choose list of passband sets", "all"].map((choice) => ({value: choice, label: choice}))}  value={{value: this.state.requestedPassbandsMode, label: this.state.requestedPassbandsMode}} onChange={this.onChangePassbandsMode} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
+            {this.state.requestedPassbandsMode === 'choose list of individual passbands'
               ?
               <Select options={this.state.availablePassbands.map((choice) => ({value: choice, label: choice}))}  value={this.state.requestedPassbands.map((choice) => ({value: choice, label: choice}))} onChange={this.onChangePassbands} isMulti={true} isClearable={true} closeMenuOnSelect={false}/>
               :
               null
             }
+            {this.state.requestedPassbandsMode === 'choose list of passband sets'
+              ?
+              <Select options={this.state.availablePassbandSets.map((choice) => ({value: choice, label: choice}))}  value={this.state.requestedPassbandSets.map((choice) => ({value: choice, label: choice}))} onChange={this.onChangePassbandSets} isMulti={true} isClearable={true} closeMenuOnSelect={false}/>
+              :
+              null
+            }
+
 
             <h3>Choose Atmospheres/Tables:</h3>
             <p><b>NOTE</b>: these tables may not all exist for each passband, but those that are selected will be included whenever available.</p>
 
-            <Select options={["choose from list", "all"].map((choice) => ({value: choice, label: choice}))}  value={{value: this.state.requestedContentsMode, label: this.state.requestedContentsMode}} onChange={this.onChangeContentsMode} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
-            {this.state.requestedContentsMode === 'choose from list'
+            <Select options={["choose list of individual contents", "choose list of atmospheres", "all"].map((choice) => ({value: choice, label: choice}))}  value={{value: this.state.requestedContentsMode, label: this.state.requestedContentsMode}} onChange={this.onChangeContentsMode} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
+            {this.state.requestedContentsMode === 'choose list of individual contents'
               ?
               <Select options={this.state.availableContents.map((choice) => ({value: choice, label: this.mapContent(choice)}))}  value={this.state.requestedContents.map((choice) => ({value: choice, label: this.mapContent(choice)}))} onChange={this.onChangeContents} isMulti={true} isClearable={true} closeMenuOnSelect={false}/>
+              :
+              null
+            }
+            {this.state.requestedContentsMode === 'choose list of atmospheres'
+              ?
+              <Select options={this.state.availableContentAtms.map((choice) => ({value: choice, label: this.mapContent(choice)}))}  value={this.state.requestedContentAtms.map((choice) => ({value: choice, label: this.mapContent(choice)}))} onChange={this.onChangeContentAtms} isMulti={true} isClearable={true} closeMenuOnSelect={false}/>
               :
               null
             }
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            {(this.state.requestedPassbands.length > 0 || this.state.requestedPassbandsMode === 'all') && (this.state.requestedContents.length > 0 || this.state.requestedContentsMode === 'all') ?
+            {validSelectionPassband && validSelectionContent ?
               <Button level="primary"
                       style={{lineHeight: "2.5em", fontSize: "16px"}}
                       to={tablesurl_fetch}
