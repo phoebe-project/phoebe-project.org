@@ -9,6 +9,34 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "Third PHOEBE Workshop",
+    slug: "phoebe-workshop-3",
+    pinnedDays: 67,
+    date: "December 9, 2019",
+    author: "Kyle Conroy",
+    content: <div>
+              <p>
+                Dear Colleagues,
+              </p>
+              <p>
+                We will be holding the Third PHOEBE Workshop at Villanova University, Villanova, Pennsylvania, USA, <b>June 22nd - July 3rd, 2020</b>.
+                This year the workshop will cover two weeks: with the first week covering an introduction to PHOEBE and the second week covering fitting and advanced scientific topics of interest (such as pulsations).
+                Participants can choose to register for either week or both, depending on their interest and current level of comfort with using PHOEBE.
+                Past participants are welcome and encouraged to apply to attend the second week if they wish to get more experience in particular areas of science or work on fitting their data.
+              </p>
+              <p>
+                Further information and the registration form can be found at <Link to="/workshops/2020june">http://phoebe-project.org/workshops/2020june</Link>.  Registration is now open and will remain open until <b>February 14th, 2020</b>.
+              </p>
+              <p>
+                We look forward to welcoming you to Villanova University in June/July!
+              </p>
+              <p>
+                Kind regards,<br/>
+                The <Link to="/development-team">PHOEBE team</Link>
+              </p>
+            </div>
+  },
+  {
     title: "Second PHOEBE Workshop",
     slug: "phoebe-workshop-2",
     pinnedDays: 30,
