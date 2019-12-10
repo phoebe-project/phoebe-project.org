@@ -103,7 +103,17 @@ export class Install extends Component {
       OSName = version_os
     }
 
-    var version_py = this.props.match.params.version_py || "python2"
+    var version_py = "python3"
+    var version_py_switcher = "python3"
+    if (this.props.match.params.version_py && this.props.match.params.version_py != 'auto') {
+      version_py = this.props.match.params.version_py
+      version_py_switcher = version_py
+    } else if (["2.0", "2.1"].indexOf(version_short) !== -1) {
+      version_py = "python2"
+      version_py_switcher = "auto"
+    } else {
+      version_py_switcher = "auto"
+    }
 
     var python = 'python'
     var pip = 'pip'
@@ -382,8 +392,8 @@ export class Install extends Component {
           }
         <VersionSwitcherContainer>
           <VersionSwitcher titleLong="Python:" titleShort="Py:" version={version_py.slice(-1)} versions={versions_py} versionLinks={versions_py.map(version_py => "/install/"+version+"/"+version_os+"/"+version_py)}/>
-          <VersionSwitcher titleLong="OS:" titleShort="OS:" version={version_os} versions={versions_os} versionLinks={versions_os.map(version_os => "/install/"+version+"/"+version_os+"/"+version_py)}/>
-          <VersionSwitcher titleLong="PHOEBE:" titleShort="PHOEBE:" version={version} versions={["1.0"].concat(docs_versions_reverse).concat("latest")} versionLinks={["/1.0/download"].concat(docs_versions_reverse.map(version => "/install/"+version+"/"+version_os+"/"+version_py)).concat("/install/latest"+"/"+version_os+"/"+version_py)}/>
+          <VersionSwitcher titleLong="OS:" titleShort="OS:" version={version_os} versions={versions_os} versionLinks={versions_os.map(version_os => "/install/"+version+"/"+version_os+"/"+version_py_switcher)}/>
+          <VersionSwitcher titleLong="PHOEBE:" titleShort="PHOEBE:" version={version} versions={["1.0"].concat(docs_versions_reverse).concat("latest")} versionLinks={["/1.0/download"].concat(docs_versions_reverse.map(version => "/install/"+version+"/"+version_os+"/"+version_py_switcher)).concat("/install/latest"+"/"+version_os+"/"+version_py_switcher)}/>
         </VersionSwitcherContainer>
 
       </div>
