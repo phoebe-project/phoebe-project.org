@@ -9,6 +9,18 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "PHOEBE 2.2 released",
+    slug: "phoebe-22-released",
+    pinnedDays: 45,
+    date: "December 20, 2019",
+    author: "Kyle Conroy",
+    content: <div>
+              <p>
+                <Link to="/releases/2.2">PHOEBE 2.2</Link> is officially released - adding interstellar extinction as well as support for Python 3 (in addition to Python 2) to PHOEBE.  See the <Link to="/publications/2020Jones+">release paper on extinction</Link> submitted to ApJS and checkout the <Link to="/docs/2.2">documentation</Link>.
+              </p>
+            </div>
+  },
+  {
     title: "Third PHOEBE Workshop",
     slug: "phoebe-workshop-3",
     pinnedDays: 67,
@@ -120,7 +132,7 @@ export var newsStoriesDicts = [
     author: "Kyle Conroy",
     content: <div>
               <p>
-                <Link to="/releases/2.1">PHOEBE 2.1</Link> is officially released adding support for spin-orbit misalignment to PHOEBE.  See the <Link to="https://ui.adsabs.harvard.edu/#abs/2018ApJS..237...26H">release paper on misalignment</Link> published in ApJS and checkout the <Link to="/docs/2.1">documentation</Link>.
+                <Link to="/releases/2.1">PHOEBE 2.1</Link> is officially released adding support for spin-orbit misalignment to PHOEBE.  See the <Link to="/publications/2018Horvat+">release paper on misalignment</Link> published in ApJS and checkout the <Link to="/docs/2.1">documentation</Link>.
               </p>
             </div>
   },
@@ -169,7 +181,7 @@ export var newsStoriesDicts = [
                 Dear PHOEBE users,
               </p>
               <p>
-                Now that the <Link to="http://adsabs.harvard.edu/abs/2016ApJS..227...29P">release paper</Link> has officially been accepted and published, we are pleased to announce the release of <Link to="/releases/2.0">PHOEBE 2.0</Link> (no longer in beta!).
+                Now that the <Link to="/publications/2016Prsa+">release paper</Link> has officially been accepted and published, we are pleased to announce the release of <Link to="/releases/2.0">PHOEBE 2.0</Link> (no longer in beta!).
               </p>
               <p>
                 You can access the <Link to="https://github.com/phoebe-project/phoebe2/releases/tag/2.0.0">release on github</Link> or read the <Link to="/intall/2.0">installation instructions</Link> and <Link to="/docs/2.0">documentation</Link> on our website.

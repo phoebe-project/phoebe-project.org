@@ -133,14 +133,15 @@ export class Home extends Component {
 
               <Expander expandText="List advanced physics">
                 <ul>
-                  <li><Link to="/docs/latest/tutorials/beaming_boosting">Doppler boosting/beaming</Link></li>
+                  {/* <li><Link to="/docs/latest/tutorials/beaming_boosting">Doppler boosting/beaming</Link></li> */}
                   <li><Link to="/docs/latest/examples/sun">Single rotating stars</Link></li>
                   <li><Link to="/docs/latest/tutorials/ltte">Rømer and Light Travel Time Effects (ltte)</Link></li>
                   <li><Link to="/docs/latest/tutorials/irrad_method_horvat">Irradiation with Lambert Scattering</Link></li>
                   <li><Link to="/docs/latest/tutorials/pitch_yaw">Spin-orbit misalignment</Link> (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
-                  <li><b>Coming Soon:</b> Reddening and Extinction</li>
+                  <li><Link to="/docs/latest/tutorials/ebv_Av_Rv">Reddening and Extinction</Link> (as of the <Link to="/releases/2.2">2.2 release</Link>)</li>
                   {/* <li><b>Coming soon:</b> Reflection with heat redistribution</li> */}
                   <li><b>Coming Soon:</b> Pulsations (spherical and oblique)</li>
+                  <li><b>Coming Soon:</b> Blended Atmospheres</li>
                   {/* <li><b>Coming soon:</b> Differential Rotation</li> */}
                   {/* <li><b>Coming soon:</b> Magnetic Fields</li> */}
                   {/* <li><b>Coming soon:</b> Rings/Accretion Disks</li> */}

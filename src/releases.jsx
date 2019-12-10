@@ -201,6 +201,32 @@ class ReleaseContent extends Component {
                     <li>Distinguish <Link to="/docs/2.1/tutorials/20_21_xyz_uvw">Roche (xyz) from Plane-of-Sky (uvw) coordinates</Link></li>
                   </ul>
                 </div>
+    } else if (this.props.version === '2.2') {
+      logo = "logo_release_22.svg"
+      releasePaper = "Jones et al. (2020)"
+      publicationLink = "/publications/2020Jones+"
+      content = <div>
+                  <p>PHOEBE 2.2 introduces support for interstellar reddening and extinction as well as support for Python 3.</p>
+                  <p>
+                    New Physics introduced in version 2.2:
+                  </p>
+                  <ul>
+                    <li><Link to="/docs/2.2/examples/extinction_BK_binary">Interstellar extinction</Link> (via <Link to="/docs/2.2/tutorials/ebv_Av_Rv">ebv, Av, and Rv</Link> parameters)</li>
+                  </ul>
+
+                  <p>
+                    Major changes since 2.1:
+                  </p>
+                  <ul>
+                    <li>support for installing in Python 2.7+ or Python 3.6+.  See the <Link to="/install/2.2">installation instructions</Link> for more details.</li>
+                    <li>overhaul of limb-darkening with new <Link to="/docs/2.2/tutorials/21_22_ld_mode">ld_mode and ld_coeffs_source parameters</Link>.</li>
+                    <li>overhaul of passband luminosity and flux scaling with the new <Link to="/docs/2.2/tutorials/21_22_pblum_mode">pblum_mode parameter</Link>.</li>
+                    <li>ability to provide third light in either flux or percentage units, via the new <Link to="/docs/2.2/tutorials/21_22_l3_mode">l3_mode and l3_frac parameters</Link>.</li>
+                    <li>support for computing a model at different times than the observations, via the <Link to="/docs/2.2/tutorials/21_22_compute_times_phases">compute_times or compute_phases parameter</Link>.</li>
+                    <li>a transition from pickled to FITS passband files, with automatic detection for <Link to="/docs/2.2/tutorials/passband_updates">available updates</Link>.  The tables can now also be accessed via <Link to="/tables">tables.phoebe-project.org</Link>.</li>
+                    <li><b>disabled</b> support for <Link to="/docs/2.2/tutorials/beaming_boosting">beaming and boosting</Link>.</li>
+                  </ul>
+                </div>
     } else {
       content = <div style={{color: "red"}}>
                   Description for PHOEBE {this.props.version} release not available.
