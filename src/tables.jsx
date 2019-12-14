@@ -192,6 +192,10 @@ export class Tables extends Component {
 
         <Content preventScrollTop={this.props.location.hash}>
 
+          <Alert level="warning">
+            <p><b>Note:</b> These passband files are compatible with PHOEBE 2.2+ only.  For passband files for PHOEBE 2.0.x and 2.1.x, see the <Link to="https://github.com/phoebe-project/phoebe2-tables">phoebe2-tables repo</Link>.  For tables for PHOEBE 1 (legacy), see <Link to="/1.0">phoebe-project.org/1.0</Link>.</p>
+          </Alert>
+
           <div className="row">
             <p>
               As long as you have a reliable internet connection, PHOEBE 2 will automatically download any required tables and install them <b>locally</b> (i.e. for the user running PHOEBE) the first time they are requested.
