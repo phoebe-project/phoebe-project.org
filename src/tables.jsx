@@ -33,7 +33,8 @@ export class Tables extends Component {
         requestedPassbandSets: [],
         requestedContentsMode: "all",
         requestedContents: [],
-        requestedContentAtms: []
+        requestedContentAtms: [],
+        requestedFormat: ".fits"
       };
 
   }
@@ -119,6 +120,9 @@ export class Tables extends Component {
     }
     this.setState({requestedContentAtms: value})
   }
+  onChangeFormat = (e) => {
+    this.setState({requestedFormat: e.value})
+  }
   render() {
     if (this.props.location.hash !== this.state.hash) {
       this.setState({hash: this.props.location.hash})
@@ -167,6 +171,12 @@ export class Tables extends Component {
       }
     }
 
+    if (this.state.requestedFormat === '.fits.gz') {
+      tablesurl_fetch = tablesurl_fetch + "?gzipped=true"
+    }
+
+
+    var formatLabels = {'.fits': '.fits (larger filesize, quicker loadtime)', '.fits.gz': '.fits.gz (smaller filesize, longer loadtime)'}
     // add "/" this.state.requestedPhoebeVersion if we ever want to support selecting a version (will default to 'latest' otherwise)
 
     return (
@@ -228,6 +238,11 @@ export class Tables extends Component {
               :
               null
             }
+
+            <h3>Choose File Format:</h3>
+            <Select options={[".fits", ".fits.gz"].map((choice) => ({value: choice, label: formatLabels[choice]}))}  value={{value: this.state.requestedFormat, label: formatLabels[this.state.requestedFormat]}} onChange={this.onChangeFormat} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
+
+
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
