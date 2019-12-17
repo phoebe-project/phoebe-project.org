@@ -18,7 +18,83 @@ const abortableFetch = ('signal' in new Request('')) ? window.fetch : fetch
 // const tablesurl = 'http://localhost:5555'
 const tablesurl = 'http://tables.phoebe-project.org'
 
+class TablesHeader extends Component {
+  render() {
+    return (
+      <Header>
+        <h1>{this.props.title || "Tables"}</h1>
+        <div className="row">
+           <div className="col-md-2"></div>
+           <div className="col-md-2"></div>
+           <div className="col-md-2"></div>
+           <div className="col-md-2"></div>
+           <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+             <HeaderNavButton title="Passbands" description="Passbands & Atmospheres" to={"/tables/pbs"} icon="fa fas fa-layer-group"/>
+           </div>
+           <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+             <HeaderNavButton title="PTFs" description="Passband Transmission Functions" to={"/tables/ptfs"} icon="fa fa-chart-area"/>
+           </div>
+         </div>
+      </Header>
+    )
+  }
+}
+
 export class Tables extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+      };
+  }
+
+  render() {
+
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | Tables</title>
+          <meta name="keywords" content={metaKeywords+", tables"}/>
+          <meta name="description" content="Tables for PHOEBE 2"/>
+        </Helmet>
+        <TablesHeader title={"Tables"}/>
+
+        <Content>
+
+          <div className="row" style={{paddingTop: "40px"}}>
+            <div className="col-md-2">
+              <Link to="/tables/pbs"><span className="fa fa-fw fa-10x fas fa-layer-group" style={{width: "100%", color: "rgb(43, 113, 177)"}}></span></Link>
+            </div>
+            <div className="col-md-10">
+              <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
+                <Link to="/tables/pbs">Passband and Atmosphere FITs tables</Link> are used internally in PHOEBE for everything from normal intensities to limb-darkening to extinction.
+                If you have a stable internet connection, the appropriate tables will be downloaded and installed when required by PHOEBE.
+                However, should you wish to download them in bulk in advance or download custom tables for use outside PHOEBE, you can <Link to="/tables/pbs">customize and download passband FITs files</Link>.
+              </p>
+            </div>
+          </div>
+          <div className="row" style={{paddingTop: "40px"}}>
+            <div className="col-md-2">
+              <Link to="/tables/ptfs"><span className="fa fa-fw fa-10x fas fa-chart-area" style={{width: "100%", color: "rgb(43, 113, 177)"}}></span></Link>
+            </div>
+            <div className="col-md-10">
+              <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
+                <Link to="/tables/ptfs">Passband Transmission Functions (PTFs)</Link> are used to build the <Link to="/tables/pbs">Passband Tables</Link>, but are not directly used by PHOEBE and are not required to download or install.
+                These are required, however, to build <Link to="/docs/latest/tutorials/passbands.ipynb">custom passband/atmosphere tables</Link>.
+                These ASCII files consist of two columns: wavelength and transmission.
+                These files can be found at the <Link to="https://github.com/phoebe-project/phoebe2-tables/tree/master/ptf">phoebe2-tables GitHub repo</Link>.
+              </p>
+            </div>
+          </div>
+
+
+
+        </Content>
+      </div>
+    );
+  }
+}
+
+export class TablesPBs extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -38,17 +114,6 @@ export class Tables extends Component {
       };
 
   }
-  scrollToHash() {
-    var offsetTop = null;
-    var hash = this.state.hash
-    if (hash==='#web') {
-      // offsetTop = this.refweb.current.offsetTop;
-    }
-
-    if (offsetTop) {
-      window.scrollTo(0,offsetTop-80);
-    }
-  }
   componentWillMount() {
     this.abortGetParamsController = new window.AbortController();
     abortableFetch(tablesurl+"/pbs/available", {signal: this.abortGetParamsController.signal})
@@ -65,9 +130,6 @@ export class Tables extends Component {
         console.log("received abort signal")
       });
 
-  }
-  componentDidUpdate() {
-    this.scrollToHash()
   }
   mapContent = (content) => {
     if (content.split(':').slice(-1) == 'ext') {
@@ -124,10 +186,6 @@ export class Tables extends Component {
     this.setState({requestedFormat: e.value})
   }
   render() {
-    if (this.props.location.hash !== this.state.hash) {
-      this.setState({hash: this.props.location.hash})
-    }
-
     var tablesurl_fetch = tablesurl + "/pbs"
     var fetch_tar = false
     var validSelectionPassband = false
@@ -186,11 +244,9 @@ export class Tables extends Component {
           <meta name="keywords" content={metaKeywords+", tables, passbands, atmospheres, limb-darkening"}/>
           <meta name="description" content="Passband Atmosphere and Limb-Darkening Tables for PHOEBE 2"/>
         </Helmet>
-        <Header>
-          <h1>PHOEBE Tables</h1>
-        </Header>
+        <TablesHeader title={"Tables | Passbands & Atmospheres"}/>
 
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content>
 
           <Alert level="warning">
             <p><b>Note:</b> These passband files are compatible with PHOEBE 2.2+ only.  For passband files for PHOEBE 2.0.x and 2.1.x, see the <Link to="https://github.com/phoebe-project/phoebe2-tables">phoebe2-tables repo</Link>.  For tables for PHOEBE 1 (legacy), see <Link to="/1.0">phoebe-project.org/1.0</Link>.</p>
@@ -262,6 +318,47 @@ export class Tables extends Component {
 
 
           </div>
+
+        </Content>
+      </div>
+    );
+  }
+}
+
+export class TablesPTFs extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+      };
+  }
+
+  render() {
+
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | Passband Transmission Functions</title>
+          <meta name="keywords" content={metaKeywords+", tables, passbands, ptfs"}/>
+          <meta name="description" content="Passband Transmission Functions for PHOEBE 2"/>
+        </Helmet>
+        <TablesHeader title={"Tables | Passband Transmission Functions"}/>
+
+        <Content>
+
+          <Alert level="warning">
+            <p><b>Note:</b> These passband transmission functions are used to build the <Link to="/tables/pbs">passband files</Link>, but are not used by PHOEBE directly.</p>
+          </Alert>
+
+          <div className="row">
+            <p>
+              <Link to="/tables/ptfs">Passband Transmission Functions (PTFs)</Link> are used to build the <Link to="/tables/pbs">Passband Tables</Link>, but are not directly used by PHOEBE and are not required to download or install.
+              These are required, however, to build <Link to="/docs/latest/tutorials/passbands.ipynb">custom passband/atmosphere tables</Link>.
+              These ASCII files consist of two columns: wavelength and transmission.
+              These files can be found at the <Link to="https://github.com/phoebe-project/phoebe2-tables/tree/master/ptf">phoebe2-tables GitHub repo</Link>.
+          </p>
+          </div>
+
+
 
         </Content>
       </div>
