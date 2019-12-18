@@ -22,7 +22,9 @@ class TablesHeader extends Component {
   render() {
     return (
       <Header>
-        <h1>{this.props.title || "Tables"}</h1>
+        <span className="hidden-xs"><h1>{this.props.title || "Tables"}</h1></span>
+        <span className="visible-xs"><h1>{this.props.titlexs || this.props.title || "Tables"}</h1></span>
+
         <div className="row">
            <div className="col-md-2"></div>
            <div className="col-md-2"></div>
@@ -244,7 +246,7 @@ export class TablesPBs extends Component {
           <meta name="keywords" content={metaKeywords+", tables, passbands, atmospheres, limb-darkening"}/>
           <meta name="description" content="Passband Atmosphere and Limb-Darkening Tables for PHOEBE 2"/>
         </Helmet>
-        <TablesHeader title={"Tables | Passbands & Atmospheres"}/>
+        <TablesHeader title={"Tables | Passbands & Atmospheres"} titlexs={"Passbands"}/>
 
         <Content>
 
@@ -341,7 +343,7 @@ export class TablesPTFs extends Component {
           <meta name="keywords" content={metaKeywords+", tables, passbands, ptfs"}/>
           <meta name="description" content="Passband Transmission Functions for PHOEBE 2"/>
         </Helmet>
-        <TablesHeader title={"Tables | Passband Transmission Functions"}/>
+        <TablesHeader title={"Tables | Passband Transmission Functions"} titlexs={"PTFs"}/>
 
         <Content>
 
