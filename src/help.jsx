@@ -162,7 +162,7 @@ export class HelpFAQ extends Component {
           <br/><br/>
           Q: Is PHOEBE 2.x Python 3.x ready?
           <br/>
-          A: PHOEBE has been tested on Python 2.7+ with various compilers. We are working towards testing PHOEBE on Python 3.x.  See the <Link to="/install">install</Link> page for more information.
+          A: As of the <Link to="/releases/2.2">2.2 release</Link>, PHOEBE is compatible with both Python 3.6+ and 2.7+.  Earlier releases, however, only support Python 2.7+.  See the <Link to="/install">install</Link> page for more information.
           <br/><br/>
           Q: Is it safe to use PHOEBE?
           <br/>
