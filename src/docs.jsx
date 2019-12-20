@@ -213,7 +213,7 @@ export class Docs extends Component {
               <p><Link to={"/docs/"+version+"/physics"}>This set of tutorials</Link> describe the various physics effects implemented in PHOEBE {version} and the choices of the individual parameters that control those effects.</p>
 
               <h2><span className="fa fa-fw fa-xs fa-file-code"></span> Example Scripts</h2>
-              <p>Example scripts provide less commentary that tutorials, but can be useful if trying to accomplish something specific or mimic another use-case.</p>
+              <p>Example scripts provide less commentary than tutorials, but can be useful if trying to accomplish something specific or mimic another use-case.</p>
               <p>View <Link to={"/docs/"+version+"/examples"}>example scripts for PHOEBE {version}</Link>.</p>
 
               <h2><span className="fa fa-fw fa-xs fa-terminal"></span> API Documentation</h2>

@@ -18,6 +18,7 @@ import {Home} from './home';
 import {Releases, ReleaseVersion, ReleaseVersionRedirect} from './releases';
 import {Quickstart} from './quickstart';
 import {Install} from './install';
+import {Tables, TablesPBs, TablesPTFs} from './tables';
 import {Clients} from './clients';
 import {Docs} from './docs';
 import {News, NewsEntry} from './news';
@@ -101,6 +102,9 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/install/:version/:version_os'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
             <Route exact path={process.env.PUBLIC_URL + '/install/:version/:version_os/:version_py'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route exact path={process.env.PUBLIC_URL + '/tables'} component={Tables}/>
+            <Route exact path={process.env.PUBLIC_URL + '/tables/pbs'} component={TablesPBs}/>
+            <Route exact path={process.env.PUBLIC_URL + '/tables/ptfs'} component={TablesPTFs}/>
             <Route exact path={process.env.PUBLIC_URL + '/clients'} component={Clients}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs'} component={Docs}/>
             <Route exact path={process.env.PUBLIC_URL + '/docs/:version/'} component={Docs}/>
