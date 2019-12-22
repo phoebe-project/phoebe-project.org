@@ -12,7 +12,7 @@ export var newsStoriesDicts = [
     title: "PHOEBE 2.2 released",
     slug: "phoebe-22-released",
     pinnedDays: 45,
-    date: "December 20, 2019",
+    date: "December 22, 2019",
     author: "Kyle Conroy",
     content: <div>
               <p>
