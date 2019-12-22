@@ -59,8 +59,8 @@ export class PublicationEntry extends Component {
     } else if (publication=='2020Jones+') {
       author = "Jones et al. (submitted)"
       authorsFull = "Jones, D.; Conroy, K. E., Horvat, M.; Giammarco, J.; Kochoska, A.; Pablo, H.; Brown, A.; Sowicka, P., Prša, A."
-      titleShort = "PHOEBE III: Interstellar Extinction"
-      title = "Physics of Eclipsing Binaries. III. The impact of interstellar extinction on the light curves of eclipsing binaries"
+      titleShort = "PHOEBE IV: Interstellar Extinction"
+      title = "Physics of Eclipsing Binaries. IV. The impact of interstellar extinction on the light curves of eclipsing binaries"
       abstract = "Traditionally, the effects of interstellar extinction on binary star light curves have been treated as a uniform reduction in the observed brightness of the system that is independent of orbital phase.  However, unless the orbital plane of the system coincides with the plane of the sky, or if the two stars are completely identical and present with minimal mutual irradiation and tidal/rotational distortions, then this is unlikely to be an accurate representation of the effect of interstellar extinction.  Here, we present an updated treatment of interstellar extinction as incorporated in the PHOEBE 2.2 release (publicly available from http://phoebe-project.org) and assess the importance of using such an approach in the modeling of different types of binary systems.  We also present the incorporation of PHOENIX model atmospheres into the PHOEBE 2.2 release, providing increased fidelity on computed observables down to lower temperatures than previously available.  The importance of these new code developments is then highlighted via an extincted toy model of the eclipsing white-dwarf-subdwarf binary SDSS~J235524.29+044855.7 -- demonstrating that, in the age of LSST as well as complementary space-based photometric missions, a proper accounting for extinction and as well as the use of realistic model atmospheres will be essential in deriving accurate binary parameters."
       adsLink = "https://ui.adsabs.harvard.edu/abs/2019arXiv191209474J"
       pdf = "2020Jones+.pdf"
