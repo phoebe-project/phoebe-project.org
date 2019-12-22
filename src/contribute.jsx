@@ -330,10 +330,24 @@ export class ContributeDevelopment extends Component {
             <li>development, etc: branches can exist in the phoebe2-docs repository that correspond to branches (particularly feature branches) in the main phoebe2 repository.  These exist to prepare documentation for future releases (without knowing the release number yet).</li>
           </ul>
 
+          <h3>tables.phoebe-project.org repo</h3>
+
+          <p>
+            The <Link to="http://github.com/phoebe-project/tables.phoebe-project.org">tables.phoebe-project.org repository</Link> contains the source-code for the flask server that runs the tables server for all PHOEBE 2.2+ releases.
+            <ul>
+              <li>New passbands should be placed in the <code>/srv/www/tables-phoebe-project/data</code> directory in clusty</li>
+              <li>The passband metadata is refreshed every hour automatically, but the server can be forced to restart by touching <code>/srv/www/tables-phoebe-project/tables-phoebe-project-venv.wsgi</code> file</li>
+              <li>Updates to the flask server code should be pushed to the repo above, pulled on clusty, and the server restarted by touching <code>/srv/www/tables-phoebe-project/tables-phoebe-project-venv.wsgi</code></li>
+              <li>Updates to PHOEBE needed for the server should be pulled and installed in the <code>phoebe_server_venv</code> virtual environment, and the server restarted.</li>
+              <li>Any updates to PHOEBE that change the structure of passbands needs to be reflected in the flask server so that passband files generated for older releases continue to work.</li>
+
+            </ul>
+          </p>
+
           <h3>phoebe2-tables repo</h3>
 
           <p>
-            The <Link to="http://github.com/phoebe-project/phoebe2-tables">phoebe2-tables repository</Link> contains all passband/atmosphere tables available for download by any user's installation of PHOEBE.  Currently it only consists of a master branch.  Be careful when making updates - these updates must work for *all* versions of PHOEBE 2.x that anyone may still have installed.
+            The <Link to="http://github.com/phoebe-project/phoebe2-tables">phoebe2-tables repository</Link> contains all passband/atmosphere tables available for download by any user's installation of PHOEBE (<b>for versions 2.0.x and 2.1.x only</b>).  Currently it only consists of a master branch.  Be careful when making updates - these updates must work for *all* versions of PHOEBE 2.0.x and 2.1.x that anyone may still have installed.
           </p>
 
           <h3>phoebe-project.org repo</h3>
