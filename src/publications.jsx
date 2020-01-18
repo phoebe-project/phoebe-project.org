@@ -26,7 +26,7 @@ export class PublicationEntry extends Component {
       titleShort = "PHOEBE I: Demonstrations and Perspectives"
       title = "A Computational Guide to Physics of Eclipsing Binaries. I. Demonstrations and Perspectives"
       abstract = "PHOEBE (PHysics Of Eclipsing BinariEs) is a modeling package for eclipsing binary stars, built on top of the widely used WD program of Wilson & Devinney. This introductory paper gives an overview of the most important scientific extensions (incorporating observational spectra of eclipsing binaries into the solution-seeking process, extracting individual temperatures from observed color indices, main-sequence constraining, and proper treatment of the reddening), numerical innovations (suggested improvements to WD's differential corrections method, the new Nelder & Mead downhill simplex method), and technical aspects (back-end scripter structure, graphical user interface). While PHOEBE retains 100% WD compatibility, its add-ons are a powerful way to enhance WD by encompassing even more physics and solution reliability. The operability of all these extensions is demonstrated on a synthetic main-sequence test binary; applications to real data will be published in follow-up papers. PHOEBE is released under the GNU General Public License, which guarantees it to be free and open to anyone interested in joining in on future development."
-      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2005ApJ...628..426P"
+      adsLink = "https://ui.adsabs.harvard.edu/abs/2005ApJ...628..426P"
       pdf = "2005Prsa+.pdf"
       release = "1.0"
 
@@ -36,7 +36,7 @@ export class PublicationEntry extends Component {
       titleShort = "PHOEBE II: Toward the Increased Model Fidelity"
       title = "Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity"
       abstract = "The precision of photometric and spectroscopic observations has been systematically improved in the last decade, mostly thanks to space-borne photometric missions and ground-based spectrographs dedicated to finding exoplanets. The field of eclipsing binary stars strongly benefited from this development. Eclipsing binaries serve as critical tools for determining fundamental stellar properties (masses, radii, temperatures, and luminosities), yet the models are not capable of reproducing observed data well, either because of the missing physics or because of insufficient precision. This led to a predicament where radiative and dynamical effects, insofar buried in noise, started showing up routinely in the data, but were not accounted for in the models. PHOEBE (PHysics Of Eclipsing BinariEs; http://phoebe-project.org) is an open source modeling code for computing theoretical light and radial velocity curves that addresses both problems by incorporating missing physics and by increasing the computational fidelity. In particular, we discuss triangulation as a superior surface discretization algorithm, meshing of rotating single stars, light travel time effects, advanced phase computation, volume conservation in eccentric orbits, and improved computation of local intensity across the stellar surfaces that includes the photon-weighted mode, the enhanced limb darkening treatment, the better reflection treatment, and Doppler boosting. Here we present the concepts on which PHOEBE is built and proofs of concept that demonstrate the increased model fidelity."
-      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2016ApJS..227...29P"
+      adsLink = "https://ui.adsabs.harvard.edu/abs/2016ApJS..227...29P"
       pdf = "2016Prsa+.pdf"
       release = "2.0"
       figures = [
@@ -50,7 +50,7 @@ export class PublicationEntry extends Component {
       titleShort = "PHOEBE III: Spin-Orbit Misalignment"
       title = "Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment"
       abstract = "The precision of photometric and spectroscopic observations has been systematically improved in the last decade, mostly thanks to space-borne photometric missions and ground-based spectrographs dedicated to finding exoplanets. The field of eclipsing binary stars strongly benefited from this development. Eclipsing binaries serve as critical tools for determining fundamental stellar properties (masses, radii, temperatures, and luminosities), yet the models are not capable of reproducing observed data well, either because of the missing physics or because of insufficient precision. This led to a predicament where radiative and dynamical effects, insofar buried in noise, started showing up routinely in the data, but were not accounted for in the models. PHOEBE (PHysics Of Eclipsing BinariEs; http://phoebe-project.org) is an open source modeling code for computing theoretical light and radial velocity curves that addresses both problems by incorporating missing physics and by increasing the computational fidelity. In particular, we discuss triangulation as a superior surface discretization algorithm, meshing of rotating single stars, light travel time effects, advanced phase computation, volume conservation in eccentric orbits, and improved computation of local intensity across the stellar surfaces that includes the photon-weighted mode, the enhanced limb darkening treatment, the better reflection treatment, and Doppler boosting. Here we present the concepts on which PHOEBE is built and proofs of concept that demonstrate the increased model fidelity."
-      adsLink = "https://ui.adsabs.harvard.edu/?#abs/2018ApJS..237...26H"
+      adsLink = "https://ui.adsabs.harvard.edu/abs/2018ApJS..237...26H"
       pdf = "2018Horvat+.pdf"
       release = "2.1"
       figures = [
@@ -146,7 +146,7 @@ export class Publications extends Component {
           </div>
 
           <h2>PHOEBE Release Series</h2>
-          <Publication author="Jones et al. (2020)" entryLink="/publications/2020Jones+" title="Physics of Eclipsing Binaries. III. The impact of interstellar extinction on the light curves of eclipsing binaries" release="2.2"/>
+          <Publication author="Jones et al. (2020)" entryLink="/publications/2020Jones+" title="Physics of Eclipsing Binaries. IV. The impact of interstellar extinction on the light curves of eclipsing binaries" release="2.2"/>
           <Publication author="Horvat et al. (2018)" entryLink="/publications/2018Horvat+" title="Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment" release="2.1"/>
           <Publication author="Prša et al. (2016)" entryLink="/publications/2016Prsa+" title="Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity" release="2.0"/>
           <Publication author="Prša & Zwitter (2005)" entryLink="/publications/2005Prsa+" title="A Computational Guide to Physics of Eclipsing Binaries. I. Demonstrations and Perspectives" release="legacy"/>
@@ -155,31 +155,33 @@ export class Publications extends Component {
 
         <Content dark={true}>
           <h2>PHOEBE Conference Proceedings</h2>
-          <Publication author="Degroote et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2013EAS....64..277D" title="PHOEBE 2.0 - Where no model has gone before"/>
-          <Publication author="Prsa et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2013EAS....64..259P" title="Physics of Eclipsing Binaries: Motivation for the New-Age Modeling Suite"/>
-          <Publication author="Bloemen et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2013EAS....64..269B" title="Physics of Eclipsing Binaries: Modelling in the new era of ultra-high precision photometry"/>
-          <Publication author="Conroy et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2013EAS....64..295C" title="PHOEBE 2.0 - Triple and multiple systems"/>
-          <Publication author="Hambleton et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2013EAS....64..285H" title="Physics of Eclipsing Binaries: Heartbeat Stars and Tidally Induced Pulsations"/>
-          <Publication author="Prša et al. (2007)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2007ASPC..370..175P" title="Introducing Powell's Direction Set Method to a Fully Automated Analysis of Eclipsing Binary Stars"/>
+          <Publication author="Degroote et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/abs/2013EAS....64..277D" title="PHOEBE 2.0 - Where no model has gone before"/>
+          <Publication author="Prsa et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/abs/2013EAS....64..259P" title="Physics of Eclipsing Binaries: Motivation for the New-Age Modeling Suite"/>
+          <Publication author="Bloemen et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/abs/2013EAS....64..269B" title="Physics of Eclipsing Binaries: Modelling in the new era of ultra-high precision photometry"/>
+          <Publication author="Conroy et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/abs/2013EAS....64..295C" title="PHOEBE 2.0 - Triple and multiple systems"/>
+          <Publication author="Hambleton et al. (2013)" adsLink="https://ui.adsabs.harvard.edu/abs/2013EAS....64..285H" title="Physics of Eclipsing Binaries: Heartbeat Stars and Tidally Induced Pulsations"/>
+          <Publication author="Prša et al. (2007)" adsLink="https://ui.adsabs.harvard.edu/abs/2007ASPC..370..175P" title="Introducing Powell's Direction Set Method to a Fully Automated Analysis of Eclipsing Binary Stars"/>
           <Separator flip={true} large={false}/>
         </Content>
 
         <Content>
           <h2>PHOEBE Talks &amp; Posters</h2>
-          <Publication author="Conroy et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/#abs/2019AAS...23334827C" title="Considerations and Design Principles for the 2.1 Release of the PHOEBE Eclipsing Binary Modeling Code"/>
-          <Publication author="Conroy et al. (2017)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2017AAS...22934422C" title="Robust Modeling of Stellar Triples in PHOEBE"/>
-          <Publication author="Horvat et al. (2017)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2017AAS...22934423H" title="Heat Redistribution and Misaligned Orbit Models in PHOEBE"/>
-          <Publication author="Prša et al. (2017)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2017AAS...22934409P" title="Using Gaussian Processes to Model Noise in Eclipsing Binary Light Curves"/>
-          <Publication author="Prša et al. (2012)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2012IAUS..282..271P" title="Advances in Modeling Eclipsing Binary Stars in the Era of Large All-Sky Surveys with EBAI and PHOEBE"/>
-          <Publication author="Prša et al. (2010)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2010AAS...21541931P" title="Revising the Model of Eclipsing Binary Stars for the Kepler Era"/>
+          <Publication author="Conroy et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020AAS...23511405C" title="New Physics and Features in the 2.2 Release of the PHOEBE Eclipsing Binary Modeling Code"/>
+          <Publication author="Kochoska et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020AAS...23511403K" title="Fitting in the wild: exploration of new approaches and methods for estimating binary system parameters from light curve data"/>
+          <Publication author="Conroy et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019AAS...23334827C" title="Considerations and Design Principles for the 2.1 Release of the PHOEBE Eclipsing Binary Modeling Code"/>
+          <Publication author="Conroy et al. (2017)" adsLink="https://ui.adsabs.harvard.edu/abs/2017AAS...22934422C" title="Robust Modeling of Stellar Triples in PHOEBE"/>
+          <Publication author="Horvat et al. (2017)" adsLink="https://ui.adsabs.harvard.edu/abs/2017AAS...22934423H" title="Heat Redistribution and Misaligned Orbit Models in PHOEBE"/>
+          <Publication author="Prša et al. (2017)" adsLink="https://ui.adsabs.harvard.edu/abs/2017AAS...22934409P" title="Using Gaussian Processes to Model Noise in Eclipsing Binary Light Curves"/>
+          <Publication author="Prša et al. (2012)" adsLink="https://ui.adsabs.harvard.edu/abs/2012IAUS..282..271P" title="Advances in Modeling Eclipsing Binary Stars in the Era of Large All-Sky Surveys with EBAI and PHOEBE"/>
+          <Publication author="Prša et al. (2010)" adsLink="https://ui.adsabs.harvard.edu/abs/2010AAS...21541931P" title="Revising the Model of Eclipsing Binary Stars for the Kepler Era"/>
           <Separator flip={false} large={false}/>
         </Content>
 
         <Content dark={true}>
           <h2>Related Papers by the PHOEBE Development Team</h2>
-          <Publication author="Kochoska et al. (submitted)" adsLink="https://ui.adsabs.harvard.edu/#abs/2018arXiv180408781K" title="COBAIN: generalized 3D radiative transfer code for contact binary atmospheres"/>
+          <Publication author="Kochoska et al. (submitted)" adsLink="https://ui.adsabs.harvard.edu/abs/2018arXiv180408781K" title="COBAIN: generalized 3D radiative transfer code for contact binary atmospheres"/>
           <Publication author="Horvat et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019ApJS..240...36H" title="Bolometric Treatment of Irradiation Effects: General Discussion and Application to Binary Stars"/>
-          <Publication author="Conroy et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/#abs/2018ApJ...854..163C" title="The Effects of Barycentric and Asymmetric Transverse Velocities on Eclipse and Transit Times"/>
+          <Publication author="Conroy et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/abs/2018ApJ...854..163C" title="The Effects of Barycentric and Asymmetric Transverse Velocities on Eclipse and Transit Times"/>
           <Separator flip={true} large={false}/>
         </Content>
 
@@ -189,14 +191,16 @@ export class Publications extends Component {
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
 
+          {/* <Publication author="Aller et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2019arXiv191109991A" title="Planetary Nebulae seen by TESS: Results and discovery of new binary central star candidates from Cycle 1"/> */}
+          <Publication author="Kabath et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv200101001K" title="Ondrejov echelle spectrograph, ground based support facility for exoplanet missions"/>
           <Publication author="Abdul-Masih et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019ApJ...880..115A" title="Clues on the Origin and Evolution of Massive Contact Binaries: Atmosphere Analysis of VFTS 352"/>
           <Publication author="Kabath et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019PASP..131h5001K" title="Detection limits of exoplanetary atmospheres with 2-m class telescopes"/>
-          <Publication author="Jones et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2019MNRAS.482L..75J" title="The short orbital period binary star at the heart of the planetary nebula M 3-1★"/>
-          <Publication author="Boffin et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2018A&A...619A..84B" title="When nature tries to trick us. An eclipsing eccentric close binary superposed on the central star of the planetary nebula M 3-2"/>
-          <Publication author="Papageorgiou et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2018ApJS..238....4P" title="An Updated Catalog of 4680 Northern Eclipsing Binaries with Algol-type Light-curve Morphology in the Catalina Sky Surveys"/>
-          <Publication author="Kochukhov et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2018MNRAS.478.1749K" title="HD 66051: the first eclipsing binary hosting an early-type magnetic star"/>
-          <Publication author="von Essen et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2018A&A...615A..79V" title="Kepler Object of Interest Network. I. First results combining ground- and space-based observations of Kepler systems with transit timing variations"/>
-          <Publication author="Jones & Boffin (2017)" adsLink="https://ui.adsabs.harvard.edu/?#abs/2017NatAs...1E.117J" title="Binary stars as the key to understanding planetary nebulae"/>
+          <Publication author="Jones et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019MNRAS.482L..75J" title="The short orbital period binary star at the heart of the planetary nebula M 3-1★"/>
+          <Publication author="Boffin et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/abs/2018A&A...619A..84B" title="When nature tries to trick us. An eclipsing eccentric close binary superposed on the central star of the planetary nebula M 3-2"/>
+          <Publication author="Papageorgiou et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/abs/2018ApJS..238....4P" title="An Updated Catalog of 4680 Northern Eclipsing Binaries with Algol-type Light-curve Morphology in the Catalina Sky Surveys"/>
+          <Publication author="Kochukhov et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/abs/2018MNRAS.478.1749K" title="HD 66051: the first eclipsing binary hosting an early-type magnetic star"/>
+          <Publication author="von Essen et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/abs/2018A&A...615A..79V" title="Kepler Object of Interest Network. I. First results combining ground- and space-based observations of Kepler systems with transit timing variations"/>
+          <Publication author="Jones & Boffin (2017)" adsLink="https://ui.adsabs.harvard.edu/abs/2017NatAs...1E.117J" title="Binary stars as the key to understanding planetary nebulae"/>
 
 
         </Content>
