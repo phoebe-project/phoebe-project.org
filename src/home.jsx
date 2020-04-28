@@ -126,6 +126,15 @@ export class Home extends Component {
             <div className="col-md-4">
               <h3>Improved Precision</h3>
               <p>PHOEBE 2 uses a new method for meshing surfaces and <Link to="/docs/latest/tutorials/eclipse/">handling eclipsing regions</Link> - allowing for high-precision modeling of eclipse events.  PHOEBE also includes full <Link to="/docs/latest/tutorials/atm_passbands">atmosphere and passband</Link>, <Link to="/docs/latest/tutorials/limb_darkening">limb-darkening</Link> and <Link to="/docs/latest/tutorials/gravb_bol">gravity brightening/darkening</Link> support.</p>
+
+              <Expander expandText="List supported atmospheres">
+                <ul>
+                  <li>blackbody</li>
+                  <li>Castelli-Kurucz (ck2004)</li>
+                  <li>PHOENIX (as of the <Link to="/releases/2.2">2.2 release</Link>)</li>
+                </ul>
+              </Expander>
+
             </div>
             <div className="col-md-4">
               <h3>Advanced Physics</h3>
@@ -139,13 +148,14 @@ export class Home extends Component {
                   <li><Link to="/docs/latest/tutorials/irrad_method_horvat">Irradiation with Lambert Scattering</Link></li>
                   <li><Link to="/docs/latest/tutorials/pitch_yaw">Spin-orbit misalignment</Link> (as of the <Link to="/releases/2.1">2.1 release</Link>)</li>
                   <li><Link to="/docs/latest/tutorials/ebv_Av_Rv">Reddening and Extinction</Link> (as of the <Link to="/releases/2.2">2.2 release</Link>)</li>
-                  {/* <li><b>Coming soon:</b> Reflection with heat redistribution</li> */}
-                  <li><b>Coming Soon:</b> Pulsations (spherical and oblique)</li>
                   <li><b>Coming Soon:</b> Blended Atmospheres</li>
+                  <li><b>Coming Soon:</b> Pulsations (spherical and oblique)</li>
+                  <li><b>Coming Someday:</b> Hierarchical Multiple Systems</li>
+
+                  {/* <li><b>Coming soon:</b> Reflection with heat redistribution</li> */}
                   {/* <li><b>Coming soon:</b> Differential Rotation</li> */}
                   {/* <li><b>Coming soon:</b> Magnetic Fields</li> */}
                   {/* <li><b>Coming soon:</b> Rings/Accretion Disks</li> */}
-                  <li><b>Coming Soon:</b> Hierarchical Multiple Systems</li>
                 </ul>
               </Expander>
 
@@ -167,7 +177,7 @@ export class Home extends Component {
                   <li><b>Coming soon:</b> Polarimetry</li>
                   <li><b>Coming soon:</b> Interferometry</li>
                   <li><b>Coming soon:</b> Astrometry</li> */}
-                  <li><b>Coming Soon:</b> Eclipse Timing Variations</li>
+                  <li><b>Coming Someday:</b> Eclipse Timing Variations</li>
                 </ul>
               </Expander>
             </div>
@@ -179,26 +189,26 @@ export class Home extends Component {
               <p>As of the <Link to="/releases/2.1">2.1 release</Link>, PHOEBE 2 supports parallelization via MPI.</p>
               <p><b>Coming Soon:</b> eventually PHOEBE will also be parallelized at the fitting level with support for submitting a computational job with a scheduler directly from the frontend interface.</p>
 
-              <Expander expandText="List supported types">
+              {/* <Expander expandText="List supported types">
                 <ul>
                   <li><Link to="http://mpi4py.scipy.org/">mpi4py</Link> (see <Link to="/docs/latest/api/phoebe.mpi_on">phoebe.mpi_on API docs</Link>)</li>
                   <li><b>Coming Soon:</b> <Link to="http://www.adaptivecomputing.com/products/open-source/torque/">torque</Link></li>
                   <li><b>Coming Soon:</b> <Link to="https://computing.llnl.gov/linux/slurm/">slurm</Link></li>
                 </ul>
-              </Expander>
+              </Expander> */}
             </div>
 
             <div className="col-md-4">
-              <h3>Swappable Backends and Plugins</h3>
+              <h3>Swappable Forward-Model Backends</h3>
               <p>The PHOEBE 2 frontend can do more than just run its own backend - it also wraps backends of other popular codes, including:</p>
 
               <Expander expandText="List supported backends">
                 <ul>
                   <li><Link to="/docs/latest/examples/legacy/">PHOEBE 1.0 Legacy</Link> (Wilson-Devinney)</li>
                   <li><b>Coming Soon:</b> John Southworth's <Link to="http://www.astro.keele.ac.uk/jkt/codes/jktebop.html">jktebop</Link></li>
-                  <li><b>Coming Soon:</b> Josh Carter's <Link to="https://github.com/dfm/photodynam">photodynam</Link></li>
                   <li><b>Coming Soon:</b> Pierre Maxted's <Link to="https://github.com/pmaxted/ellc">ellc</Link></li>
-                  <li><b>Coming Soon:</b> Jerry Orosz's <Link to="https://ui.adsabs.harvard.edu/abs/2018AJ....156..297S">elc</Link></li>
+                  <li><b>Coming Someday:</b> Josh Carter's <Link to="https://github.com/dfm/photodynam">photodynam</Link></li>
+                  <li><b>Coming Someday:</b> Jerry Orosz's <Link to="https://ui.adsabs.harvard.edu/abs/2018AJ....156..297S">elc</Link></li>
                 </ul>
                 <p>Follow along with the <Link to="/docs/latest/tutorials/alternate_backends/">alternate backends tutorial</Link> for how to utilize these alternate backends.</p>
                 <p><Link to="/help/contact">Contact Us</Link> if you'd like another backend supported.</p>
@@ -206,27 +216,19 @@ export class Home extends Component {
             </div>
 
             <div className="col-md-4">
-              <h3>Interface with Fitting Routines</h3>
-              <p><b>Coming Soon:</b> PHOEBE 2 will include wrappers that interface directly with many off-the-shelf fitting routines.</p>
+              <h3>Inverse Problem Solvers</h3>
+              <p><b>Coming Soon:</b> PHOEBE 2 will include wrappers that interface directly with many off-the-shelf optimization and sampling routines.</p>
 
-              <Expander expandText="List fitting routines">
+              <Expander expandText="List solver routines">
                 <ul>
-                  <li><b>Coming Soon:</b> <Link to="http://dan.iel.fm/emcee">emcee</Link> (MCMC)</li>
-                  <li>
-                      <Link to="http://lmfit.github.io/lmfit-py/">lmfit</Link>
-                      <ul>
-                          <li>Least Squares</li>
-                          <li>Nelder-Mead</li>
-                      </ul>
-                  </li>
-                  <li><b>Coming Soon:</b> <Link to="http://pymc-devs.github.io/pymc/">pymc</Link></li>
-                  <li><b>Coming Soon:</b> <Link to="http://seal.web.cern.ch/seal/snapshot/work-packages/mathlibs/minuit/">minuit</Link></li>
+                  <li><b>Coming Soon:</b> Periodgrams</li>
+                  <li><b>Coming Soon:</b> Geometric Estimators</li>
+                  <li><b>Coming Soon:</b> EBAI (Artificial Neural Network)</li>
+                  <li><b>Coming Soon:</b> Scipy optimizers</li>
+                  <li><b>Coming Soon:</b> <Link to="http://emcee.readthedocs.io">emcee</Link> (MCMC)</li>
+                  <li><b>Coming Soon:</b> <Link to="http://dynesty.readthedocs.io">dynesty</Link> (nested sampling)</li>
                 </ul>
-                <p>as well as several built into PHOEBE iteslf:</p>
-                <ul>
-                  <li><b>Coming Soon:</b> grid search</li>
-                  <li><b>Coming Soon:</b> differential corrections</li>
-                </ul>
+
               </Expander>
             </div>
           </div>

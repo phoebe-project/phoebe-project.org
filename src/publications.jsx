@@ -185,6 +185,7 @@ export class Publications extends Component {
           <Publication author="Kochoska et al. (arXiv, 2018)" adsLink="https://ui.adsabs.harvard.edu/abs/2018arXiv180408781K" title="COBAIN: generalized 3D radiative transfer code for contact binary atmospheres"/>
           <Publication author="Horvat et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019ApJS..240...36H" title="Bolometric Treatment of Irradiation Effects: General Discussion and Application to Binary Stars"/>
           <Publication author="Conroy et al. (2018)" adsLink="https://ui.adsabs.harvard.edu/abs/2018ApJ...854..163C" title="The Effects of Barycentric and Asymmetric Transverse Velocities on Eclipse and Transit Times"/>
+          <Publication author="Prša et al. (2008)" adsLink="https://ui.adsabs.harvard.edu/abs/2008ApJ...687..542P" title="Artificial Intelligence Approach to the Determination of Physical Properties of Eclipsing Binaries. I. The EBAI Project"/>
           <Separator flip={true} large={false}/>
         </Content>
 
