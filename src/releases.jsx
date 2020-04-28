@@ -212,6 +212,7 @@ class ReleaseContent extends Component {
                   </p>
                   <ul>
                     <li><Link to="/docs/2.2/examples/extinction_BK_binary">Interstellar extinction</Link> (via <Link to="/docs/2.2/tutorials/ebv_Av_Rv">ebv, Av, and Rv</Link> parameters)</li>
+                    <li><Link to="/docs/2.2/tutorials/atm_passbands">PHOENIX atmospheres</Link></li>
                   </ul>
 
                   <p>
