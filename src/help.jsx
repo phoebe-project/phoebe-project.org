@@ -242,14 +242,11 @@ export class Help1vs2 extends Component {
         </Header>
         <Content>
           <p>
-            PHOEBE 2 is officially released, but does not fully support all features in the original version of PHOEBE and should still be used with some caution.
-          </p>
-          <p>
-          Below are the versions we suggest using based on your needs:
+          PHOEBE 2 is officially released and under active-development.  The PHOEBE 1.0 (legacy) is no longer under active-development, but is still available for download and installation.
           </p>
           <ul>
-            <li><Link to="/releases/legacy">PHOEBE 1.0 (legacy)</Link> should be used for reliable <em>trustable science results</em> and for cases that do not require the precision or additional physics introduced by PHOEBE 2.  PHOEBE 1.0 (legacy) is still significantly faster than PHOEBE 2.</li>
-            <li><Link to="/releases/latest">PHOEBE 2</Link> should be used to learn the interface for PHOEBE going forward, and will be updated with future releases to include new physics. Although we have made every effort to test the science-results, please make sure all results make sense and report any issues.</li>
+            <li><Link to="/releases/legacy">PHOEBE 1.0 (legacy)</Link> is well-tested, fast, and includes a user-interface.  There is a custom-scripting interface, but we suggest that new users learn the python interface in PHOEBE 2 instead.</li>
+            <li><Link to="/releases/latest">PHOEBE 2</Link> is precise, includes a python scripter, and is under active-development and new feature-releases.  The frontend-interface is a Python package, which does include a bit of a learning curve for new users, especially if not already familiar with Python.  With support for running <Link to="/docs/latest/tutorials/alternate_backends">alternate backends</Link>, we suggest new users learn the interface for PHOEBE 2 and choose the appropriate backend for their science and accuracy needs.  As PHOEBE 2 has not been around as long, we encourage testing all results across multiple forward-model backends and <Link to="/contribute#issues">report any issues</Link>.</li>
           </ul>
         </Content>
       </div>
