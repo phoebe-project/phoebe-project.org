@@ -195,7 +195,8 @@ export class Publications extends Component {
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
 
-          {/* <Publication author="Aller et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2019arXiv191109991A" title="Planetary Nebulae seen by TESS: Results and discovery of new binary central star candidates from Cycle 1"/> */}
+          <Publication author="Kurtz et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020MNRAS.tmp.1132K" title="The single-sided pulsator CO Camelopardalis"/>
+          <Publication author="Aller et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2019arXiv191109991A" title="Planetary Nebulae seen by TESS: Results and discovery of new binary central star candidates from Cycle 1"/>
           <Publication author="Kabath et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv200101001K" title="Ondrejov echelle spectrograph, ground based support facility for exoplanet missions"/>
           <Publication author="Abdul-Masih et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019ApJ...880..115A" title="Clues on the Origin and Evolution of Massive Contact Binaries: Atmosphere Analysis of VFTS 352"/>
           <Publication author="Kabath et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019PASP..131h5001K" title="Detection limits of exoplanetary atmospheres with 2-m class telescopes"/>
