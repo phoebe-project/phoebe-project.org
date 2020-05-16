@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import {Content, Link, Image, Separator} from './common';
-import {Header} from './header';
+import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
 export class PublicationEntry extends Component {
   render() {
     var publication = this.props.match.params.publication
 
+    var published = true
     var author = null;
     var authorsFull = null;
     var titleShort = null;
@@ -21,6 +22,7 @@ export class PublicationEntry extends Component {
     var figures = [];
 
     if (publication=='2005Prsa+') {
+      published = true
       author = "Prša & Zwitter (2005)"
       authorsFull = "Prša, A.; Zwitter, T."
       titleShort = "PHOEBE I: Demonstrations and Perspectives"
@@ -31,6 +33,7 @@ export class PublicationEntry extends Component {
       release = "1.0"
 
     } else if (publication=='2016Prsa+') {
+      published = true
       author = "Prša et al. (2016)"
       authorsFull = "Prša, A.; Conroy, K. E.; Horvat, M.; Pablo, H.; Kochoska, A.; Bloemen, S.; Giammarco, J.; Hambleton, K. M.; Degroote, P."
       titleShort = "PHOEBE II: Toward the Increased Model Fidelity"
@@ -45,6 +48,7 @@ export class PublicationEntry extends Component {
                 ]
 
     } else if (publication=='2018Horvat+') {
+      published = true
       author = "Horvat et al. (2018)"
       authorsFull = "Prša, A.; Conroy, K. E.; Horvat, M.; Pablo, H.; Kochoska, A.; Bloemen, S.; Giammarco, J.; Hambleton, K. M.; Degroote, P."
       titleShort = "PHOEBE III: Spin-Orbit Misalignment"
@@ -57,11 +61,12 @@ export class PublicationEntry extends Component {
                   {"name": "Figure 8", "image": "2018Horvat+_fig8.png", "link": "/docs/2.1/examples/diher_misaligned"}
                 ]
     } else if (publication=='2020Jones+') {
+      published = true
       author = "Jones et al. (2020)"
-      authorsFull = "Jones, D.; Conroy, K. E., Horvat, M.; Giammarco, J.; Kochoska, A.; Pablo, H.; Brown, A.; Sowicka, P., Prša, A."
+      authorsFull = "Jones, D.; Conroy, K. E.; Horvat, M.; Giammarco, J.; Kochoska, A.; Pablo, H.; Brown, A.; Sowicka, P.; Prša, A."
       titleShort = "PHOEBE IV: Interstellar Extinction"
       title = "Physics of Eclipsing Binaries. IV. The Impact of Interstellar Extinction on the Light Curves of Eclipsing Binaries"
-      abstract = "Traditionally, the effects of interstellar extinction on binary star light curves have been treated as a uniform reduction in the observed brightness of the system that is independent of orbital phase.  However, unless the orbital plane of the system coincides with the plane of the sky, or if the two stars are completely identical and present with minimal mutual irradiation and tidal/rotational distortions, then this is unlikely to be an accurate representation of the effect of interstellar extinction.  Here, we present an updated treatment of interstellar extinction as incorporated in the PHOEBE 2.2 release (publicly available from http://phoebe-project.org) and assess the importance of using such an approach in the modeling of different types of binary systems.  We also present the incorporation of PHOENIX model atmospheres into the PHOEBE 2.2 release, providing increased fidelity on computed observables down to lower temperatures than previously available.  The importance of these new code developments is then highlighted via an extincted toy model of the eclipsing white-dwarf-subdwarf binary SDSS~J235524.29+044855.7 -- demonstrating that, in the age of LSST as well as complementary space-based photometric missions, a proper accounting for extinction and as well as the use of realistic model atmospheres will be essential in deriving accurate binary parameters."
+      abstract = "Traditionally, the effects of interstellar extinction on binary star light curves have been treated as a uniform reduction in the observed brightness of the system that is independent of orbital phase.  However, unless the orbital plane of the system coincides with the plane of the sky, or if the two stars are completely identical and present with minimal mutual irradiation and tidal/rotational distortions, then this is unlikely to be an accurate representation of the effect of interstellar extinction.  Here, we present an updated treatment of interstellar extinction as incorporated in the PHOEBE 2.2 release (publicly available from http://phoebe-project.org) and assess the importance of using such an approach in the modeling of different types of binary systems.  We also present the incorporation of PHOENIX model atmospheres into the PHOEBE 2.2 release, providing increased fidelity on computed observables down to lower temperatures than previously available.  The importance of these new code developments is then highlighted via an extincted toy model of the eclipsing white-dwarf-subdwarf binary SDSS J235524.29+044855.7 -- demonstrating that, in the age of LSST as well as complementary space-based photometric missions, a proper accounting for extinction and as well as the use of realistic model atmospheres will be essential in deriving accurate binary parameters."
       adsLink = "https://ui.adsabs.harvard.edu/abs/2020ApJS..247...63J"
       pdf = "2020Jones+.pdf"
       release = "2.2"
@@ -87,6 +92,28 @@ export class PublicationEntry extends Component {
         </Helmet>
         <Header>
           <h1>{titleShort}</h1>
+          <div className="row">
+             <div className="col-md-2"></div>
+             <div className="col-md-2"></div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="I: PHOEBE 1.0" description="Demonstrations and Perspectives" to={"/publications/2005Prsa+"}/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="II: PHOEBE 2.0" description="Toward the Increased Model Fidelity" to={"/publications/2016Prsa+"}/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="III: Misalignment (2.1)" description="Spin-Orbit Misalignment" to={"/publications/2018Horvat+"}/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="IV: Extinction (2.2)" description="The Impact of Interstellar Extinction on the Light Curves of Eclipsing Binaries" to={"/publications/2020Jones+"}/>
+             </div>
+             {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="V: Inverse Problem (2.3)" description="General Framework for Solving the Inverse Problem" to={"/publications/2020Conroy+"}/>
+             </div> */}
+             {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="VI: Atmospheres (2.4)" description="" to={"/publications/2020Prsa+"}/>
+             </div> */}
+           </div>
         </Header>
         <Content>
           <p>
@@ -113,10 +140,11 @@ export class PublicationEntry extends Component {
               :
               null
             }
+            <p>click on any figure to view a script to reproduce that figure using PHOEBE</p>
             {figures.map(figure => {
               return (
-                <div>
-                  <h4 style={{fontSize: "14pt"}}>{figure.name}</h4>
+                <div style={{width: "100%", margin: "auto", paddingTop: "50px", paddingBottom: "50px", textAlign: "center"}}>
+                  <h4 style={{fontSize: "16pt"}}>{figure.name}</h4>
                   <Link to={figure.link}><img src={"/images/figures/"+figure.image} width="600px" style={{maxWidth: "100%"}}/></Link>
                 </div>
               )
