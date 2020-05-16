@@ -7,10 +7,12 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-var upcoming_workshops = {"2020june": "June-July 2020, Villanova PA"};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
+var upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
 var active_workshops = {}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
 var archived_workshops = {"2018june": "June 2018, Villanova PA",
                           "2019july": "July 2019, Villanova PA"}; // WORKSHOP OVER
+
+// NOTE: "2020june": "June-July 2020, Villanova PA" canceled due to covid-19
 
 export class Workshop extends Component {
   constructor(props) {

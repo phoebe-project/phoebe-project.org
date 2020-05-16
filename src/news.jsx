@@ -37,10 +37,13 @@ export var newsStoriesDicts = [
                 Past participants are welcome and encouraged to apply to attend the second week if they wish to get more experience in particular areas of science or work on fitting their data.
               </p>
               <p>
-                Further information and the registration form can be found at <Link to="/workshops/2020june">http://phoebe-project.org/workshops/2020june</Link>.  Registration is now open and will remain open until <b>February 14th, 2020</b>.
+                Further information and the registration form can be found at http://phoebe-project.org/workshops/2020june (<b>update</b>: this link is now dead as the workshop has been canceled to covid-19).  Registration is now open and will remain open until <b>February 14th, 2020</b>.
               </p>
               <p>
                 We look forward to welcoming you to Villanova University in June/July!
+              </p>
+              <p>
+                <b>UPDATE</b>: due to covid-19, the Summer 2020 workshop has indefinitely been postponed.  We will contact all accepted participants when a new date is available.
               </p>
               <p>
                 Kind regards,<br/>
