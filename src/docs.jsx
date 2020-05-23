@@ -132,13 +132,11 @@ export class Docs extends Component {
           <span className="visible-xs"><h1>{version} docs</h1></span>
 
           <div className="row">
-             <div className="col-md-2"></div>
-             {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="About" description={"About "+version+" release"} to={"/releases/"+version} icon="fa fa-info"/>
-             </div> */}
-             {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Install" description={"Download and Install PHOEBE "+version} to={"/install/"+version} icon="fa fa-download"/>
-             </div> */}
+            {version < 2.3 ?
+              <div className="col-md-2"></div>
+              :
+              null
+            }
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Tutorials" description="Tutorials" to={"/docs/"+version+"/tutorials"} icon="fa fa-hands-helping"/>
              </div>
@@ -148,6 +146,13 @@ export class Docs extends Component {
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Physics" description="Physics and Individual Parameters" to={"/docs/"+version+"/physics"} icon="fas fa-atom"/>
              </div>
+             {version < 2.3 ?
+               null
+               :
+               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+                 <HeaderNavButton title="Backends" description={version < 2.3 ? "Available Compute Backends" : "Available Compute and Solver Backends"} to={"/docs/"+version+"/backends"} icon="fas fa-play"/>
+               </div>
+             }
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Examples" description="Example Scripts" to={"/docs/"+version+"/examples"} icon="fa fa-file-code"/>
              </div>
@@ -211,6 +216,15 @@ export class Docs extends Component {
 
               <h2><span className="fas fa-fw fa-xs fa-atom"></span> Physics &amp; Individual Parameters</h2>
               <p><Link to={"/docs/"+version+"/physics"}>This set of tutorials</Link> describe the various physics effects implemented in PHOEBE {version} and the choices of the individual parameters that control those effects.</p>
+
+              {version < 2.3 ?
+                null
+                :
+                <React.Fragment>
+                  <h2><span className="fas fa-fw fa-xs fa-play"></span> {version < 2.3 ? "Compute Backends" : "Compute and Solver Backends"}</h2>
+                  <p>View a list of all <Link to={"/docs/"+version+"/backends"}>{version < 2.3 ? "available compute backends" : "available compute and solver backends"}</Link> with links to the relevant tutorials and API docs for each.</p>
+                </React.Fragment>
+              }
 
               <h2><span className="fa fa-fw fa-xs fa-file-code"></span> Example Scripts</h2>
               <p>Example scripts provide less commentary than tutorials, but can be useful if trying to accomplish something specific or mimic another use-case.</p>
