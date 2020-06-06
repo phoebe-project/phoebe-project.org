@@ -10,16 +10,16 @@
    xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="744.09448819"
-   height="1052.3622047"
+   width="547.97235"
+   height="966.98859"
    id="svg4507"
    version="1.1"
-   inkscape:version="0.92.3 (2405546, 2018-03-11)"
-   sodipodi:docname="logo_release_22e.svg"
-   enable-background="new"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
+   sodipodi:docname="logo_release_22.svg"
    inkscape:export-filename="/home/kyle/research/phoebe_git/phoebe-project.org/public/logos/logo_release_22e.png"
    inkscape:export-xdpi="22.700001"
-   inkscape:export-ydpi="22.700001">
+   inkscape:export-ydpi="22.700001"
+   style="enable-background:new">
   <defs
      id="defs4509">
     <linearGradient
@@ -125,16 +125,20 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1"
-     inkscape:cx="-338.38321"
-     inkscape:cy="381.82962"
+     inkscape:cx="-772.00417"
+     inkscape:cy="357.71108"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
-     inkscape:window-width="3730"
-     inkscape:window-height="2105"
-     inkscape:window-x="110"
-     inkscape:window-y="55"
-     inkscape:window-maximized="1" />
+     inkscape:window-width="3724"
+     inkscape:window-height="2032"
+     inkscape:window-x="116"
+     inkscape:window-y="54"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
   <metadata
      id="metadata4512">
     <rdf:RDF>
@@ -143,14 +147,15 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="bg">
+     inkscape:label="bg"
+     transform="translate(-126.12096,-63.255081)">
     <path
        sodipodi:type="star"
        style="fill:url(#linearGradient829);fill-opacity:1;stroke:#2b71b1;stroke-width:1.75807977;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94117647"
@@ -279,7 +284,7 @@
        inkscape:transform-center-x="-41.610042" />
     <path
        sodipodi:type="star"
-       style="fill:url(#linearGradient843);fill-opacity:1;stroke:#2b71b1;stroke-width:1.75807974;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94117647"
+       style="fill:url(#linearGradient843);fill-opacity:1;stroke:#2b71b1;stroke-width:1.75807977;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.94117647"
        id="path2985-7-2-62-7-1-4"
        sodipodi:sides="3"
        sodipodi:cx="351.42856"
@@ -300,10 +305,12 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="extinction gradient"
-     style="display:none;opacity:0.63500001;filter:url(#filter2488)" />
+     style="display:none;opacity:0.63500001;filter:url(#filter2488)"
+     transform="translate(-126.12096,-63.255081)" />
   <g
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     style="display:inline" />
+     style="display:inline"
+     transform="translate(-126.12096,-63.255081)" />
 </svg>

@@ -27,6 +27,9 @@ export class ReleaseVersionRedirect extends Component {
 export class Releases extends Component {
   render() {
     var docs_versions_incl_legacy = docs_versions.concat("legacy")
+    // to test a new release before its included in the changelog (make sure to comment out before building and pushing live version)
+    // docs_versions_incl_legacy.unshift("2.3")
+    // docs_versions_incl_legacy.unshift("2.4")
     var latest_patch_version = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
     return (
       <div>
@@ -226,6 +229,64 @@ class ReleaseContent extends Component {
                     <li>support for computing a model at different times than the observations, via the <Link to="/docs/2.2/tutorials/21_22_compute_times_phases">compute_times or compute_phases parameter</Link>.</li>
                     <li>a transition from pickled to FITS passband files, with automatic detection for <Link to="/docs/2.2/tutorials/passband_updates">available updates</Link>.  The tables can now also be accessed via <Link to="/tables">tables.phoebe-project.org</Link>.</li>
                     <li><b>disabled</b> support for <Link to="/docs/2.2/tutorials/beaming_boosting">beaming and boosting</Link>.</li>
+                  </ul>
+                </div>
+    } else if (this.props.version === '2.3') {
+      logo = "logo_release_23.svg"
+      releasePaper = "Conroy et al. (2020)"
+      publicationLink = "/publications/2020Conroy+"
+      content = <div>
+                  <p>PHOEBE 2.3 introduces a general framework for solving the inverse problem with estimators, optimizers, and samplers, as well as the introduction of the <Link to="/clients">PHOEBE user-interface</Link>.</p>
+                  <p>
+                    New capabilities introduced in version 2.3:
+                  </p>
+                  <ul>
+                    <li><Link to="/docs/2.3/tutorials/solver.ipynb">inverse problem solvers</Link> (<Link to="/docs/2.3/api/phoebe.parameters.solver.estimator">estimators</Link>, <Link to="/docs/2.3/api/phoebe.parameters.solver.optimizer">optimizers</Link>, and <Link to="/docs/2.3/api/phoebe.parameters.solver.sampler">samplers</Link>)</li>
+                    <li><Link to="/docs/2.3/tutorials/distriubtions.ipynb">distributions</Link></li>
+                    <li>gaussian processes</li>
+                    <li>phase masking</li>
+                  </ul>
+                  <p>
+                    New <Link to="/docs/2.3/backends">compute backends</Link> introduced in version 2.3
+                  </p>
+                  <ul>
+                    <li><Link to="/docs/2.3/api/phoebe.parameters.compute.ellc">ellc</Link></li>
+                    <li><Link to="/docs/2.3/api/phoebe.parameters.compute.jktebop">jktebop</Link></li>
+                  </ul>
+                  <p>
+                    New Physics introduced in version 2.3:
+                  </p>
+                  <ul>
+                    <li>Per-component and per-dataset <Link to="/docs/2.3/tutorials/rv_offset.ipynb">radial velocity offsets</Link></li>
+                  </ul>
+                  <p>
+                    Major changes since 2.2:
+                  </p>
+                  <ul>
+                    <li><Link to="/docs/2.3/tutorials/22_23_extinction.ipynb">extinction moved from per-dataset to system-level</Link></li>
+                    <li><Link to="/docs/2.3/tutorials/22_23_run_checks.ipynb">run_checks split into run_checks_system, compute, solver, solution</Link></li>
+                    <li><Link to="/docs/2.3/tutorials/22_23_requivsumfrac.ipynb">requivsum constraint replaced by requivsumfrac</Link></li>
+                    <li><Link to="/docs/2.3/tutorials/22_23_scipy.ipynb">scipy dependency updated to 1.7+</Link></li>
+                  </ul>
+                </div>
+    } else if (this.props.version === '2.4') {
+      logo = "logo_release_24.svg"
+      releasePaper = "Prša et al. (2020)"
+      publicationLink = "/publications/2020Prsa+"
+      content = <div>
+                  <p>PHOEBE 2.4 .</p>
+                  <p>
+                    New Physics introduced in version 2.3:
+                  </p>
+                  <ul>
+                    <li>blended atmospheres</li>
+                    <li>TLUSTY atmospheres</li>
+                  </ul>
+                  <p>
+                    Major changes since 2.3:
+                  </p>
+                  <ul>
+
                   </ul>
                 </div>
     } else {

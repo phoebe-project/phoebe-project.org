@@ -77,6 +77,21 @@ export class PublicationEntry extends Component {
                   {"name": "Figure 4", "image": "2020Jones+_fig4.png", "link": "/docs/2.2/examples/extinction_wd_subdwarf"}
                 ]
 
+    } else if (publication=='2020Conroy+') {
+      published = false
+      author = "Conroy et al. (2020, submitted)"
+      authorsFull = "Conroy, K. E.; Kochoska, A.; Hey, D.; Hambleton, K. M.; Pablo, H.; Jones, D.; Giammarco, J.; Prša, A."
+      titleShort = "PHOEBE V: Inverse Problem"
+      title = "Physics of Eclipsing Binaries. V. General Framework for Solving the Inverse Problem"
+      abstract = "PHOEBE 2 is a Python package for modeling the observables of eclipsing star systems, but until now has focused entirely on the forward model – that is, generating a synthetic model given fixed values of a large number of parameters describing the system and the observations.  The inverse problem, obtaining orbital and stellar parameters given observational data, is more complicated and computationally expensive as it requires generating a large set of forward models to determine which best represents the available observational data. The process to determine the best solution and also to obtain reliable and robust uncertainties on those parameters often requires the use of multiple different algorithms, including both optimizers and samplers.  Furthermore, the forward model of PHOEBE has  been  designed  to  be  as  physically  robust  as  possible,  but  is  computationally  expensive compared to other codes.  It is useful, therefore, to use whichever code is most efficient given the reasonable assumptions for a specific system, but learning the intricacies of multiple codes presents a barrier to doing this in practice.  Here we present the 2.3 release of PHOEBE (publicly available from http://phoebe-project.org) which introduces a general framework for defining and handling distributions on parameters, calling multiple different estimation, optimization, and sampling algorithms around any of several supported forward models, including the robust model built in to PHOEBE itself."
+      adsLink = ""
+      pdf = ""
+      release = "2.3"
+      figures = [
+                  {"name": "Figure 1", "image": "2020Conroy+_fig1.png", "link": "/docs/development/examples/inverse_paper_examples"},
+                  {"name": "Table 2", "image": "2020Conroy+_table2.png", "link": "/docs/development/examples/compute_comparison_table"}
+                ]
+
     } else {
       return (
         <NotFound>
@@ -122,15 +137,19 @@ export class PublicationEntry extends Component {
           <p>
             {authorsFull}
           </p>
-          <p>
-            <span style={{padding: "15px", fontSize: "16pt"}}><Link to={adsLink} hideExternal={true}><span className="ai ai-ads"></span> ADS</Link></span>
-            <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/pdf/"+pdf}><span className="far fa-fw fa-file-pdf"></span> PDF</Link></span>
-            {release ?
-              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/releases/"+release}><span className="fas fa-fw fa-tags"></span> {release} Release</Link></span>
-              :
-              null
-            }
-          </p>
+          {published ?
+            <p>
+              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={adsLink} hideExternal={true}><span className="ai ai-ads"></span> ADS</Link></span>
+              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/pdf/"+pdf}><span className="far fa-fw fa-file-pdf"></span> PDF</Link></span>
+              {release ?
+                <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/releases/"+release}><span className="fas fa-fw fa-tags"></span> {release} Release</Link></span>
+                :
+                null
+              }
+            </p>
+            :
+            <h2><b>THIS PAPER IS NOT YET PUBLISHED - content subject to change</b></h2>
+          }
           <p>
             {abstract}
           </p>
@@ -140,7 +159,12 @@ export class PublicationEntry extends Component {
               :
               null
             }
-            <p>click on any figure to view a script to reproduce that figure using PHOEBE</p>
+            {figures.length > 0 ?
+              <p>click on any figure/table below to view the relevant script or content</p>
+              :
+              null
+            }
+
             {figures.map(figure => {
               return (
                 <div style={{width: "100%", margin: "auto", paddingTop: "50px", paddingBottom: "50px", textAlign: "center"}}>

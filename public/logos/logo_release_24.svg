@@ -10,11 +10,11 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="543.94098"
-   height="971.25629"
+   height="960.06042"
    id="svg4507"
    version="1.1"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="logo_release_21.svg">
+   sodipodi:docname="logo_release_24.svg">
   <defs
      id="defs4509" />
   <sodipodi:namedview
@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="-1490.9031"
-     inkscape:cy="603.1328"
+     inkscape:zoom="0.70710678"
+     inkscape:cx="342.30476"
+     inkscape:cy="449.39292"
      inkscape:document-units="px"
      inkscape:current-layer="layer3"
      showgrid="false"
@@ -47,7 +47,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -58,7 +58,7 @@
      transform="translate(-128.13666,-66.728226)">
     <path
        sodipodi:type="star"
-       style="fill:#2b71b1;fill-opacity:0.94117647;stroke:none"
+       style="fill:#004a8c;fill-opacity:0.71372551;stroke:none"
        id="path2985-7-2-62-7"
        sodipodi:sides="3"
        sodipodi:cx="351.42856"
@@ -76,7 +76,7 @@
        inkscape:transform-center-x="-41.610042" />
     <path
        sodipodi:type="star"
-       style="fill:#2b71b1;fill-opacity:0.94117647;stroke:none"
+       style="fill:#00396c;fill-opacity:0.96078432;stroke:none"
        id="path2985-7-2-62-7-2"
        sodipodi:sides="3"
        sodipodi:cx="351.42856"
@@ -94,7 +94,7 @@
        inkscape:transform-center-x="-41.610042" />
     <path
        sodipodi:type="star"
-       style="fill:#2b71b1;fill-opacity:0.94117647;stroke:none"
+       style="fill:#00396c;fill-opacity:0.96078432;stroke:none"
        id="path2985-7-2-62-7-0"
        sodipodi:sides="3"
        sodipodi:cx="351.42856"
@@ -112,7 +112,7 @@
        inkscape:transform-center-x="41.610042" />
     <path
        sodipodi:type="star"
-       style="fill:#2b71b1;fill-opacity:0.94117647;stroke:none"
+       style="fill:#004a8c;fill-opacity:0.71372551;stroke:none"
        id="path2985-7-2-62-7-1"
        sodipodi:sides="3"
        sodipodi:cx="351.42856"
@@ -130,7 +130,7 @@
        inkscape:transform-center-x="41.610042" />
     <path
        sodipodi:type="star"
-       style="fill:#2b71b1;fill-opacity:0.94117647;stroke:none"
+       style="fill:#00396c;fill-opacity:0.96078432;stroke:none"
        id="path2985-7-2-62-7-2-3"
        sodipodi:sides="3"
        sodipodi:cx="351.42856"
@@ -148,7 +148,7 @@
        inkscape:transform-center-x="41.610042" />
     <path
        sodipodi:type="star"
-       style="fill:#2b71b1;fill-opacity:0.94117647;stroke:none"
+       style="fill:#004a8c;fill-opacity:0.71194381;stroke:none"
        id="path2985-7-2-62-7-0-2"
        sodipodi:sides="3"
        sodipodi:cx="351.42856"
@@ -166,7 +166,7 @@
        inkscape:transform-center-x="-41.610042" />
     <path
        sodipodi:type="star"
-       style="fill:#2b71b1;fill-opacity:0.94117647;stroke:none"
+       style="fill:#0b8eff;fill-opacity:0.55737704;stroke:none"
        id="path2985-7-2-62-7-2-1"
        sodipodi:sides="3"
        sodipodi:cx="351.42856"
@@ -184,7 +184,7 @@
        inkscape:transform-center-x="-41.610042" />
     <path
        sodipodi:type="star"
-       style="fill:#2b71b1;fill-opacity:0.51141555;stroke:none"
+       style="fill:#0b8eff;fill-opacity:0.25995317;stroke:none"
        id="path2985-7-2-62-7-1-4"
        sodipodi:sides="3"
        sodipodi:cx="351.42856"
@@ -197,9 +197,9 @@
        inkscape:rounded="0"
        inkscape:randomized="0"
        d="m 415.28426,220.65786 -63.8557,0 -63.8557,0 31.92785,-55.30066 31.92785,-55.30066 31.92785,55.30066 z"
-       inkscape:transform-center-y="12.413296"
-       transform="matrix(0.33670401,-2.2501577,2.2501577,0.33670401,-231.41839,1610.7724)"
-       inkscape:transform-center-x="30.728148" />
+       inkscape:transform-center-y="-0.38077361"
+       transform="matrix(1.975533,1.1286489,-1.1286489,1.975533,-186.35632,122.16164)"
+       inkscape:transform-center-x="41.610042" />
   </g>
   <g
      inkscape:label="Layer 1"
