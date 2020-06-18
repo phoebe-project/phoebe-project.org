@@ -170,9 +170,7 @@ export class Install extends Component {
               <p><b>Note:</b> these instructions will install the Python PHOEBE package.  The UI (optional) must be <Link to="/clients">installed separately</Link>.</p>
             </Alert>
             :
-            <Alert level='warning'>
-              <p><b>Note:</b> these instructions will install the Python PHOEBE package.  PHOEBE {version} does not support <Link to="/clients">the UI clients</Link>.  To use clients, install <Link to={"/install/latest/"+version_os+"/"+version_py}>PHOEBE 2.3+</Link>.</p>
-            </Alert>
+            null
           }
 
           {version!=='latest' ?
