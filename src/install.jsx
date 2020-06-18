@@ -126,6 +126,8 @@ export class Install extends Component {
 
     if (version_py==='python3' && version_short < 2.2) {
       show_instructions = false
+    } else if (version_py==='python2' && version_short >= 2.3) {
+      show_instructions = false
     }
     if (OSName==='windows') {
       show_instructions = false
@@ -175,10 +177,17 @@ export class Install extends Component {
 
           {version_short < 2.2 && version_py==='python3' ?
             <Alert level="danger">
-              <p>PHOEBE {version_short} only supports <Link to={"/install/"+version+"/"+version_os+"/python2"}>Python 2.7+</Link>. Support for Python 3 is currently under development and will be introduced in a future release.</p>
+              <p>PHOEBE {version_short} only supports <Link to={"/install/"+version+"/"+version_os+"/python2"}>Python 2.7+</Link>. Support for Python 3 is supported for PHOEBE 2.2+.</p>
             </Alert>
             :
             null
+          }
+          {version_short >= 2.3 && version_py==='python2' ?
+          <Alert level="danger">
+            <p>PHOEBE {version_short} only supports <Link to={"/install/"+version+"/"+version_os+"/python3"}>Python 2.6+</Link>. Support for Python 2 was removed as of the PHOEBE 2.3 release.</p>
+          </Alert>
+          :
+          null
           }
 
 
@@ -211,7 +220,7 @@ export class Install extends Component {
                 {version_py==="python2" ?
                   <p>PHOEBE {version_short} has been tested to build and run on python 2.7+ {version_short >= 2.2 ? <span>(<Link to={"/install/"+version+"/"+version_os+"/python3#source"}>or python 3.6+</Link>)</span> : <span>(but does not support python 3)</span>}.  You can check your installed version of {python} with:</p>
                   :
-                  <p>PHOEBE {version_short} has been tested to build and run on python 3.6+ (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or python 2.7+</Link>).    You can check your installed version of {python} with:</p>
+                  <p>PHOEBE {version_short} has been tested to build and run on python 3.6+ {version_short == 2.2 ? (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or python 2.7+</Link>) : null}.    You can check your installed version of {python} with:</p>
                 }
                 <pre>
                   {python} --version
@@ -287,7 +296,7 @@ export class Install extends Component {
 
                 <p>If pip gives any problems automatically installing dependencies, install them manually first:</p>
                 <pre>
-                  {pip} install numpy scipy matplotlib {version_py==="python2" ? "\"astropy>=1.0,<3.0\"" : "\"astropy>=1.0\""}
+                  {pip} install numpy scipy matplotlib {version_short >= 2.3 ? <span>astropy</span> : <span>{version_py==="python2" ? "\"astropy>=1.0,<3.0\"" : "\"astropy>=1.0\""}</span>}
                 </pre>
 
                 <p>Please check the version of PHOEBE you have installed to make sure you are using the corresponding version of the <Link to={getDocsLink(version_short, null, null)}>documentation</Link>.  You can check the version once PHOEBE is installed via:</p>
@@ -301,7 +310,7 @@ export class Install extends Component {
                   {pip} install virtualenv<br/>
                   virtualenv &lt;myphoebedir&gt;<br/>
                   source &lt;myphoebedir&gt;/bin/activate<br/>
-                  {pip} install numpy scipy {version_py==="python2" ? "\"astropy>=1.0,<3.0\"" : "\"astropy>=1.0\""} matplotlib phoebe{version!=='latest' ? "=="+version_long : null}
+                  {pip} install numpy scipy {version_short >= 2.3 ? <span>astropy</span> : <span>{version_py==="python2" ? "\"astropy>=1.0,<3.0\"" : "\"astropy>=1.0\""}</span>} matplotlib phoebe{version!=='latest' ? "=="+version_long : null}
                 </pre>
 
                 <p>To leave the virtual environment:</p>
@@ -341,8 +350,10 @@ export class Install extends Component {
 
                 <ul>
                   <li>numpy (1.10+)</li>
-                  <li>scipy</li>
+                  <li>scipy {version_short < 2.3 ? <span>(0.17+)</span> : <span>(1.2+)</span>}</li>
                   <li>astropy {version_py==="python2" ? <span>(1.0+ but not 3.0+ as that requires Python 3)</span> : <span>(1.0+)</span>}</li>
+                  {version_short >= 2.3 ? <li>python-socketio[client]</li> : null}
+                  {version_short >= 2.3 ? <li><b>required for phoebe-server</b>: flask, flask-cors, flask-socketio, gevent-websocket</li> : null}
                 </ul>
                 <p>And suggested packages (required for some optional but commonly used features):</p>
                 <ul>
@@ -362,6 +373,12 @@ export class Install extends Component {
                   {python} setup.py build<br/>
                   sudo {python} setup.py install
                 </pre>
+
+                {version_short >= 2.3 ?
+                  <p>To install without the phoebe-server or phoebe-autofig scripts (i.e. if not using client-mode at all or installing on an HPC), set <code>PHOEBE_SKIP_SCRIPTS=TRUE</code> as an environment variable.</p>
+                  :
+                  null
+                }
 
                 <p>Please check the version of PHOEBE you have installed to make sure you are using the corresponding version of the <Link to={getDocsLink(version_short, null, null)}>documentation</Link>.  You can check the version once PHOEBE is installed via:</p>
                 <pre>
