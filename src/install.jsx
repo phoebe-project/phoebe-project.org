@@ -165,6 +165,16 @@ export class Install extends Component {
             </div>
           </div>
 
+          {version_short >= 2.3 ?
+            <Alert level='warning'>
+              <p><b>Note:</b> these instructions will install the Python PHOEBE package.  The UI (optional) must be <Link to="/clients">installed separately</Link>.</p>
+            </Alert>
+            :
+            <Alert level='warning'>
+              <p><b>Note:</b> these instructions will install the Python PHOEBE package.  PHOEBE {version} does not support <Link to="/clients">the UI clients</Link>.  To use clients, install <Link to={"/install/latest/"+version_os+"/"+version_py}>PHOEBE 2.3+</Link>.</p>
+            </Alert>
+          }
+
           {version!=='latest' ?
             <Alert level={version_short === docs_versions[0] ? "warning" : "danger"}>
               <p><b>Warning:</b> these instructions will download and install the {version_long} version of PHOEBE.  To download and install a different version, use the version switcher at the bottom-right of the page, choose and click install from the appropriate <Link to="/releases">release</Link>, or follow instructions to <Link to={"/install/latest/"+version_os+"/"+version_py}>install the latest version</Link>.</p>

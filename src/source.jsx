@@ -28,6 +28,7 @@ export class Source extends Component {
             </div>
             <div className="col-md-10">
               <SourceEntry githubLink="http://github.com/phoebe-project/phoebe2" title="PHOEBE 2">Source-code for all <Link to="/releases">PHOEBE 2.x releases</Link></SourceEntry>
+              <SourceEntry githubLink="http://github.com/phoebe-project/phoebe2-ui" title="PHOEBE 2 UI">Source-code for the <Link to="/clients">desktop and web UI clients</Link> built on ReactJS and Electron</SourceEntry>
               <SourceEntry githubLink="http://github.com/phoebe-project/phoebe2-docs" title="PHOEBE 2 Documentation">Jupyter notebooks and markdown sources for PHOEBE 2 tutorials, examples, and documentation.  These are also rendered and available via the <Link to="/docs">documentation section on this website</Link>.</SourceEntry>
               <SourceEntry githubLink="http://github.com/phoebe-project/phoebe2-tables" title="PHOEBE 2 Tables">Atmosphere and passband tables used within PHOEBE 2.0.x and 2.1.x.  These are downloaded automatically by PHOEBE 2 when requested.  For tables for PHOEBE 2.2+, see <Link to="/tables">tables.phoebe-project.org</Link></SourceEntry>
             </div>

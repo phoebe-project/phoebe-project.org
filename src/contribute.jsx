@@ -104,6 +104,9 @@ export class Contribute extends Component {
             If you found an issue with this website (broken link, etc), file a bug in the <Link to="http://github.com/phoebe-project/phoebe-project.org/issues/new">phoebe-project.org issue tracker</Link>, including a link to the URL in question.
           </p>
           <p>
+            If you found an issue with either the <Link to="/clients">desktop or web clients</Link>, file a bug in the <Link to="http://github.com/phoebe-project/phoebe2-ui/issues/new">phoebe2-ui issue tracker</Link>, including the versions of the client and <code>phoebe-server</code>.
+          </p>
+          <p>
             If the issue is with PHOEBE itself, file a bug in the <Link to="http://github.com/phoebe-project/phoebe2/issues/new">phoebe2 issue tracker</Link>.  Please specify the <Link to="/help/version">version of PHOEBE you have installed</Link> and, if possible, include a minimal script that can reproduce the bug.
           </p>
           <Separator large={false} flip={true}/>

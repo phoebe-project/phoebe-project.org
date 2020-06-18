@@ -60,10 +60,10 @@ export class Clients extends Component {
           <div className="row">
              <div className="col-md-4"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Web Client" description="Web/Browser Client" to={"#web"} icon="fas fa-window-maximize"/>
+               <HeaderNavButton title="Desktop Client" description="Installation Instructions for Desktop Client" to={"#desktop"} icon="fas fa-desktop"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Desktop Client" description="Installation Instructions for Desktop Client" to={"#desktop"} icon="fas fa-desktop"/>
+               <HeaderNavButton title="Web Client" description="Web/Browser Client" to={"#web"} icon="fas fa-window-maximize"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Python Client" description="Installation Instructions for Python Client" to={"#python"} icon="fas fa-terminal"/>
@@ -79,7 +79,7 @@ export class Clients extends Component {
         <Content preventScrollTop={this.props.location.hash}>
 
           <Alert level="danger">
-            <p><b>Warning:</b> The PHOEBE Interactive Clients are currently under development and should be considered experimental.  <b>PROCEED WITH CAUTION.</b></p>
+            <p><b>COMING SOON:</b> The PHOEBE Interactive Clients are currently under development and are planned to be officially released alongside the 2.3 release of PHOEBE.</p>
           </Alert>
 
           <div className="row">
@@ -91,10 +91,10 @@ export class Clients extends Component {
             </p>
             <ul>
               <li><Link to="/install">PHOEBE Python Package</Link>: PHOEBE itself, this must be installed on the machine which will do the computations.  For the web-client, we hope to provide <b>limited use</b> on a pre-installed version on our servers.</li>
-              <li><Link to="#server">PHOEBE Server</Link>: <b>(COMING SOON)</b> installed automatically when you install PHOEBE.  This is not required to run PHOEBE without a client, but must be running on the machine in order for clients to communicate with PHOEBE.  It's really just communication and synchronization layer between any number of clients and the Python interface of PHOEBE.</li>
-              <li><Link to="#web">Web UI Client</Link>: <b>(COMING SOON)</b> an in-browser point-and-click user interface which connects to a PHOEBE server running an installation of PHOEBE.</li>
-              <li><Link to="#desktop">Desktop UI Client</Link>: <b>(COMING SOON)</b> a native desktop application point-and-click user interface which connects to a PHOEBE server running an installation of PHOEBE.</li>
-              <li><Link to="#python">Python Client</Link>: <b>(COMING SOON)</b> installed automatically when you install PHOEBE.  This allows you to enter the same python interface as a local installation, but synchronize with a server and any other attached clients.  Particularly useful if you want to mix some scripting and some point-and-clicking.</li>
+              <li><Link to="#server">PHOEBE Server</Link>: installed automatically when you install PHOEBE.  This is not required to run PHOEBE without a client, but must be running on the machine in order for clients to communicate with PHOEBE.  It's really just communication and synchronization layer between any number of clients and the Python interface of PHOEBE.</li>
+              <li><Link to="#desktop">Desktop UI Client</Link>: a native desktop application point-and-click user interface which connects to a PHOEBE server running an installation of PHOEBE.</li>
+              <li><Link to="#web">Web UI Client</Link>: an in-browser point-and-click user interface which connects to a PHOEBE server running an installation of PHOEBE.</li>
+              <li><Link to="#python">Python Client</Link>: installed automatically when you install PHOEBE 2.3+.  This allows you to enter the same python interface as a local installation, but synchronize with a server and any other attached clients.  Particularly useful if you want to mix some scripting and some point-and-clicking.</li>
             </ul>
 
           </div>
@@ -109,20 +109,55 @@ export class Clients extends Component {
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
 
+
+          <h2 ref={this.refdesktop}><span className="fas fa-fw fa-xs fa-desktop"></span>  Desktop UI Client</h2>
+
+          <div className="row">
+            <p>
+              The PHOEBE desktop client is designed along the same principals as PHOEBE itself and allows for filtering parameter, changing values, as well as running multiple compute and solver backends.
+            </p>
+            <p>
+              With the high computational expense of running some models or fitting algorithms, the client has specifically been designed to allow the user to work interactively locally, tweak parameters by hand, configure options for expensive tasks, and then provide an easy way to "export" these expensive tasks to an external HPC, when necessary.
+            </p>
+            <p>
+              As such, the desktop client is released and versioned separately from the <Link to="/releases">PHOEBE releases</Link> themselves.  Although its always suggested to run the latest versions of each, backwards and forwards compatibility will be maintained whenever possible.  The client will provide warnings whenever the installed version may not support all features, and will refuse to connect when incompatible.  That said, please <Link to="https://github.com/phoebe-project/phoebe2-ui/issues/new">submit an issue</Link> if anything does not work as expected - along with your versions of PHOEBE and the client.
+            </p>
+            <p>
+              The desktop client is a standalone installed version of the <Link to="#web">web client</Link>.  As such, it has a few extra abilities including:
+            </p>
+            <ul>
+              <li>The ability to run offline (although you still need a connection to whatever <Link to="#server">server</Link> you're using).</li>
+              <li>The ability to automatically spawn (on launch) a local <Link to="#server">server</Link> on your own machine (running on localhost).</li>
+              <li>The ability to natively launch <Link to="#python">Python clients</Link> instead of requiring copying and pasting from a popup alert in the browser into a python console.</li>
+              <li>The ability to be launched from the <Link to="#python">Python client</Link> by calling  <Link to="/docs/latest/api/phoebe.parameters.ParameterSet.ui.md"><code>PS.ui()</code></Link>.  In Python this will popup a new window and in Jupyter this will include an inline version of client.</li>
+              <li>No annoying URL bar, and the ability to launch the PHOEBE UI directly from your OS.</li>
+            </ul>
+            <p>
+              To install the desktop client, download the appropriate installer/archive from the <Link to="https://github.com/phoebe-project/phoebe2-ui/releases">phoebe2-ui releases</Link>.
+            </p>
+
+          </div>
+
+          <DesktopUI/>
+
+          <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
+            <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon="fa fa-fw fa-download" title={"Install PHOEBE Desktop Client"}/>
+          </div>
+
+          <Separator large={false} flip={false}/>
+        </Content>
+        <Content dark={false} preventScrollTop={this.props.location.hash}>
+
           <h2 ref={this.refweb}><span className="fas fa-fw fa-xs fa-window-maximize"></span>  Web UI Client</h2>
 
           <div className="row">
 
-            <Alert level="danger">
-              <p><b>Warning:</b> The web client is currently under development and should be considered an experimental preview.  The link below is active, but is lacking in major features and may change substantially before official release.</p>
-            </Alert>
-
             <p>
-              The web client allows you to run PHOEBE in your browser, without any installation!  However, this does come with some important limitations:
+              The web client allows you to run PHOEBE in your browser, without any installation!  It shares the same UI and source-code as the <Link to="#desktop">desktop</Link> client, but with some important limitations:
             </p>
             <ul>
               <li>You'll need to have a constant internet connection, and a slow internet connection could result in laggy performance.</li>
-              <li>PHOEBE is running on our servers (unless you have your own <Link to="#server">server installation</Link>), so you won't have fine control of the version and depending on the demand on resources, could be slower than necessary.</li>
+              <li>PHOEBE is running on our servers (unless you have your own <Link to="#server">server installation</Link>), so you won't have fine control of the version and depending on the demand on resources, could be slower than necessary.  Additionally, the publicly available server is limited in the number of datapoints and does not allow running optimizers or samplers.</li>
               <li>There is always a chance the server or the client itself could go down or lose connection, in which case your work may be lost.  Save often!</li>
               <li>You'll still need a local installation of PHOEBE if you want to do anything advanced in Python.</li>
               <li>You'll also need a local installation of PHOEBE if you want to make use of the <Link to="#python">Python client</Link>.</li>
@@ -132,51 +167,27 @@ export class Clients extends Component {
             With those caveats out of the way, the web client is a good way to get familiar with PHOEBE as well as the client.  If you need something more powerful,
             you can install the practically-identical looking <Link to="#desktop">desktop client</Link>, manage your own <Link to="#server">PHOEBE server</Link> installation on your own computing resources (including AWS), or migrate over to using the <Link to="/install">PHOEBE Python package</Link> itself, which will also come along with support for the <Link to="#python">Python client</Link>.
           </p>
+          <p>
+            If for some reason you want to deploy your own version of the web-client (for students or a research group, etc), see the installation notes in the <Link to="https://github.com/phoebe-project/phoebe2-ui">phoebe2-ui repository</Link>.
+            But to run just locally on your own system, it is suggested to just install and use the <Link to="#desktop">desktop client</Link> instead.
+          </p>
+
 
           <WebUI dark={true}/>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch (EXPERIMENTAL/PREVIEW) PHOEBE Web Client"}/>
+            <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
           </div>
 
           <Separator large={false} flip={true}/>
-        </Content>
-        <Content dark={false} preventScrollTop={this.props.location.hash}>
-
-
-          <h2 ref={this.refdesktop}><span className="fas fa-fw fa-xs fa-desktop"></span>  Desktop UI Client</h2>
-
-          <div className="row">
-            <Alert level="danger">
-              <p><b>COMING SOON:</b> The desktop client is currently under development.  Please check back soon, but not that soon.</p>
-            </Alert>
-
-            <p>
-              The desktop client is a standalone installed version of the web client.  As such, it has a few extra abilities including:
-            </p>
-            <ul>
-              <li>The ability to run offline (although you still need a connection to whatever <Link to="#server">server</Link> you're using).</li>
-              <li>The ability to automatically spawn (on launch) a local <Link to="#server">server</Link> on your own machine (running on localhost).</li>
-              <li>The ability to natively launch <Link to="#python">Python clients</Link> instead of requiring copying and pasting from a popup alert in the browser into a python console.</li>
-              <li>No annoying URL bar, and the ability to launch the PHOEBE UI directly from your OS.</li>
-            </ul>
-          </div>
-
-          <DesktopUI/>
-
-          <Separator large={false} flip={false}/>
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
 
           <h2 ref={this.refpython}><span className="fas fa-fw fa-xs fa-terminal"></span>  Python Client</h2>
 
-          <Alert level="danger">
-            <p><b>COMING SOON:</b> The python client is currently under development and will be included in a future <Link to="/releases">release</Link> of the PHOEBE python package.  Please check back soon, but not that soon.</p>
-          </Alert>
-
           <div className="row">
             <p>
-              The python client allows interacting with a bundle <b>simultaneously</b> in both python and through the <Link to="#web">web</Link> or <Link to="#desktop">desktop</Link> clients.
+              The python client allows interacting with a bundle <b>simultaneously</b> in both python and through the <Link to="#desktop">desktop</Link> or <Link to="#web">web</Link> clients.
               In this mode, all operations are handled by the <Link to="#server">PHOEBE server</Link>, with all clients being synchronized.
               This can also be useful to submit computation jobs to a compute cluster running <Link to="#server">PHOEBE server</Link>, but does have some overhead and lag associated with the sync operations.
             </p>
@@ -186,8 +197,18 @@ export class Clients extends Component {
             <ul>
               <li>Call <code>b.as_client</code> on an existing bundle in python</li>
               <li>Call <code>phoebe.from_server</code> to load an existing bundle from the <Link to="#server">server</Link></li>
-              <li>Click on the button in the top bar in the <Link to="#web">web</Link> (in which case you'll need to copy and paste the provided code) or the <Link to="#desktop">desktop</Link> (in which case a terminal will be spawned with PHOEBE in client mode) clients.</li>
+              <li>Click on the button in the top bar in the <Link to="#desktop">desktop</Link> (in which case a terminal will be spawned with PHOEBE in client mode) or <Link to="#web">web</Link> (in which case you'll need to copy and paste the provided code) clients.</li>
             </ul>
+            <p>
+              Additionally, you can launch the <Link to="#desktop">desktop</Link> or <Link to="#web">web</Link> client in a blocking or non-blocking mode via <Link to="/docs/latest/api/phoebe.parameters.ParameterSet.ui.md"><code>PS.ui()</code></Link>.  In Python this will popup a new window and in Jupyter this will include an inline version of the <Link to="#desktop">desktop</Link> or <Link to="#web">web</Link> client.
+            </p>
+            <p>
+              Note that the python client is only supported for PHOEBE 2.3+.
+            </p>
+          </div>
+
+          <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
+            <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install Python Client with PHOEBE"}/>
           </div>
 
           <Separator large={false} flip={true}/>
@@ -196,14 +217,20 @@ export class Clients extends Component {
 
           <h2 ref={this.refserver}><span className="fas fa-fw fa-xs fa-server"></span>  PHOEBE Server</h2>
 
-          <Alert level="danger">
-            <p><b>COMING SOON:</b> The PHOEBE Server is currently under development and will be included in a future <Link to="/releases">release</Link> of the PHOEBE python package.  Please check back soon, but not that soon.</p>
-          </Alert>
-
           <div className="row">
             <p>
-              The PHOEBE server is the common workhorse for all of the clients mentioned above.  In essence, the server handles synchronizing between all connected clients and making calls directly to an installation of PHOEBE.  As of right now this is under heavy-development so is not available for self-installation.  Your only choice for now is to try out an experimental preview through the <Link to="#web">web client</Link>.
+              The PHOEBE server is the common workhorse for all of the clients mentioned above.  In essence, the server handles synchronizing between all connected clients and making calls directly to an installation of PHOEBE.  <code>phoebe-server</code> is installed by default with PHOEBE 2.3+ (see <Link to="/install">installation instructions</Link>).
             </p>
+            <p>
+              The <Link to="#desktop">desktop client</Link> will automatically attempt to launch an instance of <code>phoebe-server</code> on the local machine (via localhost).  To launch an instance of the server manually (either on the same machine or any machine with a public facing port) call <code>phoebe-server -h</code> for a list of available command-line configuation options, including <code>--port</code> to choose the port that exposes the server.
+            </p>
+            <p>
+              If PHOEBE 2.3+ is installed locally, but <code>phoebe-server</code> cannot be found, you may need to manually add it to your path.  Feel free to <Link to="/help/contact">contact us</Link> or <Link to="http://github.com/phoebe-project/phoebe2/issues/new">submit an issue</Link> if you run into any problems.
+            </p>
+          </div>
+
+          <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
+            <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install phoebe-server with PHOEBE"}/>
           </div>
 
         </Content>
