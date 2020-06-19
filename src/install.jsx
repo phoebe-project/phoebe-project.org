@@ -366,6 +366,7 @@ export class Install extends Component {
                 <p>And suggested packages (required for some optional but commonly used features):</p>
                 <ul>
                   <li>matplotlib (suggested for plotting)</li>
+                  {version_short >= 2.3 ? <li>corner (for distribution plotting)</li> : null}
                   {/* <li>sympy (for safer and more flexible constraints)</li> */}
                 </ul>
 
