@@ -218,10 +218,10 @@ class UIContent extends Component {
           <span className="fa fa-lg fa-fw fas fa-file" style={{marginLeft: "8px", marginRight: "6px"}}></span>
           <span className="fa fa-lg fa-fw fas fa-folder-open" style={{marginRight: "6px"}}></span>
           <span className="fa fa-lg fa-fw fas fa-save" style={{marginRight: "6px"}}></span>
+          <span className="fa fa-lg fa-fw fas fa-file-download" style={{marginRight: "6px"}}></span>
           <span className="fa fa-lg fa-fw fas fa-undo" style={{marginRight: "6px"}}></span>
-          <span className="fa fa-lg fa-fw fas fa-redo" style={{marginRight: "6px"}}></span>
           <div style={{float: "right"}}>
-            <span className="fa fa-lg fa-fw fas fa-question" style={{marginRight: "6px"}}></span>
+            <span className="fa fa-lg fa-fw fas fa-sliders-h" style={{marginRight: "6px"}}></span>
             <span className="fa fa-lg fa-fw fas fa-terminal" style={{marginRight: "6px"}}></span>
           </div>
         </div>
