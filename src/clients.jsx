@@ -163,7 +163,7 @@ export class Clients extends Component {
             <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon="fa fa-fw fa-download" title={"Install PHOEBE Desktop Client"}/>
           </div>
 
-          <Separator large={false} flip={false}/>
+          <Separator large={false} flip={true}/>
         </Content>
         <Content dark={false} preventScrollTop={this.props.location.hash}>
 
@@ -198,7 +198,7 @@ export class Clients extends Component {
             <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
           </div>
 
-          <Separator large={false} flip={true}/>
+          <Separator large={false} flip={false}/>
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
 
