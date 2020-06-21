@@ -9,6 +9,36 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "PHOEBE 2.3 Released: Introducing Inverse Problem Solvers and UI Clients",
+    slug: "phoebe-23-released",
+    pinnedDays: 60,
+    date: "October 1, 2020",
+    author: "Kyle Conroy",
+    content: <div>
+               <p>
+                We are excited to announce that <Link to="/releases/2.3">PHOEBE 2.3</Link> has been released along with the acceptance of the <Link to="/publications/2020Conroy+">accompanying release paper</Link>!
+               </p>
+               <p>
+                 This release introduces several new major capabilities to PHOEBE 2, including:
+                 <ul>
+                   <li>built-in <Link to="/docs/2.3/tutorials/solver.ipynb">inverse problem solvers</Link> (<Link to="/docs/2.3/api/phoebe.parameters.solver.estimator">estimators</Link>, <Link to="/docs/2.3/api/phoebe.parameters.solver.optimizer">optimizers</Link>, and <Link to="/docs/2.3/api/phoebe.parameters.solver.sampler">samplers</Link>)</li>
+                   <li><Link to="/docs/2.3/tutorials/distributions.ipynb">distributions</Link></li>
+                   <li><Link to="/docs/2.3/examples/minimal_GPs.ipynb">gaussian processes</Link></li>
+                   <li><Link to="/docs/2.3/tutorials/mask_phases.ipynb">phase masking</Link></li>
+                 </ul>
+                 Along with support for several new alternate <Link to="/docs/2.3/backends">compute backends</Link>:
+                 <ul>
+                   <li><Link to="/docs/2.3/api/phoebe.parameters.compute.ellc">ellc</Link></li>
+                   <li><Link to="/docs/2.3/api/phoebe.parameters.compute.jktebop">jktebop</Link></li>
+                 </ul>
+                 And lastly, the first release of <Link to="/clients">desktop and web clients</Link> for PHOEBE 2!
+               </p>
+               <p>
+                In addition to all of these new features added to the code, we have simplified the <Link to="docs/2.3/tutorials">tutorials</Link> to try to simplify the learning curve for new users while still maintaining tutorials and documentation for advanced use-cases.
+               </p>
+             </div>
+  },
+  {
     title: "Paper Submitted: General Framework for Solving the Inverse Problem",
     slug: "phoebe-23-submitted",
     pinnedDays: 90,
@@ -25,7 +55,7 @@ export var newsStoriesDicts = [
              </div>
   },
   {
-    title: "PHOEBE 2.2 released",
+    title: "PHOEBE 2.2 Released",
     slug: "phoebe-22-released",
     pinnedDays: 45,
     date: "December 22, 2019",
@@ -144,7 +174,7 @@ export var newsStoriesDicts = [
             </div>
   },
   {
-    title: "PHOEBE 2.1 released",
+    title: "PHOEBE 2.1 Released",
     slug: "phoebe-21-released",
     pinnedDays: 45,
     date: "October 29, 2018",
@@ -156,7 +186,7 @@ export var newsStoriesDicts = [
             </div>
   },
   {
-    title: "PHOEBE 2.1 coming soon!",
+    title: "PHOEBE 2.1 Coming Soon!",
     slug: "phoebe-21-coming-soon",
     date: "June 25, 2018",
     author: "Kyle Conroy",

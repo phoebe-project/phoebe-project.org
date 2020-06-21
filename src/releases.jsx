@@ -242,9 +242,9 @@ class ReleaseContent extends Component {
                   </p>
                   <ul>
                     <li><Link to="/docs/2.3/tutorials/solver.ipynb">inverse problem solvers</Link> (<Link to="/docs/2.3/api/phoebe.parameters.solver.estimator">estimators</Link>, <Link to="/docs/2.3/api/phoebe.parameters.solver.optimizer">optimizers</Link>, and <Link to="/docs/2.3/api/phoebe.parameters.solver.sampler">samplers</Link>)</li>
-                    <li><Link to="/docs/2.3/tutorials/distriubtions.ipynb">distributions</Link></li>
-                    <li>gaussian processes</li>
-                    <li>phase masking</li>
+                    <li><Link to="/docs/2.3/tutorials/distributions.ipynb">distributions</Link></li>
+                    <li><Link to="/docs/2.3/examples/minimal_GPs.ipynb">gaussian processes</Link></li>
+                    <li><Link to="/docs/2.3/tutorials/mask_phases.ipynb">phase masking</Link></li>
                   </ul>
                   <p>
                     New <Link to="/docs/2.3/backends">compute backends</Link> introduced in version 2.3
@@ -263,6 +263,8 @@ class ReleaseContent extends Component {
                     Major changes since 2.2:
                   </p>
                   <ul>
+                    <li><Link to="/docs/2.3/tutorials/22_23_dpdt_phasing.ipynb">fixed phasing in time-dependent systems</Link></li>
+                    <li><Link to="/docs/2.3/tutorials/22_23_period_anom.ipynb">distinction between anomalous and sidereal period in apsidal motion cases</Link></li>
                     <li><Link to="/docs/2.3/tutorials/22_23_extinction.ipynb">extinction moved from per-dataset to system-level</Link></li>
                     <li><Link to="/docs/2.3/tutorials/22_23_run_checks.ipynb">run_checks split into run_checks_system, compute, solver, solution</Link></li>
                     <li><Link to="/docs/2.3/tutorials/22_23_requivsumfrac.ipynb">requivsum constraint replaced by requivsumfrac</Link></li>

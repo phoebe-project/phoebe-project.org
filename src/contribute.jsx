@@ -347,6 +347,12 @@ export class ContributeDevelopment extends Component {
             </ul>
           </p>
 
+          <h3>phoebe2-ui repo</h3>
+
+          <p>
+            The <Link to="http://github.com/phoebe-project/phoebe2-ui">phoebe2-ui repository</Link> contains the React application of the web and desktop clients.
+          </p>
+
           <h3>phoebe2-tables repo</h3>
 
           <p>

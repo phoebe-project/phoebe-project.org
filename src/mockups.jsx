@@ -76,7 +76,7 @@ export class InteractiveGettingStarted extends Component {
     }
 
     return (
-      <div style={{padding: "15px", maxWidth: "800px", margin: "0px auto", marginBottom: "40px", border: "1px solid #666666", borderRadius: "6px", borderBottom: "none", paddingBottom: "6px"}}>
+      <div style={{padding: "15px", height: this.props.height || "650px", maxWidth: "800px", margin: "0px auto", marginBottom: "40px", border: "1px solid #666666", borderRadius: "6px", borderBottom: "none", paddingBottom: "6px"}}>
         <div style={{borderBottom: "1px solid #666666", backgroundColor: "rgba(102, 102, 102, 0.15)", borderRadius: "6px 6px 0px 0px", marginTop: "-16px", marginLeft: "-16px", marginRight: "-16px", padding: "6px", paddingLeft: "12px", fontSize: "16px", fontFamily: "Menlo,Monaco,Consolas,Courier New,monospace"}}>
           <div style={{paddingTop: "2px"}}>
             <span className="far fa-circle" style={{paddingLeft: "4px"}}/>
@@ -157,7 +157,7 @@ export class WebUI extends Component {
     }
 
     return (
-      <div style={{padding: "15px", maxWidth: "800px", margin: "0px auto", marginBottom: "40px", border: "1px solid "+borderColor, backgroundColor: "white", color: "#666666", borderRadius: "6px", borderBottom: "none", paddingBottom: "6px"}}>
+      <div style={{padding: "15px", height: this.props.height, maxWidth: "800px", margin: "0px auto", marginBottom: "40px", border: "1px solid "+borderColor, backgroundColor: "white", color: "#666666", borderRadius: "6px", borderBottom: "none", paddingBottom: "6px"}}>
         <div style={{borderBottom: "1px solid #666666", backgroundColor: "rgba(102, 102, 102, 0.15)", borderRadius: "6px 6px 0px 0px", marginTop: "-16px", marginLeft: "-16px", marginRight: "-16px", padding: "6px", paddingLeft: "12px", fontSize: "16px", fontFamily: "Menlo,Monaco,Consolas,Courier New,monospace"}}>
           <div style={{paddingTop: "2px"}}>
             <span className="far fa-circle" style={{paddingLeft: "4px"}}/>
@@ -166,7 +166,7 @@ export class WebUI extends Component {
             <span style={{paddingLeft: "12px", userSelect: "none"}}>Web Browser</span>
           </div>
         </div>
-        <div style={{backgroundColor: "#f0f0f0", borderBottom: "1px solid #666666", borderRadius: "0px", marginLeft: "-16px", marginRight: "-16px", padding: "6px", paddingLeft: "12px", fontSize: "12px", fontFamily: "Menlo,Monaco,Consolas,Courier New,monospace"}}>
+        <div style={{backgroundColor: "#f0f0f0", borderBottom: "1px solid #666666", borderLeft: "1px solid "+borderColor, borderRight: "1px solid "+borderColor, borderRadius: "0px", marginLeft: "-16px", marginRight: "-16px", padding: "6px", paddingLeft: "12px", fontSize: "12px", fontFamily: "Menlo,Monaco,Consolas,Courier New,monospace"}}>
           <div style={{paddingTop: "2px"}}>
             <span className="fa fas fa-link" style={{color: "gray"}}></span>
             <span style={{paddingLeft: "12px", userSelect: "none", color: "black"}}>ui.phoebe-project.org</span>
@@ -188,12 +188,14 @@ export class DesktopUI extends Component {
   }
   render() {
     var borderColor = "#666666"
+    var backgroundColor: null;
     if (this.props.dark) {
       borderColor = 'white'
+      backgroundColor = 'white'
     }
 
     return (
-      <div style={{padding: "15px", maxWidth: "800px", margin: "0px auto", marginBottom: "40px", border: "1px solid "+borderColor, backgroundColor: "white", color: "#666666", borderRadius: "6px", borderBottom: "none", paddingBottom: "6px"}}>
+      <div style={{padding: "15px", height: this.props.height, maxWidth: "800px", margin: "0px auto", marginBottom: "40px", border: "1px solid "+borderColor, backgroundColor: "white", color: "#666666", borderRadius: "6px", borderBottom: "none", paddingBottom: "6px"}}>
         <div style={{borderBottom: "1px solid "+borderColor, backgroundColor: "rgba(102, 102, 102, 0.15)", borderRadius: "6px 6px 0px 0px", marginTop: "-16px", marginLeft: "-16px", marginRight: "-16px", padding: "6px", paddingLeft: "12px", fontSize: "16px", fontFamily: "Menlo,Monaco,Consolas,Courier New,monospace"}}>
           <div style={{paddingTop: "2px"}}>
             <span className="far fa-circle" style={{paddingLeft: "4px"}}/>
@@ -210,11 +212,125 @@ export class DesktopUI extends Component {
   }
 }
 
-class UIContent extends Component {
+class UIHeader extends Component {
   render() {
     return (
-      <div>
-        <div className="row" style={{borderBottom: "1px solid #6666", color: "#6666", marginTop: "-4px", paddingBottom: "2px"}}>
+      <div className={this.props.className} style={{display: "block", width: "100%", marginLeft: "0px", paddingLeft: "15px", paddingRight: "10px", backgroundColor: "rgba(102, 102, 102, 0.45)", color: "#ffffff", height: "32px", fontWeight: "700", paddingTop: "4px", marginTop: "5px", marginBottom: "7px", borderRadius: "4px", boxShadow: "0 2px 2px 0 rgba(102, 102, 102, 0.6)"}}>{this.props.children}</div>
+    )
+  }
+}
+
+class UITag extends Component {
+  render() {
+    return (
+      <span onClick={this.props.onClick} style={{cursor: "pointer", backgroundColor: this.props.checked ? "rgba(43,113,177,.16862745098039217)" : "#ffffff", color: "#3b71b1", boxShadow: this.props.checked ? "inset 0.5px 0.5px 1px 0 rgba(21,21,22,.8392156862745098)" : "0.5px 0.5px 3px 0 rgba(21,21,22,.8392156862745098)", padding: "0px 4px 2px 14px", margin: "-5px 0px", borderRadius: "4px", fontSize: "0.9em", textAlign: "left", overflow: "hidden", display: "inline-block", width: "100%"}}>{this.props.children}</span>
+    )
+  }
+}
+
+class UIParameter extends Component {
+  render() {
+    if (!this.props.visible) {
+      return null
+    }
+    return (
+      <div style={{display: "block", width: "100%", backgroundColor: "#ffffff", color: "#000000", borderRadius: "4px", boxShadow: "1px 1px 4px 0 rgba(69,101,131,.75)", marginTop: "5px"}}>{this.props.children}</div>
+    )
+  }
+}
+
+class UIContent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      primary: false,
+      secondary: false,
+      binary: false,
+      mass: false,
+      requiv: false,
+      sma: false,
+      teff: false,
+      q: false,
+      autoCycle: 0,
+    };
+  }
+  componentDidMount() {
+    this.intervalId = setInterval(
+      () => {
+          if (this.state.autoCycle === 0) {
+            // primary
+            this.setState({autoCycle: 1, primary: true, secondary: false, binary: false, mass: false, requiv: false, sma: false, teff: false, q: false})
+          } else if (this.state.autoCycle === 1) {
+            // primary, teff
+            this.setState({autoCycle: 2, primary: true, secondary: false, binary: false, mass: false, requiv: false, sma: false, teff: true, q: false})
+          } else if (this.state.autoCycle === 2) {
+            // primary, teff, mass
+            this.setState({autoCycle: 3, primary: true, secondary: false, binary: false, mass: true, requiv: false, sma: false, teff: true, q: false})
+          } else if (this.state.autoCycle === 3) {
+            // primary, secondary, teff, mass
+            this.setState({autoCycle: 4, primary: true, secondary: true, binary: false, mass: true, requiv: false, sma: false, teff: true, q: false})
+          } else if (this.state.autoCycle === 4) {
+            // blank
+            this.setState({autoCycle: 5, primary: false, secondary: false, binary: false, mass: false, requiv: false, sma: false, teff: false, q: false})
+          } else if (this.state.autoCycle === 5) {
+            // sma
+            this.setState({autoCycle: 6, primary: false, secondary: false, binary: false, mass: false, requiv: false, sma: true, teff: false, q: false})
+          } else if (this.state.autoCycle === 6) {
+            // sma, binary
+            this.setState({autoCycle: 7, primary: false, secondary: false, binary: true, mass: false, requiv: false, sma: true, teff: false, q: false})
+          } else if (this.state.autoCycle === 7) {
+            // binary
+            this.setState({autoCycle: 8, primary: false, secondary: false, binary: true, mass: false, requiv: false, sma: false, teff: false, q: false})
+          } else {
+            // reset to blank state
+            this.setState({autoCycle: 0, primary: false, secondary: false, binary: false, mass: false, requiv: false, sma: false, teff: false, q: false})
+
+          }
+        },
+        3000  // every 3 seconds
+      );
+    }
+  componentWillUnmount() {
+    clearInterval(this.intervalId)
+  }
+  toggle = (tag) => {
+    clearInterval(this.intervalId)
+    this.setState({[tag]: !this.state[tag]})
+  }
+  allCleared = () => {
+    return (!this.state.primary && !this.state.secondary && !this.state.binary && !this.state.mass && !this.state.requiv && !this.state.sma && !this.state.teff && !this.state.q)
+  }
+  allClearedQualifier = () => {
+    return (!this.state.mass && !this.state.requiv && !this.state.sma && !this.state.teff && !this.state.q)
+  }
+  allClearedComponent = () => {
+    return (!this.state.primary && !this.state.secondary && !this.state.binary)
+  }
+
+  visible = (tags) => {
+    if (this.allCleared()) {
+      return true
+    }
+    for (var tag of tags) {
+      if (!this.state[tag]) {
+        if (['primary', 'secondary', 'binary'].indexOf(tag) === -1) {
+          // then this is a qualifier, so only return false if not allClearedQualifier
+          if (!this.allClearedQualifier()) {
+            return false
+          }
+        } else {
+          if (!this.allClearedComponent()) {
+            return false
+          }
+        }
+      }
+    }
+    return true
+  }
+  render() {
+    return (
+      <div style={{fontFamily: "sans-serif"}}>
+        <div className="row" style={{borderBottom: "1px solid #6666", color: "#6666", marginTop: "-2px", paddingBottom: "2px"}}>
           <span className="fa fa-lg fa-fw fas fa-file" style={{marginLeft: "8px", marginRight: "6px"}}></span>
           <span className="fa fa-lg fa-fw fas fa-folder-open" style={{marginRight: "6px"}}></span>
           <span className="fa fa-lg fa-fw fas fa-save" style={{marginRight: "6px"}}></span>
@@ -226,16 +342,45 @@ class UIContent extends Component {
           </div>
         </div>
         <div className="row">
-          <div className="col-md-3" style={{borderRight: "1px solid #6666"}}>
-            <br/><br/>
+          <div className="col-md-3" style={{borderRight: "1px solid #6666", height: "85%", paddingLeft: "0px", paddingRight: "0px"}}>
+
+
+            <UIHeader>Component</UIHeader>
+            <UITag onClick={() => this.toggle('primary')} checked={this.state.primary}>primary</UITag>
+            <UITag onClick={() => this.toggle('secondary')} checked={this.state.secondary}>secondary</UITag>
+            <UITag onClick={() => this.toggle('binary')} checked={this.state.binary}>binary</UITag>
+
+            <UIHeader className="hidden-sm hidden-xs">Dataset</UIHeader>
+            <UIHeader className="hidden-sm hidden-xs">Compute</UIHeader>
+            <UIHeader className="hidden-sm hidden-xs">Model</UIHeader>
+            <UIHeader className="hidden-sm hidden-xs">Solver</UIHeader>
+            <UIHeader className="hidden-sm hidden-xs">Solution</UIHeader>
+
+            <UIHeader>Qualifier</UIHeader>
+            <UITag onClick={() => this.toggle('mass')} checked={this.state.mass}>mass</UITag>
+            <UITag onClick={() => this.toggle('requiv')} checked={this.state.requiv}>requiv</UITag>
+            <UITag onClick={() => this.toggle('sma')} checked={this.state.sma}>sma</UITag>
+            <UITag onClick={() => this.toggle('teff')} checked={this.state.teff}>teff</UITag>
+            <UITag onClick={() => this.toggle('q')} checked={this.state.q}>q</UITag>
 
           </div>
           <div className="col-md-6">
-            <br/><br/>
+            <UIParameter visible={this.visible(['mass', 'primary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>mass</b><span style={{color: "slategray"}}>@primary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px", color: "slategray"}}>1.415</span></UIParameter>
+            <UIParameter visible={this.visible(['mass', 'secondary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>mass</b><span style={{color: "slategray"}}>@secondary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px", color: "slategray"}}>0.856</span></UIParameter>
+            <UIParameter visible={this.visible(['q', 'binary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>q</b><span style={{color: "slategray"}}>@binary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px"}}>0.75</span></UIParameter>
+            <UIParameter visible={this.visible(['requiv', 'primary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>requiv</b><span style={{color: "slategray"}}>@primary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px"}}>1.0</span></UIParameter>
+            <UIParameter visible={this.visible(['requiv', 'secondary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>requiv</b><span style={{color: "slategray"}}>@secondary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px"}}>0.8</span></UIParameter>
+            <UIParameter visible={this.visible(['sma', 'binary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>sma</b><span style={{color: "slategray"}}>@binary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px"}}>5.3</span></UIParameter>
+            <UIParameter visible={this.visible(['sma', 'primary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>sma</b><span style={{color: "slategray"}}>@primary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px", color: "slategray"}}>2.27</span></UIParameter>
+            <UIParameter visible={this.visible(['sma', 'secondary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>sma</b><span style={{color: "slategray"}}>@secondary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px", color: "slategray"}}>3.03</span></UIParameter>
+            <UIParameter visible={this.visible(['teff', 'primary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>teff</b><span style={{color: "slategray"}}>@primary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px"}}>6000</span></UIParameter>
+            <UIParameter visible={this.visible(['teff', 'secondary'])}><span style={{display: "inline-block", width: "calc(100% - 48px)", overflow: "hidden", verticalAlign: "middle", paddingLeft: "4px"}}><b>teff</b><span style={{color: "slategray"}}>@secondary</span></span><span style={{display: "inline-block", width: "45px", marginTop: "-4px"}}>5000</span></UIParameter>
 
           </div>
-          <div className="col-md-3" style={{borderLeft: "1px solid #6666"}}>
-            <br/><br/>
+          <div className="col-md-3 hidden-sm hidden-xs" style={{borderLeft: "1px solid #6666", height: "85%"}}>
+            <UIParameter visible={true}>
+              <Image src={'/images/interactive_getting_started/teff:yes_q:yes_phase:yes_rv:yes.png'} width="100%"/>
+            </UIParameter>
 
           </div>
         </div>

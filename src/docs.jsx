@@ -9,7 +9,7 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-export var docs_versions = ['2.2', '2.1', '2.0'];
+export var docs_versions = ['2.3', '2.2', '2.1', '2.0'];
 var docs_versions_dev = ['dev'].concat(docs_versions);
 
 // NOTE: we do this to force a deep-copy

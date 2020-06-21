@@ -50,7 +50,7 @@ export class PublicationEntry extends Component {
     } else if (publication=='2018Horvat+') {
       published = true
       author = "Horvat et al. (2018)"
-      authorsFull = "Prša, A.; Conroy, K. E.; Horvat, M.; Pablo, H.; Kochoska, A.; Bloemen, S.; Giammarco, J.; Hambleton, K. M.; Degroote, P."
+      authorsFull = "Horvat, M.; Conroy, K. E.; Pablo, H.; Hambleton, K. M.; Kochoska, A.; Giammarco, J.; Prša, A."
       titleShort = "PHOEBE III: Spin-Orbit Misalignment"
       title = "Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment"
       abstract = "The precision of photometric and spectroscopic observations has been systematically improved in the last decade, mostly thanks to space-borne photometric missions and ground-based spectrographs dedicated to finding exoplanets. The field of eclipsing binary stars strongly benefited from this development. Eclipsing binaries serve as critical tools for determining fundamental stellar properties (masses, radii, temperatures, and luminosities), yet the models are not capable of reproducing observed data well, either because of the missing physics or because of insufficient precision. This led to a predicament where radiative and dynamical effects, insofar buried in noise, started showing up routinely in the data, but were not accounted for in the models. PHOEBE (PHysics Of Eclipsing BinariEs; http://phoebe-project.org) is an open source modeling code for computing theoretical light and radial velocity curves that addresses both problems by incorporating missing physics and by increasing the computational fidelity. In particular, we discuss triangulation as a superior surface discretization algorithm, meshing of rotating single stars, light travel time effects, advanced phase computation, volume conservation in eccentric orbits, and improved computation of local intensity across the stellar surfaces that includes the photon-weighted mode, the enhanced limb darkening treatment, the better reflection treatment, and Doppler boosting. Here we present the concepts on which PHOEBE is built and proofs of concept that demonstrate the increased model fidelity."
@@ -79,7 +79,7 @@ export class PublicationEntry extends Component {
 
     } else if (publication=='2020Conroy+') {
       published = false
-      author = "Conroy et al. (2020, submitted)"
+      author = "Conroy et al. (2020, accepted)"
       authorsFull = "Conroy, K. E.; Kochoska, A.; Hey, D.; Hambleton, K. M.; Pablo, H.; Jones, D.; Giammarco, J.; Prša, A."
       titleShort = "PHOEBE V: Inverse Problem"
       title = "Physics of Eclipsing Binaries. V. General Framework for Solving the Inverse Problem"
@@ -88,19 +88,19 @@ export class PublicationEntry extends Component {
       pdf = ""
       release = "2.3"
       figures = [
-                  {"name": "Figure 1", "image": "2020Conroy+_fig1.png", "link": "/docs/development/examples/inverse_paper_examples#fig1"},
-                  {"name": "Figure 2", "image": "2020Conroy+_fig2.png", "link": "/docs/development/examples/inverse_paper_examples#fig2"},
-                  {"name": "Figure 3", "image": "2020Conroy+_fig3.png", "link": "/docs/development/examples/inverse_paper_examples#fig3"},
-                  {"name": "Figure 4", "image": "2020Conroy+_fig4.png", "link": "/docs/development/examples/distribution_constraints"},
-                  {"name": "Figure 5", "image": "2020Conroy+_fig5.png", "link": "/docs/development/examples/inverse_paper_examples#fig5"},
-                  {"name": "Figure 6", "image": "2020Conroy+_fig6.png", "link": "/docs/development/examples/backends_compare_legacy_jktebop_ellc"},
-                  {"name": "Table 2", "image": "2020Conroy+_table2.png", "link": "/docs/development/examples/compute_comparison_table"},
-                  {"name": "Figure 7", "image": "2020Conroy+_fig7.png", "link": "/docs/development/examples/minimal_GPs"},
-                  {"name": "Figure 8", "image": "2020Conroy+_fig8.png", "link": "/docs/development/examples/inverse_paper_examples#fig8"},
-                  {"name": "Figure 9", "image": "2020Conroy+_fig9.png", "link": "/docs/development/examples/inverse_paper_examples#fig9"},
-                  {"name": "Figure 10", "image": "2020Conroy+_fig10.png", "link": "/docs/development/examples/inverse_paper_examples#fig10"},
-                  {"name": "Figure 11", "image": "2020Conroy+_fig11.png", "link": "/docs/development/examples/inverse_paper_examples#fig11"},
-                  {"name": "Figure 12", "image": "2020Conroy+_fig12.png", "link": "/docs/development/examples/inverse_paper_examples#fig12"},
+                  {"name": "Figure 1", "image": "2020Conroy+_fig1.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig1"},
+                  {"name": "Figure 2", "image": "2020Conroy+_fig2.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig2"},
+                  {"name": "Figure 3", "image": "2020Conroy+_fig3.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig3"},
+                  {"name": "Figure 4", "image": "2020Conroy+_fig4.png", "link": "/docs/2.3/examples/distribution_constraints"},
+                  {"name": "Figure 5", "image": "2020Conroy+_fig5.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig5"},
+                  {"name": "Figure 6", "image": "2020Conroy+_fig6.png", "link": "/docs/2.3/examples/backends_compare_legacy_jktebop_ellc"},
+                  {"name": "Table 2", "image": "2020Conroy+_table2.png", "link": "/docs/2.3/examples/compute_comparison_table"},
+                  {"name": "Figure 7", "image": "2020Conroy+_fig7.png", "link": "/docs/2.3/examples/minimal_GPs"},
+                  {"name": "Figure 8", "image": "2020Conroy+_fig8.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig8"},
+                  {"name": "Figure 9", "image": "2020Conroy+_fig9.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig9"},
+                  {"name": "Figure 10", "image": "2020Conroy+_fig10.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig10"},
+                  {"name": "Figure 11", "image": "2020Conroy+_fig11.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig11"},
+                  {"name": "Figure 12", "image": "2020Conroy+_fig12.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig12"},
 
                 ]
 
@@ -121,7 +121,6 @@ export class PublicationEntry extends Component {
           <h1>{titleShort}</h1>
           <div className="row">
              <div className="col-md-2"></div>
-             <div className="col-md-2"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="I: PHOEBE 1.0" description="Demonstrations and Perspectives" to={"/publications/2005Prsa+"}/>
              </div>
@@ -134,9 +133,9 @@ export class PublicationEntry extends Component {
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="IV: Extinction (2.2)" description="The Impact of Interstellar Extinction on the Light Curves of Eclipsing Binaries" to={"/publications/2020Jones+"}/>
              </div>
-             {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="V: Inverse Problem (2.3)" description="General Framework for Solving the Inverse Problem" to={"/publications/2020Conroy+"}/>
-             </div> */}
+             </div>
              {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="VI: Atmospheres (2.4)" description="" to={"/publications/2020Prsa+"}/>
              </div> */}
@@ -210,6 +209,7 @@ export class Publications extends Component {
           </div>
 
           <h2>PHOEBE Release Series</h2>
+          <Publication author="Conroy et al. (2020)" entryLink="/publications/2020Conroy+" title="Physics of Eclipsing Binaries. V. General Framework for Solving the Inverse Problem" release="2.3"/>
           <Publication author="Jones et al. (2020)" entryLink="/publications/2020Jones+" title="Physics of Eclipsing Binaries. IV. The Impact of Interstellar Extinction on the Light Curves of Eclipsing Binaries" release="2.2"/>
           <Publication author="Horvat et al. (2018)" entryLink="/publications/2018Horvat+" title="Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment" release="2.1"/>
           <Publication author="Prša et al. (2016)" entryLink="/publications/2016Prsa+" title="Physics of Eclipsing Binaries. II. Toward the Increased Model Fidelity" release="2.0"/>

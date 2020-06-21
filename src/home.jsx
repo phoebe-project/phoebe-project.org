@@ -48,10 +48,10 @@ export class Home extends Component {
 
           <div className="row">
             {/* use col-lg-6 col-md-12 and uncomment other div once clients are supported */}
-            <div className="col-lg-12 col-md-12">
+            <div className="col-lg-6 col-md-12">
             {/* <div className="col-lg-6 col-md-12"> */}
               <div style={{padding: "20px", maxWidth: "800px", height: "130px", margin: "0px auto", textAlign: "center"}}>
-                <pre style={{backgroundColor: "white", border: "none", fontSize: "20px", textAlign: "center", padding: "0px", margin: "0px"}}>
+                <pre style={{backgroundColor: "white", border: "none", fontSize: "20px", textAlign: "center", padding: "0px", margin: "0px", height: "40px"}}>
                   pip install phoebe
                 </pre>
                 <span>latest release: <Link to="/releases/latest">PHOEBE {version_latest_long}</Link></span>
@@ -59,21 +59,30 @@ export class Home extends Component {
                 <span><Link to="/install">full installation instructions</Link></span>
               </div>
 
+              <div className="hidden-xs hidden-sm">
+                <InteractiveGettingStarted height="650px"/>
+              </div>
+              <div className="visible-xs visible-sm">
+                <InteractiveGettingStarted height="780px"/>
+              </div>
 
-              <InteractiveGettingStarted/>
             </div>
-            {/* <div className="col-lg-6 col-md-12">
+            <div className="col-lg-6 col-md-12">
               <div style={{padding: "20px", maxWidth: "800px", height: "130px", margin: "0px auto", textAlign: "center"}}>
-                <Button level="primary" style={{lineHeight: "2.5em", fontSize: "12px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
+                <Button level="primary" style={{lineHeight: "2.3em", fontSize: "12px", height: "40px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
                 <br/>
-                <span>or install the <Link to="/client#desktop">desktop client</Link></span>
+                <span>or install the <Link to="/clients#desktop">desktop client</Link></span>
                 <br/>
                 <span><Link to="/clients">full client information</Link></span>
               </div>
 
-
-              <DesktopUI/>
-            </div> */}
+              <div className="hidden-xs hidden-sm">
+                <DesktopUI height="650px"/>
+              </div>
+              <div className="visible-xs visible-sm">
+                <DesktopUI height="750px"/>
+              </div>
+            </div>
 
           </div>
 
@@ -191,7 +200,7 @@ export class Home extends Component {
               <span className="fa-8x fa-fw fas fa-network-wired" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/>
               <h3>Parallelization</h3>
               <p>As of the <Link to="/releases/2.1">2.1 release</Link>, PHOEBE 2 supports parallelization via MPI.</p>
-              <p><b>Coming Soon:</b> eventually PHOEBE will also be parallelized at the fitting level with support for submitting a computational job with a scheduler directly from the frontend interface.</p>
+              <p>And as of the <Link to="/releases/2.3">2.3 release</Link>, PHOEBE 2 supports automatic parallelization for all inverse solvers using either MPI or multiprocessing, when available.</p>
 
               {/* <Expander expandText="List supported types">
                 <ul>
@@ -209,9 +218,9 @@ export class Home extends Component {
 
               <Expander expandText="List supported backends">
                 <ul>
-                  <li><Link to="/docs/latest/examples/legacy/">PHOEBE 1.0 Legacy</Link> (Wilson-Devinney)</li>
-                  <li><b>Coming Soon:</b> John Southworth's <Link to="http://www.astro.keele.ac.uk/jkt/codes/jktebop.html">jktebop</Link></li>
-                  <li><b>Coming Soon:</b> Pierre Maxted's <Link to="https://github.com/pmaxted/ellc">ellc</Link></li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.compute.legacy">PHOEBE 1.0 Legacy</Link> (based on Wilson-Devinney)</li>
+                  <li>John Southworth's <Link to="/docs/latest/api/phoebe.parameters.compute.jktebop">jktebop</Link> (as of the <Link to="/releases/2.3">2.3 release</Link>)</li>
+                  <li>Pierre Maxted's <Link to="/docs/latest/api/phoebe.parameters.compute.ellc">ellc</Link> (as of the <Link to="/releases/2.3">2.3 release</Link>)</li>
                   <li><b>Coming Someday:</b> Josh Carter's <Link to="https://github.com/dfm/photodynam">photodynam</Link></li>
                   <li><b>Coming Someday:</b> Jerry Orosz's <Link to="https://ui.adsabs.harvard.edu/abs/2018AJ....156..297S">elc</Link></li>
                 </ul>
@@ -223,16 +232,18 @@ export class Home extends Component {
             <div className="col-md-4">
               <span className="fa-8x fa-fw fas fa-chart-area" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/>
               <h3>Inverse Problem Solvers</h3>
-              <p><b>Coming Soon:</b> PHOEBE 2 will include wrappers that interface directly with many off-the-shelf optimization and sampling routines.</p>
+              <p>As of the <Link to="/releases/2.3">2.3 release</Link>, PHOEBE 2 includes wrappers that interface directly with many off-the-shelf optimization and sampling routines.</p>
 
               <Expander expandText="List solver routines">
                 <ul>
-                  <li><b>Coming Soon:</b> Periodgrams</li>
-                  <li><b>Coming Soon:</b> Geometric Estimators</li>
-                  <li><b>Coming Soon:</b> EBAI (Artificial Neural Network)</li>
-                  <li><b>Coming Soon:</b> Scipy optimizers</li>
-                  <li><b>Coming Soon:</b> <Link to="http://emcee.readthedocs.io">emcee</Link> (MCMC)</li>
-                  <li><b>Coming Soon:</b> <Link to="http://dynesty.readthedocs.io">dynesty</Link> (nested sampling)</li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.solver.estimator.lc_periodogram.md">LC Periodogram</Link></li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.solver.estimator.rv_periodogram.md">RV Periodogram</Link></li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.solver.estimator.lc_geometry.md">LC Geometry</Link></li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.solver.estimator.rv_geometry.md">RV Geometry</Link></li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.solver.estimator.ebai.md">EBAI</Link> (Artificial Neural Network)</li>
+                  <li>Scipy Optimizers (<Link to="/docs/latest/api/phoebe.parameters.solver.optimizer.cg.md">Conjugate Gradient</Link>, <Link to="/docs/latest/api/phoebe.parameters.solver.optimizer.nelder_mead.md">Nelder-Mead</Link>, <Link to="/docs/latest/api/phoebe.parameters.solver.optimizer.powell.md">Powell</Link>)</li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.solver.sampler.dynesty.md">Dynesty</Link> (Dynamic Nested Sampling)</li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.solver.sampler.emcee.md">Emcee</Link> (MCMC)</li>
                 </ul>
 
               </Expander>
