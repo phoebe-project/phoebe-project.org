@@ -124,6 +124,7 @@ export class Home extends Component {
 
           <div className="row">
             <div className="col-md-4">
+              <span className="fa-8x fa-fw fas fa-ruler" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/>
               <h3>Improved Precision</h3>
               <p>PHOEBE 2 uses a new method for meshing surfaces and <Link to="/docs/latest/tutorials/eclipse/">handling eclipsing regions</Link> - allowing for high-precision modeling of eclipse events.  PHOEBE also includes full <Link to="/docs/latest/tutorials/atm_passbands">atmosphere and passband</Link>, <Link to="/docs/latest/tutorials/limb_darkening">limb-darkening</Link> and <Link to="/docs/latest/tutorials/gravb_bol">gravity brightening/darkening</Link> support.</p>
 
@@ -137,6 +138,7 @@ export class Home extends Component {
 
             </div>
             <div className="col-md-4">
+              <span className="fa-8x fa-fw fas fa-atom" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/>
               <h3>Advanced Physics</h3>
               <p>PHOEBE 2 allows for advanced <Link to="/docs/latest/physics">physics effects</Link> to be included in your model.  We're currently working on implementing more advanced physics into the model in future releases.</p>
 
@@ -163,6 +165,7 @@ export class Home extends Component {
 
 
             <div className="col-md-4">
+              <span className="fa-8x fa-fw fas fa-satellite" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/>
               <h3>Additional Observables</h3>
               <p>PHOEBE 2 has the capability of modeling a large range of multiple <Link to="/docs/latest/datasets">observable types</Link>, all of which can be included while fitting your model to available data.</p>
 
@@ -185,6 +188,7 @@ export class Home extends Component {
 
           <div className="row">
             <div className="col-md-4">
+              <span className="fa-8x fa-fw fas fa-network-wired" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/>
               <h3>Parallelization</h3>
               <p>As of the <Link to="/releases/2.1">2.1 release</Link>, PHOEBE 2 supports parallelization via MPI.</p>
               <p><b>Coming Soon:</b> eventually PHOEBE will also be parallelized at the fitting level with support for submitting a computational job with a scheduler directly from the frontend interface.</p>
@@ -199,6 +203,7 @@ export class Home extends Component {
             </div>
 
             <div className="col-md-4">
+              <span className="fa-8x fa-fw fas fa-random" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/>
               <h3>Swappable Forward-Model Backends</h3>
               <p>The PHOEBE 2 frontend can do more than just run its own backend - it also wraps backends of other popular codes, including:</p>
 
@@ -216,6 +221,7 @@ export class Home extends Component {
             </div>
 
             <div className="col-md-4">
+              <span className="fa-8x fa-fw fas fa-chart-area" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/>
               <h3>Inverse Problem Solvers</h3>
               <p><b>Coming Soon:</b> PHOEBE 2 will include wrappers that interface directly with many off-the-shelf optimization and sampling routines.</p>
 

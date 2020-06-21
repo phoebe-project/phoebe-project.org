@@ -64,7 +64,7 @@ export class Tables extends Component {
 
           <div className="row" style={{paddingTop: "40px"}}>
             <div className="col-md-2">
-              <Link to="/tables/pbs"><span className="fa fa-fw fa-10x fas fa-layer-group" style={{width: "100%", color: "rgb(43, 113, 177)"}}></span></Link>
+              <Link to="/tables/pbs"><span className="fa fa-fw fa-10x fas fa-layer-group" style={{width: "100%", color: "#666666"}}></span></Link>
             </div>
             <div className="col-md-10">
               <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
@@ -76,7 +76,7 @@ export class Tables extends Component {
           </div>
           <div className="row" style={{paddingTop: "40px"}}>
             <div className="col-md-2">
-              <Link to="/tables/ptfs"><span className="fa fa-fw fa-10x fas fa-chart-area" style={{width: "100%", color: "rgb(43, 113, 177)"}}></span></Link>
+              <Link to="/tables/ptfs"><span className="fa fa-fw fa-10x fas fa-chart-area" style={{width: "100%", color: "#666666"}}></span></Link>
             </div>
             <div className="col-md-10">
               <p style={{paddingLeft: "10px", paddingTop: "20px"}}>

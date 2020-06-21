@@ -91,19 +91,19 @@ export class Clients extends Component {
 
           <div className="row">
             <div className="col-md-4">
-              <Link to="/install"><span className="fa-10x fa-fw fab fa-python" style={{width: "100%", textAlign: "center", color: "#2B71B1", padding: "20px"}}/></Link>
+              <Link to="/install"><span className="fa-10x fa-fw fab fa-python" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
               <ul>
                 <li><Link to="/install">PHOEBE Python Package</Link>: PHOEBE 2.3+ includes the PHOEBE Python frontend in addition to the ability to run as a <Link to="#python">python client</Link> and comes with <Link to="#server">phoebe-server</Link> which handles syncing multiple clients and phoebe-autofig which allows for interactive matplotlib figures.  These are required to run PHOEBE entirely offline on a local machine, but the clients are standalone and can be attached to an instance of <Link to="#server">phoebe-server</Link> running on any machine.</li>
               </ul>
             </div>
             <div className="col-md-4">
-              <Link to="#desktop"><span className="fa-10x fa-fw fas fa-desktop" style={{width: "100%", textAlign: "center", color: "#2B71B1", padding: "20px"}}/></Link>
+              <Link to="#desktop"><span className="fa-10x fa-fw fas fa-desktop" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
               <ul>
                 <li><Link to="#desktop">Desktop UI Client</Link>: a native desktop application point-and-click user interface which connects to a <Link to="#server">phoebe-server</Link> instance (either locally or remote) running an installation of PHOEBE.</li>
               </ul>
             </div>
             <div className="col-md-4">
-              <Link to="#web"><span className="fa-10x fa-fw fas fa-window-maximize" style={{width: "100%", textAlign: "center", color: "#2B71B1", padding: "20px"}}/></Link>
+              <Link to="#web"><span className="fa-10x fa-fw fas fa-window-maximize" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
               <ul>
                 <li><Link to="#web">Web UI Client</Link>: an in-browser version of the dedicated <Link to="#desktop">desktop client</Link> with the same interface but some limitations.  Accessible from <Link to="http://ui.phoebe-project.org">ui.phoebe-project.org</Link> without the need for any setup or installation, the web-client is useful for getting started.</li>
               </ul>

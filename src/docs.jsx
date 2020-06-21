@@ -141,7 +141,7 @@ export class Docs extends Component {
                <HeaderNavButton title="Tutorials" description="Tutorials" to={"/docs/"+version+"/tutorials"} icon="fa fa-hands-helping"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Datasets" description="Datasets" to={"/docs/"+version+"/datasets"} icon="fas fa-table"/>
+               <HeaderNavButton title="Datasets" description="Datasets" to={"/docs/"+version+"/datasets"} icon="fas fa-satellite"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Physics" description="Physics and Individual Parameters" to={"/docs/"+version+"/physics"} icon="fas fa-atom"/>
@@ -211,7 +211,7 @@ export class Docs extends Component {
               <p>Tutorials are built to slowly build upon each other and provide narration about how to use PHOEBE.</p>
               <p>View <Link to={"/docs/"+version+"/tutorials"}>tutorials for PHOEBE {version}</Link>.</p>
 
-              <h2><span className="fas fa-fw fa-xs fa-table"></span> Datasets &amp; Observables</h2>
+              <h2><span className="fas fa-fw fa-xs fa-satellite"></span> Datasets &amp; Observables</h2>
               <p><Link to={"/docs/"+version+"/datasets"}>These tutorials</Link> explain each of the different dataset types that are supported by PHOEBE, as well as all applicable options.</p>
 
               <h2><span className="fas fa-fw fa-xs fa-atom"></span> Physics &amp; Individual Parameters</h2>
