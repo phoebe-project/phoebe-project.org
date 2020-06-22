@@ -360,6 +360,7 @@ export class Install extends Component {
                   <li>numpy (1.10+)</li>
                   <li>scipy {version_short < 2.3 ? <span>(0.17+)</span> : <span>(1.2+)</span>}</li>
                   <li>astropy {version_py==="python2" ? <span>(1.0+ but not 3.0+ as that requires Python 3)</span> : <span>(1.0+)</span>}</li>
+                  {version_short >= 2.3 ? <li>requests</li> : null}
                   {version_short >= 2.3 ? <li>python-socketio[client]</li> : null}
                   {version_short >= 2.3 ? <li><b>required for phoebe-server</b>: flask, flask-cors, flask-socketio, gevent-websocket</li> : null}
                 </ul>
