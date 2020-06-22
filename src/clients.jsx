@@ -154,6 +154,9 @@ export class Clients extends Component {
             <p>
               To install the desktop client, download the appropriate installer/archive from the <Link to="https://github.com/phoebe-project/phoebe2-ui/releases">phoebe2-ui releases</Link>.
             </p>
+            <p>
+              <b>NOTE</b> for users installing from the binary archive or building manually (i.e. not using an installer): phoebe must be available on your path in order to be launched from the <Link to="#python">python client</Link>.  See the <Link to="https://github.com/phoebe-project/phoebe2-ui#readme">installation notes</Link> for more details.
+            </p>
 
           </div>
 
