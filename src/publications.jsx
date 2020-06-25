@@ -83,13 +83,25 @@ export class PublicationEntry extends Component {
       authorsFull = "Conroy, K. E.; Kochoska, A.; Hey, D.; Hambleton, K. M.; Pablo, H.; Jones, D.; Giammarco, J.; Prša, A."
       titleShort = "PHOEBE V: Inverse Problem"
       title = "Physics of Eclipsing Binaries. V. General Framework for Solving the Inverse Problem"
-      abstract = "PHOEBE 2 is a Python package for modeling the observables of eclipsing star systems, but until now has focused entirely on the forward model – that is, generating a synthetic model given fixed values of a large number of parameters describing the system and the observations.  The inverse problem, obtaining orbital and stellar parameters given observational data, is more complicated and computationally expensive as it requires generating a large set of forward models to determine which best represents the available observational data. The process to determine the best solution and also to obtain reliable and robust uncertainties on those parameters often requires the use of multiple different algorithms, including both optimizers and samplers.  Furthermore, the forward model of PHOEBE has  been  designed  to  be  as  physically  robust  as  possible,  but  is  computationally  expensive compared to other codes.  It is useful, therefore, to use whichever code is most efficient given the reasonable assumptions for a specific system, but learning the intricacies of multiple codes presents a barrier to doing this in practice.  Here we present the 2.3 release of PHOEBE (publicly available from http://phoebe-project.org) which introduces a general framework for defining and handling distributions on parameters, calling multiple different estimation, optimization, and sampling algorithms around any of several supported forward models, including the robust model built in to PHOEBE itself."
+      abstract = "PHOEBE 2 is a Python package for modeling the observables of eclipsing star systems, but until now has focused entirely on the forward-model -- that is, generating a synthetic model given fixed values of a large number of parameters describing the system and the observations.  The inverse problem, obtaining orbital and stellar parameters given observational data, is more complicated and computationally expensive as it requires generating a large set of forward-models to determine which set of parameters and uncertainties best represent the available observational data. The process of determining the best solution and also of obtaining reliable and robust uncertainties on those parameters often requires the use of multiple algorithms, including both optimizers and samplers.  Furthermore, the forward-model of PHOEBE has been designed to be as physically robust as possible, but is computationally expensive compared to other codes.  It is useful, therefore, to use whichever code is most efficient given the reasonable assumptions for a specific system, but learning the intricacies of multiple codes presents a barrier to doing this in practice.  Here we present the 2.3 release of PHOEBE (publicly available from http://phoebe-project.org) which introduces a general framework for defining and handling distributions on parameters, utilizing multiple different estimation, optimization, and sampling algorithms around any of several supported forward-models, including the robust model built into PHOEBE itself."
       adsLink = ""
       pdf = ""
       release = "2.3"
       figures = [
-                  {"name": "Figure 1", "image": "2020Conroy+_fig1.png", "link": "/docs/development/examples/inverse_paper_examples"},
-                  {"name": "Table 2", "image": "2020Conroy+_table2.png", "link": "/docs/development/examples/compute_comparison_table"}
+                  {"name": "Figure 1", "image": "2020Conroy+_fig1.png", "link": "/docs/development/examples/inverse_paper_examples#fig1"},
+                  {"name": "Figure 2", "image": "2020Conroy+_fig2.png", "link": "/docs/development/examples/inverse_paper_examples#fig2"},
+                  {"name": "Figure 3", "image": "2020Conroy+_fig3.png", "link": "/docs/development/examples/inverse_paper_examples#fig3"},
+                  {"name": "Figure 4", "image": "2020Conroy+_fig4.png", "link": "/docs/development/examples/distribution_constraints"},
+                  {"name": "Figure 5", "image": "2020Conroy+_fig5.png", "link": "/docs/development/examples/inverse_paper_examples#fig5"},
+                  {"name": "Figure 6", "image": "2020Conroy+_fig6.png", "link": "/docs/development/examples/backends_compare_legacy_jktebop_ellc"},
+                  {"name": "Table 2", "image": "2020Conroy+_table2.png", "link": "/docs/development/examples/compute_comparison_table"},
+                  {"name": "Figure 7", "image": "2020Conroy+_fig7.png", "link": "/docs/development/examples/minimal_GPs"},
+                  {"name": "Figure 8", "image": "2020Conroy+_fig8.png", "link": "/docs/development/examples/inverse_paper_examples#fig8"},
+                  {"name": "Figure 9", "image": "2020Conroy+_fig9.png", "link": "/docs/development/examples/inverse_paper_examples#fig9"},
+                  {"name": "Figure 10", "image": "2020Conroy+_fig10.png", "link": "/docs/development/examples/inverse_paper_examples#fig10"},
+                  {"name": "Figure 11", "image": "2020Conroy+_fig11.png", "link": "/docs/development/examples/inverse_paper_examples#fig11"},
+                  {"name": "Figure 12", "image": "2020Conroy+_fig12.png", "link": "/docs/development/examples/inverse_paper_examples#fig12"},
+
                 ]
 
     } else {
