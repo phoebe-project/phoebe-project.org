@@ -73,17 +73,28 @@ export class Redirect extends Component {
 }
 
 export class NavLink extends Component {
+  reloadIfNecessary = (e) => {
+    if (window.location.href.indexOf("docs") !== -1) {
+      // unloading the github content occasionally causes a white screen
+      // for now we'll get around that by reloading the whole app when clicking away
+      // probably due to a depracted NotebookPreview package - if this continues
+      // to cause issues, we may need to find an alternative or freeze the
+      // react dependency
+      e.preventDefault();
+      window.location.href = processLink(this.props.to)
+    }
+  }
   render() {
     var to = processLink(this.props.to)
 
     if (to.startsWith("http") || to.startsWith("ftp")) {
       return (
-        <a {...this.props} href={to} target="blank" target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"> </span>}{this.props.children}</a>
+        <a {...this.props} href={to} target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className="fas fa-external-link-alt"> </span>}{this.props.children}</a>
       )
     } else {
       return (
         /* data-toggle and data-target will collapse the drop-down menu on mobile if open */
-        <RouterNavLink {...this.props} to={to} data-toggle="collapse" data-target=".navbar-collapse.in"s>{this.props.children}</RouterNavLink>
+        <RouterNavLink {...this.props} to={to} data-toggle="collapse" data-target=".navbar-collapse.in" onClick={this.reloadIfNecessary}>{this.props.children}</RouterNavLink>
       )
     }
   }
@@ -97,6 +108,17 @@ export class Link extends Component {
     };
   }
   componentDidMount() {
+  }
+  reloadIfNecessary = (e) => {
+    if (window.location.href.indexOf("docs") !== -1) {
+      // unloading the github content occasionally causes a white screen
+      // for now we'll get around that by reloading the whole app when clicking away
+      // probably due to a depracted NotebookPreview package - if this continues
+      // to cause issues, we may need to find an alternative or freeze the
+      // react dependency
+      e.preventDefault();
+      window.location.href = processLink(this.props.to)
+    }
   }
   render() {
     var to = processLink(this.props.to)
@@ -118,7 +140,7 @@ export class Link extends Component {
       )
     } else {
       return (
-        <RouterLink {...this.props} to={to}>{this.props.children}</RouterLink>
+        <RouterLink {...this.props} to={to} onClick={this.reloadIfNecessary}>{this.props.children}</RouterLink>
       )
     }
   }
