@@ -31,12 +31,12 @@ export class HelpDevel extends Component {
           <h2>Active Developers</h2>
 
           <DeveloperInfo image="andrej.jpg">
-            <Link to="http://astro4.ast.villanova.edu/aprsa" hideExternal={true}>Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries). He is working on PHOEBE's probabilistic fitting engine.
+            <Link to="http://astro4.ast.villanova.edu/aprsa" hideExternal={true}>Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries).  Additionally, Andrej leads the development of the passband and atmosphere framework within PHOEBE 2.
           </DeveloperInfo>
 
 
           <DeveloperInfo image="kyle.jpg">
-            <Link to="http://www.keconroy.com" hideExternal={true}>Kyle Conroy</Link> is a postdoctoral researcher at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings into PHOEBE 2 and leads the development and releases of PHOEBE 2.  Kyle also developed and maintains this website.
+            <Link to="http://www.keconroy.com" hideExternal={true}>Kyle Conroy</Link> is a postdoctoral researcher at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link>, is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings, and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
           </DeveloperInfo>
 
 
@@ -56,7 +56,7 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="dave.jpeg">
-            <Link to="http://www.drdjones.net" hideExternal={true}>Dave Jones</Link> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He is currently working on incorporating interstellar extinction correction into the framework of PHOEBE 2.
+            <Link to="http://www.drdjones.net" hideExternal={true}>Dave Jones</Link> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> into the framework of PHOEBE 2.
           </DeveloperInfo>
 
 
@@ -67,15 +67,15 @@ export class HelpDevel extends Component {
           </DeveloperInfo>
 
           <DeveloperInfo image="pieter.jpg">
-            <Link to="http://www.ster.kuleuven.be/~pieterd" hideExternal={true}>Pieter Degroote</Link> was a postdoc at the Institute of Astronomy at the KULeuven, Belgium, where he mainly worked on asteroseismology of massive stars. His main scientific interests were in determining accurate fundamental parameters of stars and planets, focusing on correct observational treatment of the physics. Pieter developed the core implementation and backend of PHOEBE 2.0-alpha, much of which has either been adopted into the 2.0 release or is planned to be reimplemented in future releases.
+            Pieter Degroote was a postdoc at the Institute of Astronomy at the KULeuven, Belgium, where he mainly worked on asteroseismology of massive stars. His main scientific interests were in determining accurate fundamental parameters of stars and planets, focusing on correct observational treatment of the physics. Pieter developed the core implementation and backend of PHOEBE 2.0-alpha, much of which has either been adopted into the 2.X releases or is planned to be re-implemented in future releases.
           </DeveloperInfo>
 
           <DeveloperInfo image="steven.jpg">
-            Steven Bloemen was a postdoc at the Radboud University Nijmegen, The Netherlands, and the Instrument Scientist of the BlackGEM array. He is mainly interested in compact binary stars.
+            Steven Bloemen was a postdoc (and is now a faculty member) at the Radboud University Nijmegen, The Netherlands, and the Instrument Scientist of the BlackGEM array. He is mainly interested in compact binary stars.  Steven was part of the original team that designed and developed the alpha version of PHOEBE 2.0.
           </DeveloperInfo>
 
           <DeveloperInfo image="kelly.jpg">
-            Kelly Hambleton was a postdoctoral researcher at Villanova University after receiving her PhD from the University of Central Lancashire, England. Her main research interests include pulsating stars and binary star systems, specifically heartbeat stars with tidally induced pulsations. Kelly developed the parsing algorithms that enabled PHOEBE 2.0-alpha to use PHOEBE legacy parameter files.
+            Kelly Hambleton was a postdoctoral researcher (and is now a faculty member) at Villanova University after receiving her PhD from the University of Central Lancashire, England. Her main research interests include pulsating stars and binary star systems, specifically heartbeat stars with tidally induced pulsations. Kelly developed the parsing algorithms that enabled PHOEBE 2.0-alpha to use PHOEBE legacy parameter files and continues to serve as a consultant on Gaussian Processes and pulsations in binaries.
           </DeveloperInfo>
 
           <div className="row">&nbsp;</div>
