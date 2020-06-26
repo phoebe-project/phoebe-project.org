@@ -9,6 +9,21 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "Paper Submitted: General Framework for Solving the Inverse Problem",
+    slug: "phoebe-23-submitted",
+    pinnedDays: 90,
+    date: "July 1, 2020",
+    author: "Kyle Conroy",
+    content: <div>
+              <p>
+                We are pleased to announce that the latest release paper introducing a general framework within PHOEBE for running various fitting algorithms as well as the introduction of web and desktop UI clients has been submitted and <Link to="https://arxiv.org/abs/2006.16951">available on arXiv</Link>.  Comments on the paper draft are welcome!
+              </p>
+              <p>
+                Please note that the corresponding 2.3 version of PHOEBE and the UI clients will not be released until the paper has been accepted, but are available for manual installation from source for the adventurous soul.
+              </p>
+             </div>
+  },
+  {
     title: "PHOEBE 2.2 released",
     slug: "phoebe-22-released",
     pinnedDays: 45,
