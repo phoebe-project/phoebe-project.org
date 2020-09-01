@@ -19,7 +19,8 @@ export var newsStoriesDicts = [
                 We are pleased to announce that the latest release paper introducing a general framework within PHOEBE for running various fitting algorithms as well as the introduction of web and desktop UI clients has been submitted and <Link to="https://arxiv.org/abs/2006.16951">available on arXiv</Link>.  Comments on the paper draft are welcome!
               </p>
               <p>
-                Please note that the corresponding 2.3 version of PHOEBE and the UI clients will not be released until the paper has been accepted, but are available for manual installation from source for the adventurous soul.
+                Please note that the corresponding 2.3 version of PHOEBE and the UI clients will not be released until the paper has been accepted, but are available for manual installation from source (from the <Link to="https://github.com/phoebe-project/phoebe2/tree/fitting">fitting branch on GitHub</Link> with the <Link to="/docs/development">current documentation here</Link>) for the adventurous soul.
+                Also be aware that we will be dropping support for Python 2 starting with the 2.3 release.
               </p>
              </div>
   },
