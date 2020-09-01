@@ -259,9 +259,10 @@ export class Publications extends Component {
           <Link to={"http://github.com/phoebe-project/phoebe-project.org/issues/new?title=new+paper+that+uses+phoebe"} hideExternal={true}><span className="fas fa-fw fa-plus"></span> Suggest New Entry</Link>
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
+          <Publication author="Gomel et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv200811209G" title="Search for Dormant Black Holes in Ellipsoidal Variables I. Revisiting the Expected Amplitudes of the Photometric Modulation"/>
           <Publication author="Jones et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv200708960J" title="The post-common-envelope binary central star of the planetary nebula PN G283.7-05.1: A possible post-red-giant-branch planetary nebula central star"/>
-          <Publication author="Engel et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv200713773E" title="BEER analysis of Kepler and CoRoT light curves. V. eBEER: Extension of the Algorithm to Eccentric Binaries"/>
-          <Publication author="Maxted et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020MNRAS.tmp.1795M/" title="The TESS light curve of AI Phoenicis"/>
+          <Publication author="Engel et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020MNRAS.497.4884E" title="BEER analysis of Kepler and CoRoT light curves. V. eBEER: Extension of the Algorithm to Eccentric Binaries"/>
+          <Publication author="Maxted et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020MNRAS.tmp.1795M" title="The TESS light curve of AI Phoenicis"/>
           <Publication author="Kurtz et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020MNRAS.tmp.1132K" title="The single-sided pulsator CO Camelopardalis"/>
           <Publication author="Aller et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020A%26A...635A.128A" title="Planetary Nebulae seen by TESS: Discovery of new binary central star candidates from Cycle 1"/>
           <Publication author="Kabath et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020PASP..132c5002K" title="Ondrejov Echelle Spectrograph, Ground Based Support Facility for Exoplanet Missions"/>
