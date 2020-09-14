@@ -59,17 +59,15 @@ export class HeaderIndex extends Component {
               <div className="col-md-4">
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="Install" description="Download &amp; Install PHOEBE 2" to="/install" icon="fa fa-download"/>
+                  <HeaderNavButton title="Releases" to="/releases" icon="fa fa-fw fa-tags"/>
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="Documentation" to="/docs" icon="fa fa-book-open"/>
+                  <HeaderNavButton title="Documentation" to="/docs" icon="fa fa-fw fa-copy"/>
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="News" to="/news" icon="far fa-newspaper"/>
+                  <HeaderNavButton title="Publications" to="/publications" icon="far fa-fw fa-newspaper"/>
               </div>
-              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="Contact" to="/help/contact" icon="far fa-envelope"/>
-              </div>
+
           </div>
         </div>
       </Header>
