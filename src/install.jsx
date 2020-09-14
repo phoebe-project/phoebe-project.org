@@ -234,14 +234,14 @@ export class Install extends Component {
                   {python} --version
                 </pre>
 
-                <p>The C++ code in PHOEBE requires a compiler that supports C++11, either of the following should build correctly:</p>
+                <p>The C++ code in PHOEBE requires a compiler that supports C++11, <b>either</b> of the following should build correctly:</p>
                 <ul>
-                  <li>g++-5 (or newer)</li>
-                  <li>clang-3.3 (or newer)</li>
+                  <li>g++ (g++-5 or newer)</li>
+                  <li>clang (clang-3.3 or newer)</li>
                 </ul>
                 {OSName === 'linux' ?
                   <div>
-                    <p>Note for <strong>Ubuntu 14.04 users</strong>: g++-5 is not installed by default.  You’ll likely need to to do the following in order to install PHOEBE:</p>
+                    <p>Note for <strong>Ubuntu 14.04 users</strong>: g++ is not installed by default.  You’ll likely need to to do the following in order to install PHOEBE:</p>
                     <pre>
                       sudo add-apt-repository ppa:ubuntu-toolchain-r/test<br/>
                       sudo apt-get install g++-5 gcc-5 libstdc++-5-dev<br/>
