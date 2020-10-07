@@ -6,6 +6,35 @@ import {Content, Link, Image, Separator} from './common';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
+
+class PublicationHeaderLinks extends Component {
+  render() {
+    return (
+      <div className="row">
+         <div className="col-md-2"></div>
+         <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+           <HeaderNavButton title="I: PHOEBE 1.0" description="Demonstrations and Perspectives" to={"/publications/2005Prsa+"}/>
+         </div>
+         <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+           <HeaderNavButton title="II: PHOEBE 2.0" description="Toward the Increased Model Fidelity" to={"/publications/2016Prsa+"}/>
+         </div>
+         <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+           <HeaderNavButton title="III: Misalignment (2.1)" description="Spin-Orbit Misalignment" to={"/publications/2018Horvat+"}/>
+         </div>
+         <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+           <HeaderNavButton title="IV: Extinction (2.2)" description="The Impact of Interstellar Extinction on the Light Curves of Eclipsing Binaries" to={"/publications/2020Jones+"}/>
+         </div>
+         <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+           <HeaderNavButton title="V: Inverse Problem (2.3)" description="General Framework for Solving the Inverse Problem" to={"/publications/2020Conroy+"}/>
+         </div>
+         {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+           <HeaderNavButton title="VI: Atmospheres (2.4)" description="" to={"/publications/2020Prsa+"}/>
+         </div> */}
+       </div>
+    )
+  }
+}
+
 export class PublicationEntry extends Component {
   render() {
     var publication = this.props.match.params.publication
@@ -78,14 +107,14 @@ export class PublicationEntry extends Component {
                 ]
 
     } else if (publication=='2020Conroy+') {
-      published = false
+      published = true
       author = "Conroy et al. (2020, accepted)"
       authorsFull = "Conroy, K. E.; Kochoska, A.; Hey, D.; Hambleton, K. M.; Pablo, H.; Jones, D.; Giammarco, J.; Prša, A."
       titleShort = "PHOEBE V: Inverse Problem"
       title = "Physics of Eclipsing Binaries. V. General Framework for Solving the Inverse Problem"
       abstract = "PHOEBE 2 is a Python package for modeling the observables of eclipsing star systems, but until now has focused entirely on the forward-model -- that is, generating a synthetic model given fixed values of a large number of parameters describing the system and the observations.  The inverse problem, obtaining orbital and stellar parameters given observational data, is more complicated and computationally expensive as it requires generating a large set of forward-models to determine which set of parameters and uncertainties best represent the available observational data. The process of determining the best solution and also of obtaining reliable and robust uncertainties on those parameters often requires the use of multiple algorithms, including both optimizers and samplers.  Furthermore, the forward-model of PHOEBE has been designed to be as physically robust as possible, but is computationally expensive compared to other codes.  It is useful, therefore, to use whichever code is most efficient given the reasonable assumptions for a specific system, but learning the intricacies of multiple codes presents a barrier to doing this in practice.  Here we present the 2.3 release of PHOEBE (publicly available from http://phoebe-project.org) which introduces a general framework for defining and handling distributions on parameters, utilizing multiple different estimation, optimization, and sampling algorithms around any of several supported forward-models, including the robust model built into PHOEBE itself."
-      adsLink = ""
-      pdf = ""
+      adsLink = "https://ui.adsabs.harvard.edu/abs/2020arXiv200616951C"
+      pdf = "2020Conroy+.pdf"
       release = "2.3"
       figures = [
                   {"name": "Figure 1", "image": "2020Conroy+_fig1.png", "link": "/docs/2.3/examples/inverse_paper_examples#fig1"},
@@ -119,27 +148,7 @@ export class PublicationEntry extends Component {
         </Helmet>
         <Header>
           <h1>{titleShort}</h1>
-          <div className="row">
-             <div className="col-md-2"></div>
-             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="I: PHOEBE 1.0" description="Demonstrations and Perspectives" to={"/publications/2005Prsa+"}/>
-             </div>
-             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="II: PHOEBE 2.0" description="Toward the Increased Model Fidelity" to={"/publications/2016Prsa+"}/>
-             </div>
-             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="III: Misalignment (2.1)" description="Spin-Orbit Misalignment" to={"/publications/2018Horvat+"}/>
-             </div>
-             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="IV: Extinction (2.2)" description="The Impact of Interstellar Extinction on the Light Curves of Eclipsing Binaries" to={"/publications/2020Jones+"}/>
-             </div>
-             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="V: Inverse Problem (2.3)" description="General Framework for Solving the Inverse Problem" to={"/publications/2020Conroy+"}/>
-             </div>
-             {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="VI: Atmospheres (2.4)" description="" to={"/publications/2020Prsa+"}/>
-             </div> */}
-           </div>
+          <PublicationHeaderLinks/>
         </Header>
         <Content>
           <p>
@@ -202,6 +211,7 @@ export class Publications extends Component {
         <Header>
           <span className="hidden-xs"><h1>Publications</h1></span>
           <span className="visible-xs"><h1>Papers</h1></span>
+          <PublicationHeaderLinks/>
         </Header>
         <Content>
           <div style={{textAlign: "center", padding: "25px"}}>
