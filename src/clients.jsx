@@ -96,7 +96,7 @@ export class Clients extends Component {
             <div className="col-md-4">
               <Link to="#web"><span className="fa-10x fa-fw fas fa-window-maximize" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
               <Link to="#web"><h3>Web UI Client</h3></Link>
-              <p>an in-browser version of the dedicated <Link to="#desktop">desktop client</Link> with the same interface but some limitations.  Accessible from <Link to="http://ui.phoebe-project.org">ui.phoebe-project.org</Link> without the need for any setup or installation, the web-client is useful for getting started.</p>
+              <p>an in-browser version of the dedicated <Link to="#desktop">desktop client</Link> with the same interface but some limitations.  Accessible from <Link to="http://ui.phoebe-project.org">ui.phoebe-project.org</Link> without the need for any setup or installation, the web-client is convenient for getting started.</p>
               <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginRight: "10px"}} to={"#web"} icon="fa fa-fw fa-info" title={"Learn More"}/>
               <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginLeft: "10px"}} to={"http://ui.phoebe-project.org"} icon="fa fa-fw fa-play-circle" title={"Launch"}/>
             </div>
