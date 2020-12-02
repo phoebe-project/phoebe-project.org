@@ -233,8 +233,12 @@ export class Publications extends Component {
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
 
+          <Publication author="Korth et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv201200426K" title="Consequences of parameterization choice on eclipsing binary light curve solutions"/>
+          <Publication author="Clavel et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv201101155C" title="Using radial velocities to reveal black holes in binaries: a test case"/>
+          <Publication author="Steindl et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv201108214S" title="Tidally perturbed pulsations in the pre-main sequence  δ  Scuti binary RS Cha"/>
+          <Publication author="Kochukhov et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.500.2577K" title="V772 Cas: an ellipsoidal HgMn star in an eclipsing binary"/>
           <Publication author="van Kooten et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.2817V" title="Periodic brightening of Kepler light curves: investigating the possibility of forward scattering due to dust clouds"/>
-          <Publication author="Sekaran et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv201002187S" title="Tango of celestial dancers: A sample of detached eclipsing binary systems containing g-mode pulsating components. A case study of KIC9850387"/>
+          <Publication author="Sekaran et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020A%26A...643A.162S" title="Tango of celestial dancers: A sample of detached eclipsing binary systems containing g-mode pulsating components. A case study of KIC9850387"/>
           <Publication author="Munday et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020MNRAS.tmp.2606M" title="The post-common-envelope binary central star of the planetary nebula ETHOS 1"/>
           <Publication author="Cunningham et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020AJ....160..187C" title="A KELT-TESS Eclipsing Binary in a Young Triple System Associated with a 'Stellar String' Theia 301"/>
           <Publication author="Gomel et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv200811209G" title="Search for Dormant Black Holes in Ellipsoidal Variables I. Revisiting the Expected Amplitudes of the Photometric Modulation"/>
