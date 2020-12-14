@@ -2,12 +2,43 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Image} from './common';
+import {Content, Link, Image, Button} from './common';
 import {Header} from './header';
 import {NotFound} from './errors';
 
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
+  {
+    title: "Ask a Question on GitHub Discussions",
+    slug: "github-discussions",
+    pinnedDays: 60,
+    date: "December 14, 2020",
+    author: "Kyle Conroy",
+    wrapHeight: 150,
+    content: <div>
+              <p>
+                GitHub has recently launched support for "Discussions" - which provides a discussion board for repositories including the ability to "accept" answers.
+                This framework works perfectly for our community and will hopefully make it easier to search through previous questions and answers as well as an easier way to reach us or others in the community for help.
+                We have active discussion boards for both PHOEBE itself (the python package) as well as the UI (for any <Link to="/clients">client</Link> related questions or comments):
+              </p>
+              <div style={{textAlign: "center", paddingBottom: "48px"}} className="row">
+                <div className="col-md-6" style={{paddingTop: "12px"}}>
+                  <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "250px", marginLeft: "10px"}} to={"https://github.com/phoebe-project/phoebe2/discussions"} icon="far fa-fw fa-comment-alt" title={"PHOEBE Discussions"}/>
+                </div>
+                <div className="col-md-6" style={{paddingTop: "12px"}}>
+                  <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "250px", marginLeft: "10px"}} to={"https://github.com/phoebe-project/phoebe2-ui/discussions"} icon="far fa-fw fa-comment-alt" title={"PHOEBE UI Discussions"}/>
+                </div>
+              </div>
+              <p>
+                If you sign up with a GitHub account, you can choose to "watch" the phoebe2 repository, and can customize your notifications to only receive notifications for threads in which you've participated and/or all discussion topics (in addition to optional emails for new releases, issues, and pull requests).
+              </p>
+              <p>
+                We are now encouraging using this tool instead of using the mailing lists or emailing the developers personally.  The existing mailing lists will of course remain active and will still receive replies and their archives will remain in place.
+                You can always <Link to="/help/contact">view those archives or subscribe to mailing lists</Link>.
+              </p>
+
+             </div>
+  },
   {
     title: "PHOEBE 2.3 Released: Introducing Inverse Problem Solvers and UI Clients",
     slug: "phoebe-23-released",

@@ -39,7 +39,7 @@ export class Home extends Component {
         <Content>
           {pinnedNewsStoryDicts.length > 0 ?
             <div style={{paddingBottom: "40px"}}>
-              {pinnedNewsStoryDicts.map(newsStoryDict => <NewsContent title={newsStoryDict.title} slug={newsStoryDict.slug} author={newsStoryDict.author} date={newsStoryDict.date} showAsSummary={true} wrapHeight={100}>{newsStoryDict.content}</NewsContent>)}
+              {pinnedNewsStoryDicts.map(newsStoryDict => <NewsContent title={newsStoryDict.title} slug={newsStoryDict.slug} author={newsStoryDict.author} date={newsStoryDict.date} showAsSummary={true} wrapHeight={newsStoryDict.wrapHeight || 100}>{newsStoryDict.content}</NewsContent>)}
             </div>
             :
             null

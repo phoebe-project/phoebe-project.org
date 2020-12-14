@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Image, Redirect} from './common';
+import {Content, Link, Image, Redirect, Button} from './common';
 import {Header} from './header';
 import {NotFound} from './errors';
 
@@ -127,13 +127,20 @@ export class HelpFAQ extends Component {
           <h1><span className="hidden-xs">Frequently Asked Questions</span><span className="visible-xs">FAQ</span></h1>
         </Header>
         <Content>
+          <p>
+            <b>
+              For a list of questions asked by the community, see <Link to="https://github.com/phoebe-project/phoebe2/discussions">PHOEBE GitHub Discussions</Link> (currently encouraged over the mailing lists) and the <Link to="https://sourceforge.net/p/phoebe/mailman/phoebe-discuss/">phoebe-discuss mailing list archive</Link>.
+            </b>
+          </p>
+          <p>Below is an overview of the most commonly asked questions:</p>
+
           Q: Which release of PHOEBE should I use?
           <br/>
           A: That depends.  If you're considering using PHOEBE 1 (legacy) or a version of PHOEBE 2, click <Link to="/help/1vs2">here to read about the differences</Link>.  Otherwise, unless there is a good reason, its suggested that you use the <Link to="/releases/latest">latest release</Link>.
           <br/><br/>
           Q: Can I speed up plotting in any way?
           <br/>
-          A: You could try changing your backend, e.g via matplotlib.rcParams['backend'] = 'Agg' but do this before importing Phoebe.
+          A: You could try changing your backend, e.g via <code>matplotlib.rcParams['backend'] = 'Agg'</code> but do this before importing Phoebe.
           <br/><br/>
           Q: How do I add a custom passband to PHOEBE 2?
           <br/>
@@ -162,11 +169,11 @@ export class HelpFAQ extends Component {
           <br/><br/>
           Q: Is PHOEBE 2.x Python 3.x ready?
           <br/>
-          A: As of the <Link to="/releases/2.2">2.2 release</Link>, PHOEBE is compatible with both Python 3.6+ and 2.7+.  Earlier releases, however, only support Python 2.7+.  See the <Link to="/install">install</Link> page for more information.
+          A: As of the <Link to="/releases/2.3">2.3 release</Link>, PHOEBE only supports Python 3.6+.  The <Link to="/releases/2.2">2.2 release</Link> supported both Python 3.6+ and 2.7+.  Earlier releases, however, only support Python 2.7+.  See the <Link to="/install">install</Link> page for more information.
           <br/><br/>
           Q: Is it safe to use PHOEBE?
           <br/>
-          A: For the most part, yes. Constraints will be evaluated using the ‘eval’ command - which could potentially be dangerous if you blindly open a bundle from an untrusted source.
+          A: For the most part, yes. Constraints will be evaluated using the <code>eval</code> command - which could potentially be dangerous if you blindly open a bundle from an untrusted source.
         </Content>
       </div>
     )
@@ -278,22 +285,34 @@ export class HelpContact extends Component {
     return (
       <div>
         <Helmet>
-          <title>PHOEBE | Contact Us</title>
+          <title>PHOEBE | Ask A Question</title>
           <meta name="description" content="mailing lists and contact the PHOEBE development team"/>
         </Helmet>
         <Header>
-          <h1>Contact Us</h1>
+          <h1>Ask A Question</h1>
 
 
         </Header>
         <Content>
           <div className="row">
             <p>
-              There are several options to get help with PHOEBE. The obvious one is to start with the <Link to="/docs/latest/">documentation and tutorials</Link>. If you think you've found a bug, please <Link to="/contribute#issues">report an issue</Link> or if you can't find something that you think should exist, <Link to="/contribute#features">request a new feature</Link>.
+              There are several options to get help with PHOEBE. The obvious one is to start with the <Link to="/docs/latest/">documentation and tutorials</Link>. If you think you've found a bug, please <Link to="/contribute#issues">report an issue</Link>, or if you can't find something that you think should exist, <Link to="/contribute#features">request a new feature</Link>.
             </p>
             <p>
-              We also have several mailing lists set up where you can ask questions and exchange experiences with other users and developers.
-              These Electronic mailing lists enable people to communicate, ask for help and share experiences with other subscribers on the given list. There are three PHOEBE-related mailing lists where you are invited to participate:
+              To ask for help/advice from the developers and community of other users, we are now using these "GitHub Discussions" boards so that previous questions and answers are available for others to browse in the future.
+              To subscribe and get emails about other posts to the discussion board, follow the GitHub repository (you can select "custom" to only get notifications about new discussions and/or releases).
+              We have active discussion boards for both PHOEBE itself (the python package) as well as the UI (for any <Link to="/clients">client</Link> related questions or comments):
+            </p>
+            <div style={{textAlign: "center", paddingBottom: "48px"}} className="row">
+              <div className="col-md-6" style={{paddingTop: "12px"}}>
+                <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "250px", marginLeft: "10px"}} to={"https://github.com/phoebe-project/phoebe2/discussions"} icon="far fa-fw fa-comment-alt" title={"PHOEBE Discussions"}/>
+              </div>
+              <div className="col-md-6" style={{paddingTop: "12px"}}>
+                <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "250px", marginLeft: "10px"}} to={"https://github.com/phoebe-project/phoebe2-ui/discussions"} icon="far fa-fw fa-comment-alt" title={"PHOEBE UI Discussions"}/>
+              </div>
+            </div>
+            <p>
+              In the past, we have used several mailing lists.  Although we now encourage using <Link to="https://github.com/phoebe-project/phoebe2/discussions">PHOEBE GitHub Discussions</Link> to allow for customized email notifications and to make posts more accessible, these lists will remain active and all posts remain available in their respective archives.
             </p>
           </div>
 
@@ -302,7 +321,7 @@ export class HelpContact extends Component {
                   <Link to="/help/contact/phoebe-announce"><strong>PHOEBE announcements</strong></Link>
               </div>
               <div className="col-sm-10">
-                  PHOEBE announcements is a low traffic list. It informs you of new releases and critical updates concerning PHOEBE. Typically the number of messages that are sent out is 1 per month.
+                  PHOEBE announcements is a low traffic list. It informs you of new releases and critical updates concerning PHOEBE. Typically the number of messages that are sent out is 1 per month. (<Link to="https://sourceforge.net/p/phoebe/mailman/phoebe-announce/">browse the archives</Link>)
               </div>
           </div>
 
@@ -311,7 +330,7 @@ export class HelpContact extends Component {
                   <Link to="/help/contact/phoebe-discuss"><strong>PHOEBE discussion</strong></Link>
               </div>
               <div className="col-sm-10">
-                  PHOEBE discussion is a higher traffic list. It is meant for active and potential PHOEBE users to exchange knowledge and experience and to help others with their problems.
+                  PHOEBE discussion is a higher traffic list. It was meant for active and potential PHOEBE users to exchange knowledge and experience and to help others with their problems.  We now encourage posting these questions to <Link to="https://github.com/phoebe-project/phoebe2/discussions">PHOEBE GitHub discussions</Link>. (<Link to="https://sourceforge.net/p/phoebe/mailman/phoebe-discuss/">browse the archives</Link>)
               </div>
           </div>
 
@@ -320,7 +339,7 @@ export class HelpContact extends Component {
                   <Link to="/help/contact/phoebe-devel"><strong>PHOEBE development</strong></Link>
               </div>
               <div className="col-sm-10">
-                  PHOEBE development mailing list is meant for people that are or would like to join active PHOEBE development. Technical and programming issues are discussed here.
+                  PHOEBE development mailing list is meant for people that are or would like to join active PHOEBE development. Technical and programming issues were discussed here (but are now more often discussed in weekly telecons or in GitHub discussions and issues). (<Link to="https://sourceforge.net/p/phoebe/mailman/phoebe-devel/">browse the archives</Link>)
               </div>
           </div>
 
@@ -444,7 +463,7 @@ export class HelpMailingList extends Component {
 
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title">{title} preferences</h3>
+                <h3 className="panel-title">{title} Preferences</h3>
               </div>
               <div className="panel-body">
                 <form className="form-horizontal" role="form" method="POST" action={"https://lists.sourceforge.net/lists/options/"+mailinglist}>
