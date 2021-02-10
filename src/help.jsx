@@ -31,7 +31,7 @@ export class HelpDevel extends Component {
           <h2>Active Developers</h2>
 
           <DeveloperInfo image="andrej.jpg">
-            <Link to="http://astro4.ast.villanova.edu/aprsa" hideExternal={true}>Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries).  Additionally, Andrej leads the development of the passband and atmosphere framework within PHOEBE 2.
+            <Link to="http://aprsa.villanova.edu" hideExternal={true}>Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries).  Additionally, Andrej leads the development of the passband and atmosphere framework within PHOEBE 2.
           </DeveloperInfo>
 
 
@@ -57,6 +57,10 @@ export class HelpDevel extends Component {
 
           <DeveloperInfo image="dave.jpeg">
             <Link to="http://www.drdjones.net" hideExternal={true}>Dave Jones</Link> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> into the framework of PHOEBE 2.
+          </DeveloperInfo>
+
+          <DeveloperInfo image="michael.jpg">
+            Michael Abdul-Masih is a postdoctoral fellow at the European Southern Observatory.  He received his PhD from KU Leuven, where he worked on non-spherical massive stars, and how accounting for the 3D geometry affects the derived stellar parameters and thus evolutionary future of these objects.  His primary research interests include distorted massive stars and the integration of 3D geometries into spectral fitting techniques.
           </DeveloperInfo>
 
 
