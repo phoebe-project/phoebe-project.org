@@ -7,7 +7,7 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-var upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
+var upcoming_workshops = {"2021june": "June 2021, Virtual Workshop"};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
 var active_workshops = {}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
 var archived_workshops = {"2018june": "June 2018, Villanova PA",
                           "2019july": "July 2019, Villanova PA"}; // WORKSHOP OVER
@@ -201,7 +201,7 @@ class WorkshopEntry extends Component {
 
 export class WorkshopRegistration extends Component {
   render() {
-    window.location = 'https://docs.google.com/forms/d/e/1FAIpQLSeSzIgRb1M8VulyXsup1d_ZB5Mvox-MGf2-HP-JuMA5p2kAdg/viewform'
+    window.location = 'https://docs.google.com/forms/d/e/1FAIpQLSfHJJhqiKhddLBmSGnRveON2yA8ORyaYOy8SmPT4oUjmEf-zQ/viewform'
     return(
       null
     )
