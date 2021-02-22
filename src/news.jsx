@@ -9,6 +9,34 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "Third PHOEBE Workshop (Virtual)",
+    slug: "phoebe-workshop-3-virtual",
+    pinnedDays: 45,
+    date: "February 22, 2021",
+    author: "Kyle Conroy",
+    content: <div>
+              <p>
+                Dear Colleagues,
+              </p>
+              <p>
+                We will be holding the postponed Third PHOEBE Workshop (virtually), <b>June 22nd - July 1st, 2021</b>.
+                This year the workshop will cover two weeks: with the first week covering an introduction to PHOEBE and the second week covering the new fitting capabilities in the <Link to="/releases/2.3">2.3 release</Link>.
+                Participants can choose to register for either week or both, depending on their interest and current level of comfort with using PHOEBE.
+                Past participants are welcome and encouraged to apply to attend the second week if they wish to get more experience in particular areas of science or work on fitting their data.
+              </p>
+              <p>
+                Further information and the registration form can be found at <Link to="/workshops/2021june">http://phoebe-project.org/workshops/2021june</Link>.  Registration is enow open and acceptance is on a first-come first-serve basis.
+              </p>
+              <p>
+                We look forward to seeing you in June/July!
+              </p>
+              <p>
+                Kind regards,<br/>
+                The <Link to="/development-team">PHOEBE team</Link>
+              </p>
+            </div>
+  },
+  {
     title: "Ask a Question on GitHub Discussions",
     slug: "github-discussions",
     pinnedDays: 60,
