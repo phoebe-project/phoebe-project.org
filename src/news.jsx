@@ -25,10 +25,10 @@ export var newsStoriesDicts = [
                 Past participants are welcome and encouraged to apply to attend the second week if they wish to get more experience in particular areas of science or work on fitting their data.
               </p>
               <p>
-                Further information and the registration form can be found at <Link to="/workshops/2021june">http://phoebe-project.org/workshops/2021june</Link>.  Registration is enow open and acceptance is on a first-come first-serve basis.
+                Further information and the registration form can be found at <Link to="/workshops/2021june">http://phoebe-project.org/workshops/2021june</Link>.  Registration is now open (<b>update</b>: all spots are filled and the wait list is now open) and acceptance is on a first-come first-serve basis.
               </p>
               <p>
-                We look forward to seeing you in June/July!
+                We look forward to seeing you in June!
               </p>
               <p>
                 Kind regards,<br/>
