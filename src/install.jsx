@@ -220,6 +220,21 @@ export class Install extends Component {
                       <b>Note for mac users</b>: it is suggested to use <Link to="https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/">homebrew to install a parallel version of {python}</Link>.
                       PHOEBE has currently been tested to compile correctly using homebrew on El Capitan.
                     </p>
+                    {version_short >= 2.3 ?
+                      <p>
+                        On Catalina, the default system compiler may not work correctly.  Updating XCode may be required (confirmed to work with XCode 12.4).  To install in a conda environment (see <Link to="https://github.com/phoebe-project/phoebe2/issues/425">this issue</Link> for further discussion):
+                        <pre>
+                          conda create -n phoebe python=3.7<br/>
+                          conda activate phoebe<br/>
+                          pip install numpy<br/>
+                          export CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include<br/>
+                          conda install clangxx_osx-64<br/>
+                          pip install phoebe<br/>
+                        </pre>
+                      </p>
+                      :
+                      null
+                    }
                   </div>
                   :
                   null
@@ -368,6 +383,7 @@ export class Install extends Component {
                 <ul>
                   <li>matplotlib (suggested for plotting)</li>
                   {version_short >= 2.3 ? <li>corner (for distribution plotting)</li> : null}
+                  {version_short == 2.3 ? <li>tqdm (for progressbars)</li> : null}
                   {/* <li>sympy (for safer and more flexible constraints)</li> */}
                 </ul>
 
