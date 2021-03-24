@@ -96,7 +96,7 @@ export class Install extends Component {
     var OSName="linux";
     if (version_os === "auto") {
       if (navigator.appVersion.indexOf("Win")!=-1) OSName="windows";
-      if (navigator.appVersion.indexOf("Mac")!=-1) OSName="max";
+      if (navigator.appVersion.indexOf("Mac")!=-1) OSName="mac";
       // if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
       if (navigator.appVersion.indexOf("Linux")!=-1) OSName="linux";
     } else {
