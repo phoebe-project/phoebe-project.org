@@ -19,8 +19,8 @@ export var newsStoriesDicts = [
                 Dear Colleagues,
               </p>
               <p>
-                We will be holding the postponed Third PHOEBE Workshop (virtually), <b>June 22nd - July 1st, 2021</b>.
-                This year the workshop will cover two weeks: with the first week covering an introduction to PHOEBE and the second week covering the new fitting capabilities in the <Link to="/releases/2.3">2.3 release</Link>.
+                We will be holding the postponed Third PHOEBE Workshop (virtually), <b>June 15th - July 1st, 2021</b>.
+                This year the workshop will cover two weeks: with the first week covering an introduction to PHOEBE and the second week (with participants divided between the second and third weeks) covering the new fitting capabilities in the <Link to="/releases/2.3">2.3 release</Link>.
                 Participants can choose to register for either week or both, depending on their interest and current level of comfort with using PHOEBE.
                 Past participants are welcome and encouraged to apply to attend the second week if they wish to get more experience in particular areas of science or work on fitting their data.
               </p>
