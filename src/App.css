@@ -59,6 +59,10 @@ code {
   background-color: #e6f2fe;
 }
 
+summary {
+  cursor: pointer;
+}
+
 .logo-invert {
   -webkit-filter: grayscale(1) invert(1) brightness(1.5);
   filter: grayscale(1) invert(1) brightness(1.5);
