@@ -233,16 +233,18 @@ export class Publications extends Component {
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
 
-          <Publication author="Rappaport et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210201720R" title="A tidally tilted sectoral dipole pulsation mode in the eclipsing binary TIC 633280200"/>
+          <Publication author="Papageorgiou et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.2979P" title="Detection of period variations of eclipsing binaries in the Catalina Sky Survey"/>
+          <Publication author="El-Badry et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210407033E" title="LAMOST J0140355+392651: An evolved cataclysmic variable donor transitioning to become an extremely low mass white dwarf"/>
+          <Publication author="Rappaport et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503..254R" title="A tidally tilted sectoral dipole pulsation mode in the eclipsing binary TIC 633280200"/>
           <Publication author="Jayasinghe et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210102212J" title="A Unicorn in Monoceros: the  3M⊙  dark companion to the bright, nearby red giant V723 Mon is a non-interacting, mass-gap black hole candidate"/>
           <Publication author="Kochukhov et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.500.2577K" title="V772 Cas: an ellipsoidal HgMn star in an eclipsing binary"/>
           <Publication author="Gomel et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.501.2822G" title="Search for Dormant Black Holes in Ellipsoidal Variables I. Revisiting the Expected Amplitudes of the Photometric Modulation"/>
           <Publication author="Broens et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.501.4935B" title="Photometric analysis of three totally eclipsing W UMa stars with increasing periods: TYC 3700-1384-1, V1511 Her and V1179 Her"/>
           <Publication author="Steindl et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021A%26A...645A.119S" title="Tidally perturbed pulsations in the pre-main sequence  δ  Scuti binary RS Cha"/>
-          <Publication author="Korth et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2021CoSka..51...58K" title="Consequences of parameterization choice on eclipsing binary light curve solutions"/>
-          <Publication author="Kołaczek-Szymański et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv201211559K" title="Massive heartbeat stars from TESS. I. TESS sectors 1-16"/>
-          <Publication author="Janssens et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv201109484J" title="BAT99 126: A multiple Wolf-Rayet system in the Large Magellanic Cloud with a massive near-contact binary"/>
-          <Publication author="Clavel et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020arXiv201101155C" title="Using radial velocities to reveal black holes in binaries: a test case"/>
+          <Publication author="Korth et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021CoSka..51...58K" title="Consequences of parameterization choice on eclipsing binary light curve solutions"/>
+          <Publication author="Janssens et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021A%26A...646A..33J" title="BAT99 126: A multiple Wolf-Rayet system in the Large Magellanic Cloud with a massive near-contact binary"/>
+          <Publication author="Clavel et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021A%26A...645A..72C" title="Using radial velocities to reveal black holes in binaries: a test case"/>
+          <Publication author="Kołaczek-Szymański et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021A%26A...647A..12K" title="Massive heartbeat stars from TESS. I. TESS sectors 1-16"/>
           <Publication author="van Kooten et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020MNRAS.499.2817V" title="Periodic brightening of Kepler light curves: investigating the possibility of forward scattering due to dust clouds"/>
           <Publication author="Sekaran et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020A%26A...643A.162S" title="Tango of celestial dancers: A sample of detached eclipsing binary systems containing g-mode pulsating components. A case study of KIC9850387"/>
           <Publication author="Munday et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020MNRAS.498.6005M" title="The post-common-envelope binary central star of the planetary nebula ETHOS 1"/>
