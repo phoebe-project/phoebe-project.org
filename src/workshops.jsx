@@ -7,8 +7,8 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-var upcoming_workshops = {"2021june": "June 2021, Virtual Workshop"};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
-var active_workshops = {}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
+var upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
+var active_workshops = {"2021june": "June 2021, Virtual Workshop"}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
 var archived_workshops = {"2018june": "June 2018, Villanova PA",
                           "2019july": "July 2019, Villanova PA"}; // WORKSHOP OVER
 
