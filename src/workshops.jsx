@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Image, Redirect, Separator} from './common';
+import {Content, Link, Image, Redirect, Separator, Alert} from './common';
 import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
@@ -141,10 +141,12 @@ class WorkshopEntry extends Component {
     }
 
     var path = slug
+    var isNotebook = false;
     if (["rationale", "registration", "important_dates", "schedule", "organizing_committee", "at_the_meeting", "materials"].indexOf(slug) !== -1) {
       path = slug + ".md"
     } else {
       path = slug + ".ipynb"
+      isNotebook = true;
     }
 
 
@@ -222,6 +224,20 @@ class WorkshopEntry extends Component {
 
         </Header>
         <Content>
+          {isNotebook && !active ?
+            upcoming ?
+              <Alert level="danger">
+                <p><b>WARNING:</b> these tutorials are still under development for the upcoming workshop and may yet undergo changes!</p>
+              </Alert>
+
+              :
+              <Alert level="danger">
+                <p><b>WARNING:</b> these tutorials are not kept up-to-date with changes since the workshop.  Make sure you're using the same version of PHOEBE as used in the workshop or follow the updated <Link to="/docs/tutorials">online tutorials</Link>.</p>
+              </Alert>
+            :
+              null
+          }
+
           <GitHubContent repo='phoebe2-workshop' branch={workshop} path={path} loadingText="LOADING WORKSHOP CONTENT..." ></GitHubContent>
         </Content>
       </div>
