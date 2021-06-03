@@ -233,10 +233,11 @@ export class Publications extends Component {
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
 
+          <Publication author="Wang et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.504.4302W" title="KIC 5359678: a detached eclipsing binary with starspots"/>
           <Publication author="Papageorgiou et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.2979P" title="Detection of period variations of eclipsing binaries in the Catalina Sky Survey"/>
           <Publication author="El-Badry et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210407033E" title="LAMOST J0140355+392651: An evolved cataclysmic variable donor transitioning to become an extremely low mass white dwarf"/>
           <Publication author="Rappaport et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503..254R" title="A tidally tilted sectoral dipole pulsation mode in the eclipsing binary TIC 633280200"/>
-          <Publication author="Jayasinghe et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210102212J" title="A Unicorn in Monoceros: the  3M⊙  dark companion to the bright, nearby red giant V723 Mon is a non-interacting, mass-gap black hole candidate"/>
+          <Publication author="Jayasinghe et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.504.2577J" title="A Unicorn in Monoceros: the  3M⊙  dark companion to the bright, nearby red giant V723 Mon is a non-interacting, mass-gap black hole candidate"/>
           <Publication author="Kochukhov et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.500.2577K" title="V772 Cas: an ellipsoidal HgMn star in an eclipsing binary"/>
           <Publication author="Gomel et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.501.2822G" title="Search for Dormant Black Holes in Ellipsoidal Variables I. Revisiting the Expected Amplitudes of the Photometric Modulation"/>
           <Publication author="Broens et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.501.4935B" title="Photometric analysis of three totally eclipsing W UMa stars with increasing periods: TYC 3700-1384-1, V1511 Her and V1179 Her"/>
