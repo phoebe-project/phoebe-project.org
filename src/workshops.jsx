@@ -100,11 +100,11 @@ export class Workshop extends Component {
         </div>
       )
     } else if (Object.keys(active_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={true} upcoming={false} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<WorkshopEntry active={true} upcoming={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else if (Object.keys(upcoming_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={true} upcoming={true} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<WorkshopEntry active={true} upcoming={true} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else if (Object.keys(archived_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={false} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<WorkshopEntry active={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else {
       return(<NotFound>{this.state.workshop} workshop not found, try all <Link to="/workshops">workshops</Link></NotFound>)
     }
@@ -112,6 +112,9 @@ export class Workshop extends Component {
 }
 
 class WorkshopEntry extends Component {
+  redirect = (workshop, slug) => {
+    this.props.history.replace("/workshops/"+workshop+"/"+slug)
+  }
   render() {
     var active = this.props.active || false;
     var upcoming = this.props.upcoming || false;
@@ -129,11 +132,12 @@ class WorkshopEntry extends Component {
     var slug = this.props.slug
 
     if (!slug) {
-      if (active) {
+      if (upcoming) {
         slug = "rationale"
       } else {
         slug = "materials"
       }
+      this.redirect(workshop, slug)
     }
 
     var path = slug
