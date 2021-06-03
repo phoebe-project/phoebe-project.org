@@ -21,10 +21,30 @@ export class Workshop extends Component {
       workshop: null,
     };
   }
+  redirect = (workshop, slug) => {
+    this.props.history.replace("/workshops/"+workshop+"/"+slug)
+  }
   render() {
     // force re-render when workshop changes
     if (this.props.match.params.workshop !== this.state.workshop) {
       this.setState({workshop: this.props.match.params.workshop})
+    }
+
+    var slug = this.props.match.params.slug
+    var workshop = this.props.match.params.workshop
+
+    if (slug && slug.endsWith(".html")) {
+      // then strip the html and redirect
+      slug = slug.slice(0,-5);
+      this.redirect(workshop, slug)
+    } else if (slug && slug.endsWith(".ipynb")) {
+      // then strip the ipynb and redirect
+      slug = slug.slice(0,-6);
+      this.redirect(workshop, slug)
+    } else if (slug && slug.endsWith(".md")) {
+      // then strip the md and redirect
+      slug = slug.slice(0,-3)
+      this.redirect(workshop, slug)
     }
 
 
@@ -116,7 +136,13 @@ class WorkshopEntry extends Component {
       }
     }
 
-    var path = slug + ".md"
+    var path = slug
+    if (["rationale", "registration", "important_dates", "schedule", "organizing_committee", "at_the_meeting", "materials"].indexOf(slug) !== -1) {
+      path = slug + ".md"
+    } else {
+      path = slug + ".ipynb"
+    }
+
 
     return (
       <div>

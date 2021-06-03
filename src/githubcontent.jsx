@@ -35,7 +35,7 @@ export class GitHubContent extends Component {
       var contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
       var contentURLRawDirImages = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
       var contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
-      if (repo === 'phoebe2-docs' && (path.endsWith(".py") || path.endsWith(".ipynb"))) {
+      if (['phoebe2-docs', 'phoebe2-workshop'].indexOf(repo) !== -1 && (path.endsWith(".py") || path.endsWith(".ipynb"))) {
         var contentURLRawDir = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
         var contentURLRaw = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path
       }
