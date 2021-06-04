@@ -24,7 +24,7 @@ import {Docs} from './docs';
 import {News, NewsEntry} from './news';
 import {Workshop, WorkshopRegistration} from './workshops';
 import {Publications, PublicationEntry} from './publications';
-import {Source} from './source';
+import {Source, Dependencies} from './source';
 import {Contribute, ContributeDevelopment,TourFrontend, TourBackend, TourLibphoebe} from './contribute';
 import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
 import {HelpDevel, HelpDevelRedirect, HelpContact, HelpMailingList, HelpFAQ, Help1vs2, HelpVersion, HelpIPYNB, HelpColab} from './help';
@@ -120,6 +120,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
             <Route exact path={process.env.PUBLIC_URL + '/publications/:publication/'} component={PublicationEntry}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
+            <Route exact path={process.env.PUBLIC_URL + '/dependencies'} component={Dependencies}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute'} component={Contribute}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute/development-guide'} component={ContributeDevelopment}/>
             <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/frontend'} component={TourFrontend}/>

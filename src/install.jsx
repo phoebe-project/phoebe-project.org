@@ -388,6 +388,8 @@ export class Install extends Component {
                   {/* <li>sympy (for safer and more flexible constraints)</li> */}
                 </ul>
 
+                For more details, see <Link to="/dependencies">dependencies and built-in dependencies</Link>.
+
                 <h3>Installation</h3>
                 <p>To install without admin rights for a single-user:</p>
                 <pre>
