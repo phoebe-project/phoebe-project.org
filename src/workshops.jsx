@@ -230,7 +230,7 @@ class WorkshopEntry extends Component {
 
         </Header>
         <Content>
-          {isNotebook && !active ?
+          {(isNotebook || slug==='materials') && !active ?
             upcoming ?
               <Alert level="danger">
                 <p><b>WARNING:</b> these tutorials are still under development for the upcoming workshop and may yet undergo changes!</p>
