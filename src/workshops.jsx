@@ -8,9 +8,10 @@ import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
 var upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
-var active_workshops = {"2021june": "June 2021, Virtual Workshop"}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
+var active_workshops = {}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
 var archived_workshops = {"2018june": "June 2018, Villanova PA",
-                          "2019july": "July 2019, Villanova PA"}; // WORKSHOP OVER
+                          "2019july": "July 2019, Villanova PA",
+                          "2021june": "June 2021, Virtual Workshop"}; // WORKSHOP OVER
 
 // NOTE: "2020june": "June-July 2020, Villanova PA" canceled due to covid-19
 
@@ -26,12 +27,13 @@ export class Workshop extends Component {
   }
   render() {
     // force re-render when workshop changes
+    var workshop = this.state.workshop
     if (this.props.match.params.workshop !== this.state.workshop) {
-      this.setState({workshop: this.props.match.params.workshop})
+      workshop = this.props.match.params.workshop
+      this.setState({workshop: workshop})
     }
 
     var slug = this.props.match.params.slug
-    var workshop = this.props.match.params.workshop
 
     if (slug && slug.endsWith(".html")) {
       // then strip the html and redirect
@@ -47,8 +49,7 @@ export class Workshop extends Component {
       this.redirect(workshop, slug)
     }
 
-
-    if (this.state.workshop==null) {
+    if (workshop==null || workshop==undefined) {
       return(
         <div>
           <Helmet>
