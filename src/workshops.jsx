@@ -65,10 +65,15 @@ export class Workshop extends Component {
               Generally these dedicated workshops consist of a small group of participants and are organized to include both tutorials and short talks introducing the science and features implemented in the latest PHOEBE release as well as a sneak peak into features under development.
               These workshops have been made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>, the Villanova University College of Arts and Sciences Faculty Research and Development Grant, and the <Link to="https://www1.villanova.edu/villanova/artsci/astronomy.html">Villanova Department of Astrophysics and Planetary Sciences</Link>.
             </p>
-            <div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "25px"}}>
-              <Image src={"/images/workshops/PHOEBE_workshop_1_thumb.jpg"} href={"/images/workshops/PHOEBE_workshop_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxWidth="80%" title="PHOEBE Workshop 2018"/>
-              <Image src={"/images/workshops/PHOEBE_workshop_2_1_thumb.jpg"} href={"/images/workshops/PHOEBE_workshop_2_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxWidth="80%"/>
-              <Image src={"/images/workshops/PHOEBE_workshop_2_thumb.jpg"} href={"/images/workshops/PHOEBE_workshop_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxWidth="80%" title="PHOEBE Workshop 2019"/>
+            <div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>
+              <Image src={"/images/workshops/PHOEBE_workshop_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxWidth="80%" title="PHOEBE Workshop 2018"/>
+              <Image src={"/images/workshops/PHOEBE_workshop_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxWidth="80%" title="PHOEBE Workshop 2019"/>
+              <Image src={"/images/workshops/PHOEBE_workshop_3_thumb.png"} href={"/static/workshops/PHOEBE_workshop_3.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxWidth="80%" title="PHOEBE Virtual Workshop 2021"/>
+            </div>
+            <div style={{textAlign: "center", paddingTop: "5px", paddingBottom: "25px"}}>
+              <Image src={"/images/workshops/PHOEBE_workshop_2_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxWidth="80%"/>
+              <Image src={"/images/workshops/PHOEBE_workshop_2_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxWidth="80%"/>
+              <Image src={"/images/workshops/PHOEBE_workshop_1_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxWidth="80%"/>
             </div>
             <p>See below for archived content from past workshops that have been held, as well as announcements and registration details for any planned upcoming workshops.  We hope you will be able to join us soon at a PHOEBE workshop soon!</p>
             <Separator large={false}/>
