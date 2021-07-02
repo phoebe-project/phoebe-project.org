@@ -244,7 +244,7 @@ class WorkshopEntry extends Component {
               null
           }
 
-          <GitHubContent repo='phoebe2-workshop' branch={workshop} path={path} loadingText="LOADING WORKSHOP CONTENT..." ></GitHubContent>
+          <GitHubContent repo='phoebe2-workshop' branch={workshop} path={path} history={this.props.history} loadingText="LOADING WORKSHOP CONTENT..." ></GitHubContent>
         </Content>
       </div>
     )

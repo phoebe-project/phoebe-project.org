@@ -180,7 +180,7 @@ export class Docs extends Component {
 
 
           }
-          <GitHubContent repo='phoebe2-docs' branch={version} path={this.state.contentPath} loadingText="LOADING DOCS..." reportHTML={reportHTML}>
+          <GitHubContent repo='phoebe2-docs' branch={version} path={this.state.contentPath} history={this.props.history} loadingText="LOADING DOCS..." reportHTML={reportHTML}>
             <div>
               {version!="development" ?
                 <div>

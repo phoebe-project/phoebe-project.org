@@ -88,6 +88,10 @@ export class GitHubContent extends Component {
   }
   render() {
     if (this.props.repo !== this.state.repo || this.props.branch !== this.state.branch || this.props.path !== this.state.path) {
+      if (window.location.pathname.endsWith("/")) {
+        // strip trailing slash so relative links in notebooks work
+        this.props.history.replace(window.location.pathname.slice(0, -1))
+      }
       this.updateContent(this.props.repo, this.props.branch, this.props.path);
     }
 
