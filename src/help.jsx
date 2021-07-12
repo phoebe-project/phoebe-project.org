@@ -142,39 +142,63 @@ export class HelpFAQ extends Component {
           <br/>
           A: That depends.  If you're considering using PHOEBE 1 (legacy) or a version of PHOEBE 2, click <Link to="/help/1vs2">here to read about the differences</Link>.  Otherwise, unless there is a good reason, its suggested that you use the <Link to="/releases/latest">latest release</Link>.
           <br/><br/>
+
           Q: Can I speed up plotting in any way?
           <br/>
           A: You could try changing your backend, e.g via <code>matplotlib.rcParams['backend'] = 'Agg'</code> but do this before importing Phoebe.
           <br/><br/>
+
           Q: How do I add a custom passband to PHOEBE 2?
           <br/>
           A: You will need a table of intensities that you can download from the PHOEBE homepage. Then you should follow the instructions available in the <Link to="/docs/latest/tutorials/passbands">custom passbands tutorial</Link> and reference the <Link to="/docs/latest/api/phoebe.atmospheres.passbands.Passband">passband API docs</Link>.
           Alternatively, you can <Link to="https://github.com/phoebe-project/phoebe2-tables/issues/new?title=passband+request:&labels=passband+request">request a passband</Link> - please provide all necessary information and we'll see if we can add it to the repository.
           <br/><br/>
+
           Q: <Link to="/docs/latest/api/phoebe.list_online_passbands">phoebe.list_online_passbands()</Link> returns an empty list and <Link to="/docs/latest/api/phoebe.download_passband">phoebe.download_passband()</Link> fails with the following error:
-          <code>
+          <pre>
             ssl.SSLError: [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version
-          </code>
-          What do I do?
+          </pre>
           <br/>
-          A: Assuming you're on Mac OS, this seems to be caused by the native openssl of Mac OS X not being sufficiently recent to deal with the url redirect on github. You can solve this by updating openssl and forcing python to use that version (with brew this is relatively straightforward just running <code>brew install openssl</code> followed by <code>brew install python@2</code>).
+          A: Assuming you're on Mac OS, this seems to be caused by the native openssl of Mac OS X not being sufficiently recent to deal with the url redirect on github. You can solve this by updating openssl and forcing python to use that version (with brew this is relatively straightforward just running <code>brew install openssl</code> followed by <code>brew install python@3</code>).
           <br/><br/>
-          Q: The following error is being raised while compiling PHOEBE: <code>error: ‘void it0’ has incomplete type it0 = P.insert(it_min, Pi + 1, Pi + nt - 1)</code>.  What does this mean?
+
+          Q: The following error is being raised while compiling PHOEBE:
+          <pre>
+            error: ‘void it0’ has incomplete type it0 = P.insert(it_min, Pi + 1, Pi + nt - 1)
+          </pre>
           <br/>
           A: This probably means your compiler does not support C++11.  Make sure you meet all the dependencies on the <Link to="/install">install instructions</Link>.
           <br/><br/>
-          Q: The following error is being raised when I try importing PHOEBE: <code>/lib64/libstdc++.so.6: version `CXXABI_1.3.8' not found</code>.  What does this mean?
+
+          Q: The following error is being raised when I try importing PHOEBE:
+          <pre>/lib64/libstdc++.so.6: version `CXXABI_1.3.8' not found</pre>
           <br/>
           A: If you installed PHOEBE via pip, its possible that you need to force the compilation to be done on your own machine instead of using the precompiled binaries.  Try <code>pip install --no-binary :all: phoebe</code>.
           <br/><br/>
+
           Q: I get an error when trying to run PHOEBE inside MCMC/EMCEE/mpirun, what's the problem?
           <br/>
           A: If you're running PHOEBE inside any other code that handles parallelization, you need to disable PHOEBE's internal handling of parallelization, via <Link to="/docs/latest/api/phoebe.mpi_off">phoebe.mpi_off()</Link>.  Also see the <Link to="/docs/latest/tutorials/mpi">tutorial on running PHOEBE in MPI</Link> for more information.
           <br/><br/>
+
+          Q: I get the following error when calling <code>b.run_solver</code>:
+          <pre>
+            RuntimeError: <br/>
+                An attempt has been made to start a new process before the<br/>
+                current process has finished its bootstrapping phase.<br/>
+                This probably means that you are not using fork to start your<br/>
+                child processes and you have forgotten to use the proper idiom<br/>
+                in the main module
+          </pre>
+          <br/>
+          A: The multiprocessing setup on your machine is not compatible with PHOEBE.  We are working on fixing this, but in the meantime you can call <Link to="/docs/latest/api/phoebe.multiprocessing_off">phoebe.multiprocessing_off()</Link> or setting the enviroment variable <code>export PHOEBE_MULTIPROC_NPROCS=0</code>.
+          <br/><br/>
+
           Q: Is PHOEBE 2.x Python 3.x ready?
           <br/>
           A: As of the <Link to="/releases/2.3">2.3 release</Link>, PHOEBE only supports Python 3.6+.  The <Link to="/releases/2.2">2.2 release</Link> supported both Python 3.6+ and 2.7+.  Earlier releases, however, only support Python 2.7+.  See the <Link to="/install">install</Link> page for more information.
           <br/><br/>
+
           Q: Is it safe to use PHOEBE?
           <br/>
           A: For the most part, yes. Constraints will be evaluated using the <code>eval</code> command - which could potentially be dangerous if you blindly open a bundle from an untrusted source.

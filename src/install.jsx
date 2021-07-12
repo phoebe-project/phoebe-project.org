@@ -22,6 +22,8 @@ export class Install extends Component {
       };
       this.refdeps = React.createRef();
       this.refpip = React.createRef();
+      this.refconda = React.createRef();
+      this.refvenv = React.createRef();
       this.refsource = React.createRef();
       this.reftesting = React.createRef();
   }
@@ -32,6 +34,10 @@ export class Install extends Component {
       offsetTop = this.refdeps.current.offsetTop;
     } else if (hash==='#pip') {
       offsetTop = this.refpip.current.offsetTop;
+    } else if (hash==="#conda") {
+      offsetTop = this.refconda.current.offsetTop;
+    } else if (hash==="#venv") {
+      offsetTop = this.refvenv.current.offsetTop;
     } else if (hash==='#source') {
       offsetTop = this.refsource.current.offsetTop;
     } else if (hash==='#testing') {
@@ -141,12 +147,18 @@ export class Install extends Component {
           <meta name="description" content="Instructions for downloading and installing PHOEBE 2"/>
         </Helmet>
         <Header>
-          <h1>Download &amp; Install PHOEBE {version_long}</h1>
+          <h1>Download &amp; Install PHOEBE {version=='latest' ? version_short : version_long}</h1>
 
           <div className="row">
-             <div className="col-md-6"></div>
+             <div className="col-md-2"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="From PIP" description="Install from PIP" to={"#pip"} icon="fab fa-python"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Conda Env" description="Setup in a Conda Environment" to={"#conda"} icon="fab fa-cuttlefish"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Virtual Env" description="Setup in a Virtual Environmnet" to={"#venv"} icon="fa fa-laptop-code"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="From Source" description="Install from Source-Code" to={"#source"} icon="fa fa-code"/>
@@ -178,9 +190,7 @@ export class Install extends Component {
               <p><b>Warning:</b> these instructions will download and install the {version_long} version of PHOEBE.  To download and install a different version, use the version switcher at the bottom-right of the page, choose and click install from the appropriate <Link to="/releases">release</Link>, or follow instructions to <Link to={"/install/latest/"+version_os+"/"+version_py}>install the latest version</Link>.</p>
             </Alert>
             :
-            <Alert level="warning">
-              <p><b>Note:</b> these instructions will download and install the <Link to="/releases/latest">latest release (version {docs_versions[0]})</Link> of PHOEBE.  To install a specific version, use the version switcher at the bottom-right of the page, or choose and click install from the appropriate <Link to="/releases">release</Link>.</p>
-            </Alert>
+            null
           }
 
           {version_short < 2.2 && version_py==='python3' ?
@@ -217,24 +227,9 @@ export class Install extends Component {
                 {OSName === 'mac' ?
                   <div>
                     <p>
-                      <b>Note for mac users</b>: it is suggested to use <Link to="https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/">homebrew to install a parallel version of {python}</Link>.
-                      PHOEBE has currently been tested to compile correctly using homebrew on El Capitan.
+                      <b>Note for mac users</b>: it is suggested to use <Link to="https://joernhees.de/blog/2014/02/25/scientific-python-on-mac-os-x-10-9-with-homebrew/">homebrew</Link> or <Link to="#conda">conda</Link> to install a parallel version of {python} (and possibly compatible compilers).
+                      PHOEBE has currently been tested to compile correctly using homebrew on El Capitan and Catalina.
                     </p>
-                    {version_short >= 2.3 ?
-                      <p>
-                        On Catalina, the default system compiler may not work correctly.  Updating XCode may be required (confirmed to work with XCode 12.4).  To install in a conda environment (see <Link to="https://github.com/phoebe-project/phoebe2/issues/425">this issue</Link> for further discussion):
-                        <pre>
-                          conda create -n phoebe python=3.7<br/>
-                          conda activate phoebe<br/>
-                          pip install numpy<br/>
-                          export CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include<br/>
-                          conda install clangxx_osx-64<br/>
-                          pip install phoebe<br/>
-                        </pre>
-                      </p>
-                      :
-                      null
-                    }
                   </div>
                   :
                   null
@@ -267,6 +262,19 @@ export class Install extends Component {
                   null
                 }
 
+                {OSName === 'mac' ?
+                  <div>
+                    <p>
+                      On Catalina, the default system compiler may not work correctly.  Updating XCode may be required (confirmed to work with XCode 12.4).  If the compiler cannot find the XCode libraries, try adding it to the CPATH environment variable:
+                    </p>
+                    <pre>
+                      export CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include<br/>
+                    </pre>
+                  </div>
+                  :
+                  null
+                  }
+
 
                 <p>Additionally, in order to build the C-sources, make sure you have Python.h headers for the correct version of {python}, by installing {python}-dev via your package manager.</p>
                 {OSName === 'linux' ?
@@ -290,14 +298,21 @@ export class Install extends Component {
               <Content dark={true} preventScrollTop={this.props.location.hash}>
 
                 <h2 ref={this.refpip}><span className="fab fa-fw fa-xs fa-python"></span> Installing from PIP</h2>
-                <p>Installing PHOEBE from PIP is probably the easiest.  Since the build process requires numpy, we'll make sure that's installed first.  {version!=='latest' ? "To install version "+version_long+" of PHOEBE" : 'To install the latest version of PHOEBE'}:</p>
+                <p>The simplest way to install PHOEBE is via <Link to="https://pypi.org/">pip</Link> (the python package manager).</p>
+                <p>If you are worried about conflicts with other packages or have multiple python installations, it may be worth installing PHOEBE using pip within a <Link to="#conda">conda environment</Link> or <Link to="#venv">virtual environment</Link>.</p>
+
+                <p>If you have multiple python and/or pip installations, it is important to make sure they point to the same version of {python}.  You can check the installation of {python} corresponding to {pip} via <code>{pip} -V</code> or can replace all instances of <code>{pip}</code> below with <code>{python} -m pip</code>.</p>
+
+
+
+                <p>Since the build process requires numpy, we'll make sure that's installed first.  {version!=='latest' ? "To install version "+version_long+" of PHOEBE" : 'To install the latest version of PHOEBE'}:</p>
                 <pre>
                   {pip} install numpy phoebe{version!=='latest' ? "=="+version_long : null}
                 </pre>
 
                 {version!=='latest' ?
                   <div>
-                    <p>To upgrade/downgrad a previous installation to version {version_long}:</p>
+                    <p>To upgrade/downgrade a previous installation to version {version_long}:</p>
                     <pre>
                       {pip} install -I phoebe=={version_long}
                     </pre>
@@ -311,15 +326,9 @@ export class Install extends Component {
                   </div>
                 }
 
-
                 <p>And to uninstall:</p>
                 <pre>
                   {pip} uninstall phoebe
-                </pre>
-
-                <p>If pip gives any problems automatically installing dependencies, install them manually first:</p>
-                <pre>
-                  {pip} install numpy scipy matplotlib {version_short >= 2.3 ? <span>astropy</span> : <span>{version_py==="python2" ? "\"astropy>=1.0,<3.0\"" : "\"astropy>=1.0\""}</span>}
                 </pre>
 
                 <p>Please check the version of PHOEBE you have installed to make sure you are using the corresponding version of the <Link to={getDocsLink(version_short, null, null)}>documentation</Link>.  You can check the version once PHOEBE is installed via:</p>
@@ -327,13 +336,88 @@ export class Install extends Component {
                   {python} -c "import phoebe; print(phoebe.__version__)"
                 </pre>
 
-                <h3>Virtual Environments</h3>
-                <p>To create a virtual environment and install PHOEBE, do the following, replacing “&lt;myphoebedir&gt;” with your (perferably empty or not existing) directory of choice:</p>
+                  <Separator large={false} flip={true}/>
+                </Content>
+                <Content dark={false} preventScrollTop={this.props.location.hash}>
+
+                <h2 ref={this.refconda}><span className="fab fa-fw fa-xs fa-cuttlefish"></span>  Conda Environments</h2>
+                <p>Conda environments allow having an isolated environment for phoebe, with its own installation of python, compilers, package dependencies, etc and avoid conflicts with other software you may have installed.</p>
+                <p>
+                  Once you have <Link to="https://docs.conda.io/en/latest/miniconda.html">conda installed and setup</Link>, you can create and activate an environment for PHOEBE:
+                </p>
+                <pre>
+                  conda create -n name_of_phoebe_environment python={version_py === 'python3' ? 3.8 : 2.7 }<br/>
+                  conda activate name_of_phoebe_environment
+                </pre>
+                <p>
+                  (where you can set the name of environment and provide any supported version of python).  {python==='python3' ? <span>Note that within the environment <code>python</code> (instead of <code>{python}</code>) will point to the version of python you specified.</span> : null }
+                </p>
+                {OSName == 'mac' ?
+                  <div>
+                    <p>
+                      Conda environments also allow easily installing a supported compiler.  For example, within the created environment you can install a compiler and link the XCode libraries before installing PHOEBE:
+                    </p>
+                    <pre>
+                      export CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include<br/>
+                      conda install clangxx_osx-64  # or clang-12.0.0
+                    </pre>
+                  </div>
+                  :
+                  null
+                }
+
+                <p>
+                  Now you can use pip (or <code>python -m pip</code>) to install PHOEBE {version_long} (or <Link to="#source">install from source</Link>):
+                </p>
+                <pre>
+                  pip install numpy phoebe{version!=='latest' ? "=="+version_long : null}
+                </pre>
+
+                <p>
+                  To leave the PHOEBE environment and return to the base environment:
+                </p>
+                <pre>
+                  conda deactivate
+                </pre>
+
+                <p>
+                  To setup a Jupyter notebook kernel for the PHOEBE environment, make sure Jupyter is installed in the <i>base environment</i>:
+                </p>
+                <pre>
+                  conda install -c conda-forge notebook<br/>
+                  conda install -c conda-forge nb_conda_kernels
+                </pre>
+                <p>
+                  and then install a kernel within the PHOEBE environment:
+                </p>
+                <pre>
+                  conda activate name_of_phoebe_environment<br/>
+                  conda install -c anaconda ipykernel<br/>
+                  python -m ipykernel install --user --name phoebe_env --display-name "PHOEBE env"
+                </pre>
+                <p>
+                  Now you can launch Jupter notebook or Juyter lab from the base environment and "PHOEBE env" should show up in the choices of kernels.
+                </p>
+
+                  <Separator large={false} flip={false}/>
+                </Content>
+                <Content dark={true} preventScrollTop={this.props.location.hash}>
+
+                <h2 ref={this.refvenv}><span className="fa fa-fw fa-xs fa-laptop-code"></span> Virtual Environments</h2>
+                <p>
+                  To create and activate a virtual environment, do the following, replacing “&lt;myphoebedir&gt;” with your (perferably empty or not existing) directory of choice:
+                </p>
                 <pre>
                   {pip} install virtualenv<br/>
                   virtualenv &lt;myphoebedir&gt;<br/>
                   source &lt;myphoebedir&gt;/bin/activate<br/>
-                  {pip} install numpy scipy {version_short >= 2.3 ? <span>astropy</span> : <span>{version_py==="python2" ? "\"astropy>=1.0,<3.0\"" : "\"astropy>=1.0\""}</span>} matplotlib phoebe{version!=='latest' ? "=="+version_long : null}
+                </pre>
+
+                <p>
+                  Now you can use {pip} (or <code>{python} -m pip</code>) to install PHOEBE {version_long} (or <Link to="#source">install from source</Link>):
+                </p>
+                <pre>
+                  {pip} install numpy phoebe{version!=='latest' ? "=="+version_long : null}
                 </pre>
 
                 <p>To leave the virtual environment:</p>
@@ -418,12 +502,15 @@ export class Install extends Component {
               </Content>
               <Content dark={true} preventScrollTop={this.props.location.hash}>
                 <h2 ref={this.reftesting}><span className="fa fa-fw fa-xs fa-vial"></span> Running Nosetests</h2>
-                <NosetestsDiv python={python}/>
+                <NosetestsDiv python={python} version_short={version_short}/>
 
                 <p>
                   For more information, read about <Link to="/contribute#testing">testing PHOEBE</Link> and <Link to="/contribute#issues">reporting issues and bugs</Link>.
-                  If you run into issues, you can always contact us on the <Link to="/help/contact/phoebe-devel">phoebe-devel mailing list</Link>.
+                  If you run into issues, you can always <Link to="/help/contact/">reach out</Link>.
                 </p>
+
+                <div style={{height: "100px"}}>
+                </div>
 
               </Content>
 
@@ -432,6 +519,8 @@ export class Install extends Component {
             <div>
               <h2 ref={this.refdeps}></h2>
               <h2 ref={this.refpip}></h2>
+              <h2 ref={this.refconda}></h2>
+              <h2 ref={this.refvenv}></h2>
               <h2 ref={this.refsource}></h2>
               <h2 ref={this.reftesting}></h2>
             </div>

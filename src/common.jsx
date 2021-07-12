@@ -213,13 +213,18 @@ export class Alert extends Component {
 export class NosetestsDiv extends Component {
   render() {
     var python = this.props.python || "python"
+    var version_short = this.props.version_short || 2.3
 
     return (
       <div>
         <p>The following additional dependencies are required to run the nosetests:</p>
         <ul>
           <li><Link to="http://nose.readthedocs.io/en/latest/">nose</Link></li>
-          <li><Link to="https://github.com/phoebe-project/phoebe1">PHOEBE 1.0</Link> with the phoebe-py wrapper</li>
+          {version_short < 2.4 ?
+            <li><Link to="https://github.com/phoebe-project/phoebe1">PHOEBE 1.0</Link> with the phoebe-py wrapper</li>
+            :
+            null
+          }
           <li><Link to="https://github.com/phoebe-project/photodynam">photodynam</Link></li>
           <li><Link to="https://github.com/hannorein/rebound">rebound</Link></li>
         </ul>
