@@ -9,6 +9,26 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "Postdoctoral position in computational stellar astrophysics",
+    slug: "2021-hiring",
+    pinnedDays: 30,
+    date: "November 29, 2021",
+    author: "Andrej Prsa",
+    content: <div>
+      Our research group is hiring a postdoctoral research fellow with the start date between January and May 2022. The applicant will join the research group for an initial 12-month appointment, with a possibility of a 1-year extension, contingent on continued interest and successful performance. Competitive applicants will have an established track record in computational astrophysics, data science and programming. The principal focus for the postdoctoral scholar will be on eclipsing binary (EB) data from NASA’s Transiting Exoplanet Survey Satellite (TESS) mission. TESS observed almost 5000 EBs on 2-min cadence and hundreds of thousands of EBs in full-frame images. The postdoc will spearhead the effort of extracting lightcurves and principal parameters for the full-frame image dataset, using short cadence data as calibration reference. Methods based on dimensionality reduction/down-projection, artificial intelligence, and clustering are expected to play a central role in the project. In addition, the generalized code-base developed for TESS EBs is envisioned to be added to the PHOEBE suite (<a href="http://phoebe-project.org">http://phoebe-project.org</a>). The postdoctoral research fellow will be expected to:
+      <ul>
+        <li> extract of lightcurve data from full-frame images;
+        <li> develop classification algorithms for eclipsing binaries from extracted lightcurve data;
+        <li> use short cadence (2-min) data to train an artificial neural network in estimating principal parameters from EB lightcurves;
+        <li> run an extensive and comprehensive analysis of EBs found in full-frame images;
+        <li> implement successful algorithms into the PHOEBE suite;
+        <li> work with and advise graduate and undergraduate students participating in the project.
+      </ul>
+
+    Please apply online at <a href="https://jobs.villanova.edu/postings/21814">https://jobs.villanova.edu/postings/21814</a> by Dec 31, 2021. Successful applicants will provide a strong cover letter, resume, statement of research interests, and two letters of recommendation.
+    </div>
+  },
+  {
     title: "Third PHOEBE Workshop (Virtual)",
     slug: "phoebe-workshop-3-virtual",
     pinnedDays: 45,
