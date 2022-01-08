@@ -233,9 +233,24 @@ export class Publications extends Component {
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
 
+          <Publication author="Gautam et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021ASPC..528..393G" title="Constraints on the Density of the Dark Cusp Around the Galactic Center Supermassive Black Hole With a Newly Detected, Old, ~79 Day Period Stellar Binary Syste"/>
+          <Publication author="Yin et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021AJ....162...52Y" title="Census of Variable Stars toward Serpens Main"/>
+          <Publication author="Barba et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210906311B" title="The winking eye of a hefty star. WR 21a revealed as a very massive eclipsing binary by TESS"/>
+          <Publication author="Ding et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021PASJ...73..786D" title="A machine-learning method to derive the parameters of contact binaries"/>
+          <Publication author="Li et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021ApJ...922..122L" title="Two Contact Binaries with Mass Ratios Close to the Minimum Mass Ratio"/>
+          <Publication author="Ou et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.508.3967O" title="Searching for orbital decay in a heartbeat star system KIC 3766353"/>
+          <Publication author="Yang et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021ApJ...923..226Y" title="LTD064402+245919: A Subgiant with a 1-3 M ⊙ Undetected Companion Identified from LAMOST-TD Data"/>
+          <Publication author="Jones et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.tmp.3405J" title="The post-common-envelope binary central star of the planetary nebula Ou 5: a doubly-eclipsing post-red-giant-branch system"/>
+          <Publication author="Saracino et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.tmp.2924S" title="A black hole detected in the young massive LMC cluster NGC 1850"/>
+          <Publication author="Niu et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv211014924N" title="Spot and Facula Activity Variations of the Eccentric Detached Eclipsing Binary KIC 8098300 Based on the Time-series Orbital Solutions"/>
+          <Publication author="Miller et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021AJ....162..131M" title="2M17091769+3127589: A Mass-transfer Binary with an Extreme Mass Ratio"/>
+          <Publication author="Wrona et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210914614W" title="Photometric Analysis of the OGLE Heartbeat Stars"/>
+          <Publication author="Way et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210907586W" title="Discovery of a Highly Eccentric, Chromospherically Active Binary: ASASSN-V J192114.84+624950.8"/>
+          <Publication author="Rattanamala et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210909397R" title="Two circumbinary planets in RR Cae eclipsing binary system"/>
+          <Publication author="Abdul-Masih et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021A%26A...651A..96A" title="Constraining the overcontact phase in massive binary evolution. I. Mixing in V382 Cyg, VFTS 352, and OGLE SMC-SC10 108086"/>
           <Publication author="Wang et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.504.4302W" title="KIC 5359678: a detached eclipsing binary with starspots"/>
           <Publication author="Papageorgiou et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.2979P" title="Detection of period variations of eclipsing binaries in the Catalina Sky Survey"/>
-          <Publication author="El-Badry et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210407033E" title="LAMOST J0140355+392651: An evolved cataclysmic variable donor transitioning to become an extremely low mass white dwarf"/>
+          <Publication author="El-Badry et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.505.2051E" title="LAMOST J0140355+392651: An evolved cataclysmic variable donor transitioning to become an extremely low mass white dwarf"/>
           <Publication author="Rappaport et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503..254R" title="A tidally tilted sectoral dipole pulsation mode in the eclipsing binary TIC 633280200"/>
           <Publication author="Jayasinghe et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.504.2577J" title="A Unicorn in Monoceros: the  3M⊙  dark companion to the bright, nearby red giant V723 Mon is a non-interacting, mass-gap black hole candidate"/>
           <Publication author="Kochukhov et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.500.2577K" title="V772 Cas: an ellipsoidal HgMn star in an eclipsing binary"/>
