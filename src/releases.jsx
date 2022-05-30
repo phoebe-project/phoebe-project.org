@@ -273,19 +273,50 @@ class ReleaseContent extends Component {
                 </div>
     } else if (this.props.version === '2.4') {
       logo = "logo_release_24.svg"
-      releasePaper = "Prša et al. (2020)"
-      publicationLink = "/publications/2020Prsa+"
+      releasePaper = "Kochoska et al. (2022)"
+      publicationLink = "/publications/2022Kochoska+"
       content = <div>
-                  <p>PHOEBE 2.4 .</p>
+                  <p>PHOEBE 2.4 improves the geometry and ebai estimators, updates gaussian processes to use either scikit-learn or celerite2, and adds support for submitting compute or solver runs on external servers.</p>
                   <p>
-                    New Physics introduced in version 2.3:
+                    New Solvers introduced in version 2.4:
+                  </p>
+                  <ul>
+                    <li>differential evolution</li>
+                    <li>differential corrections</li>
+                  </ul>
+                  <p>
+                    Major updates to:
+                  </p>
+                  <ul>
+                    <li>gaussian processes: using celerite2 or scikit-learn</li>
+                    <li>geometry estimators: using ligeor as a new <Link to="/dependencies">built-in dependency</Link></li>
+                    <li>emcee sampler: additional plotting styles to check for convergence, checks to ensure starting sample is physical, ability to continue a previous run from any arbitrary point in a previous run</li>
+                    <li>optimizers: ability to continue runs from a previous solution (for most optimizers)</li>
+                  </ul>
+                  <p>
+                    Major changes since 2.4:
+                  </p>
+                  <ul>
+                    <li>new support for running jobs on external servers via <Link to="https://crimpl.readthedocs.io">crimpl</Link></li>
+                    <li>clarified distinction between chi2 and mle</li>
+                    <li>interactive constraints default behavior</li>
+                  </ul>
+                </div>
+    } else if (this.props.version === '2.5') {
+      logo = "logo_release_25.svg"
+      releasePaper = "Prša et al. (202X)"
+      publicationLink = "/publications/202XPrsa+"
+      content = <div>
+                  <p>PHOEBE 2.5.</p>
+                  <p>
+                    New Physics introduced in version 2.5:
                   </p>
                   <ul>
                     <li>blended atmospheres</li>
                     <li>TLUSTY atmospheres</li>
                   </ul>
                   <p>
-                    Major changes since 2.3:
+                    Major changes since 2.4:
                   </p>
                   <ul>
 

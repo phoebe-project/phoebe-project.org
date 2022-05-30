@@ -9,6 +9,21 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "PHOEBE 2.4 Released",
+    slug: "phoebe-24-released",
+    pinnedDays: 60,
+    date: "June 1, 2022",
+    author: "Kyle Conroy",
+    content: <div>
+               <p>
+                We are excited to announce that <Link to="/releases/2.4">PHOEBE 2.4</Link> has been released.  The accompanying paper will be submitted soon.
+               </p>
+               <p>
+                 This release improves the geometry and ebai estimators, updates gaussian processes to use either scikit-learn or celerite2, and adds support for submitting compute or solver runs on external servers.
+               </p>
+             </div>
+  },
+  {
     title: "Fourth PHOEBE Workshop",
     slug: "phoebe-workshop-4",
     pinnedDays: 21,

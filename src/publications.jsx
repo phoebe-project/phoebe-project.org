@@ -28,7 +28,7 @@ class PublicationHeaderLinks extends Component {
            <HeaderNavButton title="V: Inverse Problem (2.3)" description="General Framework for Solving the Inverse Problem" to={"/publications/2020Conroy+"}/>
          </div>
          {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-           <HeaderNavButton title="VI: Atmospheres (2.4)" description="" to={"/publications/2020Prsa+"}/>
+           <HeaderNavButton title="VI: Fitting Practices" description="" to={"/publications/2022Kochoska+"}/>
          </div> */}
        </div>
     )
@@ -105,10 +105,9 @@ export class PublicationEntry extends Component {
                   {"name": "Figure 3", "image": "2020Jones+_fig3.png", "link": "/docs/2.2/examples/extinction_eclipse_depth_v_teff"},
                   {"name": "Figure 4", "image": "2020Jones+_fig4.png", "link": "/docs/2.2/examples/extinction_wd_subdwarf"}
                 ]
-
     } else if (publication=='2020Conroy+') {
       published = true
-      author = "Conroy et al. (2020, accepted)"
+      author = "Conroy et al. (2020)"
       authorsFull = "Conroy, K. E.; Kochoska, A.; Hey, D.; Hambleton, K. M.; Pablo, H.; Jones, D.; Giammarco, J.; Prša, A."
       titleShort = "PHOEBE V: Inverse Problem"
       title = "Physics of Eclipsing Binaries. V. General Framework for Solving the Inverse Problem"
@@ -133,6 +132,18 @@ export class PublicationEntry extends Component {
 
                 ]
 
+    } else if (publication=='2022Kochoska+') {
+      published = false
+      author = "Kochoska et al. (in prep)"
+      authorsFull = "Kochoska, A.; et al."
+      titleShort = "PHOEBE VI"
+      title = "Physics of Eclipsing Binaries. VI."
+      abstract = "Abstract TBD"
+      adsLink = ""
+      pdf = ""
+      release = "2.4"
+      figures = [
+                ]
     } else {
       return (
         <NotFound>

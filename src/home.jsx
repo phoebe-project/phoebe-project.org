@@ -241,7 +241,9 @@ export class Home extends Component {
                   <li><Link to="/docs/latest/api/phoebe.parameters.solver.estimator.lc_geometry.md">LC Geometry</Link></li>
                   <li><Link to="/docs/latest/api/phoebe.parameters.solver.estimator.rv_geometry.md">RV Geometry</Link></li>
                   <li><Link to="/docs/latest/api/phoebe.parameters.solver.estimator.ebai.md">EBAI</Link> (Artificial Neural Network)</li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.solver.differential_corrections.md">Differential Corrections</Link> (as of the <Link to="/release/2.4">2.4 release</Link>)</li>
                   <li>Scipy Optimizers (<Link to="/docs/latest/api/phoebe.parameters.solver.optimizer.cg.md">Conjugate Gradient</Link>, <Link to="/docs/latest/api/phoebe.parameters.solver.optimizer.nelder_mead.md">Nelder-Mead</Link>, <Link to="/docs/latest/api/phoebe.parameters.solver.optimizer.powell.md">Powell</Link>)</li>
+                  <li><Link to="/docs/latest/api/phoebe.parameters.solver.differential_evolution.md">Differential Evolution</Link> (as of the <Link to="/release/2.4">2.4 release</Link>)</li>
                   <li><Link to="/docs/latest/api/phoebe.parameters.solver.sampler.dynesty.md">Dynesty</Link> (Dynamic Nested Sampling)</li>
                   <li><Link to="/docs/latest/api/phoebe.parameters.solver.sampler.emcee.md">Emcee</Link> (MCMC)</li>
                 </ul>
