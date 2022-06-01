@@ -26,9 +26,11 @@ class TablesHeader extends Component {
            <div className="col-md-2"></div>
            <div className="col-md-2"></div>
            <div className="col-md-2"></div>
-           <div className="col-md-2"></div>
            <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
              <HeaderNavButton title="Passbands" description="Passbands & Atmospheres" to={"/tables/pbs"} icon="fa fas fa-layer-group"/>
+           </div>
+           <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+             <HeaderNavButton title="ATMs" description="Atmosphere Models" to={"/tables/atms"} icon="fa fa-laptop-code"/>
            </div>
            <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
              <HeaderNavButton title="PTFs" description="Passband Transmission Functions" to={"/tables/ptfs"} icon="fa fa-chart-area"/>
@@ -71,6 +73,21 @@ export class Tables extends Component {
               </p>
             </div>
           </div>
+
+          <div className="row" style={{paddingTop: "40px"}}>
+            <div className="col-md-2">
+              <Link to="/tables/atms"><span className="fa fa-fw fa-10x fas fa-laptop-code" style={{width: "100%", color: "#666666"}}></span></Link>
+            </div>
+            <div className="col-md-10">
+              <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
+                <Link to="/tables/atms">Model atmosphere tables</Link> are needed to compute custom passbands on the user side. These tables are computed using
+                different model atmospheres (Kurucz, Phoenix, TMAP models), each fine-tuned to the parts of the H-R diagram. Depending on what passband response
+                you plan to compute, you need any or all of these tables.
+                To build custom passband tables, see the <Link to="/docs/latest/tutorials/passbands.ipynb">custom passbands tutorial</Link>.
+              </p>
+            </div>
+          </div>
+
           <div className="row" style={{paddingTop: "40px"}}>
             <div className="col-md-2">
               <Link to="/tables/ptfs"><span className="fa fa-fw fa-10x fas fa-chart-area" style={{width: "100%", color: "#666666"}}></span></Link>
@@ -84,21 +101,6 @@ export class Tables extends Component {
               </p>
             </div>
           </div>
-          <div className="row" style={{paddingTop: "40px"}}>
-            <div className="col-md-2">
-              <Link to="/tables/atms"><span className="fa fa-fw fa-10x fas fa-laptop-code" style={{width: "100%", color: "#666666"}}></span></Link>
-            </div>
-            <div className="col-md-10">
-              <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
-                <Link to="/tables/atms">Model atmosphere tables</Link> are needed to compute custom passbands on the user side. These tables are computed using
-                different model atmospheres (Kurucz, Phoenix, TMAP models), each fine-tuned to the parts of the H-R diagram. Depending on what passband response
-                you plan to compute, you need any or all of these tables. A guide to build custom passbands using model atmosphere tables is available 
-                <Link to="/docs/latest/tutorials/passbands.ipynb">here</Link>.
-              </p>
-            </div>
-          </div>
-
-
 
         </Content>
       </div>
@@ -374,6 +376,28 @@ export class TablesPTFs extends Component {
   }
 }
 
+class ATMEntry extends Component {
+  render() {
+    return (
+      <div className="row" style={{marginTop: "80px"}}>
+          <div className="col-md-3" style={{textAlign: "center"}}>
+            <h3>
+              {this.props.model}
+            </h3>
+            <span>
+              <Link to={this.props.refLink}>{this.props.reference}</Link>
+            </span>
+          </div>
+          <div className="col-md-7" style={{marginTop: "40px"}}>
+            <span>
+              <Link to={"/static/atms/"+this.props.filename}>{this.props.filename}</Link> ({this.props.filesize}, updated: {this.props.filedate})
+            </span>
+          </div>
+      </div>
+    )
+  }
+}
+
 export class TablesATMs extends Component {
   constructor(props) {
       super(props);
@@ -390,7 +414,7 @@ export class TablesATMs extends Component {
           <meta name="keywords" content={metaKeywords+", tables, passbands, ptfs, atmospheres, model atmospheres"}/>
           <meta name="description" content="Model Atmosphere Tables for PHOEBE 2"/>
         </Helmet>
-        <TablesHeader title={"Tables | Model Atmospheres"} titlexs={"MATs"}/>
+        <TablesHeader title={"Tables | Model Atmospheres"} titlexs={"ATMs"}/>
 
         <Content>
 
@@ -403,38 +427,14 @@ export class TablesATMs extends Component {
               <Link to="/tables/atms">Model atmosphere tables</Link> contain specific emergent intensities as a function of atmospheric parameters
                 (effective temperature, surface gravity, heavy metal abundance and direction w.r.t. the normal); they are needed to compute custom
                 passbands on the user side. These tables are <em>modified</em> from their original versions and adapted for the purposes of PHOEBE.
-                Depending on what passband response you plan to compute, you need one or more of these tables. A guide to build custom passbands
-                using model atmosphere tables is available <Link to="/docs/latest/tutorials/passbands.ipynb">here</Link>.
+                Depending on what passband response you plan to compute, you need one or more of these tables.
+                To build custom passband tables, see the <Link to="/docs/latest/tutorials/passbands.ipynb">custom passbands tutorial</Link>.
             </p>
 
-            <table>
-              <th> Model atmosphere </th>
-              <th> Reference </th>
-              <th> Last update </th>
-              <th> Size </th>
-              <th> Download </th>
-              <tr>
-                <td> CK2004 </td>
-                <td> <Link to="https://wwwuser.oats.inaf.it/castelli/grids.html">Castelli & Kurucz (2004)</Link> </td>
-                <td> 2022-06-01 </td>
-                <td> 32GB </td>
-                <td> <Link to="/static/atms/ck2004.tgz">tarball (.tgz)</Link> </td>
-              </tr>
-              <tr>
-                <td> PHOENIX </td>
-                <td> <Link to="https://ui.adsabs.harvard.edu/abs/2013A%26A...553A...6H">Husser et al. (2013)</Link> </td>
-                <td> 2022-06-01 </td>
-                <td> 43GB </td>
-                <td> <Link to="/static/atms/phoenix.tgz">tarball (.tgz)</Link> </td>
-              </tr>
-              <tr>
-                <td> TMAP </td>
-                <td> <Link to="https://ui.adsabs.harvard.edu/abs/2012ascl.soft12015W">Werner et al. (2012)</Link> </td>
-                <td> 2022-06-01 </td>
-                <td> 10GB </td>
-                <td> <Link to="/static/atms/tmap.tgz">tarball (.tgz)</Link> </td>
-              </tr>
-            </table>
+            <ATMEntry model="ck2004" filename="ck2004.tgz" filesize="32GB" filedate="2022-06-02" reference="Castelli & Kurucz 2004" refLink="https://wwwuser.oats.inaf.it/castelli/grids.html"/>
+            <ATMEntry model="PHOENIX" filename="phoenix.tgz" filesize="43GB" filedate="2022-06-02" reference="Husser et al. 2013" refLink="https://ui.adsabs.harvard.edu/abs/2013A%26A...553A...6H"/>
+            {/* <ATMEntry model="TMAP" filename="tmap.tgz" filesize="10GB" filedate="2022-06-01" reference="Werner et al. 2012" refLink="https://ui.adsabs.harvard.edu/abs/2012ascl.soft12015W"/> */}
+
           </div>
 
         </Content>
