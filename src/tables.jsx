@@ -65,9 +65,9 @@ export class Tables extends Component {
             </div>
             <div className="col-md-10">
               <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
-                <Link to="/tables/pbs">Passband and Atmosphere FITs tables</Link> are used internally in PHOEBE for everything from normal intensities to limb-darkening to extinction.
+                <Link to="/tables/pbs">Passband and Atmosphere FITS tables</Link> are used internally in PHOEBE for everything from normal intensities to limb-darkening to extinction.
                 If you have a stable internet connection, the appropriate tables will be downloaded and installed when required by PHOEBE.
-                However, should you wish to download them in bulk in advance or download custom tables for use outside PHOEBE, you can <Link to="/tables/pbs">customize and download passband FITs files</Link>.
+                However, should you wish to download them in bulk in advance or download custom tables for use outside PHOEBE, you can <Link to="/tables/pbs">customize and download passband FITS files</Link>.
               </p>
             </div>
           </div>
@@ -81,6 +81,19 @@ export class Tables extends Component {
                 These are required, however, to build <Link to="/docs/latest/tutorials/passbands.ipynb">custom passband/atmosphere tables</Link>.
                 These ASCII files consist of two columns: wavelength and transmission.
                 These files can be found at the <Link to="https://github.com/phoebe-project/phoebe2-tables/tree/master/ptf">phoebe2-tables GitHub repo</Link>.
+              </p>
+            </div>
+          </div>
+          <div className="row" style={{paddingTop: "40px"}}>
+            <div className="col-md-2">
+              <Link to="/tables/atms"><span className="fa fa-fw fa-10x fas fa-laptop-code" style={{width: "100%", color: "#666666"}}></span></Link>
+            </div>
+            <div className="col-md-10">
+              <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
+                <Link to="/tables/atms">Model atmosphere tables</Link> are needed to compute custom passbands on the user side. These tables are computed using
+                different model atmospheres (Kurucz, Phoenix, TMAP models), each fine-tuned to the parts of the H-R diagram. Depending on what passband response
+                you plan to compute, you need any or all of these tables. A guide to build custom passbands using model atmosphere tables is available 
+                <Link to="/docs/latest/tutorials/passbands.ipynb">here</Link>.
               </p>
             </div>
           </div>
@@ -353,10 +366,76 @@ export class TablesPTFs extends Component {
               These are required, however, to build <Link to="/docs/latest/tutorials/passbands.ipynb">custom passband/atmosphere tables</Link>.
               These ASCII files consist of two columns: wavelength and transmission.
               These files can be found at the <Link to="https://github.com/phoebe-project/phoebe2-tables/tree/master/ptf">phoebe2-tables GitHub repo</Link>.
-          </p>
+            </p>
           </div>
+        </Content>
+      </div>
+    );
+  }
+}
 
+export class TablesATMs extends Component {
+  constructor(props) {
+      super(props);
+      this.state = {
+      };
+  }
 
+  render() {
+
+    return (
+      <div>
+        <Helmet>
+          <title>PHOEBE | Model Atmosphere Tables</title>
+          <meta name="keywords" content={metaKeywords+", tables, passbands, ptfs, atmospheres, model atmospheres"}/>
+          <meta name="description" content="Model Atmosphere Tables for PHOEBE 2"/>
+        </Helmet>
+        <TablesHeader title={"Tables | Model Atmospheres"} titlexs={"MATs"}/>
+
+        <Content>
+
+          <Alert level="warning">
+            <p><b>Note:</b> These model atmosphere tables are used to build the <Link to="/tables/pbs">passband files</Link>, but are not used by PHOEBE directly.</p>
+          </Alert>
+
+          <div className="row">
+            <p>
+              <Link to="/tables/atms">Model atmosphere tables</Link> contain specific emergent intensities as a function of atmospheric parameters
+                (effective temperature, surface gravity, heavy metal abundance and direction w.r.t. the normal); they are needed to compute custom
+                passbands on the user side. These tables are <em>modified</em> from their original versions and adapted for the purposes of PHOEBE.
+                Depending on what passband response you plan to compute, you need one or more of these tables. A guide to build custom passbands
+                using model atmosphere tables is available <Link to="/docs/latest/tutorials/passbands.ipynb">here</Link>.
+            </p>
+
+            <table>
+              <th> Model atmosphere </th>
+              <th> Reference </th>
+              <th> Last update </th>
+              <th> Size </th>
+              <th> Download </th>
+              <tr>
+                <td> CK2004 </td>
+                <td> <Link to="https://wwwuser.oats.inaf.it/castelli/grids.html">Castelli & Kurucz (2004)</Link> </td>
+                <td> 2022-06-01 </td>
+                <td> 32GB </td>
+                <td> <Link to="/static/atms/ck2004.tgz">tarball (.tgz)</Link> </td>
+              </tr>
+              <tr>
+                <td> PHOENIX </td>
+                <td> <Link to="https://ui.adsabs.harvard.edu/abs/2013A%26A...553A...6H">Husser et al. (2013)</Link> </td>
+                <td> 2022-06-01 </td>
+                <td> 43GB </td>
+                <td> <Link to="/static/atms/phoenix.tgz">tarball (.tgz)</Link> </td>
+              </tr>
+              <tr>
+                <td> TMAP </td>
+                <td> <Link to="https://ui.adsabs.harvard.edu/abs/2012ascl.soft12015W">Werner et al. (2012)</Link> </td>
+                <td> 2022-06-01 </td>
+                <td> 10GB </td>
+                <td> <Link to="/static/atms/tmap.tgz">tarball (.tgz)</Link> </td>
+              </tr>
+            </table>
+          </div>
 
         </Content>
       </div>
