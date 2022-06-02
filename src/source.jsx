@@ -111,6 +111,10 @@ export class Dependencies extends Component {
             <Link to="https://crimpl.readthedocs.io">crimpl</Link> (included in PHOEBE since the <Link to="/releases/2.4">2.4 release</Link>) provides an object-oriented interface to submit and monitor jobs submitted to external compute resources.  Currently, crimpl supports <Link to="https://crimpl.readthedocs.io/en/latest/RemoteSlurm/">remote servers running slurm</Link>, <Link to="https://crimpl.readthedocs.io/en/latest/AWSEC2/">AWS EC2 instances</Link>, and running jobs in a <Link to="https://crimpl.readthedocs.io/en/latest/LocalThread/">local detached thread</Link>.  Once a server is defined and the configuration saved on your local machine, you can then enable the server for use within PHOEBE by calling <Link to="/docs/latest/api/phoebe.frontend.bundle.Bundle.add_server.md">add_server</Link>.
           </DependencyInfo>
 
+          <DependencyInfo image="ligeor.png" imageTxt="ligeor">
+            <Link to="https://github.com/gecheline/ligeor">ligeor</Link> (included in PHOEBE since the <Link to="/releases/2.4">2.4 release</Link>) handles the logic for the lc and rv geometry estimator backends.
+          </DependencyInfo>
+
           <DependencyInfo imageTxt="IAU2015">
             A small python package called <Link to="https://github.com/kecnry/astropy-units-IAU2015">astropy-units-IAU2015</Link> is included in PHOEBE to ensure that units and constants (provided by <Link to="https://www.astropy.org/">astropy</Link>) are consistent with IAU conventions.  Astropy 2.0+ adopted these conventions, but this small package makes the same adaptations if using astropy 1.x.
           </DependencyInfo>
@@ -156,10 +160,6 @@ export class Dependencies extends Component {
 
 
           <h3 style={{marginTop: "140px"}}>Solver Backends</h3>
-          <DependencyInfo image="ligeor.png" imageTxt="ligeor">
-            <Link to="https://github.com/gecheline/ligeor">ligeor</Link> (included in PHOEBE since the <Link to="/releases/2.4">2.4 release</Link>) handles the logic for the lc and rv geometry estimator backends.
-          </DependencyInfo>
-
           <DependencyInfo image="sklearn.png" imageTxt="scikit-learn">
             PHOEBE uses <Link to="https://scikit-learn.org/stable/">scikit-learn</Link> for KNN in the ebai estimator.
           </DependencyInfo>
