@@ -32,12 +32,12 @@ export class GitHubContent extends Component {
 
     if (repo && path) {
       var contentURL = "https://github.com/phoebe-project/"+repo+"/blob/"+branch+"/"+path
-      var contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
+      //var contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
       var contentURLRawDirImages = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
       var contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
       if (['phoebe2-docs', 'phoebe2-workshop'].indexOf(repo) !== -1 && (path.endsWith(".py") || path.endsWith(".ipynb"))) {
-        var contentURLRawDir = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
-        var contentURLRaw = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path
+        //var contentURLRawDir = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
+        contentURLRaw = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path
       }
 
       var contentType = null;
@@ -74,7 +74,7 @@ export class GitHubContent extends Component {
                   // but that causes issues in safari
                   // content.cells[i].source[j] = content.cells[i].source[j].replace(/(?<!http.*)([a-z,A-Z,_,0-9,-,\+]*)\.(gif|png)/gm, `${contentURLRawDirImages}/$1.$2`)
                   if (content.cells[i].source[j].indexOf("http") === -1) {
-                    content.cells[i].source[j] = content.cells[i].source[j].replace(/([a-z,_,0-9,-,\+]*)\.(gif|png)/, `${contentURLRawDirImages}/$1.$2`)
+                    content.cells[i].source[j] = content.cells[i].source[j].replace(/([a-z,_,0-9,-,+]*)\.(gif|png)/, `${contentURLRawDirImages}/$1.$2`)
                   }
                 }
               }

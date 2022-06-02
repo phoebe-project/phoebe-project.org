@@ -136,7 +136,7 @@ export class LogoSplash extends Component {
       onMouseEnter = this.showContact
     }
 
-    var divClasses = "PhoebeLogo"+" "+transitionIn+" "+animationEffect+" "+additionalClasses
+    var divClasses = "PhoebeLogo "+transitionIn+" "+animationEffect+" "+additionalClasses
     var pltStyle = this.props.pltStyle || {}
 
     return(

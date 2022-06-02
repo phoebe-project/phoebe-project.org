@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect, Image, Separator, NosetestsDiv, metaKeywords} from './common';
-import {NotFound} from './errors';
+import {Content, Link, Separator, NosetestsDiv, metaKeywords} from './common';
 import {Header, HeaderNavButton} from './header';
 
 

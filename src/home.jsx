@@ -93,13 +93,13 @@ export class Home extends Component {
 
           <h1 style={{display: "flex", justifyContent: "space-between"}}>Meet PHOEBE
             <div className="hidden-xs" style={{marginRight: "-40px"}}>
-              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
           </h1>
 
           <div className="row visible-xs">
             <div style={{paddingLeft: "15px"}}>
-              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
           </div>
 

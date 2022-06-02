@@ -50,7 +50,7 @@ export class PublicationEntry extends Component {
     var release = null;
     var figures = [];
 
-    if (publication=='2005Prsa+') {
+    if (publication === '2005Prsa+') {
       published = true
       author = "Prša & Zwitter (2005)"
       authorsFull = "Prša, A.; Zwitter, T."
@@ -61,7 +61,7 @@ export class PublicationEntry extends Component {
       pdf = "2005Prsa+.pdf"
       release = "1.0"
 
-    } else if (publication=='2016Prsa+') {
+    } else if (publication === '2016Prsa+') {
       published = true
       author = "Prša et al. (2016)"
       authorsFull = "Prša, A.; Conroy, K. E.; Horvat, M.; Pablo, H.; Kochoska, A.; Bloemen, S.; Giammarco, J.; Hambleton, K. M.; Degroote, P."
@@ -76,7 +76,7 @@ export class PublicationEntry extends Component {
                   {"name": "Figure 8", "image": "2016Prsa+_fig8.png", "link": "/docs/2.0/tutorials/irrad_method_horvat"}
                 ]
 
-    } else if (publication=='2018Horvat+') {
+    } else if (publication === '2018Horvat+') {
       published = true
       author = "Horvat et al. (2018)"
       authorsFull = "Horvat, M.; Conroy, K. E.; Pablo, H.; Hambleton, K. M.; Kochoska, A.; Giammarco, J.; Prša, A."
@@ -89,7 +89,7 @@ export class PublicationEntry extends Component {
       figures = [
                   {"name": "Figure 8", "image": "2018Horvat+_fig8.png", "link": "/docs/2.1/examples/diher_misaligned"}
                 ]
-    } else if (publication=='2020Jones+') {
+    } else if (publication === '2020Jones+') {
       published = true
       author = "Jones et al. (2020)"
       authorsFull = "Jones, D.; Conroy, K. E.; Horvat, M.; Giammarco, J.; Kochoska, A.; Pablo, H.; Brown, A.; Sowicka, P.; Prša, A."
@@ -105,7 +105,7 @@ export class PublicationEntry extends Component {
                   {"name": "Figure 3", "image": "2020Jones+_fig3.png", "link": "/docs/2.2/examples/extinction_eclipse_depth_v_teff"},
                   {"name": "Figure 4", "image": "2020Jones+_fig4.png", "link": "/docs/2.2/examples/extinction_wd_subdwarf"}
                 ]
-    } else if (publication=='2020Conroy+') {
+    } else if (publication === '2020Conroy+') {
       published = true
       author = "Conroy et al. (2020)"
       authorsFull = "Conroy, K. E.; Kochoska, A.; Hey, D.; Hambleton, K. M.; Pablo, H.; Jones, D.; Giammarco, J.; Prša, A."
@@ -132,7 +132,7 @@ export class PublicationEntry extends Component {
 
                 ]
 
-    } else if (publication=='2022Kochoska+') {
+    } else if (publication === '2022Kochoska+') {
       published = false
       author = "Kochoska et al. (in prep)"
       authorsFull = "Kochoska, A.; et al."
@@ -200,7 +200,7 @@ export class PublicationEntry extends Component {
               return (
                 <div style={{width: "100%", margin: "auto", paddingTop: "50px", paddingBottom: "50px", textAlign: "center"}}>
                   <h4 style={{fontSize: "16pt"}}>{figure.name}</h4>
-                  <Link to={figure.link}><img src={"/images/figures/"+figure.image} width="600px" style={{maxWidth: "100%"}}/></Link>
+                  <Link to={figure.link}><img src={"/images/figures/"+figure.image} width="600px" style={{maxWidth: "100%"}} alt=""/></Link>
                 </div>
               )
             })}

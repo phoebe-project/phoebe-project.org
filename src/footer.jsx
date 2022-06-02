@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {Link, Image, Separator} from './common';
+import {Image, Separator} from './common';
 
 export class Footer extends Component {
   render() {

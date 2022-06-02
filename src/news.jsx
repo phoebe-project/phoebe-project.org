@@ -523,7 +523,7 @@ export class News extends Component {
     var helmetTitle = "News";
 
     if (this.props.match.params.slug) {
-      var filteredNewsStoryDicts = [];
+      filteredNewsStoryDicts = [];
       newsStoriesDicts.forEach((newsStoryDict, index) => {
       	if (this.props.match.params.slug === newsStoryDict.slug) {
           // NOTE: if for some reason 2 have the same slug, this will return the OLDER

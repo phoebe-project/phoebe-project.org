@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 
-import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
-
-import {Content, Link, Image} from './common';
-// import {Header} from './header';
-// import {NotFound} from './errors';
-
+import {Image} from './common';
 
 
 export class InteractiveGettingStarted extends Component {
@@ -130,7 +125,7 @@ export class InteractiveGettingStarted extends Component {
           <Image src={'/images/interactive_getting_started/teff:'+s_teff+'_q:'+s_q+'_phase:'+s_phase+'_rv:'+s_rv+'.png'} width="400" maxWidth="80%"/>
         </div>
 
-        <div class="row" style={{paddingTop: "12px", marginLeft: "-10px", marginRight: "-10px"}}>
+        <div className="row" style={{paddingTop: "12px", marginLeft: "-10px", marginRight: "-10px"}}>
           <ToggleButton title="change value of secondary effective temperature" active={this.state.optionTeff} onClick={this.toggleTeff}> change teff</ToggleButton>
           <ToggleButton title="include an RV dataset" active={this.state.optionRV} onClick={this.toggleRV}> rv dataset</ToggleButton>
           <ToggleButton title="change value of mass ratio" active={this.state.optionQ} onClick={this.toggleQ}> change q</ToggleButton>
@@ -150,10 +145,8 @@ export class WebUI extends Component {
   }
   render() {
     var borderColor = "#666666"
-    var backgroundColor: null;
     if (this.props.dark) {
       borderColor = 'white'
-      backgroundColor = 'white'
     }
 
     return (
@@ -188,10 +181,8 @@ export class DesktopUI extends Component {
   }
   render() {
     var borderColor = "#666666"
-    var backgroundColor: null;
     if (this.props.dark) {
       borderColor = 'white'
-      backgroundColor = 'white'
     }
 
     return (
@@ -408,7 +399,7 @@ class ToggleButton extends Component {
       classes += "btn-transparent-light-active"
     }
     return (
-      <div class="col-md-3" style={{paddingLeft: "2px", paddingRight: "2px", paddingTop: "6px"}}>
+      <div className="col-md-3" style={{paddingLeft: "2px", paddingRight: "2px", paddingTop: "6px"}}>
         <button className={classes} title={this.props.title || this.props.children} onClick={this.props.onClick}>
           {this.props.children}
         </button>

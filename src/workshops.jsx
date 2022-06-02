@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Image, Redirect, Separator, Alert} from './common';
+import {Content, Link, Image, Separator, Alert} from './common';
 import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
@@ -49,7 +49,7 @@ export class Workshop extends Component {
       this.redirect(workshop, slug)
     }
 
-    if (workshop==null || workshop==undefined) {
+    if (workshop === null || workshop === undefined) {
       return(
         <div>
           <Helmet>

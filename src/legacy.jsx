@@ -17,13 +17,13 @@ export class LegacyIntro extends Component {
         <Content>
           <h1 style={{display: "flex", justifyContent: "space-between"}}>PHOEBE Legacy
             <div className="hidden-xs" style={{marginRight: "-40px"}}>
-              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe1&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+              <iframe title="gh-star" src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe1&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
           </h1>
 
           <div className="row visible-xs">
             <div style={{paddingLeft: "15px"}}>
-              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe1&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+              <iframe title="gh-star-xs" src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe1&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
           </div>
 

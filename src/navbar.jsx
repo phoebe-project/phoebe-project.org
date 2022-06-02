@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import EventListener, {withOptions} from 'react-event-listener'; // https://www.npmjs.com/package/react-event-listener
 
-import {Link, NavLink, Image} from './common';
+import {NavLink, Image} from './common';
 
 export class Navbar extends Component {
   constructor(props) {

@@ -21,7 +21,7 @@ import {Install} from './install';
 import {Tables, TablesPBs, TablesPTFs} from './tables';
 import {Clients} from './clients';
 import {Docs} from './docs';
-import {News, NewsEntry} from './news';
+import {News} from './news';
 import {Workshop, WorkshopRegistration} from './workshops';
 import {Publications, PublicationEntry} from './publications';
 import {Source, Dependencies} from './source';
@@ -47,8 +47,8 @@ function parseReadmeChangelog(text) {
       version_long = textVersion.slice(0, splitIndex)
       version_short = version_long.slice(0, version_long.lastIndexOf("."))
       versionDescription = textVersion.slice(splitIndex)
-      if (Object.keys(versions).indexOf(version_short)==-1) {
-        versions[version_short] = Array()
+      if (Object.keys(versions).indexOf(version_short === -1)) {
+        versions[version_short] = []
       }
       versionTitle = versionDescription.split("\n\n")[0].split("- ")[1]
       versions[version_short].push({title: versionTitle.replace("\\_", "_"), description: versionDescription.replace("- "+versionTitle, "")})
@@ -116,7 +116,7 @@ class App extends Component {
             <Route exact path={process.env.PUBLIC_URL + '/workshops/registration'} component={WorkshopRegistration}/>
             <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop'} component={Workshop}/>
             <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop/:slug'} component={Workshop}/>
-            <Route path={process.env.PUBLIC_URL + '/workshop'} render={(props) => <Redirect to="/workshops"/>}/> /* old website used "workshop" instead of "workshops" */
+            <Route path={process.env.PUBLIC_URL + '/workshop'} render={(props) => <Redirect to="/workshops"/>}/> {/* old website used "workshop" instead of "workshops" */}
             <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
             <Route exact path={process.env.PUBLIC_URL + '/publications/:publication/'} component={PublicationEntry}/>
             <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>

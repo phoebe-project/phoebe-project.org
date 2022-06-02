@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
@@ -74,7 +73,7 @@ export class Docs extends Component {
     if (version==='latest') {
       // allow latest as the version in the URL, but show whatever is latest
       version = docs_versions[0]
-    } else if (version==='dev' || version=='devel' || version==='development') {
+    } else if (version === 'dev' || version === 'devel' || version === 'development') {
       // allow dev/devel/development to be an alias of dev
       version = 'development'
     } else if (version==='1.0' || version==='legacy') {
@@ -166,7 +165,7 @@ export class Docs extends Component {
           {this.state.version===docs_versions[0] ?
             null
             :
-            version=="development" ?
+            version === "development" ?
               <Alert level="danger">
                 <p><b>WARNING:</b> these are the docs for the development (unreleased) version of PHOEBE.  View <Link to={getDocsLink("latest", this.state.subdir, this.state.slug)}>docs for the latest release ({docs_versions[0]})</Link> or use the version switcher at the bottom of the page to select the correct version of PHOEBE.</p>
               </Alert>
@@ -182,7 +181,7 @@ export class Docs extends Component {
           }
           <GitHubContent repo='phoebe2-docs' branch={version} path={this.state.contentPath} history={this.props.history} loadingText="LOADING DOCS..." reportHTML={reportHTML}>
             <div>
-              {version!="development" ?
+              {version !== "development" ?
                 <div>
                   <h2><span className="fa fa-fw fa-xs fa-tag"></span> About PHOEBE {version}</h2>
                   <p>You can read about the features added during the <Link to={"/releases/"+version}>{version} release</Link> as well as read the changelog entries.</p>

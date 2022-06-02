@@ -2,11 +2,8 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect, Button, Image, Separator, Alert, getLatestPatchVersion, metaKeywords, NosetestsDiv} from './common';
-import {VersionSwitcherContainer, VersionSwitcher} from './versionswitcher';
-import {WebUI, DesktopUI, InteractiveGettingStarted} from './mockups';
-import {NotFound} from './errors';
-import {docs_versions, getDocsLink} from './docs';
+import {Content, Link, Button, Separator, metaKeywords} from './common';
+import {WebUI, DesktopUI} from './mockups';
 import {Header, HeaderNavButton} from './header';
 
 
@@ -25,13 +22,13 @@ export class Clients extends Component {
   scrollToHash() {
     var offsetTop = null;
     var hash = this.state.hash
-    if (hash==='#web') {
+    if (hash === '#web') {
       offsetTop = this.refweb.current.offsetTop;
-    } else if (hash==='#desktop') {
+    } else if (hash === '#desktop') {
       offsetTop = this.refdesktop.current.offsetTop;
-    } else if (hash=='#python') {
+    } else if (hash === '#python') {
       offsetTop = this.refpython.current.offsetTop;
-    } else if (hash=='#server') {
+    } else if (hash === '#server') {
       offsetTop = this.refserver.current.offsetTop;
     }
 

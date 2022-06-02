@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect, Image, Separator, Alert, getLatestPatchVersion, metaKeywords, NosetestsDiv} from './common';
+import {Content, Link, Redirect, Separator, Alert, getLatestPatchVersion, metaKeywords, NosetestsDiv} from './common';
 import {VersionSwitcherContainer, VersionSwitcher} from './versionswitcher';
 import {NotFound} from './errors';
 import {docs_versions, getDocsLink} from './docs';
@@ -74,7 +74,7 @@ export class Install extends Component {
     }
 
     // handle 2.1.0 vs 2.1 cases (we want the full version for the instructions, but short version for docs/internal links)
-    if (version == "latest") {
+    if (version === "latest") {
       version_short = docs_versions[0]
       version_long = getLatestPatchVersion(version_short, this.props.release_changelogs)
     } else if ((version.match(/\./g) || []).length === 1){
@@ -101,17 +101,17 @@ export class Install extends Component {
 
     var OSName="linux";
     if (version_os === "auto") {
-      if (navigator.appVersion.indexOf("Win")!=-1) OSName="windows";
-      if (navigator.appVersion.indexOf("Mac")!=-1) OSName="mac";
+      if (navigator.appVersion.indexOf("Win") !== -1) OSName="windows";
+      if (navigator.appVersion.indexOf("Mac") !== -1) OSName="mac";
       // if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
-      if (navigator.appVersion.indexOf("Linux")!=-1) OSName="linux";
+      if (navigator.appVersion.indexOf("Linux") !== -1) OSName="linux";
     } else {
       OSName = version_os
     }
 
     var version_py = "python3"
     var version_py_switcher = "python3"
-    if (this.props.match.params.version_py && this.props.match.params.version_py != 'auto') {
+    if (this.props.match.params.version_py && this.props.match.params.version_py !== 'auto') {
       version_py = this.props.match.params.version_py
       version_py_switcher = version_py
     } else if (["2.0", "2.1"].indexOf(version_short) !== -1) {
@@ -123,19 +123,19 @@ export class Install extends Component {
 
     var python = 'python'
     var pip = 'pip'
-    if (version_py==='python3') {
+    if (version_py === 'python3') {
       python = 'python3'
       pip = 'pip3'
     }
 
     var show_instructions = true
 
-    if (version_py==='python3' && version_short < 2.2) {
+    if (version_py === 'python3' && version_short < 2.2) {
       show_instructions = false
-    } else if (version_py==='python2' && version_short >= 2.3) {
+    } else if (version_py === 'python2' && version_short >= 2.3) {
       show_instructions = false
     }
-    if (OSName==='windows') {
+    if (OSName === 'windows') {
       show_instructions = false
     }
 
@@ -147,7 +147,7 @@ export class Install extends Component {
           <meta name="description" content="Instructions for downloading and installing PHOEBE 2"/>
         </Helmet>
         <Header>
-          <h1>Download &amp; Install PHOEBE {version=='latest' ? version_short : version_long}</h1>
+          <h1>Download &amp; Install PHOEBE {version === 'latest' ? version_short : version_long}</h1>
 
           <div className="row">
              <div className="col-md-2"></div>
@@ -238,7 +238,7 @@ export class Install extends Component {
                 {version_py==="python2" ?
                   <p>PHOEBE {version_short} has been tested to build and run on python 2.7+ {version_short >= 2.2 ? <span>(<Link to={"/install/"+version+"/"+version_os+"/python3#source"}>or python 3.6+</Link>)</span> : <span>(but does not support python 3)</span>}.  You can check your installed version of {python} with:</p>
                   :
-                  <p>PHOEBE {version_short} has been tested to build and run on python 3.6+ {version_short == 2.2 ? (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or python 2.7+</Link>) : null}.    You can check your installed version of {python} with:</p>
+                  <p>PHOEBE {version_short} has been tested to build and run on python 3.6+ {version_short === 2.2 ? (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or python 2.7+</Link>) : null}.    You can check your installed version of {python} with:</p>
                 }
                 <pre>
                   {python} --version
@@ -352,7 +352,7 @@ export class Install extends Component {
                 <p>
                   (where you can set the name of environment and provide any supported version of python).  {python==='python3' ? <span>Note that within the environment <code>python</code> (instead of <code>{python}</code>) will point to the version of python you specified.</span> : null }
                 </p>
-                {OSName == 'mac' ?
+                {OSName === 'mac' ?
                   <div>
                     <p>
                       Conda environments also allow easily installing a supported compiler.  For example, within the created environment you can install a compiler and link the XCode libraries before installing PHOEBE:
@@ -468,7 +468,7 @@ export class Install extends Component {
                 <ul>
                   <li>matplotlib (suggested for plotting)</li>
                   {version_short >= 2.3 ? <li>corner (for distribution plotting)</li> : null}
-                  {version_short == 2.3 ? <li>tqdm (for progressbars)</li> : null}
+                  {version_short === 2.3 ? <li>tqdm (for progressbars)</li> : null}
                   {/* <li>sympy (for safer and more flexible constraints)</li> */}
                 </ul>
 
@@ -528,7 +528,7 @@ export class Install extends Component {
         <VersionSwitcherContainer>
           <VersionSwitcher titleLong="Python:" titleShort="Py:" version={version_py.slice(-1)} versions={versions_py} versionLinks={versions_py.map(version_py => "/install/"+version+"/"+version_os+"/"+version_py)}/>
           <VersionSwitcher titleLong="OS:" titleShort="OS:" version={version_os} versions={versions_os} versionLinks={versions_os.map(version_os => "/install/"+version+"/"+version_os+"/"+version_py_switcher)}/>
-          <VersionSwitcher titleLong="PHOEBE:" titleShort="PHOEBE:" version={version} versions={["1.0"].concat(docs_versions_reverse).concat("latest")} versionLinks={["/1.0/download"].concat(docs_versions_reverse.map(version => "/install/"+version+"/"+version_os+"/"+version_py_switcher)).concat("/install/latest"+"/"+version_os+"/"+version_py_switcher)}/>
+          <VersionSwitcher titleLong="PHOEBE:" titleShort="PHOEBE:" version={version} versions={["1.0"].concat(docs_versions_reverse).concat("latest")} versionLinks={["/1.0/download"].concat(docs_versions_reverse.map(version => "/install/"+version+"/"+version_os+"/"+version_py_switcher)).concat("/install/latest/"+version_os+"/"+version_py_switcher)}/>
         </VersionSwitcherContainer>
 
       </div>

@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect, Image, Separator, NosetestsDiv, metaKeywords} from './common';
-import {NotFound} from './errors';
-import {Header, HeaderNavButton} from './header';
-
+import {Content, Link,} from './common';
+import {Header} from './header';
 
 
 export class Devel extends Component {

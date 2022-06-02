@@ -4,10 +4,7 @@ import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helm
 
 import Select from 'react-select'; // https://react-select.com/home
 
-import {Content, Link, Redirect, Button, Image, Separator, Alert, getLatestPatchVersion, metaKeywords, NosetestsDiv} from './common';
-import {VersionSwitcherContainer, VersionSwitcher} from './versionswitcher';
-import {NotFound} from './errors';
-import {docs_versions, getDocsLink} from './docs';
+import {Content, Link, Button, Alert, metaKeywords} from './common';
 import {Header, HeaderNavButton} from './header';
 
 // use native browser implementation if it supports aborting, otherwise use polyfill and whatwg-fetch
@@ -134,15 +131,15 @@ export class TablesPBs extends Component {
 
   }
   mapContent = (content) => {
-    if (content.split(':').slice(-1) == 'ext') {
+    if (content.split(':').slice(-1) === 'ext') {
       return content + ' (extinction)'
-    } else if (content.split(':').slice(-1) == 'Inorm') {
+    } else if (content.split(':').slice(-1) === 'Inorm') {
       return content + ' (normal intensities)'
-    } else if (content.split(':').slice(-1) == 'Imu') {
+    } else if (content.split(':').slice(-1) === 'Imu') {
       return content + ' (projected intensities)'
-    } else if (content.split(':').slice(-1) == 'ld') {
+    } else if (content.split(':').slice(-1) === 'ld') {
       return content + ' (limb-darkening)'
-    } else if (content.split(':').slice(-1) == 'ldint') {
+    } else if (content.split(':').slice(-1) === 'ldint') {
       return content + ' (integrated limb-darkening profiles)'
     } else {
       return content
@@ -166,7 +163,6 @@ export class TablesPBs extends Component {
     }
     this.setState({requestedPassbandSets: value})
   }
-
   onChangeContentsMode = (e) => {
     this.setState({requestedContentsMode: e.value})
   }

@@ -11,7 +11,7 @@ function processLink(link) {
   }
 
   if (link.startsWith("#")) {
-    link = link
+    return link
   } else {
     if (!link.startsWith("/")) {
       link = "/" + link
@@ -154,7 +154,7 @@ export class Image extends Component {
     }
 
     return (
-      <img {...this.props} src={src}/>
+      <img {...this.props} src={src} alt=""/>
     )
   }
 }
@@ -166,9 +166,9 @@ export class Separator extends Component {
     var marginBottom = this.props.marginBottom || "-62px"
     var marginRight = this.props.marginRight || "auto"
     if (this.props.large) {
-      var height = this.props.height || "40px"
-      var marginTop = this.props.marginTop || "0px"
-      var marginBottom = this.props.marginBottom || "-45px"
+      height = this.props.height || "40px"
+      marginTop = this.props.marginTop || "0px"
+      marginBottom = this.props.marginBottom || "-45px"
     }
     var className = this.props.className || ""
 

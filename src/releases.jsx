@@ -52,13 +52,13 @@ export class Releases extends Component {
           <div className="hidden-xs" style={{display: "flex", justifyContent: "space-between"}}>
             <span/>
             <div style={{marginRight: "-40px"}}>
-              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+              <iframe title="gh-star" src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
           </div>
 
           <div className="row visible-xs">
             <div style={{paddingLeft: "15px"}}>
-              <iframe src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+              <iframe title="gh-star-xs" src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
           </div>
 
