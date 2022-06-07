@@ -41,20 +41,20 @@ function parseReadmeChangelog(text) {
   var version_short = null;
   var versionTitle = null;
   var versionDescription = null;
-  for (var textVersion of textVersions.reverse()) {
+  var textVersion = null;
+  for (textVersion of textVersions.reverse()) {
     if (!textVersion.startsWith("\n")) {
       splitIndex = Math.min(textVersion.indexOf(" "), textVersion.indexOf("\n"))
       version_long = textVersion.slice(0, splitIndex)
       version_short = version_long.slice(0, version_long.lastIndexOf("."))
       versionDescription = textVersion.slice(splitIndex)
-      if (Object.keys(versions).indexOf(version_short === -1)) {
+      if (Object.keys(versions).indexOf(version_short) === -1) {
         versions[version_short] = []
       }
       versionTitle = versionDescription.split("\n\n")[0].split("- ")[1]
       versions[version_short].push({title: versionTitle.replace("\\_", "_"), description: versionDescription.replace("- "+versionTitle, "")})
     }
   }
-
   return versions
 }
 
