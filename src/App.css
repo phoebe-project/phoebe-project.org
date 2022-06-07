@@ -215,6 +215,10 @@ summary {
   border: 1px solid #2B71B1;
 }
 
+.btn-transparent:hover {
+  border-width: 1px !important;
+}
+
 .btn-primary-invert, .btn-primary-invert:hover, .btn-primary-invert:active, .btn-primary-invert:focus {
   background-color: white;
   color: #2B71B1 !important;
