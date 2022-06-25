@@ -226,7 +226,7 @@ export class ContributeDevelopment extends Component {
             The rest of this document assumes that you have a local copy of the source-code on your machine and are fairly comfortable as a PHOEBE user.
           </p>
           <p>
-            If you're working on an unreleased branch of the source-code, see the <Link to="/docs/development">development branch documentation</Link> (which may not be entirely up-to-date).
+            If you're working on an unreleased branch of the source-code, see the <Link to="/docs/development">development branch documentation</Link> (corresponding to the latest <code>release-2.x</code> branch of the code).
           </p>
 
           <h2 ref={this.refreleases}><span className="fa fa-fw fa-xs fa-tags"></span> Releases</h2>
@@ -241,42 +241,100 @@ export class ContributeDevelopment extends Component {
             <li>PATCH: an increment in the last digit represents a hot/bug-fix.  These should address critical issues in the current release that cannot wait to be merged into the next feature/minor release and should take all reasonable measures to avoid compatibility issues.  The documentation is only archived per-minor release, so any changes to API etc, must be explicitly noted.  For example: tutorials/example scripts/API will need notes stating the applicable differences.</li>
           </ul>
 
-          <h3>Release Checklist</h3>
-          <p>Bugfix releases:</p>
+          <h3>Where/how to contribute changes:</h3>
+          <p>All contributions should be handled via pull requests (PR) from your own personal fork into the main repository with any merge conflicts addressed through <i>rebasing not merge commits</i>.  The <Link to="#branches">branch</Link> which you should start and request merging into depends on the changes being made.  The most convenient way to do this is to add both your own fork repo and the main <code>phoebe-project</code> repo as separate remotes to your local repository so that you can rebase your local changes on top of the latest official branch while pushing to your personal fork.</p>
+
+          <h5>Documentation fixes/improvements:</h5>
+          <p>Documentation is built per-minor release and can therefore be updated for past releases of phoebe.  Any improvements should be backported to applicable previous releases.</p>
           <ul>
-            <li>All bug release development should be done in their own independent <Link to="#branches">branch</Link> off of master.</li>
-            <li>Update versioning information in setup.py and __init__.py and add changelog entry to README.md, commit to bugfix branch.</li>
-            <li>Merge master into the branch if necessary (probably only if working on multiple bugfixes simultaneously).</li>
-            <li>Open pull-request from the bugfix branch into master.</li>
-            <li>Confirm all CI tests pass on Travis, both in the bugfix branch and the PR.</li>
-            <li>Close pull-request by squashing if a single author, or merge commit otherwise.  Make sure to link to and close any relevant issues that the bugfix addresses.</li>
-            <li>Create and tag release on GitHub.</li>
-            <li>Merge master into development and any other active branches, merging in the changes to the readme, but leaving the version at 'devel'.</li>
-            <li>See below for instructions on publishing to pip.</li>
+            <li>Create a branch in your own personal fork off the latest commit in the <i>most recent applicable</i> branch in the <code>phoebe2-docs</code> repo</li>
+            <li>Make changes, committing and pushing to the branch in your own forked repository</li>
+            <li><Link to="https://github.com/phoebe-project/phoebe2-docs/compare">Open a PR</Link> from your branch (right dropdown) into the appropriate <code>2.x</code> branch (left dropdown).  Note that you may need to click "compare across forks" to see your own fork as an option.</li>
+            <li>Include in the description which other older versions of the docs should recieve the same updates</li>
+            <li>The PR will be reviewed, and once all comments are addressed will be squashed and merged.</li>
+            <li>Repository admin will attempt to cherrypick the changes into all other applicable branches.  If merge conflicts aren't obvious to resolve, separate PRs may be necessary</li>
+            <li>For simple and uncontroversial changes, commits directly to the repository branches are permitted (PRs and squashing are not required)</li>
           </ul>
 
-          <p>Feature releases:</p>
+          <h5>Bugfix releases:</h5>
+          <p>Bugs should be fixed without breaking backwards compatibility or API in that minor release, if at all possible.  Any changes that break backwards compatibility or require a change to documentation, should note the version and explain the changes in the docs, wherever necessary.</p>
           <ul>
-            <li>All feature release or bug release development should be done in their own independent <Link to="#branches">branch</Link> off of development.</li>
-            <li>Merge development (which should already include everything in master) into the feature/release branch (can create a new release-2.x branch if desired).</li>
-            <li>Update versioning information in setup.py and __init__.py and add changelog entry to README.md, commit to feature/release branch.</li>
-            <li>Create and prepare a 2.X branch on phoebe2-docs: update/rerun all tutorials, add migration tutorials, update API docs, etc.</li>
-            <li>Open pull-request from feature/release into master.</li>
-            <li>Confirm all CI tests pass on Travis, both on the feature/release and the PR.</li>
-            <li>Close pull-request via a merge commit.</li>
-            <li>Create and tag release on GitHub.</li>
-            <li>Prepare release entry on website, see <Link to="https://github.com/phoebe-project/phoebe-project.org#releasing-a-new-version-of-phoebe">instructions here</Link>.</li>
-            <li>Merge master into development and any other active branches, merging in the changes to the readme, but leaving the version at 'devel'.</li>
-            <li>See below for instructions on publishing to pip.</li>
+            <li>Create a branch in your personal fork off the latest commit in the <code>master</code> branch</li>
+            <li>If breaking changes are included that require docs updates, create a branch in your own personal fork off the appropriate <code>2.x</code> branch in the <code>phoebe2-docs</code> repo and make any updates describing the changes and which version introduced them</li>
+            <li>Preferably create a regression test which reproduces the bug and fails, but should pass.  This helps avoid the bug re-ocurring.  This isn't always feasible though as we also need to keep the tests somewhat efficient.</li>
+            <li>Fix the bug, committing and pushing to the branch in your own forked repository</li>
+            <li>Add a changelog entry to <code>README.md</code> and bump the version string in <code>setup.py</code> and <code>__init__.py</code></li>
+            <li>If other bugfixes are released at anytime before this bugfix is released, rebase on top of the latest <code>master</code>, address conflicts, and bump the version as necessary</li>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/compare">Open a PR</Link> from your branch (right dropdown) into the <code>master</code> branch (left dropdown).  Note that you may need to click "compare across forks" to see your own fork as an option.</li>
+            <li>If docs changes are necessary, <Link to="https://github.com/phoebe-project/phoebe2-docs/compare">Open a PR</Link> from your branch (right dropdown) into the appropriate <code>2.x</code> branch (left dropdown).  Note that you may need to click "compare across forks" to see your own fork as an option.</li>
+            <li>The PR(s) will be reviewed, and once all comments are addressed and tests pass, will be squashed and merged into <code>master</code></li>
+            <li>Once merged, feel free to delete the branch in your own forked repo</li>
+            <li>Repository admin will tag the release on GitHub, publish to pip, and rebase all other branches in the offical repository as necessary</li>
           </ul>
 
-          <p>Publishing to PIP (see <Link to="https://packaging.python.org/distributing/#semantic-versioning-preferred">pip documentation</Link>):</p>
+          <h5>Incremental updates to include in the next release:</h5>
+          <p>Any development that should be included in the next minor release, regardless of which major effort becomes that release, should occur off of the <code>release-2.x</code> branch.  These efforts should be short-lived (any merge conflicts are the responsibility of the owner until they're merged) and somewhat self-contained (<code>release-2.x</code> should always remain release-ready and considered stable although backwards compatibility breaks and API changes are expected).</p>
+          <ul>
+            <li>Create a branch in your own personal fork off the latest commit in the <code>release-2.x</code> branch (where 2.x is the next minor release that will include any accepted changes)</li>
+            <li>If docs changes are necessary, create a branch in your own personal fork off the <code>development</code> branch in the <code>phoebe2-docs</code> repository</li>
+            <li>Commit and push to the branch in your own forked repository</li>
+            <li>Create any necessary tests to cover new features, etc</li>
+            <li>If other updates (or bugfixes) are added to <code>release-2.x</code> branch, feel free to rebase.  This will only be <i>necessary</i> if merge conflicts would occur otherwise</li>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/compare">Open a PR</Link> from your branch (right dropdown) into the <code>release-2.x</code> branch (left dropdown).  Note that you may need to click "compare across forks" to see your own fork as an option.</li>
+            <li>If docs changes are necessary, <Link to="https://github.com/phoebe-project/phoebe2-docs/compare">Open a PR</Link> from your branch (right dropdown) into the <code>release-2.x</code> branch (left dropdown).  Note that you may need to click "compare across forks" to see your own fork as an option.</li>
+            <li>The PR(s) will be reviewed, and once all comments are addressed and tests pass, will be squashed and merged into <code>release-2.x</code>.  These changes will then be released whenever the next feature release is ready.</li>
+            <li>Once merged, feel free to delete the branch in your own forked repo</li>
+            <li>Repository admin will rebase all <code>feature-*</code> branches in the official repository as necessary to keep them up to date</li>
+          </ul>
+
+
+          <h5>Feature releases:</h5>
+          <p>Any long-lived efforts that are planned to be the "title" of a minor release, should live off their respective <code>feature-*</code> branches.  These branches are created in the main repository as branches off the latest <code>release-2.x</code> branches and are occasionally rebased to include changes merged there.  This allows for parallel work on multiple large efforts in parallel, without having to commit to the order in which they will eventually be released.</p>
+          <ul>
+            <li>Create a branch in your own personal fork off the latest commit in the appropriate <code>feature-*</code> branch.  Note that any changes here will not be released until this feature is fully ready to be released as the next minor version</li>
+            <li>If docs changes are necessary, create a branch in your own personal fork off the <code>feature-*</code> branch in the <code>phoebe2-docs</code> repository</li>
+            <li>Commit and push to the branch in your own forked repository</li>
+            <li>Create any necessary tests to cover new features, etc</li>
+            <li>If other updates (or bugfixes) are added to <code>feature-*</code> branch, feel free to rebase.  This will only be <i>necessary</i> if merge conflicts would occur otherwise</li>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/compare">Open a PR</Link> from your branch (right dropdown) into the <code>feature-*</code> branch (left dropdown).  Note that you may need to click "compare across forks" to see your own fork as an option.</li>
+            <li>If docs changes are necessary, <Link to="https://github.com/phoebe-project/phoebe2-docs/compare">Open a PR</Link> from your branch (right dropdown) into the <code>feature-*</code> branch (left dropdown).  Note that you may need to click "compare across forks" to see your own fork as an option.</li>
+            <li>The PR(s) will be reviewed, and once all comments are addressed and tests pass, will be squashed and merged into <code>feature-*</code>.  These changes will then be released whenever <i>this</i> feature release is ready and will also include all incremental changes in <code>release-2.x</code> made in the meantime</li>
+            <li>Once merged, feel free to delete the branch in your own forked repo</li>
+          </ul>
+
+          <h5>Repository admin: bugfix release process</h5>
+          <ul>
+            <li>Review PR: check for presence of changelog and tests and that all CI tests pass</li>
+            <li>Squash and merge into <code>master</code></li>
+            <li>If applicable, squash and merge <code>phoebe2-docs</code> PR</li>
+            <li>Publish to PIP (see below)</li>
+            <li>Create GitHub release entry and tag</li>
+            <li>Rebase existing <code>release-2.x</code> onto latest released version in <code>master</code></li>
+            <li>Rebase all <code>feature-*</code> branches onto the updated <code>release-2.x</code> branch (in both <code>phoebe2</code> and <code>phoebe2-docs</code> repos)</li>
+          </ul>
+
+          <h5>Repository admin: minor release process</h5>
+          <ul>
+            <li>Open PRs from <code>feature-*</code> into <code>release-2.x</code> branch within both <code>phoebe2</code> and <code>phoebe2-docs</code> repos</li>
+            <li>Merge (not squash & merge) PRs and delete the respective <code>feature-*</code> branches</li>
+            <li>Rename <code>release-2.x</code> branch to <code>2.x</code> in the <code>phoebe2-docs</code> repo, check built version of docs</li>
+            <li>Open PR from <code>release-2.x</code> into <code>master</code></li>
+            <li>Update <code>phoebe-project.org</code> website for new release, docs, and news entries</li>
+            <li>Merge PR and delete <code>release-2.x</code> branch</li>
+            <li>Publish to PIP (see below)</li>
+            <li>Create GitHub release entry and tag</li>
+            <li>Publish changes to website</li>
+            <li>Create new <code>release-2.x+1</code> branch off of <code>master</code></li>
+            <li>Rebase all <code>feature-*</code> branches onto the <i>new</i> release branches in both <code>phoebe2</code> and <code>phoebe2-docs</code></li>
+          </ul>
+
+          <h5>Repository admin: Publishing to PIP (see <Link to="https://packaging.python.org/distributing/#semantic-versioning-preferred">pip documentation</Link>):</h5>
           <ul>
             <li>make sure you have a ~/.pypirc (<Link to="https://wiki.python.org/moin/TestPyPI">more info</Link>).</li>
             <li>make sure you have twine installed (<code>sudo pip install twine</code>).</li>
             <li>build distribution releases (<code>python setup.py sdist</code>).</li>
             <li>upload to pypi server (<code>twine upload -r pypi -u [username] -p [password] dist/phoebe-[VERSION].tar.gz</code>).</li>
-            <li>test in a virtual environment:
+            <li>OPTIONAL: test in a virtual environment:
               <ul>
                 <li>make sure you have virtualenv installed (<code>sudo pip install virtualenv</code>).</li>
                 <li>create temporary virtualenv (<code>virtualenv ~/.tmpvirtualenv</code>).</li>
@@ -287,8 +345,8 @@ export class ContributeDevelopment extends Component {
                 <li>delete virtualenv (<code>rm -rf ~/.tmpvirtualenv</code>).</li>
               </ul>
             </li>
-
           </ul>
+
           <Separator large={false}/>
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
@@ -308,15 +366,9 @@ export class ContributeDevelopment extends Component {
           </p>
 
           <ul>
-            <li>master: the master branch should always contain the latest release only.  Commits should not be made directly to the master branch, but rather are compiled and tested in their own pre-release branches before being merged and tagged as a new release in the master branch.  This way, the landing page of the repo always shows the latest stable released version.</li>
-            <li>hotfix: bug fixes which will likely be assigned a hotfix/patch-release should be branched off of master, merged via a pull-request into *both master and development*, and tagged as a new release.  In general, these branches should be short-lived and consist of a minimal number of commits.  If possible (especially if all work is done by a single author), the pull-request should squash all commits.</li>
-            <li>development: the development branch contains all current work that is not worthy of a hotfix or a part of a feature under development.  All changes in development will be incorporated into the next feature/minor release.  If working on something that requires multiple commits, consider creating a local branch off of development and squashing/merging once complete and tested.</li>
-            <li>
-              features: all feature branches should be branched off of development.
-              These are often long-lived and take significant time and changes to the code before they're ready to be released, so it may be necessary to occasionally merge development into the feature branch (note: not the other way around).
-              Once ready to release, development should be merged into the feature branch and the release prepared and tested.
-              Once finalized, the release/feature branch should be merged into <i>both master and development</i>.
-            </li>
+            <li><code>master</code>: contains the latest release only.  Commits should not be made directly to the master branch, but rather are developed and merged as parts of releases. This way, the landing page of the repo always shows the latest stable released version.</li>
+            <li><code>release-2.x</code>: contains a semi-stable and tested version of all incremental changes that will make their way into the next minor release.  Contributions to this branch are done via PR from personal forks and squashed and merged once reviewed</li>
+            <li><code>feature-*</code>: the are often long-lived branches requiring collaboration among multiple developers.  These branches are rebased on top of the latest <code>release-2.x</code> and once ready, will become the next minor release</li>
           </ul>
 
           <h3>phoebe2-docs repo</h3>
@@ -327,9 +379,10 @@ export class ContributeDevelopment extends Component {
           </p>
 
           <ul>
-            <li>master: the master branch is intentionally left blank (except for built .py and .ipynb files hosted by GitHub pages) with a README explaining the branch structure.</li>
-            <li>2.0, 2.1, etc: a branch exists for each version of PHOEBE 2.  It is important when making changes to tutorials, etc, to commit and push to all applicable branches.  This way we can keep the documentation for older releases current.</li>
-            <li>development, etc: branches can exist in the phoebe2-docs repository that correspond to branches (particularly feature branches) in the main phoebe2 repository.  These exist to prepare documentation for future releases (without knowing the release number yet).</li>
+            <li><code>master</code>: the master branch is intentionally left blank (except for built <code>*.py</code> and <code>*.ipynb</code> files hosted by GitHub pages) with a <code>README.md</code> explaining the branch structure.</li>
+            <li><code>2.x</code>: a branch exists for each version of PHOEBE 2.  It is important when making changes to tutorials, etc, to commit and push to all applicable branches (can be done via cherrypicking).  This way we can keep the documentation for older releases current.</li>
+            <li><code>release-2.x</code>: documentation changes corresponding to the same branch in the <code>phoebe2</code> repo.  Note that these are built and exposed on the website in the <code>development</code> directory (in the <code>master</code> branch).</li>
+            <li><code>feature-*</code>: documentation changes corresponding to the same branch in the <code>phoebe2</code> repo.  Note that these are not available from the version switcher on the website, but are built and available to view from GitHub directly.</li>
           </ul>
 
           <h3>tables.phoebe-project.org repo</h3>
@@ -355,13 +408,13 @@ export class ContributeDevelopment extends Component {
           <h3>phoebe2-tables repo</h3>
 
           <p>
-            The <Link to="http://github.com/phoebe-project/phoebe2-tables">phoebe2-tables repository</Link> contains all passband/atmosphere tables available for download by any user's installation of PHOEBE (<b>for versions 2.0.x and 2.1.x only</b>).  Currently it only consists of a master branch.  Be careful when making updates - these updates must work for *all* versions of PHOEBE 2.0.x and 2.1.x that anyone may still have installed.
+            The <Link to="http://github.com/phoebe-project/phoebe2-tables">phoebe2-tables repository</Link> contains all passband/atmosphere tables available for download by any user's installation of PHOEBE (<b>for versions 2.0.x and 2.1.x only</b>).  Currently it only consists of a <code>master</code> branch.  Be careful when making updates - these updates must work for *all* versions of PHOEBE 2.0.x and 2.1.x that anyone may still have installed.
           </p>
 
           <h3>phoebe-project.org repo</h3>
 
           <p>
-            The <Link to="http://github.com/phoebe-project/phoebe-project.org">phoebe-project.org repository</Link> contains the source-code for the phoebe-project.org website.  Changes can be made to the master branch as long as they are tested and ready to go-live.  Changes under development can be made in other branches and merged into master when ready.  See the <Link to="http://github.com/phoebe-project/phoebe-project.org/blob/master/README.md">phoebe-project.org README</Link> for more information.
+            The <Link to="http://github.com/phoebe-project/phoebe-project.org">phoebe-project.org repository</Link> contains the source-code for the phoebe-project.org website.  Changes can be made to the <code>master</code> branch as long as they are tested and ready to go-live.  Changes under development can be made in other branches and merged into <code>master</code> when ready.  See the <Link to="http://github.com/phoebe-project/phoebe-project.org/blob/master/README.md">phoebe-project.org README</Link> for more information.
           </p>
 
           <Separator large={false} flip={true}/>
@@ -388,7 +441,7 @@ export class ContributeDevelopment extends Component {
           <h2 ref={this.refnosetests}><span className="fa fa-fw fa-xs fa-vial"></span> Writing Nosetests</h2>
 
           <p>
-            Nosetests run (via Travis-CI) after every commit is pushed to GitHub to ensure that that commit didn't break anything.
+            Nosetests run (via GitHub actions) after every commit is pushed to ensure that that commit didn't break anything.
             If it does break a test, the author is notified so they can address the issue.
             Nevertheless, it's always a good idea to run the tests locally before pushing to GitHub.  If you're unfamiliar, see <Link to="/contribute#testing">how to run the tests</Link> on your own machine.
             However, the testing is only as good as the tests themselves, so as new features are developed it is important to cover them as thoroughly as possible through this suite of tests.
@@ -396,10 +449,10 @@ export class ContributeDevelopment extends Component {
 
           <p>
             The nosetests all live in the <Link to="https://github.com/phoebe-project/phoebe2/tree/master/tests/nosetests">tests/nosetests</Link> directory in the phoebe2 source-code.
-            If you browse this directory, you'll see a list of subdirectories (each starting with 'test_') and one or multiple python files in each subdirectory.
+            If you browse this directory, you'll see a list of subdirectories (each starting with <code>test_</code>) and one or multiple python files in each subdirectory.
             If you look at the <Link to="https://github.com/phoebe-project/phoebe2/blob/master/tests/nosetests/test_blackbody/test_blackbody.py">test/nosetests/test_blackbody/test_blackbody.py</Link>, for example, you'll then see one (or more in some cases) functions (also named 'test_').
-            These functions are each run by nosetests (and Travis) and should consist of Assertion statements.  If any of these Assertion statements fail, the error will be printed in the Travis log, and the build will show as "broken".
-            At the bottom of that file, you'll see: <code>if name=='__main__':</code>.  This section of the code is run only if calling the script directly, and just simply manually calls each of the 'test_' functions.
+            These functions are each run by nosetests and should consist of Assertion statements.  If any of these Assertion statements fail, the error will be printed in the GitHub Actions log, and the build will show as "broken".
+            At the bottom of that file, you'll see: <code>if name=='__main__':</code>.  This section of the code is run only if calling the script directly, and just simply manually calls each of the <code>test_</code> functions.
           </p>
           <p>
             Some of the existing nosetests test to make sure the physics remains unchanged.  These often compare the output model to that from PHOEBE 1 or a saved file.  Other nosetests make sure that errors are raised when necessary (if a forbidden value is provided, for example).
@@ -408,11 +461,11 @@ export class ContributeDevelopment extends Component {
             If you think something needs to be added to the nosetests, browse around the existing tests and see if it can be added to one that already exists.  If not, go ahead and create a new subdirectory and/or file with a reasonable name.  Just make sure to follow these conventions:
           </p>
           <ul>
-            <li>all subdirectories and files are named with the test_ prefix</li>
-            <li>all functions within the test file that do not start with an underscore will be run by nosetests.  It doesn't hurt to prefix them with test_ as well, just to be clear.</li>
+            <li>all subdirectories and files are named with the <code>test_</code> prefix</li>
+            <li>all functions within the test file that do not start with an underscore will be run by nosetests.  It doesn't hurt to prefix them with <code>test_</code> as well, just to be clear.</li>
             <li>include all test_ functions in the main block at the bottom of the code so that any errors from nosetests can easily be reproduced simply by running the script from the command-line</li>
-            <li>consider having a switch that defaults to False but is passed as True from the main-block for any debugging/verbose outputs</li>
-            <li>never plot by default.  If plotting is helpful to debug, include in a switch which defaults to False.</li>
+            <li>consider having a switch that defaults to <code>False</code> but is passed as <code>True</code> from the main-block for any debugging/verbose outputs</li>
+            <li>never plot by default.  If plotting is helpful to debug, include in a switch which defaults to <code>False</code>.</li>
           </ul>
 
           <Separator large={false} flip={true}/>
@@ -424,14 +477,14 @@ export class ContributeDevelopment extends Component {
             The <Link to="/docs">documentation</Link> for PHOEBE is divided into several different styles or types:
           </p>
           <ul>
-            <li>Tutorials: tutorials aim to provide a narrated introduction to concepts without getting in-depth and generally build on each other.  These are all Jupyter notebooks and in the tutorials directory and are linked from tutorials.md file in phoebe2-docs.</li>
-            <li>Datasets/Physics: tutorials (although not as verbose as the ordered-tutorials above) that introduce the various datasets and types of physics implemented in PHOEBE.  These are all Jupyter notebooks in the tutorials directory and are linked from either datasets.md or physics.md in phoebe2-docs.</li>
-            <li>Examples: example scripts aim to provide a more focused... example, but with less narration than tutorials.  They assume a basic understanding of using PHOEBE and skip over the basics.  These are also all Jupyter notebooks and in the examples directory and are linked from examples.md in phoebe2-docs.</li>
-            <li>API Docs: API docs provide in-depth documentation for the arguments for each function/method.  These are in the docstrings of the PHOEBE code itself and are automatically generated into the api directory in phoebe2-docs.  Any changes to an archived version of PHOEBE can be made directly to the markdown files, but changes to the current or future releases should be done in the source-code itself.</li>
+            <li><b>Tutorials</b>: tutorials aim to provide a narrated introduction to concepts without getting in-depth and generally build on each other.  These are all Jupyter notebooks and in the tutorials directory and are linked from tutorials.md file in phoebe2-docs.</li>
+            <li><b>Datasets/Physics</b>: tutorials (although not as verbose as the ordered-tutorials above) that introduce the various datasets and types of physics implemented in PHOEBE.  These are all Jupyter notebooks in the tutorials directory and are linked from either datasets.md or physics.md in phoebe2-docs.</li>
+            <li><b>Examples</b>: example scripts aim to provide a more focused... example, but with less narration than tutorials.  They assume a basic understanding of using PHOEBE and skip over the basics.  These are also all Jupyter notebooks and in the examples directory and are linked from examples.md in phoebe2-docs.</li>
+            <li><b>API Docs</b>: API docs provide in-depth documentation for the arguments for each function/method.  These are in the docstrings of the PHOEBE code itself and are automatically generated into the api directory in phoebe2-docs.  Any changes to an archived version of PHOEBE can be made directly to the markdown files, but changes to the current or future releases should be done in the source-code itself.</li>
           </ul>
 
           <p>
-            For all new Jupyter notebooks: please copy the template_tutorial.ipynb or template_example.ipynb file in the correct directory and rename it to something sensible.
+            For all new Jupyter notebooks: please copy the <code>template_tutorial.ipynb</code> or <code>template_example.ipynb</code> file in the correct directory and rename it to something sensible.
           </p>
 
           <p>
