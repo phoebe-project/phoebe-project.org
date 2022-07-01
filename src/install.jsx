@@ -135,9 +135,6 @@ export class Install extends Component {
     } else if (version_py === 'python2' && version_short >= 2.3) {
       show_instructions = false
     }
-    if (OSName === 'windows') {
-      show_instructions = false
-    }
 
     return (
       <div>
@@ -210,9 +207,8 @@ export class Install extends Component {
 
 
           {OSName === 'windows' ?
-            <Alert level="danger">
-              <p>PHOEBE is not yet officially supported on Windows.  If you're running Windows 10 and use "Windows Subsystem for Linux", you should be able to successfully install PHOEBE there by following the <Link to={"/install/"+version+"/linux/"+version_py}>Linux installation instructions</Link>.</p>
-              <p>If you're interested in helping port and test PHOEBE on Windows, please <Link to="/help/contact">contact us</Link>.  Or see instructions for installing on <Link to={"/install/"+version+"/linux/"+version_py}>Linux</Link> or <Link to={"/install/"+version+"/mac/"+version_py}>MacOS</Link>.</p>
+            <Alert level="warning">
+              <p>If you're running Windows 10 and want to install PHOEBE in WSL (Windows Subsystem for Linux), follow the <Link to={"/install/"+version+"/linux/"+version_py}>Linux installation instructions</Link>.</p>
             </Alert>
             :
             null
@@ -235,6 +231,22 @@ export class Install extends Component {
                   null
                 }
 
+                {OSName === 'windows' ?
+                  <div>
+                    <p>
+                      In order to install PHOEBE in windows natively, you'll need to first:
+                    </p>
+                    <ol>
+                      <li>Install <Link to="https://docs.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170">Microsoft Visual C++ Redistributable</Link></li>
+                      <li>Install the C++ "community" version of <Link to="https://visualstudio.microsoft.com/downloads/">Visual Studio 2022</Link>.</li>
+                      <li>Install <Link to="https://code.visualstudio.com/docs/python/coding-pack-python">Coding Pack for Python</Link>.</li>
+                      <li>Install <Link to="https://www.python.org/downloads/windows/">Python 3</Link>.  Alternatively, consider installing anaconda or miniconda which include python and <Link to={"/install/"+version+"/"+version_os+"/python3#conda"}>install PHOEBE in a conda environment</Link>.</li>
+                    </ol>
+                  </div>
+                  :
+                  null
+                }
+
                 {version_py==="python2" ?
                   <p>PHOEBE {version_short} has been tested to build and run on python 2.7+ {version_short >= 2.2 ? <span>(<Link to={"/install/"+version+"/"+version_os+"/python3#source"}>or python 3.6+</Link>)</span> : <span>(but does not support python 3)</span>}.  You can check your installed version of {python} with:</p>
                   :
@@ -244,11 +256,18 @@ export class Install extends Component {
                   {python} --version
                 </pre>
 
-                <p>The C++ code in PHOEBE requires a compiler that supports C++11, <b>either</b> of the following should build correctly:</p>
-                <ul>
-                  <li>g++ (g++-5 or newer)</li>
-                  <li>clang (clang-3.3 or newer)</li>
-                </ul>
+                {OSName !== 'windows' ?
+                  <div>
+                    <p>The C++ code in PHOEBE requires a compiler that supports C++11, <b>either</b> of the following should build correctly:</p>
+                    <ul>
+                      <li>g++ (g++-5 or newer)</li>
+                      <li>clang (clang-3.3 or newer)</li>
+                    </ul>
+                  </div>
+                  :
+                  null
+                }
+
                 {OSName === 'linux' ?
                   <div>
                     <p>Note for <strong>Ubuntu 14.04 users</strong>: g++ is not installed by default.  You’ll likely need to to do the following in order to install PHOEBE:</p>
@@ -275,8 +294,12 @@ export class Install extends Component {
                   null
                   }
 
+                {OSName !== 'windows' ?
+                  <p>Additionally, in order to build the C-sources, make sure you have Python.h headers for the correct version of {python}, by installing {python}-dev via your package manager.</p>
+                  :
+                  null
+                }
 
-                <p>Additionally, in order to build the C-sources, make sure you have Python.h headers for the correct version of {python}, by installing {python}-dev via your package manager.</p>
                 {OSName === 'linux' ?
                   <div>
                     <p>The following should work for debian-based systems (Ubuntu, etc):</p>
@@ -303,7 +326,16 @@ export class Install extends Component {
 
                 <p>If you have multiple python and/or pip installations, it is important to make sure they point to the same version of {python}.  You can check the installation of {python} corresponding to {pip} via <code>{pip} -V</code> or can replace all instances of <code>{pip}</code> below with <code>{python} -m pip</code>.</p>
 
-
+                {OSName === 'windows' ?
+                  <div>
+                    <p>If not installing within a full anaconda installation, windows users will need to install pyreadline:</p>
+                    <pre>
+                      {pip} install pyreadline
+                    </pre>
+                  </div>
+                  :
+                  null
+                }
 
                 <p>Since the build process requires numpy, we'll make sure that's installed first.  {version!=='latest' ? "To install version "+version_long+" of PHOEBE" : 'To install the latest version of PHOEBE'}:</p>
                 <pre>
@@ -342,9 +374,12 @@ export class Install extends Component {
 
                 <h2 ref={this.refconda}><span className="fab fa-fw fa-xs fa-cuttlefish"></span>  Conda Environments</h2>
                 <p>Conda environments allow having an isolated environment for phoebe, with its own installation of python, compilers, package dependencies, etc and avoid conflicts with other software you may have installed.</p>
+
+
                 <p>
-                  Once you have <Link to="https://docs.conda.io/en/latest/miniconda.html">conda installed and setup</Link>, you can create and activate an environment for PHOEBE:
+                  Once you either have <Link to="https://www.anaconda.com/">anaconda</Link> or <Link to="https://docs.conda.io/en/latest/miniconda.html">miniconda</Link> installed and setup, you can create and activate an environment for PHOEBE:
                 </p>
+
                 <pre>
                   conda create -n name_of_phoebe_environment python={version_py === 'python3' ? 3.8 : 2.7 }<br/>
                   conda activate name_of_phoebe_environment
@@ -360,6 +395,17 @@ export class Install extends Component {
                     <pre>
                       export CPATH=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include<br/>
                       conda install clangxx_osx-64  # or clang-12.0.0
+                    </pre>
+                  </div>
+                  :
+                  null
+                }
+
+                {OSName === 'windows' ?
+                  <div>
+                    <p>If using miniconda (instead of the full anaconda), windows users will also need to install pyreadline:</p>
+                    <pre>
+                      conda install pyreadline
                     </pre>
                   </div>
                   :
