@@ -69,7 +69,9 @@ export class Home extends Component {
             </div>
             <div className="col-lg-6 col-md-12">
               <div style={{padding: "20px", maxWidth: "800px", height: "130px", margin: "0px auto", textAlign: "center"}}>
-                <span>install the <Link to="/clients#desktop">desktop client</Link></span>
+                <Button level="primary" style={{lineHeight: "2.3em", fontSize: "12px", height: "40px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
+                <br/>
+                <span>or install the <Link to="/clients#desktop">desktop client</Link></span>
                 <br/>
                 <span><Link to="/clients">full client information</Link></span>
               </div>
