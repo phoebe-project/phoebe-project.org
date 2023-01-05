@@ -238,7 +238,7 @@ class WorkshopEntry extends Component {
 
               :
               <Alert level="danger">
-                <p><b>WARNING:</b> these tutorials are not kept up-to-date with changes since the workshop.  Make sure you're using the same version of PHOEBE as used in the workshop or follow the updated <Link to="/docs/tutorials">online tutorials</Link>.</p>
+                <p><b>WARNING:</b> these tutorials are not kept up-to-date with changes since the workshop.  Make sure you're using the same version of PHOEBE as used in the workshop or follow the updated <Link to="/docs/latest/tutorials">online tutorials</Link>.</p>
               </Alert>
             :
               null
