@@ -9,6 +9,31 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "Fifth PHOEBE Workshop",
+    slug: "phoebe-workshop-5",
+    pinnedDays: 30,
+    date: "February 24, 2023",
+    author: "Kyle Conroy",
+    content: <div>
+              <p>
+                Dear Colleagues,
+              </p>
+              <p>
+                We are pleased to announce that the Fifth PHOEBE Workshop will take place 19th – 23rd June 2023 at the University of Ljubljana, Slovenia.
+              </p>
+              <p>
+                Further information and the registration form can be found at <Link to="/workshops/2023june">http://phoebe-project.org/workshops/2023june</Link>. Registration is now open, and acceptance is on a first-come-first-serve basis.
+              </p>
+              <p>
+                We look forward to meeting you soon!
+              </p>
+              <p>
+                Kind regards,<br/>
+                The <Link to="/development-team">PHOEBE team</Link>
+              </p>
+            </div>
+  },
+  {
     title: "PHOEBE 2.4 Released",
     slug: "phoebe-24-released",
     pinnedDays: 60,
@@ -34,7 +59,7 @@ export var newsStoriesDicts = [
                 Dear Colleagues,
               </p>
               <p>
-                We are please to announce that the Fourth PHOEBE Workshop will take place 20th – 24th June 2022 at Villanova University, Pennsylvania, USA, with an additional advanced-fitting, on-line component that will be held for three hours every Tuesday for five consecutive weeks (from 28th June until 26th July 2022).
+                We are pleased to announce that the Fourth PHOEBE Workshop will take place 20th – 24th June 2022 at Villanova University, Pennsylvania, USA, with an additional advanced-fitting, on-line component that will be held for three hours every Tuesday for five consecutive weeks (from 28th June until 26th July 2022).
               </p>
               <p>
                 Further information and the registration form can be found at <Link to="/workshops/2022june">http://phoebe-project.org/workshops/2022june</Link>. Registration is now open, and acceptance is on a first-come-first-serve basis.
