@@ -51,7 +51,11 @@ function parseReadmeChangelog(text) {
       if (Object.keys(versions).indexOf(version_short) === -1) {
         versions[version_short] = []
       }
-      versionTitle = versionDescription.split("\n\n")[0].split("- ")[1]
+      if (versionDescription.indexOf('-') !== -1) {
+        versionTitle = versionDescription.split("\n\n")[0].split("- ")[1]
+      } else {
+        versionTitle = ''
+      }
       versions[version_short].push({title: versionTitle.replace("\\_", "_"), description: versionDescription.replace("- "+versionTitle, "")})
     }
   }
