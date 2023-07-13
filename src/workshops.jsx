@@ -8,11 +8,12 @@ import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
 var upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
-var active_workshops = {"2023june": "June 2023, Ljubljana Slovenia"}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
+var active_workshops = {}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
 var archived_workshops = {"2018june": "June 2018, Villanova PA",
                           "2019july": "July 2019, Villanova PA",
                           "2021june": "June 2021, Virtual Workshop",
-                          "2022june": "June-July 2022, Villanova PA"}; // WORKSHOP OVER
+                          "2022june": "June-July 2022, Villanova PA",
+                          "2023june": "June 2023, Ljubljana Slovenia"}; // WORKSHOP OVER
 
 // NOTE: "2020june": "June-July 2020, Villanova PA" canceled due to covid-19
 
@@ -74,7 +75,7 @@ export class Workshop extends Component {
             <div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>
               <Image src={"/images/workshops/PHOEBE_workshop_4_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_4.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxWidth="80%" title="PHOEBE Workshop 2022"/>
               <Image src={"/images/workshops/PHOEBE_workshop_4b_thumb.png"} href={"/static/workshops/PHOEBE_workshop_4b.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxWidth="80%" title="PHOEBE Workshop 2022 remote component"/>
-
+              <Image src={"/images/workshops/PHOEBE_workshop_5_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_5.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxWidth="80%" title="PHOEBE Workshop 2023"/>
             </div>
             <div style={{textAlign: "center", paddingTop: "5px", paddingBottom: "25px"}}>
               <Image src={"/images/workshops/PHOEBE_workshop_2_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxWidth="80%"/>
