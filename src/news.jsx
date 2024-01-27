@@ -9,11 +9,40 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export var newsStoriesDicts = [
   {
+    title: "Sixth PHOEBE Workshop",
+    slug: "phoebe-workshop-6",
+    pinnedDays: 30,
+    date: "February 6, 2024",
+    author: "Kelly Hambleton",
+    content: <div>
+              <p>
+                Dear Colleagues,
+              </p>
+              <p>
+                We are excited to announce that we will be hosting the 6th PHOEBE Workshop for <b>advanced</b> participants this June in Slovenia!
+              </p>
+              <p>
+                The workshop will take place on June 10th - 14th 2024 at the University of Ljubljana, Slovenia. Unlike previous years, this workshop will take on a hack-week format and be aimed at advancing the skills of those already familiar with PHOEBE. During the workshop, participants will work on individual and small-group projects with a focus on real data and the skills required to create publication-quality models. Participants will also gain insight into bug fixing and be given the opportunity to contribute to the PHOEBE code.
+              </p>
+              <p>
+                To register, please fill out the form at <Link to="/workshops/2024june/registration">http://phoebe-project.org/workshops/2024june</Link>. Space is limited and participants are selected on a first come first serve basis (registration ends on March 8th).
+              </p>
+              <p>
+                We look forward to welcoming you to Slovenia in June!
+              </p>
+
+              <p>
+                Kind regards,<br/>
+                The <Link to="/development-team">PHOEBE team</Link>
+              </p>
+            </div>
+  },
+  {
     title: "Fifth PHOEBE Workshop",
     slug: "phoebe-workshop-5",
     pinnedDays: 30,
     date: "February 24, 2023",
-    author: "Kyle Conroy",
+    author: "Kelly Hambleton",
     content: <div>
               <p>
                 Dear Colleagues,
@@ -53,7 +82,7 @@ export var newsStoriesDicts = [
     slug: "phoebe-workshop-4",
     pinnedDays: 21,
     date: "February 28, 2022",
-    author: "Kyle Conroy",
+    author: "Kelly Hambleton",
     content: <div>
               <p>
                 Dear Colleagues,
@@ -98,7 +127,7 @@ export var newsStoriesDicts = [
     slug: "phoebe-workshop-3-virtual",
     pinnedDays: 45,
     date: "February 22, 2021",
-    author: "Kyle Conroy",
+    author: "Kelly Hambleton",
     content: <div>
               <p>
                 Dear Colleagues,
@@ -215,7 +244,7 @@ export var newsStoriesDicts = [
     slug: "phoebe-workshop-3",
     pinnedDays: 67,
     date: "December 9, 2019",
-    author: "Kyle Conroy",
+    author: "Kelly Hambleton",
     content: <div>
               <p>
                 Dear Colleagues,
@@ -246,7 +275,7 @@ export var newsStoriesDicts = [
     slug: "phoebe-workshop-2",
     pinnedDays: 30,
     date: "March 15, 2019",
-    author: "Kyle Conroy",
+    author: "Kelly Hambleton",
     content: <div>
               <p>
                 Dear Colleagues,
