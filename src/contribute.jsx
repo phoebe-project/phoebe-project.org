@@ -263,7 +263,7 @@ export class ContributeDevelopment extends Component {
             <li>If breaking changes are included that require docs updates, create a branch in your own personal fork off the appropriate <code>2.x</code> branch in the <code>phoebe2-docs</code> repo and make any updates describing the changes and which version introduced them</li>
             <li>Preferably create a regression test which reproduces the bug and fails, but should pass.  This helps avoid the bug re-ocurring.  This isn't always feasible though as we also need to keep the tests somewhat efficient.</li>
             <li>Fix the bug, committing and pushing to the branch in your own forked repository</li>
-            <li>Add a changelog entry to <code>README.md</code> and bump the version string in <code>setup.py</code> and <code>__init__.py</code></li>
+            <li>Add a changelog entry to <code>README.md</code> and bump the version string in <code>pyproject.toml</code> and <code>__init__.py</code></li>
             <li>If other bugfixes are released at anytime before this bugfix is released, rebase on top of the latest <code>master</code>, address conflicts, and bump the version as necessary</li>
             <li><Link to="https://github.com/phoebe-project/phoebe2/compare">Open a PR</Link> from your branch (right dropdown) into the <code>master</code> branch (left dropdown).  Note that you may need to click "compare across forks" to see your own fork as an option.</li>
             <li>If docs changes are necessary, <Link to="https://github.com/phoebe-project/phoebe2-docs/compare">Open a PR</Link> from your branch (right dropdown) into the appropriate <code>2.x</code> branch (left dropdown).  Note that you may need to click "compare across forks" to see your own fork as an option.</li>
@@ -332,7 +332,7 @@ export class ContributeDevelopment extends Component {
           <ul>
             <li>make sure you have a ~/.pypirc (<Link to="https://wiki.python.org/moin/TestPyPI">more info</Link>).</li>
             <li>make sure you have twine installed (<code>sudo pip install twine</code>).</li>
-            <li>build distribution releases (<code>python setup.py sdist</code>).</li>
+            <li>build distribution releases (<code>python -m build</code>).</li>
             <li>upload to pypi server (<code>twine upload -r pypi -u [username] -p [password] dist/phoebe-[VERSION].tar.gz</code>).</li>
             <li>OPTIONAL: test in a virtual environment:
               <ul>
