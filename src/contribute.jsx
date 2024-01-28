@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Separator, NosetestsDiv, metaKeywords} from './common';
+import {Content, Link, Separator, TestsDiv, metaKeywords} from './common';
 import {Header, HeaderNavButton} from './header';
 
 
@@ -76,9 +76,9 @@ export class Contribute extends Component {
             The easiest way to help contribute to PHOEBE is to help by testing the code - both by testing systems and configurations we may not have considered and also on a variety of different machines and installations.
           </p>
           <p>
-            We use a suite of tests, called nosetests, which are run everytime we commit a change to the code and before every release by <Link to="https://travis-ci.org/phoebe-project/phoebe2">Travis CI</Link>.  You can start by running this suite of tests on your own machine/installation and making sure all tests pass.
+            We use a suite of tests, called pytest, which are run everytime we commit a change to the code and before every release by <Link to="https://travis-ci.org/phoebe-project/phoebe2">Travis CI</Link>.  You can start by running this suite of tests on your own machine/installation and making sure all tests pass.
           </p>
-          <NosetestsDiv/>
+          <TestsDiv/>
           <p>
             If any of the tests fail, see below on how to <Link to="#issues">report an issue</Link>.
           </p>
@@ -86,7 +86,7 @@ export class Contribute extends Component {
             Once all of the tests pass, you know that your installation is working as far as all the official tests.  Now continue to abuse PHOEBE, and report anytime that PHOEBE crashes, takes an exceedingly long amount of time, or returns wrong science.
           </p>
           <p>
-            If you find a corner of PHOEBE that is not covered by the nosetests, <Link to="/contribute/development-guide#nosetests">feel free to write and submit your own</Link>.  You can always fork the <Link to="http://github.com/phoebe-project/phoebe2">GitHub repository</Link> and submit a Pull-Request, or see below for more information on how to <Link to="#develop">join the development team</Link>, if you so wish.
+            If you find a corner of PHOEBE that is not covered by the tests, <Link to="/contribute/development-guide#tests">feel free to write and submit your own</Link>.  You can always fork the <Link to="http://github.com/phoebe-project/phoebe2">GitHub repository</Link> and submit a Pull-Request, or see below for more information on how to <Link to="#develop">join the development team</Link>, if you so wish.
           </p>
 
           <Separator large={false}/>
@@ -154,7 +154,7 @@ export class ContributeDevelopment extends Component {
       this.refreleases = React.createRef();
       this.refbranches = React.createRef();
       this.reftours = React.createRef();
-      this.refnosetests = React.createRef();
+      this.reftests = React.createRef();
       this.refdocs = React.createRef();
   }
   scrollToHash() {
@@ -166,8 +166,8 @@ export class ContributeDevelopment extends Component {
       offsetTop = this.refbranches.current.offsetTop;
     } else if (hash==='#tours') {
       offsetTop = this.reftours.current.offsetTop;
-    } else if (hash==='#nosetests') {
-      offsetTop = this.refnosetests.current.offsetTop;
+    } else if (hash==='#tests') {
+      offsetTop = this.reftests.current.offsetTop;
     } else if (hash==='#docs') {
       offsetTop = this.refdocs.current.offsetTop;
     }
@@ -207,7 +207,7 @@ export class ContributeDevelopment extends Component {
                <HeaderNavButton title="Code Tours" description="Tours of Code Layout and Structure" to={"#tours"} icon="fas fa-microscope"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Nosetests" description="Writing Nosetests" to={"#nosetests"} icon="fa fa-vial"/>
+               <HeaderNavButton title="Tests" description="Writing Tests" to={"#tests"} icon="fa fa-vial"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Documentation" description="Writing Documentation" to={"#docs"} icon="fa fa-book-open"/>
@@ -438,32 +438,32 @@ export class ContributeDevelopment extends Component {
           <Separator large={false}/>
         </Content>
         <Content dark={true} preventScrollTop={this.props.location.hash}>
-          <h2 ref={this.refnosetests}><span className="fa fa-fw fa-xs fa-vial"></span> Writing Nosetests</h2>
+          <h2 ref={this.reftests}><span className="fa fa-fw fa-xs fa-vial"></span> Writing Tests</h2>
 
           <p>
-            Nosetests run (via GitHub actions) after every commit is pushed to ensure that that commit didn't break anything.
+            Tests run (via GitHub actions) after every commit is pushed to ensure that that commit didn't break anything.
             If it does break a test, the author is notified so they can address the issue.
             Nevertheless, it's always a good idea to run the tests locally before pushing to GitHub.  If you're unfamiliar, see <Link to="/contribute#testing">how to run the tests</Link> on your own machine.
             However, the testing is only as good as the tests themselves, so as new features are developed it is important to cover them as thoroughly as possible through this suite of tests.
           </p>
 
           <p>
-            The nosetests all live in the <Link to="https://github.com/phoebe-project/phoebe2/tree/master/tests/nosetests">tests/nosetests</Link> directory in the phoebe2 source-code.
+            The tests all live in the <Link to="https://github.com/phoebe-project/phoebe2/tree/master/tests/tests">tests</Link> directory in the phoebe2 source-code.
             If you browse this directory, you'll see a list of subdirectories (each starting with <code>test_</code>) and one or multiple python files in each subdirectory.
-            If you look at the <Link to="https://github.com/phoebe-project/phoebe2/blob/master/tests/nosetests/test_blackbody/test_blackbody.py">test/nosetests/test_blackbody/test_blackbody.py</Link>, for example, you'll then see one (or more in some cases) functions (also named 'test_').
-            These functions are each run by nosetests and should consist of Assertion statements.  If any of these Assertion statements fail, the error will be printed in the GitHub Actions log, and the build will show as "broken".
+            If you look at the <Link to="https://github.com/phoebe-project/phoebe2/blob/master/tests/tests/test_blackbody/test_blackbody.py">tests/test_blackbody/test_blackbody.py</Link>, for example, you'll then see one (or more in some cases) functions (also named 'test_').
+            These functions are each run by pytest and should consist of Assert statements.  If any of these Assert statements fail, the error will be printed in the GitHub Actions log, and the build will show as "broken".
             At the bottom of that file, you'll see: <code>if name=='__main__':</code>.  This section of the code is run only if calling the script directly, and just simply manually calls each of the <code>test_</code> functions.
           </p>
           <p>
-            Some of the existing nosetests test to make sure the physics remains unchanged.  These often compare the output model to that from PHOEBE 1 or a saved file.  Other nosetests make sure that errors are raised when necessary (if a forbidden value is provided, for example).
+            Some of the existing pytests test to make sure the physics remains unchanged.  These often compare the output model to that from PHOEBE 1 or a saved file.  Other tests make sure that errors are raised when necessary (if a forbidden value is provided, for example).
           </p>
           <p>
-            If you think something needs to be added to the nosetests, browse around the existing tests and see if it can be added to one that already exists.  If not, go ahead and create a new subdirectory and/or file with a reasonable name.  Just make sure to follow these conventions:
+            If you think something needs to be added to the tests, browse around the existing tests and see if it can be added to one that already exists.  If not, go ahead and create a new subdirectory and/or file with a reasonable name.  Just make sure to follow these conventions:
           </p>
           <ul>
             <li>all subdirectories and files are named with the <code>test_</code> prefix</li>
-            <li>all functions within the test file that do not start with an underscore will be run by nosetests.  It doesn't hurt to prefix them with <code>test_</code> as well, just to be clear.</li>
-            <li>include all test_ functions in the main block at the bottom of the code so that any errors from nosetests can easily be reproduced simply by running the script from the command-line</li>
+            <li>all functions within the test file that do not start with an underscore will be run by pytest.  It doesn't hurt to prefix them with <code>test_</code> as well, just to be clear.</li>
+            <li>include all test_ functions in the main block at the bottom of the code so that any errors from pytest can easily be reproduced simply by running the script from the command-line</li>
             <li>consider having a switch that defaults to <code>False</code> but is passed as <code>True</code> from the main-block for any debugging/verbose outputs</li>
             <li>never plot by default.  If plotting is helpful to debug, include in a switch which defaults to <code>False</code>.</li>
           </ul>

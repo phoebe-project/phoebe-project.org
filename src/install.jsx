@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect, Separator, Alert, getLatestPatchVersion, metaKeywords, NosetestsDiv} from './common';
+import {Content, Link, Redirect, Separator, Alert, getLatestPatchVersion, metaKeywords, TestsDiv} from './common';
 import {VersionSwitcherContainer, VersionSwitcher} from './versionswitcher';
 import {NotFound} from './errors';
 import {docs_versions, getDocsLink} from './docs';
@@ -547,8 +547,8 @@ export class Install extends Component {
                 <Separator large={false} flip={false}/>
               </Content>
               <Content dark={true} preventScrollTop={this.props.location.hash}>
-                <h2 ref={this.reftesting}><span className="fa fa-fw fa-xs fa-vial"></span> Running Nosetests</h2>
-                <NosetestsDiv python={python} version_short={version_short}/>
+                <h2 ref={this.reftesting}><span className="fa fa-fw fa-xs fa-vial"></span> Running Pytests</h2>
+                <TestsDiv python={python} version_short={version_short}/>
 
                 <p>
                   For more information, read about <Link to="/contribute#testing">testing PHOEBE</Link> and <Link to="/contribute#issues">reporting issues and bugs</Link>.
