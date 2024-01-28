@@ -156,6 +156,7 @@ export class ContributeDevelopment extends Component {
       this.reftours = React.createRef();
       this.reftests = React.createRef();
       this.refdocs = React.createRef();
+      this.refauthorship = React.createRef();
   }
   scrollToHash() {
     var offsetTop = null;
@@ -170,6 +171,8 @@ export class ContributeDevelopment extends Component {
       offsetTop = this.reftests.current.offsetTop;
     } else if (hash==='#docs') {
       offsetTop = this.refdocs.current.offsetTop;
+    } else if (hash=='#authorship') {
+      offsetTop = this.refauthorship.current.offsetTop;
     }
 
     if (offsetTop) {
@@ -196,7 +199,6 @@ export class ContributeDevelopment extends Component {
           <h1>Development Guide</h1>
 
           <div className="row">
-             <div className="col-md-2"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Releases" description="Release Conventions" to={"#releases"} icon="fa fa-tags"/>
              </div>
@@ -211,6 +213,9 @@ export class ContributeDevelopment extends Component {
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Documentation" description="Writing Documentation" to={"#docs"} icon="fa fa-book-open"/>
+             </div>
+             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+               <HeaderNavButton title="Authorship" description="Authorship Policy" to={"#authorship"} icon="fa fa-users"/>
              </div>
            </div>
         </Header>
@@ -493,7 +498,51 @@ export class ContributeDevelopment extends Component {
 
 
         </Content>
+        <Content dark={true} preventScrollTop={this.props.location.hash}>
+          <h2 ref={this.refauthorship}><span className="fa fa-fw fa-xs fa-users"></span> Authorship Policy</h2>
 
+          <p>
+          PHOEBE is a collaborative, open-source code released under the GNU General Public License v3. The philosophy behind PHOEBE is inclusive: everyone who contributes to its codebase, to its documentation, to building and testing, or to its scientific backend, merits recognition. The purpose of this document is to explain how the aforementioned contributions relate to code authorship and paper authorship rules.
+          </p>
+
+          <h3>Code Authorship</h3>
+          <p>
+            Code authorship is acknowledged in the top-level <code>pyproject.toml</code> build configuration file. The file has two relevant tables: "authors" and "maintainers". PHOEBE defines "authors" as persons who contributed one or more of the following:
+            <ul>
+              <li>approved and merged pull requests (PRs) that contain significant bugfixes and close (or help close) a corresponding issue;</li>
+              <li>approved and merged code documentation PRs that correct factual errors or omissions, or contribute documentation that has not existed before;</li>
+              <li>science- or operation-related discussion points that have been reviewed by all other authors and recognized as meritorious for the inclusion in the code;</li>
+              <li>any other additions to the code or supporting materials that the team recognizes as meritorious.</li>
+            </ul>
+          </p>
+
+          <p>
+            Code authorship is assigned to the minor version release cycle (i.e., phoebe-2.x) and perseveres for the life of that cycle. The new cycle begins with the official release of the minor version (say, phoebe-2.4) and ends with the official release of the subsequent minor version (say, phoebe-2.5). New authors that provide mid-cycle contributions that meet the above criteria will be added to the respective micro version releases (i.e., phoebe-2.x.y).
+          </p>
+
+          <p>
+            PHOEBE defines `maintainers` as persons who lead the project. The maintainers' responsibility is to oversee the development, distribution, and future vision of the project, to implement work flows and code contribution ethics, to ensure equal opportunities and fair/equitable treatment of all involved individuals, and to be held accountable for project deliverables. Maintainers have exclusive access to the github's `main` repository. Currently, two individuals serve as project maintaners, Andrej Prša (project PI) and Kyle Conroy (lead developer).
+          </p>
+
+          <h3>Paper Authorship</h3>
+          <p>
+            Thus far, PHOEBE publications were tied to the minor version releases. As a rule, minor versions provide fundamental new functionality to PHOEBE. Paper authorship reflects the degree of contributions to the codebase, to the documentation, and to other release-related efforts. First author position is reserved for the individual who leads the implementation effort and who has written the majority of the paper. The remaining authors are listed commensurate to their contributions to the published work. All authors listed in the `authors` section of the code authorship are eligible to co-authorship of the paper. The PI of the project, unless they lead the paper, will be listed as last author on the paper. In addition to the contributors from the `authors` section, the following contributions qualify for paper co-authorship:
+            <ul>
+              <li>organization of and significant participation in workshops, power meetings and conferences that focus on the PHOEBE codebase;</li>
+              <li>acquired significant funding that is primarily designated for the development of PHOEBE in general, or any of the scientific aspects in PHOEBE in particular.</li>
+            </ul>
+          </p>
+
+          <p>
+            2 weeks prior to paper submission, the lead author is obliged to circulate the draft to all potential co-authors. The co-authors need to provide the written (emailed) statement to the lead author where (1) they list the contributions to the work published in the paper; (2) they agree with the contents of the paper, and (3) they accept co-authorship on the paper.        
+          </p>
+
+          <h3>Dispute Resolution</h3>
+          <p>
+            Determining code and paper authorship can be a non-trivial issue. In the case where the rules set by this document are not sufficiently clear, the maintainers of the project, at their sole discretion, can resolve the dispute over code and paper authorship. Their decision is considered final and cannot be further disputed.
+          </p>
+
+        </Content>
       </div>
     );
   }
