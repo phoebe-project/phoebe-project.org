@@ -250,7 +250,7 @@ export class Install extends Component {
                 {version_py==="python2" ?
                   <p>PHOEBE {version_short} has been tested to build and run on python 2.7+ {version_short >= 2.2 ? <span>(<Link to={"/install/"+version+"/"+version_os+"/python3#source"}>or python 3.6+</Link>)</span> : <span>(but does not support python 3)</span>}.  You can check your installed version of {python} with:</p>
                   :
-                  <p>PHOEBE {version_short} has been tested to build and run on python 3.6+ {version_short === 2.2 ? (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or python 2.7+</Link>) : null}.    You can check your installed version of {python} with:</p>
+                  <p>PHOEBE {version_short} has been tested to build and run on python {version_short < 2.4 ? "3.6+" : "3.7+"} {version_short === 2.2 ? (<Link to={"/install/"+version+"/"+version_os+"/python2#source"}>or python 2.7+</Link>) : null}.    You can check your installed version of {python} with:</p>
                 }
                 <pre>
                   {python} --version
@@ -381,7 +381,7 @@ export class Install extends Component {
                 </p>
 
                 <pre>
-                  conda create -n name_of_phoebe_environment python={version_py === 'python3' ? 3.8 : 2.7 }<br/>
+                  conda create -n name_of_phoebe_environment python={version_py === 'python3' ? (version_short < 2.4 ? "3.8" : "3.11") : 2.7 }<br/>
                   conda activate name_of_phoebe_environment
                 </pre>
                 <p>
