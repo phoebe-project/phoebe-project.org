@@ -339,7 +339,8 @@ export class Install extends Component {
 
                 <p>Since the build process requires numpy, we'll make sure that's installed first.  {version!=='latest' ? "To install version "+version_long+" of PHOEBE" : 'To install the latest version of PHOEBE'}:</p>
                 <pre>
-                  {pip} install numpy phoebe{version!=='latest' ? "=="+version_long : null}
+                  {pip} install numpy<br/>
+                  {pip} install phoebe{version!=='latest' ? "=="+version_long : null}
                 </pre>
 
                 {version!=='latest' ?
@@ -416,7 +417,8 @@ export class Install extends Component {
                   Now you can use pip (or <code>python -m pip</code>) to install PHOEBE {version_long} (or <Link to="#source">install from source</Link>):
                 </p>
                 <pre>
-                  pip install numpy phoebe{version!=='latest' ? "=="+version_long : null}
+                  pip install numpy<br/>
+                  pip install phoebe{version!=='latest' ? "=="+version_long : null}
                 </pre>
 
                 <p>
@@ -463,7 +465,8 @@ export class Install extends Component {
                   Now you can use {pip} (or <code>{python} -m pip</code>) to install PHOEBE {version_long} (or <Link to="#source">install from source</Link>):
                 </p>
                 <pre>
-                  {pip} install numpy phoebe{version!=='latest' ? "=="+version_long : null}
+                  {pip} install numpy<br/>
+                  {pip} install phoebe{version!=='latest' ? "=="+version_long : null}
                 </pre>
 
                 <p>To leave the virtual environment:</p>
