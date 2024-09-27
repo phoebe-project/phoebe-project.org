@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link as RouterLink, NavLink as RouterNavLink, Redirect as RouterRedirect} from 'react-router-dom';
 
-// var smoothScroll = require('smoothscroll'); // https://github.com/alicelieutier/smoothScroll
+// let smoothScroll = require('smoothscroll'); // https://github.com/alicelieutier/smoothScroll
 
 export const metaKeywords = "phoebe, phoebe-project, eclipsing binaries, eclipsing binary, eclipsing binary stars, modeling, astronomy, software, program, code, python, package";
 
@@ -25,7 +25,7 @@ function processLink(link) {
 
 export function getLatestPatchVersion(version_short, release_changelogs) {
   // console.log("getLatestPatchVersion version_short: "+version_short+"  release_changelogs: "+release_changelogs)
-  var largestPatchVersion = 0
+  let largestPatchVersion = 0
   if (Object.keys(release_changelogs).indexOf(version_short)!==-1) {
     largestPatchVersion = release_changelogs[version_short].length - 1
   }
@@ -40,8 +40,8 @@ export class Content extends Component {
     }
   }
   render() {
-    var style = {paddingTop: "25px", paddingLeft: "10%", paddingRight: "10%", paddingBottom: this.props.paddingBottom || "50px"}
-    var className = "content"
+    let style = {paddingTop: "25px", paddingLeft: "10%", paddingRight: "10%", paddingBottom: this.props.paddingBottom || "50px"}
+    let className = "content"
 
     if (this.props.dark) {
       className = className + " content-dark"
@@ -59,7 +59,7 @@ export class Content extends Component {
 
 export class Redirect extends Component {
   render() {
-    var to = processLink(this.props.to)
+    let to = processLink(this.props.to)
     // console.log("redirect to "+to)
     if (to.startsWith("http") || to.startsWith("ftp")) {
       window.location.replace(to)
@@ -85,7 +85,7 @@ export class NavLink extends Component {
     }
   }
   render() {
-    var to = processLink(this.props.to)
+    let to = processLink(this.props.to)
 
     if (to.startsWith("http") || to.startsWith("ftp")) {
       return (
@@ -121,13 +121,13 @@ export class Link extends Component {
     }
   }
   render() {
-    var to = processLink(this.props.to)
+    let to = processLink(this.props.to)
     if (to!==this.state.href) {
       this.setState({href: to})
     }
 
     if (to.startsWith("http") || to.startsWith("ftp")) {
-      var icon = 'fa-external-link-alt';
+      let icon = 'fa-external-link-alt';
       if (to.endsWith("py") || to.endsWith("ipynb")) {
         icon = 'fa-file-download';
       }
@@ -148,7 +148,7 @@ export class Link extends Component {
 
 export class Image extends Component {
   render() {
-    var src = processLink(this.props.src)
+    let src = processLink(this.props.src)
     if (this.props.href) {
       return <a href={this.props.href} target="_blank" rel="noopener noreferrer"><Image {...this.props} href={false}/></a>
     }
@@ -161,16 +161,16 @@ export class Image extends Component {
 
 export class Separator extends Component {
   render() {
-    var height = this.props.height || "24px"
-    var marginTop = this.props.marginTop || "30px"
-    var marginBottom = this.props.marginBottom || "-62px"
-    var marginRight = this.props.marginRight || "auto"
+    let height = this.props.height || "24px"
+    let marginTop = this.props.marginTop || "30px"
+    let marginBottom = this.props.marginBottom || "-62px"
+    let marginRight = this.props.marginRight || "auto"
     if (this.props.large) {
       height = this.props.height || "40px"
       marginTop = this.props.marginTop || "0px"
       marginBottom = this.props.marginBottom || "-45px"
     }
-    var className = this.props.className || ""
+    let className = this.props.className || ""
 
     if (this.props.flip) {
       className = className + " img-flip-vert"
@@ -184,11 +184,11 @@ export class Separator extends Component {
 
 export class Button extends Component {
   render() {
-    var description = this.props.description
+    let description = this.props.description
     if (!description) {
       description = this.props.title
     }
-    var level = this.props.level || "primary"
+    let level = this.props.level || "primary"
 
     return (
       <Link role="button" className={"btn btn-"+level} style={this.props.style} title={description} to={this.props.to} hideExternal={this.props.hideExternal || this.props.icon}><span className={this.props.icon}></span> {this.props.title}</Link>
@@ -198,7 +198,7 @@ export class Button extends Component {
 
 export class Alert extends Component {
   render() {
-    var level = this.props.level
+    let level = this.props.level
     if (!level) {
       level = 'warning'
     }
@@ -212,8 +212,8 @@ export class Alert extends Component {
 
 export class TestsDiv extends Component {
   render() {
-    var python = this.props.python || "python"
-    var version_short = this.props.version_short || 2.3
+    let python = this.props.python || "python"
+    let version_short = this.props.version_short || 2.3
 
     return (
       <div>

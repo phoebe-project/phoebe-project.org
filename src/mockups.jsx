@@ -52,10 +52,10 @@ export class InteractiveGettingStarted extends Component {
     clearInterval(this.intervalId)
   }
   render() {
-    var s_teff = 'no'
-    var s_q = 'no'
-    var s_rv = 'no'
-    var s_phase = 'no'
+    let s_teff = 'no'
+    let s_q = 'no'
+    let s_rv = 'no'
+    let s_phase = 'no'
 
     if (this.state.optionTeff) {
       s_teff = 'yes'
@@ -144,7 +144,7 @@ export class WebUI extends Component {
     };
   }
   render() {
-    var borderColor = "#666666"
+    let borderColor = "#666666"
     if (this.props.dark) {
       borderColor = 'white'
     }
@@ -180,7 +180,7 @@ export class DesktopUI extends Component {
     };
   }
   render() {
-    var borderColor = "#666666"
+    let borderColor = "#666666"
     if (this.props.dark) {
       borderColor = 'white'
     }
@@ -302,7 +302,7 @@ class UIContent extends Component {
     if (this.allCleared()) {
       return true
     }
-    for (var tag of tags) {
+    for (let tag of tags) {
       if (!this.state[tag]) {
         if (['primary', 'secondary', 'binary'].indexOf(tag) === -1) {
           // then this is a qualifier, so only return false if not allClearedQualifier
@@ -394,7 +394,7 @@ class PythonPrompt extends Component {
 
 class ToggleButton extends Component {
   render() {
-    var classes = "btn btn-block btn-trasparent btn-transparent-light"
+    let classes = "btn btn-block btn-trasparent btn-transparent-light"
     if (this.props.active) {
       classes += "btn-transparent-light-active"
     }

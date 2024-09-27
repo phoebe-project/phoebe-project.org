@@ -379,7 +379,7 @@ export class HelpContact extends Component {
 
 export class HelpMailingList extends Component {
   render() {
-    var mailinglists = {'phoebe-announce': {'title': 'PHOEBE Announcements',
+    let mailinglists = {'phoebe-announce': {'title': 'PHOEBE Announcements',
                                              'description': 'PHOEBE Announcements is a low traffic list. It informs you of new releases and critical updates concerning PHOEBE. Typically the number of sent out messages is 1 per month. '},
                         'phoebe-discuss': {'title': 'PHOEBE Discuss',
                                            'description': 'PHOEBE Discussion will hopefully become a higher traffic list. It is meant for active and potential PHOEBE users to exchange knowledge and experience and to help others with their problems.'},
@@ -387,11 +387,11 @@ export class HelpMailingList extends Component {
                                          'description': 'PHOEBE Development mailing list is meant for people that are or would like to join active PHOEBE development. Usually, technical and programming issues are discussed here.'}
                        }
 
-    var mailinglist = this.props.match.params.mailinglist
+    let mailinglist = this.props.match.params.mailinglist
 
     if (mailinglist in mailinglists) {
-      var title = mailinglists[mailinglist].title
-      var description = mailinglists[mailinglist].description
+      let title = mailinglists[mailinglist].title
+      let description = mailinglists[mailinglist].description
     } else {
       return (<NotFound/>)
     }

@@ -11,8 +11,8 @@ export class Navbar extends Component {
     };
   }
   updateScroll = () => {
-    var scrollTop = window.document.body.scrollTop || document.documentElement.scrollTop;
-    var change_height = 50;
+    let scrollTop = window.document.body.scrollTop || document.documentElement.scrollTop;
+    let change_height = 50;
     if(scrollTop >  change_height) {
       this.setState({navbarDark: false});
     } else {
@@ -20,12 +20,12 @@ export class Navbar extends Component {
     }
   }
   render() {
-    var navbarClassName = "navbar navbar-fixed-top navbar-header-fix navbar-default";
-    var navbarStyle = {}
-    var navbarBrandStyle = {}
-    var navbarLinkStyle = {}
-    var navbarLogo = '/logos/logo_blue.svg'
-    var navbarLogoClass="navbar-brand-logo"
+    let navbarClassName = "navbar navbar-fixed-top navbar-header-fix navbar-default";
+    let navbarStyle = {}
+    let navbarBrandStyle = {}
+    let navbarLinkStyle = {}
+    let navbarLogo = '/logos/logo_blue.svg'
+    let navbarLogoClass="navbar-brand-logo"
     if (this.state.navbarDark) {
       navbarClassName = navbarClassName + " navbar-transparent"
       // navbarStyle = {backgroundColor: "#2B71B1", boxShadow: "none", transition: "none", color: "#E6E6E6"}

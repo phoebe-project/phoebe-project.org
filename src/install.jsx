@@ -9,10 +9,10 @@ import {docs_versions, getDocsLink} from './docs';
 import {Header, HeaderNavButton} from './header';
 
 // NOTE: we do this to force a deep-copy
-var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
+let docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
 
-var versions_os = ["windows", "mac", "linux", "auto"]
-var versions_py = ["python2", "python3"]
+let versions_os = ["windows", "mac", "linux", "auto"]
+let versions_py = ["python2", "python3"]
 
 export class Install extends Component {
   constructor(props) {
@@ -28,8 +28,8 @@ export class Install extends Component {
       this.reftesting = React.createRef();
   }
   scrollToHash() {
-    var offsetTop = null;
-    var hash = this.state.hash
+    let offsetTop = null;
+    let hash = this.state.hash
     if (hash==='#dependencies') {
       offsetTop = this.refdeps.current.offsetTop;
     } else if (hash==='#pip') {
@@ -52,9 +52,9 @@ export class Install extends Component {
     this.scrollToHash()
   }
   render() {
-    var version = this.props.match.params.version
-    var version_long = null
-    var version_short = null
+    let version = this.props.match.params.version
+    let version_long = null
+    let version_short = null
 
     if (this.props.location.hash !== this.state.hash) {
       this.setState({hash: this.props.location.hash})
@@ -97,9 +97,9 @@ export class Install extends Component {
     /* http://www.javascripter.net/faq/operatin.htm */
 
 
-    var version_os = this.props.match.params.version_os || "auto"
+    let version_os = this.props.match.params.version_os || "auto"
 
-    var OSName="linux";
+    let OSName="linux";
     if (version_os === "auto") {
       if (navigator.appVersion.indexOf("Win") !== -1) OSName="windows";
       if (navigator.appVersion.indexOf("Mac") !== -1) OSName="mac";
@@ -109,8 +109,8 @@ export class Install extends Component {
       OSName = version_os
     }
 
-    var version_py = "python3"
-    var version_py_switcher = "python3"
+    let version_py = "python3"
+    let version_py_switcher = "python3"
     if (this.props.match.params.version_py && this.props.match.params.version_py !== 'auto') {
       version_py = this.props.match.params.version_py
       version_py_switcher = version_py
@@ -121,14 +121,14 @@ export class Install extends Component {
       version_py_switcher = "auto"
     }
 
-    var python = 'python'
-    var pip = 'pip'
+    let python = 'python'
+    let pip = 'pip'
     if (version_py === 'python3') {
       python = 'python3'
       pip = 'pip3'
     }
 
-    var show_instructions = true
+    let show_instructions = true
 
     if (version_py === 'python3' && version_short < 2.2) {
       show_instructions = false

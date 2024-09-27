@@ -11,7 +11,7 @@ import {Header, HeaderNavButton} from './header';
 
 export class ReleaseVersionRedirect extends Component {
   render() {
-    var version = this.props.match.params.version
+    let version = this.props.match.params.version
     if (docs_versions.indexOf(version)!==-1) {
       return (
         <Redirect to={"/releases/"+version}/>
@@ -26,11 +26,11 @@ export class ReleaseVersionRedirect extends Component {
 
 export class Releases extends Component {
   render() {
-    var docs_versions_incl_legacy = docs_versions.concat("legacy")
+    let docs_versions_incl_legacy = docs_versions.concat("legacy")
     // to test a new release before its included in the changelog (make sure to comment out before building and pushing live version)
     // docs_versions_incl_legacy.unshift("2.3")
     // docs_versions_incl_legacy.unshift("2.4")
-    var latest_patch_version = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
+    let latest_patch_version = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
     return (
       <div>
         <Helmet>
@@ -84,7 +84,7 @@ export class Releases extends Component {
 
 export class ReleaseVersion extends Component {
   render() {
-    var version = this.props.match.params.version
+    let version = this.props.match.params.version
 
     if (version==='latest') {
       // allow latest as the version in the URL, but show whatever is latest
@@ -115,11 +115,11 @@ export class ReleaseVersion extends Component {
 
 class ReleaseContent extends Component {
   render() {
-    var logo = "logo_blue.svg";
-    var releasePaper = "Release Paper"
-    var publicationLink = null
-    var quickstart = true
-    var content = null;
+    let logo = "logo_blue.svg";
+    let releasePaper = "Release Paper"
+    let publicationLink = null
+    let quickstart = true
+    let content = null;
     if (this.props.version === '1.0' || this.props.version === 'legacy') {
       logo = "logo_release_10.png"
       releasePaper = "Prša & Zwitter (2005)"

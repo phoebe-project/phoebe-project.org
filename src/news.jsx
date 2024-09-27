@@ -7,7 +7,7 @@ import {Header} from './header';
 import {NotFound} from './errors';
 
 // NEWER entries on TOP of list
-export var newsStoriesDicts = [
+export let newsStoriesDicts = [
   {
     title: "Sixth PHOEBE Workshop",
     slug: "phoebe-workshop-6",
@@ -572,9 +572,9 @@ export var newsStoriesDicts = [
 
 export class News extends Component {
   render() {
-    var filteredNewsStoryDicts = newsStoriesDicts;
-    var headerTitle = "News";
-    var helmetTitle = "News";
+    let filteredNewsStoryDicts = newsStoriesDicts;
+    let headerTitle = "News";
+    let helmetTitle = "News";
 
     if (this.props.match.params.slug) {
       filteredNewsStoryDicts = [];
@@ -626,8 +626,8 @@ export class NewsContent extends Component {
     this.setState({newsWrapHeight: this.newsWrap.current.clientHeight});
   }
   render() {
-    var wrapHeight = this.props.wrapHeight || 500
-    var showAsSummary = this.props.showAsSummary
+    let wrapHeight = this.props.wrapHeight || 500
+    let showAsSummary = this.props.showAsSummary
 
     if (this.state.newsWrapHeight <= wrapHeight) {
       showAsSummary = false
@@ -639,7 +639,7 @@ export class NewsContent extends Component {
 
 
 
-    var newsWrapStyle = {overflow: "hidden"};
+    let newsWrapStyle = {overflow: "hidden"};
     if (!this.state.expanded && showAsSummary) {
       newsWrapStyle.maxHeight = wrapHeight+"px"
     }

@@ -32,16 +32,16 @@ import {Devel, TeleconRedirect, TeleconNotesRedirect} from './devel';
 import {NotFound} from './errors';
 
 function parseReadmeChangelog(text) {
-  var textChangelog = text.slice(text.indexOf("CHANGELOG")+9, text.indexOf("QUESTIONS?"))
-  var textVersions = textChangelog.split("### ")
+  let textChangelog = text.slice(text.indexOf("CHANGELOG")+9, text.indexOf("QUESTIONS?"))
+  let textVersions = textChangelog.split("### ")
 
-  var versions = {}
-  var splitIndex = null;
-  var version_long = null;
-  var version_short = null;
-  var versionTitle = null;
-  var versionDescription = null;
-  var textVersion = null;
+  let versions = {}
+  let splitIndex = null;
+  let version_long = null;
+  let version_short = null;
+  let versionTitle = null;
+  let versionDescription = null;
+  let textVersion = null;
   for (textVersion of textVersions.reverse()) {
     if (!textVersion.startsWith("\n")) {
       splitIndex = Math.min(textVersion.indexOf(" "), textVersion.indexOf("\n"))
@@ -70,7 +70,7 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    var url = "https://raw.githubusercontent.com/phoebe-project/phoebe2/master/README.md";
+    let url = "https://raw.githubusercontent.com/phoebe-project/phoebe2/master/README.md";
     console.log("fetching "+url)
 
     fetch(url)

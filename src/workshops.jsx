@@ -7,9 +7,9 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-var upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
-var active_workshops = {"2024june": "June 2024, Ljubljana Slovenia"}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
-var archived_workshops = {"2018june": "June 2018, Villanova PA",
+let upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
+let active_workshops = {"2024june": "June 2024, Ljubljana Slovenia"}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
+let archived_workshops = {"2018june": "June 2018, Villanova PA",
                           "2019july": "July 2019, Villanova PA",
                           "2021june": "June 2021, Virtual Workshop",
                           "2022june": "June-July 2022, Villanova PA",
@@ -29,13 +29,13 @@ export class Workshop extends Component {
   }
   render() {
     // force re-render when workshop changes
-    var workshop = this.state.workshop
+    let workshop = this.state.workshop
     if (this.props.match.params.workshop !== this.state.workshop) {
       workshop = this.props.match.params.workshop
       this.setState({workshop: workshop})
     }
 
-    var slug = this.props.match.params.slug
+    let slug = this.props.match.params.slug
 
     if (slug && slug.endsWith(".html")) {
       // then strip the html and redirect
@@ -129,10 +129,10 @@ class WorkshopEntry extends Component {
     this.props.history.replace("/workshops/"+workshop+"/"+slug)
   }
   render() {
-    var active = this.props.active || false;
-    var upcoming = this.props.upcoming || false;
-    var workshop = this.props.workshop
-    var description = ''
+    let active = this.props.active || false;
+    let upcoming = this.props.upcoming || false;
+    let workshop = this.props.workshop
+    let description = ''
     if (active) {
       if (upcoming) {
         description = upcoming_workshops[workshop]
@@ -142,7 +142,7 @@ class WorkshopEntry extends Component {
     } else {
       description = archived_workshops[workshop]
     }
-    var slug = this.props.slug
+    let slug = this.props.slug
 
     if (!slug) {
       if (upcoming) {
@@ -153,8 +153,8 @@ class WorkshopEntry extends Component {
       this.redirect(workshop, slug)
     }
 
-    var path = slug
-    var isNotebook = false;
+    let path = slug
+    let isNotebook = false;
     if (["rationale", "registration", "important_dates", "schedule", "organizing_committee", "at_the_meeting", "materials"].indexOf(slug) !== -1) {
       path = slug + ".md"
     } else {

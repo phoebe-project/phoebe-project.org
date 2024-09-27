@@ -20,8 +20,8 @@ export class Clients extends Component {
       this.refserver = React.createRef();
   }
   scrollToHash() {
-    var offsetTop = null;
-    var hash = this.state.hash
+    let offsetTop = null;
+    let hash = this.state.hash
     if (hash === '#web') {
       offsetTop = this.refweb.current.offsetTop;
     } else if (hash === '#desktop') {

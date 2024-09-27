@@ -31,17 +31,17 @@ export class GitHubContent extends Component {
     this.setState({repo: repo, branch: branch, path: path, content: null, contentURLRaw: null, contentURL: null, contentType: null});
 
     if (repo && path) {
-      var contentURL = "https://github.com/phoebe-project/"+repo+"/blob/"+branch+"/"+path
-      //var contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
-      var contentURLRawDirImages = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
-      var contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
+      let contentURL = "https://github.com/phoebe-project/"+repo+"/blob/"+branch+"/"+path
+      //let contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
+      let contentURLRawDirImages = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
+      let contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
       if (['phoebe2-docs', 'phoebe2-workshop'].indexOf(repo) !== -1 && (path.endsWith(".py") || path.endsWith(".ipynb"))) {
-        //var contentURLRawDir = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
+        //let contentURLRawDir = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
         contentURLRaw = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path
       }
 
-      var contentType = null;
-      var extension = path.split('.').slice(-1)[0];
+      let contentType = null;
+      let extension = path.split('.').slice(-1)[0];
       if (extension === 'md' || extension === 'ipynb') {
           contentType = extension;
       }
@@ -67,9 +67,9 @@ export class GitHubContent extends Component {
         .then(content => {
           if (contentType === 'ipynb') {
             // console.log(content.cells)
-            for (var i=0; i<content.cells.length; i++) {
+            for (let i=0; i<content.cells.length; i++) {
               if (content.cells[i]['cell_type'] === 'markdown') {
-                for (var j=0; j<content.cells[i].source.length; j++) {
+                for (let j=0; j<content.cells[i].source.length; j++) {
                   // NOTE: this could be handled in the regex itself with a look-behind,
                   // but that causes issues in safari
                   // content.cells[i].source[j] = content.cells[i].source[j].replace(/(?<!http.*)([a-z,A-Z,_,0-9,-,\+]*)\.(gif|png)/gm, `${contentURLRawDirImages}/$1.$2`)
@@ -95,12 +95,12 @@ export class GitHubContent extends Component {
       this.updateContent(this.props.repo, this.props.branch, this.props.path);
     }
 
-    var dl_html = null;
-    var edit_html = null;
-    var report_html = null;
-    var content_html = null;
+    let dl_html = null;
+    let edit_html = null;
+    let report_html = null;
+    let content_html = null;
 
-    var loadingDiv = <div>
+    let loadingDiv = <div>
                       <LogoSpinner pltStyle={{backgroundColor: "rgb(43, 113, 177)"}}/>
                       <p style={{textAlign: "center", fontSize: "18pt"}}>{this.props.loadingText || "LOADING EXTERNAL CONTENT..."}</p>
                     </div>
@@ -111,7 +111,7 @@ export class GitHubContent extends Component {
       report_html = this.props.reportHTML || null;
 
       if (this.state.contentType === 'ipynb') {
-        var slug = this.state.contentURLRaw.split("/").slice(-1)[0].split(".")[0]
+        let slug = this.state.contentURLRaw.split("/").slice(-1)[0].split(".")[0]
 
         // ok... this is a bit hardcoded to our specific situation.  Probably should handle this with a callback of some sort
         dl_html = <div>

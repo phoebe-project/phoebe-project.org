@@ -8,12 +8,12 @@ import {GitHubContent} from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-export var docs_versions = ['2.4', '2.3', '2.2', '2.1', '2.0'];
-var docs_versions_dev = ['dev'].concat(docs_versions);
+export let docs_versions = ['2.4', '2.3', '2.2', '2.1', '2.0'];
+let docs_versions_dev = ['dev'].concat(docs_versions);
 
 // NOTE: we do this to force a deep-copy
-// var docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
-var docs_versions_dev_reverse = JSON.parse(JSON.stringify(docs_versions_dev)).reverse()
+// let docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
+let docs_versions_dev_reverse = JSON.parse(JSON.stringify(docs_versions_dev)).reverse()
 
 export function getDocsLink(version, subdir, slug) {
   if (["dev", "devel"].indexOf(version) !== -1) {
@@ -45,7 +45,7 @@ export class Docs extends Component {
     this.props.history.replace(getDocsLink(version, subdir, slug))
   }
   updateDocs = (version, subdir, slug) => {
-    var contentPath = null;
+    let contentPath = null;
     if (slug && subdir && subdir !== 'api') {
       contentPath = subdir+"/"+slug+".ipynb"
     } else if (slug) {
@@ -64,9 +64,9 @@ export class Docs extends Component {
 
   }
   render() {
-    var version = this.props.match.params.version
-    var subdir = this.props.match.params.subdir
-    var slug = this.props.match.params.slug
+    let version = this.props.match.params.version
+    let subdir = this.props.match.params.subdir
+    let slug = this.props.match.params.slug
 
     // let's parse version, subdir, and slug from the URL and make any necessary
     // mappings/aliasing/redirects
@@ -112,7 +112,7 @@ export class Docs extends Component {
       this.updateDocs(version, subdir, slug)
     }
 
-    var reportHTML = <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?title=issue+with+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
+    let reportHTML = <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?title=issue+with+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
 
     return (
       <div>

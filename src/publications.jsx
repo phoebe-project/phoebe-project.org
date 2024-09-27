@@ -37,18 +37,18 @@ class PublicationHeaderLinks extends Component {
 
 export class PublicationEntry extends Component {
   render() {
-    var publication = this.props.match.params.publication
+    let publication = this.props.match.params.publication
 
-    var published = true
-    var author = null;
-    var authorsFull = null;
-    var titleShort = null;
-    var title = null;
-    var abstract = null;
-    var adsLink = null;
-    var pdf = null;
-    var release = null;
-    var figures = [];
+    let published = true
+    let author = null;
+    let authorsFull = null;
+    let titleShort = null;
+    let title = null;
+    let abstract = null;
+    let adsLink = null;
+    let pdf = null;
+    let release = null;
+    let figures = [];
 
     if (publication === '2005Prsa+') {
       published = true

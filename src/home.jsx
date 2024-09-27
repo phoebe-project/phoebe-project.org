@@ -17,9 +17,9 @@ export class Home extends Component {
     };
   }
   render() {
-    var newsStoryDate = null;
-    var newsStoryPinnedDays = null;
-    var pinnedNewsStoryDicts = [];
+    let newsStoryDate = null;
+    let newsStoryPinnedDays = null;
+    let pinnedNewsStoryDicts = [];
     newsStoriesDicts.forEach((newsStoryDict, index) => {
       newsStoryDate = new Date(newsStoryDict.date)
       newsStoryPinnedDays = newsStoryDict.pinnedDays || 30
@@ -28,7 +28,7 @@ export class Home extends Component {
       }
     });
 
-    var version_latest_long = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
+    let version_latest_long = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
 
     return (
       <div>
@@ -323,7 +323,7 @@ class Expander extends Component {
     this.setState({expanded: !this.state.expanded})
   }
   render() {
-    var toggleText = null;
+    let toggleText = null;
     if (this.state.expanded) {
       toggleText = this.props.collapseText
       if (!toggleText) {
@@ -336,7 +336,7 @@ class Expander extends Component {
       }
     }
 
-    var expandeeStyle = null;
+    let expandeeStyle = null;
     if (!this.state.expanded) {
       expandeeStyle = {display: "none"}
     }

@@ -19,8 +19,8 @@ export class Contribute extends Component {
       this.refdevelop = React.createRef();
   }
   scrollToHash() {
-    var offsetTop = null;
-    var hash = this.state.hash
+    let offsetTop = null;
+    let hash = this.state.hash
     if (hash==='#testing') {
       offsetTop = this.reftesting.current.offsetTop;
     } else if (hash==='#issues') {
@@ -159,8 +159,8 @@ export class ContributeDevelopment extends Component {
       this.refauthorship = React.createRef();
   }
   scrollToHash() {
-    var offsetTop = null;
-    var hash = this.state.hash
+    let offsetTop = null;
+    let hash = this.state.hash
     if (hash==='#releases') {
       offsetTop = this.releases.current.offsetTop;
     } else if (hash==='#branches') {
