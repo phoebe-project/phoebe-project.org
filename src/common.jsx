@@ -1,9 +1,21 @@
 import React, { Component } from 'react';
-import { Link as RouterLink, NavLink as RouterNavLink, Navigate as RouterRedirect} from 'react-router-dom';
+import { Link as RouterLink, NavLink as RouterNavLink, Navigate as RouterRedirect, useParams, useLocation, useNavigate} from 'react-router-dom';
 
 // let smoothScroll = require('smoothscroll'); // https://github.com/alicelieutier/smoothScroll
 
 export const metaKeywords = "phoebe, phoebe-project, eclipsing binaries, eclipsing binary, eclipsing binary stars, modeling, astronomy, software, program, code, python, package";
+
+export function withRouter(Children){
+   return (props)=>{
+
+      const match = {params: useParams()}
+      const location = {location: useLocation()}
+      const navigate = useNavigate()
+
+      return <Children {...props} match={match} location={location} navigate={navigate}/>
+  }
+}
+
 
 function processLink(link) {
   if (link.startsWith("http") || link.startsWith("ftp")) {
@@ -63,7 +75,7 @@ export class Redirect extends Component {
     // console.log("redirect to "+to)
     if (to.startsWith("http") || to.startsWith("ftp")) {
       window.location.replace(to)
-      return (null)
+      return null
     } else {
       return (
         <RouterRedirect {...this.props} to={to}>{this.props.children}</RouterRedirect>
@@ -120,11 +132,16 @@ export class Link extends Component {
       window.location.href = processLink(this.props.to)
     }
   }
-  render() {
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
     let to = processLink(this.props.to)
     if (to!==this.state.href) {
       this.setState({href: to})
     }
+  }
+
+  render() {
+    let to = processLink(this.props.to)
 
     if (to.startsWith("http") || to.startsWith("ftp")) {
       let icon = 'fa-external-link-alt';
@@ -132,7 +149,7 @@ export class Link extends Component {
         icon = 'fa-file-download';
       }
       return (
-        <a {...this.props} href={to} target="_blank" rel="noopener noreferrer">{this.props.hideExternal ? null : <span className={"fas fa-fw "+icon}> </span>}{this.props.children}</a>
+        <a {...this.props} href={to} target="_blank" rel="noopener noreferrer">{this.props.hideexternal ? null : <span className={"fas fa-fw "+icon}> </span>}{this.props.children}</a>
       )
     } else if (to.startsWith(process.env.PUBLIC_URL) || to.startsWith("/static/")) {
       return (
@@ -191,7 +208,7 @@ export class Button extends Component {
     let level = this.props.level || "primary"
 
     return (
-      <Link role="button" className={"btn btn-"+level} style={this.props.style} title={description} to={this.props.to} hideExternal={this.props.hideExternal || this.props.icon}><span className={this.props.icon}></span> {this.props.title}</Link>
+      <Link role="button" className={"btn btn-"+level} style={this.props.style} title={description} to={this.props.to} hideexternal={this.props.hideexternal || this.props.icon}><span className={this.props.icon}></span> {this.props.title}</Link>
     )
   }
 }

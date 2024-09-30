@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+import { Helmet } from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
 
-import {Content, Link, Redirect, Image, Separator, getLatestPatchVersion} from './common';
-import {NotFound} from './errors';
-import {docs_versions} from './docs';
-import {Header, HeaderNavButton} from './header';
+import { Content, Link, Redirect, Image, Separator, getLatestPatchVersion } from './common';
+import { NotFound } from './errors';
+import { docs_versions } from './docs';
+import { Header, HeaderNavButton } from './header';
 
 export class ReleaseVersionRedirect extends Component {
   render() {
@@ -396,12 +396,12 @@ class ReleaseChangelogEntry extends Component {
         <div style={{paddingLeft: "20px", paddingTop: "5px", paddingBottom: "10px"}}>
           <Link to={"/install/"+this.props.versionLong}><span className="fa fa-fw fa-download"></span> Install PHOEBE {this.props.versionLong}</Link>
           <br/>
-          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".tar.gz"} hideExternal={true}><span className="fas fa-fw fa-archive"></span> PHOEBE.{this.props.versionLong}.tar.gz</Link>
+          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".tar.gz"} hideexternal="true"><span className="fas fa-fw fa-archive"></span> PHOEBE.{this.props.versionLong}.tar.gz</Link>
           <br/>
-          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".zip"} hideExternal={true}><span className="far fa-fw fa-file-archive"></span> PHOEBE.{this.props.versionLong}.zip</Link>
+          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".zip"} hideexternal="true"><span className="far fa-fw fa-file-archive"></span> PHOEBE.{this.props.versionLong}.zip</Link>
         </div>
         <b style={{paddingLeft: "20px"}}>{this.props.changelogContent.title}</b>
-        <ReactMarkdown source={this.props.changelogContent.description}/>
+        <ReactMarkdown children={this.props.changelogContent.description}/>
       </div>
     )
   }

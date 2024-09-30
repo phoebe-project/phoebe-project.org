@@ -170,7 +170,7 @@ export class PublicationEntry extends Component {
           </p>
           {published ?
             <p>
-              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={adsLink} hideExternal={true}><span className="ai ai-ads"></span> ADS</Link></span>
+              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={adsLink} hideexternal="true"><span className="ai ai-ads"></span> ADS</Link></span>
               <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/static/pdf/"+pdf}><span className="far fa-fw fa-file-pdf"></span> PDF</Link></span>
               {release ?
                 <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/releases/"+release}><span className="fas fa-fw fa-tags"></span> {release} Release</Link></span>
@@ -226,7 +226,7 @@ export class Publications extends Component {
         </Header>
         <Content>
           <div style={{textAlign: "center", padding: "25px"}}>
-            <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideExternal={true}><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/><br/><br/>Modeling and Analysis of Eclipsing Binary Stars:<br/>The theory and design principles of PHOEBE<br/>Andrej Prša (2018)</Link>
+            <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideexternal="true"><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/><br/><br/>Modeling and Analysis of Eclipsing Binary Stars:<br/>The theory and design principles of PHOEBE<br/>Andrej Prša (2018)</Link>
           </div>
 
           <h2>PHOEBE Release Series</h2>
@@ -240,7 +240,7 @@ export class Publications extends Component {
 
         <Content dark={true}>
           <h2>Papers that Use PHOEBE 2</h2>
-          <Link to={"http://github.com/phoebe-project/phoebe-project.org/issues/new?title=new+paper+that+uses+phoebe"} hideExternal={true}><span className="fas fa-fw fa-plus"></span> Suggest New Entry</Link>
+          <Link to={"http://github.com/phoebe-project/phoebe-project.org/issues/new?title=new+paper+that+uses+phoebe"} hideexternal="true"><span className="fas fa-fw fa-plus"></span> Suggest New Entry</Link>
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
           {/* https://ui.adsabs.harvard.edu/search/p_=0&q=citations(docs(6778e7c18850253cfa4f448751b2ed69))&sort=date%20desc%2C%20bibcode%20desc */}
@@ -464,7 +464,7 @@ class Publication extends Component {
     // props: adsLink, authors, title, release (optional)
     return (
       <div className="row">
-        <Link to={this.props.entryLink || this.props.adsLink} hideExternal={true}>{this.props.author}</Link>
+        <Link to={this.props.entryLink || this.props.adsLink} hideexternal="true">{this.props.author}</Link>
         {this.props.pdf ? <span> (<Link to={"/static/pdf/"+this.props.pdf}>download pdf</Link>) </span> : null}
         <span> - {this.props.title}</span>
         {this.props.release ? <span> (<Link to={"/releases/"+this.props.release+"/"}>PHOEBE {this.props.release} release</Link>)</span> : null}

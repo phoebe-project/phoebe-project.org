@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+import { Helmet } from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import {Content, Separator, Link, Button, getLatestPatchVersion} from './common';
 import {HeaderIndex} from './header';
@@ -89,7 +89,7 @@ export class Home extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={true}>
+        <Content dark="true">
 
           <h1 style={{display: "flex", justifyContent: "space-between"}}>Meet PHOEBE
             <div className="hidden-xs" style={{marginRight: "-40px"}}>
@@ -114,7 +114,7 @@ export class Home extends Component {
             </div>
 
             <div className="col-md-12">
-              <p>PHOEBE is written by an international team of <Link to="/development-team">professional astronomers</Link>, and is completely <Link to="/source">open-source</Link>, under a <Link hideExternal={true} to="https://github.com/phoebe-project/phoebe2/blob/master/LICENSE.md">GPL v3 License</Link>.</p>
+              <p>PHOEBE is written by an international team of <Link to="/development-team">professional astronomers</Link>, and is completely <Link to="/source">open-source</Link>, under a <Link hideexternal="true" to="https://github.com/phoebe-project/phoebe2/blob/master/LICENSE.md">GPL v3 License</Link>.</p>
               <p>Feel free to <Link to="/install">download and install</Link> the latest version of PHOEBE (or any of the <Link to="/releases">previous releases</Link>) and then follow the <Link to="/docs/latest/tutorials">tutorials</Link>.  If (or when) you get stuck, refer to the <Link to="/docs">documentation</Link>, or always feel free to <Link to="/help/contact">contact us</Link>.</p>
               <p>
                 If you want to try PHOEBE before installing, feel free to jump into the <Link to="/quickstart"><span className="far fa-fw fa-play-circle"></span> PHOEBE {docs_versions[0]} Quickstart</Link>.

@@ -170,7 +170,7 @@ export class Install extends Component {
           <div class="row" style={{paddingBottom: "20px"}}>
             <div class="col-md-9 col-sm-12"></div>
             <div class="col-md-3 col-sm-12 float-right">
-              <Link to={"http://github.com/phoebe-project/phoebe-project.org/issues/new?title=issue+with+install+instructions:+"+version_long+"/"+OSName+"/"+version_py} hideExternal={true}><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
+              <Link to={"http://github.com/phoebe-project/phoebe-project.org/issues/new?title=issue+with+install+instructions:+"+version_long+"/"+OSName+"/"+version_py} hideexternal="true"><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
             </div>
           </div>
 
@@ -489,8 +489,8 @@ export class Install extends Component {
 
                 <p>Download the archive version below and unpack the source-code:</p>
                 <ul>
-                  <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".tar.gz"} hideExternal={true}><span className="far fa-file-archive"></span> PHOEBE.{version_long}.tar.gz</Link></li>
-                  <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".zip"} hideExternal={true}><span className="fas fa-archive"></span> PHOEBE.{version_long}.zip</Link></li>
+                  <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".tar.gz"} hideexternal="true"><span className="far fa-file-archive"></span> PHOEBE.{version_long}.tar.gz</Link></li>
+                  <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".zip"} hideexternal="true"><span className="fas fa-archive"></span> PHOEBE.{version_long}.zip</Link></li>
                   <li><Link to="/releases"><span className="fa fa-tags"></span> other releases</Link></li>
                 </ul>
 

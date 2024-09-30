@@ -61,8 +61,8 @@ export class Navbar extends Component {
                   <li><NavLink to="/contribute" style={navbarLinkStyle} title="Contribute"><span className="fas fa-fw fa-user-plus"></span> <span>Contribute</span></NavLink></li>
                   <li><NavLink to="/development-team" style={navbarLinkStyle} title="PHOEBE Development Team"><span className="fa fa-fw fa-users"></span> Development Team</NavLink></li>
                   <li><NavLink to="/contribute/development-guide" style={navbarLinkStyle} title="Development Guide"><span className="fas fa-fw fa-microscope"></span> Development Guide</NavLink></li>
-                  <li><NavLink to="/contribute#features" style={navbarLinkStyle} hideExternal={true} title="Request New Feature"><span className="fas fa-fw fa-flask"></span> Request New Feature</NavLink></li>
-                  <li><NavLink to="/contribute#issues" style={navbarLinkStyle} hideExternal={true} title="Report an Issue"><span className="fas fa-fw fa-bug"></span> Report an Issue</NavLink></li>
+                  <li><NavLink to="/contribute#features" style={navbarLinkStyle} hideexternal="true" title="Request New Feature"><span className="fas fa-fw fa-flask"></span> Request New Feature</NavLink></li>
+                  <li><NavLink to="/contribute#issues" style={navbarLinkStyle} hideexternal="true" title="Report an Issue"><span className="fas fa-fw fa-bug"></span> Report an Issue</NavLink></li>
                 </ul>
               </li>
 
@@ -72,8 +72,8 @@ export class Navbar extends Component {
                   <li><NavLink to="/help/faq" style={navbarLinkStyle} title="Frequently Asked Questions"><span className="fa fa-fw fa-question"></span> FAQ</NavLink></li>
                   <li><NavLink to="/help/contact" style={navbarLinkStyle} title="Ask a Question"><span className="fas fa-fw fa-comment-alt"></span> Ask a Question</NavLink></li>
                   <li><NavLink to="/development-team" style={navbarLinkStyle} title="PHOEBE Development Team"><span className="fa fa-fw fa-users"></span> Development Team</NavLink></li>
-                  <li><NavLink to="/contribute#features" style={navbarLinkStyle} hideExternal={true} title="Request New Feature"><span className="fas fa-fw fa-flask"></span> Request New Feature</NavLink></li>
-                  <li><NavLink to="/contribute#issues" style={navbarLinkStyle} hideExternal={true} title="Report an Issue"><span className="fas fa-fw fa-bug"></span> Report an Issue</NavLink></li>
+                  <li><NavLink to="/contribute#features" style={navbarLinkStyle} hideexternal="true" title="Request New Feature"><span className="fas fa-fw fa-flask"></span> Request New Feature</NavLink></li>
+                  <li><NavLink to="/contribute#issues" style={navbarLinkStyle} hideexternal="true" title="Report an Issue"><span className="fas fa-fw fa-bug"></span> Report an Issue</NavLink></li>
                 </ul>
               </li>
             </ul>

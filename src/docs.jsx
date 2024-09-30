@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+import { Helmet } from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Redirect, Alert, metaKeywords} from './common';
-import {VersionSwitcherContainer, VersionSwitcher} from './versionswitcher';
-import {GitHubContent} from './githubcontent';
-import {Header, HeaderNavButton} from './header';
-import {NotFound} from './errors';
+import { Content, Link, Redirect, Alert, metaKeywords, withRouter } from './common';
+import { VersionSwitcherContainer, VersionSwitcher } from './versionswitcher';
+import GitHubContent from './githubcontent';
+import { Header, HeaderNavButton } from './header';
+import { NotFound } from './errors';
 
 export let docs_versions = ['2.4', '2.3', '2.2', '2.1', '2.0'];
 let docs_versions_dev = ['dev'].concat(docs_versions);
@@ -31,7 +31,7 @@ export function getDocsLink(version, subdir, slug) {
   }
 }
 
-export class Docs extends Component {
+class Docs extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -42,7 +42,7 @@ export class Docs extends Component {
     };
   }
   redirect = (version, subdir, slug) => {
-    this.props.history.replace(getDocsLink(version, subdir, slug))
+    this.props.navigate(getDocsLink(version, subdir, slug))
   }
   updateDocs = (version, subdir, slug) => {
     let contentPath = null;
@@ -61,10 +61,10 @@ export class Docs extends Component {
     }
 
     this.setState({version: version, subdir: subdir, slug: slug, contentPath: contentPath})
-
   }
-  render() {
-    let version = this.props.match.params.version
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+        let version = this.props.match.params.version
     let subdir = this.props.match.params.subdir
     let slug = this.props.match.params.slug
 
@@ -84,13 +84,13 @@ export class Docs extends Component {
       // so redirect so the URL shows the latest version
       version = docs_versions[0]
       if (slug) {
-        this.props.history.replace(getDocsLink(version, subdir, slug))
+        this.props.navigate(getDocsLink(version, subdir, slug))
       } else {
-        this.props.history.replace(getDocsLink(version, null, null))
+        this.props.navigate(getDocsLink(version, null, null))
       }
     } else if (docs_versions_dev.indexOf(version)===-1){
       // something not recognized, let's throw a page not found
-      return (<NotFound></NotFound>)
+      return (<NotFound/>)
     }
 
     if (slug && slug.endsWith(".html")) {
@@ -111,8 +111,13 @@ export class Docs extends Component {
     if (version !== this.state.version || subdir !== this.state.subdir || slug !== this.state.slug) {
       this.updateDocs(version, subdir, slug)
     }
+  }
 
-    let reportHTML = <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?title=issue+with+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
+  render() {
+    let version = this.state.version
+    let slug = this.state.slug
+    let subdir = this.state.subdir
+    let reportHTML = <Link to={"https://github.com/phoebe-project/phoebe2-docs/issues/new?title=issue+with+v"+version+" docs:+"+subdir+"/"+slug} hideexternal="true"><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
 
     return (
       <div>
@@ -162,7 +167,7 @@ export class Docs extends Component {
 
         </Header>
         <Content>
-          {this.state.version===docs_versions[0] ?
+          {this.state.version === docs_versions[0] ?
             null
             :
             version === "development" ?
@@ -242,3 +247,5 @@ export class Docs extends Component {
     );
   }
 }
+
+export default withRouter(Docs)

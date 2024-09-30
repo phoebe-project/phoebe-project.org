@@ -304,7 +304,7 @@ export let newsStoriesDicts = [
     content: <div>
               <div>
                 <div style={{textAlign: "center", paddingBottom: "15px"}}>
-                  <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideExternal={true}><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/></Link>
+                  <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideexternal="true"><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/></Link>
                 </div>
                 <div>
                   <p>

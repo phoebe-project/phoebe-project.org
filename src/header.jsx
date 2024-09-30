@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {LogoSplash} from './logo';
-import {Link, Image, Separator} from './common';
+import { LogoSplash } from './logo';
+import { Link, Image, Separator } from './common';
 
 export class NoHeader extends Component {
   render() {
@@ -35,9 +35,7 @@ export class Header extends Component {
           :
           null
         }
-
       </div>
-
     )
   }
 }

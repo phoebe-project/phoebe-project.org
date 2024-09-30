@@ -25,9 +25,6 @@ img {
 }
 
 .img-flip-vert {
-        -moz-transform: scaleY(-1);
-        -o-transform: scaleY(-1);
-        -webkit-transform: scaleY(-1);
         transform: scaleY(-1);
         filter: FlipV;
         -ms-filter: "FlipV";
@@ -230,7 +227,6 @@ summary {
   color: #D6D6D6 !important;
   border-width: 1px;
   border-color: #D6D6D6 !important;
-  border: 1px solid;
   box-shadow: none;
 }
 
@@ -238,7 +234,7 @@ summary {
   text-decoration: none;
   color: #ffffff !important;
   border-color: #ffffff !important;
-  border-width: 1.2px;
+  border-width: 1px;
 }
 
 .btn-transparent-light {
@@ -278,7 +274,7 @@ summary {
 }
 
 .jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4, .jumbotron p{
-  align: left;
+  /*align: left;*/
   color: #E6E6E6;
   font-family: 'Merriweather', serif;
 }

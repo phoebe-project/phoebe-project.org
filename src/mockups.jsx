@@ -122,7 +122,7 @@ export class InteractiveGettingStarted extends Component {
         </pre>
 
         <div style={{textAlign: "center"}}>
-          <Image src={'/images/interactive_getting_started/teff:'+s_teff+'_q:'+s_q+'_phase:'+s_phase+'_rv:'+s_rv+'.png'} width="400" maxWidth="80%"/>
+          <Image src={'/images/interactive_getting_started/teff:'+s_teff+'_q:'+s_q+'_phase:'+s_phase+'_rv:'+s_rv+'.png'} width="400" maxwidth="80%"/>
         </div>
 
         <div className="row" style={{paddingTop: "12px", marginLeft: "-10px", marginRight: "-10px"}}>

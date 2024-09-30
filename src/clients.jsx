@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Button, Separator, metaKeywords} from './common';
-import {WebUI, DesktopUI} from './mockups';
-import {Header, HeaderNavButton} from './header';
+import {Content, Link, Button, Separator, metaKeywords, withRouter} from './common'
+import {WebUI, DesktopUI} from './mockups'
+import {Header, HeaderNavButton} from './header'
 
 
-export class Clients extends Component {
+class Clients extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -262,3 +262,5 @@ export class Clients extends Component {
     );
   }
 }
+
+export default withRouter(Clients)
