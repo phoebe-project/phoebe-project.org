@@ -1,13 +1,13 @@
 import React, { Component, Suspense } from 'react';
+import JupyterNotebook from 'react-jupyter-notebook';
+import ReactMarkdown from 'react-markdown'; // https://github.com/rexxars/react-markdown
 
-import {Link} from './common'
-import {LogoSpinner} from './logo'
+import { Link } from './common'
+import { LogoSpinner } from './logo'
 
-// import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
-import ReactMarkdown from "react-markdown/with-html"; // https://github.com/rexxars/react-markdown
 // import htmlParser from 'react-markdown/plugins/html-parser';
 
-const NotebookPreview = React.lazy(() => import('@nteract/notebook-preview'));
+// const NotebookPreview = React.lazy(() => import('@nteract/nbextension'));
 
 // const parseHtml = htmlParser({
 //   isValidNode: node => node.type == 'link',
@@ -127,7 +127,7 @@ export class GitHubContent extends Component {
 
 
         content_html = <Suspense fallback={loadingDiv}>
-                        <NotebookPreview notebook={this.state.content}/>
+                        <JupyterNotebook notebook={this.state.content}/>
                        </Suspense>
 
 

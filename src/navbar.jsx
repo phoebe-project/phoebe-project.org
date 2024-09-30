@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import EventListener, {withOptions} from 'react-event-listener'; // https://www.npmjs.com/package/react-event-listener
+import React, { Component } from 'react';
 
-import {NavLink, Image} from './common';
+import { NavLink, Image } from './common';
+
 
 export class Navbar extends Component {
   constructor(props) {
@@ -10,15 +10,7 @@ export class Navbar extends Component {
       navbarDark: true,
     };
   }
-  updateScroll = () => {
-    let scrollTop = window.document.body.scrollTop || document.documentElement.scrollTop;
-    let change_height = 50;
-    if(scrollTop >  change_height) {
-      this.setState({navbarDark: false});
-    } else {
-      this.setState({navbarDark: true});
-    }
-  }
+
   render() {
     let navbarClassName = "navbar navbar-fixed-top navbar-header-fix navbar-default";
     let navbarStyle = {}
@@ -40,11 +32,6 @@ export class Navbar extends Component {
 
     return (
       <div className={navbarClassName} style={navbarStyle} role="navigation">
-        <EventListener
-          target="window"
-          onResize={this.updateScroll}
-          onScroll={withOptions(this.updateScroll, {passive: true, capture: false})}
-        />
         <div className="container">
           <div className="navbar-header">
             <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
