@@ -1,18 +1,9 @@
 import React, { Component, Suspense } from 'react';
-import JupyterViewer from 'react-jupyter-notebook';
+import { IpynbRenderer } from 'react-ipynb-renderer';
 import ReactMarkdown from 'react-markdown'; // https://github.com/rexxars/react-markdown
 
-import {Link, withRouter} from './common'
+import { Link, withRouter } from './common'
 import { LogoSpinner } from './logo'
-
-// import htmlParser from 'react-markdown/plugins/html-parser';
-
-// const NotebookPreview = React.lazy(() => import('@nteract/nbextension'));
-
-// const parseHtml = htmlParser({
-//   isValidNode: node => node.type == 'link',
-//   processingInstructions: [/* ... */]
-// })
 
 class GitHubContent extends Component {
   constructor(props) {
@@ -75,13 +66,12 @@ class GitHubContent extends Component {
                   // but that causes issues in safari
                   // content.cells[i].source[j] = content.cells[i].source[j].replace(/(?<!http.*)([a-z,A-Z,_,0-9,-,\+]*)\.(gif|png)/gm, `${contentURLRawDirImages}/$1.$2`)
                   if (content.cells[i].source[j].indexOf("http") === -1) {
-                    content.cells[i].source[j] = content.cells[i].source[j].replace(/([a-z,_,0-9,-,+]*)\.(gif|png)/, `${contentURLRawDirImages}/$1.$2`)
+                    content.cells[i].source[j] = content.cells[i].source[j].replace(/([a-z,_0-9+]*)\.(gif|png)/, `${contentURLRawDirImages}/$1.$2`)
                   }
                 }
               }
             }
           }
-
 
           this.setState({content: content, contentURL: contentURL, contentURLRaw: contentURLRaw, contentType: contentType})
         })
@@ -98,13 +88,11 @@ class GitHubContent extends Component {
     }
   }
 
-    render() {
-
-
+  render() {
     let dl_html = null;
     let edit_html = null;
     let report_html = null;
-    let content_html = null;
+    let content_html;
 
     let loadingDiv = <div>
                       <LogoSpinner pltStyle={{backgroundColor: "rgb(43, 113, 177)"}}/>
@@ -131,13 +119,13 @@ class GitHubContent extends Component {
                   </div>
 
         content_html = <Suspense fallback={loadingDiv}>
-                        <JupyterViewer notebook={this.state.content}/>
+                        <IpynbRenderer ipynb={this.state.content}/>
                        </Suspense>
 
 
       } else if (this.state.contentType === 'md') {
         content_html =  <div style={{paddingTop: "50px"}}>
-                          <ReactMarkdown children={this.state.content} escapeHtml={false}/>
+                          <ReactMarkdown children={this.state.content}/>
                         </div>
       } else {
         edit_html = null;
