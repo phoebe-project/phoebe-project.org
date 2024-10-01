@@ -73,7 +73,7 @@ class Clients extends Component {
 
         </Header>
 
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
 
           <div className="row">
             <p>
@@ -114,7 +114,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
 
 
           <h2 ref={this.refdesktop}><span className="fas fa-fw fa-xs fa-desktop"></span>  Desktop UI Client</h2>
@@ -154,10 +154,10 @@ class Clients extends Component {
           </div>
 
           <div className="hidden-xs hidden-sm">
-            <DesktopUI dark={true} height="650px"/>
+            <DesktopUI dark={1} height="650px"/>
           </div>
           <div className="visible-xs visible-sm">
-            <DesktopUI dark={true} height="800px"/>
+            <DesktopUI dark={1} height="800px"/>
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
@@ -166,7 +166,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content dark={false} preventScrollTop={this.props.location.hash}>
+        <Content dark={0} preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refweb}><span className="fas fa-fw fa-xs fa-window-maximize"></span>  Web UI Client</h2>
 
@@ -193,10 +193,10 @@ class Clients extends Component {
           </p>
 
           <div className="hidden-xs hidden-sm">
-            <WebUI dark={false} height="650px"/>
+            <WebUI dark={0} height="650px"/>
           </div>
           <div className="visible-xs visible-sm">
-            <WebUI dark={false} height="800px"/>
+            <WebUI dark={0} height="800px"/>
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
@@ -205,7 +205,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refpython}><span className="fas fa-fw fa-xs fa-terminal"></span>  Python Client</h2>
 
@@ -237,7 +237,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content dark={false} preventScrollTop={this.props.location.hash}>
+        <Content dark={0} preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refserver}><span className="fas fa-fw fa-xs fa-server"></span>  PHOEBE Server</h2>
 

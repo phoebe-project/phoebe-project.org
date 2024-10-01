@@ -37,7 +37,7 @@ export class Source extends Component {
           <Separator large={false}/>
         </Content>
 
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>PHOEBE 1 (legacy) Repositories</h2>
           <div className="row">
             <div className="col-md-2 text-center">
@@ -128,7 +128,7 @@ export class Dependencies extends Component {
           <Separator large={false}/>
         </Content>
 
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>Optional Dependencies</h2>
 
           <div className="row">

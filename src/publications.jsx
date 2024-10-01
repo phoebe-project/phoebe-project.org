@@ -238,9 +238,9 @@ export class Publications extends Component {
           <Separator large={false}/>
         </Content>
 
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>Papers that Use PHOEBE 2</h2>
-          <Link to={"http://github.com/phoebe-project/phoebe-project.org/issues/new?title=new+paper+that+uses+phoebe"} hideexternal="true"><span className="fas fa-fw fa-plus"></span> Suggest New Entry</Link>
+          <Link to={"https://github.com/phoebe-project/phoebe-project.org/issues/new?title=new+paper+that+uses+phoebe"} hideexternal="true"><span className="fas fa-fw fa-plus"></span> Suggest New Entry</Link>
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
           {/* https://ui.adsabs.harvard.edu/search/p_=0&q=citations(docs(6778e7c18850253cfa4f448751b2ed69))&sort=date%20desc%2C%20bibcode%20desc */}
@@ -414,7 +414,7 @@ export class Publications extends Component {
           <Separator flip={true} large={false}/>
         </Content>
 
-        <Content dark={false}>
+        <Content dark={0}>
           <h2>PHOEBE Conference Proceedings</h2>
           <Publication author="Kochoska et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020CoSka..50..539K" title="Beyond DC and MCMC: alternative algorithms and approaches to fitting light curves"/>
           <Publication author="Conroy et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020CoSka..50..530C" title="Upcoming support for triple stellar systems in PHOEBE"/>
@@ -427,7 +427,7 @@ export class Publications extends Component {
           <Separator flip={false} large={false}/>
         </Content>
 
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>PHOEBE Talks &amp; Posters</h2>
           <Publication author="Prša (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021AAS...23713303P" title="Advanced models of pulsating components in eclipsing binary systems"/>
           <Publication author="Kochoska et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021AAS...23713302K" title="phoetting: guidelines and best practices for fitting with PHOEBE"/>
@@ -444,7 +444,7 @@ export class Publications extends Component {
           <Separator flip={true} large={false}/>
         </Content>
 
-        <Content dark={false}>
+        <Content dark={0}>
           <h2>Related Papers by the PHOEBE Development Team</h2>
           <Publication author="Abdul-Masih et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2022arXiv220801580A" title="SPAMMS: applications and use cases for the 3D spectroscopic analysis technique to study deformed massive stars"/>
           <Publication author="Abdul-Masih et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020A%26A...636A..59A" title="Spectroscopic patch model for massive stars using PHOEBE II and FASTWIND"/>

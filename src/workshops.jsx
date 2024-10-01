@@ -27,13 +27,18 @@ class Workshop extends Component {
   redirect = (workshop, slug) => {
     this.props.navigate("/workshops/"+workshop+"/"+slug)
   }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (this.props.match.params.workshop !== this.state.workshop) {
+      let workshop = this.props.match.params.workshop
+      this.setState({workshop: workshop})
+    }
+  }
+
   render() {
     // force re-render when workshop changes
     let workshop = this.state.workshop
-    if (this.props.match.params.workshop !== this.state.workshop) {
-      workshop = this.props.match.params.workshop
-      this.setState({workshop: workshop})
-    }
+
 
     let slug = this.props.match.params.slug
 
@@ -85,7 +90,7 @@ class Workshop extends Component {
             <p>See below for archived content from past workshops that have been held, as well as announcements and registration details for any planned upcoming workshops.  We hope you will be able to join us soon at a PHOEBE workshop soon!</p>
             <Separator large={false}/>
           </Content>
-          <Content dark={true}>
+          <Content dark={1}>
 
             {Object.keys(active_workshops).length ?
               <div>
@@ -98,7 +103,7 @@ class Workshop extends Component {
                 {Object.keys(upcoming_workshops).length ?
                   <ul>{Object.keys(upcoming_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{upcoming_workshops[slug]}</Link></li>)}</ul>
                   :
-                  <p>There are no currently planned workshops.  Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
+                  <p>There are no currently planned workshops. Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
                 }
               </div>
             }
@@ -113,11 +118,11 @@ class Workshop extends Component {
         </div>
       )
     } else if (Object.keys(active_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={true} upcoming={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<RoutedWorkshopEntry active={true} upcoming={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else if (Object.keys(upcoming_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={true} upcoming={true} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<RoutedWorkshopEntry active={true} upcoming={true} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else if (Object.keys(archived_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<RoutedWorkshopEntry active={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else {
       return(<NotFound>{this.state.workshop} workshop not found, try all <Link to="/workshops">workshops</Link></NotFound>)
     }
@@ -126,7 +131,7 @@ class Workshop extends Component {
 
 class WorkshopEntry extends Component {
   redirect = (workshop, slug) => {
-    this.props.history.replace("/workshops/"+workshop+"/"+slug)
+    this.props.navigate("/workshops/"+workshop+"/"+slug)
   }
   render() {
     let active = this.props.active || false;
@@ -258,10 +263,12 @@ class WorkshopEntry extends Component {
   }
 }
 
+const RoutedWorkshopEntry = withRouter(WorkshopEntry);
+
 export class WorkshopRegistration extends Component {
   render() {
     window.location = 'https://forms.gle/sZccSYRswfccgbau6'
-    returnnull
+    return null
   }
 }
 

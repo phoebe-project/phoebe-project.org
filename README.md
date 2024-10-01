@@ -59,7 +59,7 @@ scp -r build/* clusty:/srv/www/phoebe-project/
 
 * Icons: [font-awesome (free, v5.5.0)](https://fontawesome.com/icons?d=gallery&m=free) are used throughout the site and should be used by adding the necessary classes (via `className`) to the `<span>` tags (or in some cases passing by passing the classes to the `icon` property of a built-in component).
 
-* Bootstrap Components: [bootstrap (v3.3.5)](https://getbootstrap.com/docs/3.3/) is currently loaded by [index.html](./src/index.html) from [bootstrap.min.paper.css](./public/bootstrap.min.paper.css) and [bootstrap.min.js](./public/bootstrap.min.js) (which in turn requires [jquery](./public/jquery.min.js) to handle the collapsing navigation bar).  For alerts, use the built-in `Alert` class in [common.jsx](./src/common.jsx).  Any style changes should be overridden by [App.css](./src/App.css) (with `!important` if necessary) rather than editing the css of bootstrap directly.
+* Bootstrap Components: [bootstrap (v5.3.3)](https://getbootstrap.com/) is currently loaded by [index.html](./public/index.html) from [bootstrap.min.css](./public/cssjs/bootstrap.min.paper.css) and [bootstrap.bundle.min.js](./public/cssjs/bootstrap.bundle.min.js) For alerts, use the built-in `Alert` class in [common.jsx](./src/common.jsx).  Any style changes should be overridden by [App.css](./src/App.css) (with `!important` if necessary) rather than editing the css of bootstrap directly.
 
 * In general, each tab in the navigation bar has its own .jsx file in the [src](./src/) directory and exports the components required to [App.js](./src/App.js) which handles all routing.  
 

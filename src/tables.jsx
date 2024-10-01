@@ -159,7 +159,6 @@ export class TablesPBs extends Component {
     } else {
       return content
     }
-    return content
   }
   onChangePassbandsMode = (e) => {
     this.setState({requestedPassbandsMode: e.value})
@@ -328,10 +327,7 @@ export class TablesPBs extends Component {
               :
               <span><b>choose at least one passband and table</b></span>
             }
-
-
           </div>
-
         </Content>
       </div>
     );

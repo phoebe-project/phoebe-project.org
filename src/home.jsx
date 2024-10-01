@@ -89,7 +89,7 @@ export class Home extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark="true">
+        <Content dark={1}>
 
           <h1 style={{display: "flex", justifyContent: "space-between"}}>Meet PHOEBE
             <div className="hidden-xs" style={{marginRight: "-40px"}}>
@@ -267,7 +267,7 @@ export class Home extends Component {
 
           {/* <Separator large={false} flip={false}/> */}
         </Content>
-        {/* <Content dark={true}>
+        {/* <Content dark={1}>
           <h1>Getting Started</h1>
           <div className="row">
             <div className="col-md-4">

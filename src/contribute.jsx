@@ -70,7 +70,7 @@ export class Contribute extends Component {
              </div>
            </div>
         </Header>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
           <h2 ref={this.reftesting}><span className="fa fa-fw fa-xs fa-vial"></span> Testing PHOEBE</h2>
           <p>
             The easiest way to help contribute to PHOEBE is to help by testing the code - both by testing systems and configurations we may not have considered and also on a variety of different machines and installations.
@@ -91,7 +91,7 @@ export class Contribute extends Component {
 
           <Separator large={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refissues}><span className="fas fa-fw fa-xs fa-bug"></span> Report Bugs and Issues</h2>
           <p>
             Found an issue or a bug?  Let us know so that we can try to fix it.
@@ -110,7 +110,7 @@ export class Contribute extends Component {
           </p>
           <Separator large={false} flip={true}/>
         </Content>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
           <h2 ref={this.reffeatures}><span className="fas fa-fw fa-xs fa-flask"></span> Request New Features</h2>
           <p>
             Think PHOEBE should be able to do something that it can't?  This could be any of the following:
@@ -127,7 +127,7 @@ export class Contribute extends Component {
           </p>
           <Separator large={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refdevelop}><span className="fas fa-fw fa-xs fa-user-plus"></span> Write Code &amp; Develop PHOEBE</h2>
           <p>
             Interested in getting your hands dirty and writing some code?  We'd be happy to help you get started.
@@ -219,7 +219,7 @@ export class ContributeDevelopment extends Component {
              </div>
            </div>
         </Header>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
 
           <p>
             Digging into the PHOEBE 2 <Link to="/source">source-code</Link>?
@@ -354,7 +354,7 @@ export class ContributeDevelopment extends Component {
 
           <Separator large={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refbranches}><span className="fas fa-fw fa-xs fa-code-branch"></span> Repositories &amp; Branches</h2>
 
           <p>
@@ -424,7 +424,7 @@ export class ContributeDevelopment extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
           <h2 ref={this.reftours}><span className="fas fa-fw fa-xs fa-microscope"></span> Tours of Code Layout &amp; Structure</h2>
 
           <p>
@@ -442,7 +442,7 @@ export class ContributeDevelopment extends Component {
 
           <Separator large={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.reftests}><span className="fa fa-fw fa-xs fa-vial"></span> Writing Tests</h2>
 
           <p>
@@ -475,7 +475,7 @@ export class ContributeDevelopment extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refdocs}><span className="fa fa-fw fa-xs fa-book-open"></span> Writing Documentation</h2>
 
           <p>
@@ -498,7 +498,7 @@ export class ContributeDevelopment extends Component {
 
 
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refauthorship}><span className="fa fa-fw fa-xs fa-users"></span> Authorship Policy</h2>
 
           <p>
@@ -588,7 +588,7 @@ export class TourFrontend extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>The Bundle</h2>
 
           <ul>
@@ -632,7 +632,7 @@ export class TourFrontend extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>Parameters</h2>
 
           <ul>

@@ -76,7 +76,7 @@ export class Releases extends Component {
           </div>
         </Content>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
-        {docs_versions_incl_legacy.map((version, index) => <ReleaseContent version={version} release_changelogs={this.props.release_changelogs} dark={Boolean(index % 2)} showSeparator={Boolean(index < docs_versions_incl_legacy.length - 1)} showHeader={true}/>)}
+        {docs_versions_incl_legacy.map((version, index) => <ReleaseContent key={index} version={version} release_changelogs={this.props.release_changelogs} dark={index % 2} showSeparator={Boolean(index < docs_versions_incl_legacy.length - 1)} showHeader={true}/>)}
       </div>
     );
   }
@@ -119,7 +119,8 @@ class ReleaseContent extends Component {
     let releasePaper = "Release Paper"
     let publicationLink = null
     let quickstart = true
-    let content = null;
+    let content;
+
     if (this.props.version === '1.0' || this.props.version === 'legacy') {
       logo = "logo_release_10.png"
       releasePaper = "Prša & Zwitter (2005)"
@@ -366,7 +367,7 @@ class ReleaseContent extends Component {
                 <details open={this.props.open_changelog}>
                   <summary><b>Individual Patch Releases and Changelog</b></summary>
                   <ul style={{display: "flex", flexDirection: "column-reverse"}}>
-                    {this.props.release_changelogs[this.props.version].map((changelogContent, patchIndex) => <li style={{paddingBottom: "15px"}}><ReleaseChangelogEntry versionLong={this.props.version+"."+patchIndex} changelogContent={changelogContent}/></li>)}
+                    {this.props.release_changelogs[this.props.version].map((changelogContent, patchIndex) => <li key={patchIndex} style={{paddingBottom: "15px"}}><ReleaseChangelogEntry versionLong={this.props.version+"."+patchIndex} changelogContent={changelogContent}/></li>)}
                   </ul>
                 </details>
                 :

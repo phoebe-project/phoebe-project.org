@@ -47,7 +47,7 @@ export function getLatestPatchVersion(version_short, release_changelogs) {
 export class Content extends Component {
   componentDidMount() {
     // smoothScroll(0, 500);
-    if (!this.props.preventScrollTop) {
+    if (!this.props.preventscrolltop) {
       window.scrollTo(0, 0);
     }
   }
@@ -167,7 +167,7 @@ export class Image extends Component {
   render() {
     let src = processLink(this.props.src)
     if (this.props.href) {
-      return <a href={this.props.href} target="_blank" rel="noopener noreferrer"><Image {...this.props} href={false}/></a>
+      return <a href={this.props.href} target="_blank" rel="noopener noreferrer"><Image {...this.props} href="false"/></a>
     }
 
     return (
