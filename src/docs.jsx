@@ -63,8 +63,12 @@ class Docs extends Component {
     this.setState({version: version, subdir: subdir, slug: slug, contentPath: contentPath})
   }
 
+  componentDidMount() {
+    this.componentDidUpdate()
+  }
+
   componentDidUpdate(prevProps, prevState, snapshot) {
-        let version = this.props.match.params.version
+    let version = this.props.match.params.version
     let subdir = this.props.match.params.subdir
     let slug = this.props.match.params.slug
 
@@ -114,6 +118,7 @@ class Docs extends Component {
   }
 
   render() {
+    console.log(this.state.version)
     let version = this.state.version
     let slug = this.state.slug
     let subdir = this.state.subdir
@@ -133,7 +138,7 @@ class Docs extends Component {
         </Helmet>
         <Header>
           <span className="hidden-xs"><h1>PHOEBE {version} Documentation</h1></span>
-          <span className="visible-xs"><h1>{version} docs</h1></span>
+          {/*<span className="visible-xs"><h1>{version} docs</h1></span>*/}
 
           <div className="row">
             {version < 2.3 ?
@@ -174,15 +179,12 @@ class Docs extends Component {
               <Alert level="danger">
                 <p><b>WARNING:</b> these are the docs for the development (unreleased) version of PHOEBE.  View <Link to={getDocsLink("latest", this.state.subdir, this.state.slug)}>docs for the latest release ({docs_versions[0]})</Link> or use the version switcher at the bottom of the page to select the correct version of PHOEBE.</p>
               </Alert>
-
               :
               <Alert level="danger">
                 <p><b>WARNING:</b> these are the docs for an outdated version of PHOEBE ({version}).  View <Link to={getDocsLink("latest", this.state.subdir, this.state.slug)}>docs for the latest release ({docs_versions[0]})</Link> or use the version switcher at the bottom of the page to select the correct version of PHOEBE.</p>
                 <p>If you're not sure, <Link to="/help/version">check your installed version of PHOEBE</Link>.</p>
                 <p>To update PHOEBE, see information on the <Link to="/releases/latest">latest release</Link> as well as <Link to="/install/latest">installation/update instructions</Link>.</p>
               </Alert>
-
-
           }
           <GitHubContent repo='phoebe2-docs' branch={version} path={this.state.contentPath} history={this.props.history} loadingText="LOADING DOCS..." reportHTML={reportHTML}>
             <div>
