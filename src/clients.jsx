@@ -111,7 +111,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content id="desktop" dark={1} preventscrolltop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
 
 
           <h2 ref={this.refdesktop}><span className="fas fa-fw fa-xs fa-desktop"></span>  Desktop UI Client</h2>
@@ -163,7 +163,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content dark={0} id="web" preventscrolltop={this.props.location.hash}>
+        <Content dark={0} preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refweb}><span className="fas fa-fw fa-xs fa-window-maximize"></span>  Web UI Client</h2>
 
@@ -202,7 +202,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={1} id="python" preventscrolltop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refpython}><span className="fas fa-fw fa-xs fa-terminal"></span>  Python Client</h2>
 
@@ -234,7 +234,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content dark={0} id="server" preventscrolltop={this.props.location.hash}>
+        <Content dark={0} preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refserver}><span className="fas fa-fw fa-xs fa-server"></span>  PHOEBE Server</h2>
 
