@@ -8,11 +8,11 @@ export const metaKeywords = "phoebe, phoebe-project, eclipsing binaries, eclipsi
 export function withRouter(Children){
    return (props)=>{
 
-      const params = useParams()
+      const match = {params: useParams()}
       const location = useLocation()
       const navigate = useNavigate()
 
-      return <Children {...props} params={params} location={location} navigate={navigate}/>
+      return <Children {...props} match={match} location={location} navigate={navigate}/>
   }
 }
 
