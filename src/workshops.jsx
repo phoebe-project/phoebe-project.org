@@ -38,8 +38,6 @@ class Workshop extends Component {
   render() {
     // force re-render when workshop changes
     let workshop = this.state.workshop
-
-
     let slug = this.props.match.params.slug
 
     if (slug && slug.endsWith(".html")) {
@@ -72,21 +70,21 @@ class Workshop extends Component {
               Generally these dedicated workshops consist of a small group of participants and are organized to include both tutorials and short talks introducing the science and features implemented in the latest PHOEBE release as well as a sneak peak into features under development.
               These workshops have been made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>, the Villanova University College of Arts and Sciences Faculty Research and Development Grant, and the <Link to="https://www1.villanova.edu/villanova/artsci/astronomy.html">Villanova Department of Astrophysics and Planetary Sciences</Link>.
             </p>
-            <div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>
-              <Image src={"/images/workshops/PHOEBE_workshop_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2018"/>
-              <Image src={"/images/workshops/PHOEBE_workshop_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2019"/>
-              <Image src={"/images/workshops/PHOEBE_workshop_3_thumb.png"} href={"/static/workshops/PHOEBE_workshop_3.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Virtual Workshop 2021"/>
-            </div>
-            <div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>
-              <Image src={"/images/workshops/PHOEBE_workshop_4_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_4.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2022"/>
-              <Image src={"/images/workshops/PHOEBE_workshop_4b_thumb.png"} href={"/static/workshops/PHOEBE_workshop_4b.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2022 remote component"/>
-              <Image src={"/images/workshops/PHOEBE_workshop_5_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_5.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2023"/>
-            </div>
-            <div style={{textAlign: "center", paddingTop: "5px", paddingBottom: "25px"}}>
-              <Image src={"/images/workshops/PHOEBE_workshop_2_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>
-              <Image src={"/images/workshops/PHOEBE_workshop_2_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>
-              <Image src={"/images/workshops/PHOEBE_workshop_1_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>
-            </div>
+            {/*<div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>*/}
+            {/*  <Image src={"/images/workshops/PHOEBE_workshop_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2018"/>*/}
+            {/*  <Image src={"/images/workshops/PHOEBE_workshop_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2019"/>*/}
+            {/*  <Image src={"/images/workshops/PHOEBE_workshop_3_thumb.png"} href={"/static/workshops/PHOEBE_workshop_3.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Virtual Workshop 2021"/>*/}
+            {/*</div>*/}
+            {/*<div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>*/}
+            {/*  <Image src={"/images/workshops/PHOEBE_workshop_4_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_4.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2022"/>*/}
+            {/*  <Image src={"/images/workshops/PHOEBE_workshop_4b_thumb.png"} href={"/static/workshops/PHOEBE_workshop_4b.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2022 remote component"/>*/}
+            {/*  <Image src={"/images/workshops/PHOEBE_workshop_5_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_5.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2023"/>*/}
+            {/*</div>*/}
+            {/*<div style={{textAlign: "center", paddingTop: "5px", paddingBottom: "25px"}}>*/}
+            {/*  <Image src={"/images/workshops/PHOEBE_workshop_2_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>*/}
+            {/*  <Image src={"/images/workshops/PHOEBE_workshop_2_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>*/}
+            {/*  <Image src={"/images/workshops/PHOEBE_workshop_1_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>*/}
+            {/*</div>*/}
             <p>See below for archived content from past workshops that have been held, as well as announcements and registration details for any planned upcoming workshops.  We hope you will be able to join us soon at a PHOEBE workshop soon!</p>
             <Separator large={false}/>
           </Content>
@@ -95,13 +93,13 @@ class Workshop extends Component {
             {Object.keys(active_workshops).length ?
               <div>
                 <h2>Current Workshops</h2>
-                <ul>{Object.keys(active_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
+                <ul>{Object.keys(active_workshops).map((slug, i) => <li key={i}><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
               </div>
               :
               <div>
                 <h2>Upcoming Workshops</h2>
                 {Object.keys(upcoming_workshops).length ?
-                  <ul>{Object.keys(upcoming_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{upcoming_workshops[slug]}</Link></li>)}</ul>
+                  <ul>{Object.keys(upcoming_workshops).map((slug, i) => <li key={i}><Link to={"/workshops/"+slug}>{upcoming_workshops[slug]}</Link></li>)}</ul>
                   :
                   <p>There are no currently planned workshops. Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
                 }
@@ -112,7 +110,7 @@ class Workshop extends Component {
           </Content>
           <Content>
             <h2>Past Workshops</h2>
-            <ul>{Object.keys(archived_workshops).map(slug => <li><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
+            <ul>{Object.keys(archived_workshops).map((slug, i) => <li key={i}><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
           </Content>
 
         </div>
@@ -167,7 +165,6 @@ class WorkshopEntry extends Component {
       isNotebook = true;
     }
 
-
     return (
       <div>
         <Helmet>
@@ -176,7 +173,6 @@ class WorkshopEntry extends Component {
         </Helmet>
         <Header>
           <h1>PHOEBE Workshop | {description}</h1>
-
              {active ?
                upcoming ?
                  <div className="row">
@@ -238,7 +234,6 @@ class WorkshopEntry extends Component {
                  </div> */}
                </div>
              }
-
 
         </Header>
         <Content>

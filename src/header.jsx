@@ -46,7 +46,7 @@ export class HeaderIndex extends Component {
       <Header separator='right'>
         <div>
           <div className="row" style={{textAlign: "center", paddingBottom: "20px"}}>
-              <div style={{zoom: 0.7}}>
+              <div style={{zoom: 1.2}}>
                 <LogoSplash excludeTriple={true} transitionIn="transitionInContact" onMouseEnter="showContact" />
               </div>
               <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE</h1>
@@ -65,11 +65,9 @@ export class HeaderIndex extends Component {
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                   <HeaderNavButton title="Publications" to="/publications" icon="far fa-fw fa-newspaper"/>
               </div>
-
           </div>
         </div>
       </Header>
-
     )
   }
 }
