@@ -7,8 +7,9 @@ import 'babel-polyfill' // https://medium.com/@andrewzey/google-seo-with-create-
 
 import './App.css';
 
+
 import { metaKeywords } from './common';
-import { Navbar } from './navbar';
+import { MyNavbar } from './navbar';
 import { Home } from './home';
 import { Releases, ReleaseVersion, ReleaseVersionRedirect } from './releases';
 import { Quickstart } from './quickstart';
@@ -89,7 +90,7 @@ class App extends Component {
             <meta name="keywords" content={metaKeywords}/>
           </Helmet>
 
-          <Navbar />
+          <MyNavbar />
 
           <Routes>
             <Route path={process.env.PUBLIC_URL + '/'} element={<Home {...this.props} release_changelogs={this.state.release_changelogs}/>}/>

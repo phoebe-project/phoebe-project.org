@@ -108,6 +108,7 @@ summary {
 
 .navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
   max-height: 500px;
+  overflow: visible;
 }
 
 .navbar-transparent .navbar-toggle > .icon-bar {
@@ -141,9 +142,6 @@ summary {
 
 .navbar-transparent .dropdown-menu{
   background-color: #2B71B1;
-}
-
-.navbar-transparent .navbar-nav > li > a{
   color: #E6E6E6;
 }
 
