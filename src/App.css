@@ -364,7 +364,20 @@ a.news-permalink {
     /* display vertically instead of horizontally */
     display: inline-grid !important;
   }
-
+  .visible-xs {
+    display: block !important;
+  }
+  .hidden-xs {
+    display: none !important;
+  }
 }
 
-/* OTHER */
+@media screen and (min-width: 768px) {
+  .hidden-xs {
+    display: block !important;
+  }
+
+  .visible-xs {
+    display: none !important;
+  }
+}
