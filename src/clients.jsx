@@ -31,19 +31,17 @@ class Clients extends Component {
     } else if (hash === '#server') {
       offsetTop = this.refserver.current.offsetTop;
     }
-
     if (offsetTop) {
       window.scrollTo(0,offsetTop-80);
     }
   }
   componentDidUpdate() {
-    this.scrollToHash()
-  }
-  render() {
     if (this.props.location.hash !== this.state.hash) {
       this.setState({hash: this.props.location.hash})
     }
-
+    this.scrollToHash()
+  }
+  render() {
     return (
       <div>
         <Helmet>
@@ -79,7 +77,6 @@ class Clients extends Component {
             <p>
               PHOEBE 2 is an <Link to="/install">installable python package</Link> which is designed to have a <Link to="/docs">flexible but high-level frontend interface</Link>.  If you want to interact with PHOEBE more... interactively, we have also developed a "server-client" infrastructure to allow for point-and-click clients that can talk to PHOEBE running in any number of environment, including compute clusters.  This consists of the following components:
             </p>
-
           </div>
 
           <div className="row">
@@ -114,7 +111,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={1} preventscrolltop={this.props.location.hash}>
+        <Content id="desktop" dark={1} preventscrolltop={this.props.location.hash}>
 
 
           <h2 ref={this.refdesktop}><span className="fas fa-fw fa-xs fa-desktop"></span>  Desktop UI Client</h2>
@@ -166,7 +163,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content dark={0} preventscrolltop={this.props.location.hash}>
+        <Content dark={0} id="web" preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refweb}><span className="fas fa-fw fa-xs fa-window-maximize"></span>  Web UI Client</h2>
 
@@ -205,7 +202,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={1} preventscrolltop={this.props.location.hash}>
+        <Content dark={1} id="python" preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refpython}><span className="fas fa-fw fa-xs fa-terminal"></span>  Python Client</h2>
 
@@ -237,7 +234,7 @@ class Clients extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content dark={0} preventscrolltop={this.props.location.hash}>
+        <Content dark={0} id="server" preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refserver}><span className="fas fa-fw fa-xs fa-server"></span>  PHOEBE Server</h2>
 
