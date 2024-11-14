@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Image, Separator} from './common';
+import {Content, Link, Image, Separator, withRouter} from './common';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
@@ -35,7 +35,7 @@ class PublicationHeaderLinks extends Component {
   }
 }
 
-export class PublicationEntry extends Component {
+class PublicationEntry extends Component {
   render() {
     let publication = this.props.match.params.publication
 
@@ -210,6 +210,8 @@ export class PublicationEntry extends Component {
     )
   }
 }
+
+export default withRouter(PublicationEntry)
 
 export class Publications extends Component {
   render() {
