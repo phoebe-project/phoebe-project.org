@@ -214,7 +214,7 @@ class UIHeader extends Component {
 class UITag extends Component {
   render() {
     return (
-      <span onClick={this.props.onClick} style={{cursor: "pointer", backgroundColor: this.props.checked ? "rgba(43,113,177,.16862745098039217)" : "#ffffff", color: "#3b71b1", boxShadow: this.props.checked ? "inset 0.5px 0.5px 1px 0 rgba(21,21,22,.8392156862745098)" : "0.5px 0.5px 3px 0 rgba(21,21,22,.8392156862745098)", padding: "0px 4px 2px 14px", margin: "-5px 0px", borderRadius: "4px", fontSize: "0.9em", textAlign: "left", overflow: "hidden", display: "inline-block", width: "100%"}}>{this.props.children}</span>
+      <span onClick={this.props.onClick} style={{cursor: "pointer", backgroundColor: this.props.checked ? "rgba(43,113,177,.16862745098039217)" : "#ffffff", color: "#3b71b1", boxShadow: this.props.checked ? "inset 0.5px 0.5px 1px 0 rgba(21,21,22,.8392156862745098)" : "0.5px 0.5px 3px 0 rgba(21,21,22,.8392156862745098)", padding: "0px 4px 2px 8px", margin: "-2px 0px", borderRadius: "4px", fontSize: "0.9em", textAlign: "left", overflow: "hidden", display: "inline-block", width: "100%"}}>{this.props.children}</span>
     )
   }
 }
@@ -321,7 +321,7 @@ class UIContent extends Component {
   render() {
     return (
       <div style={{fontFamily: "sans-serif"}}>
-        <div className="row" style={{borderBottom: "1px solid #6666", color: "#6666", marginTop: "-2px", paddingBottom: "2px"}}>
+        <div style={{borderBottom: "1px solid #6666", color: "#6666", marginTop: "-2px", marginLeft: "-16px", marginRight: "-16px", paddingBottom: "2px"}}>
           <span className="fa fa-lg fa-fw fas fa-file" style={{marginLeft: "8px", marginRight: "6px"}}></span>
           <span className="fa fa-lg fa-fw fas fa-folder-open" style={{marginRight: "6px"}}></span>
           <span className="fa fa-lg fa-fw fas fa-save" style={{marginRight: "6px"}}></span>

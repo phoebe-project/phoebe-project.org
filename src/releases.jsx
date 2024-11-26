@@ -49,9 +49,9 @@ export class Releases extends Component {
 
         </Header>
         <Content>
-          <div className="hidden-xs" style={{display: "flex", justifyContent: "space-between"}}>
+          <div className="hidden-xs" style={{display: "flex", justifyContent: "space-between", height: "36px"}}>
             <span/>
-            <div style={{marginRight: "-40px"}}>
+            <div style={{marginRight: "-40px", float: "right"}}>
               <iframe title="gh-star" src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
           </div>

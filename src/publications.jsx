@@ -242,7 +242,9 @@ export class Publications extends Component {
 
         <Content dark={1}>
           <h2>Papers that Use PHOEBE 2</h2>
-          <Link to={"https://github.com/phoebe-project/phoebe-project.org/issues/new?title=new+paper+that+uses+phoebe"} hideexternal="true"><span className="fas fa-fw fa-plus"></span> Suggest New Entry</Link>
+          <div style={{marginBottom: "12px"}}>
+            <Link to={"https://github.com/phoebe-project/phoebe-project.org/issues/new?title=new+paper+that+uses+phoebe"} hideexternal="true"><span className="fas fa-fw fa-plus"></span> Suggest New Entry</Link>
+          </div>
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
           {/* https://ui.adsabs.harvard.edu/search/p_=0&q=citations(docs(6778e7c18850253cfa4f448751b2ed69))&sort=date%20desc%2C%20bibcode%20desc */}
@@ -465,7 +467,7 @@ class Publication extends Component {
   render() {
     // props: adsLink, authors, title, release (optional)
     return (
-      <div className="row">
+      <div style={{marginBottom: "4px"}}>
         <Link to={this.props.entryLink || this.props.adsLink} hideexternal="true">{this.props.author}</Link>
         {this.props.pdf ? <span> (<Link to={"/static/pdf/"+this.props.pdf}>download pdf</Link>) </span> : null}
         <span> - {this.props.title}</span>

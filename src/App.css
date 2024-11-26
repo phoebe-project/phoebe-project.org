@@ -3,7 +3,14 @@
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Ubuntu', sans-serif !important;
+  font-size: 13px;
+  color: rgb(102, 102, 102);
+  height: 78px;
+  line-height: 24px;
+  letter-spacing: .1px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   padding-top: 50px;
   overflow-x: hidden; /* Prevent scroll on narrow devices */
   word-break: break-word;
@@ -30,6 +37,18 @@ img {
         -ms-filter: "FlipV";
 }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #444444;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  margin-top: 23px !important;
+  margin-bottom: 11.5px !important;
+}
+
 h1, .h1 {
   font-size: 40px;
 }
@@ -42,6 +61,15 @@ h3, .h3 {
   font-size: 24px;
 }
 
+h4 small, .h4 small, h5 small, .h5 small, h6 small, .h6 small, h4 .small, .h4 .small, h5 .small, .h5 .small, h6 .small, .h6 .small {
+  font-size: 75%;
+}
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
+  font-weight: normal;
+  line-height: 1;
+  color: #bbbbbb;
+}
+
 p {
   text-align: justify;
   text-justify: inter-word;
@@ -49,6 +77,7 @@ p {
 
 a {
   color: #2B71B1;
+  text-decoration: none;
 }
 
 code {
@@ -58,6 +87,33 @@ code {
 
 summary {
   cursor: pointer;
+}
+
+.btn {
+  text-transform: uppercase;
+  border-radius: 3px;
+  white-space: nowrap;
+  padding: 6px 16px;
+  font-size: 13px;
+  line-height: 1.846;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.alert {
+  border: none;
+  color: #fff;
+}
+
+.alert a:not(.close), .alert .alert-link {
+  color: #fff;
+  font-weight: bold;
 }
 
 .logo-invert {
@@ -101,6 +157,22 @@ summary {
 
 /* NAVBAR */
 
+.navbar-default .navbar-toggle {
+  border-color: transparent;
+}
+.navbar-toggle {
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  padding: 9px 10px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background-color: transparent;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 3px;
+}
+
 .navbar-collapse{
   overflow-x: hidden;
   max-height: 90%;
@@ -127,7 +199,7 @@ summary {
 }
 
 .navbar-brand{
-  font-family: 'Merriweather', serif;
+  font-family: 'Merriweather', serif !important;
   line-height: 24px;
   color: #444444;
 }
@@ -142,6 +214,9 @@ summary {
 
 .navbar-transparent .dropdown-menu{
   background-color: #2B71B1;
+}
+
+.navbar-transparent .navbar-nav > li > a{
   color: #E6E6E6;
 }
 
@@ -223,8 +298,7 @@ summary {
 .btn-transparent, .btn-transparent:focus {
   background-color: transparent;
   color: #D6D6D6 !important;
-  border-width: 1px;
-  border-color: #D6D6D6 !important;
+  border: 1px #D6D6D6 solid !important;
   box-shadow: none;
 }
 
@@ -244,7 +318,6 @@ summary {
 /* BOOSTRAP ALERTS */
 
 .alert-danger{
-  /* background-color: #E44B50 !important;*/
   background-color: #d66b6b !important;
 }
 
@@ -257,7 +330,31 @@ summary {
   padding-bottom: 30px !important
 }
 
+.alert>p, .alert>ul {
+  margin-bottom: 0;
+}
 
+pre {
+  display: block;
+  padding: 11px;
+  margin: 0 0 11.5px;
+  font-size: 12px;
+  line-height: 1.846;
+  word-break: break-all;
+  word-wrap: break-word;
+  color: #212121;
+  background-color: #f5f5f5;
+  border: 1px solid #cccccc;
+  border-radius: 3px;
+}
+
+.react-ipynb-renderer {
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  max-width: 100%;
+}
 
 /* BOOTSTRAP JUMBOTRONS */
 
@@ -265,6 +362,7 @@ summary {
   background-color: #2B71B1;
   padding-top: 25px;
   padding-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .jumbotron-black {
@@ -272,9 +370,8 @@ summary {
 }
 
 .jumbotron h1, .jumbotron h2, .jumbotron h3, .jumbotron h4, .jumbotron p{
-  /*align: left;*/
   color: #E6E6E6;
-  font-family: 'Merriweather', serif;
+  font-family: 'Merriweather', serif !important;
 }
 
 .jumbotron h1{
@@ -282,6 +379,13 @@ summary {
 }
 
 /* NEWS PANELS */
+
+.panel {
+  border: none;
+  border-radius: 2px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
 
 .news-callout {
   margin: 20px 0;
