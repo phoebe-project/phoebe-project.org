@@ -45,8 +45,7 @@ export class MyNavbar extends Component {
             <NavLink to="/install" style={navbarLinkStyle} title="Download & Install"><span className="fa fa-fw fa-download"></span> <span className="hidden-sm">Install</span></NavLink>
             <NavLink to="/clients" style={navbarLinkStyle} title="Interactive Clients"><span className="fa fa-fs fa-desktop"></span> <span className="hidden-sm">Clients</span></NavLink>
             <NavLink to="/tables" style={navbarLinkStyle} title="Passband & Atmosphere Tables"><span className="fa fa-fs fa-th"></span> <span className="hidden-sm">Tables</span></NavLink>
-            <NavLink to="/docs" style={navbarLinkStyle} title="Documentation"><span className="fa fa-fw fa-book-open"></span> <span className="hidden-sm hidden-xs-inline">Documentation</span><span
-              className="hidden-sm visible-xs">Docs</span></NavLink>
+            <NavLink to="/docs" style={navbarLinkStyle} title="Documentation"><span className="fa fa-fw fa-book-open"></span> <span className="hidden-sm hidden-xs">Docs</span></NavLink>
             <NavLink to="/news" style={navbarLinkStyle} title="News"><span className="far fa-fw fa-newspaper"></span> <span className="hidden-sm hidden-md">News</span></NavLink>
             <NavLink to="/publications" style={navbarLinkStyle} title="Publications"><span className="fas fa-fw fa-copy"></span> <span
               className="hidden-sm hidden-md">Publications</span></NavLink>

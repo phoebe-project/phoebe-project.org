@@ -138,7 +138,7 @@ class Docs extends Component {
         </Helmet>
         <Header>
           <span className="hidden-xs"><h1>PHOEBE {version} Documentation</h1></span>
-          <span className="visible-xs"><h1>{version} docs</h1></span>
+          {/*<span className="visible-xs"><h1>{version} docs</h1></span>*/}
 
           <div className="row">
             {version < 2.3 ?
