@@ -32,7 +32,7 @@ export class MyNavbar extends Component {
     let navbarClassName = "navbar navbar-fixed-top navbar-header-fix navbar-default";
     let navbarStyle = {}
     let navbarBrandStyle = {}
-    let navbarLinkStyle = {textDecoration: 'none', paddingTop: "5px"}
+    let navbarLinkStyle = {textDecoration: 'none'}
     let navbarLogo = '/logos/logo_blue.svg'
     let navbarLogoClass="navbar-brand-logo"
     if (this.state.navbarDark) {

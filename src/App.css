@@ -159,6 +159,8 @@ summary {
 
 .navbar {
   justify-content: flex-start;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
 .navbar > .container {
   justify-content: flex-start;
@@ -205,7 +207,7 @@ summary {
 }
 
 .navbar-brand{
-  margin-top: -14px;
+  margin-top: -11px;
   font-family: 'Merriweather', serif !important;
   line-height: 24px;
   color: #444444;
@@ -250,12 +252,23 @@ summary {
   color: #E6E6E6;
 }
 
+.navbar-default .navbar-nav > a.active, .navbar-default .navbar-nav > a.active:hover, .navbar-default .navbar-nav > a.active:focus{
+  border-bottom-style: solid !important;
+  border-bottom-color: #2B71B1 !important;
+  border-bottom-width: 2px !important;
+}
+
 .navbar-transparent .navbar-nav > a.active, .navbar-transparent .navbar-nav > a.active:hover, .navbar-transparent .navbar-nav > a.active:focus{
   color: #ffffff !important;
   background-color: #2B71B1 !important;
   border-bottom-style: solid !important;
   border-bottom-color: #E6E6E6 !important;
   border-bottom-width: 2px !important;
+}
+
+.navbar a {
+  padding-top: 16px;
+  padding-bottom: 12px;
 }
 
 .navbar-default a {
