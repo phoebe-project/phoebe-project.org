@@ -252,6 +252,33 @@ summary {
   border-bottom-width: 2px !important;
 }
 
+.navbar-default a {
+  color: #666666;
+}
+
+.navbar-default .navbar-nav .dropdown-toggle, .navbar-default .navbar-nav .dropdown-toggle {
+  font-family: Ubuntu;
+  color: #666666;
+}
+
+.navbar-default .navbar-nav .nav-link.active, .navbar-default .navbar-nav .nav-link.show {
+  color: #666666;
+  text-decoration: none;
+}
+
+.navbar-default :hover {
+  text-decoration: none;
+}
+
+.navbar-transparent .navbar-nav .dropdown-toggle, .navbar-transparent .navbar-nav .dropdown-toggle {
+  color: rgb(230, 230, 230);
+}
+
+.navbar-transparent .navbar-nav .nav-link.active, .navbar-transparent .navbar-nav .nav-link.show {
+  color: rgb(230, 230, 230);
+}
+
+
 .navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:focus {
     color: #212121;
     background-color: transparent;
@@ -262,16 +289,15 @@ summary {
     color: #E6E6E6;
 }
 
-.navbar-nav .dropdown-toggle, .navbar-nav .dropdown-toggle {
-  font-family: Ubuntu;
-  color: rgb(230, 230, 230);
+.navbar-default .dropdown-item:focus, .navbar-default .dropdown-item:hover {
+  color: #E6E6E6;
+  background-color: #EEEEEE;
 }
 
-.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-  color: rgb(230, 230, 230);
-  text-decoration: none;
+.navbar-transparent .dropdown-item:focus, .navbar-transparent .dropdown-item:hover {
+  color: #E6E6E6;
+  background-color: #3676b1;
 }
-
 
 .img-dropshadow {
   -webkit-box-shadow: 5px 5px 13px -3px rgba(0,0,0,0.75);

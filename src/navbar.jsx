@@ -13,7 +13,21 @@ export class MyNavbar extends Component {
       navbarDark: true,
     };
   }
-
+  updateScroll = () => {
+    var scrollTop = window.document.body.scrollTop || document.documentElement.scrollTop;
+    var change_height = 50;
+    if(scrollTop >  change_height) {
+      this.setState({navbarDark: false});
+    } else {
+      this.setState({navbarDark: true});
+    }
+  }
+  componentDidMount() {
+    window.addEventListener('scroll', this.updateScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.updateScroll);
+  }
   render() {
     let navbarClassName = "navbar navbar-fixed-top navbar-header-fix navbar-default";
     let navbarStyle = {}
