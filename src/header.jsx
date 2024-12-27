@@ -46,7 +46,7 @@ export class HeaderIndex extends Component {
       <Header separator='right'>
         <div>
           <div className="row" style={{textAlign: "center", paddingBottom: "20px"}}>
-              <div style={{zoom: 1.2}}>
+              <div style={{zoom: 0.7}}>
                 <LogoSplash excludeTriple={true} transitionIn="transitionInContact" onMouseEnter="showContact" />
               </div>
               <h1 style={{color: "#E6E6E6", fontFamily: "Merriweather"}}>PHOEBE</h1>
