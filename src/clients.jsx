@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
+import Container from "react-bootstrap/Container";
 import {Content, Link, Button, Separator, metaKeywords, withRouter} from './common'
 import {WebUI, DesktopUI} from './mockups'
 import {Header, HeaderNavButton} from './header'
@@ -158,7 +159,9 @@ class Clients extends Component {
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon="fa fa-fw fa-download" title={"Install PHOEBE Desktop Client"}/>
+            <Container>
+              <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon="fa fa-fw fa-download" title={"Install PHOEBE Desktop Client"}/>
+            </Container>
           </div>
 
           <Separator large={false} flip={true}/>
@@ -197,7 +200,9 @@ class Clients extends Component {
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
+            <Container>
+              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
+            </Container>
           </div>
 
           <Separator large={false} flip={false}/>
@@ -229,7 +234,9 @@ class Clients extends Component {
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install Python Client with PHOEBE"}/>
+            <Container>
+              <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install Python Client with PHOEBE"}/>
+            </Container>
           </div>
 
           <Separator large={false} flip={true}/>
@@ -251,7 +258,9 @@ class Clients extends Component {
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install phoebe-server with PHOEBE"}/>
+            <Container>
+              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install phoebe-server with PHOEBE"}/>
+            </Container>
           </div>
 
         </Content>
