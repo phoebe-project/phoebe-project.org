@@ -199,6 +199,7 @@ summary {
 }
 
 .navbar-brand{
+  margin-top: -14px;
   font-family: 'Merriweather', serif !important;
   line-height: 24px;
   color: #444444;

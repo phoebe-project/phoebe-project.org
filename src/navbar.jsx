@@ -23,7 +23,6 @@ export class MyNavbar extends Component {
     let navbarLogoClass="navbar-brand-logo"
     if (this.state.navbarDark) {
       navbarClassName = navbarClassName + " navbar-transparent"
-      // navbarStyle = {backgroundColor: "#2B71B1", boxShadow: "none", transition: "none", color: "#E6E6E6"}
       navbarBrandStyle = {color: "#E6E6E6", fontVariant: "small-caps"}
       navbarLinkStyle.color = "#E6E6E6"
       navbarLogoClass = navbarLogoClass + " logo-invert"
@@ -33,10 +32,10 @@ export class MyNavbar extends Component {
     navbarLinkStyle.fontFamily = 'Ubuntu';
 
     return (
-      <Navbar className={navbarClassName} fixed={"top"} expand="lg">
+      <Navbar className={navbarClassName} fixed="top" expand="lg">
         <Container>
         <Navbar.Brand>
-          <NavLink to="/" className="navbar-brand" ><b><Image className={navbarLogoClass} height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>
+          <NavLink to="/" className="navbar-brand"><b><Image className={navbarLogoClass} height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="navbar-nav">
