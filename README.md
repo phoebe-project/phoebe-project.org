@@ -8,10 +8,19 @@ phoebe-project.org is a single-page ReactJS website, with content dynamically pu
 
 ## Dependencies
 
-see [installing node and npm on Ubuntu](https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/)
-
   * node
   * npm
+
+see [installing node and npm on Ubuntu](https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/)
+
+or install node and npm in conda:
+
+```
+conda create -y -n phoebe-project
+conda activate phoebe-project
+conda config --add channels conda-forge
+conda install nodejs=18.19.0
+```
 
 
 ## Serving locally
@@ -38,14 +47,13 @@ NOTE on `/static/` files: all files referenced as /static/ are NOT included in t
 In the root directory, issue:
 
 ```
-npm run deploy
-```
-
-This assumes that you have `clusty` as a servername on your machine and permissions to write to the correct directory.  If not, you can manually build and scp the files:
-
-```
 npm run build
-scp -r build/* clusty:/srv/www/phoebe-project/
+```
+
+copy the entire directory to the server directory:
+
+```
+scp -r build/* terra:/srv/www/phoebe-project/
 ```
 
 
