@@ -46,7 +46,7 @@ export class MyNavbar extends Component {
     navbarLinkStyle.fontFamily = 'Ubuntu';
 
     return (
-      <Navbar className={navbarClassName} fixed="top" expand="lg">
+      <Navbar className={navbarClassName} fixed="top" expand="md">
         <Container>
         <Navbar.Brand>
           <NavLink to="/" className="navbar-brand"><b><Image className={navbarLogoClass} height="32px" src={navbarLogo} style={{paddingBottom: "5px"}}/>  PHOEBE</b></NavLink>

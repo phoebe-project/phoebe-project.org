@@ -157,6 +157,12 @@ summary {
 
 /* NAVBAR */
 
+.navbar {
+  justify-content: flex-start;
+}
+.navbar > .container {
+  justify-content: flex-start;
+}
 .navbar-default .navbar-toggle {
   border-color: transparent;
 }
@@ -297,6 +303,19 @@ summary {
 .navbar-transparent .dropdown-item:focus, .navbar-transparent .dropdown-item:hover {
   color: #E6E6E6;
   background-color: #3676b1;
+}
+
+.navbar-collapse {
+  margin-left: 24px;
+  margin-right: 24px;
+}
+
+
+.navbar-toggler {
+  float: right;
+  position: absolute;
+  right: 20px;
+  top: 16px;
 }
 
 .img-dropshadow {
