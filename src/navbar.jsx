@@ -50,7 +50,7 @@ export class MyNavbar extends Component {
               className="hidden-sm hidden-md">Publications</span></NavLink>
             <NavLink to="/workshops" style={navbarLinkStyle} title="Workshops"><span className="fas fa-fw fa-chalkboard-teacher"></span> <span
               className="hidden-sm hidden-md">Workshops</span></NavLink>
-            <NavDropdown className={"btn-default"} title={<><span className="fa fa-fw fa-code-branch"></span> <span className="hidden-sm hidden-md">Develop</span></>}>
+            <NavDropdown title={<><span className="fa fa-fw fa-code-branch"></span> <span className="hidden-sm hidden-md">Develop</span></>}>
               <NavDropdown.Item><NavLink to="/source" style={navbarLinkStyle} title="Source-Code"><span className="fas fa-fw fa-code"></span> <span>Source Code</span></NavLink></NavDropdown.Item>
               <NavDropdown.Item><NavLink to="/dependencies" style={navbarLinkStyle} title="Dependencies"><span className="fas fa-fw fa-stream"></span> <span>Dependencies</span></NavLink></NavDropdown.Item>
               <NavDropdown.Item><NavLink to="/contribute" style={navbarLinkStyle} title="Contribute"><span className="fas fa-fw fa-user-plus"></span> <span>Contribute</span></NavLink></NavDropdown.Item>

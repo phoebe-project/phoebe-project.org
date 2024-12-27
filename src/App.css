@@ -245,17 +245,14 @@ summary {
 }
 
 .navbar-transparent .navbar-nav > a.active, .navbar-transparent .navbar-nav > a.active:hover, .navbar-transparent .navbar-nav > a.active:focus{
-  color: #fff !important;
+  color: #ffffff !important;
   background-color: #2B71B1 !important;
   border-bottom-style: solid !important;
   border-bottom-color: #E6E6E6 !important;
-/*
-  border-bottom-color: #0D87E9 !important;
-*/
   border-bottom-width: 2px !important;
 }
 
-.navbar-trasparent .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+.navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a, .navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:hover, .navbar-transparent .navbar-nav .open .dropdown-menu > .disabled > a:focus {
     color: #212121;
     background-color: transparent;
 }
@@ -264,6 +261,17 @@ summary {
     background-color: transparent;
     color: #E6E6E6;
 }
+
+.navbar-nav .dropdown-toggle, .navbar-nav .dropdown-toggle {
+  font-family: Ubuntu;
+  color: rgb(230, 230, 230);
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  color: rgb(230, 230, 230);
+  text-decoration: none;
+}
+
 
 .img-dropshadow {
   -webkit-box-shadow: 5px 5px 13px -3px rgba(0,0,0,0.75);
