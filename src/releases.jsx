@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet"; // https://www.npmjs.com/package/react-he
 
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
 
-import { Content, Link, Redirect, Image, Separator, getLatestPatchVersion } from './common';
+import { Content, Link, Redirect, Image, Separator, getLatestPatchVersion, withRouter } from './common';
 import { NotFound } from './errors';
 import { docs_versions } from './docs';
 import { Header, HeaderNavButton } from './header';
@@ -82,7 +82,7 @@ export class Releases extends Component {
   }
 }
 
-export class ReleaseVersion extends Component {
+class ReleaseVersionBeforeRouter extends Component {
   render() {
     let version = this.props.match.params.version
 
@@ -112,6 +112,8 @@ export class ReleaseVersion extends Component {
     )
   }
 }
+
+export const ReleaseVersion = withRouter(ReleaseVersionBeforeRouter);
 
 class ReleaseContent extends Component {
   render() {
