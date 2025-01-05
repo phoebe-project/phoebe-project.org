@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import { useLocation } from "react-router-dom";
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Separator, TestsDiv, metaKeywords} from './common';
+import {Content, Link, Separator, TestsDiv, metaKeywords, withRouter} from './common';
 import {Header, HeaderNavButton} from './header';
 
 
-
-export class Contribute extends Component {
+class ContributeBeforeRouter extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -20,19 +20,18 @@ export class Contribute extends Component {
   }
   scrollToHash() {
     let offsetTop = null;
-    let hash = this.state.hash
-    if (hash==='#testing') {
+    if (this.state.hash==='#testing') {
       offsetTop = this.reftesting.current.offsetTop;
-    } else if (hash==='#issues') {
+    } else if (this.state.hash==='#issues') {
       offsetTop = this.refissues.current.offsetTop;
-    } else if (hash==='#features') {
+    } else if (this.state.hash==='#features') {
       offsetTop = this.reffeatures.current.offsetTop;
-    } else if (hash==='#develop') {
+    } else if (this.state.hash==='#develop') {
       offsetTop = this.refdevelop.current.offsetTop;
     }
 
     if (offsetTop) {
-      window.scrollTo(0,offsetTop-80);
+      window.scrollTo(0, offsetTop-80);
     }
   }
   componentDidUpdate() {
@@ -145,7 +144,9 @@ export class Contribute extends Component {
   }
 }
 
-export class ContributeDevelopment extends Component {
+export const Contribute = withRouter(ContributeBeforeRouter);
+
+class ContributeDevelopmentBeforeRouter extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -186,7 +187,6 @@ export class ContributeDevelopment extends Component {
     if (this.props.location.hash !== this.state.hash) {
       this.setState({hash: this.props.location.hash})
     }
-
 
     return (
       <div>
@@ -547,6 +547,8 @@ export class ContributeDevelopment extends Component {
     );
   }
 }
+
+export const ContributeDevelopment = withRouter(ContributeDevelopmentBeforeRouter);
 
 export class TourFrontend extends Component {
   render() {
