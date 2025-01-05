@@ -17,7 +17,7 @@ let archived_workshops = {"2018june": "June 2018, Villanova PA",
 
 // NOTE: "2020june": "June-July 2020, Villanova PA" canceled due to covid-19
 
-class Workshop extends Component {
+class WorkshopBeforeRouter extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -116,18 +116,20 @@ class Workshop extends Component {
         </div>
       )
     } else if (Object.keys(active_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<RoutedWorkshopEntry active={true} upcoming={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<WorkshopEntry active={true} upcoming={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else if (Object.keys(upcoming_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<RoutedWorkshopEntry active={true} upcoming={true} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<WorkshopEntry active={true} upcoming={true} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else if (Object.keys(archived_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<RoutedWorkshopEntry active={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
+      return(<WorkshopEntry active={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
     } else {
       return(<NotFound>{this.state.workshop} workshop not found, try all <Link to="/workshops">workshops</Link></NotFound>)
     }
   }
 }
 
-class WorkshopEntry extends Component {
+export const Workshop = withRouter(WorkshopBeforeRouter)
+
+class WorkshopEntryBeforeRouter extends Component {
   redirect = (workshop, slug) => {
     this.props.navigate("/workshops/"+workshop+"/"+slug)
   }
@@ -258,7 +260,7 @@ class WorkshopEntry extends Component {
   }
 }
 
-const RoutedWorkshopEntry = withRouter(WorkshopEntry);
+const WorkshopEntry = withRouter(WorkshopEntryBeforeRouter);
 
 export class WorkshopRegistration extends Component {
   render() {
@@ -267,4 +269,3 @@ export class WorkshopRegistration extends Component {
   }
 }
 
-export default withRouter(Workshop)

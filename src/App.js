@@ -18,7 +18,7 @@ import { Tables, TablesPBs, TablesPTFs, TablesATMs } from './tables';
 import Clients from './clients';
 import Docs from './docs';
 import News from './news';
-import Workshop, { WorkshopRegistration } from './workshops';
+import {Workshop, WorkshopRegistration } from './workshops';
 import { Publications } from './publications';
 import PublicationEntry from "./publications";
 import { Source, Dependencies } from './source';
