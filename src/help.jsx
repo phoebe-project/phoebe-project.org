@@ -36,7 +36,7 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="kyle.jpg">
-            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a postdoctoral researcher at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link>, is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings, and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
+            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a Senior Software Engineer at Space Telescope Sciencie Institute.  He received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link> and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
           </DeveloperInfo>
 
 
@@ -58,6 +58,7 @@ export class HelpDevel extends Component {
           <DeveloperInfo image="dave.jpeg">
             <Link to="http://www.drdjones.net" hideexternal="true">Dave Jones</Link> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> into the framework of PHOEBE 2.
           </DeveloperInfo>
+
 
           <DeveloperInfo image="michael.jpg">
             Michael Abdul-Masih is a postdoctoral fellow at the European Southern Observatory.  He received his PhD from KU Leuven, where he worked on non-spherical massive stars, and how accounting for the 3D geometry affects the derived stellar parameters and thus evolutionary future of these objects.  His primary research interests include distorted massive stars and the integration of 3D geometries into spectral fitting techniques.
