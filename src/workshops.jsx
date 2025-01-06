@@ -8,12 +8,13 @@ import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
 let upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
-let active_workshops = {"2024june": "June 2024, Ljubljana Slovenia"}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
+let active_workshops = {}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
 let archived_workshops = {"2018june": "June 2018, Villanova PA",
                           "2019july": "July 2019, Villanova PA",
                           "2021june": "June 2021, Virtual Workshop",
                           "2022june": "June-July 2022, Villanova PA",
-                          "2023june": "June 2023, Ljubljana Slovenia"}; // WORKSHOP OVER
+                          "2023june": "June 2023, Ljubljana Slovenia",
+                          "2024june": "June 2024, Ljubljana Slovenia"}; // WORKSHOP OVER
 
 // NOTE: "2020june": "June-July 2020, Villanova PA" canceled due to covid-19
 
