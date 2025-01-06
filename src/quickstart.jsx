@@ -9,7 +9,7 @@ import {Header} from './header';
 
 export class Quickstart extends Component{
   render() {
-    var version = this.props.match.params.version
+    let version = this.props.match.params.version
 
     if (version==null) {
       version = docs_versions[0]

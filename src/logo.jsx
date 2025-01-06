@@ -111,7 +111,7 @@ export class LogoSplash extends Component {
   }
   clearTemporary = () => {
     HTMLCollection.prototype[Symbol.iterator] = Array.prototype[Symbol.iterator];
-    for (var element of this.phoebelogo.current.children) {
+    for (let element of this.phoebelogo.current.children) {
       element.classList.remove('tmphide', 'tmpshow');
     }
     this.enableAnimation();
@@ -123,11 +123,11 @@ export class LogoSplash extends Component {
     // className: null (default), string of any other classes to add to the entire div
     // pltStyle: {} (default), dictionary to pass to css style of EACH triangle (i.e. to change color)
 
-    var transitionIn = this.props.transitionIn || "transitionInNone"
-    var animationEffect = this.props.animationEffect || ""
-    var additionalClasses = this.props.className || ""
+    let transitionIn = this.props.transitionIn || "transitionInNone"
+    let animationEffect = this.props.animationEffect || ""
+    let additionalClasses = this.props.className || ""
 
-    var onMouseEnter = this.props.onMouseEnter || null;
+    let onMouseEnter = this.props.onMouseEnter || null;
     if (onMouseEnter === 'showSingle') {
       onMouseEnter = this.showSingle
     } else if (onMouseEnter === 'showDetached') {
@@ -136,8 +136,8 @@ export class LogoSplash extends Component {
       onMouseEnter = this.showContact
     }
 
-    var divClasses = "PhoebeLogo "+transitionIn+" "+animationEffect+" "+additionalClasses
-    var pltStyle = this.props.pltStyle || {}
+    let divClasses = "PhoebeLogo "+transitionIn+" "+animationEffect+" "+additionalClasses
+    let pltStyle = this.props.pltStyle || {}
 
     return(
       <div className={divClasses} ref={this.phoebelogo} onMouseEnter={onMouseEnter} onMouseLeave={this.clearTemporary}>

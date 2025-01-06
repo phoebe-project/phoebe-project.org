@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Image, Separator} from './common';
+import {Content, Link, Image, Separator, withRouter} from './common';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
@@ -35,20 +35,20 @@ class PublicationHeaderLinks extends Component {
   }
 }
 
-export class PublicationEntry extends Component {
+class PublicationEntry extends Component {
   render() {
-    var publication = this.props.match.params.publication
+    let publication = this.props.match.params.publication
 
-    var published = true
-    var author = null;
-    var authorsFull = null;
-    var titleShort = null;
-    var title = null;
-    var abstract = null;
-    var adsLink = null;
-    var pdf = null;
-    var release = null;
-    var figures = [];
+    let published = true
+    let author = null;
+    let authorsFull = null;
+    let titleShort = null;
+    let title = null;
+    let abstract = null;
+    let adsLink = null;
+    let pdf = null;
+    let release = null;
+    let figures = [];
 
     if (publication === '2005Prsa+') {
       published = true
@@ -170,7 +170,7 @@ export class PublicationEntry extends Component {
           </p>
           {published ?
             <p>
-              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={adsLink} hideExternal={true}><span className="ai ai-ads"></span> ADS</Link></span>
+              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={adsLink} hideexternal="true"><span className="ai ai-ads"></span> ADS</Link></span>
               <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/static/pdf/"+pdf}><span className="far fa-fw fa-file-pdf"></span> PDF</Link></span>
               {release ?
                 <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/releases/"+release}><span className="fas fa-fw fa-tags"></span> {release} Release</Link></span>
@@ -211,6 +211,8 @@ export class PublicationEntry extends Component {
   }
 }
 
+export default withRouter(PublicationEntry)
+
 export class Publications extends Component {
   render() {
     return (
@@ -226,7 +228,7 @@ export class Publications extends Component {
         </Header>
         <Content>
           <div style={{textAlign: "center", padding: "25px"}}>
-            <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideExternal={true}><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/><br/><br/>Modeling and Analysis of Eclipsing Binary Stars:<br/>The theory and design principles of PHOEBE<br/>Andrej Prša (2018)</Link>
+            <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideexternal="true"><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/><br/><br/>Modeling and Analysis of Eclipsing Binary Stars:<br/>The theory and design principles of PHOEBE<br/>Andrej Prša (2018)</Link>
           </div>
 
           <h2>PHOEBE Release Series</h2>
@@ -238,9 +240,11 @@ export class Publications extends Component {
           <Separator large={false}/>
         </Content>
 
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>Papers that Use PHOEBE 2</h2>
-          <Link to={"http://github.com/phoebe-project/phoebe-project.org/issues/new?title=new+paper+that+uses+phoebe"} hideExternal={true}><span className="fas fa-fw fa-plus"></span> Suggest New Entry</Link>
+          <div style={{marginBottom: "12px"}}>
+            <Link to={"https://github.com/phoebe-project/phoebe-project.org/issues/new?title=new+paper+that+uses+phoebe"} hideexternal="true"><span className="fas fa-fw fa-plus"></span> Suggest New Entry</Link>
+          </div>
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
           {/* https://ui.adsabs.harvard.edu/search/p_=0&q=citations(docs(6778e7c18850253cfa4f448751b2ed69))&sort=date%20desc%2C%20bibcode%20desc */}
@@ -414,7 +418,7 @@ export class Publications extends Component {
           <Separator flip={true} large={false}/>
         </Content>
 
-        <Content dark={false}>
+        <Content dark={0}>
           <h2>PHOEBE Conference Proceedings</h2>
           <Publication author="Kochoska et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020CoSka..50..539K" title="Beyond DC and MCMC: alternative algorithms and approaches to fitting light curves"/>
           <Publication author="Conroy et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020CoSka..50..530C" title="Upcoming support for triple stellar systems in PHOEBE"/>
@@ -427,7 +431,7 @@ export class Publications extends Component {
           <Separator flip={false} large={false}/>
         </Content>
 
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>PHOEBE Talks &amp; Posters</h2>
           <Publication author="Prša (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021AAS...23713303P" title="Advanced models of pulsating components in eclipsing binary systems"/>
           <Publication author="Kochoska et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021AAS...23713302K" title="phoetting: guidelines and best practices for fitting with PHOEBE"/>
@@ -444,7 +448,7 @@ export class Publications extends Component {
           <Separator flip={true} large={false}/>
         </Content>
 
-        <Content dark={false}>
+        <Content dark={0}>
           <h2>Related Papers by the PHOEBE Development Team</h2>
           <Publication author="Abdul-Masih et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2022arXiv220801580A" title="SPAMMS: applications and use cases for the 3D spectroscopic analysis technique to study deformed massive stars"/>
           <Publication author="Abdul-Masih et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020A%26A...636A..59A" title="Spectroscopic patch model for massive stars using PHOEBE II and FASTWIND"/>
@@ -463,8 +467,8 @@ class Publication extends Component {
   render() {
     // props: adsLink, authors, title, release (optional)
     return (
-      <div className="row">
-        <Link to={this.props.entryLink || this.props.adsLink} hideExternal={true}>{this.props.author}</Link>
+      <div style={{marginBottom: "4px"}}>
+        <Link to={this.props.entryLink || this.props.adsLink} hideexternal="true">{this.props.author}</Link>
         {this.props.pdf ? <span> (<Link to={"/static/pdf/"+this.props.pdf}>download pdf</Link>) </span> : null}
         <span> - {this.props.title}</span>
         {this.props.release ? <span> (<Link to={"/releases/"+this.props.release+"/"}>PHOEBE {this.props.release} release</Link>)</span> : null}

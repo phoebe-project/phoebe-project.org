@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
-import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+import { Helmet } from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import ReactMarkdown from "react-markdown"; // https://github.com/rexxars/react-markdown
 
-import {Content, Link, Redirect, Image, Separator, getLatestPatchVersion} from './common';
-import {NotFound} from './errors';
-import {docs_versions} from './docs';
-import {Header, HeaderNavButton} from './header';
+import { Content, Link, Redirect, Image, Separator, getLatestPatchVersion, withRouter } from './common';
+import { NotFound } from './errors';
+import { docs_versions } from './docs';
+import { Header, HeaderNavButton } from './header';
 
 export class ReleaseVersionRedirect extends Component {
   render() {
-    var version = this.props.match.params.version
+    let version = this.props.match.params.version
     if (docs_versions.indexOf(version)!==-1) {
       return (
         <Redirect to={"/releases/"+version}/>
@@ -26,11 +26,11 @@ export class ReleaseVersionRedirect extends Component {
 
 export class Releases extends Component {
   render() {
-    var docs_versions_incl_legacy = docs_versions.concat("legacy")
+    let docs_versions_incl_legacy = docs_versions.concat("legacy")
     // to test a new release before its included in the changelog (make sure to comment out before building and pushing live version)
     // docs_versions_incl_legacy.unshift("2.3")
     // docs_versions_incl_legacy.unshift("2.4")
-    var latest_patch_version = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
+    let latest_patch_version = getLatestPatchVersion(docs_versions[0], this.props.release_changelogs)
     return (
       <div>
         <Helmet>
@@ -49,9 +49,9 @@ export class Releases extends Component {
 
         </Header>
         <Content>
-          <div className="hidden-xs" style={{display: "flex", justifyContent: "space-between"}}>
+          <div className="hidden-xs" style={{display: "flex", justifyContent: "space-between", height: "36px"}}>
             <span/>
-            <div style={{marginRight: "-40px"}}>
+            <div style={{marginRight: "-40px", float: "right"}}>
               <iframe title="gh-star" src="https://ghbtns.com/github-btn.html?user=phoebe-project&repo=phoebe2&type=star&count=true&size=large" frameBorder="0" scrolling="0" width="160px" height="30px"></iframe>
             </div>
           </div>
@@ -76,15 +76,15 @@ export class Releases extends Component {
           </div>
         </Content>
         {/* NOTE: don't wrap inside Content since each ReleaseContent is wrapped itself */}
-        {docs_versions_incl_legacy.map((version, index) => <ReleaseContent version={version} release_changelogs={this.props.release_changelogs} dark={Boolean(index % 2)} showSeparator={Boolean(index < docs_versions_incl_legacy.length - 1)} showHeader={true}/>)}
+        {docs_versions_incl_legacy.map((version, index) => <ReleaseContent key={index} version={version} release_changelogs={this.props.release_changelogs} dark={index % 2} showSeparator={Boolean(index < docs_versions_incl_legacy.length - 1)} showHeader={true}/>)}
       </div>
     );
   }
 }
 
-export class ReleaseVersion extends Component {
+class ReleaseVersionBeforeRouter extends Component {
   render() {
-    var version = this.props.match.params.version
+    let version = this.props.match.params.version
 
     if (version==='latest') {
       // allow latest as the version in the URL, but show whatever is latest
@@ -113,13 +113,16 @@ export class ReleaseVersion extends Component {
   }
 }
 
+export const ReleaseVersion = withRouter(ReleaseVersionBeforeRouter);
+
 class ReleaseContent extends Component {
   render() {
-    var logo = "logo_blue.svg";
-    var releasePaper = "Release Paper"
-    var publicationLink = null
-    var quickstart = true
-    var content = null;
+    let logo = "logo_blue.svg";
+    let releasePaper = "Release Paper"
+    let publicationLink = null
+    let quickstart = true
+    let content;
+
     if (this.props.version === '1.0' || this.props.version === 'legacy') {
       logo = "logo_release_10.png"
       releasePaper = "Prša & Zwitter (2005)"
@@ -366,7 +369,7 @@ class ReleaseContent extends Component {
                 <details open={this.props.open_changelog}>
                   <summary><b>Individual Patch Releases and Changelog</b></summary>
                   <ul style={{display: "flex", flexDirection: "column-reverse"}}>
-                    {this.props.release_changelogs[this.props.version].map((changelogContent, patchIndex) => <li style={{paddingBottom: "15px"}}><ReleaseChangelogEntry versionLong={this.props.version+"."+patchIndex} changelogContent={changelogContent}/></li>)}
+                    {this.props.release_changelogs[this.props.version].map((changelogContent, patchIndex) => <li key={patchIndex} style={{paddingBottom: "15px"}}><ReleaseChangelogEntry versionLong={this.props.version+"."+patchIndex} changelogContent={changelogContent}/></li>)}
                   </ul>
                 </details>
                 :
@@ -396,12 +399,12 @@ class ReleaseChangelogEntry extends Component {
         <div style={{paddingLeft: "20px", paddingTop: "5px", paddingBottom: "10px"}}>
           <Link to={"/install/"+this.props.versionLong}><span className="fa fa-fw fa-download"></span> Install PHOEBE {this.props.versionLong}</Link>
           <br/>
-          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".tar.gz"} hideExternal={true}><span className="fas fa-fw fa-archive"></span> PHOEBE.{this.props.versionLong}.tar.gz</Link>
+          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".tar.gz"} hideexternal="true"><span className="fas fa-fw fa-archive"></span> PHOEBE.{this.props.versionLong}.tar.gz</Link>
           <br/>
-          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".zip"} hideExternal={true}><span className="far fa-fw fa-file-archive"></span> PHOEBE.{this.props.versionLong}.zip</Link>
+          <Link to={"https://github.com/phoebe-project/phoebe2/archive/"+this.props.versionLong+".zip"} hideexternal="true"><span className="far fa-fw fa-file-archive"></span> PHOEBE.{this.props.versionLong}.zip</Link>
         </div>
         <b style={{paddingLeft: "20px"}}>{this.props.changelogContent.title}</b>
-        <ReactMarkdown source={this.props.changelogContent.description}/>
+        <ReactMarkdown children={this.props.changelogContent.description}/>
       </div>
     )
   }

@@ -31,12 +31,12 @@ export class HelpDevel extends Component {
           <h2>Active Developers</h2>
 
           <DeveloperInfo image="andrej.jpg">
-            <Link to="http://aprsa.villanova.edu" hideExternal={true}>Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries).  Additionally, Andrej leads the development of the passband and atmosphere framework within PHOEBE 2.
+            <Link to="http://aprsa.villanova.edu" hideexternal="true">Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries).  Additionally, Andrej leads the development of the passband and atmosphere framework within PHOEBE 2.
           </DeveloperInfo>
 
 
           <DeveloperInfo image="kyle.jpg">
-            <Link to="http://www.keconroy.com" hideExternal={true}>Kyle Conroy</Link> is a postdoctoral researcher at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link>, is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings, and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
+            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a postdoctoral researcher at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link>, is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings, and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
           </DeveloperInfo>
 
 
@@ -56,7 +56,7 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="dave.jpeg">
-            <Link to="http://www.drdjones.net" hideExternal={true}>Dave Jones</Link> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> into the framework of PHOEBE 2.
+            <Link to="http://www.drdjones.net" hideexternal="true">Dave Jones</Link> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> into the framework of PHOEBE 2.
           </DeveloperInfo>
 
           <DeveloperInfo image="michael.jpg">
@@ -67,7 +67,7 @@ export class HelpDevel extends Component {
           <h2>Past Developers</h2>
 
           <DeveloperInfo image="martin.jpg">
-            <Link to="http://chaos.fmf.uni-lj.si/horvat" hideExternal={true}>Martin Horvat</Link> is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <Link to="https://www.springer.com/gp/book/9783319786186">computational physics</Link>, as well as general relativity. He lead the <Link to="/releases/2.1">2.1 release featuring misaligned orbits</Link>, the <Link to="https://ui.adsabs.harvard.edu/abs/2019ApJS..240...36H">theoretical paper on irradiation effects</Link>, and developed the C-backend of PHOEBE 2 responsible for meshing stellar objects, determining eclipsing regions, and handling irradiation.
+            <Link to="http://chaos.fmf.uni-lj.si/horvat" hideexternal="true">Martin Horvat</Link> is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <Link to="https://www.springer.com/gp/book/9783319786186">computational physics</Link>, as well as general relativity. He lead the <Link to="/releases/2.1">2.1 release featuring misaligned orbits</Link>, the <Link to="https://ui.adsabs.harvard.edu/abs/2019ApJS..240...36H">theoretical paper on irradiation effects</Link>, and developed the C-backend of PHOEBE 2 responsible for meshing stellar objects, determining eclipsing regions, and handling irradiation.
           </DeveloperInfo>
 
           <DeveloperInfo image="pieter.jpg">
@@ -379,7 +379,7 @@ export class HelpContact extends Component {
 
 export class HelpMailingList extends Component {
   render() {
-    var mailinglists = {'phoebe-announce': {'title': 'PHOEBE Announcements',
+    let mailinglists = {'phoebe-announce': {'title': 'PHOEBE Announcements',
                                              'description': 'PHOEBE Announcements is a low traffic list. It informs you of new releases and critical updates concerning PHOEBE. Typically the number of sent out messages is 1 per month. '},
                         'phoebe-discuss': {'title': 'PHOEBE Discuss',
                                            'description': 'PHOEBE Discussion will hopefully become a higher traffic list. It is meant for active and potential PHOEBE users to exchange knowledge and experience and to help others with their problems.'},
@@ -387,11 +387,11 @@ export class HelpMailingList extends Component {
                                          'description': 'PHOEBE Development mailing list is meant for people that are or would like to join active PHOEBE development. Usually, technical and programming issues are discussed here.'}
                        }
 
-    var mailinglist = this.props.match.params.mailinglist
+    let mailinglist = this.props.match.params.mailinglist
 
     if (mailinglist in mailinglists) {
-      var title = mailinglists[mailinglist].title
-      var description = mailinglists[mailinglist].description
+      let title = mailinglists[mailinglist].title
+      let description = mailinglists[mailinglist].description
     } else {
       return (<NotFound/>)
     }

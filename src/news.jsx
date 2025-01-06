@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Image, Button} from './common';
+import {Content, Link, Image, Button, withRouter} from './common';
 import {Header} from './header';
 import {NotFound} from './errors';
 
 // NEWER entries on TOP of list
-export var newsStoriesDicts = [
+export let newsStoriesDicts = [
   {
     title: "Sixth PHOEBE Workshop",
     slug: "phoebe-workshop-6",
@@ -191,7 +191,7 @@ export var newsStoriesDicts = [
                <p>
                 We are excited to announce that <Link to="/releases/2.3">PHOEBE 2.3</Link> has been released along with the acceptance of the <Link to="/publications/2020Conroy+">accompanying release paper</Link>!
                </p>
-               <p>
+               <div>
                  This release introduces several new major capabilities to PHOEBE 2, including:
                  <ul>
                    <li>built-in <Link to="/docs/2.3/tutorials/solver.ipynb">inverse problem solvers</Link> (<Link to="/docs/2.3/api/phoebe.parameters.solver.estimator">estimators</Link>, <Link to="/docs/2.3/api/phoebe.parameters.solver.optimizer">optimizers</Link>, and <Link to="/docs/2.3/api/phoebe.parameters.solver.sampler">samplers</Link>)</li>
@@ -205,7 +205,7 @@ export var newsStoriesDicts = [
                    <li><Link to="/docs/2.3/api/phoebe.parameters.compute.jktebop">jktebop</Link></li>
                  </ul>
                  And lastly, the first release of <Link to="/clients">desktop and web clients</Link> for PHOEBE 2!
-               </p>
+               </div>
                <p>
                 In addition to all of these new features added to the code, we have simplified the <Link to="docs/2.3/tutorials">tutorials</Link> to try to simplify the learning curve for new users while still maintaining tutorials and documentation for advanced use-cases.
                </p>
@@ -304,7 +304,7 @@ export var newsStoriesDicts = [
     content: <div>
               <div>
                 <div style={{textAlign: "center", paddingBottom: "15px"}}>
-                  <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideExternal={true}><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/></Link>
+                  <Link to="https://doi.org/10.1088/978-0-7503-1287-5" hideexternal="true"><Image src="/images/book_cover.jpg" className="img-dropshadow" height="200px"/></Link>
                 </div>
                 <div>
                   <p>
@@ -316,10 +316,6 @@ export var newsStoriesDicts = [
                   </p>
                 </div>
               </div>
-
-
-
-
              </div>
   },
   {
@@ -565,16 +561,14 @@ export var newsStoriesDicts = [
               </p>
             </div>
   }
-
 ]
 
 
-
-export class News extends Component {
+class News extends Component {
   render() {
-    var filteredNewsStoryDicts = newsStoriesDicts;
-    var headerTitle = "News";
-    var helmetTitle = "News";
+    let filteredNewsStoryDicts = newsStoriesDicts;
+    let headerTitle = "News";
+    let helmetTitle = "News";
 
     if (this.props.match.params.slug) {
       filteredNewsStoryDicts = [];
@@ -588,7 +582,7 @@ export class News extends Component {
       });
       if (! filteredNewsStoryDicts.length) {
         return (
-          <NotFound>No matching news story could be found.  See <Link to="/news">all news stories</Link>.</NotFound>
+          <NotFound>No matching news story could be found. See <Link to="/news">all news stories</Link>.</NotFound>
         )
       }
     }
@@ -603,12 +597,14 @@ export class News extends Component {
           <h1>{headerTitle}</h1>
         </Header>
         <Content>
-          {filteredNewsStoryDicts.map(newsStoryDict => <NewsContent title={newsStoryDict.title} slug={newsStoryDict.slug} author={newsStoryDict.author} date={newsStoryDict.date} showAsSummary={this.props.match.params.slug==null}>{newsStoryDict.content}</NewsContent>)}
+          {filteredNewsStoryDicts.map((newsStoryDict, i) => <NewsContent key={i} title={newsStoryDict.title} slug={newsStoryDict.slug} author={newsStoryDict.author} date={newsStoryDict.date} showAsSummary={this.props.match.params.slug==null}>{newsStoryDict.content}</NewsContent>)}
         </Content>
       </div>
     );
   }
 }
+
+export default withRouter(News);
 
 export class NewsContent extends Component {
   constructor(props) {
@@ -622,24 +618,26 @@ export class NewsContent extends Component {
   toggleExpand = () => {
     this.setState({expanded: !this.state.expanded});
   }
+
   componentDidMount() {
     this.setState({newsWrapHeight: this.newsWrap.current.clientHeight});
   }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (!this.props.showAsSummary && !this.state.expanded) {
+      this.setState({expanded: true})
+    }
+  }
+
   render() {
-    var wrapHeight = this.props.wrapHeight || 500
-    var showAsSummary = this.props.showAsSummary
+    let wrapHeight = this.props.wrapHeight || 500
+    let showAsSummary = this.props.showAsSummary
 
     if (this.state.newsWrapHeight <= wrapHeight) {
       showAsSummary = false
     }
 
-    if (!this.props.showAsSummary && !this.state.expanded) {
-      this.setState({expanded: true})
-    }
-
-
-
-    var newsWrapStyle = {overflow: "hidden"};
+    let newsWrapStyle = {overflow: "hidden"};
     if (!this.state.expanded && showAsSummary) {
       newsWrapStyle.maxHeight = wrapHeight+"px"
     }

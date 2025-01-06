@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Button, Separator, metaKeywords} from './common';
-import {WebUI, DesktopUI} from './mockups';
-import {Header, HeaderNavButton} from './header';
+import Container from "react-bootstrap/Container";
+import {Content, Link, Button, Separator, metaKeywords, withRouter} from './common'
+import {WebUI, DesktopUI} from './mockups'
+import {Header, HeaderNavButton} from './header'
 
 
-export class Clients extends Component {
+class Clients extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -20,8 +21,8 @@ export class Clients extends Component {
       this.refserver = React.createRef();
   }
   scrollToHash() {
-    var offsetTop = null;
-    var hash = this.state.hash
+    let offsetTop = null;
+    let hash = this.state.hash
     if (hash === '#web') {
       offsetTop = this.refweb.current.offsetTop;
     } else if (hash === '#desktop') {
@@ -31,19 +32,17 @@ export class Clients extends Component {
     } else if (hash === '#server') {
       offsetTop = this.refserver.current.offsetTop;
     }
-
     if (offsetTop) {
       window.scrollTo(0,offsetTop-80);
     }
   }
   componentDidUpdate() {
-    this.scrollToHash()
-  }
-  render() {
     if (this.props.location.hash !== this.state.hash) {
       this.setState({hash: this.props.location.hash})
     }
-
+    this.scrollToHash()
+  }
+  render() {
     return (
       <div>
         <Helmet>
@@ -73,13 +72,12 @@ export class Clients extends Component {
 
         </Header>
 
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
 
           <div className="row">
             <p>
               PHOEBE 2 is an <Link to="/install">installable python package</Link> which is designed to have a <Link to="/docs">flexible but high-level frontend interface</Link>.  If you want to interact with PHOEBE more... interactively, we have also developed a "server-client" infrastructure to allow for point-and-click clients that can talk to PHOEBE running in any number of environment, including compute clusters.  This consists of the following components:
             </p>
-
           </div>
 
           <div className="row">
@@ -114,7 +112,7 @@ export class Clients extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
 
 
           <h2 ref={this.refdesktop}><span className="fas fa-fw fa-xs fa-desktop"></span>  Desktop UI Client</h2>
@@ -154,19 +152,21 @@ export class Clients extends Component {
           </div>
 
           <div className="hidden-xs hidden-sm">
-            <DesktopUI dark={true} height="650px"/>
+            <DesktopUI dark={1} height="650px"/>
           </div>
           <div className="visible-xs visible-sm">
-            <DesktopUI dark={true} height="800px"/>
+            <DesktopUI dark={1} height="800px"/>
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon="fa fa-fw fa-download" title={"Install PHOEBE Desktop Client"}/>
+            <Container>
+              <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon="fa fa-fw fa-download" title={"Install PHOEBE Desktop Client"}/>
+            </Container>
           </div>
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content dark={false} preventScrollTop={this.props.location.hash}>
+        <Content dark={0} preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refweb}><span className="fas fa-fw fa-xs fa-window-maximize"></span>  Web UI Client</h2>
 
@@ -193,19 +193,21 @@ export class Clients extends Component {
           </p>
 
           <div className="hidden-xs hidden-sm">
-            <WebUI dark={false} height="650px"/>
+            <WebUI dark={0} height="650px"/>
           </div>
           <div className="visible-xs visible-sm">
-            <WebUI dark={false} height="800px"/>
+            <WebUI dark={0} height="800px"/>
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
+            <Container>
+              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
+            </Container>
           </div>
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refpython}><span className="fas fa-fw fa-xs fa-terminal"></span>  Python Client</h2>
 
@@ -232,12 +234,14 @@ export class Clients extends Component {
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install Python Client with PHOEBE"}/>
+            <Container>
+              <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install Python Client with PHOEBE"}/>
+            </Container>
           </div>
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content dark={false} preventScrollTop={this.props.location.hash}>
+        <Content dark={0} preventscrolltop={this.props.location.hash}>
 
           <h2 ref={this.refserver}><span className="fas fa-fw fa-xs fa-server"></span>  PHOEBE Server</h2>
 
@@ -254,7 +258,9 @@ export class Clients extends Component {
           </div>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
-            <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install phoebe-server with PHOEBE"}/>
+            <Container>
+              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install phoebe-server with PHOEBE"}/>
+            </Container>
           </div>
 
         </Content>
@@ -262,3 +268,5 @@ export class Clients extends Component {
     );
   }
 }
+
+export default withRouter(Clients)

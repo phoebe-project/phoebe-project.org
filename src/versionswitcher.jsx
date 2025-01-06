@@ -29,7 +29,7 @@ export class VersionSwitcher extends Component {
   render() {
     return (
       <div className='versionSwitcher' style={{display: "block", verticalAlign: "bottom"}} onMouseEnter={this.hoverOn} onMouseLeave={this.hoverOff}>
-        {this.props.versions.map((version, i) => <VersionSwitcherButton visible={this.state.expanded} version={version} to={this.props.versionLinks[i]}/>)}
+        {this.props.versions.map((version, i) => <VersionSwitcherButton key={i} visible={this.state.expanded} version={version} to={this.props.versionLinks[i]}/>)}
         <VersionSwitcherTarget titleLong={this.props.titleLong} titleShort={this.props.titleShort} version={this.props.version}/>
       </div>
     )

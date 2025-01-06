@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 
-import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+import { Helmet } from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link,} from './common';
-import {Header} from './header';
+import { Content, Link } from './common';
+import { Header } from './header';
 
 
 export class Devel extends Component {
@@ -43,17 +43,13 @@ export class Devel extends Component {
 export class TeleconRedirect extends Component {
   render () {
     window.location = 'https://villanova.zoom.us/j/165200239m'
-    return (
-      null
-    )
+    return null
   }
 }
 
 export class TeleconNotesRedirect extends Component {
   render() {
     window.location = 'https://docs.google.com/document/d/1qBiLnspQUCB6LtSqajtlqa7RYZqdKzxPRqtpyqlYjF8/edit'
-    return (
-      null
-    )
+    return null
   }
 }

@@ -1,48 +1,44 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
-} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 
-import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+import { Helmet } from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import 'babel-polyfill' // https://medium.com/@andrewzey/google-seo-with-create-react-app-fixing-the-hidden-gotcha-c164063106d
 
 import './App.css';
 
-import {metaKeywords} from './common';
-import {Navbar} from './navbar';
-import {Home} from './home';
-import {Releases, ReleaseVersion, ReleaseVersionRedirect} from './releases';
-import {Quickstart} from './quickstart';
-import {Install} from './install';
-import {Tables, TablesPBs, TablesPTFs, TablesATMs} from './tables';
-import {Clients} from './clients';
-import {Docs} from './docs';
-import {News} from './news';
-import {Workshop, WorkshopRegistration} from './workshops';
-import {Publications, PublicationEntry} from './publications';
-import {Source, Dependencies} from './source';
-import {Contribute, ContributeDevelopment,TourFrontend, TourBackend, TourLibphoebe} from './contribute';
-import {LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload} from './legacy';
-import {HelpDevel, HelpDevelRedirect, HelpContact, HelpMailingList, HelpFAQ, Help1vs2, HelpVersion, HelpIPYNB, HelpColab} from './help';
-import {Devel, TeleconRedirect, TeleconNotesRedirect} from './devel';
-import {NotFound} from './errors';
+
+import { metaKeywords } from './common';
+import { MyNavbar } from './navbar';
+import { Home } from './home';
+import { Releases, ReleaseVersion, ReleaseVersionRedirect } from './releases';
+import { Quickstart } from './quickstart';
+import Install from './install';
+import { Tables, TablesPBs, TablesPTFs, TablesATMs } from './tables';
+import Clients from './clients';
+import Docs from './docs';
+import News from './news';
+import {Workshop, WorkshopEntry, WorkshopRegistration } from './workshops';
+import { Publications } from './publications';
+import PublicationEntry from "./publications";
+import { Source, Dependencies } from './source';
+import { Contribute, ContributeDevelopment,TourFrontend, TourBackend, TourLibphoebe } from './contribute';
+import { LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload } from './legacy';
+import { HelpDevel, HelpDevelRedirect, HelpContact, HelpMailingList, HelpFAQ, Help1vs2, HelpVersion, HelpIPYNB, HelpColab } from './help';
+import { Devel, TeleconRedirect, TeleconNotesRedirect } from './devel';
+import { NotFound } from './errors';
 
 function parseReadmeChangelog(text) {
-  var textChangelog = text.slice(text.indexOf("CHANGELOG")+9, text.indexOf("QUESTIONS?"))
-  var textVersions = textChangelog.split("### ")
+  let textChangelog = text.slice(text.indexOf("CHANGELOG")+9, text.indexOf("QUESTIONS?"))
+  let textVersions = textChangelog.split("### ")
 
-  var versions = {}
-  var splitIndex = null;
-  var version_long = null;
-  var version_short = null;
-  var versionTitle = null;
-  var versionDescription = null;
-  var textVersion = null;
-  for (textVersion of textVersions.reverse()) {
+  let versions = {}
+  let splitIndex = null;
+  let version_long = null;
+  let version_short = null;
+  let versionTitle = null;
+  let versionDescription = null;
+  for (let textVersion of textVersions.reverse()) {
     if (!textVersion.startsWith("\n")) {
       splitIndex = Math.min(textVersion.indexOf(" "), textVersion.indexOf("\n"))
       version_long = textVersion.slice(0, splitIndex)
@@ -70,8 +66,8 @@ class App extends Component {
     };
   }
   componentDidMount() {
-    var url = "https://raw.githubusercontent.com/phoebe-project/phoebe2/master/README.md";
-    console.log("fetching "+url)
+    let url = "https://raw.githubusercontent.com/phoebe-project/phoebe2/master/README.md";
+    console.log("README fetching "+url)
 
     fetch(url)
       .catch(() => this.setState({versions: null}))
@@ -89,68 +85,67 @@ class App extends Component {
       <Router>
         <div id='main'>
           <Helmet>
-              <title>PHOEBE</title>
-              <meta name="description" content="PHOEBE is an astronomical python software package which robustly generates synthetic models of the light curves, radial velocity curves, and spectral line profiles of eclipsing system and eclipsing binary stars."/>
-              <meta name="keywords" content={metaKeywords}/>
+            <title>PHOEBE</title>
+            <meta name="description" content="PHOEBE is an astronomical python software package which robustly generates synthetic models of the light curves, radial velocity curves, and spectral line profiles of eclipsing system and eclipsing binary stars."/>
+            <meta name="keywords" content={metaKeywords}/>
           </Helmet>
 
-          <Navbar />
+          <MyNavbar />
 
-          <Switch>
-            <Route exact path={process.env.PUBLIC_URL + '/'} render={(props) => <Home {...props} release_changelogs={this.state.release_changelogs}/>}/>
-            <Route exact path={process.env.PUBLIC_URL + '/releases'} render={(props) => <Releases {...props} release_changelogs={this.state.release_changelogs}/>}/>
-            <Route exact path={process.env.PUBLIC_URL + '/releases/:version/'} render={(props) => <ReleaseVersion {...props} release_changelogs={this.state.release_changelogs}/>}/>
-            <Route exact path={process.env.PUBLIC_URL + '/quickstart'} component={Quickstart}/>
-            <Route exact path={process.env.PUBLIC_URL + '/quickstart/:version/'} component={Quickstart}/>
-            <Route exact path={process.env.PUBLIC_URL + '/install'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
-            <Route exact path={process.env.PUBLIC_URL + '/install/:version/'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
-            <Route exact path={process.env.PUBLIC_URL + '/install/:version/:version_os'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
-            <Route exact path={process.env.PUBLIC_URL + '/install/:version/:version_os/:version_py'} render={(props) => <Install {...props} release_changelogs={this.state.release_changelogs}/>}/>
-            <Route exact path={process.env.PUBLIC_URL + '/tables'} component={Tables}/>
-            <Route exact path={process.env.PUBLIC_URL + '/tables/pbs'} component={TablesPBs}/>
-            <Route exact path={process.env.PUBLIC_URL + '/tables/ptfs'} component={TablesPTFs}/>
-            <Route exact path={process.env.PUBLIC_URL + '/tables/atms'} component={TablesATMs}/>
-            <Route exact path={process.env.PUBLIC_URL + '/clients'} component={Clients}/>
-            <Route exact path={process.env.PUBLIC_URL + '/docs'} component={Docs}/>
-            <Route exact path={process.env.PUBLIC_URL + '/docs/:version/'} component={Docs}/>
-            <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:slug'} component={Docs}/>
-            <Route exact path={process.env.PUBLIC_URL + '/docs/:version/:subdir/:slug'} component={Docs}/>
-            <Route exact path={process.env.PUBLIC_URL + '/news'} component={News}/>
-            <Route exact path={process.env.PUBLIC_URL + '/news/:slug'} component={News}/>
-            <Route exact path={process.env.PUBLIC_URL + '/workshops'} component={Workshop}/>
-            <Route exact path={process.env.PUBLIC_URL + '/workshops/registration'} component={WorkshopRegistration}/>
-            <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop'} component={Workshop}/>
-            <Route exact path={process.env.PUBLIC_URL + '/workshops/:workshop/:slug'} component={Workshop}/>
-            <Route path={process.env.PUBLIC_URL + '/workshop'} render={(props) => <Redirect to="/workshops"/>}/> {/* old website used "workshop" instead of "workshops" */}
-            <Route exact path={process.env.PUBLIC_URL + '/publications'} component={Publications}/>
-            <Route exact path={process.env.PUBLIC_URL + '/publications/:publication/'} component={PublicationEntry}/>
-            <Route exact path={process.env.PUBLIC_URL + '/source'} component={Source}/>
-            <Route exact path={process.env.PUBLIC_URL + '/dependencies'} component={Dependencies}/>
-            <Route exact path={process.env.PUBLIC_URL + '/contribute'} component={Contribute}/>
-            <Route exact path={process.env.PUBLIC_URL + '/contribute/development-guide'} component={ContributeDevelopment}/>
-            <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/frontend'} component={TourFrontend}/>
-            <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/backend'} component={TourBackend}/>
-            <Route exact path={process.env.PUBLIC_URL + '/contribute/tour/libphoebe'} component={TourLibphoebe}/>
-            <Route exact path={process.env.PUBLIC_URL + '/1.0'} component={LegacyIntro}/>
-            <Route exact path={process.env.PUBLIC_URL + '/1.0/gpl'} component={LegacyGPL}/>
-            <Route exact path={process.env.PUBLIC_URL + '/1.0/docs'} component={LegacyDocs}/>
-            <Route exact path={process.env.PUBLIC_URL + '/1.0/download'} component={LegacyDownload}/>
-            <Route exact path={process.env.PUBLIC_URL + '/development-team'} component={HelpDevel}/>
-            <Route exact path={process.env.PUBLIC_URL + '/help/devel'} component={HelpDevelRedirect}/>
-            <Route exact path={process.env.PUBLIC_URL + '/help/contact'} component={HelpContact}/>
-            <Route exact path={process.env.PUBLIC_URL + '/help/contact/:mailinglist'} component={HelpMailingList}/>
-            <Route exact path={process.env.PUBLIC_URL + '/help/faq'} component={HelpFAQ}/>
-            <Route exact path={process.env.PUBLIC_URL + '/help/1vs2'} component={Help1vs2}/>
-            <Route exact path={process.env.PUBLIC_URL + '/help/version'} component={HelpVersion}/>
-            <Route exact path={process.env.PUBLIC_URL + '/help/ipynb'} component={HelpIPYNB}/>
-            <Route exact path={process.env.PUBLIC_URL + '/help/colab'} component={HelpColab}/>
-            <Route exact path={process.env.PUBLIC_URL + '/devel'} component={Devel}/>
-            <Route exact path={process.env.PUBLIC_URL + '/devel/telecon-notes'} component={TeleconNotesRedirect}/>
-            <Route exact path={process.env.PUBLIC_URL + '/devel/telecon'} component={TeleconRedirect}/>
-
-            <Route exact path={process.env.PUBLIC_URL + '/:version'} component={ReleaseVersionRedirect}/>
-            <Route path="*" component={NotFound} />
-          </Switch>
+          <Routes>
+            <Route path={process.env.PUBLIC_URL + '/'} element={<Home {...this.props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/releases'} element={<Releases {...this.props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/releases/:version/'} element={<ReleaseVersion {...this.props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/quickstart'} element={Quickstart}/>
+            <Route path={process.env.PUBLIC_URL + '/quickstart/:version/'} element={Quickstart}/>
+            <Route path={process.env.PUBLIC_URL + '/install'} element={<Install {...this.props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/install/:version/'} element={<Install {...this.props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/install/:version/:version_os'} element={<Install {...this.props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/install/:version/:version_os/:version_py'} element={<Install {...this.props} release_changelogs={this.state.release_changelogs}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/tables'} element={<Tables/>}/>
+            <Route path={process.env.PUBLIC_URL + '/tables/pbs'} element={<TablesPBs/>}/>
+            <Route path={process.env.PUBLIC_URL + '/tables/ptfs'} element={<TablesPTFs/>}/>
+            <Route path={process.env.PUBLIC_URL + '/tables/atms'} element={<TablesATMs/>}/>
+            <Route path={process.env.PUBLIC_URL + '/clients'} element={<Clients {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/docs'} element={<Docs {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/docs/:version/'} element={<Docs {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/docs/:version/:slug'} element={<Docs {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/docs/:version/:subdir/:slug'} element={<Docs {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/news'} element={<News {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/news/:slug'} element={<News {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/workshops'} element={<Workshop {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/workshops/registration'} element={<WorkshopRegistration {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/workshops/:workshop'} element={<WorkshopEntry {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/workshops/:workshop/:slug'} element={<WorkshopEntry {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/workshop'} element={<Navigate to="/workshops"/>}/> {/* old website used "workshop" instead of "workshops" */}
+            <Route path={process.env.PUBLIC_URL + '/publications'} element={<Publications {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/publications/:publication/'} element={<PublicationEntry {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/source'} element={<Source {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/dependencies'} element={<Dependencies {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/contribute'} element={<Contribute {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/contribute/development-guide'} element={<ContributeDevelopment {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/contribute/tour/frontend'} element={<TourFrontend {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/contribute/tour/backend'} element={<TourBackend {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/contribute/tour/libphoebe'} element={<TourLibphoebe {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/1.0'} element={<LegacyIntro {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/1.0/gpl'} element={<LegacyGPL {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/1.0/docs'} element={<LegacyDocs {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/1.0/download'} element={<LegacyDownload {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/development-team'} element={<HelpDevel {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/help/devel'} element={<HelpDevelRedirect {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/help/contact'} element={<HelpContact {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/help/contact/:mailinglist'} element={<HelpMailingList {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/help/faq'} element={<HelpFAQ {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/help/1vs2'} element={<Help1vs2 {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/help/version'} element={<HelpVersion {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/help/ipynb'} element={<HelpIPYNB {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/help/colab'} element={<HelpColab {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/devel'} element={<Devel {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/devel/telecon-notes'} element={<TeleconNotesRedirect {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/devel/telecon'} element={<TeleconRedirect {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/:version'} element={<ReleaseVersionRedirect {...this.props}/>}/>
+            <Route path="*" element={<NotFound/>} />
+          </Routes>
 
         </div>
       </Router>

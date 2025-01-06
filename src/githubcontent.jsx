@@ -1,20 +1,11 @@
 import React, { Component, Suspense } from 'react';
+import { IpynbRenderer } from 'react-ipynb-renderer';
+import ReactMarkdown from 'react-markdown'; // https://github.com/rexxars/react-markdown
 
-import {Link} from './common'
-import {LogoSpinner} from './logo'
+import { Link, withRouter } from './common'
+import { LogoSpinner } from './logo'
 
-// import NotebookPreview from "@nteract/notebook-preview"; // https://github.com/nteract/nteract/tree/master/packages/notebook-app-component
-import ReactMarkdown from "react-markdown/with-html"; // https://github.com/rexxars/react-markdown
-// import htmlParser from 'react-markdown/plugins/html-parser';
-
-const NotebookPreview = React.lazy(() => import('@nteract/notebook-preview'));
-
-// const parseHtml = htmlParser({
-//   isValidNode: node => node.type == 'link',
-//   processingInstructions: [/* ... */]
-// })
-
-export class GitHubContent extends Component {
+class GitHubContent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -27,26 +18,25 @@ export class GitHubContent extends Component {
       contentType: null,
     };
   }
+
   updateContent = (repo, branch, path) => {
     this.setState({repo: repo, branch: branch, path: path, content: null, contentURLRaw: null, contentURL: null, contentType: null});
 
     if (repo && path) {
-      var contentURL = "https://github.com/phoebe-project/"+repo+"/blob/"+branch+"/"+path
-      //var contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
-      var contentURLRawDirImages = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
-      var contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
+      let contentURL = "https://github.com/phoebe-project/"+repo+"/blob/"+branch+"/"+path
+      let contentURLRawDirImages = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
+      let contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
       if (['phoebe2-docs', 'phoebe2-workshop'].indexOf(repo) !== -1 && (path.endsWith(".py") || path.endsWith(".ipynb"))) {
-        //var contentURLRawDir = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
         contentURLRaw = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path
       }
 
-      var contentType = null;
-      var extension = path.split('.').slice(-1)[0];
+      let contentType = null;
+      let extension = path.split('.').slice(-1)[0];
       if (extension === 'md' || extension === 'ipynb') {
           contentType = extension;
       }
 
-      console.log("fetching "+contentURLRaw)
+      console.log("GitHubContent fetching "+contentURLRaw)
 
       fetch(contentURLRaw)
         .catch(() => this.setState({content: null}))
@@ -67,51 +57,53 @@ export class GitHubContent extends Component {
         .then(content => {
           if (contentType === 'ipynb') {
             // console.log(content.cells)
-            for (var i=0; i<content.cells.length; i++) {
+            for (let i=0; i<content.cells.length; i++) {
               if (content.cells[i]['cell_type'] === 'markdown') {
-                for (var j=0; j<content.cells[i].source.length; j++) {
+                for (let j=0; j<content.cells[i].source.length; j++) {
                   // NOTE: this could be handled in the regex itself with a look-behind,
                   // but that causes issues in safari
                   // content.cells[i].source[j] = content.cells[i].source[j].replace(/(?<!http.*)([a-z,A-Z,_,0-9,-,\+]*)\.(gif|png)/gm, `${contentURLRawDirImages}/$1.$2`)
                   if (content.cells[i].source[j].indexOf("http") === -1) {
-                    content.cells[i].source[j] = content.cells[i].source[j].replace(/([a-z,_,0-9,-,+]*)\.(gif|png)/, `${contentURLRawDirImages}/$1.$2`)
+                    content.cells[i].source[j] = content.cells[i].source[j].replace(/([a-z,_0-9+]*)\.(gif|png)/, `${contentURLRawDirImages}/$1.$2`)
                   }
                 }
               }
             }
           }
 
-
           this.setState({content: content, contentURL: contentURL, contentURLRaw: contentURLRaw, contentType: contentType})
         })
     }
   }
-  render() {
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
     if (this.props.repo !== this.state.repo || this.props.branch !== this.state.branch || this.props.path !== this.state.path) {
       if (window.location.pathname.endsWith("/")) {
         // strip trailing slash so relative links in notebooks work
-        this.props.history.replace(window.location.pathname.slice(0, -1))
+        this.props.navigate(window.location.pathname.slice(0, -1))
       }
       this.updateContent(this.props.repo, this.props.branch, this.props.path);
     }
+  }
 
-    var dl_html = null;
-    var edit_html = null;
-    var report_html = null;
-    var content_html = null;
+  render() {
+    let dl_html = null;
+    let edit_html = null;
+    let report_html = null;
+    let content_html;
 
-    var loadingDiv = <div>
+    let loadingDiv = <div>
                       <LogoSpinner pltStyle={{backgroundColor: "rgb(43, 113, 177)"}}/>
                       <p style={{textAlign: "center", fontSize: "18pt"}}>{this.props.loadingText || "LOADING EXTERNAL CONTENT..."}</p>
                     </div>
 
     if (this.state.content) {
 
-      edit_html = <Link to={this.state.contentURL} hideExternal={true}><span className="fab fa-fw fa-github"></span> View/Edit on GitHub</Link>
+      edit_html = <Link to={this.state.contentURL} hideexternal="true"><span className="fab fa-fw fa-github"></span> View/Edit on GitHub</Link>
       report_html = this.props.reportHTML || null;
 
       if (this.state.contentType === 'ipynb') {
-        var slug = this.state.contentURLRaw.split("/").slice(-1)[0].split(".")[0]
+        let slug = this.state.contentURLRaw.split("/").slice(-1)[0].split(".")[0]
 
         // ok... this is a bit hardcoded to our specific situation.  Probably should handle this with a callback of some sort
         dl_html = <div>
@@ -120,20 +112,18 @@ export class GitHubContent extends Component {
                     <br/>
                     <Link to={this.state.contentURLRaw.split(".ipynb")[0]+".py"}>Download Python Script: {slug}.py</Link>
                     <br/>
-                    <Link to={"https://colab.research.google.com/github/phoebe-project/"+this.props.repo+"/blob/"+this.props.branch+"/"+this.props.path} hideExternal={true}><span className="far fa-fw fa-play-circle"></span> Open in Colab live-session</Link>
+                    <Link to={"https://colab.research.google.com/github/phoebe-project/"+this.props.repo+"/blob/"+this.props.branch+"/"+this.props.path} hideexternal="true"><span className="far fa-fw fa-play-circle"></span> Open in Colab live-session</Link>
                     &nbsp;(<Link to={"/quickstart/"+this.props.branch}>colab help</Link>)
                   </div>
 
-
-
         content_html = <Suspense fallback={loadingDiv}>
-                        <NotebookPreview notebook={this.state.content}/>
+                        <IpynbRenderer ipynb={this.state.content}/>
                        </Suspense>
 
 
       } else if (this.state.contentType === 'md') {
         content_html =  <div style={{paddingTop: "50px"}}>
-                          <ReactMarkdown source={this.state.content} escapeHtml={false}/>
+                          <ReactMarkdown children={this.state.content}/>
                         </div>
       } else {
         edit_html = null;
@@ -146,14 +136,13 @@ export class GitHubContent extends Component {
     } else if (this.state.contentType) {
       content_html = <div style={{textAlign: "center"}}>
                        <h3>No content could be found... please try again.</h3>
-                       {/* <h3>No content could be found... please try again.  Or if you think something should be here or you followed an internal link, please <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?body=followed+link+from:+PLEASE+PASTE+URL+THAT+LINKED+TO+THIS+PAGE&title=no+content+found+at+v"+version+" docs:+"+subdir+"/"+slug} hideExternal={true}>report the issue here</Link>.</h3> */}
+                       {/* <h3>No content could be found... please try again.  Or if you think something should be here or you followed an internal link, please <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?body=followed+link+from:+PLEASE+PASTE+URL+THAT+LINKED+TO+THIS+PAGE&title=no+content+found+at+v"+version+" docs:+"+subdir+"/"+slug} hideexternal="true">report the issue here</Link>.</h3> */}
                      </div>
     } else if (this.state.path){
       content_html = loadingDiv
     } else {
       content_html = this.props.children
     }
-
 
     return (
       <div>
@@ -167,11 +156,10 @@ export class GitHubContent extends Component {
             {report_html}
           </div>
         </div>
-
-
         {content_html}
       </div>
-
     )
   }
 }
+
+export default withRouter(GitHubContent);

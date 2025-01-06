@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import {LogoSplash} from './logo';
-import {Link, Image, Separator} from './common';
+import { LogoSplash } from './logo';
+import { Link, Image, Separator } from './common';
 
 export class NoHeader extends Component {
   render() {
@@ -13,7 +13,7 @@ export class NoHeader extends Component {
 
 export class Header extends Component {
   render() {
-    var separator = this.props.separator || "left"
+    let separator = this.props.separator || "left"
 
     return (
       <div className="jumbotron header" style={{backgroundColor: "#2B71B1", color: "#E6E6E6", overflow: "visible", paddingTop: "25px", paddingBottom: "25px", paddingLeft: "25px", paddingRight: "25px"}}>
@@ -35,9 +35,7 @@ export class Header extends Component {
           :
           null
         }
-
       </div>
-
     )
   }
 }
@@ -67,11 +65,9 @@ export class HeaderIndex extends Component {
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                   <HeaderNavButton title="Publications" to="/publications" icon="far fa-fw fa-newspaper"/>
               </div>
-
           </div>
         </div>
       </Header>
-
     )
   }
 }
@@ -117,7 +113,7 @@ export class HeaderLegacy extends Component {
 
 export class HeaderNavButton extends Component {
   render() {
-    var description = this.props.description
+    let description = this.props.description
     if (!description) {
       description = this.props.title
     }

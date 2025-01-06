@@ -159,20 +159,19 @@ export class TablesPBs extends Component {
     } else {
       return content
     }
-    return content
   }
   onChangePassbandsMode = (e) => {
     this.setState({requestedPassbandsMode: e.value})
   }
   onChangePassbands = (e) => {
-    var value = []
+    let value = []
     if (e) {
       value = e.map((item) => item.value)
     }
     this.setState({requestedPassbands: value})
   }
   onChangePassbandSets = (e) => {
-    var value = []
+    let value = []
     if (e) {
       value = e.map((item) => item.value)
     }
@@ -182,14 +181,14 @@ export class TablesPBs extends Component {
     this.setState({requestedContentsMode: e.value})
   }
   onChangeContents = (e) => {
-    var value = []
+    let value = []
     if (e) {
       value = e.map((item) => item.value)
     }
     this.setState({requestedContents: value})
   }
   onChangeContentAtms = (e) => {
-    var value = []
+    let value = []
     if (e) {
       value = e.map((item) => item.value)
     }
@@ -199,10 +198,10 @@ export class TablesPBs extends Component {
     this.setState({requestedFormat: e.value})
   }
   render() {
-    var tablesurl_fetch = tablesurl + "/pbs"
-    var fetch_tar = false
-    var validSelectionPassband = false
-    var validSelectionContent = false
+    let tablesurl_fetch = tablesurl + "/pbs"
+    let fetch_tar = false
+    let validSelectionPassband = false
+    let validSelectionContent = false
 
     if (this.state.requestedPassbandsMode === 'all') {
       tablesurl_fetch = tablesurl_fetch + "/all"
@@ -247,7 +246,7 @@ export class TablesPBs extends Component {
     }
 
 
-    var formatLabels = {'.fits': '.fits (larger filesize, quicker loadtime)', '.fits.gz': '.fits.gz (smaller filesize, longer loadtime)'}
+    let formatLabels = {'.fits': '.fits (larger filesize, quicker loadtime)', '.fits.gz': '.fits.gz (smaller filesize, longer loadtime)'}
     // add "/" this.state.requestedPhoebeVersion if we ever want to support selecting a version (will default to 'latest' otherwise)
 
     return (
@@ -328,10 +327,7 @@ export class TablesPBs extends Component {
               :
               <span><b>choose at least one passband and table</b></span>
             }
-
-
           </div>
-
         </Content>
       </div>
     );

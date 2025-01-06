@@ -368,7 +368,7 @@
 /* Set responsive zoom-levels for the entire logo */
 
 .PhoebeLogo {
-  zoom: 1.8;
+  zoom: 0.85;
 }
 
 @media screen and (max-height: 1000px){

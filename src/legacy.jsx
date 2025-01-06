@@ -626,7 +626,7 @@ export class LegacyDownload extends Component {
           export CPPFLAGS=$CXXFLAGS
           export ACLOCAL_FLAGS="-I /sw/share/aclocal"
           export PKG_CONFIG_PATH="/sw/lib/pkgconfig"
-          export PATH=/sw/var/lib/fink/path-prefix-10.6:$PATH
+          export PATH=/sw/let/lib/fink/path-prefix-10.6:$PATH
           export MACOSX_DEPLOYMENT_TARGET=10.5
           </pre>
           </li><li> Download PHOEBE sources and unpack them: <code>tar xvzf phoebe-*-0.31.tar.gz</code>

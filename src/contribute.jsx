@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
+import { useLocation } from "react-router-dom";
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Separator, TestsDiv, metaKeywords} from './common';
+import {Content, Link, Separator, TestsDiv, metaKeywords, withRouter} from './common';
 import {Header, HeaderNavButton} from './header';
 
 
-
-export class Contribute extends Component {
+class ContributeBeforeRouter extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -19,20 +19,19 @@ export class Contribute extends Component {
       this.refdevelop = React.createRef();
   }
   scrollToHash() {
-    var offsetTop = null;
-    var hash = this.state.hash
-    if (hash==='#testing') {
+    let offsetTop = null;
+    if (this.state.hash==='#testing') {
       offsetTop = this.reftesting.current.offsetTop;
-    } else if (hash==='#issues') {
+    } else if (this.state.hash==='#issues') {
       offsetTop = this.refissues.current.offsetTop;
-    } else if (hash==='#features') {
+    } else if (this.state.hash==='#features') {
       offsetTop = this.reffeatures.current.offsetTop;
-    } else if (hash==='#develop') {
+    } else if (this.state.hash==='#develop') {
       offsetTop = this.refdevelop.current.offsetTop;
     }
 
     if (offsetTop) {
-      window.scrollTo(0,offsetTop-80);
+      window.scrollTo(0, offsetTop-80);
     }
   }
   componentDidUpdate() {
@@ -70,7 +69,7 @@ export class Contribute extends Component {
              </div>
            </div>
         </Header>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
           <h2 ref={this.reftesting}><span className="fa fa-fw fa-xs fa-vial"></span> Testing PHOEBE</h2>
           <p>
             The easiest way to help contribute to PHOEBE is to help by testing the code - both by testing systems and configurations we may not have considered and also on a variety of different machines and installations.
@@ -91,7 +90,7 @@ export class Contribute extends Component {
 
           <Separator large={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refissues}><span className="fas fa-fw fa-xs fa-bug"></span> Report Bugs and Issues</h2>
           <p>
             Found an issue or a bug?  Let us know so that we can try to fix it.
@@ -110,7 +109,7 @@ export class Contribute extends Component {
           </p>
           <Separator large={false} flip={true}/>
         </Content>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
           <h2 ref={this.reffeatures}><span className="fas fa-fw fa-xs fa-flask"></span> Request New Features</h2>
           <p>
             Think PHOEBE should be able to do something that it can't?  This could be any of the following:
@@ -127,7 +126,7 @@ export class Contribute extends Component {
           </p>
           <Separator large={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refdevelop}><span className="fas fa-fw fa-xs fa-user-plus"></span> Write Code &amp; Develop PHOEBE</h2>
           <p>
             Interested in getting your hands dirty and writing some code?  We'd be happy to help you get started.
@@ -145,7 +144,9 @@ export class Contribute extends Component {
   }
 }
 
-export class ContributeDevelopment extends Component {
+export const Contribute = withRouter(ContributeBeforeRouter);
+
+class ContributeDevelopmentBeforeRouter extends Component {
   constructor(props) {
       super(props);
       this.state = {
@@ -159,8 +160,8 @@ export class ContributeDevelopment extends Component {
       this.refauthorship = React.createRef();
   }
   scrollToHash() {
-    var offsetTop = null;
-    var hash = this.state.hash
+    let offsetTop = null;
+    let hash = this.state.hash
     if (hash==='#releases') {
       offsetTop = this.releases.current.offsetTop;
     } else if (hash==='#branches') {
@@ -186,7 +187,6 @@ export class ContributeDevelopment extends Component {
     if (this.props.location.hash !== this.state.hash) {
       this.setState({hash: this.props.location.hash})
     }
-
 
     return (
       <div>
@@ -219,7 +219,7 @@ export class ContributeDevelopment extends Component {
              </div>
            </div>
         </Header>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
 
           <p>
             Digging into the PHOEBE 2 <Link to="/source">source-code</Link>?
@@ -354,7 +354,7 @@ export class ContributeDevelopment extends Component {
 
           <Separator large={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refbranches}><span className="fas fa-fw fa-xs fa-code-branch"></span> Repositories &amp; Branches</h2>
 
           <p>
@@ -424,7 +424,7 @@ export class ContributeDevelopment extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
           <h2 ref={this.reftours}><span className="fas fa-fw fa-xs fa-microscope"></span> Tours of Code Layout &amp; Structure</h2>
 
           <p>
@@ -442,7 +442,7 @@ export class ContributeDevelopment extends Component {
 
           <Separator large={false}/>
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.reftests}><span className="fa fa-fw fa-xs fa-vial"></span> Writing Tests</h2>
 
           <p>
@@ -475,7 +475,7 @@ export class ContributeDevelopment extends Component {
 
           <Separator large={false} flip={true}/>
         </Content>
-        <Content preventScrollTop={this.props.location.hash}>
+        <Content preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refdocs}><span className="fa fa-fw fa-xs fa-book-open"></span> Writing Documentation</h2>
 
           <p>
@@ -498,7 +498,7 @@ export class ContributeDevelopment extends Component {
 
 
         </Content>
-        <Content dark={true} preventScrollTop={this.props.location.hash}>
+        <Content dark={1} preventscrolltop={this.props.location.hash}>
           <h2 ref={this.refauthorship}><span className="fa fa-fw fa-xs fa-users"></span> Authorship Policy</h2>
 
           <p>
@@ -548,6 +548,8 @@ export class ContributeDevelopment extends Component {
   }
 }
 
+export const ContributeDevelopment = withRouter(ContributeDevelopmentBeforeRouter);
+
 export class TourFrontend extends Component {
   render() {
     return (
@@ -570,34 +572,34 @@ export class TourFrontend extends Component {
           <h2>Top-Level Convenience Functions</h2>
 
           <ul>
-            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideExternal={true}>phoebe.__init__.py source on GitHub</Link></li>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideexternal="true">phoebe.__init__.py source on GitHub</Link></li>
             <li><Link to="/docs/latest/api/phoebe">phoebe API Docs</Link></li>
           </ul>
 
           <p>
             Several commonly-used functions are exposed at the top-level of PHOEBE.
             Some of these are just imported from their respective sub-packages so that they're available as <code>phoebe.whatever</code>, while others are simple wrappers.
-            For example, <code>phoebe.open</code> is defined as a wrapper in <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideExternal={true}>__init__.py</Link> because its calling a classmethod of the Bundle rather than an actual function.
+            For example, <code>phoebe.open</code> is defined as a wrapper in <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideexternal="true">__init__.py</Link> because its calling a classmethod of the Bundle rather than an actual function.
           </p>
 
 
           <p>
-            <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideExternal={true}>__init__.py</Link> is also responsible for exposing the logger and autofig/nparray convenience functions as well as setting reasonable defaults (for MPI for example) and parsing any supported environment variables.
-            Lastly, but importantly, <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideExternal={true}>__init__.py</Link> handles the MPI logic to keep any worker processors in a wait loop until they receive tasks.
+            <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideexternal="true">__init__.py</Link> is also responsible for exposing the logger and autofig/nparray convenience functions as well as setting reasonable defaults (for MPI for example) and parsing any supported environment variables.
+            Lastly, but importantly, <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/__init__.py" hideexternal="true">__init__.py</Link> handles the MPI logic to keep any worker processors in a wait loop until they receive tasks.
           </p>
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>The Bundle</h2>
 
           <ul>
-            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/frontend/bundle.py" hideExternal={true}>phoebe.frontend.bundle source on GitHub</Link></li>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/frontend/bundle.py" hideexternal="true">phoebe.frontend.bundle source on GitHub</Link></li>
             <li><Link to="/docs/latest/api/phoebe.frontend.bundle.Bundle">phoebe.frontend.bundle.Bundle API Docs</Link></li>
           </ul>
 
           <p>
-            The bundle subpackage (<Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/frontend/bundle.py" hideExternal={true}>phoebe.frontend.bundle source</Link>) consists solely of the Bundle class, which is a subclass of a ParameterSet (see below).
+            The bundle subpackage (<Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/frontend/bundle.py" hideexternal="true">phoebe.frontend.bundle source</Link>) consists solely of the Bundle class, which is a subclass of a ParameterSet (see below).
             All methods that are applicable to filtered ParameterSets should be defined at the ParameterSet level instead of the Bundle.  For example, if you want to be able to do <code>b.filter().my_method()</code>, then the method <b>must</b> be defined in the ParameterSet, even if they require access to the entire Bundle (hierarchy, etc).
             This leaves most of the context-dependent methods in the Bundle, including:
           </p>
@@ -619,11 +621,11 @@ export class TourFrontend extends Component {
           <h2>The ParameterSet</h2>
 
           <ul>
-            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/parameters.py" hideExternal={true}>phoebe.parameters source on GitHub</Link></li>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/parameters.py" hideexternal="true">phoebe.parameters source on GitHub</Link></li>
             <li><Link to="/docs/latest/api/phoebe.parameters.ParameterSet">phoebe.parameters.ParameterSet API Docs</Link></li>
           </ul>
 
-          <p>NOTE: because of the import statements in <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/__init__.py" hideExternal={true}>phoebe.parameters.__init__.py</Link>, everything in phoebe/parameters/parameters.py is available from python directly from phoebe.parameters.</p>
+          <p>NOTE: because of the import statements in <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/__init__.py" hideexternal="true">phoebe.parameters.__init__.py</Link>, everything in phoebe/parameters/parameters.py is available from python directly from phoebe.parameters.</p>
 
           <p>
             The ParameterSet class contains all logic for filtering the list of Parameters and acting on those Parameters.  Whenever these "filtering" methods return another ParameterSet instance, those become chainable: allowing <code>b.filter(context='component').filter(component='primary')</code>.
@@ -632,11 +634,11 @@ export class TourFrontend extends Component {
 
           <Separator large={false} flip={false}/>
         </Content>
-        <Content dark={true}>
+        <Content dark={1}>
           <h2>Parameters</h2>
 
           <ul>
-            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/parameters.py" hideExternal={true}>phoebe.parameters source on GitHub</Link></li>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/parameters.py" hideexternal="true">phoebe.parameters source on GitHub</Link></li>
             <li><Link to="/docs/latest/api/phoebe.parameters.Parameter">phoebe.parameters.Parameter API Docs</Link></li>
             <li><Link to="/docs/latest/api/phoebe.parameters">phoebe.parameters API Docs</Link> (contains links to all Parameter subclasses)</li>
           </ul>
@@ -652,14 +654,14 @@ export class TourFrontend extends Component {
           <h2>Creation-Functions</h2>
 
           <ul>
-            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/" hideExternal={true}>phoebe.parameters source on GitHub</Link> (contains links to all creation-function subpackages)</li>
+            <li><Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/" hideexternal="true">phoebe.parameters source on GitHub</Link> (contains links to all creation-function subpackages)</li>
             <li><Link to="/docs/latest/api/phoebe.parameters">phoebe.parameters API Docs</Link> (contains links to all creation-function subpackages)</li>
           </ul>
 
           <p>
             Also within the phoebe/parameters directory are a number of subpackages to create default ParameterSets.
-            These are generally named after the appropriate context (<Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/component.py" hideExternal={true}>component.py</Link>, <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/dataset.py" hideExternal={true}>dataset.py</Link>, <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/compute.py" hideExternal={true}>compute.py</Link>, etc).
-            The functions within these subpackages are queried whenever the corresponding Bundle.add_ method is called.  For example, <code>b.add_dataset('lc')</code> looks in <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/dataset.py" hideExternal={true}>dataset.py</Link> for a function called "lc".
+            These are generally named after the appropriate context (<Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/component.py" hideexternal="true">component.py</Link>, <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/dataset.py" hideexternal="true">dataset.py</Link>, <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/compute.py" hideexternal="true">compute.py</Link>, etc).
+            The functions within these subpackages are queried whenever the corresponding Bundle.add_ method is called.  For example, <code>b.add_dataset('lc')</code> looks in <Link to="https://github.com/phoebe-project/phoebe2/blob/master/phoebe/parameters/dataset.py" hideexternal="true">dataset.py</Link> for a function called "lc".
             Since that does exist, it calls that function to get the default ParameterSet to attach to the Bundle for a new light curve.
             If it did not exist, <code>b.add_dataset</code> would raise an error.
           </p>
