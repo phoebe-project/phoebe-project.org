@@ -40,11 +40,6 @@ export class HelpDevel extends Component {
           </DeveloperInfo>
 
 
-          <DeveloperInfo image="angela.png">
-            Angela Kochoska is a <Link to="https://www1.villanova.edu/villanova/artsci/research/MendelPostdoctoralFellows.html">Mendel Postdoctoral Fellow</Link> at Villanova University from the University of Ljubljana. Her focus is the development of the theoretical framework of contact binary stars and large-scale data classification.
-          </DeveloperInfo>
-
-
           <DeveloperInfo image="bert.jpg">
             Bert Pablo is a staff astronomer at <Link to="https://www.aavso.org/">AAVSO</Link> after completing a postdoctoral fellow at the University of Montreal as a part of the BRITE-Constellation project, a set of six nano-satellites designed for continuous observations of the brightest stars in the sky. His interests lie mainly in variable stars with a focus on those in binary systems. Within PHOEBE, he works mainly on developing the wrapper to interact with PHOEBE legacy, testing, and hopefully on improving the grid of atmosphere models.
           </DeveloperInfo>
@@ -66,6 +61,10 @@ export class HelpDevel extends Component {
 
 
           <h2>Past Developers</h2>
+
+          <DeveloperInfo image="angela.png">
+            Angela Kochoska was a <Link to="https://www1.villanova.edu/villanova/artsci/research/MendelPostdoctoralFellows.html">Mendel Postdoctoral Fellow</Link> at Villanova University from the University of Ljubljana. Her focus was the development of the theoretical framework of contact binary stars and large-scale data classification.
+          </DeveloperInfo>
 
           <DeveloperInfo image="martin.jpg">
             <Link to="http://chaos.fmf.uni-lj.si/horvat" hideexternal="true">Martin Horvat</Link> is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <Link to="https://www.springer.com/gp/book/9783319786186">computational physics</Link>, as well as general relativity. He lead the <Link to="/releases/2.1">2.1 release featuring misaligned orbits</Link>, the <Link to="https://ui.adsabs.harvard.edu/abs/2019ApJS..240...36H">theoretical paper on irradiation effects</Link>, and developed the C-backend of PHOEBE 2 responsible for meshing stellar objects, determining eclipsing regions, and handling irradiation.
