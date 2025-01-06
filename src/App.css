@@ -217,7 +217,7 @@ summary {
   color: #E6E6E6;
 }
 
-.navbar-transparent .navbar-brand:hover{
+.navbar-transparent .navbar-brand:hover, .navbar-transparent .navbar-brand:focus {
   color: #fff;
 }
 
