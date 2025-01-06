@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
-import {Content, Link, Image, Separator, Alert, withRouter} from './common';
+import {Content, Link, Image, Separator, Alert, Redirect, withRouter} from './common';
 import GitHubContent from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
@@ -36,8 +36,77 @@ class WorkshopBeforeRouter extends Component {
   }
 
   render() {
-    // force re-render when workshop changes
-    let workshop = this.state.workshop
+    return(
+      <div>
+        <Helmet>
+          <title>PHOEBE | Workshops</title>
+          <meta name="description" content="workshops are designed to help teach the community how to use the PHOEBE software package"/>
+        </Helmet>
+        <Header>
+          <h1>PHOEBE Workshops</h1>
+        </Header>
+        <Content>
+          <p>
+            PHOEBE workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/development-team">developers</Link> to learn what features and improvements can be made.
+            Generally these dedicated workshops consist of a small group of participants and are organized to include both tutorials and short talks introducing the science and features implemented in the latest PHOEBE release as well as a sneak peak into features under development.
+            These workshops have been made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>, the Villanova University College of Arts and Sciences Faculty Research and Development Grant, and the <Link to="https://www1.villanova.edu/villanova/artsci/astronomy.html">Villanova Department of Astrophysics and Planetary Sciences</Link>.
+          </p>
+          {/*<div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>*/}
+          {/*  <Image src={"/images/workshops/PHOEBE_workshop_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2018"/>*/}
+          {/*  <Image src={"/images/workshops/PHOEBE_workshop_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2019"/>*/}
+          {/*  <Image src={"/images/workshops/PHOEBE_workshop_3_thumb.png"} href={"/static/workshops/PHOEBE_workshop_3.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Virtual Workshop 2021"/>*/}
+          {/*</div>*/}
+          {/*<div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>*/}
+          {/*  <Image src={"/images/workshops/PHOEBE_workshop_4_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_4.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2022"/>*/}
+          {/*  <Image src={"/images/workshops/PHOEBE_workshop_4b_thumb.png"} href={"/static/workshops/PHOEBE_workshop_4b.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2022 remote component"/>*/}
+          {/*  <Image src={"/images/workshops/PHOEBE_workshop_5_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_5.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2023"/>*/}
+          {/*</div>*/}
+          {/*<div style={{textAlign: "center", paddingTop: "5px", paddingBottom: "25px"}}>*/}
+          {/*  <Image src={"/images/workshops/PHOEBE_workshop_2_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>*/}
+          {/*  <Image src={"/images/workshops/PHOEBE_workshop_2_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>*/}
+          {/*  <Image src={"/images/workshops/PHOEBE_workshop_1_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>*/}
+          {/*</div>*/}
+          <p>See below for archived content from past workshops that have been held, as well as announcements and registration details for any planned upcoming workshops.  We hope you will be able to join us soon at a PHOEBE workshop soon!</p>
+          <Separator large={false}/>
+        </Content>
+        <Content dark={1}>
+
+          {Object.keys(active_workshops).length ?
+            <div>
+              <h2>Current Workshops</h2>
+              <ul>{Object.keys(active_workshops).map((slug, i) => <li key={i}><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
+            </div>
+            :
+            <div>
+              <h2>Upcoming Workshops</h2>
+              {Object.keys(upcoming_workshops).length ?
+                <ul>{Object.keys(upcoming_workshops).map((slug, i) => <li key={i}><Link to={"/workshops/"+slug}>{upcoming_workshops[slug]}</Link></li>)}</ul>
+                :
+                <p>There are no currently planned workshops. Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
+              }
+            </div>
+          }
+
+          <Separator flip={true} large={false}/>
+        </Content>
+        <Content>
+          <h2>Past Workshops</h2>
+          <ul>{Object.keys(archived_workshops).map((slug, i) => <li key={i}><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
+        </Content>
+
+      </div>
+    )
+  }
+}
+
+export const Workshop = withRouter(WorkshopBeforeRouter)
+
+class WorkshopEntryBeforeRouter extends Component {
+  redirect = (workshop, slug) => {
+    this.props.navigate("/workshops/"+workshop+"/"+slug)
+  }
+  render() {
+    let workshop = this.props.match.params.workshop
     let slug = this.props.match.params.slug
 
     if (slug && slug.endsWith(".html")) {
@@ -54,89 +123,9 @@ class WorkshopBeforeRouter extends Component {
       this.redirect(workshop, slug)
     }
 
-    if (workshop === null || workshop === undefined) {
-      return(
-        <div>
-          <Helmet>
-            <title>PHOEBE | Workshops</title>
-            <meta name="description" content="workshops are designed to help teach the community how to use the PHOEBE software package"/>
-          </Helmet>
-          <Header>
-            <h1>PHOEBE Workshops</h1>
-          </Header>
-          <Content>
-            <p>
-              PHOEBE workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/development-team">developers</Link> to learn what features and improvements can be made.
-              Generally these dedicated workshops consist of a small group of participants and are organized to include both tutorials and short talks introducing the science and features implemented in the latest PHOEBE release as well as a sneak peak into features under development.
-              These workshops have been made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>, the Villanova University College of Arts and Sciences Faculty Research and Development Grant, and the <Link to="https://www1.villanova.edu/villanova/artsci/astronomy.html">Villanova Department of Astrophysics and Planetary Sciences</Link>.
-            </p>
-            {/*<div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>*/}
-            {/*  <Image src={"/images/workshops/PHOEBE_workshop_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2018"/>*/}
-            {/*  <Image src={"/images/workshops/PHOEBE_workshop_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2019"/>*/}
-            {/*  <Image src={"/images/workshops/PHOEBE_workshop_3_thumb.png"} href={"/static/workshops/PHOEBE_workshop_3.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Virtual Workshop 2021"/>*/}
-            {/*</div>*/}
-            {/*<div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>*/}
-            {/*  <Image src={"/images/workshops/PHOEBE_workshop_4_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_4.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2022"/>*/}
-            {/*  <Image src={"/images/workshops/PHOEBE_workshop_4b_thumb.png"} href={"/static/workshops/PHOEBE_workshop_4b.png"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2022 remote component"/>*/}
-            {/*  <Image src={"/images/workshops/PHOEBE_workshop_5_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_5.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2023"/>*/}
-            {/*</div>*/}
-            {/*<div style={{textAlign: "center", paddingTop: "5px", paddingBottom: "25px"}}>*/}
-            {/*  <Image src={"/images/workshops/PHOEBE_workshop_2_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>*/}
-            {/*  <Image src={"/images/workshops/PHOEBE_workshop_2_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_2_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>*/}
-            {/*  <Image src={"/images/workshops/PHOEBE_workshop_1_2_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1_2.jpg"} style={{borderRadius: "4px", margin: "10px"}} className="hidden-sm hidden-xs" height="200" maxwidth="80%"/>*/}
-            {/*</div>*/}
-            <p>See below for archived content from past workshops that have been held, as well as announcements and registration details for any planned upcoming workshops.  We hope you will be able to join us soon at a PHOEBE workshop soon!</p>
-            <Separator large={false}/>
-          </Content>
-          <Content dark={1}>
+    let active = Object.keys(active_workshops).indexOf(workshop)!==-1
+    let upcoming = Object.keys(upcoming_workshops).indexOf(workshop)!==-1
 
-            {Object.keys(active_workshops).length ?
-              <div>
-                <h2>Current Workshops</h2>
-                <ul>{Object.keys(active_workshops).map((slug, i) => <li key={i}><Link to={"/workshops/"+slug}>{active_workshops[slug]}</Link></li>)}</ul>
-              </div>
-              :
-              <div>
-                <h2>Upcoming Workshops</h2>
-                {Object.keys(upcoming_workshops).length ?
-                  <ul>{Object.keys(upcoming_workshops).map((slug, i) => <li key={i}><Link to={"/workshops/"+slug}>{upcoming_workshops[slug]}</Link></li>)}</ul>
-                  :
-                  <p>There are no currently planned workshops. Check back soon or contact us if you'd be interested in hosting the next PHOEBE workshop.</p>
-                }
-              </div>
-            }
-
-            <Separator flip={true} large={false}/>
-          </Content>
-          <Content>
-            <h2>Past Workshops</h2>
-            <ul>{Object.keys(archived_workshops).map((slug, i) => <li key={i}><Link to={"/workshops/"+slug}>{archived_workshops[slug]}</Link></li>)}</ul>
-          </Content>
-
-        </div>
-      )
-    } else if (Object.keys(active_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={true} upcoming={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
-    } else if (Object.keys(upcoming_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={true} upcoming={true} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
-    } else if (Object.keys(archived_workshops).indexOf(this.state.workshop)!==-1) {
-      return(<WorkshopEntry active={false} history={this.props.history} workshop={this.state.workshop} slug={this.props.match.params.slug}/>)
-    } else {
-      return(<NotFound>{this.state.workshop} workshop not found, try all <Link to="/workshops">workshops</Link></NotFound>)
-    }
-  }
-}
-
-export const Workshop = withRouter(WorkshopBeforeRouter)
-
-class WorkshopEntryBeforeRouter extends Component {
-  redirect = (workshop, slug) => {
-    this.props.navigate("/workshops/"+workshop+"/"+slug)
-  }
-  render() {
-    let active = this.props.active || false;
-    let upcoming = this.props.upcoming || false;
-    let workshop = this.props.workshop
     let description = ''
     if (active) {
       if (upcoming) {
@@ -147,7 +136,6 @@ class WorkshopEntryBeforeRouter extends Component {
     } else {
       description = archived_workshops[workshop]
     }
-    let slug = this.props.slug
 
     if (!slug) {
       if (upcoming) {
@@ -155,7 +143,7 @@ class WorkshopEntryBeforeRouter extends Component {
       } else {
         slug = "materials"
       }
-      this.redirect(workshop, slug)
+      return <Redirect to={"/workshops/"+workshop+"/"+slug}/>
     }
 
     let path = slug
@@ -166,6 +154,7 @@ class WorkshopEntryBeforeRouter extends Component {
       path = slug + ".ipynb"
       isNotebook = true;
     }
+    console.log("workshop content "+ workshop + " " +path)
 
     return (
       <div>
@@ -260,7 +249,7 @@ class WorkshopEntryBeforeRouter extends Component {
   }
 }
 
-const WorkshopEntry = withRouter(WorkshopEntryBeforeRouter);
+export const WorkshopEntry = withRouter(WorkshopEntryBeforeRouter);
 
 export class WorkshopRegistration extends Component {
   render() {

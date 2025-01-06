@@ -18,7 +18,7 @@ import { Tables, TablesPBs, TablesPTFs, TablesATMs } from './tables';
 import Clients from './clients';
 import Docs from './docs';
 import News from './news';
-import {Workshop, WorkshopRegistration } from './workshops';
+import {Workshop, WorkshopEntry, WorkshopRegistration } from './workshops';
 import { Publications } from './publications';
 import PublicationEntry from "./publications";
 import { Source, Dependencies } from './source';
@@ -67,7 +67,7 @@ class App extends Component {
   }
   componentDidMount() {
     let url = "https://raw.githubusercontent.com/phoebe-project/phoebe2/master/README.md";
-    console.log("fetching "+url)
+    console.log("README fetching "+url)
 
     fetch(url)
       .catch(() => this.setState({versions: null}))
@@ -115,8 +115,8 @@ class App extends Component {
             <Route path={process.env.PUBLIC_URL + '/news/:slug'} element={<News {...this.props}/>}/>
             <Route path={process.env.PUBLIC_URL + '/workshops'} element={<Workshop {...this.props}/>}/>
             <Route path={process.env.PUBLIC_URL + '/workshops/registration'} element={<WorkshopRegistration {...this.props}/>}/>
-            <Route path={process.env.PUBLIC_URL + '/workshops/:workshop'} element={<Workshop {...this.props}/>}/>
-            <Route path={process.env.PUBLIC_URL + '/workshops/:workshop/:slug'} element={<Workshop {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/workshops/:workshop'} element={<WorkshopEntry {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/workshops/:workshop/:slug'} element={<WorkshopEntry {...this.props}/>}/>
             <Route path={process.env.PUBLIC_URL + '/workshop'} element={<Navigate to="/workshops"/>}/> {/* old website used "workshop" instead of "workshops" */}
             <Route path={process.env.PUBLIC_URL + '/publications'} element={<Publications {...this.props}/>}/>
             <Route path={process.env.PUBLIC_URL + '/publications/:publication/'} element={<PublicationEntry {...this.props}/>}/>

@@ -24,11 +24,9 @@ class GitHubContent extends Component {
 
     if (repo && path) {
       let contentURL = "https://github.com/phoebe-project/"+repo+"/blob/"+branch+"/"+path
-      //let contentURLRawDir = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
       let contentURLRawDirImages = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
       let contentURLRaw = "https://raw.githubusercontent.com/phoebe-project/"+repo+"/"+branch+"/"+path
       if (['phoebe2-docs', 'phoebe2-workshop'].indexOf(repo) !== -1 && (path.endsWith(".py") || path.endsWith(".ipynb"))) {
-        //let contentURLRawDir = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path.split('/').slice(0,-1)
         contentURLRaw = "https://phoebe-project.github.io/"+repo+"/"+branch+"/"+path
       }
 
@@ -38,7 +36,7 @@ class GitHubContent extends Component {
           contentType = extension;
       }
 
-      console.log("fetching "+contentURLRaw)
+      console.log("GitHubContent fetching "+contentURLRaw)
 
       fetch(contentURLRaw)
         .catch(() => this.setState({content: null}))

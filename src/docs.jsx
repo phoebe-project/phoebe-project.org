@@ -118,7 +118,7 @@ class Docs extends Component {
   }
 
   render() {
-    console.log(this.state.version)
+    console.log("PHOEBE version: "+this.state.version)
     let version = this.state.version
     let slug = this.state.slug
     let subdir = this.state.subdir
