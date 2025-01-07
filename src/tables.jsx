@@ -13,7 +13,7 @@ import {fetch} from 'whatwg-fetch';
 const abortableFetch = ('signal' in new Request('')) ? window.fetch : fetch
 
 // const tablesurl = 'http://localhost:5555'
-const tablesurl = 'http://tables.phoebe-project.org'
+const tablesurl = 'https://tables.phoebe-project.org'
 
 class TablesHeader extends Component {
   render() {
