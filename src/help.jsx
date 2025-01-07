@@ -51,7 +51,7 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="dave.jpeg">
-            <Link to="http://www.drdjones.net" hideexternal="true">Dave Jones</Link> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> into the framework of PHOEBE 2.
+            <Link to="http://www.drdjones.net" hideexternal="true">Dave Jones</Link> is a staff researcher at the Insituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as implementing new atmosphere tables into the framework of PHOEBE 2.
           </DeveloperInfo>
 
 
