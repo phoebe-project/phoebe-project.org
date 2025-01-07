@@ -260,7 +260,7 @@ class Install extends Component {
                   <p>The C++ code in PHOEBE requires a compiler that supports C++11, <b>either</b> of the following should build correctly:</p>
                   <ul>
                     <li>g++ (g++-5 or newer)</li>
-                    <li>clang (clang-3.3 or newer)</li>
+                    <li>clang (clang-3.4 or newer)</li>
                   </ul>
                 </div>
                 :
