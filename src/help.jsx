@@ -36,12 +36,7 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="kyle.jpg">
-            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a postdoctoral researcher at Villanova University after having received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link>, is implementing support for multiple stellar systems (&gt;2 bodies with both hierarchical and N-body support) and eclipse timings, and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
-          </DeveloperInfo>
-
-
-          <DeveloperInfo image="angela.png">
-            Angela Kochoska is a <Link to="https://www1.villanova.edu/villanova/artsci/research/MendelPostdoctoralFellows.html">Mendel Postdoctoral Fellow</Link> at Villanova University from the University of Ljubljana. Her focus is the development of the theoretical framework of contact binary stars and large-scale data classification.
+            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a Senior Software Engineer at Space Telescope Sciencie Institute.  He received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link> and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
           </DeveloperInfo>
 
 
@@ -56,15 +51,28 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="dave.jpeg">
-            <Link to="http://www.drdjones.net" hideexternal="true">Dave Jones</Link> is a postdoc at the Insituto de Astrofisica de Canarias in Spain having previously worked at the European Southern Observatory's Very Large Telescope.  Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> into the framework of PHOEBE 2.
+            <Link to="http://www.drdjones.net" hideexternal="true">Dave Jones</Link> is a staff researcher at the Instituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as implementing new atmosphere tables into the framework of PHOEBE 2.
           </DeveloperInfo>
 
+
           <DeveloperInfo image="michael.jpg">
-            Michael Abdul-Masih is a postdoctoral fellow at the European Southern Observatory.  He received his PhD from KU Leuven, where he worked on non-spherical massive stars, and how accounting for the 3D geometry affects the derived stellar parameters and thus evolutionary future of these objects.  His primary research interests include distorted massive stars and the integration of 3D geometries into spectral fitting techniques.
+            Michael Abdul-Masih is currently a La Caixa Junior Leader Fellow at the Instituto de Astrofisica de Canarias. He received his PhD from KU Leuven, where he worked on non-spherical massive stars, and how accounting for the 3D geometry affects the derived stellar parameters and thus evolutionary future of these objects. From there he moved to Chile to work as an ESO postdoctoral fellow where he acted as support astronomer for UT3 and was the XSHOOTER instrument fellow.  His primary research interests include distorted massive stars and the integration of 3D geometries into spectral fitting techniques.
+          </DeveloperInfo>
+
+          <DeveloperInfo image="marcin.png">
+            Marcin Wrona is a postdoctoral researcher at Villanova University. He completed his PhD at the Astronomical Observatory of the University of Warsaw, Poland. His primary expertise lies in close binary systems, with a particular focus on eccentric ellipsoidal variables and eclipsing binaries in the context of photometric data. At Villanova University, his main role is developing PHOEBAI (PHOEBE via AI), a tool designed for rapid analysis of light curves of eclipsing binary systems using artificial neural networks trained on datasets generated with PHOEBE.
+          </DeveloperInfo>
+
+          <DeveloperInfo image="matthias.png">
+          Matthias Fabry is a postdoctoral scholar at Villanova. He received his PhD at the KU Leuven in Belgium. Matthias' main interest are the evolution of massive binaries and of contact systems (of any mass), and is on the development team of the MESA binary evolution code.
           </DeveloperInfo>
 
 
           <h2>Past Developers</h2>
+
+          <DeveloperInfo image="angela.png">
+            Angela Kochoska was a <Link to="https://www1.villanova.edu/villanova/artsci/research/MendelPostdoctoralFellows.html">Mendel Postdoctoral Fellow</Link> at Villanova University from the University of Ljubljana. Her focus was the development of the theoretical framework of contact binary stars and large-scale data classification.
+          </DeveloperInfo>
 
           <DeveloperInfo image="martin.jpg">
             <Link to="http://chaos.fmf.uni-lj.si/horvat" hideexternal="true">Martin Horvat</Link> is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <Link to="https://www.springer.com/gp/book/9783319786186">computational physics</Link>, as well as general relativity. He lead the <Link to="/releases/2.1">2.1 release featuring misaligned orbits</Link>, the <Link to="https://ui.adsabs.harvard.edu/abs/2019ApJS..240...36H">theoretical paper on irradiation effects</Link>, and developed the C-backend of PHOEBE 2 responsible for meshing stellar objects, determining eclipsing regions, and handling irradiation.
