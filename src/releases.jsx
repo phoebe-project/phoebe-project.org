@@ -276,8 +276,8 @@ class ReleaseContent extends Component {
                 </div>
     } else if (this.props.version === '2.4') {
       logo = "logo_release_24.svg"
-      releasePaper = "Kochoska et al. (2022)"
-      publicationLink = "/publications/2022Kochoska+"
+      releasePaper = null
+      publicationLink = null
       content = <div>
                   <p>PHOEBE 2.4 improves the geometry and ebai estimators, updates gaussian processes to use either scikit-learn or celerite2, and adds support for submitting compute or solver runs on external servers.</p>
                   <p>
@@ -297,7 +297,7 @@ class ReleaseContent extends Component {
                     <li>optimizers: ability to continue runs from a previous solution (for most optimizers)</li>
                   </ul>
                   <p>
-                    Major changes since 2.4:
+                    Major changes since 2.3:
                   </p>
                   <ul>
                     <li>new support for running jobs on external servers via <Link to="https://crimpl.readthedocs.io">crimpl</Link></li>
