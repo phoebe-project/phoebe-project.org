@@ -51,12 +51,12 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="dave.jpeg">
-            <Link to="http://www.drdjones.net" hideexternal="true">Dave Jones</Link> is a staff researcher at the Insituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as implementing new atmosphere tables into the framework of PHOEBE 2.
+            <Link to="http://www.drdjones.net" hideexternal="true">Dave Jones</Link> is a staff researcher at the Instituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as implementing new atmosphere tables into the framework of PHOEBE 2.
           </DeveloperInfo>
 
 
           <DeveloperInfo image="michael.jpg">
-            Michael Abdul-Masih is a postdoctoral fellow at the European Southern Observatory.  He received his PhD from KU Leuven, where he worked on non-spherical massive stars, and how accounting for the 3D geometry affects the derived stellar parameters and thus evolutionary future of these objects.  His primary research interests include distorted massive stars and the integration of 3D geometries into spectral fitting techniques.
+            Michael Abdul-Masih is currently a La Caixa Junior Leader Fellow at the Instituto de Astrofisica de Canarias. He received his PhD from KU Leuven, where he worked on non-spherical massive stars, and how accounting for the 3D geometry affects the derived stellar parameters and thus evolutionary future of these objects. From there he moved to Chile to work as an ESO postdoctoral fellow where he acted as support astronomer for UT3 and was the XSHOOTER instrument fellow.  His primary research interests include distorted massive stars and the integration of 3D geometries into spectral fitting techniques.
           </DeveloperInfo>
 
           <DeveloperInfo image="marcin.png">
