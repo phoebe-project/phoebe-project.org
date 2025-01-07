@@ -63,6 +63,10 @@ export class HelpDevel extends Component {
             Marcin Wrona is a postdoctoral researcher at Villanova University. He completed his PhD at the Astronomical Observatory of the University of Warsaw, Poland. His primary expertise lies in close binary systems, with a particular focus on eccentric ellipsoidal variables and eclipsing binaries in the context of photometric data. At Villanova University, his main role is developing PHOEBAI (PHOEBE via AI), a tool designed for rapid analysis of light curves of eclipsing binary systems using artificial neural networks trained on datasets generated with PHOEBE.
           </DeveloperInfo>
 
+          <DeveloperInfo image="matthias.png">
+          Matthias Fabry is a postdoctoral scholar at Villanova. He received his PhD at the KU Leuven in Belgium. Matthias' main interest are the evolution of massive binaries and of contact systems (of any mass), and is on the development team of the MESA binary evolution code.
+          </DeveloperInfo>
+
 
           <h2>Past Developers</h2>
 
