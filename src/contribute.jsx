@@ -75,7 +75,7 @@ class ContributeBeforeRouter extends Component {
             The easiest way to help contribute to PHOEBE is to help by testing the code - both by testing systems and configurations we may not have considered and also on a variety of different machines and installations.
           </p>
           <p>
-            We use a suite of tests, called pytest, which are run everytime we commit a change to the code and before every release by <Link to="https://travis-ci.org/phoebe-project/phoebe2">Travis CI</Link>.  You can start by running this suite of tests on your own machine/installation and making sure all tests pass.
+            We use a suite of tests, called pytest, which are run everytime we commit a change to the code and before every release by GitHub actions.  You can start by running this suite of tests on your own machine/installation and making sure all tests pass.
           </p>
           <TestsDiv/>
           <p>

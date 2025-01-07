@@ -245,10 +245,7 @@ export class TestsDiv extends Component {
           <li><Link to="https://github.com/phoebe-project/photodynam">photodynam</Link></li>
           <li><Link to="https://github.com/hannorein/rebound">rebound</Link></li>
         </ul>
-        <p>To run all tests locally on your machine, run the following in the ‘tests’ directory in the source.</p>
-        <pre>
-          {python} run_tests.py tests
-        </pre>
+        <p>To run all tests locally on your machine, run <code>pytest</code> in the <code>tests</code> directory in the source.</p>
       </div>
     )
   }
