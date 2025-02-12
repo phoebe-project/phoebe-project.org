@@ -7,7 +7,7 @@ import GitHubContent from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-let upcoming_workshops = {"2025aug": "August 2025, Yunnam China"};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
+let upcoming_workshops = {"2025aug": "August 2025, Kunming China"};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
 let active_workshops = {}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
 let archived_workshops = {"2018june": "June 2018, Villanova PA",
                           "2019july": "July 2019, Villanova PA",
