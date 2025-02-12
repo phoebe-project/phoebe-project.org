@@ -124,14 +124,15 @@ class WorkshopEntryBeforeRouter extends Component {
       this.redirect(workshop, slug)
     }
 
-    let active = Object.keys(active_workshops).indexOf(workshop)!==-1
     let upcoming = Object.keys(upcoming_workshops).indexOf(workshop)!==-1
+    let active = upcoming || Object.keys(active_workshops).indexOf(workshop)!==-1
 
     let description = ''
-    if (active) {
-      description = active_workshops[workshop]
-    } else if (upcoming) {
+
+    if (upcoming) {
       description = upcoming_workshops[workshop]
+    } else if (active) {
+        description = active_workshops[workshop]
     } else {
       description = archived_workshops[workshop]
     }
