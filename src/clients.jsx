@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import Container from "react-bootstrap/Container";
-import {Content, Link, Button, Separator, metaKeywords, withRouter} from './common'
+import {Alert, Content, Link, Button, Separator, metaKeywords, withRouter} from './common'
 import {WebUI, DesktopUI} from './mockups'
 import {Header, HeaderNavButton} from './header'
 
@@ -54,12 +54,9 @@ class Clients extends Component {
           <h1>PHOEBE Interactive Clients</h1>
 
           <div className="row">
-             <div className="col-md-4"></div>
+             <div className="col-md-6"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Desktop Client" description="Installation Instructions for Desktop Client" to={"#desktop"} icon="fas fa-desktop"/>
-             </div>
-             <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Web Client" description="Web/Browser Client" to={"#web"} icon="fas fa-window-maximize"/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
                <HeaderNavButton title="Python Client" description="Installation Instructions for Python Client" to={"#python"} icon="fas fa-terminal"/>
@@ -81,21 +78,14 @@ class Clients extends Component {
           </div>
 
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-6">
               <Link to="#desktop"><span className="fa-10x fa-fw fas fa-desktop" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
               <Link to="#desktop"><h3>Desktop UI Client</h3></Link>
               <p>a native desktop application point-and-click user interface which connects to a <Link to="#server">phoebe-server</Link> instance (either locally or remote) running an installation of PHOEBE.</p>
               <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginRight: "10px"}} to={"#desktop"} icon="fa fa-fw fa-info" title={"Learn More"}/>
               <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginLeft: "10px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon="fa fa-fw fa-download" title={"Install"}/>
             </div>
-            <div className="col-md-4">
-              <Link to="#web"><span className="fa-10x fa-fw fas fa-window-maximize" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
-              <Link to="#web"><h3>Web UI Client</h3></Link>
-              <p>an in-browser version of the dedicated <Link to="#desktop">desktop client</Link> with the same interface but some limitations.  Accessible from <Link to="http://ui.phoebe-project.org">ui.phoebe-project.org</Link> without the need for any setup or installation, the web-client is convenient for getting started.</p>
-              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginRight: "10px"}} to={"#web"} icon="fa fa-fw fa-info" title={"Learn More"}/>
-              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginLeft: "10px"}} to={"http://ui.phoebe-project.org"} icon="fa fa-fw fa-play-circle" title={"Launch"}/>
-            </div>
-            <div className="col-md-4">
+            <div className="col-md-6">
               <Link to="/install"><span className="fa-10x fa-fw fab fa-python" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
               <Link to="/install"><h3>PHOEBE Python Package</h3></Link>
               <p>PHOEBE 2.3+ includes the PHOEBE Python frontend in addition to the ability to run as a <Link to="#python">python client</Link> and comes with <Link to="#server">phoebe-server</Link> which handles syncing multiple clients and phoebe-autofig which allows for interactive matplotlib figures.  These are required to run PHOEBE entirely offline on a local machine, but the clients are standalone and can be attached to an instance of <Link to="#server">phoebe-server</Link> running on any machine.</p>
@@ -170,8 +160,15 @@ class Clients extends Component {
 
           <h2 ref={this.refweb}><span className="fas fa-fw fa-xs fa-window-maximize"></span>  Web UI Client</h2>
 
-          <div className="row">
+          <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
+            <Container>
+              <Alert level="warning">
+                NOTE: The web client is currently unavailable.
+              </Alert>
+            </Container>
+          </div>
 
+          <div className="row">
             <p>
               The web client allows you to run PHOEBE in your browser, without any installation!  It shares the same UI and source-code as the <Link to="#desktop">desktop</Link> client, but with some important limitations:
             </p>
@@ -201,7 +198,9 @@ class Clients extends Component {
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
             <Container>
-              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
+              <Alert level="warning">
+                NOTE: The web client is currently unavailable.
+              </Alert>
             </Container>
           </div>
 
