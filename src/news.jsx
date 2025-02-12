@@ -9,6 +9,35 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export let newsStoriesDicts = [
   {
+    title: "Seventh PHOEBE Workshop",
+    slug: "phoebe-workshop-7",
+    pinnedDays: 30,
+    date: "February 12, 2025",
+    author: "Kelly Hambleton",
+    content: <div>
+              <p>
+                Dear Colleagues,
+              </p>
+              <p>
+                We are excited to announce that we will be hosting the 7th PHOEBE Workshop this August in China!
+              </p>
+              <p>
+                The two week workshop will take place on August 4-14 2025 in Yunnan, China.
+              </p>
+              <p>
+                To register, please fill out the form at <Link to="/workshops/2025aug/registration">http://phoebe-project.org/workshops/2025aug</Link>. Space is limited and participants are selected on a first come first serve basis (registration ends on March 8th).
+              </p>
+              <p>
+                We look forward to welcoming you to China in August!
+              </p>
+
+              <p>
+                Kind regards,<br/>
+                The <Link to="/development-team">PHOEBE team</Link>
+              </p>
+            </div>
+  },
+  {
     title: "Sixth PHOEBE Workshop",
     slug: "phoebe-workshop-6",
     pinnedDays: 30,
