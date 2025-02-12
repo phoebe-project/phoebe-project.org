@@ -47,9 +47,6 @@ export class Home extends Component {
 
 
           <div className="row">
-            {/* use col-lg-6 col-md-12 and uncomment other div once clients are supported */}
-            <div className="col-lg-6 col-md-12">
-            {/* <div className="col-lg-6 col-md-12"> */}
               <div style={{padding: "20px", maxWidth: "800px", height: "130px", margin: "0px auto", textAlign: "center"}}>
                 <pre style={{backgroundColor: "white", border: "none", fontSize: "20px", textAlign: "center", padding: "0px", margin: "0px", height: "40px"}}>
                   pip install phoebe
@@ -65,25 +62,6 @@ export class Home extends Component {
               <div className="visible-xs visible-sm">
                 <InteractiveGettingStarted height="780px"/>
               </div>
-
-            </div>
-            <div className="col-lg-6 col-md-12">
-              <div style={{padding: "20px", maxWidth: "800px", height: "130px", margin: "0px auto", textAlign: "center"}}>
-                <Button level="primary" style={{lineHeight: "2.3em", fontSize: "12px", height: "40px"}} to={"http://ui.phoebe-project.org"} icon="far fa-fw fa-play-circle" title={"Launch PHOEBE Web Client"}/>
-                <br/>
-                <span>or install the <Link to="/clients#desktop">desktop client</Link></span>
-                <br/>
-                <span><Link to="/clients">full client information</Link></span>
-              </div>
-
-              <div className="hidden-xs hidden-sm">
-                <DesktopUI height="650px"/>
-              </div>
-              <div className="visible-xs visible-sm">
-                <DesktopUI height="750px"/>
-              </div>
-            </div>
-
           </div>
 
 
