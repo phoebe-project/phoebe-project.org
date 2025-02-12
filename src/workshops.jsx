@@ -129,11 +129,9 @@ class WorkshopEntryBeforeRouter extends Component {
 
     let description = ''
     if (active) {
-      if (upcoming) {
-        description = upcoming_workshops[workshop]
-      } else {
-        description = active_workshops[workshop]
-      }
+      description = active_workshops[workshop]
+    } else if (upcoming) {
+      description = upcoming_workshops[workshop]
     } else {
       description = archived_workshops[workshop]
     }
