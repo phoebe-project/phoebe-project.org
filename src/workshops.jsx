@@ -253,7 +253,7 @@ export const WorkshopEntry = withRouter(WorkshopEntryBeforeRouter);
 
 export class WorkshopRegistration extends Component {
   render() {
-    window.location = 'https://forms.gle/sZccSYRswfccgbau6'
+    window.location = 'https://forms.gle/Mg95hc2TkvvvJEgy7'
     return null
   }
 }
