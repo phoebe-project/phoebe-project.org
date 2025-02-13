@@ -7,7 +7,7 @@ import GitHubContent from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-let upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
+let upcoming_workshops = {"2025aug": "August 2025, Kunming China"};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
 let active_workshops = {}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
 let archived_workshops = {"2018june": "June 2018, Villanova PA",
                           "2019july": "July 2019, Villanova PA",
@@ -124,16 +124,15 @@ class WorkshopEntryBeforeRouter extends Component {
       this.redirect(workshop, slug)
     }
 
-    let active = Object.keys(active_workshops).indexOf(workshop)!==-1
     let upcoming = Object.keys(upcoming_workshops).indexOf(workshop)!==-1
+    let active = upcoming || Object.keys(active_workshops).indexOf(workshop)!==-1
 
     let description = ''
-    if (active) {
-      if (upcoming) {
-        description = upcoming_workshops[workshop]
-      } else {
+
+    if (upcoming) {
+      description = upcoming_workshops[workshop]
+    } else if (active) {
         description = active_workshops[workshop]
-      }
     } else {
       description = archived_workshops[workshop]
     }
@@ -254,7 +253,7 @@ export const WorkshopEntry = withRouter(WorkshopEntryBeforeRouter);
 
 export class WorkshopRegistration extends Component {
   render() {
-    window.location = 'https://forms.gle/sZccSYRswfccgbau6'
+    window.location = 'https://forms.gle/Mg95hc2TkvvvJEgy7'
     return null
   }
 }
