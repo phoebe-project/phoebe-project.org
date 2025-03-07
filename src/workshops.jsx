@@ -7,7 +7,7 @@ import GitHubContent from './githubcontent';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
 
-let upcoming_workshops = {};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
+let upcoming_workshops = {"2025aug": "August 2025, Kunming China"};  // REGISTRATION OPEN/ANNOUNCED THROUGH CLOSED
 let active_workshops = {}; // REGISTRATION CLOSED THROUGH END OF WORKSHOP
 let archived_workshops = {"2018june": "June 2018, Villanova PA",
                           "2019july": "July 2019, Villanova PA",
@@ -49,8 +49,10 @@ class WorkshopBeforeRouter extends Component {
         <Content>
           <p>
             PHOEBE workshops aim to provide an opportunity for the community and users to learn how to use PHOEBE, as well as an opportunity for the <Link to="/development-team">developers</Link> to learn what features and improvements can be made.
-            Generally these dedicated workshops consist of a small group of participants and are organized to include both tutorials and short talks introducing the science and features implemented in the latest PHOEBE release as well as a sneak peak into features under development.
-            These workshops have been made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>, the Villanova University College of Arts and Sciences Faculty Research and Development Grant, and the <Link to="https://www1.villanova.edu/villanova/artsci/astronomy.html">Villanova Department of Astrophysics and Planetary Sciences</Link>.
+            Generally, these dedicated workshops consist of a small group of participants and are organized to include both tutorials and short talks introducing the science and features implemented in the latest PHOEBE release as well as a sneak peek into features under development.
+            These workshops have been made possible through generous support from the <Link to="https://www.nsf.gov/awardsearch/showAward?AWD_ID=1517474">National Science Foundation</Link>, the Villanova University College of Arts and Sciences Faculty Research and Development Grant,
+            the <Link to="https://www1.villanova.edu/villanova/artsci/astronomy.html">Villanova Department of Astrophysics and Planetary Sciences</Link>,
+            and host institutions including the University of Ljubljana and the Yunnan Observatories of the Chinese Academy of Sciences, Yunnan University.
           </p>
           {/*<div style={{textAlign: "center", paddingTop: "15px", paddingBottom: "0px"}}>*/}
           {/*  <Image src={"/images/workshops/PHOEBE_workshop_1_thumb.jpg"} href={"/static/workshops/PHOEBE_workshop_1.jpg"} style={{borderRadius: "4px", margin: "10px"}} height="200" maxwidth="80%" title="PHOEBE Workshop 2018"/>*/}
@@ -124,16 +126,15 @@ class WorkshopEntryBeforeRouter extends Component {
       this.redirect(workshop, slug)
     }
 
-    let active = Object.keys(active_workshops).indexOf(workshop)!==-1
     let upcoming = Object.keys(upcoming_workshops).indexOf(workshop)!==-1
+    let active = upcoming || Object.keys(active_workshops).indexOf(workshop)!==-1
 
     let description = ''
-    if (active) {
-      if (upcoming) {
-        description = upcoming_workshops[workshop]
-      } else {
+
+    if (upcoming) {
+      description = upcoming_workshops[workshop]
+    } else if (active) {
         description = active_workshops[workshop]
-      }
     } else {
       description = archived_workshops[workshop]
     }
@@ -254,7 +255,7 @@ export const WorkshopEntry = withRouter(WorkshopEntryBeforeRouter);
 
 export class WorkshopRegistration extends Component {
   render() {
-    window.location = 'https://forms.gle/sZccSYRswfccgbau6'
+    window.location = 'https://forms.gle/Mg95hc2TkvvvJEgy7'
     return null
   }
 }

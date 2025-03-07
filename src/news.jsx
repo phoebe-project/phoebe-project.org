@@ -8,6 +8,38 @@ import {NotFound} from './errors';
 
 // NEWER entries on TOP of list
 export let newsStoriesDicts = [
+    {
+    title: "Seventh PHOEBE Workshop",
+    slug: "phoebe-workshop-7",
+    pinnedDays: 30,
+    date: "March 6, 2025",
+    author: "Kelly Hambleton",
+    content: <div>
+              <p>
+                Dear Colleagues,
+              </p>
+              <p>
+                We are excited to announce that we will be hosting the 7th PHOEBE Workshop this August in Kunming, Yunnan Province, China!
+              </p>
+              <p>
+                The workshop will be held from August 4–14, 2025, at the Yunnan University Astronomical Observatory in Chenggong, Kunming. It is structured over two intensive four-day weeks. During the first week, participants will be introduced to PHOEBE and the forward modeling approach. In the second week, the focus will shift to both introductory and advanced fitting methods.
+              </p>
+              <p>
+Throughout the workshop, a series of scientific talks and tutorials will focus on binary star physics and the PHOEBE code. Attendees will engage in hands-on exercises designed to reinforce their understanding. Additionally, toward the end of the workshop, participants will have the opportunity to apply their newly acquired skills to analyze their own data.
+              </p>
+              <p>
+                To register, please fill out the form at <Link to="/workshops/2025aug/registration">http://phoebe-project.org/workshops/2025aug</Link>. Space is limited and participants are selected on a first come first serve basis (registration ends on April 30th).
+              </p>
+              <p>
+                We look forward to welcoming you to China in August!
+              </p>
+
+              <p>
+                Kind regards,<br/>
+                The <Link to="/development-team">PHOEBE team</Link>
+              </p>
+            </div>
+  },
   {
     title: "Sixth PHOEBE Workshop",
     slug: "phoebe-workshop-6",
