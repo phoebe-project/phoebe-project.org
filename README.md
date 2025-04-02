@@ -25,6 +25,10 @@ conda install nodejs=18.19.0
 
 ## Serving locally
 
+There are two possible deployments: bare metal and dockerized (preferred).
+
+### Bare metal:
+
 In the root directory, issue:
 
 ```
@@ -41,8 +45,21 @@ to create a local webserver running the site.
 
 NOTE on `/static/` files: all files referenced as /static/ are NOT included in the git repository, but rather served separately by apache on clusty.  These include large downloads such as atmosphere tables and PHOEBE legacy builds and documentation.  These links WILL NOT WORK when running a local server, as they will not be able to find the correct directory.  See below in "General Notes on Layout/Conventions" for more details on what to put in `static` vs `public`.
 
+### Dockerized (preferred):
+
+Make sure that [docker](https://www.docker.com/) is installed on your machine. Typically, `apt install docker` will do. Then, in the root directory, issue:
+
+```bash
+docker compose up --build -d
+```
+
+This will build the docker based on alpine + node + npm + nginx stack and run it on http://localhost:8080.
 
 ## Deploying
+
+As with serving locally, there are two options for deployment, with docker again being preferred.
+
+### Bare metal
 
 In the root directory, issue:
 
@@ -56,6 +73,15 @@ copy the entire directory to the server directory:
 scp -r build/* terra:/srv/www/phoebe-project/
 ```
 
+### Dockerized (preferred):
+
+The docker container is built from the main github repo, not from any local versions, so make sure that the PR is issued and merged into main (master) before the container is deployed.
+
+```bash
+docker compose up --build -d
+```
+
+Once the container is running, simply add a reverse proxy pass to it from the system server (apache on nginx).
 
 ## General Notes on Layout/Conventions
 
