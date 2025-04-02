@@ -43,7 +43,7 @@ npm start
 
 to create a local webserver running the site.
 
-NOTE on `/static/` files: all files referenced as /static/ are NOT included in the git repository, but rather served separately by apache on clusty.  These include large downloads such as atmosphere tables and PHOEBE legacy builds and documentation.  These links WILL NOT WORK when running a local server, as they will not be able to find the correct directory.  See below in "General Notes on Layout/Conventions" for more details on what to put in `static` vs `public`.
+NOTE on `/static/` files: all files referenced as /static/ are NOT included in the git repository, but rather served separately by apache.  These include large downloads such as atmosphere tables and PHOEBE legacy builds and documentation.  These links WILL NOT WORK when running a local server, as they will not be able to find the correct directory.  See below in "General Notes on Layout/Conventions" for more details on what to put in `static` vs `public`.
 
 ### Dockerized (preferred):
 
@@ -59,7 +59,7 @@ This will build the docker based on alpine + node + npm + nginx stack and run it
 
 As with serving locally, there are two options for deployment, with docker again being preferred.
 
-### Bare metal
+### Bare metal:
 
 In the root directory, issue:
 
@@ -103,7 +103,7 @@ Once the container is running, simply add a reverse proxy pass to it from the sy
 
 * Please use the internal `Image` component from [common.jsx](./src/common.jsx) instead of adding html `<img>` tags manually.  This makes sure to reference internal image sources correctly.
 
-* Static files (`static` vs `public`): large download files and legacy documentation/builds are stored EXTERNALLY on clusty and hosted by apache.  Any large downloads that do not need to be placed under version control should be manually placed here in reasonably-named subdirectories.  They can then be referenced via the `Link` component with `to='/static/whatever'`, which will handle writing the `<a>` tag correctly without using the Router.  Any smaller files (images, logos, etc) can be placed in the repository's [public](./public) directory and can be referenced via the `Link` component with `to='/whatever'`.  Be careful of name conflicts - any match within the public directory will be served first before falling back on the React-Router (for example: creating a `public/docs` directory could have unfortunate consequences).  Additionally, `static/css` and `static/js` are configured (via apache) to point to the react `build/static` - so creating `css` or `js` directories in the `static` directory will have no effect and will not be accessible.
+* Static files (`static` vs `public`): large download files and legacy documentation/builds are stored **externally** and hosted by apache.  Any large downloads that do not need to be placed under version control should be manually placed here in reasonably-named subdirectories.  They can then be referenced via the `Link` component with `to='/static/whatever'`, which will handle writing the `<a>` tag correctly without using the Router.  Any smaller files (images, logos, etc) can be placed in the repository's [public](./public) directory and can be referenced via the `Link` component with `to='/whatever'`.  Be careful of name conflicts - any match within the public directory will be served first before falling back on the React-Router (for example: creating a `public/docs` directory could have unfortunate consequences).  Additionally, `static/css` and `static/js` are configured (via apache) to point to the react `build/static` - so creating `css` or `js` directories in the `static` directory will have no effect and will not be accessible.
 
 ## Releasing a New Version of PHOEBE
 
