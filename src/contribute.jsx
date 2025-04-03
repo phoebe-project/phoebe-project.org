@@ -395,9 +395,9 @@ class ContributeDevelopmentBeforeRouter extends Component {
           <p>
             The <Link to="http://github.com/phoebe-project/tables.phoebe-project.org">tables.phoebe-project.org repository</Link> contains the source-code for the flask server that runs the tables server for all PHOEBE 2.2+ releases.
             <ul>
-              <li>New passbands should be placed in the <code>/srv/www/tables-phoebe-project/data</code> directory in clusty</li>
+              <li>New passbands should be placed in the <code>/srv/www/tables-phoebe-project/data</code> directory on terra</li>
               <li>The passband metadata is refreshed every hour automatically, but the server can be forced to restart by touching <code>/srv/www/tables-phoebe-project/tables-phoebe-project-venv.wsgi</code> file</li>
-              <li>Updates to the flask server code should be pushed to the repo above, pulled on clusty, and the server restarted by touching <code>/srv/www/tables-phoebe-project/tables-phoebe-project-venv.wsgi</code></li>
+              <li>Updates to the flask server code should be pushed to the repo above, pulled on terra, and the server restarted by touching <code>/srv/www/tables-phoebe-project/tables-phoebe-project-venv.wsgi</code></li>
               <li>Updates to PHOEBE needed for the server should be pulled and installed in the <code>phoebe_server_venv</code> virtual environment, and the server restarted.</li>
               <li>Any updates to PHOEBE that change the structure of passbands needs to be reflected in the flask server so that passband files generated for older releases continue to work.</li>
 
