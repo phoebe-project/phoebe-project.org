@@ -171,7 +171,7 @@ class Install extends Component {
           <div className="row" style={{paddingBottom: "20px"}}>
             <div className="col-md-9 col-sm-12"></div>
             <div className="col-md-3 col-sm-12 float-right">
-              <Link to={"http://github.com/phoebe-project/phoebe-project.org/issues/new?title=issue+with+install+instructions:+"+version_long+"/"+OSName+"/"+version_py} hideexternal="true"><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
+              <Link to={"https://github.com/phoebe-project/phoebe-project.org/issues/new?title=issue+with+install+instructions:+"+version_long+"/"+OSName+"/"+version_py} hideexternal="true"><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
             </div>
           </div>
 
@@ -478,7 +478,7 @@ class Install extends Component {
                 rm -rf &lt;myphoebedir&gt;
               </pre>
 
-              <p>If installing in a virtual environment, PHOEBE sets the matplotlib backend to ‘TkAgg’ instead of ‘Agg’ by default.  To override this, set the backend yourself before importing PHOEBE.  To use ‘TkAgg’, you may need to have python-tk installed on your system.  See <Link to="http://matplotlib.org/faq/virtualenv_faq.html">http://matplotlib.org/faq/virtualenv_faq.html</Link> for more information.</p>
+              <p>If installing in a virtual environment, PHOEBE sets the matplotlib backend to ‘TkAgg’ instead of ‘Agg’ by default.  To override this, set the backend yourself before importing PHOEBE.  To use ‘TkAgg’, you may need to have python-tk installed on your system.  See <Link to="https://matplotlib.org/faq/virtualenv_faq.html">https://matplotlib.org/faq/virtualenv_faq.html</Link> for more information.</p>
 
               <Separator large={false} flip={true}/>
             </Content>

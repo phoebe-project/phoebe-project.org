@@ -202,7 +202,7 @@ class ReleaseContent extends Component {
                   </p>
                   <ul>
                     <li>switch parameterization from <Link to="/docs/2.1/tutorials/20_21_requiv">rpole/pot to requiv</Link> (including new <Link to="/docs/2.1/tutorials/20_21_semidetached">semi-detached</Link> and <Link to="/docs/2.1/tutorials/20_21_contact">contact</Link> constraints)</li>
-                    <li>rewrite of <Link to="/docs/2.1/tutorials/20_21_plotting">plotting infrastructure</Link> to use <Link to="http://github.com/kecnry/autofig">autofig</Link></li>
+                    <li>rewrite of <Link to="/docs/2.1/tutorials/20_21_plotting">plotting infrastructure</Link> to use <Link to="https://github.com/kecnry/autofig">autofig</Link></li>
                     <li>rewrite of <Link to="/docs/2.1/tutorials/20_21_mesh">mesh dataset infrastructure</Link> to allow choosing which columns are exposed in the model</li>
                     <li>Distinguish <Link to="/docs/2.1/tutorials/20_21_xyz_uvw">Roche (xyz) from Plane-of-Sky (uvw) coordinates</Link></li>
                   </ul>

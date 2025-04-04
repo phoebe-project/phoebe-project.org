@@ -28,7 +28,7 @@ export let newsStoriesDicts = [
 Throughout the workshop, a series of scientific talks and tutorials will focus on binary star physics and the PHOEBE code. Attendees will engage in hands-on exercises designed to reinforce their understanding. Additionally, toward the end of the workshop, participants will have the opportunity to apply their newly acquired skills to analyze their own data.
               </p>
               <p>
-                To register, please fill out the form at <Link to="/workshops/2025aug/registration">http://phoebe-project.org/workshops/2025aug</Link>. Space is limited and participants are selected on a first come first serve basis (registration ends on April 30th).
+                To register, please fill out the form at <Link to="/workshops/2025aug/registration">https://phoebe-project.org/workshops/2025aug</Link>. Space is limited and participants are selected on a first come first serve basis (registration ends on April 30th).
               </p>
               <p>
                 We look forward to welcoming you to China in August!
@@ -57,7 +57,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
                 The workshop will take place on June 10th - 14th 2024 at the University of Ljubljana, Slovenia. Unlike previous years, this workshop will take on a hack-week format and be aimed at advancing the skills of those already familiar with PHOEBE. During the workshop, participants will work on individual and small-group projects with a focus on real data and the skills required to create publication-quality models. Participants will also gain insight into bug fixing and be given the opportunity to contribute to the PHOEBE code.
               </p>
               <p>
-                To register, please fill out the form at <Link to="/workshops/2024june/registration">http://phoebe-project.org/workshops/2024june</Link>. Space is limited and participants are selected on a first come first serve basis (registration ends on March 8th).
+                To register, please fill out the form at <Link to="/workshops/2024june/registration">https://phoebe-project.org/workshops/2024june</Link>. Space is limited and participants are selected on a first come first serve basis (registration ends on March 8th).
               </p>
               <p>
                 We look forward to welcoming you to Slovenia in June!
@@ -83,7 +83,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
                 We are pleased to announce that the Fifth PHOEBE Workshop will take place 19th – 23rd June 2023 at the University of Ljubljana, Slovenia.
               </p>
               <p>
-                Further information and the registration form can be found at <Link to="/workshops/2023june">http://phoebe-project.org/workshops/2023june</Link>. Registration is now open, and acceptance is on a first-come-first-serve basis.
+                Further information and the registration form can be found at <Link to="/workshops/2023june">https://phoebe-project.org/workshops/2023june</Link>. Registration is now open, and acceptance is on a first-come-first-serve basis.
               </p>
               <p>
                 We look forward to meeting you soon!
@@ -123,7 +123,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
                 We are pleased to announce that the Fourth PHOEBE Workshop will take place 20th – 24th June 2022 at Villanova University, Pennsylvania, USA, with an additional advanced-fitting, on-line component that will be held for three hours every Tuesday for five consecutive weeks (from 28th June until 26th July 2022).
               </p>
               <p>
-                Further information and the registration form can be found at <Link to="/workshops/2022june">http://phoebe-project.org/workshops/2022june</Link>. Registration is now open, and acceptance is on a first-come-first-serve basis.
+                Further information and the registration form can be found at <Link to="/workshops/2022june">https://phoebe-project.org/workshops/2022june</Link>. Registration is now open, and acceptance is on a first-come-first-serve basis.
               </p>
               <p>
                 We look forward to meeting you soon!
@@ -141,7 +141,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
     date: "November 29, 2021",
     author: "Andrej Prsa",
     content: <div>
-      Our research group is hiring a postdoctoral research fellow with the start date between January and May 2022. The applicant will join the research group for an initial 12-month appointment, with a possibility of a 1-year extension, contingent on continued interest and successful performance. Competitive applicants will have an established track record in computational astrophysics, data science and programming. The principal focus for the postdoctoral scholar will be on eclipsing binary (EB) data from NASA’s Transiting Exoplanet Survey Satellite (TESS) mission. TESS observed almost 5000 EBs on 2-min cadence and hundreds of thousands of EBs in full-frame images. The postdoc will spearhead the effort of extracting lightcurves and principal parameters for the full-frame image dataset, using short cadence data as calibration reference. Methods based on dimensionality reduction/down-projection, artificial intelligence, and clustering are expected to play a central role in the project. In addition, the generalized code-base developed for TESS EBs is envisioned to be added to the PHOEBE suite (<a href="http://phoebe-project.org">http://phoebe-project.org</a>). The postdoctoral research fellow will be expected to:
+      Our research group is hiring a postdoctoral research fellow with the start date between January and May 2022. The applicant will join the research group for an initial 12-month appointment, with a possibility of a 1-year extension, contingent on continued interest and successful performance. Competitive applicants will have an established track record in computational astrophysics, data science and programming. The principal focus for the postdoctoral scholar will be on eclipsing binary (EB) data from NASA’s Transiting Exoplanet Survey Satellite (TESS) mission. TESS observed almost 5000 EBs on 2-min cadence and hundreds of thousands of EBs in full-frame images. The postdoc will spearhead the effort of extracting lightcurves and principal parameters for the full-frame image dataset, using short cadence data as calibration reference. Methods based on dimensionality reduction/down-projection, artificial intelligence, and clustering are expected to play a central role in the project. In addition, the generalized code-base developed for TESS EBs is envisioned to be added to the PHOEBE suite (<a href="https://phoebe-project.org">https://phoebe-project.org</a>). The postdoctoral research fellow will be expected to:
       <ul>
         <li>extract lightcurve data from full-frame images;</li>
         <li>develop classification algorithms for eclipsing binaries from extracted lightcurve data;</li>
@@ -171,7 +171,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
                 Past participants are welcome and encouraged to apply to attend the second week if they wish to get more experience in particular areas of science or work on fitting their data.
               </p>
               <p>
-                Further information and the registration form can be found at <Link to="/workshops/2021june">http://phoebe-project.org/workshops/2021june</Link>.  Registration is now open (<b>update</b>: all spots are filled and the wait list is now open) and acceptance is on a first-come first-serve basis.
+                Further information and the registration form can be found at <Link to="/workshops/2021june">https://phoebe-project.org/workshops/2021june</Link>.  Registration is now open (<b>update</b>: all spots are filled and the wait list is now open) and acceptance is on a first-come first-serve basis.
               </p>
               <p>
                 We look forward to seeing you in June!
@@ -288,7 +288,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
                 Past participants are welcome and encouraged to apply to attend the second week if they wish to get more experience in particular areas of science or work on fitting their data.
               </p>
               <p>
-                Further information and the registration form can be found at http://phoebe-project.org/workshops/2020june (<b>update</b>: this link is now dead as the workshop has been canceled to covid-19).  Registration is now open and will remain open until <b>February 14th, 2020</b>.
+                Further information and the registration form can be found at https://phoebe-project.org/workshops/2020june (<b>update</b>: this link is now dead as the workshop has been canceled to covid-19).  Registration is now open and will remain open until <b>February 14th, 2020</b>.
               </p>
               <p>
                 We look forward to welcoming you to Villanova University in June/July!
@@ -316,7 +316,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
                 We will be holding the second PHOEBE Workshop at Villanova University, Villanova, Pennsylvania, USA, July 8th-12th, 2019.
               </p>
               <p>
-                Further information and the registration form can be found at <Link to="/workshops/2019july">http://phoebe-project.org/workshops/2019july</Link>.  Registration is now open and will remain open until April 15th, 2019.
+                Further information and the registration form can be found at <Link to="/workshops/2019july">https://phoebe-project.org/workshops/2019july</Link>.  Registration is now open and will remain open until April 15th, 2019.
               </p>
               <p>
                 We look forward to welcoming you to Villanova University in July!
@@ -358,7 +358,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
     author: "Kyle Conroy",
     content: <div>
               <p>
-                The phoebe-project.org website has been re-written (and is now also <Link to="http://github.com/phoebe-project/phoebe-project.org">open-source</Link>) to improve the ability to navigate the tutorials and documentation for various releases.
+                The phoebe-project.org website has been re-written (and is now also <Link to="https://github.com/phoebe-project/phoebe-project.org">open-source</Link>) to improve the ability to navigate the tutorials and documentation for various releases.
               </p>
               <ul>
                 <li>Documentation will be preserved for each minor release.  All internal links will point to the latest release, but you can use the version switcher in the lower-right to access old releases.  For example, you can still access <Link to="/docs/2.0">docs for PHOEBE 2.0.x here</Link>.</li>
@@ -393,7 +393,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
     author: "Kyle Conroy",
     content: <div>
               <p>
-                With the <Link to="https://arxiv.org/abs/1806.07680">release paper on misalignment</Link> accepted to ApJS, we are now working on some final details in testing and releasing the accompanying 2.1 version of PHOEBE.  Please check back here and on the <Link to="http://github.com/phoebe-project/phoebe2">github repository</Link> for the official 2.1 release in the coming weeks.
+                With the <Link to="https://arxiv.org/abs/1806.07680">release paper on misalignment</Link> accepted to ApJS, we are now working on some final details in testing and releasing the accompanying 2.1 version of PHOEBE.  Please check back here and on the <Link to="https://github.com/phoebe-project/phoebe2">github repository</Link> for the official 2.1 release in the coming weeks.
               </p>
             </div>
   },
@@ -410,7 +410,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
                 We will be holding the first PHOEBE Workshop at Villanova University, Villanova, Pennsylvania, USA, June 18th-22nd, 2018.
               </p>
               <p>
-                Further information and the registration form can be found at <Link to="/workshops">http://phoebe-project.org/workshops</Link>.  Registration is now open and will remain open until March 30th, 2018.
+                Further information and the registration form can be found at <Link to="/workshops">https://phoebe-project.org/workshops</Link>.  Registration is now open and will remain open until March 30th, 2018.
               </p>
               <p>
                 We look forward to welcoming you to Villanova University in June!
@@ -468,7 +468,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
               </p>
               <ul>
                 <li><Link to="https://github.com/phoebe-project/phoebe2/releases/tag/2.0b">Download on GitHub</Link></li>
-                <li><Link to="http://arxiv.org/abs/1609.08135">Release paper (submitted, arXiv)</Link></li>
+                <li><Link to="https://arxiv.org/abs/1609.08135">Release paper (submitted, arXiv)</Link></li>
               </ul>
               <p>
                 The <Link to="/development-team">PHOEBE development team</Link>
@@ -501,30 +501,30 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
     author: "Kyle Conroy",
     content: <div>
               <p>
-                This week (13-17 April 2015) a binary workshop is being organised in Leuven (BE) in the framework of the SpaceInn project (<Link to="http://www.spaceinn.eu">http://www.spaceinn.eu</Link>).
+                This week (13-17 April 2015) a binary workshop is being organised in Leuven (BE) in the framework of the SpaceInn project (<Link to="https://www.spaceinn.eu">https://www.spaceinn.eu</Link>).
                 From our <Link to="/development-team">devel team</Link>, Kyle Conroy, Angela Kochoska, Jonas Debosscher and Steven Bloemen are present to train the participants to use Phoebe 2.0 to model binary star light curves and radial velocity curves.
                 The tutorials and slides prepared by Kyle for this workshop are available below <b>(note: these will not be updated with changes to the frontend syntax.  Please see the frontend examples in the docs for up-to-date scripts)</b>:
               </p>
               <p>
-                <Link to="http://keplerebs.villanova.edu/includes/phoebe/phoebe.pdf">Slides</Link>
+                <Link to="https://keplerebs.villanova.edu/includes/phoebe/phoebe.pdf">Slides</Link>
               </p>
               <p>
                 Forward Model:
               </p>
               <ul>
-                <li><Link to="http://keplerebs.villanova.edu/includes/phoebe/binary_simple.py">binary_simple.py</Link></li>
-                <li><Link to="http://keplerebs.villanova.edu/includes/phoebe/binary_anim.py">binary_anim.py</Link></li>
-                <li><Link to="http://keplerebs.villanova.edu/includes/phoebe/mesh_star.py">mesh_star.py</Link></li>
-                <li><Link to="http://keplerebs.villanova.edu/includes/phoebe/puls_mode.py">puls_mode.py</Link></li>
+                <li><Link to="https://keplerebs.villanova.edu/includes/phoebe/binary_simple.py">binary_simple.py</Link></li>
+                <li><Link to="https://keplerebs.villanova.edu/includes/phoebe/binary_anim.py">binary_anim.py</Link></li>
+                <li><Link to="https://keplerebs.villanova.edu/includes/phoebe/mesh_star.py">mesh_star.py</Link></li>
+                <li><Link to="https://keplerebs.villanova.edu/includes/phoebe/puls_mode.py">puls_mode.py</Link></li>
               </ul>
               <p>
                 Fitting:
               </p>
               <ul>
-                <li><Link to="http://keplerebs.villanova.edu/includes/phoebe/fit_createfakedata.py">fit_createfakedata.py</Link> (run this first to create your "fake data")</li>
-                <li><Link to="http://keplerebs.villanova.edu/includes/phoebe/fit_mcmc.py">fit_mcmc.py</Link></li>
-                <li><Link to="http://keplerebs.villanova.edu/includes/phoebe/fit_loadresults.py">fit_loadresults.py</Link></li>
-                <li><Link to="http://keplerebs.villanova.edu/includes/phoebe/fit_lmfit.py">fit_lmfit.py</Link></li>
+                <li><Link to="https://keplerebs.villanova.edu/includes/phoebe/fit_createfakedata.py">fit_createfakedata.py</Link> (run this first to create your "fake data")</li>
+                <li><Link to="https://keplerebs.villanova.edu/includes/phoebe/fit_mcmc.py">fit_mcmc.py</Link></li>
+                <li><Link to="https://keplerebs.villanova.edu/includes/phoebe/fit_loadresults.py">fit_loadresults.py</Link></li>
+                <li><Link to="https://keplerebs.villanova.edu/includes/phoebe/fit_lmfit.py">fit_lmfit.py</Link></li>
               </ul>
               <p>
                 For more information, see <Link to="https://fys.kuleuven.be/ster/meetings/binary-2015">https://fys.kuleuven.be/ster/meetings/binary-2015</Link>
@@ -553,7 +553,7 @@ Throughout the workshop, a series of scientific talks and tutorials will focus o
     content: <div>
               <p><strong>Villanova, Oct 13-24, 2014</strong></p>
               <p>
-                  The PHOEBE development team is proud to announce the 6th power-meeting at <a href="http://www.villanova.edu/">Villanova University</a>, Villanova, USA. This power-meeting is devoted to stabilizing the PHOEBE backend and meeting the goals for the PHOEBE 2.0-beta release. These include a completed documentation, all critical tracker items closed, and a comprehensive scientific library of validated results. If you are interested in attending the meeting, please join us! There is no registration fee. We are looking forward to seeing you at Villanova!
+                  The PHOEBE development team is proud to announce the 6th power-meeting at <a href="https://www.villanova.edu/">Villanova University</a>, Villanova, USA. This power-meeting is devoted to stabilizing the PHOEBE backend and meeting the goals for the PHOEBE 2.0-beta release. These include a completed documentation, all critical tracker items closed, and a comprehensive scientific library of validated results. If you are interested in attending the meeting, please join us! There is no registration fee. We are looking forward to seeing you at Villanova!
               </p>
             </div>
   },

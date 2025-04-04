@@ -85,7 +85,7 @@ class ContributeBeforeRouter extends Component {
             Once all of the tests pass, you know that your installation is working as far as all the official tests.  Now continue to abuse PHOEBE, and report anytime that PHOEBE crashes, takes an exceedingly long amount of time, or returns wrong science.
           </p>
           <p>
-            If you find a corner of PHOEBE that is not covered by the tests, <Link to="/contribute/development-guide#tests">feel free to write and submit your own</Link>.  You can always fork the <Link to="http://github.com/phoebe-project/phoebe2">GitHub repository</Link> and submit a Pull-Request, or see below for more information on how to <Link to="#develop">join the development team</Link>, if you so wish.
+            If you find a corner of PHOEBE that is not covered by the tests, <Link to="/contribute/development-guide#tests">feel free to write and submit your own</Link>.  You can always fork the <Link to="https://github.com/phoebe-project/phoebe2">GitHub repository</Link> and submit a Pull-Request, or see below for more information on how to <Link to="#develop">join the development team</Link>, if you so wish.
           </p>
 
           <Separator large={false}/>
@@ -96,16 +96,16 @@ class ContributeBeforeRouter extends Component {
             Found an issue or a bug?  Let us know so that we can try to fix it.
           </p>
           <p>
-            If the issue is with the documentation, file a bug in the <Link to="http://github.com/phoebe-project/phoebe2-docs/issues/new">phoebe2-docs issue tracker</Link>.  Make sure to include the version and page with the issue (or click the link on the top-right of the page in the documentation directly).
+            If the issue is with the documentation, file a bug in the <Link to="https://github.com/phoebe-project/phoebe2-docs/issues/new">phoebe2-docs issue tracker</Link>.  Make sure to include the version and page with the issue (or click the link on the top-right of the page in the documentation directly).
           </p>
           <p>
-            If you found an issue with this website (broken link, etc), file a bug in the <Link to="http://github.com/phoebe-project/phoebe-project.org/issues/new">phoebe-project.org issue tracker</Link>, including a link to the URL in question.
+            If you found an issue with this website (broken link, etc), file a bug in the <Link to="https://github.com/phoebe-project/phoebe-project.org/issues/new">phoebe-project.org issue tracker</Link>, including a link to the URL in question.
           </p>
           <p>
-            If you found an issue with either the <Link to="/clients">desktop or web clients</Link>, file a bug in the <Link to="http://github.com/phoebe-project/phoebe2-ui/issues/new">phoebe2-ui issue tracker</Link>, including the versions of the client and <code>phoebe-server</code>.
+            If you found an issue with either the <Link to="/clients">desktop or web clients</Link>, file a bug in the <Link to="https://github.com/phoebe-project/phoebe2-ui/issues/new">phoebe2-ui issue tracker</Link>, including the versions of the client and <code>phoebe-server</code>.
           </p>
           <p>
-            If the issue is with PHOEBE itself, file a bug in the <Link to="http://github.com/phoebe-project/phoebe2/issues/new">phoebe2 issue tracker</Link>.  Please specify the <Link to="/help/version">version of PHOEBE you have installed</Link> and, if possible, include a minimal script that can reproduce the bug.
+            If the issue is with PHOEBE itself, file a bug in the <Link to="https://github.com/phoebe-project/phoebe2/issues/new">phoebe2 issue tracker</Link>.  Please specify the <Link to="/help/version">version of PHOEBE you have installed</Link> and, if possible, include a minimal script that can reproduce the bug.
           </p>
           <Separator large={false} flip={true}/>
         </Content>
@@ -366,7 +366,7 @@ class ContributeDevelopmentBeforeRouter extends Component {
           <h3>phoebe2 repo</h3>
 
           <p>
-            The <Link to="http://github.com/phoebe-project/phoebe2">phoebe2 repository</Link> contains the source-code for PHOEBE 2 itself and is the main repository of the project.
+            The <Link to="https://github.com/phoebe-project/phoebe2">phoebe2 repository</Link> contains the source-code for PHOEBE 2 itself and is the main repository of the project.
             We follow a <Link to="https://nvie.com/posts/a-successful-git-branching-model/">Git-Flow like</Link> strategy for branches as follows:
           </p>
 
@@ -379,7 +379,7 @@ class ContributeDevelopmentBeforeRouter extends Component {
           <h3>phoebe2-docs repo</h3>
 
           <p>
-            The <Link to="http://github.com/phoebe-project/phoebe2-docs">phoebe2-docs repository</Link> contains all documentation (tutorials, example scripts, this document, etc).
+            The <Link to="https://github.com/phoebe-project/phoebe2-docs">phoebe2-docs repository</Link> contains all documentation (tutorials, example scripts, this document, etc).
             As this documentation is archived (but still editable) for all past feature/minor releases, the branch name corresponds directly the the PHOEBE 2 releases.
           </p>
 
@@ -393,11 +393,11 @@ class ContributeDevelopmentBeforeRouter extends Component {
           <h3>tables.phoebe-project.org repo</h3>
 
           <p>
-            The <Link to="http://github.com/phoebe-project/tables.phoebe-project.org">tables.phoebe-project.org repository</Link> contains the source-code for the flask server that runs the tables server for all PHOEBE 2.2+ releases.
+            The <Link to="https://github.com/phoebe-project/tables.phoebe-project.org">tables.phoebe-project.org repository</Link> contains the source-code for the flask server that runs the tables server for all PHOEBE 2.2+ releases.
             <ul>
-              <li>New passbands should be placed in the <code>/srv/www/tables-phoebe-project/data</code> directory in clusty</li>
+              <li>New passbands should be placed in the <code>/srv/www/tables-phoebe-project/data</code> directory on terra</li>
               <li>The passband metadata is refreshed every hour automatically, but the server can be forced to restart by touching <code>/srv/www/tables-phoebe-project/tables-phoebe-project-venv.wsgi</code> file</li>
-              <li>Updates to the flask server code should be pushed to the repo above, pulled on clusty, and the server restarted by touching <code>/srv/www/tables-phoebe-project/tables-phoebe-project-venv.wsgi</code></li>
+              <li>Updates to the flask server code should be pushed to the repo above, pulled on terra, and the server restarted by touching <code>/srv/www/tables-phoebe-project/tables-phoebe-project-venv.wsgi</code></li>
               <li>Updates to PHOEBE needed for the server should be pulled and installed in the <code>phoebe_server_venv</code> virtual environment, and the server restarted.</li>
               <li>Any updates to PHOEBE that change the structure of passbands needs to be reflected in the flask server so that passband files generated for older releases continue to work.</li>
 
@@ -407,19 +407,19 @@ class ContributeDevelopmentBeforeRouter extends Component {
           <h3>phoebe2-ui repo</h3>
 
           <p>
-            The <Link to="http://github.com/phoebe-project/phoebe2-ui">phoebe2-ui repository</Link> contains the React application of the web and desktop clients.
+            The <Link to="https://github.com/phoebe-project/phoebe2-ui">phoebe2-ui repository</Link> contains the React application of the web and desktop clients.
           </p>
 
           <h3>phoebe2-tables repo</h3>
 
           <p>
-            The <Link to="http://github.com/phoebe-project/phoebe2-tables">phoebe2-tables repository</Link> contains all passband/atmosphere tables available for download by any user's installation of PHOEBE (<b>for versions 2.0.x and 2.1.x only</b>).  Currently it only consists of a <code>master</code> branch.  Be careful when making updates - these updates must work for *all* versions of PHOEBE 2.0.x and 2.1.x that anyone may still have installed.
+            The <Link to="https://github.com/phoebe-project/phoebe2-tables">phoebe2-tables repository</Link> contains all passband/atmosphere tables available for download by any user's installation of PHOEBE (<b>for versions 2.0.x and 2.1.x only</b>).  Currently it only consists of a <code>master</code> branch.  Be careful when making updates - these updates must work for *all* versions of PHOEBE 2.0.x and 2.1.x that anyone may still have installed.
           </p>
 
           <h3>phoebe-project.org repo</h3>
 
           <p>
-            The <Link to="http://github.com/phoebe-project/phoebe-project.org">phoebe-project.org repository</Link> contains the source-code for the phoebe-project.org website.  Changes can be made to the <code>master</code> branch as long as they are tested and ready to go-live.  Changes under development can be made in other branches and merged into <code>master</code> when ready.  See the <Link to="http://github.com/phoebe-project/phoebe-project.org/blob/master/README.md">phoebe-project.org README</Link> for more information.
+            The <Link to="https://github.com/phoebe-project/phoebe-project.org">phoebe-project.org repository</Link> contains the source-code for the phoebe-project.org website.  Changes can be made to the <code>master</code> branch as long as they are tested and ready to go-live.  Changes under development can be made in other branches and merged into <code>master</code> when ready.  See the <Link to="https://github.com/phoebe-project/phoebe-project.org/blob/master/README.md">phoebe-project.org README</Link> for more information.
           </p>
 
           <Separator large={false} flip={true}/>

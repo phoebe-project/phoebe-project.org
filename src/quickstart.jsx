@@ -58,7 +58,7 @@ export class Quickstart extends Component{
 
           <div className="row">
             <p>
-              Launching the quickstart above will open a new tab with a minimal Jupyter notebook in a <Link to="http://colab.research.google.com">Google Colab</Link> session.
+              Launching the quickstart above will open a new tab with a minimal Jupyter notebook in a <Link to="https://colab.research.google.com">Google Colab</Link> session.
               This script will install the latest bugfix release of PHOEBE {version}, import phoebe, and provide a few helpful links to get started.
             </p>
             <p>

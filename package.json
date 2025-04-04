@@ -29,7 +29,6 @@
     "build": "react-scripts build",
     "analyze": "source-map-explorer build/static/js/main.*",
     "predeploy": "npm run build",
-    "deploy": "npm run build && scp -r build/* clusty:/srv/www/phoebe-project-new/"
   },
   "browserslist": {
     "production": [

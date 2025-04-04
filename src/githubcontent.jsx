@@ -136,7 +136,7 @@ class GitHubContent extends Component {
     } else if (this.state.contentType) {
       content_html = <div style={{textAlign: "center"}}>
                        <h3>No content could be found... please try again.</h3>
-                       {/* <h3>No content could be found... please try again.  Or if you think something should be here or you followed an internal link, please <Link to={"http://github.com/phoebe-project/phoebe2-docs/issues/new?body=followed+link+from:+PLEASE+PASTE+URL+THAT+LINKED+TO+THIS+PAGE&title=no+content+found+at+v"+version+" docs:+"+subdir+"/"+slug} hideexternal="true">report the issue here</Link>.</h3> */}
+                       {/* <h3>No content could be found... please try again.  Or if you think something should be here or you followed an internal link, please <Link to={"https://github.com/phoebe-project/phoebe2-docs/issues/new?body=followed+link+from:+PLEASE+PASTE+URL+THAT+LINKED+TO+THIS+PAGE&title=no+content+found+at+v"+version+" docs:+"+subdir+"/"+slug} hideexternal="true">report the issue here</Link>.</h3> */}
                      </div>
     } else if (this.state.path){
       content_html = loadingDiv
