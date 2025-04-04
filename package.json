@@ -3,7 +3,7 @@
   "version": "1.1.0",
   "homepage": "https://phoebe-project.org",
   "private": true,
-  "contributors": ["Kyle Conroy", "Matthias Fabry"],
+  "contributors": ["Kyle Conroy", "Matthias Fabry", "Andrej Prsa"],
   "dependencies": {
     "abortcontroller-polyfill": "^1.7.5",
     "babel-polyfill": "^6.26.0",
@@ -28,7 +28,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "analyze": "source-map-explorer build/static/js/main.*",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build"
   },
   "browserslist": {
     "production": [
