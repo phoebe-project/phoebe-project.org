@@ -312,7 +312,7 @@ export class LegacyDownload extends Component {
           <strong>Git</strong> (<Link to="https://git-scm.com/">https://git-scm.com</Link>) is a version control system that keeps track of all modifications and additions to PHOEBE source code. It logs all changes that have been made and generates the backtrack policy that enables developers to update the source without the overhead of keeping the stable release backed up: git is capable of recreating the exact contents of the source at any given time.
           <br/><br/>
 
-          PHOEBE is served on <Link to="http://github.com/phoebe-project">github</Link>. To browse the repository, click <Link to="https://github.com/phoebe-project/phoebe1">here</Link>.
+          PHOEBE is served on <Link to="https://github.com/phoebe-project">github</Link>. To browse the repository, click <Link to="https://github.com/phoebe-project/phoebe1">here</Link>.
 
           For those unfamiliar with git and/or version control systems in general, here is the official <Link to="https://git-scm.com/doc">documentation page</Link> for git. It provides manuals, books and videos to get you started.
           <br/><br/>
@@ -608,13 +608,13 @@ export class LegacyDownload extends Component {
           <ol>
           <li> Install the <code>Xcode</code> tools from MacOS installation disk or from the web page:
 
-            <Link to="http://developer.apple.com/technology/xcode.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> http://developer.apple.com/technology/xcode.html</Link>
+            <Link to="https://developer.apple.com/technology/xcode.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> https://developer.apple.com/technology/xcode.html</Link>
 
           Note: <code>X11</code> is also needed and should be installed in <code>/Applications/Utilities/X11.app</code> and libraries in <code>/usr/X11</code>. If not available, install it from the installation disk.
 
-          </li><li> Install gfortran from <Link to="http://hpc.sourceforge.net"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> http://hpc.sourceforge.net</Link>.
+          </li><li> Install gfortran from <Link to="https://hpc.sourceforge.net"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> https://hpc.sourceforge.net</Link>.
 
-          </li><li> Install some kind of open source porting system, for example, <code>fink</code> found at <Link to="http://www.finkproject.org/"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> The Fink Project</Link>. Binaries existed for Leopard (OS X 10.5.x) but not Snow Leopard (OS X 10.6.x) at the time of this writing. However, there were instructions and an automated build/install system for <code>fink</code> to run in Snow Leopard.
+          </li><li> Install some kind of open source porting system, for example, <code>fink</code> found at <Link to="https://www.finkproject.org/"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> The Fink Project</Link>. Binaries existed for Leopard (OS X 10.5.x) but not Snow Leopard (OS X 10.6.x) at the time of this writing. However, there were instructions and an automated build/install system for <code>fink</code> to run in Snow Leopard.
 
         </li><li> Install the dependencies (gsl, flex, bison, gtk+, libglade), as well as gnuplot. Use <code>fink</code> install commands to do this. This may take a considerable time if you need to compile everything from source.</li>
 
@@ -843,15 +843,15 @@ export class LegacyDownload extends Component {
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/2mass_j.ld">2MASS J</Link> </td>
-              <td> <Link to="http://www.ipac.caltech.edu/2mass/releases/second/doc/sec3_1b1.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> 2MASS handbook</Link> </td>
+              <td> <Link to="https://www.ipac.caltech.edu/2mass/releases/second/doc/sec3_1b1.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> 2MASS handbook</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/2mass_h.ld">2MASS H</Link> </td>
-              <td> <Link to="http://www.ipac.caltech.edu/2mass/releases/second/doc/sec3_1b1.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> 2MASS handbook</Link> </td>
+              <td> <Link to="https://www.ipac.caltech.edu/2mass/releases/second/doc/sec3_1b1.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> 2MASS handbook</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/2mass_ks.ld">2MASS Ks</Link> </td>
-              <td> <Link to="http://www.ipac.caltech.edu/2mass/releases/second/doc/sec3_1b1.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> 2MASS handbook</Link> </td>
+              <td> <Link to="https://www.ipac.caltech.edu/2mass/releases/second/doc/sec3_1b1.html"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> 2MASS handbook</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/bolometric.ld">Bolometric</Link> </td>
@@ -867,39 +867,39 @@ export class LegacyDownload extends Component {
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/cousins_r.ld">Cousins R</Link> </td>
-              <td> <Link to="http://adsabs.harvard.edu/abs/1976MmRAS..81...25C"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Cousins (1976), MmRAS 81, 25</Link> </td>
+              <td> <Link to="https://adsabs.harvard.edu/abs/1976MmRAS..81...25C"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Cousins (1976), MmRAS 81, 25</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/cousins_i.ld">Cousins I</Link> </td>
-              <td> <Link to="http://adsabs.harvard.edu/abs/1976MmRAS..81...25C"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Cousins (1976), MmRAS 81, 25</Link> </td>
+              <td> <Link to="https://adsabs.harvard.edu/abs/1976MmRAS..81...25C"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Cousins (1976), MmRAS 81, 25</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/geneva_u.ld">Geneva U</Link> </td>
-              <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
+              <td> <Link to="https://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/geneva_b.ld">Geneva B</Link> </td>
-              <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
+              <td> <Link to="https://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/geneva_b1.ld">Geneva B1</Link> </td>
-              <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
+              <td> <Link to="https://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/geneva_b2.ld">Geneva B2</Link> </td>
-              <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
+              <td> <Link to="https://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/geneva_v.ld">Geneva V</Link> </td>
-              <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
+              <td> <Link to="https://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/geneva_v1.ld">Geneva V1</Link> </td>
-              <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
+              <td> <Link to="https://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/geneva_g.ld">Geneva G</Link> </td>
-              <td> <Link to="http://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
+              <td> <Link to="https://adsabs.harvard.edu/abs/1988A%26A...206..357R"  target="_blank" rel="noopener noreferrer"><span className="fa fa-external-link"></span> Rufener &amp; Nicolet (1988), A&amp;A 206, 357</Link> </td>
               </tr>
               <tr>
               <td> <Link to="/static/legacy/ld/hipparcos.ld">Hipparcos Hp</Link> </td>

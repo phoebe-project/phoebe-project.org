@@ -252,7 +252,7 @@ class Clients extends Component {
               The <Link to="#desktop">desktop client</Link> will automatically attempt to launch an instance of <code>phoebe-server</code> on the local machine (via localhost).  To launch an instance of the server manually (either on the same machine or any machine with a public facing port) call <code>phoebe-server -h</code> for a list of available command-line configuation options, including <code>--port</code> to choose the port that exposes the server.
             </p>
             <p>
-              If PHOEBE 2.3+ is installed locally, but <code>phoebe-server</code> cannot be found, you may need to manually add it to your path.  Feel free to <Link to="/help/contact">contact us</Link> or <Link to="http://github.com/phoebe-project/phoebe2/issues/new">submit an issue</Link> if you run into any problems.
+              If PHOEBE 2.3+ is installed locally, but <code>phoebe-server</code> cannot be found, you may need to manually add it to your path.  Feel free to <Link to="/help/contact">contact us</Link> or <Link to="https://github.com/phoebe-project/phoebe2/issues/new">submit an issue</Link> if you run into any problems.
             </p>
           </div>
 

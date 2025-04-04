@@ -31,7 +31,7 @@ export class HelpDevel extends Component {
           <h2>Active Developers</h2>
 
           <DeveloperInfo image="andrej.jpg">
-            <Link to="http://aprsa.villanova.edu" hideexternal="true">Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries).  Additionally, Andrej leads the development of the passband and atmosphere framework within PHOEBE 2.
+            <Link to="https://aprsa.villanova.edu" hideexternal="true">Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries).  Additionally, Andrej leads the development of the passband and atmosphere framework within PHOEBE 2.
           </DeveloperInfo>
 
 
@@ -51,7 +51,7 @@ export class HelpDevel extends Component {
 
 
           <DeveloperInfo image="dave.jpeg">
-            <Link to="http://www.drdjones.net" hideexternal="true">Dave Jones</Link> is a staff researcher at the Instituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as implementing new atmosphere tables into the framework of PHOEBE 2.
+            Dave Jones is a staff researcher at the Instituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as implementing new atmosphere tables into the framework of PHOEBE 2.
           </DeveloperInfo>
 
 
@@ -75,7 +75,7 @@ export class HelpDevel extends Component {
           </DeveloperInfo>
 
           <DeveloperInfo image="martin.jpg">
-            <Link to="http://chaos.fmf.uni-lj.si/horvat" hideexternal="true">Martin Horvat</Link> is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <Link to="https://www.springer.com/gp/book/9783319786186">computational physics</Link>, as well as general relativity. He lead the <Link to="/releases/2.1">2.1 release featuring misaligned orbits</Link>, the <Link to="https://ui.adsabs.harvard.edu/abs/2019ApJS..240...36H">theoretical paper on irradiation effects</Link>, and developed the C-backend of PHOEBE 2 responsible for meshing stellar objects, determining eclipsing regions, and handling irradiation.
+            Martin Horvat is an assistant professor from the Faculty of Mathematics and Physics at the University of Ljubljana. His research interests include dynamical systems (classical and quantum chaos), statistical physics, mathematical physics, and  <Link to="https://www.springer.com/gp/book/9783319786186">computational physics</Link>, as well as general relativity. He lead the <Link to="/releases/2.1">2.1 release featuring misaligned orbits</Link>, the <Link to="https://ui.adsabs.harvard.edu/abs/2019ApJS..240...36H">theoretical paper on irradiation effects</Link>, and developed the C-backend of PHOEBE 2 responsible for meshing stellar objects, determining eclipsing regions, and handling irradiation.
           </DeveloperInfo>
 
           <DeveloperInfo image="pieter.jpg">
@@ -248,7 +248,7 @@ export class HelpColab extends Component {
         </Header>
         <Content>
           <p>
-            Any tutorial or example script in the <Link to="/docs">documentation</Link> can be opened in a live <Link to="http://colab.research.google.com">Google Colab</Link> session.
+            Any tutorial or example script in the <Link to="/docs">documentation</Link> can be opened in a live <Link to="https://colab.research.google.com">Google Colab</Link> session.
             Additionally, a <Link to="/quickstart">quickstart</Link> script can launched for any <Link to="/releases">release</Link> of PHOEBE, allowing you to quickly install that version and import phoebe, along with a few links to get started.
             Running in these sessions will allow you to run the script <i>without</i> installing PHOEBE on your local machine (but you will have to wait for PHOEBE and the dependencies to install in each separate session/notebook).
             This gives the convenience of being able to try any release of PHOEBE from a web browser without having to install - but ultimately, if you want to do science with PHOEBE, you'll likely see better performance (and not have to reinstall everytime you restart a script) if you have a <Link to="/install">local installation</Link>.
@@ -264,7 +264,7 @@ export class HelpColab extends Component {
             Note: because of the default installation of matplotlib in Colab, importing PHOEBE will likely give a bunch of warnings.  So long as they're just warnings from matplotlib, they're nothing to be too concerned about.
           </p>
           <p>
-            You can read more about <Link to="http://colab.research.google.com">Google Colab</Link> on <Link to="https://research.google.com/colaboratory/faq.html">their FAQ page</Link>.
+            You can read more about <Link to="https://colab.research.google.com">Google Colab</Link> on <Link to="https://research.google.com/colaboratory/faq.html">their FAQ page</Link>.
           </p>
         </Content>
       </div>
@@ -421,7 +421,7 @@ export class HelpMailingList extends Component {
               <div className="panel-body">
                 {description}
 
-                To see the collection of prior postings to the list, visit the <Link to={"http://sourceforge.net/mailarchive/forum.php?forum_name="+mailinglist}>{mailinglist} archives</Link>.
+                To see the collection of prior postings to the list, visit the <Link to={"https://sourceforge.net/mailarchive/forum.php?forum_name="+mailinglist}>{mailinglist} archives</Link>.
               </div>
             </div>
 
