@@ -8,80 +8,69 @@ phoebe-project.org is a single-page ReactJS website, with content dynamically pu
 
 ## Dependencies
 
-  * node
-  * npm
+* node
+* npm
 
 see [installing node and npm on Ubuntu](https://tecadmin.net/install-latest-nodejs-npm-on-ubuntu/)
 
 or install node and npm in conda:
 
-```
+```bash
 conda create -y -n phoebe-project
 conda activate phoebe-project
 conda config --add channels conda-forge
 conda install nodejs=18.19.0
 ```
 
-
 ## Serving locally
 
 There are two possible deployments: bare metal and dockerized (preferred).
 
-### Bare metal:
+### Bare metal build
 
 In the root directory, issue:
 
-```
+```bash
 npm install
 ```
 
 to install local dependencies, and then:
 
-```
+```bash
 npm start
 ```
 
 to create a local webserver running the site.
 
-NOTE on `/static/` files: all files referenced as /static/ are NOT included in the git repository, but rather served separately by apache.  These include large downloads such as atmosphere tables and PHOEBE legacy builds and documentation.  These links WILL NOT WORK when running a local server, as they will not be able to find the correct directory.  See below in "General Notes on Layout/Conventions" for more details on what to put in `static` vs `public`.
-
-### Dockerized (preferred):
-
-Make sure that [docker](https://www.docker.com/) is installed on your machine. Typically, `apt install docker` will do. Then, in the root directory, issue:
+To deploy, issue in the root directory:
 
 ```bash
-docker compose up --build -d
-```
-
-This will build the docker based on alpine + node + npm + nginx stack and run it on http://localhost:8080.
-
-## Deploying
-
-As with serving locally, there are two options for deployment, with docker again being preferred.
-
-### Bare metal:
-
-In the root directory, issue:
-
-```
 npm run build
 ```
 
-copy the entire directory to the server directory:
+Then copy the entire directory to the server directory:
 
-```
+```bash
 scp -r build/* terra:/srv/www/phoebe-project/
 ```
 
-### Dockerized (preferred):
+NOTE on `/static/` files: all files referenced as /static/ are NOT included in the git repository, but rather served separately by apache.  These include large downloads such as atmosphere tables and PHOEBE legacy builds and documentation.  These links WILL NOT WORK when running a local server, as they will not be able to find the correct directory.  See below in "General Notes on Layout/Conventions" for more details on what to put in `static` vs `public`.
 
-The docker container is built from the main github repo, not from any local versions, so make sure that the PR is issued and merged into main (master) before the container is deployed.
+### Dockerized build (preferred)
+
+Make sure that [docker](https://www.docker.com/) is installed on your machine.
+
+The dockerized version of the website relies on the alpine + node + npm stack. The website will by default run on <http://localhost:8009>. The host web server should then create a reverse proxy pass to the container.
+
+There are two build profiles: development and production. The 'development' profile builds the website from the local directory and deploys it using `npm start`. The 'production' profile pulls the code from phoebe-project.org's master branch on github and deploys it using nginx. Both profiles use port 8009 by default, but that can be changed in docker-compose.yml.
+
+To build and deploy a given profile, use:
 
 ```bash
-docker compose up --build -d
+docker compose --profile PROFILE up --build -d  # PROFILE is either development or production
 ```
 
-Once the container is running, simply add a reverse proxy pass to it from the system server (apache on nginx).
+This will build the docker image (phoebe-web-development or phoebe-web-production) and run a suitable container in the daemon mode.
 
 ## General Notes on Layout/Conventions
 
@@ -170,8 +159,6 @@ New pages should have their components defined in a reasonably names .jsx file i
 ## Adding a New Entry to the Navigation Bar
 
 The navigation bar, persistent throughout the site, is defined in [navbar.jsx](./src/navbar.jsx).  If adding a new entry, look at the format of existing entries, and make sure to test the responsive behavior at different browser widths.  It may be necessary to change the visibility of some of the labels at the small and medium browser widths (see other entries for how to hide/shorten labels).
-
-
 
 ## React
 
