@@ -1,6 +1,21 @@
 services:
-  web:
-    build: .
+  production:
+    build:
+      context: .
+      target: production-server
     ports:
-      - "8080:80"
+      - "8009:80"
+    profiles:
+      - production
+
+  development:
+    build:
+      context: .
+      target: development-server
+    ports:
+      - "8009:3000"
+    volumes:
+      - ./static:/app/static
+    profiles:
+      - development
     restart: always
