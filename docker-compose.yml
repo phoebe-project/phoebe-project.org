@@ -5,6 +5,8 @@ services:
       target: production-server
     ports:
       - "8009:80"
+    volumes:
+      - ./static:/usr/share/nginx/html/static
     profiles:
       - production
 
