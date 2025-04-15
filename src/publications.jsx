@@ -5,6 +5,7 @@ import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helm
 import {Content, Link, Image, Separator, withRouter} from './common';
 import {Header, HeaderNavButton} from './header';
 import {NotFound} from './errors';
+import {FaFilePdf, FaTag, FaTags} from "react-icons/fa6";
 
 
 class PublicationHeaderLinks extends Component {
@@ -162,29 +163,29 @@ class PublicationEntry extends Component {
           <PublicationHeaderLinks/>
         </Header>
         <Content>
-          <p>
+          <span>
             <h2>{title}</h2>
-          </p>
+          </span>
           <p>
             {authorsFull}
           </p>
           {published ?
-            <p>
+            <div>
               <span style={{padding: "15px", fontSize: "16pt"}}><Link to={adsLink} hideexternal="true"><span className="ai ai-ads"></span> ADS</Link></span>
-              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/static/pdf/"+pdf}><span className="far fa-fw fa-file-pdf"></span> PDF</Link></span>
+              <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/static/pdf/"+pdf}><FaFilePdf /> PDF</Link></span>
               {release ?
-                <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/releases/"+release}><span className="fas fa-fw fa-tags"></span> {release} Release</Link></span>
+                <span style={{padding: "15px", fontSize: "16pt"}}><Link to={"/releases/"+release}><FaTag /> {release} Release</Link></span>
                 :
                 null
               }
-            </p>
+            </div>
             :
             <h2><b>THIS PAPER IS NOT YET PUBLISHED - content subject to change</b></h2>
           }
           <p>
             {abstract}
           </p>
-          <p>
+          <div>
             {figures.length > 0 ?
               <h3>Reproducible Content</h3>
               :
@@ -196,15 +197,15 @@ class PublicationEntry extends Component {
               null
             }
 
-            {figures.map(figure => {
+            {figures.map((figure, index) => {
               return (
-                <div style={{width: "100%", margin: "auto", paddingTop: "50px", paddingBottom: "50px", textAlign: "center"}}>
+                <div key={index} style={{width: "100%", margin: "auto", paddingTop: "50px", paddingBottom: "50px", textAlign: "center"}}>
                   <h4 style={{fontSize: "16pt"}}>{figure.name}</h4>
                   <Link to={figure.link}><img src={"/images/figures/"+figure.image} width="600px" style={{maxWidth: "100%"}} alt=""/></Link>
                 </div>
               )
             })}
-          </p>
+          </div>
         </Content>
       </div>
     )

@@ -8,6 +8,8 @@ import { Content, Link, Redirect, Image, Separator, getLatestPatchVersion, withR
 import { NotFound } from './errors';
 import { docs_versions } from './docs';
 import { Header, HeaderNavButton } from './header';
+import {FaBookOpen, FaCopy, FaDownload, FaTag} from "react-icons/fa6";
+import {FaPlayCircle} from "react-icons/fa";
 
 export class ReleaseVersionRedirect extends Component {
   render() {
@@ -42,7 +44,7 @@ export class Releases extends Component {
           <div className="row">
              <div className="col-md-10"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Latest Release" description="View Latest Release" to={"/releases/latest"} icon="fas fa-tag"/>
+               <HeaderNavButton title="Latest Release" description="View Latest Release" to={"/releases/latest"} icon={<FaTag />}/>
              </div>
            </div>
 
@@ -340,21 +342,21 @@ class ReleaseContent extends Component {
           </div>
           <div className="col-md-10">
             <div style={{marginTop: 0}}>
-              <Link to={"/install/"+this.props.version+"/"}><span className="fa fa-fw fa-download"></span> Install PHOEBE {this.props.version}</Link>
+              <Link to={"/install/"+this.props.version+"/"}><FaDownload /> Install PHOEBE {this.props.version}</Link>
             </div>
             <div style={{marginTop: 0}}>
-              <Link to={"/docs/"+this.props.version+"/"}><span className="fa fa-fw fa-book-open"></span> Read PHOEBE {this.props.version} docs</Link>
+              <Link to={"/docs/"+this.props.version+"/"}><FaBookOpen /> Read PHOEBE {this.props.version} docs</Link>
             </div>
             {quickstart ?
               <div style={{marginTop: 0}}>
-                <Link to={"/quickstart/"+this.props.version}><span className="far fa-fw fa-play-circle"></span> PHOEBE {this.props.version} Quickstart</Link>
+                <Link to={"/quickstart/"+this.props.version}><FaPlayCircle /> PHOEBE {this.props.version} Quickstart</Link>
               </div>
               :
               null
             }
             {publicationLink!==null ?
               <div style={{marginTop: 0}}>
-                <Link to={publicationLink}> <span className="fas fa-fw fa-copy"></span> {releasePaper}</Link>
+                <Link to={publicationLink}> <FaCopy /> {releasePaper}</Link>
               </div>
               :
               null
