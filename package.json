@@ -14,6 +14,7 @@
     "react-router-dom": "^6.26.2",
     "react-bootstrap": "^2.10.5",
     "react-select": "^5.8.1",
+    "react-icons": "^5.5.0",
     "smoothscroll": "^0.4.0",
     "whatwg-fetch": "^3.6.20",
     "react-ipynb-renderer": "^2.2.4-1"
