@@ -7,6 +7,8 @@ import { VersionSwitcherContainer, VersionSwitcher } from './versionswitcher';
 import GitHubContent from './githubcontent';
 import { Header, HeaderNavButton } from './header';
 import { NotFound } from './errors';
+import {FaHandsHelping, FaPlayCircle} from "react-icons/fa";
+import {FaAtom, FaDownload, FaFileCode, FaPlay, FaSatellite, FaTag, FaTerminal} from "react-icons/fa6";
 
 export let docs_versions = ['2.4', '2.3', '2.2', '2.1', '2.0'];
 let docs_versions_dev = ['dev'].concat(docs_versions);
@@ -147,26 +149,26 @@ class Docs extends Component {
               null
             }
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Tutorials" description="Tutorials" to={"/docs/"+version+"/tutorials"} icon="fa fa-hands-helping"/>
+               <HeaderNavButton title="Tutorials" description="Tutorials" to={"/docs/"+version+"/tutorials"} icon={<FaHandsHelping />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Datasets" description="Datasets" to={"/docs/"+version+"/datasets"} icon="fas fa-satellite"/>
+               <HeaderNavButton title="Datasets" description="Datasets" to={"/docs/"+version+"/datasets"} icon={<FaSatellite />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Physics" description="Physics and Individual Parameters" to={"/docs/"+version+"/physics"} icon="fas fa-atom"/>
+               <HeaderNavButton title="Physics" description="Physics and Individual Parameters" to={"/docs/"+version+"/physics"} icon={<FaAtom />}/>
              </div>
              {version < 2.3 ?
                null
                :
                <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                 <HeaderNavButton title="Backends" description={version < 2.3 ? "Available Compute Backends" : "Available Compute and Solver Backends"} to={"/docs/"+version+"/backends"} icon="fas fa-play"/>
+                 <HeaderNavButton title="Backends" description={version < 2.3 ? "Available Compute Backends" : "Available Compute and Solver Backends"} to={"/docs/"+version+"/backends"} icon={<FaPlay />}/>
                </div>
              }
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Examples" description="Example Scripts" to={"/docs/"+version+"/examples"} icon="fa fa-file-code"/>
+               <HeaderNavButton title="Examples" description="Example Scripts" to={"/docs/"+version+"/examples"} icon={<FaFileCode />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="API Docs" description="API Documentation" to={"/docs/"+version+"/api"} icon="fa fa-terminal"/>
+               <HeaderNavButton title="API Docs" description="API Documentation" to={"/docs/"+version+"/api"} icon={<FaTerminal />}/>
              </div>
            </div>
 
@@ -190,12 +192,12 @@ class Docs extends Component {
             <div>
               {version !== "development" ?
                 <div>
-                  <h2><span className="fa fa-fw fa-xs fa-tag"></span> About PHOEBE {version}</h2>
+                  <h2><FaTag /> About PHOEBE {version}</h2>
                   <p>You can read about the features added during the <Link to={"/releases/"+version}>{version} release</Link> as well as read the changelog entries.</p>
 
                   <p>For a quick discussion on why PHOEBE 2 is designed the way it is and why the learning curve seems a little steep see the <Link to={"/docs/"+version+"/tutorials/design_concepts"}>General Design Concepts of PHOEBE 2</Link>.  Otherwise, feel free to jump in to the tutorials or example scripts below.</p>
 
-                  <h2><span className="far fa-fw fa-xs fa-play-circle"></span> Try PHOEBE {version} in a Live-Session</h2>
+                  <h2><FaPlayCircle /> Try PHOEBE {version} in a Live-Session</h2>
                   <p>
                     You can try PHOEBE {version} in a live Google Colab Session before installing it on your local machine.
                     All of the example scripts and tutorials here will include a link in the top-left to open that notebook in a live-session.
@@ -205,7 +207,7 @@ class Docs extends Component {
                     Learn more <Link to="/help/colab">about Google Colab Live Sessions</Link>.
                   </p>
 
-                  <h2><span className="fas fa-fw fa-xs fa-download"></span> Download &amp; Install</h2>
+                  <h2><FaDownload /> Download &amp; Install</h2>
                   <p>If you don't already have PHOEBE installed, see the <Link to={"/install/"+version}>installation instructions for PHOEBE {version}.</Link></p>
 
                 </div>
@@ -213,30 +215,30 @@ class Docs extends Component {
                 null
               }
 
-              <h2><span className="fas fa-fw fa-xs fa-hands-helping"></span> Tutorials</h2>
+              <h2><FaHandsHelping /> Tutorials</h2>
               <p>Tutorials are built to slowly build upon each other and provide narration about how to use PHOEBE.</p>
               <p>View <Link to={"/docs/"+version+"/tutorials"}>tutorials for PHOEBE {version}</Link>.</p>
 
-              <h2><span className="fas fa-fw fa-xs fa-satellite"></span> Datasets &amp; Observables</h2>
+              <h2><FaSatellite /> Datasets &amp; Observables</h2>
               <p><Link to={"/docs/"+version+"/datasets"}>These tutorials</Link> explain each of the different dataset types that are supported by PHOEBE, as well as all applicable options.</p>
 
-              <h2><span className="fas fa-fw fa-xs fa-atom"></span> Physics &amp; Individual Parameters</h2>
+              <h2><FaAtom /> Physics &amp; Individual Parameters</h2>
               <p><Link to={"/docs/"+version+"/physics"}>This set of tutorials</Link> describe the various physics effects implemented in PHOEBE {version} and the choices of the individual parameters that control those effects.</p>
 
               {version < 2.3 ?
                 null
                 :
                 <React.Fragment>
-                  <h2><span className="fas fa-fw fa-xs fa-play"></span> {version < 2.3 ? "Compute Backends" : "Compute and Solver Backends"}</h2>
+                  <h2><FaPlay /> {version < 2.3 ? "Compute Backends" : "Compute and Solver Backends"}</h2>
                   <p>View a list of all <Link to={"/docs/"+version+"/backends"}>{version < 2.3 ? "available compute backends" : "available compute and solver backends"}</Link> with links to the relevant tutorials and API docs for each.</p>
                 </React.Fragment>
               }
 
-              <h2><span className="fa fa-fw fa-xs fa-file-code"></span> Example Scripts</h2>
+              <h2><FaFileCode /> Example Scripts</h2>
               <p>Example scripts provide less commentary than tutorials, but can be useful if trying to accomplish something specific or mimic another use-case.</p>
               <p>View <Link to={"/docs/"+version+"/examples"}>example scripts for PHOEBE {version}</Link>.</p>
 
-              <h2><span className="fa fa-fw fa-xs fa-terminal"></span> API Documentation</h2>
+              <h2><FaTerminal /> API Documentation</h2>
               <p>API Documentation shows the calling arguments and options for all classes/functions/methods in PHOEBE.  Note that these same instructions can be called by calling Python's help function (i.e. help(phoebe.bundle) or help(b.run_compute)).</p>
               <p>View <Link to={"/docs/"+version+"/api"}>API docs for PHOEBE {version}</Link>.</p>
             </div>

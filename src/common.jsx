@@ -208,7 +208,7 @@ export class Button extends Component {
     let level = this.props.level || "primary"
 
     return (
-      <Link role="button" className={"btn btn-"+level} style={this.props.style} title={description} to={this.props.to} hideexternal={this.props.hideexternal || this.props.icon}><span className={this.props.icon}></span> {this.props.title}</Link>
+      <Link role="button" className={"btn btn-"+level} style={this.props.style} title={description} to={this.props.to} hideexternal={this.props.hideexternal || this.props.icon}>{this.props.icon} {this.props.title}</Link>
     )
   }
 }

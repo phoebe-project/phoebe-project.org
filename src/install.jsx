@@ -7,6 +7,7 @@ import {VersionSwitcherContainer, VersionSwitcher} from './versionswitcher';
 import {NotFound} from './errors';
 import {docs_versions, getDocsLink} from './docs';
 import {Header, HeaderNavButton} from './header';
+import {FaBug, FaCode, FaCuttlefish, FaLaptopCode, FaPython, FaTags, FaVial} from "react-icons/fa6";
 
 // NOTE: we do this to force a deep-copy
 let docs_versions_reverse = JSON.parse(JSON.stringify(docs_versions)).reverse()
@@ -150,19 +151,19 @@ class Install extends Component {
           <div className="row">
              <div className="col-md-2"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="From PIP" description="Install from PIP" to={"#pip"} icon="fab fa-python"/>
+               <HeaderNavButton title="From PIP" description="Install from PIP" to={"#pip"} icon={<FaPython />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Conda Env" description="Setup in a Conda Environment" to={"#conda"} icon="fab fa-cuttlefish"/>
+               <HeaderNavButton title="Conda Env" description="Setup in a Conda Environment" to={"#conda"} icon={<FaCuttlefish />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Virtual Env" description="Setup in a Virtual Environmnet" to={"#venv"} icon="fa fa-laptop-code"/>
+               <HeaderNavButton title="Virtual Env" description="Setup in a Virtual Environmnet" to={"#venv"} icon={<FaLaptopCode />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="From Source" description="Install from Source-Code" to={"#source"} icon="fa fa-code"/>
+               <HeaderNavButton title="From Source" description="Install from Source-Code" to={"#source"} icon={<FaCode />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Testing" description="Testing" to={"#testing"} icon="fa fa-vial"/>
+               <HeaderNavButton title="Testing" description="Testing" to={"#testing"} icon={<FaVial />}/>
              </div>
            </div>
         </Header>
@@ -171,7 +172,7 @@ class Install extends Component {
           <div className="row" style={{paddingBottom: "20px"}}>
             <div className="col-md-9 col-sm-12"></div>
             <div className="col-md-3 col-sm-12 float-right">
-              <Link to={"https://github.com/phoebe-project/phoebe-project.org/issues/new?title=issue+with+install+instructions:+"+version_long+"/"+OSName+"/"+version_py} hideexternal="true"><span className="fas fa-fw fa-bug"></span> Issue/Question on this Page?</Link>
+              <Link to={"https://github.com/phoebe-project/phoebe-project.org/issues/new?title=issue+with+install+instructions:+"+version_long+"/"+OSName+"/"+version_py} hideexternal="true"><FaBug /> Issue/Question on this Page?</Link>
             </div>
           </div>
 
@@ -450,7 +451,7 @@ class Install extends Component {
               </Content>
               <Content dark={1} preventscrolltop={this.props.location.hash}>
 
-              <h2 ref={this.refvenv}><span className="fa fa-fw fa-xs fa-laptop-code"></span> Virtual Environments</h2>
+              <h2 ref={this.refvenv}><FaLaptopCode /> Virtual Environments</h2>
               <p>
                 To create and activate a virtual environment, do the following, replacing “&lt;myphoebedir&gt;” with your (perferably empty or not existing) directory of choice:
               </p>
@@ -483,14 +484,14 @@ class Install extends Component {
               <Separator large={false} flip={true}/>
             </Content>
             <Content dark={0} preventscrolltop={this.props.location.hash}>
-              <h2 ref={this.refsource}><span className="fa fa-fw fa-xs fa-code"></span> Installing from Source</h2>
+              <h2 ref={this.refsource}><FaCode /> Installing from Source</h2>
               <h3>Download Source Code</h3>
 
               <p>Download the archive version below and unpack the source-code:</p>
               <ul>
                 <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".tar.gz"} hideexternal="true"><span className="far fa-file-archive"></span> PHOEBE.{version_long}.tar.gz</Link></li>
                 <li><Link to={"https://github.com/phoebe-project/phoebe2/archive/"+version_long+".zip"} hideexternal="true"><span className="fas fa-archive"></span> PHOEBE.{version_long}.zip</Link></li>
-                <li><Link to="/releases"><span className="fa fa-tags"></span> other releases</Link></li>
+                <li><Link to="/releases"><FaTags /> other releases</Link></li>
               </ul>
 
               <p>Or, to download via the <Link to="https://github.com/phoebe-project/phoebe2/">github repository</Link>, run:</p>
@@ -549,7 +550,7 @@ class Install extends Component {
               <Separator large={false} flip={false}/>
             </Content>
             <Content dark={1} preventscrolltop={this.props.location.hash}>
-              <h2 ref={this.reftesting}><span className="fa fa-fw fa-xs fa-vial"></span> Running Pytests</h2>
+              <h2 ref={this.reftesting}><FaVial /> Running Pytests</h2>
               <TestsDiv python={python} version_short={version_short}/>
 
               <p>
