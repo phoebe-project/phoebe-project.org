@@ -9,6 +9,36 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export let newsStoriesDicts = [
     {
+      title: "Eighth PHOEBE Workshop",
+      slug: "phoebe-workshop-8",
+      pinnedDays: 30,
+      date: "February 23, 2026",
+      author: "Kelly Hambleton",
+    content: <div>
+              <p>
+                Dear Colleagues,
+              </p>
+              <p>
+                The PHOEBE team is excited to announce the Eighth PHOEBE Workshop! This will be our second workshop geared toward advanced PHOEBE users, designed to support participants in developing binary-star models worthy of publication. The workshop aims to help attendees make progress on their own science projects using PHOEBE, while also providing opportunities for collaborative contributions.
+              </p>
+              <p>
+                This year's workshop will focus on advanced topics and follow a hack-week format, combining PHOEBE-based science use cases with hands-on work to implement new features and improvements. General familiarity and comfort with PHOEBE is a prerequisite. Previous workshop participants are encouraged to attend, as are experienced PHOEBE users and those who commit to completing the online tutorials (and/or recordings) from previous workshops prior to attendance.
+              </p>
+              <p>
+                The workshop will take place at the Inn at Villanova University on August 10–14, 2026.
+              </p>
+              <p>
+                To register, please fill out the form at <Link to="/workshops/2026aug/registration">https://phoebe-project.org/workshops/2026aug</Link>. Space is limited and participants are selected on a first come first serve basis.
+              </p>
+
+              <p>
+                Kind regards,<br/>
+                The <Link to="/development-team">PHOEBE team</Link>
+              </p>
+            </div>
+  
+    },
+    {
     title: "Seventh PHOEBE Workshop",
     slug: "phoebe-workshop-7",
     pinnedDays: 30,
