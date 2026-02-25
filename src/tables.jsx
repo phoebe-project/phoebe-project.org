@@ -10,6 +10,7 @@ import {Header, HeaderNavButton} from './header';
 // use native browser implementation if it supports aborting, otherwise use polyfill and whatwg-fetch
 import 'abortcontroller-polyfill';
 import {fetch} from 'whatwg-fetch';
+import {FaChartArea, FaLaptopCode, FaLayerGroup} from "react-icons/fa6";
 const abortableFetch = ('signal' in new Request('')) ? window.fetch : fetch
 
 // const tablesurl = 'http://localhost:5555'
@@ -27,13 +28,13 @@ class TablesHeader extends Component {
            <div className="col-md-2"></div>
            <div className="col-md-2"></div>
            <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-             <HeaderNavButton title="Passbands" description="Passbands & Atmospheres" to={"/tables/pbs"} icon="fa fas fa-layer-group"/>
+             <HeaderNavButton title="Passbands" description="Passbands & Atmospheres" to={"/tables/pbs"} icon={<FaLayerGroup />}/>
            </div>
            <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-             <HeaderNavButton title="ATMs" description="Atmosphere Models" to={"/tables/atms"} icon="fa fa-laptop-code"/>
+             <HeaderNavButton title="ATMs" description="Atmosphere Models" to={"/tables/atms"} icon={<FaLaptopCode />}/>
            </div>
            <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-             <HeaderNavButton title="PTFs" description="Passband Transmission Functions" to={"/tables/ptfs"} icon="fa fa-chart-area"/>
+             <HeaderNavButton title="PTFs" description="Passband Transmission Functions" to={"/tables/ptfs"} icon={<FaChartArea />}/>
            </div>
          </div>
       </Header>
@@ -63,7 +64,7 @@ export class Tables extends Component {
 
           <div className="row" style={{paddingTop: "40px"}}>
             <div className="col-md-2">
-              <Link to="/tables/pbs"><span className="fa fa-fw fa-10x fas fa-layer-group" style={{width: "100%", color: "#666666"}}></span></Link>
+              <Link to="/tables/pbs"><FaLayerGroup size={100} style={{width: "100%", color: "#666666"}}/></Link>
             </div>
             <div className="col-md-10">
               <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
@@ -76,7 +77,7 @@ export class Tables extends Component {
 
           <div className="row" style={{paddingTop: "40px"}}>
             <div className="col-md-2">
-              <Link to="/tables/atms"><span className="fa fa-fw fa-10x fas fa-laptop-code" style={{width: "100%", color: "#666666"}}></span></Link>
+              <Link to="/tables/atms"><FaLaptopCode size={100} style={{width: "100%", color: "#666666"}}/></Link>
             </div>
             <div className="col-md-10">
               <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
@@ -90,7 +91,7 @@ export class Tables extends Component {
 
           <div className="row" style={{paddingTop: "40px"}}>
             <div className="col-md-2">
-              <Link to="/tables/ptfs"><span className="fa fa-fw fa-10x fas fa-chart-area" style={{width: "100%", color: "#666666"}}></span></Link>
+              <Link to="/tables/ptfs"><FaChartArea size={100} style={{width: "100%", color: "#666666"}}/></Link>
             </div>
             <div className="col-md-10">
               <p style={{paddingLeft: "10px", paddingTop: "20px"}}>
