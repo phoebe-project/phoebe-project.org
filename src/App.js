@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router'
 
 import { Helmet } from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
