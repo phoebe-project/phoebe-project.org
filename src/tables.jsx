@@ -118,18 +118,33 @@ export class TablesPBs extends Component {
         npassbandsPerSet: {},
         availableContents: [],
         availableContentAtms: [],
+        availablePhoebeVersions: [],
         requestedPassbandsMode: "choose list of individual passbands",
         requestedPassbands: [],
         requestedPassbandSets: [],
         requestedContentsMode: "all",
         requestedContents: [],
         requestedContentAtms: [],
-        requestedFormat: ".fits"
+        requestedFormat: ".fits",
+        requestedPhoebeVersion: null
       };
 
   }
   componentWillMount() {
     this.abortGetParamsController = new window.AbortController();
+
+    abortableFetch(tablesurl+"/pbs/phoebe_versions", {signal: this.abortGetParamsController.signal})
+      .then(res => res.json())
+      .then(json => {
+        const versions = (json.phoebe_versions_available || []).filter(v => !v.includes('dev'));
+        this.setState({availablePhoebeVersions: versions, requestedPhoebeVersion: versions[0] || null});
+      }, err => {
+        console.log("received abort signal")
+      })
+      .catch(err => {
+        console.log("received abort signal")
+      });
+
     abortableFetch(tablesurl+"/pbs/available", {signal: this.abortGetParamsController.signal})
       .then(res => res.json())
       .then(json => {
@@ -197,6 +212,9 @@ export class TablesPBs extends Component {
   onChangeFormat = (e) => {
     this.setState({requestedFormat: e.value})
   }
+  onChangePhoebeVersion = (e) => {
+    this.setState({requestedPhoebeVersion: e.value})
+  }
   render() {
     let tablesurl_fetch = tablesurl + "/pbs"
     let fetch_tar = false
@@ -241,13 +259,19 @@ export class TablesPBs extends Component {
       }
     }
 
+    let queryParams = []
+    if (this.state.requestedPhoebeVersion) {
+      queryParams.push("phoebe_version=" + encodeURIComponent(this.state.requestedPhoebeVersion))
+    }
     if (this.state.requestedFormat === '.fits.gz') {
-      tablesurl_fetch = tablesurl_fetch + "?gzipped=true"
+      queryParams.push("gzipped=true")
+    }
+    if (queryParams.length) {
+      tablesurl_fetch = tablesurl_fetch + "?" + queryParams.join("&")
     }
 
 
     let formatLabels = {'.fits': '.fits (larger filesize, quicker loadtime)', '.fits.gz': '.fits.gz (smaller filesize, longer loadtime)'}
-    // add "/" this.state.requestedPhoebeVersion if we ever want to support selecting a version (will default to 'latest' otherwise)
 
     return (
       <div>
@@ -310,6 +334,9 @@ export class TablesPBs extends Component {
               :
               null
             }
+
+            <h3>Choose PHOEBE Version:</h3>
+            <Select options={this.state.availablePhoebeVersions.map((v) => ({value: v, label: v}))} value={this.state.requestedPhoebeVersion ? {value: this.state.requestedPhoebeVersion, label: this.state.requestedPhoebeVersion} : null} onChange={this.onChangePhoebeVersion} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
 
             <h3>Choose File Format:</h3>
             <Select options={[".fits", ".fits.gz"].map((choice) => ({value: choice, label: formatLabels[choice]}))}  value={{value: this.state.requestedFormat, label: formatLabels[this.state.requestedFormat]}} onChange={this.onChangeFormat} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
