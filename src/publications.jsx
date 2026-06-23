@@ -144,6 +144,27 @@ class PublicationEntry extends Component {
       release = "2.4"
       figures = [
                 ]
+    } else if (publication === '2026Jones+') {
+      published = false
+      author = "Jones et al. (2026)"
+      authorsFull = "Jones, D.; Reindl, N.; Conroy, K.E.; Munday, J.; Tremblay, P-E.; Abdul-Masih, M.; Fabry, M.; Giammarco, J.; Hambleton, K.M.; Pablo, H.; Wrona, M.; Prša, A."
+      titleShort = "PHOEBE VI"
+      title = "Physics of Eclipsing Binaries. VI. Hot, Compact Stars"
+      abstract = "Models of eclipsing binaries require the assignment of appropriate emergent intensities to the surface elements of the binary components. For distance-dependent modelling of flux-calibrated light curves, this necessitates an approximation of the absolute normal intensities of both components of the binary, as well as how their brightness varies across the stellar disks (limb darkening). Such surface intensities are often inferred from other physical properties of the synthetic binary (effective temperature, surface gravity, etc.) through the use of model atmospheres, which in turn are generally suited to a particular range of stellar types or parameters. Here, we present the major developments included in the PHOEBE 2.5 release (publicly available from http://phoebe-project.org), which improve the fidelity of model binaries comprising hot, compact stars. These developments include the incorporation model atmospheres produced using the T¨ubingen Model Atmosphere Package (TMAP) and Montreal/Tremblay codes (complementing the already incorporated PHOENIX and Castelli & Kurucz models, primarily suited to main sequences stars and low-temperature giants). Similarly, PHOEBE v2.5 now allows for blending/extrapolation of model atmospheres, meaning one can continue to make use of model atmospheres in cases when a small number of surface elements have parameters outside the model atmosphere grid. As an added value product, we also present tables of limb-darkening coefficients derived from the newly incorporated model atmospheres, such that they can be used as inputs in other binary modelling codes."
+      adsLink = ""
+      pdf = ""
+      release = "2.5"
+      figures = [
+                  {"name": "Figure 1", "image": "2026Jones+_fig1.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig1"},
+                  {"name": "Figure 2", "image": "2026Jones+_fig2.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig2"},
+                  {"name": "Figure 3", "image": "2026Jones+_fig3.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig3"},
+                  {"name": "Figure 4", "image": "2026Jones+_fig4.png", "link": "/docs/2.5/examples/distribution_constraints"},
+                  {"name": "Figure 5", "image": "2026Jones+_fig5.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig5"},
+                  {"name": "Figure 6", "image": "2026Jones+_fig6.png", "link": "/docs/2.5/examples/backends_compare_legacy_jktebop_ellc"},
+                  {"name": "Figure 7", "image": "2026Jones+_fig7.png", "link": "/docs/2.5/examples/minimal_GPs"},
+                  {"name": "Figure 8", "image": "2026Jones+_fig8.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig8"},
+                  {"name": "Figure 9", "image": "2026Jones+_fig9.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig9"}
+                ]
     } else {
       return (
         <NotFound>
@@ -151,7 +172,7 @@ class PublicationEntry extends Component {
         </NotFound>
       )
     }
-
+  
     return (
       <div>
         <Helmet>
@@ -232,6 +253,7 @@ export class Publications extends Component {
           </div>
 
           <h2>PHOEBE Release Series</h2>
+          <Publication author="Jones et al. (2026)" entryLink="/publications/2026Jones+" title="Physics of Eclipsing Binaries. VI. Hot, compact stars" release="2.5"/>
           <Publication author="Conroy et al. (2020)" entryLink="/publications/2020Conroy+" title="Physics of Eclipsing Binaries. V. General Framework for Solving the Inverse Problem" release="2.3"/>
           <Publication author="Jones et al. (2020)" entryLink="/publications/2020Jones+" title="Physics of Eclipsing Binaries. IV. The Impact of Interstellar Extinction on the Light Curves of Eclipsing Binaries" release="2.2"/>
           <Publication author="Horvat et al. (2018)" entryLink="/publications/2018Horvat+" title="Physics of Eclipsing Binaries. III. Spin-Orbit Misalignment" release="2.1"/>

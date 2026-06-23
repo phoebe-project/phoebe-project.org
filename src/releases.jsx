@@ -307,8 +307,8 @@ class ReleaseContent extends Component {
                 </div>
     } else if (this.props.version === '2.5') {
       logo = "logo_release_25.svg"
-      releasePaper = "Prša et al. (202X)"
-      publicationLink = "/publications/202XPrsa+"
+      releasePaper = "Jones et al. (2026)"
+      publicationLink = "/publications/2026Jones+"
       content = <div>
                   <p>PHOEBE 2.5.</p>
                   <p>
