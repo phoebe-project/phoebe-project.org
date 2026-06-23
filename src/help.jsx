@@ -34,26 +34,21 @@ export class HelpDevel extends Component {
             <Link to="https://aprsa.villanova.edu" hideexternal="true">Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries).  Additionally, Andrej leads the development of the passband and atmosphere framework within PHOEBE 2.
           </DeveloperInfo>
 
-
           <DeveloperInfo image="kyle.jpg">
-            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a Senior Software Engineer at Space Telescope Sciencie Institute.  He received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link> and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
+            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a Principal Software Engineer at Space Telescope Sciencie Institute.  He received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link> and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
           </DeveloperInfo>
-
 
           <DeveloperInfo image="bert.jpg">
             Bert Pablo is a staff astronomer at <Link to="https://www.aavso.org/">AAVSO</Link> after completing a postdoctoral fellow at the University of Montreal as a part of the BRITE-Constellation project, a set of six nano-satellites designed for continuous observations of the brightest stars in the sky. His interests lie mainly in variable stars with a focus on those in binary systems. Within PHOEBE, he works mainly on developing the wrapper to interact with PHOEBE legacy, testing, and hopefully on improving the grid of atmosphere models.
           </DeveloperInfo>
 
-
           <DeveloperInfo image="joe.jpg">
             Joe Giammarco is a professor of physics at Eastern University in Pennsylvania, USA.  He is also an adjunct member of the Villanova University Physics Department.  His research interests have most recently been in applying computational techniques to problems in optical tomography and binary stars, mostly from the point of view of solving the inverse problem (image reconstruction and parameter estimation).  His involvement in PHOEBE has been in algorithm development and model validation.
           </DeveloperInfo>
 
-
           <DeveloperInfo image="dave.jpeg">
             Dave Jones is a staff researcher at the Instituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as implementing new atmosphere tables into the framework of PHOEBE 2.
           </DeveloperInfo>
-
 
           <DeveloperInfo image="michael.jpg">
             Michael Abdul-Masih is currently a La Caixa Junior Leader Fellow at the Instituto de Astrofisica de Canarias. He received his PhD from KU Leuven, where he worked on non-spherical massive stars, and how accounting for the 3D geometry affects the derived stellar parameters and thus evolutionary future of these objects. From there he moved to Chile to work as an ESO postdoctoral fellow where he acted as support astronomer for UT3 and was the XSHOOTER instrument fellow.  His primary research interests include distorted massive stars and the integration of 3D geometries into spectral fitting techniques.
