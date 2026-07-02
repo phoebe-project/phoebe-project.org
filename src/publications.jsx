@@ -11,7 +11,6 @@ class PublicationHeaderLinks extends Component {
   render() {
     return (
       <div className="row">
-         <div className="col-md-2"></div>
          <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
            <HeaderNavButton title="I: PHOEBE 1.0" description="Demonstrations and Perspectives" to={"/publications/2005Prsa+"}/>
          </div>
@@ -27,9 +26,9 @@ class PublicationHeaderLinks extends Component {
          <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
            <HeaderNavButton title="V: Inverse Problem (2.3)" description="General Framework for Solving the Inverse Problem" to={"/publications/2020Conroy+"}/>
          </div>
-         {/* <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-           <HeaderNavButton title="VI: Fitting Practices" description="" to={"/publications/2022Kochoska+"}/>
-         </div> */}
+         <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
+           <HeaderNavButton title="VI: Atmospheres (2.5)" description="Atmosphere support for hot, compact stars as well as blending from atmospheres to blackbody and user-defined features" to={"/publications/2026Jones+"}/>
+         </div>
        </div>
     )
   }
