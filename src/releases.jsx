@@ -310,19 +310,20 @@ class ReleaseContent extends Component {
       releasePaper = "Jones et al. (2026)"
       publicationLink = "/publications/2026Jones+"
       content = <div>
-                  <p>PHOEBE 2.5.</p>
+                  <p>PHOEBE 2.5 includes several new atmospheres for hot, compact stars, including TMAP and Tremblay atmospheres as well as the capability to extrapolate off the edge of the atmosphere grid, including smoothly transitioning from the chosen atmosphere to blackbody atmospheres.</p>
                   <p>
                     New Physics introduced in version 2.5:
                   </p>
                   <ul>
-                    <li>blended atmospheres</li>
-                    <li>TLUSTY atmospheres</li>
+                    <li>TMAP and Tremblay atmospheres for hot, compact stars</li>
+                    <li>extrapolated/blended atmospheres</li>
+                    <li>User-defined features</li>
                   </ul>
                   <p>
                     Major changes since 2.4:
                   </p>
                   <ul>
-
+                    <li>now requires python 3.10+</li>
                   </ul>
                 </div>
     } else {
