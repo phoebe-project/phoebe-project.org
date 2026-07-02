@@ -154,15 +154,12 @@ class PublicationEntry extends Component {
       pdf = ""
       release = "2.5"
       figures = [
-                  {"name": "Figure 1", "image": "2026Jones+_fig1.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig1"},
-                  {"name": "Figure 2", "image": "2026Jones+_fig2.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig2"},
-                  {"name": "Figure 3", "image": "2026Jones+_fig3.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig3"},
-                  {"name": "Figure 4", "image": "2026Jones+_fig4.png", "link": "/docs/2.5/examples/distribution_constraints"},
-                  {"name": "Figure 5", "image": "2026Jones+_fig5.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig5"},
-                  {"name": "Figure 6", "image": "2026Jones+_fig6.png", "link": "/docs/2.5/examples/backends_compare_legacy_jktebop_ellc"},
-                  {"name": "Figure 7", "image": "2026Jones+_fig7.png", "link": "/docs/2.5/examples/minimal_GPs"},
-                  {"name": "Figure 8", "image": "2026Jones+_fig8.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig8"},
-                  {"name": "Figure 9", "image": "2026Jones+_fig9.png", "link": "/docs/2.5/examples/inverse_paper_examples#fig9"}
+                  {"name": "Figure 1", "image": "2026Jones+_fig1.png", "link": "/docs/2.5/examples/DA_WD_I0#fig1"},
+                  {"name": "Figure 2", "image": "2026Jones+_fig2.png", "link": "/docs/2.5/examples/sdO_LD#fig2"},
+                  {"name": "Figure 3", "image": "2026Jones+_fig3.png", "link": "/docs/2.5/examples/TMAP_grids#fig3"},
+                  {"name": "Figure 4", "image": "2026Jones+_fig4.png", "link": "/docs/2.5/examples/TMAP_vs_Tremblay#fig4"},
+                  {"name": "Figure 7", "image": "2026Jones+_fig7.png", "link": "/docs/2.5/examples/TMAP_vs_BB#fig7"},
+                  {"name": "Figure 8", "image": "2026Jones+_fig8.png", "link": "/docs/2.5/examples/Migrating_spot#fig8"},
                 ]
     } else {
       return (
