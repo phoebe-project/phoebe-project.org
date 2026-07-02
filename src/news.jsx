@@ -9,6 +9,21 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export let newsStoriesDicts = [
     {
+      title: "PHOEBE 2.5 Released",
+      slug: "phoebe-25-released",
+      pinnedDays: 60,
+      date: "July 8, 2026",
+      author: "Kyle Conroy",
+      content: <div>
+                <p>
+                  We are excited to announce that <Link to="/releases/2.5">PHOEBE 2.5</Link> has been released.
+                </p>
+                <p>
+                  This release adds new atmosphere support for hot compact stars (TMAP and Tremblay atmospheres), implements atmosphere extrapolation and blending into blackbody, and introduces user-defined features.
+                </p>
+              </div>
+    },
+    {
       title: "Eighth PHOEBE Workshop",
       slug: "phoebe-workshop-8",
       pinnedDays: 30,
