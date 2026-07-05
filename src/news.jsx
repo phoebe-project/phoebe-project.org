@@ -19,7 +19,7 @@ export let newsStoriesDicts = [
                   We are excited to announce that <Link to="/releases/2.5">PHOEBE 2.5</Link> has been released.
                 </p>
                 <p>
-                  This release adds new atmosphere support for hot compact stars (TMAP and Tremblay atmospheres), implements atmosphere extrapolation and blending into blackbody, and introduces user-defined features.
+                  This release adds new atmosphere support for hot, compact stars (TMAP and Tremblay atmospheres), implements atmosphere extrapolation and blending into blackbody, and introduces user-defined features.
                 </p>
               </div>
     },
