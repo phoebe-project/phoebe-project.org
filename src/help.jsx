@@ -54,7 +54,7 @@ export class HelpDevel extends Component {
             Michael Abdul-Masih is currently a La Caixa Junior Leader Fellow at the Instituto de Astrofisica de Canarias. He received his PhD from KU Leuven, where he worked on non-spherical massive stars, and how accounting for the 3D geometry affects the derived stellar parameters and thus evolutionary future of these objects. From there he moved to Chile to work as an ESO postdoctoral fellow where he acted as support astronomer for UT3 and was the XSHOOTER instrument fellow.  His primary research interests include distorted massive stars and the integration of 3D geometries into spectral fitting techniques.
           </DeveloperInfo>
 
-          <DeveloperInfo image="marcin.png">
+          <DeveloperInfo image="marcin.jpg">
             Marcin Wrona is a postdoctoral researcher at Villanova University. He completed his PhD at the Astronomical Observatory of the University of Warsaw, Poland. His primary expertise lies in close binary systems, with a particular focus on eccentric ellipsoidal variables and eclipsing binaries in the context of photometric data. At Villanova University, his main role is developing PHOEBAI (PHOEBE via AI), a tool designed for rapid analysis of light curves of eclipsing binary systems using artificial neural networks trained on datasets generated with PHOEBE.
           </DeveloperInfo>
 
