@@ -6,6 +6,7 @@ import Select from 'react-select'; // https://react-select.com/home
 
 import {Content, Link, Button, Alert, metaKeywords} from './common';
 import {Header, HeaderNavButton} from './header';
+import {docs_versions} from './docs';
 
 // use native browser implementation if it supports aborting, otherwise use polyfill and whatwg-fetch
 import 'abortcontroller-polyfill';
@@ -14,6 +15,11 @@ const abortableFetch = ('signal' in new Request('')) ? window.fetch : fetch
 
 // const tablesurl = 'http://localhost:5555'
 const tablesurl = 'https://tables.phoebe-project.org'
+
+const availablePhoebeVersions = docs_versions.filter((version) => {
+  const [major, minor] = version.split('.').map((value) => parseInt(value, 10));
+  return major > 2 || (major === 2 && minor >= 2);
+});
 
 class TablesHeader extends Component {
   render() {
@@ -118,7 +124,7 @@ export class TablesPBs extends Component {
         npassbandsPerSet: {},
         availableContents: [],
         availableContentAtms: [],
-        availablePhoebeVersions: [],
+        availablePhoebeVersions: availablePhoebeVersions,
         requestedPassbandsMode: "choose list of individual passbands",
         requestedPassbands: [],
         requestedPassbandSets: [],
@@ -126,24 +132,12 @@ export class TablesPBs extends Component {
         requestedContents: [],
         requestedContentAtms: [],
         requestedFormat: ".fits",
-        requestedPhoebeVersion: null
+        requestedPhoebeVersion: availablePhoebeVersions[0] || null
       };
 
   }
   componentWillMount() {
     this.abortGetParamsController = new window.AbortController();
-
-    abortableFetch(tablesurl+"/pbs/phoebe_versions", {signal: this.abortGetParamsController.signal})
-      .then(res => res.json())
-      .then(json => {
-        const versions = (json.phoebe_versions_available || []).filter(v => !v.includes('dev'));
-        this.setState({availablePhoebeVersions: versions, requestedPhoebeVersion: versions[0] || null});
-      }, err => {
-        console.log("received abort signal")
-      })
-      .catch(err => {
-        console.log("received abort signal")
-      });
 
     abortableFetch(tablesurl+"/pbs/available", {signal: this.abortGetParamsController.signal})
       .then(res => res.json())
