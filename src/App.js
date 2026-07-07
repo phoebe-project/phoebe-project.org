@@ -24,7 +24,7 @@ import PublicationEntry from "./publications";
 import { Source, Dependencies } from './source';
 import { Contribute, ContributeDevelopment,TourFrontend, TourBackend, TourLibphoebe } from './contribute';
 import { LegacyIntro, LegacyGPL, LegacyDocs, LegacyDownload } from './legacy';
-import { HelpDevel, HelpDevelRedirect, HelpContact, HelpMailingList, HelpFAQ, Help1vs2, HelpVersion, HelpIPYNB, HelpColab } from './help';
+import { HelpDevel, HelpDevelRedirect, HelpContact, HelpFAQ, Help1vs2, HelpVersion, HelpIPYNB, HelpColab } from './help';
 import { Devel, TeleconRedirect, TeleconNotesRedirect } from './devel';
 import { NotFound } from './errors';
 
@@ -134,7 +134,7 @@ class App extends Component {
             <Route path={process.env.PUBLIC_URL + '/development-team'} element={<HelpDevel {...this.props}/>}/>
             <Route path={process.env.PUBLIC_URL + '/help/devel'} element={<HelpDevelRedirect {...this.props}/>}/>
             <Route path={process.env.PUBLIC_URL + '/help/contact'} element={<HelpContact {...this.props}/>}/>
-            <Route path={process.env.PUBLIC_URL + '/help/contact/:mailinglist'} element={<HelpMailingList {...this.props}/>}/>
+            <Route path={process.env.PUBLIC_URL + '/help/contact/:mailinglist'} element={<HelpContact {...this.props}/>}/>
             <Route path={process.env.PUBLIC_URL + '/help/faq'} element={<HelpFAQ {...this.props}/>}/>
             <Route path={process.env.PUBLIC_URL + '/help/1vs2'} element={<Help1vs2 {...this.props}/>}/>
             <Route path={process.env.PUBLIC_URL + '/help/version'} element={<HelpVersion {...this.props}/>}/>

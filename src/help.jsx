@@ -34,32 +34,27 @@ export class HelpDevel extends Component {
             <Link to="https://aprsa.villanova.edu" hideexternal="true">Andrej Prša</Link> is a professor at Villanova University in Pennsylvania, USA. He has been working on eclipsing binaries for over a decade, including the <Link to="/1.0">initial legacy version</Link> of PHOEBE. Andrej is mainly interested in bulk statistics of binary and multiple stars (mass, radius and luminosity distributions), stellar and orbital evolution, and unusual stellar systems (intrinsic pulsators in binaries).  Additionally, Andrej leads the development of the passband and atmosphere framework within PHOEBE 2.
           </DeveloperInfo>
 
-
           <DeveloperInfo image="kyle.jpg">
-            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a Senior Software Engineer at Space Telescope Sciencie Institute.  He received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link> and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
+            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a Principal Software Engineer at Space Telescope Sciencie Institute.  He received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link> and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
           </DeveloperInfo>
-
 
           <DeveloperInfo image="bert.jpg">
             Bert Pablo is a staff astronomer at <Link to="https://www.aavso.org/">AAVSO</Link> after completing a postdoctoral fellow at the University of Montreal as a part of the BRITE-Constellation project, a set of six nano-satellites designed for continuous observations of the brightest stars in the sky. His interests lie mainly in variable stars with a focus on those in binary systems. Within PHOEBE, he works mainly on developing the wrapper to interact with PHOEBE legacy, testing, and hopefully on improving the grid of atmosphere models.
           </DeveloperInfo>
 
-
           <DeveloperInfo image="joe.jpg">
             Joe Giammarco is a professor of physics at Eastern University in Pennsylvania, USA.  He is also an adjunct member of the Villanova University Physics Department.  His research interests have most recently been in applying computational techniques to problems in optical tomography and binary stars, mostly from the point of view of solving the inverse problem (image reconstruction and parameter estimation).  His involvement in PHOEBE has been in algorithm development and model validation.
           </DeveloperInfo>
-
 
           <DeveloperInfo image="dave.jpeg">
             Dave Jones is a staff researcher at the Instituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as the <Link to="/releases/2.5">2.5 release</Link> implementing new atmosphere tables into the framework of PHOEBE 2.
           </DeveloperInfo>
 
-
           <DeveloperInfo image="michael.jpg">
             Michael Abdul-Masih is currently a La Caixa Junior Leader Fellow at the Instituto de Astrofisica de Canarias. He received his PhD from KU Leuven, where he worked on non-spherical massive stars, and how accounting for the 3D geometry affects the derived stellar parameters and thus evolutionary future of these objects. From there he moved to Chile to work as an ESO postdoctoral fellow where he acted as support astronomer for UT3 and was the XSHOOTER instrument fellow.  His primary research interests include distorted massive stars and the integration of 3D geometries into spectral fitting techniques.
           </DeveloperInfo>
 
-          <DeveloperInfo image="marcin.png">
+          <DeveloperInfo image="marcin.jpg">
             Marcin Wrona is a postdoctoral researcher at Villanova University. He completed his PhD at the Astronomical Observatory of the University of Warsaw, Poland. His primary expertise lies in close binary systems, with a particular focus on eccentric ellipsoidal variables and eclipsing binaries in the context of photometric data. At Villanova University, his main role is developing PHOEBAI (PHOEBE via AI), a tool designed for rapid analysis of light curves of eclipsing binary systems using artificial neural networks trained on datasets generated with PHOEBE.
           </DeveloperInfo>
 
@@ -141,7 +136,7 @@ export class HelpFAQ extends Component {
         <Content>
           <p>
             <b>
-              For a list of questions asked by the community, see <Link to="https://github.com/phoebe-project/phoebe2/discussions">PHOEBE GitHub Discussions</Link> (currently encouraged over the mailing lists) and the <Link to="https://sourceforge.net/p/phoebe/mailman/phoebe-discuss/">phoebe-discuss mailing list archive</Link>.
+              For a list of questions asked by the community, see <Link to="https://github.com/phoebe-project/phoebe2/discussions">PHOEBE GitHub Discussions</Link>.
             </b>
           </p>
           <p>Below is an overview of the most commonly asked questions:</p>
@@ -347,183 +342,7 @@ export class HelpContact extends Component {
                 <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "250px", marginLeft: "10px"}} to={"https://github.com/phoebe-project/phoebe2-ui/discussions"} icon="far fa-fw fa-comment-alt" title={"PHOEBE UI Discussions"}/>
               </div>
             </div>
-            <p>
-              In the past, we have used several mailing lists.  Although we now encourage using <Link to="https://github.com/phoebe-project/phoebe2/discussions">PHOEBE GitHub Discussions</Link> to allow for customized email notifications and to make posts more accessible, these lists will remain active and all posts remain available in their respective archives.
-            </p>
           </div>
-
-          <div className="row">
-              <div className="col-sm-2">
-                  <Link to="/help/contact/phoebe-announce"><strong>PHOEBE announcements</strong></Link>
-              </div>
-              <div className="col-sm-10">
-                  PHOEBE announcements is a low traffic list. It informs you of new releases and critical updates concerning PHOEBE. Typically the number of messages that are sent out is 1 per month. (<Link to="https://sourceforge.net/p/phoebe/mailman/phoebe-announce/">browse the archives</Link>)
-              </div>
-          </div>
-
-          <div className="row">
-              <div className="col-sm-2">
-                  <Link to="/help/contact/phoebe-discuss"><strong>PHOEBE discussion</strong></Link>
-              </div>
-              <div className="col-sm-10">
-                  PHOEBE discussion is a higher traffic list. It was meant for active and potential PHOEBE users to exchange knowledge and experience and to help others with their problems.  We now encourage posting these questions to <Link to="https://github.com/phoebe-project/phoebe2/discussions">PHOEBE GitHub discussions</Link>. (<Link to="https://sourceforge.net/p/phoebe/mailman/phoebe-discuss/">browse the archives</Link>)
-              </div>
-          </div>
-
-          <div className="row">
-              <div className="col-sm-2">
-                  <Link to="/help/contact/phoebe-devel"><strong>PHOEBE development</strong></Link>
-              </div>
-              <div className="col-sm-10">
-                  PHOEBE development mailing list is meant for people that are or would like to join active PHOEBE development. Technical and programming issues were discussed here (but are now more often discussed in weekly telecons or in GitHub discussions and issues). (<Link to="https://sourceforge.net/p/phoebe/mailman/phoebe-devel/">browse the archives</Link>)
-              </div>
-          </div>
-
-        </Content>
-      </div>
-    );
-  }
-}
-
-export class HelpMailingList extends Component {
-  render() {
-    let mailinglists = {'phoebe-announce': {'title': 'PHOEBE Announcements',
-                                             'description': 'PHOEBE Announcements is a low traffic list. It informs you of new releases and critical updates concerning PHOEBE. Typically the number of sent out messages is 1 per month. '},
-                        'phoebe-discuss': {'title': 'PHOEBE Discuss',
-                                           'description': 'PHOEBE Discussion will hopefully become a higher traffic list. It is meant for active and potential PHOEBE users to exchange knowledge and experience and to help others with their problems.'},
-                        'phoebe-devel': {'title': 'PHOEBE Development',
-                                         'description': 'PHOEBE Development mailing list is meant for people that are or would like to join active PHOEBE development. Usually, technical and programming issues are discussed here.'}
-                       }
-
-    let mailinglist = this.props.match.params.mailinglist
-
-    if (mailinglist in mailinglists) {
-      let title = mailinglists[mailinglist].title
-      let description = mailinglists[mailinglist].description
-    } else {
-      return (<NotFound/>)
-    }
-
-    return (
-      <div>
-        <Helmet>
-          <title>PHOEBE | {mailinglist} mailinglist</title>
-          <meta name="description" content={"PHOEBE mailinglist "+mailinglist}/>
-        </Helmet>
-        <Header>
-          <h1>{mailinglist}</h1>
-        </Header>
-        <Content>
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">About {title}</h3>
-              </div>
-              <div className="panel-body">
-                {description}
-
-                To see the collection of prior postings to the list, visit the <Link to={"https://sourceforge.net/mailarchive/forum.php?forum_name="+mailinglist}>{mailinglist} archives</Link>.
-              </div>
-            </div>
-
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">Using {title}</h3>
-              </div>
-              <div className="panel-body">
-                To post a message to all the list members, send email to:
-                <center><a href={"mailto:"+mailinglist+"@lists.sourceforge.net"}>{mailinglist}@lists.sourceforge.net</a>. </center>
-
-                You can subscribe to the list, or change your existing subscription, in the sections below.
-              </div>
-            </div>
-
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">Subscribing to {title}</h3>
-              </div>
-              <div className="panel-body">
-                <form className="form-horizontal" role="form" method="post" action={"https://lists.sourceforge.net/lists/subscribe/"+mailinglist}>
-
-                    Subscribe to {mailinglist} by filling out the following form. You will be sent email requesting confirmation, to prevent others from gratuitously subscribing you.
-
-
-                    <div className="form-group">
-                        <label for="email" className="col-sm-4 control-label">Email</label>
-                        <div className="col-sm-6 required">
-                          <input type="email" className="form-control" name="email" placeholder="me@example.com"/>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label for="name" className="col-sm-4 control-label">Name (optional)</label>
-                        <div className="col-sm-6">
-                          <input type="text" className="form-control" name="fullname" placeholder=""/>
-                        </div>
-                    </div>
-
-
-                    You may enter a privacy password below. This provides only mild security, but should prevent others from messing with your subscription. <strong>Do not use a valuable password</strong>, as it might be occasionally emailed back to you in cleartext.
-
-                    If you choose not to enter a password, one will be automatically generated for you, and it will be sent to you once you've confirmed your subscription.  You can always request a mail-back of your password when you edit your personal options.
-
-                    <div className="form-group">
-                        <label for="pw" className="col-sm-4 control-label">Password</label>
-                        <div className="col-sm-6 required">
-                          <input type="password" className="form-control" name="pw"/>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label for="pw-conf" className="col-sm-4 control-label">Confirm Password</label>
-                        <div className="col-sm-6 required">
-                          <input type="password" className="form-control" name="pw-conf"/>
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label for="digest" className="col-sm-4 control-label">Format</label>
-                        <div className="col-sm-6">
-                            <select name="digest" className="form-control">
-                                <option value="0">Individual emails</option>
-                                <option value="1">Daily digest</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div className="form-group">
-                      <div className="col-sm-offset-4 col-sm-6">
-                        <button type="submit" name="email-button" className="btn btn-default btn-block">Subscribe to {title}</button>
-                      </div>
-                    </div>
-
-                </form>
-              </div>
-            </div>
-
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">{title} Preferences</h3>
-              </div>
-              <div className="panel-body">
-                <form className="form-horizontal" role="form" method="POST" action={"https://lists.sourceforge.net/lists/options/"+mailinglist}>
-                    To get a password reminder, or change your subscription options, or unsubscribe from {mailinglist}, enter your subscription email address:
-
-                    <div className="form-group">
-                        <label for="email" className="col-sm-4 control-label">Email</label>
-                        <div className="col-sm-6 required">
-                          <input type="email" className="form-control" name="email" placeholder="me@example.com"/>
-                        </div>
-                    </div>
-
-                    <input name="language" type="HIDDEN" value="en"/>
-
-                    <div className="form-group">
-                      <div className="col-sm-offset-4 col-sm-6">
-                        <button type="submit" name="UserOptions" className="btn btn-default btn-block">Edit options</button>
-                      </div>
-                    </div>
-
-                </form>
-              </div>
-            </div>
-
 
         </Content>
       </div>

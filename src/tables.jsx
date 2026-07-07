@@ -6,6 +6,7 @@ import Select from 'react-select'; // https://react-select.com/home
 
 import {Content, Link, Button, Alert, metaKeywords} from './common';
 import {Header, HeaderNavButton} from './header';
+import {docs_versions} from './docs';
 
 // use native browser implementation if it supports aborting, otherwise use polyfill and whatwg-fetch
 import 'abortcontroller-polyfill';
@@ -14,6 +15,11 @@ const abortableFetch = ('signal' in new Request('')) ? window.fetch : fetch
 
 // const tablesurl = 'http://localhost:5555'
 const tablesurl = 'https://tables.phoebe-project.org'
+
+const availablePhoebeVersions = docs_versions.filter((version) => {
+  const [major, minor] = version.split('.').map((value) => parseInt(value, 10));
+  return major > 2 || (major === 2 && minor >= 2);
+});
 
 class TablesHeader extends Component {
   render() {
@@ -118,18 +124,21 @@ export class TablesPBs extends Component {
         npassbandsPerSet: {},
         availableContents: [],
         availableContentAtms: [],
+        availablePhoebeVersions: availablePhoebeVersions,
         requestedPassbandsMode: "choose list of individual passbands",
         requestedPassbands: [],
         requestedPassbandSets: [],
         requestedContentsMode: "all",
         requestedContents: [],
         requestedContentAtms: [],
-        requestedFormat: ".fits"
+        requestedFormat: ".fits",
+        requestedPhoebeVersion: availablePhoebeVersions[0] || null
       };
 
   }
   componentWillMount() {
     this.abortGetParamsController = new window.AbortController();
+
     abortableFetch(tablesurl+"/pbs/available", {signal: this.abortGetParamsController.signal})
       .then(res => res.json())
       .then(json => {
@@ -197,6 +206,9 @@ export class TablesPBs extends Component {
   onChangeFormat = (e) => {
     this.setState({requestedFormat: e.value})
   }
+  onChangePhoebeVersion = (e) => {
+    this.setState({requestedPhoebeVersion: e.value})
+  }
   render() {
     let tablesurl_fetch = tablesurl + "/pbs"
     let fetch_tar = false
@@ -241,13 +253,19 @@ export class TablesPBs extends Component {
       }
     }
 
+    let queryParams = []
+    if (this.state.requestedPhoebeVersion) {
+      queryParams.push("phoebe_version=" + encodeURIComponent(this.state.requestedPhoebeVersion))
+    }
     if (this.state.requestedFormat === '.fits.gz') {
-      tablesurl_fetch = tablesurl_fetch + "?gzipped=true"
+      queryParams.push("gzipped=true")
+    }
+    if (queryParams.length) {
+      tablesurl_fetch = tablesurl_fetch + "?" + queryParams.join("&")
     }
 
 
     let formatLabels = {'.fits': '.fits (larger filesize, quicker loadtime)', '.fits.gz': '.fits.gz (smaller filesize, longer loadtime)'}
-    // add "/" this.state.requestedPhoebeVersion if we ever want to support selecting a version (will default to 'latest' otherwise)
 
     return (
       <div>
@@ -310,6 +328,9 @@ export class TablesPBs extends Component {
               :
               null
             }
+
+            <h3>Choose PHOEBE Version:</h3>
+            <Select options={this.state.availablePhoebeVersions.map((v) => ({value: v, label: v}))} value={this.state.requestedPhoebeVersion ? {value: this.state.requestedPhoebeVersion, label: this.state.requestedPhoebeVersion} : null} onChange={this.onChangePhoebeVersion} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
 
             <h3>Choose File Format:</h3>
             <Select options={[".fits", ".fits.gz"].map((choice) => ({value: choice, label: formatLabels[choice]}))}  value={{value: this.state.requestedFormat, label: formatLabels[this.state.requestedFormat]}} onChange={this.onChangeFormat} isMulti={false} isClearable={false} closeMenuOnSelect={true}/>
