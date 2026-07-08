@@ -266,6 +266,8 @@ export class Publications extends Component {
 
           {/* Look through citations in release papers since those listed below, confirm that citation is by "using" PHOEBE 2 instead of just mentioning it, and add new entries to the top */}
           {/* https://ui.adsabs.harvard.edu/search/p_=0&q=citations(docs(6778e7c18850253cfa4f448751b2ed69))&sort=date%20desc%2C%20bibcode%20desc */}
+          
+          {/* 2024: XX */}
           <Publication author="Poro et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024NewA..11002227P" title=" Estimating the absolute parameters of W UMa-type binary stars using Gaia DR3 parallax"/>
           <Publication author="Tobin et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024NewA..10902210T" title="Photometric study of the overcontact binary NSVS2910034"/>
           <Publication author="Ding et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024AJ....167..192D" title="Detection of Contact Binary Candidates Observed By TESS Using the Autoencoder Neural Network"/>
@@ -291,9 +293,7 @@ export class Publications extends Component {
           <Publication author="Paki et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024Ap.....66..452P" title="The First Photometric Study of the Binary System CSS J003106.8+313347"/>
           <Publication author="Schmutz et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024A%2526A...681L...9S" title="HD 214220 (BD+56 2813): An eclipsing binary with its primary component at the end of the main sequence"/>
 
-
           {/* 2023: 42 */}
-
           <Publication author="Ou et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023Univ....9..514O" title="Tidal Resonance: A Factor Worth Considering in the Orbital Evolution of Heartbeat Stars"/>
           <Publication author="Baştürk et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023TJAA....4S..83O" title="Zamanlama Yöntemiyle Ötegezegen Keşfi"/>
           <Publication author="Zheng et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023SCPMA..6629512Z" title="The nearest neutron star candidate in a binary revealed by optical time-domain surveys"/>
@@ -337,8 +337,6 @@ export class Publications extends Component {
           <Publication author="Strawn et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023MNRAS.519.5882S" title="The orbital kinematics of η Carinae over three periastra with a possible detection of the elusive secondary's motion"/>
           <Publication author="Kovalev at al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023MNRAS.519.5454K" title="Fundamental parameters for double-lined spectroscopic and detached eclipsing binary system J064726.39 + 223431.6 "/>
 
-
-
           {/* 2022: 37 */}
           <Publication author="Lin et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2023ApJ...944L...4L" title='An X-Ray-dim \"Isolated\" Neutron Star in a Binary?'/>
           <Publication author="Xiong et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2023AJ....165...30X" title="The Eclipsing Binaries from the LAMOST Medium-resolution Survey. III. A High-precision Empirical Stellar Mass Library"/>
@@ -377,7 +375,6 @@ export class Publications extends Component {
           <Publication author="Jayasinghe et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2022MNRAS.516.5945J" title="The Giraffe: Discovery of a stripped red giant in an interacting binary with a  ∼2 M⊙  lower giant"/>
           <Publication author="Niu et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2022RAA....22a5016N" title="Spot and Facula Activity Variations of the Eccentric Detached Eclipsing Binary KIC 8098300 Based on the Time-series Orbital Solutions"/>
           <Publication author="Saracino et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.2914S" title="A black hole detected in the young massive LMC cluster NGC 1850"/>
-
 
           {/* 2021: 26 */}
           <Publication author="Helminiak et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.508.5687H" title="Orbital and physical parameters of eclipsing binaries from the ASAS catalogue - XII. A sample of systems with K2 photometry"/>
