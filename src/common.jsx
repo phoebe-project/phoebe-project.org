@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link as RouterLink, NavLink as RouterNavLink, Navigate as RouterRedirect, useParams, useLocation, useNavigate} from 'react-router-dom';
+import { Link as RouterLink, NavLink as RouterNavLink, Navigate as RouterRedirect, useParams, useLocation, useNavigate} from 'react-router';
 
 // let smoothScroll = require('smoothscroll'); // https://github.com/alicelieutier/smoothScroll
 

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { useLocation } from "react-router-dom";
 
-import {Helmet} from "react-helmet"; // https://www.npmjs.com/package/react-helmet
+import { Helmet } from "react-helmet"; // https://www.npmjs.com/package/react-helmet
 
 import {Content, Link, Separator, TestsDiv, metaKeywords, withRouter} from './common';
 import {Header, HeaderNavButton} from './header';

@@ -3,26 +3,31 @@
   "version": "1.1.0",
   "homepage": "https://phoebe-project.org",
   "private": true,
-  "contributors": ["Kyle Conroy", "Matthias Fabry", "Andrej Prsa"],
+  "contributors": [
+    "Kyle Conroy",
+    "Matthias Fabry",
+    "Andrej Prsa"
+  ],
   "dependencies": {
-    "abortcontroller-polyfill": "^1.7.5",
+    "abortcontroller-polyfill": "^1.7.8",
     "babel-polyfill": "^6.26.0",
+    "nth-check": "^2.1.1",
     "react": "^18.3.1",
+    "react-bootstrap": "^2.10.9",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
-    "react-markdown": "^9.0.1",
-    "react-router-dom": "^6.26.2",
-    "react-bootstrap": "^2.10.5",
-    "react-select": "^5.8.1",
+    "react-ipynb-renderer": "^2.2.4",
+    "react-markdown": "^10.1.0",
+    "react-router": "^7.5.0",
+    "react-select": "^5.10.1",
     "smoothscroll": "^0.4.0",
-    "whatwg-fetch": "^3.6.20",
-    "react-ipynb-renderer": "^2.2.4-1"
+    "whatwg-fetch": "^3.6.20"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gh-pages": "^6.1.1",
-    "source-map-explorer": "^2.5.3",
     "react-scripts": "^5.0.1",
-    "@babel/plugin-proposal-private-property-in-object" : "^7.21.11"
+    "source-map-explorer": "^2.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "overrides": {
+    "nth-check": "$nth-check"
   }
 }
