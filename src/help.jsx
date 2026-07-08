@@ -47,7 +47,7 @@ export class HelpDevel extends Component {
           </DeveloperInfo>
 
           <DeveloperInfo image="dave.jpeg">
-            Dave Jones is a staff researcher at the Instituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as implementing new atmosphere tables into the framework of PHOEBE 2.
+            Dave Jones is a staff researcher at the Instituto de Astrofisica de Canarias in Spain. Dave is primarily interested in the impact of binarity on the late stages of stellar evolution, in particular the common envelope phase.  He lead the <Link to="/releases/2.2">2.2 release incorporating interstellar extinction correction</Link> as well as the <Link to="/releases/2.5">2.5 release</Link> implementing new atmosphere tables into the framework of PHOEBE 2.
           </DeveloperInfo>
 
           <DeveloperInfo image="michael.jpg">
@@ -66,7 +66,7 @@ export class HelpDevel extends Component {
           <h2>Past Developers</h2>
 
           <DeveloperInfo image="angela.png">
-            Angela Kochoska was a <Link to="https://www1.villanova.edu/villanova/artsci/research/MendelPostdoctoralFellows.html">Mendel Postdoctoral Fellow</Link> at Villanova University from the University of Ljubljana. Her focus was the development of the theoretical framework of contact binary stars and large-scale data classification.
+            Angela Kochoska was a <Link to="https://www1.villanova.edu/villanova/artsci/research/MendelPostdoctoralFellows.html">Mendel Postdoctoral Fellow</Link> at Villanova University from the University of Ljubljana. Her focus was the development of the theoretical framework of contact binary stars and large-scale data classification.  She lead the <Link to="/releases/2.4">2.4 release</Link> advancing the capabilities of fitting in PHOEBE.
           </DeveloperInfo>
 
           <DeveloperInfo image="martin.jpg">

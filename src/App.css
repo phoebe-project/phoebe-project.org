@@ -151,8 +151,8 @@ summary {
 }
 
 .content-dark img.img-handle-invert {
-   -webkit-filter: grayscale(1) invert(1) brightness(1.5);
-   filter: grayscale(1) invert(1) brightness(1.5);
+   -webkit-filter: grayscale(1) invert(1) brightness(2.5);
+   filter: grayscale(1) invert(1) brightness(2.5);
  }
 
 /* NAVBAR */

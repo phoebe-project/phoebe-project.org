@@ -448,9 +448,13 @@ export class TablesATMs extends Component {
                 To build custom passband tables, see the <Link to="/docs/latest/tutorials/passbands.ipynb">custom passbands tutorial</Link>.
             </p>
 
-            <ATMEntry model="ck2004" filename="ck2004.tgz" filesize="32GB" filedate="2022-06-02" reference="Castelli & Kurucz 2004" refLink="https://wwwuser.oats.inaf.it/castelli/grids.html"/>
-            <ATMEntry model="PHOENIX" filename="phoenix.tgz" filesize="43GB" filedate="2022-06-02" reference="Husser et al. 2013" refLink="https://ui.adsabs.harvard.edu/abs/2013A%26A...553A...6H"/>
-            {/* <ATMEntry model="TMAP" filename="tmap.tgz" filesize="10GB" filedate="2022-06-01" reference="Werner et al. 2012" refLink="https://ui.adsabs.harvard.edu/abs/2012ascl.soft12015W"/> */}
+            <ATMEntry model="ck2004" filename="ck2004.tgz" filesize="32GB" filedate="2024-07-09" reference="Castelli & Kurucz 2004" refLink="https://wwwuser.oats.inaf.it/castelli/grids.html"/>
+            <ATMEntry model="PHOENIX" filename="phoenix_2.5.tgz" filesize="43GB" filedate="2024-07-09" reference="Husser et al. 2013" refLink="https://ui.adsabs.harvard.edu/abs/2013A%26A...553A...6H"/>
+            <ATMEntry model="TMAP DA" filename="tmap_DA.tar.gz" filesize="5GB" filedate="2026-05-07" reference="Reindl et al. 2023" refLink="https://ui.adsabs.harvard.edu/abs/2023A%26A...677A..29R"/>
+            <ATMEntry model="TMAP DAO" filename="tmap_DAO.tar.gz" filesize="11GB" filedate="2024-10-24" reference="Reindl et al. 2023" refLink="https://ui.adsabs.harvard.edu/abs/2023A%26A...677A..29R"/>
+            <ATMEntry model="TMAP DO" filename="tmap_DO.tar.gz" filesize="2.1GB" filedate="2024-10-24" reference="Reindl et al. 2023" refLink="https://ui.adsabs.harvard.edu/abs/2023A%26A...677A..29R"/>
+            <ATMEntry model="TMAP sdO" filename="tmap_sdO.tar.gz" filesize="10GB" filedate="2024-10-24" reference="Reindl et al. 2016" refLink="https://ui.adsabs.harvard.edu/abs/2016A%26A...587A.101R"/>
+            <ATMEntry model="Tremblay" filename="tremblay.tar.gz" filesize="90M" filedate="2024-10-24" reference="Tremblay & Bergeron 2009" refLink="https://ui.adsabs.harvard.edu/abs/2009ApJ...696.1755T"/>
 
           </div>
 

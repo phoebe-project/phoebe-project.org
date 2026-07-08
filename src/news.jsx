@@ -9,6 +9,26 @@ import {NotFound} from './errors';
 // NEWER entries on TOP of list
 export let newsStoriesDicts = [
     {
+      title: "PHOEBE 2.5 Released",
+      slug: "phoebe-25-released",
+      pinnedDays: 60,
+      date: "July 8, 2026",
+      author: "Kyle Conroy",
+      content: <div>
+                <p>
+                  We are excited to announce that <Link to="/releases/2.5">PHOEBE 2.5</Link> has been released.
+                </p>
+                <p>
+                  This release introduces::
+                  <ul>
+                    <li>New atmosphere support for hot, compact stars (TMAP and Tremblay atmospheres)</li>
+                    <li>Atmosphere extrapolation and blending into blackbody.  This is particularly useful for systems where previously a few surface elements were out-of-bounds for the atmosphere and would require using blackbody instead.  Now, PHOEBE can seamlessly blend the atmosphere into a blackbody model, making use of the atmosphere model for the majority of the star surface.</li>
+                    <li>User-defined features.  These allow you to write custom code hoooked into several places in the PHOEBE framework that utilize PHOEBE parameters, allowing you to include them in optimizing and sampling runs.  For example: imagine <Link to="/docs/2.5/examples/user_defined_features_migrating_spot">custom migrating spots</Link> or <Link to="/docs/2.5/examples/user_defined_features_parameterized_third_light">parameterized third light contributions</Link>.</li>
+                  </ul>
+                </p>
+              </div>
+    },
+    {
       title: "Eighth PHOEBE Workshop",
       slug: "phoebe-workshop-8",
       pinnedDays: 30,
