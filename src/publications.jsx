@@ -271,19 +271,19 @@ export class Publications extends Component {
           <Publication author="Poro et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024NewA..11002227P" title=" Estimating the absolute parameters of W UMa-type binary stars using Gaia DR3 parallax"/>
           <Publication author="Tobin et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024NewA..10902210T" title="Photometric study of the overcontact binary NSVS2910034"/>
           <Publication author="Ding et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024AJ....167..192D" title="Detection of Contact Binary Candidates Observed By TESS Using the Autoencoder Neural Network"/>
-          <Publication author="Poro et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024arXiv240401928P" title="First Light Curve Analysis of NSVS 8294044, V1023 Her, and V1397 Her Contact Binary Systems"/>
+          <Publication author="Poro et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024RAA....24e5001P" title="First Light Curve Analysis of NSVS 8294044, V1023 Her, and V1397 Her Contact Binary Systems"/>
           <Publication author="Rowan et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024OJAp....7E..24R" title="High mass function ellipsoidal variables in the Gaia Focused Product Release: searching for black hole candidates in the binary zoo"/>
           <Publication author="Gautam et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024ApJ...964..164G" title="An Estimate of the Binary Star Fraction among Young Stars at the Galactic Center: Possible Evidence of a Radial Dependence"/>
           <Publication author="Cheng et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024AJ....167..148C" title="The First Photometric Analysis of Two Low-mass-ratio Contact Binary Systems in TESS Survey"/>
           <Publication author="Zeng et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024A%2526C....4700799Z" title="A fast inversion method of parameters for contact binaries based on differential evolution"/>
-          <Publication author="Kumar et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024arXiv240312907K" title="Discovery of a hot post-AGB star in Galactic globular cluster E3"/>
-          <Publication author="Eze et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024arXiv240312281E" title="Cephei pulsators in eclipsing binaries observed with TESS"/>
+          <Publication author="Kumar et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024A%2526A...685L...6K" title="Discovery of a hot post-AGB star in Galactic globular cluster E3"/>
+          <Publication author="Eze & Handler (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024ApJS..272...25E" title="β Cephei Pulsators in Eclipsing Binaries Observed with TESS"/>
           <Publication author="Rowan et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024MNRAS.529..587R" title="A hidden population of massive white dwarfs: two spotted K + WD binaries"/>
-          <Publication author="Poro et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024arXiv240302239P" title="BSN: Photometric Light Curve Analysis of Two Contact Binary Systems LS Del and V997 Cyg"/>
+          <Publication author="Poro et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024RAA....24d5018P" title="BSN: Photometric Light Curve Analysis of Two Contact Binary Systems LS Del and V997 Cyg"/>
           <Publication author="Li et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024ApJS..271...32L" title="Physical Parameters of 11,100 Short-period ASAS-SN Eclipsing Contact Binaries"/>
           <Publication author="Zhao et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024ApJ...964..101Z" title="Wide Binaries with White Dwarf or Neutron Star Companions Discovered from Gaia DR3 and LAMOST"/>
           <Publication author="Zhao et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024ApJ...963..160Z" title="Stellar Cycle and Evolution of Polar Spots in an M+WD Binary"/>
-          <Publication author="Antunes Amaral et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024arXiv240210159A" title="The double low-mass white dwarf eclipsing binary system J2102-4145 and its possible evolution"/>
+          <Publication author="Antunes Amaral et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024A%2526A...685A...9A" title="The double low-mass white dwarf eclipsing binary system J2102-4145 and its possible evolution"/>
           <Publication author="Poro et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024PASP..136b4201P" title="Global Parameters of Eight W UMa-type Binary Systems"/>
           <Publication author="Xiong et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024ApJS..270...20X" title="The Distribution of Semidetached Binaries. I. An Efficient Pipeline"/>
           <Publication author="Tsvetkova et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024A%2526A...682A..77T" title="The large-scale magnetic field of the M dwarf double-line spectroscopic binary FK Aqr"/>
@@ -305,8 +305,8 @@ export class Publications extends Component {
           <Publication author="Cook et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023AJ....166..200C" title="Observational Constraints on Close Binary Star Evolution. I. Putative Contact Binaries with Long Periods and High Mass Ratios"/>
           <Publication author="Munday et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023MNRAS.525.1814M" title="An eclipsing 47 min double white dwarf binary at 400 pc"/>
           <Publication author="Zak et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023MNRAS.524.5749Z" title="Everything that glitters is not gold: V1315 Cas is not a dormant black hole"/>
-          <Publication author="Kołaczek-Szymański et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023arXiv230916532K" title="Exploring extreme brightness variations in blue supergiant MACHO 80.7443.1718: Evidence for companion-driven enhanced mass loss"/>
-          <Publication author="Alizadehsabegh et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023arXiv230914369A" title="BSN: First Light Curve Study of the Low Mass Contact Binary V0610 Vir"/>
+          <Publication author="Kołaczek-Szymański et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024A%2526A...686A.199K" title="Exploring extreme brightness variations in blue supergiant MACHO 80.7443.1718: Evidence for companion-driven enhanced mass loss"/>
+          <Publication author="Alizadehsabegh et al. (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024Ap.....67..128A" title="BSN: First Light Curve Study of the Low Mass Contact Binary V0610 Vir"/>
           <Publication author="Jin et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023Univ....9..417J" title="Starspot Activity without Pulsation in the Binary System KIC 5444392 Revisited"/>
           <Publication author="Poro et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023RAA....23i5011P" title="Light Curve Analysis of the AP Dor Binary System using Ground-based and TESS Observations"/>
           <Publication author="Yap et al. (2023)" adsLink="https://ui.adsabs.harvard.edu/abs/2023ApJ...955...21Y" title="A Light Redback Companion of PSR J1622-0315 and Irradiation Power in Spider Systems"/>
@@ -376,7 +376,7 @@ export class Publications extends Component {
           <Publication author="Niu et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2022RAA....22a5016N" title="Spot and Facula Activity Variations of the Eccentric Detached Eclipsing Binary KIC 8098300 Based on the Time-series Orbital Solutions"/>
           <Publication author="Saracino et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2022MNRAS.511.2914S" title="A black hole detected in the young massive LMC cluster NGC 1850"/>
 
-          {/* 2021: 26 */}
+          {/* 2021: 25 */}
           <Publication author="Helminiak et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.508.5687H" title="Orbital and physical parameters of eclipsing binaries from the ASAS catalogue - XII. A sample of systems with K2 photometry"/>
           <Publication author="El-Badry et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.508.4106E" title="Birth of the ELMs: a ZTF survey for evolved cataclysmic variables turning into extremely low-mass white dwarfs"/>
           <Publication author="Wang et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021PASP..133k4201W" title="Photometric Analysis of the TESS Light Curve for the Asynchronous Polar V1500 Cyg"/>
@@ -388,7 +388,6 @@ export class Publications extends Component {
           <Publication author="Ou et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.508.3967O" title="Searching for orbital decay in a heartbeat star system KIC 3766353"/>
           <Publication author="Yang et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021ApJ...923..226Y" title="LTD064402+245919: A Subgiant with a 1-3 M ⊙ Undetected Companion Identified from LAMOST-TD Data"/>
           <Publication author="Miller et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021AJ....162..131M" title="2M17091769+3127589: A Mass-transfer Binary with an Extreme Mass Ratio"/>
-          <Publication author="Rattanamala et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021arXiv210909397R" title="Two circumbinary planets in RR Cae eclipsing binary system"/>
           <Publication author="Abdul-Masih et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021A%26A...651A..96A" title="Constraining the overcontact phase in massive binary evolution. I. Mixing in V382 Cyg, VFTS 352, and OGLE SMC-SC10 108086"/>
           <Publication author="Wang et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.504.4302W" title="KIC 5359678: a detached eclipsing binary with starspots"/>
           <Publication author="Papageorgiou et al. (2021)" adsLink="https://ui.adsabs.harvard.edu/abs/2021MNRAS.503.2979P" title="Detection of period variations of eclipsing binaries in the Catalina Sky Survey"/>
@@ -465,7 +464,7 @@ export class Publications extends Component {
 
         <Content dark={0}>
           <h2>Related Papers by the PHOEBE Development Team</h2>
-          <Publication author="Abdul-Masih et al. (2022)" adsLink="https://ui.adsabs.harvard.edu/abs/2022arXiv220801580A" title="SPAMMS: applications and use cases for the 3D spectroscopic analysis technique to study deformed massive stars"/>
+          <Publication author="Abdul-Masih (2024)" adsLink="https://ui.adsabs.harvard.edu/abs/2024IAUS..361..157A" title="SPAMMS: applications and use cases for the 3D spectroscopic analysis technique to study deformed massive stars"/>
           <Publication author="Abdul-Masih et al. (2020)" adsLink="https://ui.adsabs.harvard.edu/abs/2020A%26A...636A..59A" title="Spectroscopic patch model for massive stars using PHOEBE II and FASTWIND"/>
           <Publication author="Prša et al. (2019)" adsLink="https://ui.adsabs.harvard.edu/abs/2019PASP..131f8001P" title="Finding the Needle in a Haystack: Detrending Photometric Timeseries Data of Strictly Periodic Astrophysical Objects"/>
           <Publication author="Kochoska et al. (arXiv, 2018)" adsLink="https://ui.adsabs.harvard.edu/abs/2018arXiv180408781K" title="COBAIN: generalized 3D radiative transfer code for contact binary atmospheres"/>
