@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import {Alert, Content, Link, Button, Separator, metaKeywords, withRouter} from './common'
 import {WebUI, DesktopUI} from './mockups'
 import {Header, HeaderNavButton} from './header'
+import {FaDesktop, FaDownload, FaInfo, FaPython, FaServer, FaTerminal, FaWindowMaximize} from "react-icons/fa6";
 
 
 class Clients extends Component {
@@ -56,13 +57,13 @@ class Clients extends Component {
           <div className="row">
              <div className="col-md-6"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Desktop Client" description="Installation Instructions for Desktop Client" to={"#desktop"} icon="fas fa-desktop"/>
+               <HeaderNavButton title="Desktop Client" description="Installation Instructions for Desktop Client" to={"#desktop"} icon={<FaDesktop />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Python Client" description="Installation Instructions for Python Client" to={"#python"} icon="fas fa-terminal"/>
+               <HeaderNavButton title="Python Client" description="Installation Instructions for Python Client" to={"#python"} icon={<FaTerminal />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="PHOEBE Server" description="Installation Instructions for PHOEBE Server" to={"#server"} icon="fas fa-server"/>
+               <HeaderNavButton title="PHOEBE Server" description="Installation Instructions for PHOEBE Server" to={"#server"} icon={<FaServer />}/>
              </div>
 
            </div>
@@ -79,18 +80,18 @@ class Clients extends Component {
 
           <div className="row">
             <div className="col-md-6">
-              <Link to="#desktop"><span className="fa-10x fa-fw fas fa-desktop" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
+              <Link to="#desktop"><FaDesktop size={150} style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
               <Link to="#desktop"><h3>Desktop UI Client</h3></Link>
               <p>a native desktop application point-and-click user interface which connects to a <Link to="#server">phoebe-server</Link> instance (either locally or remote) running an installation of PHOEBE.</p>
-              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginRight: "10px"}} to={"#desktop"} icon="fa fa-fw fa-info" title={"Learn More"}/>
-              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginLeft: "10px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon="fa fa-fw fa-download" title={"Install"}/>
+              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginRight: "10px"}} to={"#desktop"} icon={<FaInfo />} title={"Learn More"}/>
+              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginLeft: "10px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon={<FaDownload />} title={"Install"}/>
             </div>
             <div className="col-md-6">
-              <Link to="/install"><span className="fa-10x fa-fw fab fa-python" style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
+              <Link to="/install"><FaPython size={150} style={{width: "100%", textAlign: "center", color: "#666666", padding: "20px"}}/></Link>
               <Link to="/install"><h3>PHOEBE Python Package</h3></Link>
               <p>PHOEBE 2.3+ includes the PHOEBE Python frontend in addition to the ability to run as a <Link to="#python">python client</Link> and comes with <Link to="#server">phoebe-server</Link> which handles syncing multiple clients and phoebe-autofig which allows for interactive matplotlib figures.  These are required to run PHOEBE entirely offline on a local machine, but the clients are standalone and can be attached to an instance of <Link to="#server">phoebe-server</Link> running on any machine.</p>
-              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginRight: "10px"}} to={"#python"} icon="fa fa-fw fa-info" title={"Learn More"}/>
-              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginLeft: "10px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install"}/>
+              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginRight: "10px"}} to={"#python"} icon={<FaInfo />} title={"Learn More"}/>
+              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px", width: "calc(50% - 10px)", marginLeft: "10px"}} to={"/install"} icon={<FaDownload />} title={"Install"}/>
             </div>
           </div>
 
@@ -105,7 +106,7 @@ class Clients extends Component {
         <Content dark={1} preventscrolltop={this.props.location.hash}>
 
 
-          <h2 ref={this.refdesktop}><span className="fas fa-fw fa-xs fa-desktop"></span>  Desktop UI Client</h2>
+          <h2 ref={this.refdesktop}><FaDesktop />  Desktop UI Client</h2>
 
           <div className="row">
             <p>
@@ -150,7 +151,7 @@ class Clients extends Component {
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
             <Container>
-              <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon="fa fa-fw fa-download" title={"Install PHOEBE Desktop Client"}/>
+              <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"https://github.com/phoebe-project/phoebe2-ui/releases"} icon={<FaDownload />} title={"Install PHOEBE Desktop Client"}/>
             </Container>
           </div>
 
@@ -158,7 +159,7 @@ class Clients extends Component {
         </Content>
         <Content dark={0} preventscrolltop={this.props.location.hash}>
 
-          <h2 ref={this.refweb}><span className="fas fa-fw fa-xs fa-window-maximize"></span>  Web UI Client</h2>
+          <h2 ref={this.refweb}><FaWindowMaximize />  Web UI Client</h2>
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
             <Container>
@@ -208,7 +209,7 @@ class Clients extends Component {
         </Content>
         <Content dark={1} preventscrolltop={this.props.location.hash}>
 
-          <h2 ref={this.refpython}><span className="fas fa-fw fa-xs fa-terminal"></span>  Python Client</h2>
+          <h2 ref={this.refpython}><FaPython />  Python Client</h2>
 
           <div className="row">
             <p>
@@ -234,7 +235,7 @@ class Clients extends Component {
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
             <Container>
-              <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install Python Client with PHOEBE"}/>
+              <Button level="primary-invert" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon={<FaDownload />} title={"Install Python Client with PHOEBE"}/>
             </Container>
           </div>
 
@@ -242,7 +243,7 @@ class Clients extends Component {
         </Content>
         <Content dark={0} preventscrolltop={this.props.location.hash}>
 
-          <h2 ref={this.refserver}><span className="fas fa-fw fa-xs fa-server"></span>  PHOEBE Server</h2>
+          <h2 ref={this.refserver}><FaServer />  PHOEBE Server</h2>
 
           <div className="row">
             <p>
@@ -258,7 +259,7 @@ class Clients extends Component {
 
           <div className="row" style={{textAlign: "center", paddingTop: "50px", paddingBottom: "50px"}}>
             <Container>
-              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon="fa fa-fw fa-download" title={"Install phoebe-server with PHOEBE"}/>
+              <Button level="primary" style={{lineHeight: "2.5em", fontSize: "16px"}} to={"/install"} icon={<FaDownload />} title={"Install phoebe-server with PHOEBE"}/>
             </Container>
           </div>
 

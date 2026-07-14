@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import { LogoSplash } from './logo';
 import { Link, Image, Separator } from './common';
+import {FaBookOpen, FaCopy, FaDownload, FaInfo, FaNewspaper, FaTags} from "react-icons/fa6"
 
 export class NoHeader extends Component {
   render() {
@@ -57,13 +58,13 @@ export class HeaderIndex extends Component {
               <div className="col-md-4">
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="Releases" to="/releases" icon="fa fa-fw fa-tags"/>
+                  <HeaderNavButton title="Releases" to="/releases" icon={<FaTags />}/>
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="Documentation" to="/docs" icon="fa fa-fw fa-copy"/>
+                  <HeaderNavButton title="Documentation" to="/docs" icon={<FaCopy />}/>
               </div>
               <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-                  <HeaderNavButton title="Publications" to="/publications" icon="far fa-fw fa-newspaper"/>
+                  <HeaderNavButton title="Publications" to="/publications" icon={<FaNewspaper />}/>
               </div>
           </div>
         </div>
@@ -95,13 +96,13 @@ export class HeaderLegacy extends Component {
           <div className="row">
              <div className="col-md-6"></div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="About" description="About PHOEBE 1.0" to="/1.0" icon="fa fa-info"/>
+               <HeaderNavButton title="About" description="About PHOEBE 1.0" to="/1.0" icon={<FaInfo />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Install" description="Download and Install PHOEBE 1.0" to="/1.0/download" icon="fa fa-download"/>
+               <HeaderNavButton title="Install" description="Download and Install PHOEBE 1.0" to="/1.0/download" icon={<FaDownload />}/>
              </div>
              <div className="col-md-2" style={{paddingLeft: "5px", paddingRight: "5px", paddingBottom: "5px"}}>
-               <HeaderNavButton title="Documentation" description="PHOEBE 1.0 documentation" to="/1.0/docs" icon="fa fa-book-open"/>
+               <HeaderNavButton title="Documentation" description="PHOEBE 1.0 documentation" to="/1.0/docs" icon={<FaBookOpen />}/>
              </div>
            </div>
         </div>
@@ -118,7 +119,7 @@ export class HeaderNavButton extends Component {
       description = this.props.title
     }
     return (
-      <Link role="button" className="btn btn-transparent btn-block" title={description} to={this.props.to}><span className={this.props.icon}></span> {this.props.title}</Link>
+      <Link role="button" className="btn btn-transparent btn-block" title={description} to={this.props.to}>{this.props.icon} {this.props.title}</Link>
     )
   }
 }
