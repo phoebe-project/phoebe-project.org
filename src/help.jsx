@@ -62,6 +62,10 @@ export class HelpDevel extends Component {
           Matthias Fabry is a postdoctoral scholar at Villanova. He received his PhD at the KU Leuven in Belgium. Matthias' main interest are the evolution of massive binaries and of contact systems (of any mass), and is on the development team of the MESA binary evolution code.
           </DeveloperInfo>
 
+          <DeveloperInfo image="kelly.jpg">
+          Kelly Hambleton Prsa is an Associate Professor in the Department of Astrophysics and Planetary Science at Villanova University. Her research focuses on binary star systems with pulsating components, including tidally induced pulsations, as well as pulsating stars more broadly. She is the primary organizer of the PHOEBE Workshops, where she helps train and support the international community in modeling eclipsing and interacting binary stars using PHOEBE. Kelly is also a passionate advocate for women in physics and is committed to fostering an inclusive and supportive scientific community.
+          </DeveloperInfo>
+
 
           <h2>Past Developers</h2>
 
@@ -79,10 +83,6 @@ export class HelpDevel extends Component {
 
           <DeveloperInfo image="steven.jpg">
             Steven Bloemen was a postdoc (and is now a faculty member) at the Radboud University Nijmegen, The Netherlands, and the Instrument Scientist of the BlackGEM array. He is mainly interested in compact binary stars.  Steven was part of the original team that designed and developed the alpha version of PHOEBE 2.0.
-          </DeveloperInfo>
-
-          <DeveloperInfo image="kelly.jpg">
-            Kelly Hambleton was a postdoctoral researcher (and is now a faculty member) at Villanova University after receiving her PhD from the University of Central Lancashire, England. Her main research interests include pulsating stars and binary star systems, specifically heartbeat stars with tidally induced pulsations. Kelly developed the parsing algorithms that enabled PHOEBE 2.0-alpha to use PHOEBE legacy parameter files and continues to serve as a consultant on Gaussian Processes and pulsations in binaries.
           </DeveloperInfo>
 
           <div className="row">&nbsp;</div>
