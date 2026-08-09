@@ -150,8 +150,8 @@ class PublicationEntry extends Component {
       titleShort = "PHOEBE VI"
       title = "Physics of Eclipsing Binaries. VI. Hot, Compact Stars"
       abstract = "Models of eclipsing binaries require the assignment of appropriate emergent intensities to the surface elements of the binary components. For distance-dependent modelling of flux-calibrated light curves, this necessitates an approximation of the absolute normal intensities of both components of the binary, as well as how their brightness varies across the stellar disks (limb darkening). Such surface intensities are often inferred from other physical properties of the synthetic binary (effective temperature, surface gravity, etc.) through the use of model atmospheres, which in turn are generally suited to a particular range of stellar types or parameters. Here, we present the major developments included in the PHOEBE 2.5 release (publicly available from http://phoebe-project.org), which improve the fidelity of model binaries comprising hot, compact stars. These developments include the incorporation model atmospheres produced using the T¨ubingen Model Atmosphere Package (TMAP) and Montreal/Tremblay codes (complementing the already incorporated PHOENIX and Castelli & Kurucz models, primarily suited to main sequences stars and low-temperature giants). Similarly, PHOEBE v2.5 now allows for blending/extrapolation of model atmospheres, meaning one can continue to make use of model atmospheres in cases when a small number of surface elements have parameters outside the model atmosphere grid. As an added value product, we also present tables of limb-darkening coefficients derived from the newly incorporated model atmospheres, such that they can be used as inputs in other binary modelling codes."
-      adsLink = ""
-      pdf = ""
+      adsLink = "https://ui.adsabs.harvard.edu/abs/2026arXiv260707909J"
+      pdf = "2026Jones+.pdf"
       release = "2.5"
       figures = [
                   {"name": "Figure 1", "image": "2026Jones+_fig1.png", "link": "/docs/2.5/examples/DA_WD_I0#fig1"},

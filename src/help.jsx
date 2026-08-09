@@ -35,7 +35,7 @@ export class HelpDevel extends Component {
           </DeveloperInfo>
 
           <DeveloperInfo image="kyle.jpg">
-            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a Principal Software Engineer at Space Telescope Sciencie Institute.  He received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link> and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
+            <Link to="http://www.keconroy.com" hideexternal="true">Kyle Conroy</Link> is a Principal Software Engineer at the Space Telescope Science Institute.  He received his PhD from Vanderbilt University researching the dynamics of stellar multiples and their role in constraining theories on binary star formation.  He lead the <Link to="/releases/2.3">2.3 release with built-in support for fitting algorithms and distributions</Link> and leads the development and releases of PHOEBE 2 and the <Link to="/clients">UI clients</Link>.  Kyle also developed and maintains this website.
           </DeveloperInfo>
 
           <DeveloperInfo image="bert.jpg">
@@ -98,7 +98,7 @@ export class HelpDevel extends Component {
             <div className="col-md-2">
             </div>
             <div className="col-md-10">
-              <p>You can contact us through the <Link to="/help/contact/phoebe-devel">phoebe-devel mailing list</Link>.  Or if you're interested in contributing, see how to <Link to="/contribute#testing">test PHOEBE</Link>, <Link to="/contribute#issues">report issues</Link>, <Link to="/contribute#features">request new features</Link>, or even <Link to="/contribute#develop">join the development team</Link>.</p>
+              <p>If you're interested in contributing, see how to <Link to="/contribute#testing">test PHOEBE</Link>, <Link to="/contribute#issues">report issues</Link>, <Link to="/contribute#features">request new features</Link>, or even <Link to="/contribute#develop">join the development team</Link>.</p>
             </div>
           </div>
         </Content>
