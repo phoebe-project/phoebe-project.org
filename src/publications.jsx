@@ -144,7 +144,7 @@ class PublicationEntry extends Component {
       figures = [
                 ]
     } else if (publication === '2026Jones+') {
-      published = false
+      published = true
       author = "Jones et al. (2026)"
       authorsFull = "Jones, D.; Reindl, N.; Conroy, K.E.; Munday, J.; Tremblay, P-E.; Abdul-Masih, M.; Fabry, M.; Giammarco, J.; Hambleton, K.M.; Pablo, H.; Wrona, M.; Prša, A."
       titleShort = "PHOEBE VI"
